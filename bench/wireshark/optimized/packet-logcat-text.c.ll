@@ -475,7 +475,7 @@ define internal noundef i32 @get_priority(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef %5) #0 {
+define internal i32 @get_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef initializes((208, 256)) %5) #0 {
   %7 = sext i32 %4 to i64
   %8 = getelementptr i8, ptr %0, i64 %7
   %9 = tail call ptr @g_strstr_len(ptr noundef %8, i64 noundef -1, ptr noundef %1) #5

@@ -2333,7 +2333,7 @@ if.end3:                                          ; preds = %do.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_child_cb_attach(ptr noundef %child) #4 {
+define internal void @bdrv_child_cb_attach(ptr noundef initializes((64, 72)) %child) #4 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %child, i64 32
   %0 = load ptr, ptr %opaque, align 8

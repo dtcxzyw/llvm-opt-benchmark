@@ -2230,7 +2230,7 @@ invoke.cont40:                                    ; preds = %invoke.cont38
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox17IOBufOutputStream8getIOBufERKSt8functionIFvvEE(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %releaseFn) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox17IOBufOutputStream8getIOBufERKSt8functionIFvvEE(ptr noalias sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %releaseFn) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i.i = alloca %"class.std::function", align 8
@@ -2528,7 +2528,7 @@ ehcleanup:                                        ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox12_GLOBAL__N_18freeFuncEPvS2_(ptr nocapture readnone %0, ptr noundef %userData) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox12_GLOBAL__N_18freeFuncEPvS2_(ptr nocapture readnone %0, ptr noundef initializes((0, 8)) %userData) #0 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %userData, align 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %userData, i64 8

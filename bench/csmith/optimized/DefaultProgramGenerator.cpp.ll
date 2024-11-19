@@ -73,7 +73,7 @@ define dso_local void @_ZN23DefaultProgramGeneratorC2EiPPcm(ptr noundef nonnull 
 declare void @_ZN19AbsProgramGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN23DefaultProgramGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23DefaultProgramGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV23DefaultProgramGenerator, i64 16), ptr %0, align 8
   invoke void @_ZN12Finalization14doFinalizationEv()
           to label %2 unwind label %11
@@ -123,7 +123,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 declare void @_ZN19AbsProgramGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN23DefaultProgramGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23DefaultProgramGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV23DefaultProgramGenerator, i64 16), ptr %0, align 8
   invoke void @_ZN12Finalization14doFinalizationEv()
           to label %2 unwind label %10
@@ -158,7 +158,7 @@ _ZN23DefaultProgramGeneratorD2Ev.exit:            ; preds = %2, %6
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23DefaultProgramGenerator10initializeEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN23DefaultProgramGenerator10initializeEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((32, 40)) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   tail call void @_ZN12RandomNumber14CreateInstanceE16RNDNUM_GENERATORm(i32 noundef 0, i64 noundef %3)

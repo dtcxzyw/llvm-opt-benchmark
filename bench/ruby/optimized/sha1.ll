@@ -1042,7 +1042,7 @@ define void @rb_Digest_SHA1_Transform(ptr nocapture noundef %0, ptr nocapture no
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @rb_Digest_SHA1_Init(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 {
+define noundef i32 @rb_Digest_SHA1_Init(ptr nocapture noundef writeonly initializes((0, 28)) %0) local_unnamed_addr #3 {
   store i32 1732584193, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 -271733879, ptr %2, align 4

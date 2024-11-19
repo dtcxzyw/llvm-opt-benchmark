@@ -191,7 +191,7 @@ _ZN4llvm11SmallVectorIPKNS_8ConstantELj8EED2Ev.exit: ; preds = %_ZN4llvm11SmallP
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm12GlobalStatusC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm12GlobalStatusC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 2), (4, 12), (16, 33), (36, 40)) %0) unnamed_addr #2 align 2 {
   store i8 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %2, align 1

@@ -158,7 +158,7 @@ $_ZGVZ19compressed_integersvE13comp_integers = comdat any
 @_ZN12ZMajorTracerC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN12ZMajorTracerC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12ZMinorTracerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN12ZMinorTracerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 80)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 7, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 12
@@ -170,7 +170,7 @@ define hidden void @_ZN12ZMinorTracerC2Ev(ptr nocapture noundef nonnull writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12ZMajorTracerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN12ZMajorTracerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 80)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 8, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 12
@@ -182,7 +182,7 @@ define hidden void @_ZN12ZMajorTracerC2Ev(ptr nocapture noundef nonnull writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN17ZGenerationTracer12report_startERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN17ZGenerationTracer12report_startERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   ret void

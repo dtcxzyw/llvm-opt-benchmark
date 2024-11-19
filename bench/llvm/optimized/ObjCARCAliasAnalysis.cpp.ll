@@ -399,7 +399,7 @@ _ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread: ; preds = %9, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7objcarc9ObjCARCAA3runERNS_8FunctionERNS_15AnalysisManagerIS2_JEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::objcarc::ObjCARCAAResult") align 8 %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7objcarc9ObjCARCAA3runERNS_8FunctionERNS_15AnalysisManagerIS2_JEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::objcarc::ObjCARCAAResult") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %2) #2
   store ptr %5, ptr %0, align 8
   ret void

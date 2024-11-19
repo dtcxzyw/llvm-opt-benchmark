@@ -93,7 +93,7 @@ $_ZTVN4llvm13format_objectIJmEEE = comdat any
 @_ZN4llvm16DWARFDebugAbbrevC1ENS_13DataExtractorE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm16DWARFDebugAbbrevC2ENS_13DataExtractorE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm31DWARFAbbreviationDeclarationSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm31DWARFAbbreviationDeclarationSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %0) unnamed_addr #0 align 2 {
 _ZN4llvm31DWARFAbbreviationDeclarationSet5clearEv.exit:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
@@ -104,7 +104,7 @@ _ZN4llvm31DWARFAbbreviationDeclarationSet5clearEv.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm31DWARFAbbreviationDeclarationSet5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm31DWARFAbbreviationDeclarationSet5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 12)) %0) local_unnamed_addr #1 align 2 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
@@ -142,7 +142,7 @@ _ZNSt6vectorIN4llvm28DWARFAbbreviationDeclarationESaIS1_EE5clearEv.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm31DWARFAbbreviationDeclarationSet7extractENS_13DataExtractorEPm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr nocapture noundef readonly byval(%"class.llvm::DataExtractor") align 8 %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm31DWARFAbbreviationDeclarationSet7extractENS_13DataExtractorEPm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 12)) %1, ptr nocapture noundef readonly byval(%"class.llvm::DataExtractor") align 8 %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::DWARFAbbreviationDeclaration", align 8
   %6 = alloca %"class.llvm::Expected", align 8
   store i64 0, ptr %1, align 8
@@ -618,7 +618,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %._crit_edge55, %83
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm16DWARFDebugAbbrevC2ENS_13DataExtractorE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef readonly byval(%"class.llvm::DataExtractor") align 8 %1) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm16DWARFDebugAbbrevC2ENS_13DataExtractorE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%"class.llvm::DataExtractor") align 8 %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)

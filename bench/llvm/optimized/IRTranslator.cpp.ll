@@ -813,7 +813,7 @@ define internal noundef nonnull ptr @_ZL30initializeIRTranslatorPassOnceRN4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12IRTranslatorC2ENS_15CodeGenOptLevelE(ptr noundef nonnull align 8 dereferenceable(1848) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12IRTranslatorC2ENS_15CodeGenOptLevelE(ptr noundef nonnull align 8 dereferenceable(1848) initializes((0, 28), (32, 80)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7324,7 +7324,7 @@ declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildJumpTableENS_3LLTEj(ptr n
 declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildBrJTENS_8RegisterEjS1_(ptr noundef nonnull align 8 dereferenceable(88), i32, i32 noundef, i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm12IRTranslator19emitJumpTableHeaderERNS_8SwitchCG9JumpTableERNS1_15JumpTableHeaderEPNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(1848) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(50) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm12IRTranslator19emitJumpTableHeaderERNS_8SwitchCG9JumpTableERNS1_15JumpTableHeaderEPNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(1848) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 4)) %1, ptr noundef nonnull align 8 dereferenceable(50) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1 x %"class.llvm::DstOp"], align 8
   %6 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %7 = alloca %"class.llvm::MachineIRBuilder", align 8
@@ -24022,7 +24022,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4TypeEPNS_11SmallVectorImLj1EEENS_12Den
 declare void @_ZN4llvm20FunctionLoweringInfo5clearEv(ptr noundef nonnull align 8 dereferenceable(1080)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm12IRTranslator20runOnMachineFunctionERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(1848) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm12IRTranslator20runOnMachineFunctionERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(1848) initializes((648, 656)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %4 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %5 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8

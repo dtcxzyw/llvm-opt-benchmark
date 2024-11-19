@@ -225,7 +225,7 @@ lpad:                                             ; preds = %init
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox13DecodedVector6decodeERKNS0_10BaseVectorEPKNS0_17SelectivityVectorEb(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(99) %vector, ptr noundef %rows, i1 noundef zeroext %loadLazy) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox13DecodedVector6decodeERKNS0_10BaseVectorEPKNS0_17SelectivityVectorEb(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 4), (16, 32), (48, 61), (64, 68)) %this, ptr noundef nonnull align 8 dereferenceable(99) %vector, ptr noundef %rows, i1 noundef zeroext %loadLazy) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::intrusive_ptr", align 8
   %frombool = zext i1 %loadLazy to i8
@@ -672,7 +672,7 @@ sw.epilog:                                        ; preds = %sw.bb11.i25, %sw.bb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8facebook5velox13DecodedVector5resetEi(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %size) local_unnamed_addr #3 align 2 {
+define void @_ZN8facebook5velox13DecodedVector5resetEi(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 4), (16, 32), (48, 60), (64, 68)) %this, i32 noundef %size) local_unnamed_addr #3 align 2 {
 entry:
   %copiedIndices_.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %copiedIndices_.i, align 8
@@ -724,7 +724,7 @@ _ZNSt8optionalIPKmE5resetEv.exit:                 ; preds = %if.end, %if.then.i.
 declare noundef zeroext i1 @_ZN8facebook5velox15isLazyNotLoadedERKNS0_10BaseVectorE(ptr noundef nonnull align 8 dereferenceable(99)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox13DecodedVector11setBaseDataERKNS0_10BaseVectorEPKNS0_17SelectivityVectorE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(99) %vector, ptr noundef %rows) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox13DecodedVector11setBaseDataERKNS0_10BaseVectorEPKNS0_17SelectivityVectorE(ptr noundef nonnull align 8 dereferenceable(120) initializes((48, 56)) %this, ptr noundef nonnull align 8 dereferenceable(99) %vector, ptr noundef %rows) local_unnamed_addr #0 align 2 {
 entry:
   %encoding_.i = getelementptr inbounds i8, ptr %vector, i64 28
   %0 = load i32, ptr %encoding_.i, align 4

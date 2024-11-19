@@ -1188,7 +1188,7 @@ if.end4:                                          ; preds = %trace_virtio_balloo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_balloon_stat(ptr nocapture noundef readonly %opaque, ptr nocapture noundef writeonly %info) #0 {
+define internal void @virtio_balloon_stat(ptr nocapture noundef readonly %opaque, ptr nocapture noundef writeonly initializes((0, 8)) %info) #0 {
 entry:
   %call.i = tail call ptr @qdev_get_machine() #13
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13

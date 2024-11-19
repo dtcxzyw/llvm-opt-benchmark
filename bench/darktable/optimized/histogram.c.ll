@@ -376,7 +376,7 @@ define void @view_leave(ptr noundef %0, ptr nocapture noundef readnone %1, ptr n
 declare void @dt_control_signal_disconnect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #2 {
+define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr #2 {
   %2 = alloca [2 x ptr], align 8
   %3 = tail call ptr @dt_alloc_aligned(i64 noundef 2816) #16
   %4 = icmp eq ptr %3, null
@@ -3644,7 +3644,7 @@ define internal noundef i32 @_color_harmony_clicked(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_color_harmony_enter_notify_callback(ptr noundef readnone %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #2 {
+define internal noundef i32 @_color_harmony_enter_notify_callback(ptr noundef readnone %0, ptr nocapture readnone %1, ptr nocapture noundef initializes((2768, 2772)) %2) #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 2772
   %5 = load i32, ptr %4, align 4, !tbaa !46
   %6 = getelementptr inbounds i8, ptr %2, i64 2768
@@ -3715,7 +3715,7 @@ define internal noundef i32 @_color_harmony_enter_notify_callback(ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_color_harmony_leave_notify_callback(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #2 {
+define internal noundef i32 @_color_harmony_leave_notify_callback(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef initializes((2772, 2776)) %2) #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 2768
   %5 = load i32, ptr %4, align 16, !tbaa !88
   %6 = getelementptr inbounds i8, ptr %2, i64 2772
@@ -3991,7 +3991,7 @@ define internal void @_colorspace_clicked(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_red_channel_toggle(ptr noundef %0, ptr nocapture noundef %1) #2 {
+define internal void @_red_channel_toggle(ptr noundef %0, ptr nocapture noundef initializes((2736, 2740)) %1) #2 {
   %3 = tail call i64 @gtk_toggle_button_get_type() #17
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %3) #16
   %5 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %4) #16
@@ -4005,7 +4005,7 @@ define internal void @_red_channel_toggle(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_green_channel_toggle(ptr noundef %0, ptr nocapture noundef %1) #2 {
+define internal void @_green_channel_toggle(ptr noundef %0, ptr nocapture noundef initializes((2740, 2744)) %1) #2 {
   %3 = tail call i64 @gtk_toggle_button_get_type() #17
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %3) #16
   %5 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %4) #16
@@ -4019,7 +4019,7 @@ define internal void @_green_channel_toggle(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_blue_channel_toggle(ptr noundef %0, ptr nocapture noundef %1) #2 {
+define internal void @_blue_channel_toggle(ptr noundef %0, ptr nocapture noundef initializes((2744, 2748)) %1) #2 {
   %3 = tail call i64 @gtk_toggle_button_get_type() #17
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %3) #16
   %5 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %4) #16
@@ -5908,7 +5908,7 @@ define internal noundef i32 @_drawable_button_press_callback(ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_drawable_button_release_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #2 {
+define internal noundef i32 @_drawable_button_release_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((2688, 2692)) %2) #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 2688
   store i32 0, ptr %4, align 64, !tbaa !163
   %5 = tail call i32 @_drawable_motion_notify_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2)
@@ -6922,7 +6922,7 @@ declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @cairo_pattern_create_mesh() local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @dt_ioppr_rgb_matrix_to_xyz(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6) unnamed_addr #14 {
+define internal fastcc void @dt_ioppr_rgb_matrix_to_xyz(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6) unnamed_addr #14 {
   %8 = icmp eq i32 %6, 0
   br i1 %8, label %170, label %9
 

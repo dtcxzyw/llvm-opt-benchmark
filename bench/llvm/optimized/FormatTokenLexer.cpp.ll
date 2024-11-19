@@ -416,7 +416,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN5clang6format16FormatTokenLexerC1ERKNS_13SourceManagerENS_6FileIDEjRKNS0_11FormatStyleENS0_8encoding8EncodingERN4llvm24SpecificBumpPtrAllocatorINS0_11FormatTokenEEERNS_15IdentifierTableE = unnamed_addr alias void (ptr, ptr, i32, i32, ptr, i32, ptr, ptr), ptr @_ZN5clang6format16FormatTokenLexerC2ERKNS_13SourceManagerENS_6FileIDEjRKNS0_11FormatStyleENS0_8encoding8EncodingERN4llvm24SpecificBumpPtrAllocatorINS0_11FormatTokenEEERNS_15IdentifierTableE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format16FormatTokenLexerC2ERKNS_13SourceManagerENS_6FileIDEjRKNS0_11FormatStyleENS0_8encoding8EncodingERN4llvm24SpecificBumpPtrAllocatorINS0_11FormatTokenEEERNS_15IdentifierTableE(ptr noundef nonnull align 8 dereferenceable(3648) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(936) %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(128) %7) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6format16FormatTokenLexerC2ERKNS_13SourceManagerENS_6FileIDEjRKNS0_11FormatStyleENS0_8encoding8EncodingERN4llvm24SpecificBumpPtrAllocatorINS0_11FormatTokenEEERNS_15IdentifierTableE(ptr noundef nonnull align 8 dereferenceable(3648) initializes((0, 9), (16, 112)) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(936) %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(128) %7) unnamed_addr #0 align 2 {
 .lr.ph.i.i.i80:
   %8 = alloca i8, align 1
   %9 = alloca %"class.std::optional.210", align 8

@@ -2116,7 +2116,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @"_ZN4entt7processINS_15process_adaptorIZN28ProcessAdaptor_Resolved_Test8TestBodyEvE3$_0mEEmED2Ev"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %this) unnamed_addr #11 align 2 {
+define internal void @"_ZN4entt7processINS_15process_adaptorIZN28ProcessAdaptor_Resolved_Test8TestBodyEvE3$_0mEEmED2Ev"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 8)) %this) unnamed_addr #11 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN28ProcessAdaptor_Resolved_Test8TestBodyEvE3$_0mEEmEE", i64 16), ptr %this, align 8, !tbaa !4
   ret void
@@ -2155,7 +2155,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @"_ZN4entt7processINS_15process_adaptorIZN28ProcessAdaptor_Rejected_Test8TestBodyEvE3$_0mEEmED2Ev"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %this) unnamed_addr #11 align 2 {
+define internal void @"_ZN4entt7processINS_15process_adaptorIZN28ProcessAdaptor_Rejected_Test8TestBodyEvE3$_0mEEmED2Ev"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 8)) %this) unnamed_addr #11 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN4entt7processINS_15process_adaptorIZN28ProcessAdaptor_Rejected_Test8TestBodyEvE3$_0mEEmEE", i64 16), ptr %this, align 8, !tbaa !4
   ret void

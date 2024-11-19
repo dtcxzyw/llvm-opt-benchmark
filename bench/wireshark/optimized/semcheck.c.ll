@@ -1716,7 +1716,7 @@ declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 nounde
 declare i32 @_setjmp(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @semcheck(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @semcheck(ptr noundef initializes((24, 28)) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

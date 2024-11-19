@@ -6759,7 +6759,7 @@ entry:
 declare ptr @__errno_location() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7openvdb5v11_02io7ArchiveC2Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #8 align 2 {
+define void @_ZN7openvdb5v11_02io7ArchiveC2Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 20)) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_02io7ArchiveE, i64 16), ptr %this, align 8
   %mFileVersion = getelementptr inbounds i8, ptr %this, i64 8
@@ -6782,7 +6782,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7openvdb5v11_02io7ArchiveD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #8 align 2 {
+define void @_ZN7openvdb5v11_02io7ArchiveD2Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_02io7ArchiveE, i64 16), ptr %this, align 8
   %mUuid = getelementptr inbounds i8, ptr %this, i64 24

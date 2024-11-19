@@ -1329,7 +1329,7 @@ declare dso_local void @dm_issue_global_event() local_unnamed_addr #3
 declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @remove_all(ptr nocapture readnone %0, ptr nocapture noundef %1, i64 %2) #0 align 16 {
+define internal noundef i32 @remove_all(ptr nocapture readnone %0, ptr nocapture noundef initializes((12, 16)) %1, i64 %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 131072
@@ -3447,7 +3447,7 @@ declare dso_local i32 @dm_get_event_nr(ptr noundef) local_unnamed_addr #3
 declare dso_local i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__dev_status(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @__dev_status(ptr noundef %0, ptr nocapture noundef initializes((20, 28), (32, 36), (40, 48)) %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = tail call ptr @dm_disk(ptr noundef %0) #21

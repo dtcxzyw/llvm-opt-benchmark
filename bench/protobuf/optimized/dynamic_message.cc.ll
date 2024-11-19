@@ -91,7 +91,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf14DynamicMessageC2EPKNS0_21DynamicMessageFactory8TypeInfoE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %type_info) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf14DynamicMessageC2EPKNS0_21DynamicMessageFactory8TypeInfoE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 28)) %this, ptr noundef %type_info) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %_internal_metadata_.i.i, align 8
@@ -551,7 +551,7 @@ for.end115:                                       ; preds = %for.inc113, %if.end
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf14DynamicMessageC2EPKNS0_21DynamicMessageFactory8TypeInfoEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %type_info, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf14DynamicMessageC2EPKNS0_21DynamicMessageFactory8TypeInfoEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 28)) %this, ptr noundef %type_info, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
@@ -566,7 +566,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf14DynamicMessageC2EPNS0_21DynamicMessageFactory8TypeInfoEb(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %type_info, i1 noundef zeroext %lock_factory) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf14DynamicMessageC2EPNS0_21DynamicMessageFactory8TypeInfoEb(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 28)) %this, ptr noundef %type_info, i1 noundef zeroext %lock_factory) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %_internal_metadata_.i.i, align 8
@@ -2224,7 +2224,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf21DynamicMessageFactoryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf21DynamicMessageFactoryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 17), (24, 64)) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf21DynamicMessageFactoryE, i64 16), ptr %this, align 8
   %pool_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2242,7 +2242,7 @@ invoke.cont:
 declare void @_ZN6google8protobuf14MessageFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf21DynamicMessageFactoryC2EPKNS0_14DescriptorPoolE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr noundef %pool) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf21DynamicMessageFactoryC2EPKNS0_14DescriptorPoolE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 17), (24, 64)) %this, ptr noundef %pool) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf21DynamicMessageFactoryE, i64 16), ptr %this, align 8
   %pool_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2257,7 +2257,7 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6google8protobuf21DynamicMessageFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf21DynamicMessageFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf21DynamicMessageFactoryE, i64 16), ptr %this, align 8
   %prototypes_ = getelementptr inbounds i8, ptr %this, i64 24

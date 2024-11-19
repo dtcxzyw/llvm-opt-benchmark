@@ -4919,7 +4919,7 @@ _ZNSt6vectorIN8QuantLib9ParameterESaIS1_EED2Ev.exit: ; preds = %invoke.cont.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13GJRGARCHModelC1ERKN5boost10shared_ptrINS_15GJRGARCHProcessEEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13GJRGARCHModelC1ERKN5boost10shared_ptrINS_15GJRGARCHProcessEEE(ptr noundef nonnull align 8 dereferenceable(96) initializes((96, 104), (112, 116), (120, 128)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::ConstantParameter", align 8
   %ref.tmp7 = alloca %"class.QuantLib::PositiveConstraint", align 8

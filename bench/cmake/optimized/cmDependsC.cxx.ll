@@ -1533,7 +1533,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10cmDependsCD2Ev(ptr noundef nonnull align 8 dereferenceable(2800) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDependsCD2Ev(ptr noundef nonnull align 8 dereferenceable(2800) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV10cmDependsC, i64 16), ptr %0, align 8
   invoke void @_ZNK10cmDependsC14WriteCacheFileEv(ptr noundef nonnull align 8 dereferenceable(2800) %0)
           to label %2 unwind label %49
@@ -1827,7 +1827,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10cmDependsCD0Ev(ptr noundef nonnull align 8 dereferenceable(2800) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN10cmDependsCD0Ev(ptr noundef nonnull align 8 dereferenceable(2800) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN10cmDependsCD2Ev(ptr noundef nonnull align 8 dereferenceable(2800) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void

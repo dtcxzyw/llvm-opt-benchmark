@@ -95,7 +95,7 @@ $_ZTVN4llvm3pdb8RawErrorE = comdat any
 @_ZN4llvm3pdb13GlobalsStreamD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm3pdb13GlobalsStreamD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm3pdb13GlobalsStreamC2ESt10unique_ptrINS_3msf17MappedBlockStreamESt14default_deleteIS4_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16552) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb13GlobalsStreamC2ESt10unique_ptrINS_3msf17MappedBlockStreamESt14default_deleteIS4_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16552) initializes((8, 40), (48, 49), (56, 88), (96, 97), (104, 136), (144, 145), (16544, 16552)) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %4, align 8
@@ -363,7 +363,7 @@ _ZN4llvm16FixedStreamArrayINS_3pdb12PSHashRecordEED2Ev.exit: ; preds = %_ZN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb13GlobalsStream6reloadEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16552) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb13GlobalsStream6reloadEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(16552) %1) local_unnamed_addr #1 align 2 {
 .critedge:
   %2 = alloca %"class.llvm::BinaryStreamReader", align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16544
@@ -451,7 +451,7 @@ _ZN4llvm18BinaryStreamReaderD2Ev.exit:            ; preds = %.critedge, %23, %36
 declare void @_ZN4llvm18BinaryStreamReaderC1ERNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb12GSIHashTable4readERNS_18BinaryStreamReaderE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16540) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb12GSIHashTable4readERNS_18BinaryStreamReaderE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(16540) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -1327,7 +1327,7 @@ _ZN4llvm15BinaryStreamRefD2Ev.exit:               ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb13GlobalsStream17findRecordsByNameENS_9StringRefERKNS0_12SymbolStreamE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.3") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16552) %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(64) %4) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm3pdb13GlobalsStream17findRecordsByNameENS_9StringRefERKNS0_12SymbolStreamE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.3") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(16552) %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(64) %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.llvm::Error", align 8
   %8 = alloca %class.anon, align 1

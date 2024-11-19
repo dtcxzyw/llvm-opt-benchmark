@@ -246,7 +246,7 @@ declare ptr @BufFileCreateTemp(i1 noundef zeroext) local_unnamed_addr #1
 declare void @BufFileWrite(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanHashJoin(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanHashJoin(ptr nocapture noundef initializes((256, 268), (272, 280), (312, 320), (324, 325)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80

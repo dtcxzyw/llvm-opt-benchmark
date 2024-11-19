@@ -1302,7 +1302,7 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIjP18LBMLBTRUFrame
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN16LBMLBTRUSQNEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16LBMLBTRUSQNEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16LBMLBTRUSQNEntry, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
@@ -2448,7 +2448,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i105:   ; preds = %.body89
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN22LBMLBTRUNCFReasonEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22LBMLBTRUNCFReasonEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV22LBMLBTRUNCFReasonEntry, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
@@ -3312,7 +3312,7 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIhP22LBMLBTRUNCFRe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19LBMLBTRUNCFSQNEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19LBMLBTRUNCFSQNEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV19LBMLBTRUNCFSQNEntry, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
@@ -4255,7 +4255,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i62:    ; preds = %.body46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN22LBMLBTRURSTReasonEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22LBMLBTRURSTReasonEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV22LBMLBTRURSTReasonEntry, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -5133,7 +5133,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i62:    ; preds = %.body46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN24LBMLBTRUCREQRequestEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN24LBMLBTRUCREQRequestEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV24LBMLBTRUCREQRequestEntry, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -5789,7 +5789,7 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIjP19LBMLBTRUNCFSQ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN28LBMLBTRUSourceTransportEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN28LBMLBTRUSourceTransportEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV28LBMLBTRUSourceTransportEntry, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
@@ -11360,7 +11360,7 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapI7QStringP28LBMLBT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19LBMLBTRUSourceEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19LBMLBTRUSourceEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV19LBMLBTRUSourceEntry, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
@@ -15588,7 +15588,7 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIjP24LBMLBTRUCREQR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN30LBMLBTRUReceiverTransportEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN30LBMLBTRUReceiverTransportEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV30LBMLBTRUReceiverTransportEntry, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8
@@ -19072,7 +19072,7 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapI7QStringP30LBMLBT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN21LBMLBTRUReceiverEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21LBMLBTRUReceiverEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV21LBMLBTRUReceiverEntry, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8
@@ -22119,7 +22119,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i463:   ; preds = %.body314
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN27LBMLBTRUTransportDialogInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #10 align 2 {
+define void @_ZN27LBMLBTRUTransportDialogInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #10 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
@@ -22386,7 +22386,7 @@ _ZN4QMapI7QStringP21LBMLBTRUReceiverEntryE3endEv.exit: ; preds = %53, %_ZN9QtPri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN27LBMLBTRUTransportDialogInfo9setDialogEP23LBMLBTRUTransportDialog(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
+define void @_ZN27LBMLBTRUTransportDialogInfo9setDialogEP23LBMLBTRUTransportDialog(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -30518,7 +30518,7 @@ _ZN7QStringD2Ev.exit32:                           ; preds = %_ZN7QStringD2Ev.exi
 declare void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN23LBMLBTRUTransportDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN23LBMLBTRUTransportDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (16, 24)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV23LBMLBTRUTransportDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV23LBMLBTRUTransportDialog, i64 488), ptr %2, align 8

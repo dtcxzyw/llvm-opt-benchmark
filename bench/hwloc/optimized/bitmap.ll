@@ -2210,7 +2210,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %80, %hwloc_bitmap_z
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @hwloc_bitmap_from_ulong(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define noundef i32 @hwloc_bitmap_from_ulong(ptr nocapture noundef initializes((16, 20)) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0

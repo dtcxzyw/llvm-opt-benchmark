@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @join_search_one_level(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @join_search_one_level(ptr noundef initializes((136, 140)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 136
@@ -850,7 +850,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @bms_union(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %4, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %5) unnamed_addr #0 {
   store ptr null, ptr %4, align 8
   store i8 0, ptr %5, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 224

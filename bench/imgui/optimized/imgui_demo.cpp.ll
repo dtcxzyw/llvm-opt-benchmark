@@ -26042,7 +26042,7 @@ declare noundef zeroext i1 @_ZN5ImGui10TreeNodeExEPKciS1_z(ptr noundef, i32 noun
 declare void @_ZN15ImGuiTextBuffer7appendfEPKcz(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZZL31ShowExampleAppConstrainedResizePbEN17CustomConstraints11AspectRatioEP21ImGuiSizeCallbackData(ptr nocapture noundef %data) #24 align 2 {
+define internal void @_ZZL31ShowExampleAppConstrainedResizePbEN17CustomConstraints11AspectRatioEP21ImGuiSizeCallbackData(ptr nocapture noundef initializes((28, 32)) %data) #24 align 2 {
 entry:
   %0 = load ptr, ptr %data, align 8
   %1 = load float, ptr %0, align 4

@@ -1303,7 +1303,7 @@ declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #8
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7520EscapeTransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7520EscapeTransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520EscapeTransliteratorE, i64 16), ptr %this, align 8
   %supplementalHandler = getelementptr inbounds i8, ptr %this, i64 232

@@ -52,7 +52,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 192)) %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor", align 4
   %4 = alloca %"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor", align 4
   %5 = alloca %"struct.OpenSubdiv::v3_6_0::Osd::PatchArray", align 4

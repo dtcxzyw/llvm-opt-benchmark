@@ -2958,7 +2958,7 @@ _ZN15actix_multipart6server14InnerMultipart4poll17h5a08d1a83e3cb7b5E.exit: ; pre
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN15actix_multipart6server14InnerMultipart4poll28_$u7b$$u7b$closure$u7d$$u7d$17hfe789d1f2d5ebcf9E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
+define internal fastcc void @"_ZN15actix_multipart6server14InnerMultipart4poll28_$u7b$$u7b$closure$u7d$$u7d$17hfe789d1f2d5ebcf9E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 8)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca { i64, [5 x i64] }, align 8
   call void @_ZN9actix_web4http6header19content_disposition18ContentDisposition8from_raw17hed5b269276f455c1E(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 %1)

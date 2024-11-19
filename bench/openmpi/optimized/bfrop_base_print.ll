@@ -878,7 +878,7 @@ declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #3
 declare i32 @pmix_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @print_val(ptr nocapture noundef nonnull writeonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc i32 @print_val(ptr nocapture noundef nonnull writeonly initializes((0, 8)) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load i16, ptr %1, align 8
   switch i16 %4, label %222 [

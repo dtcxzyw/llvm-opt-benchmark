@@ -43,7 +43,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_ge
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_ieee80211_get_tkip_p1k_iv2956, ptr @__UNIQUE_ID___addressable_ieee80211_get_tkip_p2k2958, ptr @__UNIQUE_ID___addressable_ieee80211_get_tkip_rx_p1k2957, ptr @__UNIQUE_ID___addressable_ieee80211_tkip_add_iv2955, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace804, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_void803, ptr @trace_drv_update_tkip_key.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1140, ptr @trace_drv_update_tkip_key.__UNIQUE_ID___addressable___SCK__tp_func_drv_update_tkip_key1139], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef ptr @ieee80211_tkip_add_iv(ptr noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define dso_local noundef ptr @ieee80211_tkip_add_iv(ptr noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
   %4 = lshr i64 %2, 8
   %5 = trunc i64 %4 to i8
   %6 = getelementptr i8, ptr %0, i64 1
@@ -69,7 +69,7 @@ define dso_local noundef ptr @ieee80211_tkip_add_iv(ptr noundef writeonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_get_tkip_p1k_iv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define dso_local void @ieee80211_get_tkip_p1k_iv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 10)) %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -488
   tail call void @_raw_spin_lock_bh(ptr noundef %4) #13
   %5 = getelementptr i8, ptr %0, i64 -528
@@ -229,7 +229,7 @@ tkip_mixing_phase1.exit:                          ; preds = %17
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc void @tkip_mixing_phase1(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #4 align 16 {
+define internal fastcc void @tkip_mixing_phase1(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 10)) %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #4 align 16 {
   %5 = trunc i32 %3 to i16
   store i16 %5, ptr %1, align 2
   %6 = lshr i32 %3, 16
@@ -356,7 +356,7 @@ define internal fastcc void @tkip_mixing_phase1(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_get_tkip_p2k(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define dso_local void @ieee80211_get_tkip_p2k(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -488
   %5 = getelementptr inbounds i8, ptr %1, i64 200
   %6 = load ptr, ptr %5, align 8
@@ -404,7 +404,7 @@ define dso_local void @ieee80211_get_tkip_p2k(ptr noundef %0, ptr nocapture noun
 declare dso_local i32 @ieee80211_hdrlen(i16 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc void @tkip_mixing_phase2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
+define internal fastcc void @tkip_mixing_phase2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, ptr nocapture noundef writeonly initializes((0, 16)) %3) unnamed_addr #0 align 16 {
   %5 = load i16, ptr %1, align 2
   %6 = getelementptr i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2

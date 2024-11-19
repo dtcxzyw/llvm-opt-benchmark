@@ -688,7 +688,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z14clear_trxframeP10t_trxframeb(ptr nocapture noundef writeonly %0, i1 noundef zeroext %1) local_unnamed_addr #16 {
+define void @_Z14clear_trxframeP10t_trxframeb(ptr nocapture noundef writeonly initializes((0, 4), (12, 13), (24, 25), (32, 34), (44, 45), (56, 57), (64, 65), (80, 81), (96, 97), (112, 113)) %0, i1 noundef zeroext %1) local_unnamed_addr #16 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i8 0, ptr %3, align 4
@@ -750,7 +750,7 @@ define void @_Z14clear_trxframeP10t_trxframeb(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z18setTrxFramePbcTypeP10t_trxframe7PbcType(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #16 {
+define void @_Z18setTrxFramePbcTypeP10t_trxframe7PbcType(ptr nocapture noundef writeonly initializes((152, 153), (156, 160)) %0, i32 noundef %1) local_unnamed_addr #16 {
   %3 = icmp eq i32 %1, 4
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   %5 = zext i1 %3 to i8
@@ -1822,7 +1822,7 @@ define noundef ptr @_Z8open_trxRKNSt10filesystem7__cxx114pathEPKc(ptr noundef no
 declare noundef ptr @_Z12gmx_fio_openRKNSt10filesystem7__cxx114pathEPKc(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z15read_next_framePK16gmx_output_env_tP11t_trxstatusP10t_trxframe(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z15read_next_framePK16gmx_output_env_tP11t_trxstatusP10t_trxframe(ptr noundef %0, ptr nocapture noundef %1, ptr noundef initializes((0, 4), (12, 13), (24, 25), (32, 34), (44, 45), (56, 57), (64, 65), (80, 81), (96, 97), (112, 113)) %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.gmx_trr_header_t, align 8
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -2428,7 +2428,7 @@ declare noundef i32 @_Z13read_next_xtcP8t_fileioiPlPfPA3_fS4_S2_Pb(ptr noundef, 
 declare noundef zeroext i1 @_Z23gmx_read_next_tng_frameP18gmx_tng_trajectoryP10t_trxframePli(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL10pdb_next_xP11t_trxstatusP8_IO_FILEP10t_trxframe(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL10pdb_next_xP11t_trxstatusP8_IO_FILEP10t_trxframe(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef initializes((16, 24), (56, 57), (60, 65), (112, 113), (152, 153), (156, 160)) %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.t_atoms, align 8
   %5 = alloca [3 x [3 x float]], align 16
   %6 = alloca i32, align 4
@@ -2690,7 +2690,7 @@ declare noundef float @_Z20output_env_conv_timePK16gmx_output_env_tf(ptr noundef
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z16read_first_framePK16gmx_output_env_tPP11t_trxstatusRKNSt10filesystem7__cxx114pathEP10t_trxframei(ptr noundef %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z16read_first_framePK16gmx_output_env_tPP11t_trxstatusRKNSt10filesystem7__cxx114pathEP10t_trxframei(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef initializes((0, 5), (8, 13), (16, 25), (28, 34), (36, 45), (48, 57), (60, 65), (72, 81), (88, 97), (104, 113), (116, 153), (156, 161), (168, 176)) %3, i32 noundef %4) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i8, align 1
   %7 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3161,7 +3161,7 @@ declare void @_Z24read_checkpoint_trxframeP8t_fileioP10t_trxframe(ptr noundef, p
 declare noundef i32 @_Z14read_first_xtcP8t_fileioPiPlPfPA3_fPS5_S3_Pb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @_ZL11pdb_first_xP11t_trxstatusP8_IO_FILEP10t_trxframe(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #17 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11pdb_first_xP11t_trxstatusP8_IO_FILEP10t_trxframe(ptr nocapture noundef initializes((4, 8)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #17 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 -1, ptr %5, align 4
@@ -3209,7 +3209,7 @@ declare void @_Z7frewindP8_IO_FILE(ptr noundef) local_unnamed_addr #3
 declare void @_Z16get_pdb_coordnumP8_IO_FILEPi(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z12read_first_xPK16gmx_output_env_tPP11t_trxstatusRKNSt10filesystem7__cxx114pathEPfPPA3_fSC_(ptr noundef %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #2 {
+define noundef i32 @_Z12read_first_xPK16gmx_output_env_tPP11t_trxstatusRKNSt10filesystem7__cxx114pathEPfPPA3_fSC_(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 36)) %5) local_unnamed_addr #2 {
   %7 = alloca %struct.t_trxframe, align 8
   %8 = call noundef zeroext i1 @_Z16read_first_framePK16gmx_output_env_tPP11t_trxstatusRKNSt10filesystem7__cxx114pathEP10t_trxframei(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull %7, i32 noundef 2)
   %9 = load ptr, ptr %1, align 8
@@ -3279,7 +3279,7 @@ define noundef i32 @_Z12read_first_xPK16gmx_output_env_tPP11t_trxstatusRKNSt10fi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z11read_next_xPK16gmx_output_env_tP11t_trxstatusPfPA3_fS6_(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #2 {
+define noundef zeroext i1 @_Z11read_next_xPK16gmx_output_env_tP11t_trxstatusPfPA3_fS6_(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 36)) %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 72
@@ -3330,7 +3330,7 @@ define noundef zeroext i1 @_Z11read_next_xPK16gmx_output_env_tP11t_trxstatusPfPA
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z10rewind_trjP11t_trxstatus(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @_Z10rewind_trjP11t_trxstatus(ptr nocapture noundef initializes((4, 8)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 -1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 24

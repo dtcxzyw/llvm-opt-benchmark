@@ -2038,7 +2038,7 @@ _ZN4absl14flags_internal12_GLOBAL__N_116FlagRegistryLockD2Ev.exit51: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl14flags_internal6RetireEPKcPKvPc(ptr noundef %name, ptr noundef %type_id, ptr noundef %buf) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl14flags_internal6RetireEPKcPKvPc(ptr noundef %name, ptr noundef %type_id, ptr noundef initializes((0, 24)) %buf) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl14flags_internal12_GLOBAL__N_114RetiredFlagObjE, i64 16), ptr %buf, align 8
   %name_.i = getelementptr inbounds i8, ptr %buf, i64 8
@@ -2068,7 +2068,7 @@ _ZN4absl14flags_internal12FlagRegistry14GlobalRegistryEv.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl9FlagSaverC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl9FlagSaverC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::function.19", align 8
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #32
@@ -2268,7 +2268,7 @@ return:                                           ; preds = %entry, %_ZN4absl14f
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl11GetAllFlagsEv(ptr noalias sret(%"class.absl::flat_hash_map") align 8 %agg.result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl11GetAllFlagsEv(ptr noalias sret(%"class.absl::flat_hash_map") align 8 initializes((0, 32)) %agg.result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function.19", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %agg.result, align 8
@@ -2550,7 +2550,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4absl14flags_internal12_GLOBAL__N_114RetiredFlagObj9SaveStateEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl14flags_internal12_GLOBAL__N_114RetiredFlagObj9SaveStateEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   ret void

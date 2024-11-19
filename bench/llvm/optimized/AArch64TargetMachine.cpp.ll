@@ -1819,7 +1819,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN4llvm17LLVMTargetMachine11initAsmInfoEv(ptr noundef nonnull align 8 dereferenceable(1232)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20AArch64TargetMachineD2Ev(ptr noundef nonnull align 8 dereferenceable(1265) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm20AArch64TargetMachineD2Ev(ptr noundef nonnull align 8 dereferenceable(1265) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTVN4llvm20AArch64TargetMachineE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1252
@@ -2397,7 +2397,7 @@ _ZNSt8functionIFvRN4llvm11PassManagerINS0_4LoopENS0_15AnalysisManagerIS2_JRNS0_2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm20AArch64TargetMachine22getTargetTransformInfoERKNS_8FunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::TargetTransformInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1265) %1, ptr noundef nonnull align 8 dereferenceable(136) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm20AArch64TargetMachine22getTargetTransformInfoERKNS_8FunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::TargetTransformInfo") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(1265) %1, ptr noundef nonnull align 8 dereferenceable(136) %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %2) #21
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16

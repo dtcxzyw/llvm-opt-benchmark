@@ -744,7 +744,7 @@ if.end5:                                          ; preds = %entry, %if.then2, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @X509V3_set_nconf(ptr nocapture noundef writeonly %ctx, ptr noundef %conf) local_unnamed_addr #2 {
+define hidden void @X509V3_set_nconf(ptr nocapture noundef writeonly initializes((40, 56)) %ctx, ptr noundef %conf) local_unnamed_addr #2 {
 entry:
   %db_meth = getelementptr inbounds i8, ptr %ctx, i64 40
   store ptr @nconf_method, ptr %db_meth, align 8
@@ -754,7 +754,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @X509V3_set_ctx(ptr nocapture noundef writeonly %ctx, ptr noundef %issuer, ptr noundef %subj, ptr noundef %req, ptr noundef %crl, i32 noundef %flags) local_unnamed_addr #2 {
+define hidden void @X509V3_set_ctx(ptr nocapture noundef writeonly initializes((0, 4), (8, 40)) %ctx, ptr noundef %issuer, ptr noundef %subj, ptr noundef %req, ptr noundef %crl, i32 noundef %flags) local_unnamed_addr #2 {
 entry:
   %issuer_cert = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %issuer, ptr %issuer_cert, align 8

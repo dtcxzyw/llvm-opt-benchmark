@@ -53,14 +53,14 @@ $_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKhS1_EEEE
 @_ZN3net9IPAddressD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net9IPAddressD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net9IPAddressC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net9IPAddressC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net9IPAddressC2ERKSt6vectorIhSaIhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %address) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net9IPAddressC2ERKSt6vectorIhSaIhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %address) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds i8, ptr %address, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -111,7 +111,7 @@ _ZNSt6vectorIhSaIhEEC2ERKS1_.exit:                ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net9IPAddressC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net9IPAddressC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -162,7 +162,7 @@ _ZNSt6vectorIhSaIhEEC2ERKS1_.exit:                ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net9IPAddressC2EPKhm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %address, i64 noundef %address_len) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net9IPAddressC2EPKhm(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef readonly %address, i64 noundef %address_len) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %cmp.i.i.i = icmp slt i64 %address_len, 0
@@ -215,7 +215,7 @@ lpad.body:                                        ; preds = %lpad.i, %if.then.i.
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net9IPAddressC2Ehhhh(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i8 noundef zeroext %b0, i8 noundef zeroext %b1, i8 noundef zeroext %b2, i8 noundef zeroext %b3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net9IPAddressC2Ehhhh(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, i8 noundef zeroext %b0, i8 noundef zeroext %b1, i8 noundef zeroext %b2, i8 noundef zeroext %b3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -321,7 +321,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net9IPAddressC2Ehhhhhhhhhhhhhhhh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i8 noundef zeroext %b0, i8 noundef zeroext %b1, i8 noundef zeroext %b2, i8 noundef zeroext %b3, i8 noundef zeroext %b4, i8 noundef zeroext %b5, i8 noundef zeroext %b6, i8 noundef zeroext %b7, i8 noundef zeroext %b8, i8 noundef zeroext %b9, i8 noundef zeroext %b10, i8 noundef zeroext %b11, i8 noundef zeroext %b12, i8 noundef zeroext %b13, i8 noundef zeroext %b14, i8 noundef zeroext %b15) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net9IPAddressC2Ehhhhhhhhhhhhhhhh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, i8 noundef zeroext %b0, i8 noundef zeroext %b1, i8 noundef zeroext %b2, i8 noundef zeroext %b3, i8 noundef zeroext %b4, i8 noundef zeroext %b5, i8 noundef zeroext %b6, i8 noundef zeroext %b7, i8 noundef zeroext %b8, i8 noundef zeroext %b9, i8 noundef zeroext %b10, i8 noundef zeroext %b11, i8 noundef zeroext %b12, i8 noundef zeroext %b13, i8 noundef zeroext %b14, i8 noundef zeroext %b15) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %call5.i.i.i.i1.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
@@ -772,7 +772,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit9:                   ; preds = %cleanup, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net9IPAddress13IPv4LocalhostEv(ptr noalias nocapture writeonly sret(%"class.net::IPAddress") align 8 %agg.result) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net9IPAddress13IPv4LocalhostEv(ptr noalias nocapture writeonly sret(%"class.net::IPAddress") align 8 initializes((0, 24)) %agg.result) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i1.i.i.i = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #21
@@ -787,7 +787,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net9IPAddress13IPv6LocalhostEv(ptr noalias nocapture writeonly sret(%"class.net::IPAddress") align 8 %agg.result) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net9IPAddress13IPv6LocalhostEv(ptr noalias nocapture writeonly sret(%"class.net::IPAddress") align 8 initializes((0, 24)) %agg.result) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i1.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
@@ -858,7 +858,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit8:                   ; preds = %_ZNSt16allocator_tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net9IPAddress12IPv4AllZerosEv(ptr noalias nocapture writeonly sret(%"class.net::IPAddress") align 8 %agg.result) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net9IPAddress12IPv4AllZerosEv(ptr noalias nocapture writeonly sret(%"class.net::IPAddress") align 8 initializes((0, 24)) %agg.result) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %call5.i.i.i.i1.i.i2.i = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #21, !noalias !7
@@ -887,7 +887,7 @@ _ZN3net9IPAddress8AllZerosEm.exit:                ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net9IPAddress12IPv6AllZerosEv(ptr noalias nocapture writeonly sret(%"class.net::IPAddress") align 8 %agg.result) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net9IPAddress12IPv6AllZerosEv(ptr noalias nocapture writeonly sret(%"class.net::IPAddress") align 8 initializes((0, 24)) %agg.result) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !10

@@ -3028,7 +3028,7 @@ declare float @tanf(float noundef) local_unnamed_addr #12
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #1 {
   %4 = tail call ptr @dt_alloc_aligned(i64 noundef 256) #19
   %5 = icmp eq ptr %4, null
   br i1 %5, label %7, label %6
@@ -4373,7 +4373,7 @@ define void @gui_reset(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #1 {
   %2 = alloca %struct.dt_iop_module_section_t, align 8
   %3 = alloca %struct.dt_iop_module_section_t, align 8
   %4 = alloca %struct.dt_iop_module_section_t, align 8
@@ -6434,7 +6434,7 @@ declare void @llvm.x86.sse.sfence() #19
 declare ptr @dt_alloc_aligned(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #20 {
+define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 12)) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #20 {
   %6 = add nsw i32 %4, -1
   %7 = sitofp i32 %6 to float
   %8 = add nsw i32 %4, -2

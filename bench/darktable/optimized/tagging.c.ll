@@ -823,7 +823,7 @@ define void @init_presets(ptr nocapture noundef readnone %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @get_params(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define ptr @get_params(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   store i32 0, ptr %1, align 4, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
@@ -1116,7 +1116,7 @@ define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
   %2 = alloca [2 x ptr], align 8
   %3 = tail call noalias dereferenceable_or_null(1288) ptr @calloc(i64 noundef 1288, i64 noundef 1) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 280
@@ -3924,7 +3924,7 @@ define internal void @_collection_updated_callback(ptr nocapture readnone %0, i3
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_update_layout(ptr nocapture %0) unnamed_addr #1 {
+define internal fastcc void @_update_layout(ptr nocapture initializes((1192, 1200)) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1048
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = tail call i64 @gtk_tree_view_get_type() #17

@@ -964,7 +964,7 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN23MLDefaultMeshDecoratorsC2EP10MainWindow(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #12 align 2 {
+define void @_ZN23MLDefaultMeshDecoratorsC2EP10MainWindow(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #12 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }

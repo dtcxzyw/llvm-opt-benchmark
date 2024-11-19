@@ -1205,7 +1205,7 @@ define range(i32 0, 2) i32 @H5FD__onion_revision_index_find(ptr nocapture nounde
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5FD__onion_revision_record_encode(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define i64 @H5FD__onion_revision_record_encode(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 8)) %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = load i8, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 52
   %6 = load i32, ptr %5, align 4

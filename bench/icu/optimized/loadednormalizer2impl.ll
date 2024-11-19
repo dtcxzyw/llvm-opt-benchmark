@@ -31,7 +31,7 @@ $_ZN6icu_7512LocalPointerINS_13Norm2AllModesEED2Ev = comdat any
 @_ZN6icu_7521LoadedNormalizer2ImplD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7521LoadedNormalizer2ImplD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7521LoadedNormalizer2ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7521LoadedNormalizer2ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521LoadedNormalizer2ImplE, i64 16), ptr %this, align 8
   %memory = getelementptr inbounds i8, ptr %this, i64 80

@@ -92,7 +92,7 @@ $_ZTIN3irr3gui14IGUIFontBitmapE = comdat any
 @.str.4 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui8CGUIFontC2EPNS0_15IGUIEnvironmentERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef readonly %vtt, ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui8CGUIFontC2EPNS0_15IGUIEnvironmentERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 33), (48, 52), (56, 64)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = getelementptr inbounds i8, ptr %vtt, i64 16
@@ -211,7 +211,7 @@ if.end38:                                         ; preds = %if.then32, %if.end2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui8CGUIFontC1EPNS0_15IGUIEnvironmentERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui8CGUIFontC1EPNS0_15IGUIEnvironmentERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 33), (48, 52), (56, 64), (160, 180)) %this, ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 160
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 168
@@ -311,7 +311,7 @@ if.end34:                                         ; preds = %if.then28, %if.end2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui8CGUIFontD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui8CGUIFontD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -407,7 +407,7 @@ _ZN3irr4core5arrayINS_3gui8CGUIFont9SFontAreaEED2Ev.exit: ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui8CGUIFontD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui8CGUIFontD1Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr3gui8CGUIFontD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @_ZTTN3irr3gui8CGUIFontE) #21
   ret void
@@ -425,7 +425,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui8CGUIFontD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui8CGUIFontD0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr3gui8CGUIFontD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @_ZTTN3irr3gui8CGUIFontE) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -552,7 +552,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui8CGUIFont24pushTextureCreationFlagsERA3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(3) %flags) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui8CGUIFont24pushTextureCreationFlagsERA3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(3) initializes((0, 3)) %flags) local_unnamed_addr #0 align 2 {
 entry:
   %Driver = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %Driver, align 8, !tbaa !40
@@ -1678,7 +1678,7 @@ if.end:                                           ; preds = %if.then.i.i, %clean
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui8CGUIFont15setKerningWidthEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %this, i32 noundef %kerning) unnamed_addr #7 align 2 {
+define void @_ZN3irr3gui8CGUIFont15setKerningWidthEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((120, 124)) %this, i32 noundef %kerning) unnamed_addr #7 align 2 {
 entry:
   %GlobalKerningWidth = getelementptr inbounds i8, ptr %this, i64 120
   store i32 %kerning, ptr %GlobalKerningWidth, align 8, !tbaa !126
@@ -1794,7 +1794,7 @@ if.end9:                                          ; preds = %_ZNK3irr3gui8CGUIFo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui8CGUIFont16setKerningHeightEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %this, i32 noundef %kerning) unnamed_addr #7 align 2 {
+define void @_ZN3irr3gui8CGUIFont16setKerningHeightEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((124, 128)) %this, i32 noundef %kerning) unnamed_addr #7 align 2 {
 entry:
   %GlobalKerningHeight = getelementptr inbounds i8, ptr %this, i64 124
   store i32 %kerning, ptr %GlobalKerningHeight, align 4, !tbaa !130

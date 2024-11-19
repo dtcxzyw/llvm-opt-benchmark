@@ -218,7 +218,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9Utf8ValueC2EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef %isolate, ptr %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node9Utf8ValueC2EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) initializes((0, 16)) %this, ptr noundef %isolate, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   store i64 0, ptr %this, align 8
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -330,7 +330,7 @@ return:                                           ; preds = %if.end, %entry, %_Z
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node12TwoByteValueC2EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(2072) %this, ptr noundef %isolate, ptr %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node12TwoByteValueC2EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(2072) initializes((0, 16)) %this, ptr noundef %isolate, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   store i64 0, ptr %this, align 8
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -438,7 +438,7 @@ declare noundef i32 @_ZNK2v86String6LengthEv(ptr noundef nonnull align 1 derefer
 declare noundef i32 @_ZNK2v86String5WriteEPNS_7IsolateEPtiii(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node11BufferValueC2EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef %isolate, ptr %value.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node11BufferValueC2EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) initializes((0, 16)) %this, ptr noundef %isolate, ptr %value.coerce) unnamed_addr #3 align 2 {
 entry:
   store i64 0, ptr %this, align 8
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -696,7 +696,7 @@ entry:
 declare i32 @uv_os_getpid() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node11SplitStringESt17basic_string_viewIcSt11char_traitsIcEES3_(ptr noalias nocapture sret(%"class.std::vector") align 8 %agg.result, i64 %in.coerce0, ptr %in.coerce1, i64 %delim.coerce0, ptr readonly %delim.coerce1) local_unnamed_addr #3 {
+define dso_local void @_ZN4node11SplitStringESt17basic_string_viewIcSt11char_traitsIcEES3_(ptr noalias nocapture sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, i64 %in.coerce0, ptr %in.coerce1, i64 %delim.coerce0, ptr readonly %delim.coerce1) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %in.coerce1, i64 %in.coerce0
@@ -1756,7 +1756,7 @@ declare ptr @_ZN2v86String18NewExternalOneByteEPNS_7IsolateEPNS0_29ExternalOneBy
 declare ptr @_ZN2v86String18NewExternalTwoByteEPNS_7IsolateEPNS0_22ExternalStringResourceE(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node26RAIIIsolateWithoutEnteringC2EPKNS_12SnapshotDataE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %data) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node26RAIIIsolateWithoutEnteringC2EPKNS_12SnapshotDataE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %data) unnamed_addr #3 align 2 {
 entry:
   %params = alloca %"struct.v8::Isolate::CreateParams", align 8
   %call = tail call noundef ptr @_ZN2v811ArrayBuffer9Allocator19NewDefaultAllocatorEv() #19
@@ -1843,7 +1843,7 @@ _ZNSt10unique_ptrIN2v811ArrayBuffer9AllocatorESt14default_deleteIS2_EED2Ev.exit:
 declare void @_ZN2v87Isolate7DisposeEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node11RAIIIsolateC2EPKNS_12SnapshotDataE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %data) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node11RAIIIsolateC2EPKNS_12SnapshotDataE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %this, ptr noundef %data) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node26RAIIIsolateWithoutEnteringC2EPKNS_12SnapshotDataE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %data)
   %isolate_scope_ = getelementptr inbounds i8, ptr %this, i64 16

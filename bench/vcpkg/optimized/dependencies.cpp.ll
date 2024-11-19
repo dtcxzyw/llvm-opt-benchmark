@@ -3732,7 +3732,7 @@ _ZN5vcpkg12_GLOBAL__N_112PackageGraphD2Ev.exit:   ; preds = %_ZNSt3mapIN5vcpkg11
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkg12_GLOBAL__N_112PackageGraphC2ERKNS_16PortFileProviderERKNS_9CMakeVars16CMakeVarProviderERKNS_16StatusParagraphsENS_7TripletERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkg12_GLOBAL__N_112PackageGraphC2ERKNS_16PortFileProviderERKNS_9CMakeVars16CMakeVarProviderERKNS_16StatusParagraphsENS_7TripletERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.vcpkg::(anonymous namespace)::ClusterInstalled", align 8
   %8 = alloca %"struct.vcpkg::ExpectedT.284", align 8
   %9 = alloca %"class.std::vector.107", align 8
@@ -7876,7 +7876,7 @@ _ZN5vcpkg12_GLOBAL__N_112PackageGraphD2Ev.exit:   ; preds = %_ZNSt3mapIN5vcpkg11
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg11format_planERKNS_10ActionPlanERKNS_4PathE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::FormattedPlan") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg11format_planERKNS_10ActionPlanERKNS_4PathE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::FormattedPlan") align 8 initializes((0, 1)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.vcpkg::StringLiteral", align 8
   %5 = alloca %"struct.vcpkg::LocalizedString", align 8
   %6 = alloca %"class.std::set", align 8
@@ -26109,7 +26109,7 @@ _ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5vcpkg11FeatureSpec
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkg16topological_sortISt6vectorINS_11PackageSpecESaIS2_EES2_PKNS_12_GLOBAL__N_17ClusterEEES1_IT1_SaIS9_EET_RKNS_17AdjacencyProviderIT0_S9_EEPNS_15GraphRandomizerE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkg16topological_sortISt6vectorINS_11PackageSpecESaIS2_EES2_PKNS_12_GLOBAL__N_17ClusterEEES1_IT1_SaIS9_EET_RKNS_17AdjacencyProviderIT0_S9_EEPNS_15GraphRandomizerE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unordered_map.503", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %5, i64 48

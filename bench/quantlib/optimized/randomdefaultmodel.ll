@@ -1522,7 +1522,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_15OneFactorCopulaEE4LinkEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26GaussianRandomDefaultModel5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(5304) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26GaussianRandomDefaultModel5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(5304) initializes((184, 5192), (5200, 5208), (5216, 5224), (5232, 5240), (5248, 5256), (5264, 5272), (5280, 5304)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::InverseCumulativeRsg", align 8
   %pool_ = getelementptr inbounds nuw i8, ptr %this, i64 112

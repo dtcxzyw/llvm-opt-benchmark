@@ -304,7 +304,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith2nl14transcendental15TaylorGenerator17getTaylorVariableEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate.73") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith2nl14transcendental15TaylorGenerator17getTaylorVariableEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate.73") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   store ptr %0, ptr %agg.result, align 8

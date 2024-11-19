@@ -1959,7 +1959,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl19str_format_internal12_GLOBAL__N_154ConsumeUnboundConversionTest_ConsumeSpecification_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl19str_format_internal12_GLOBAL__N_154ConsumeUnboundConversionTest_ConsumeSpecification_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(32) initializes((20, 31)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %next.i = alloca i32, align 4
   %kExpect = alloca [16 x %struct.Expectation.32], align 16
@@ -5084,7 +5084,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl19str_format_internal12_GLOBAL__N_149ConsumeUnboundConversionTest_BasicConversion_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl19str_format_internal12_GLOBAL__N_149ConsumeUnboundConversionTest_BasicConversion_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(32) initializes((20, 31)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %next.i104 = alloca i32, align 4
   %next.i74 = alloca i32, align 4
@@ -6925,7 +6925,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl19str_format_internal12_GLOBAL__N_145ConsumeUnboundConversionTest_ArgPosition_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl19str_format_internal12_GLOBAL__N_145ConsumeUnboundConversionTest_ArgPosition_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(32) initializes((20, 31)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %next.i719 = alloca i32, align 4
   %next.i688 = alloca i32, align 4
@@ -9590,7 +9590,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl19str_format_internal12_GLOBAL__N_151ConsumeUnboundConversionTest_WidthAndPrecision_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl19str_format_internal12_GLOBAL__N_151ConsumeUnboundConversionTest_WidthAndPrecision_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(32) initializes((20, 31)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %next.i1939 = alloca i32, align 4
   %next.i1908 = alloca i32, align 4
@@ -18359,7 +18359,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl19str_format_internal12_GLOBAL__N_143ConsumeUnboundConversionTest_BasicFlag_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl19str_format_internal12_GLOBAL__N_143ConsumeUnboundConversionTest_BasicFlag_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(32) initializes((20, 31)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %next.i52 = alloca i32, align 4
   %next.i = alloca i32, align 4
@@ -19569,7 +19569,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl19str_format_internal12_GLOBAL__N_143ConsumeUnboundConversionTest_LengthMod_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl19str_format_internal12_GLOBAL__N_143ConsumeUnboundConversionTest_LengthMod_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(32) initializes((20, 31)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %next.i541 = alloca i32, align 4
   %next.i485 = alloca i32, align 4

@@ -1082,7 +1082,7 @@ pmix_obj_run_destructors.exit217:                 ; preds = %.lr.ph.i214, %355
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_cbfunc(i32 noundef %0, ptr noundef %1) #0 {
+define internal void @op_cbfunc(i32 noundef %0, ptr noundef initializes((500, 504)) %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 500
   store i32 %0, ptr %3, align 4
   fence release
@@ -2532,7 +2532,7 @@ pmix_obj_run_destructors.exit300:                 ; preds = %.lr.ph.i297, %479
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lookup_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal void @lookup_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef initializes((500, 504)) %3) #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 696
   %6 = load ptr, ptr %5, align 8
   fence acquire

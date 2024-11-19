@@ -1077,7 +1077,7 @@ return:                                           ; preds = %do.body6, %do.body3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @iso2022_encode_init(ptr nocapture noundef writeonly %state, ptr nocapture readnone %codec) #5 {
+define internal noundef i32 @iso2022_encode_init(ptr nocapture noundef writeonly initializes((0, 2), (4, 5)) %state, ptr nocapture readnone %codec) #5 {
 entry:
   %arrayidx = getelementptr i8, ptr %state, i64 4
   store i8 0, ptr %arrayidx, align 1
@@ -1766,7 +1766,7 @@ return:                                           ; preds = %sw.epilog, %do.end7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @iso2022_decode_init(ptr nocapture noundef writeonly %state, ptr nocapture readnone %codec) #5 {
+define internal noundef i32 @iso2022_decode_init(ptr nocapture noundef writeonly initializes((0, 3), (4, 5)) %state, ptr nocapture readnone %codec) #5 {
 entry:
   %arrayidx = getelementptr i8, ptr %state, i64 4
   store i8 0, ptr %arrayidx, align 1
@@ -1779,7 +1779,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @iso2022_decode_reset(ptr nocapture noundef %state, ptr nocapture readnone %codec) #7 {
+define internal noundef i64 @iso2022_decode_reset(ptr nocapture noundef initializes((0, 1)) %state, ptr nocapture readnone %codec) #7 {
 entry:
   store i8 66, ptr %state, align 1
   %arrayidx3 = getelementptr i8, ptr %state, i64 4

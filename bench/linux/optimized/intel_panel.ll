@@ -1398,7 +1398,7 @@ intel_panel_fixed_mode.exit.thread:               ; preds = %2, %43, %37, %31, %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @intel_panel_init_alloc(ptr noundef %0) local_unnamed_addr #5 align 16 {
+define dso_local void @intel_panel_init_alloc(ptr noundef initializes((2144, 2148), (2233, 2234)) %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2144
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2233
@@ -1411,7 +1411,7 @@ define dso_local void @intel_panel_init_alloc(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_panel_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @intel_panel_init(ptr noundef initializes((2000, 2008)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2000
   store ptr %1, ptr %3, align 8
   tail call void @intel_backlight_init_funcs(ptr noundef %3) #8

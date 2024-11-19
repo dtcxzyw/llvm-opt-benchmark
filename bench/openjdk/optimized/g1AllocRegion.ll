@@ -702,7 +702,7 @@ define hidden noundef ptr @_ZN13G1AllocRegion7releaseEv(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN13G1AllocRegionC2EPKcj(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN13G1AllocRegionC2EPKcj(ptr noundef nonnull align 8 dereferenceable(36) initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV13G1AllocRegion, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store volatile ptr null, ptr %4, align 8
@@ -1207,7 +1207,7 @@ define hidden noundef i64 @_ZN15G1GCAllocRegion6retireEb(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN15G1GCAllocRegion5reuseEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN15G1GCAllocRegion5reuseEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(57) initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load volatile ptr, ptr %4, align 8

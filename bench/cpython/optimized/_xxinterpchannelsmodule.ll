@@ -2819,7 +2819,7 @@ return:                                           ; preds = %if.then2, %if.then9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 1) i32 @newchannelid(ptr noundef %cls, i64 noundef %cid, i32 noundef %end, ptr noundef %channels, i32 noundef %force, i32 noundef %resolve, ptr nocapture noundef nonnull writeonly %res) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @newchannelid(ptr noundef %cls, i64 noundef %cid, i32 noundef %end, ptr noundef %channels, i32 noundef %force, i32 noundef %resolve, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %res) unnamed_addr #0 {
 entry:
   store ptr null, ptr %res, align 8
   %call = tail call ptr @_PyObject_New(ptr noundef %cls) #6

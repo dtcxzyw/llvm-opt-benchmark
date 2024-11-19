@@ -341,7 +341,7 @@ define dso_local void @_ZN13StatementExprC2ERKS_(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13StatementExprD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN13StatementExprD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV13StatementExpr, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN17ExpressionFuncallD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
@@ -353,7 +353,7 @@ define dso_local void @_ZN13StatementExprD2Ev(ptr noundef nonnull align 8 derefe
 declare void @_ZN17ExpressionFuncallD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13StatementExprD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN13StatementExprD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV13StatementExpr, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN17ExpressionFuncallD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
@@ -491,7 +491,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK13StatementExpr21get_dereferenced_ptrsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.49") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK13StatementExpr21get_dereferenced_ptrsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.49") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.49", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 56

@@ -3538,7 +3538,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30ConstantYoYOptionletVolatilityC1EdjRKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterERKNS_6PeriodENS_9FrequencyEbddNS_14VolatilityTypeEd(ptr noundef nonnull align 8 dereferenceable(144) %this, double noundef %v, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(16) %dc, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %observationLag, i32 noundef %frequency, i1 noundef zeroext %indexIsInterpolated, double noundef %minStrike, double noundef %maxStrike, i32 noundef %volType, double noundef %displacement) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30ConstantYoYOptionletVolatilityC1EdjRKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterERKNS_6PeriodENS_9FrequencyEbddNS_14VolatilityTypeEd(ptr noundef nonnull align 8 dereferenceable(144) initializes((144, 152), (160, 164), (168, 176)) %this, double noundef %v, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(16) %dc, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %observationLag, i32 noundef %frequency, i1 noundef zeroext %indexIsInterpolated, double noundef %minStrike, double noundef %maxStrike, i32 noundef %volType, double noundef %displacement) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr = alloca double, align 8
   %ref.tmp = alloca %"class.boost::shared_ptr.14", align 8
@@ -3744,7 +3744,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30ConstantYoYOptionletVolatilityC1ENS_6HandleINS_5QuoteEEEjRKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterERKNS_6PeriodENS_9FrequencyEbddNS_14VolatilityTypeEd(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef %v, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(16) %dc, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %observationLag, i32 noundef %frequency, i1 noundef zeroext %indexIsInterpolated, double noundef %minStrike, double noundef %maxStrike, i32 noundef %volType, double noundef %displacement) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30ConstantYoYOptionletVolatilityC1ENS_6HandleINS_5QuoteEEEjRKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterERKNS_6PeriodENS_9FrequencyEbddNS_14VolatilityTypeEd(ptr noundef nonnull align 8 dereferenceable(144) initializes((144, 152), (160, 164), (168, 176)) %this, ptr nocapture noundef %v, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(16) %dc, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %observationLag, i32 noundef %frequency, i1 noundef zeroext %indexIsInterpolated, double noundef %minStrike, double noundef %maxStrike, i32 noundef %volType, double noundef %displacement) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 144
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %0, align 8, !tbaa !28

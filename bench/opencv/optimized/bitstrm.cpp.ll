@@ -124,7 +124,7 @@ define hidden void @_ZN2cv11RBaseStream8allocateEv(ptr nocapture noundef nonnull
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv11RBaseStreamC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv11RBaseStreamC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) initializes((0, 9), (16, 57)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv11RBaseStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 52
@@ -140,7 +140,7 @@ define hidden void @_ZN2cv11RBaseStreamC2Ev(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv11RBaseStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11RBaseStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8), (56, 57)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv11RBaseStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -198,7 +198,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv11RBaseStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11RBaseStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8), (56, 57)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv11RBaseStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -810,7 +810,7 @@ declare noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dere
 declare void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden void @_ZN2cv11RBaseStream5closeEv(ptr nocapture noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #14 align 2 {
+define hidden void @_ZN2cv11RBaseStream5closeEv(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((56, 57)) %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -842,7 +842,7 @@ define hidden void @_ZN2cv11RBaseStream5closeEv(ptr nocapture noundef nonnull al
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv11RBaseStream7releaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN2cv11RBaseStream7releaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((24, 40)) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -915,7 +915,7 @@ define hidden void @_ZN2cv11RBaseStream4skipEi(ptr nocapture noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv12RLByteStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv12RLByteStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8), (56, 57)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv11RBaseStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -959,7 +959,7 @@ _ZN2cv11RBaseStreamD2Ev.exit:                     ; preds = %_ZN2cv11RBaseStream
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv12RLByteStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv12RLByteStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8), (56, 57)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv11RBaseStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -1161,7 +1161,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN2cv12RLByteStream8getByt
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv12RMByteStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv12RMByteStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8), (56, 57)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv11RBaseStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -1205,7 +1205,7 @@ _ZN2cv12RLByteStreamD2Ev.exit:                    ; preds = %_ZN2cv11RBaseStream
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv12RMByteStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv12RMByteStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8), (56, 57)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv11RBaseStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -1395,7 +1395,7 @@ define hidden noundef i32 @_ZN2cv12RMByteStream8getDWordEv(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv11WBaseStreamC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv11WBaseStreamC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 49), (56, 64)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv11WBaseStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1413,7 +1413,7 @@ define hidden void @_ZN2cv11WBaseStreamC2Ev(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv11WBaseStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11WBaseStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv11WBaseStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
@@ -1457,7 +1457,7 @@ define hidden void @_ZN2cv11WBaseStreamD2Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv11WBaseStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11WBaseStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv11WBaseStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
@@ -1510,7 +1510,7 @@ define hidden noundef zeroext i1 @_ZN2cv11WBaseStream8isOpenedEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11WBaseStream8allocateEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN2cv11WBaseStream8allocateEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 32)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1829,7 +1829,7 @@ define hidden void @_ZN2cv11WBaseStream5closeEv(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv11WBaseStream7releaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN2cv11WBaseStream7releaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 32)) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1897,7 +1897,7 @@ define hidden noundef i32 @_ZN2cv11WBaseStream6getPosEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv12WLByteStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv12WLByteStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv11WBaseStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
@@ -1941,7 +1941,7 @@ _ZN2cv11WBaseStreamD2Ev.exit:                     ; preds = %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv12WLByteStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv12WLByteStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv11WBaseStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
@@ -2280,7 +2280,7 @@ _ZN2cv12WLByteStream7putByteEi.exit19:            ; preds = %_ZN2cv12WLByteStrea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv12WMByteStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv12WMByteStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv11WBaseStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
@@ -2324,7 +2324,7 @@ _ZN2cv12WLByteStreamD2Ev.exit:                    ; preds = %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv12WMByteStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv12WMByteStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv11WBaseStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8

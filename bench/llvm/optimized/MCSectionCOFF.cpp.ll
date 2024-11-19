@@ -60,7 +60,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit16:              ; preds = %_ZN4llvmeqENS_9Stri
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4llvm13MCSectionCOFF12setSelectionEi(ptr nocapture noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZNK4llvm13MCSectionCOFF12setSelectionEi(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((168, 172)) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 148

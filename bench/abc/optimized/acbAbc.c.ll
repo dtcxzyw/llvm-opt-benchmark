@@ -4420,7 +4420,7 @@ declare i32 @Abc_NamStrFind(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @Abc_NamStr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Acb_ParSetDefault(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
+define void @Acb_ParSetDefault(ptr nocapture noundef writeonly initializes((0, 56)) %0) local_unnamed_addr #4 {
   store i32 4, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 2, ptr %2, align 4

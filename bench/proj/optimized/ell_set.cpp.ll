@@ -515,7 +515,7 @@ _ZL14pj_param_valueP8ARG_list.exit:               ; preds = %11, %11, %17, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 0, 1028) i32 @_Z24pj_calc_ellipsoid_paramsP8PJconstsdd(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 1028) i32 @_Z24pj_calc_ellipsoid_paramsP8PJconstsdd(ptr noundef initializes((168, 176), (200, 208), (216, 256)) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 168
   store double %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 216
@@ -1140,7 +1140,7 @@ _ZL12pj_get_paramP8ARG_listPKc.exit.thread:       ; preds = %.loopexit, %1, %_ZL
 declare void @_Z14proj_log_traceP8PJconstsPKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_Z24pj_inherit_ellipsoid_defPK8PJconstsPS_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
+define hidden void @_Z24pj_inherit_ellipsoid_defPK8PJconstsPS_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((168, 344)) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load double, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 168

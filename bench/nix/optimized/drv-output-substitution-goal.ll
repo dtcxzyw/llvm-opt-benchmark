@@ -861,7 +861,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix25DrvOutputSubstitutionGoalC2ERKNS_9DrvOutputERNS_6WorkerENS_10RepairFlagESt8optionalINS_14ContentAddressEE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull align 8 dereferenceable(649) %2, i1 zeroext %3, ptr nocapture noundef readnone byval(%"class.std::optional") align 8 %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix25DrvOutputSubstitutionGoalC2ERKNS_9DrvOutputERNS_6WorkerENS_10RepairFlagESt8optionalINS_14ContentAddressEE(ptr noundef nonnull align 8 dereferenceable(928) initializes((0, 32), (40, 44), (48, 56)) %0, ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull align 8 dereferenceable(649) %2, i1 zeroext %3, ptr nocapture noundef readnone byval(%"class.std::optional") align 8 %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.boost::io::detail::put_holder", align 8
   %7 = alloca %"class.boost::basic_format", align 8
   %8 = alloca %"class.std::allocator.10", align 1

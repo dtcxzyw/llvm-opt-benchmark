@@ -1052,7 +1052,7 @@ define internal void @_ZN12_GLOBAL__N_120SimpleCaptureTrackerD0Ev(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_120SimpleCaptureTracker11tooManyUsesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(10) %0) unnamed_addr #8 align 2 {
+define internal void @_ZN12_GLOBAL__N_120SimpleCaptureTracker11tooManyUsesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(10) initializes((9, 10)) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 1, ptr %2, align 1
   ret void
@@ -1092,7 +1092,7 @@ define internal void @_ZN12_GLOBAL__N_114CapturesBeforeD0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_114CapturesBefore11tooManyUsesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) unnamed_addr #8 align 2 {
+define internal void @_ZN12_GLOBAL__N_114CapturesBefore11tooManyUsesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((26, 27)) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i8 1, ptr %2, align 2
   ret void
@@ -1161,7 +1161,7 @@ define internal void @_ZN12_GLOBAL__N_116EarliestCapturesD0Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_116EarliestCaptures11tooManyUsesEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #9 align 2 {
+define internal void @_ZN12_GLOBAL__N_116EarliestCaptures11tooManyUsesEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((8, 16), (25, 26)) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 1, ptr %2, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32

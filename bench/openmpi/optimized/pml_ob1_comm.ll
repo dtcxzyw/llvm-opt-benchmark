@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_pml_ob1_comm_proc_construct(ptr noundef %0) #0 {
+define internal void @mca_pml_ob1_comm_proc_construct(ptr noundef initializes((16, 26)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -187,7 +187,7 @@ opal_obj_run_destructors.exit17:                  ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_pml_ob1_comm_construct(ptr noundef %0) #0 {
+define internal void @mca_pml_ob1_comm_construct(ptr noundef initializes((88, 96)) %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
@@ -435,7 +435,7 @@ opal_obj_run_destructors.exit34:                  ; preds = %.lr.ph.i31, %opal_o
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define range(i32 -2, 1) i32 @mca_pml_ob1_comm_init_size(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #1 {
+define range(i32 -2, 1) i32 @mca_pml_ob1_comm_init_size(ptr nocapture noundef writeonly initializes((216, 224)) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 8) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 216
   store ptr %3, ptr %4, align 8

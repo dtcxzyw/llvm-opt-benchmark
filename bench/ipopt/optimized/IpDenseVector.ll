@@ -96,7 +96,7 @@ $_ZTIN5Ipopt13CachedResultsIdEE = comdat any
 @_ZN5Ipopt11DenseVectorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5Ipopt11DenseVectorD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt11DenseVectorC2EPKNS_16DenseVectorSpaceE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt11DenseVectorC2EPKNS_16DenseVectorSpaceE(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 12), (16, 48)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -294,7 +294,7 @@ _ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit:  ; preds = %_ZN5Ipopt13CachedRe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt11DenseVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt11DenseVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8), (16, 24)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt11DenseVectorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt11DenseVectorE, i64 264), ptr %2, align 8
@@ -360,7 +360,7 @@ define void @_ZThn16_N5Ipopt11DenseVectorD0Ev(ptr noundef %0) unnamed_addr #4 al
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt11DenseVector9SetValuesEPKd(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN5Ipopt11DenseVector9SetValuesEPKd(ptr noundef nonnull align 8 dereferenceable(248) initializes((232, 234)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   store i8 1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -457,7 +457,7 @@ _ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit: ; preds = %8, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt11DenseVector22set_values_from_scalarEv(ptr noundef nonnull align 8 dereferenceable(248) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN5Ipopt11DenseVector22set_values_from_scalarEv(ptr noundef nonnull align 8 dereferenceable(248) initializes((232, 234)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 233
@@ -498,7 +498,7 @@ _ZN5Ipopt11DenseVector16values_allocatedEv.exit:  ; preds = %1, %_ZNK5Ipopt16Den
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt11DenseVector8CopyImplERKNS_6VectorE(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(205) %1) unnamed_addr #0 align 2 {
+define void @_ZN5Ipopt11DenseVector8CopyImplERKNS_6VectorE(ptr nocapture noundef nonnull align 8 dereferenceable(248) initializes((232, 234)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(205) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 233
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -873,7 +873,7 @@ define noundef double @_ZNK5Ipopt11DenseVector8AmaxImplEv(ptr nocapture noundef 
 declare noundef i32 @_ZN5Ipopt11IpBlasIamaxEiPKdi(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt11DenseVector7SetImplEd(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0, double noundef %1) unnamed_addr #1 align 2 {
+define void @_ZN5Ipopt11DenseVector7SetImplEd(ptr nocapture noundef nonnull align 8 dereferenceable(248) initializes((232, 234), (240, 248)) %0, double noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   store i8 1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 233
@@ -4537,7 +4537,7 @@ _ZN5Ipopt11DenseVector16values_allocatedEv.exit:  ; preds = %50, %_ZNK5Ipopt16De
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt11DenseVector9CopyToPosEiRKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(248) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(205) %2) local_unnamed_addr #0 align 2 {
+define void @_ZN5Ipopt11DenseVector9CopyToPosEiRKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(248) initializes((233, 234)) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(205) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 12

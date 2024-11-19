@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/ssl/quic/quic_sf_list.c\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_sframe_list_init(ptr nocapture noundef writeonly %fl) local_unnamed_addr #0 {
+define void @ossl_sframe_list_init(ptr nocapture noundef writeonly initializes((0, 48)) %fl) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %fl, i8 0, i64 48, i1 false)
   ret void
@@ -451,7 +451,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ossl_sframe_list_peek(ptr nocapture noundef readonly %fl, ptr nocapture noundef %iter, ptr nocapture noundef writeonly %range, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %fin) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ossl_sframe_list_peek(ptr nocapture noundef readonly %fl, ptr nocapture noundef %iter, ptr nocapture noundef writeonly initializes((0, 16)) %range, ptr nocapture noundef writeonly initializes((0, 8)) %data, ptr nocapture noundef writeonly initializes((0, 4)) %fin) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %iter, align 8
   %cmp = icmp eq ptr %0, null

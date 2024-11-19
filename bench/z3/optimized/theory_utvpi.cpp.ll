@@ -35202,7 +35202,7 @@ nrvo.skipdtor:                                    ; preds = %_ZN16inf_int_ration
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt12utvpi_testerC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt12utvpi_testerC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr %m, ptr %this, align 8
   %a = getelementptr inbounds i8, ptr %this, i64 8

@@ -35,7 +35,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbsp__lead_sign(i32 noundef %fl, ptr nocapture noundef writeonly %sign) local_unnamed_addr #1 {
+define void @stbsp__lead_sign(i32 noundef %fl, ptr nocapture noundef writeonly initializes((0, 1)) %sign) local_unnamed_addr #1 {
 entry:
   store i8 0, ptr %sign, align 1
   %and = and i32 %fl, 128
@@ -3059,7 +3059,7 @@ done:                                             ; preds = %if.then14, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @stbsp__real_to_parts(ptr nocapture noundef writeonly %bits, ptr nocapture noundef writeonly %expo, double noundef %value) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @stbsp__real_to_parts(ptr nocapture noundef writeonly initializes((0, 8)) %bits, ptr nocapture noundef writeonly initializes((0, 4)) %expo, double noundef %value) local_unnamed_addr #1 {
 entry:
   %0 = bitcast double %value to i64
   %and = and i64 %0, 4503599627370495
@@ -3599,7 +3599,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbsp__raise_to_power10(ptr nocapture noundef writeonly %ohi, ptr nocapture noundef writeonly %olo, double noundef %d, i32 noundef %power) local_unnamed_addr #1 {
+define void @stbsp__raise_to_power10(ptr nocapture noundef writeonly initializes((0, 8)) %ohi, ptr nocapture noundef writeonly initializes((0, 8)) %olo, double noundef %d, i32 noundef %power) local_unnamed_addr #1 {
 entry:
   %or.cond = icmp ult i32 %power, 23
   br i1 %or.cond, label %if.then, label %if.else

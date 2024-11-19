@@ -1687,7 +1687,7 @@ _ZSt4fillIPN4llvm3ISD8CondCodeES2_EvT_S4_RKT0_.exit: ; preds = %.lr.ph.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18TargetLoweringBaseC2ERKNS_13TargetMachineE(ptr noundef nonnull align 8 dereferenceable(408123) %0, ptr noundef nonnull align 8 dereferenceable(1232) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18TargetLoweringBaseC2ERKNS_13TargetMachineE(ptr noundef nonnull align 8 dereferenceable(408123) initializes((0, 16), (24, 44), (65, 69), (96, 100), (2434, 2900), (2904, 4768), (5002, 5468), (396528, 396761), (396832, 396836), (396840, 396848)) %0, ptr noundef nonnull align 8 dereferenceable(1232) %1) unnamed_addr #0 align 2 {
 .preheader.preheader:
   store ptr getelementptr inbounds inrange(-16, 1784) (i8, ptr @_ZTVN4llvm18TargetLoweringBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1850,7 +1850,7 @@ _ZN4llvm5RTLIB17initCmpLibcallCCsEPNS_3ISD8CondCodeE.exit: ; preds = %.lr.ph.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18TargetLoweringBase11initActionsEv(ptr noundef nonnull align 8 dereferenceable(408123) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18TargetLoweringBase11initActionsEv(ptr noundef nonnull align 8 dereferenceable(408123) initializes((104, 1968), (5468, 119871), (119872, 228450), (337028, 391317), (391318, 396528), (396761, 396823)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"struct.std::pair.529", align 8
   %3 = alloca [2 x i32], align 4
   %4 = alloca [2 x i16], align 2

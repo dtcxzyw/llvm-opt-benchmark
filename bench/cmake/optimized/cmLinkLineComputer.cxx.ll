@@ -86,7 +86,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN18cmLinkLineComputerC2EP17cmOutputConverterRK16cmStateDirectory(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN18cmLinkLineComputerC2EP17cmOutputConverterRK16cmStateDirectory(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((0, 60)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV18cmLinkLineComputer, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
@@ -115,7 +115,7 @@ define dso_local void @_ZN18cmLinkLineComputerD0Ev(ptr noundef nonnull align 8 d
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN18cmLinkLineComputer17SetUseWatcomQuoteEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN18cmLinkLineComputer17SetUseWatcomQuoteEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((57, 58)) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 57
   store i8 %3, ptr %4, align 1
@@ -123,7 +123,7 @@ define dso_local void @_ZN18cmLinkLineComputer17SetUseWatcomQuoteEb(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN18cmLinkLineComputer16SetUseNinjaMultiEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN18cmLinkLineComputer16SetUseNinjaMultiEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((58, 59)) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 58
   store i8 %3, ptr %4, align 2
@@ -131,7 +131,7 @@ define dso_local void @_ZN18cmLinkLineComputer16SetUseNinjaMultiEb(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN18cmLinkLineComputer14SetForResponseEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN18cmLinkLineComputer14SetForResponseEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((56, 57)) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   store i8 %3, ptr %4, align 8
@@ -139,7 +139,7 @@ define dso_local void @_ZN18cmLinkLineComputer14SetForResponseEb(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN18cmLinkLineComputer9SetRelinkEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN18cmLinkLineComputer9SetRelinkEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((59, 60)) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 59
   store i8 %3, ptr %4, align 1

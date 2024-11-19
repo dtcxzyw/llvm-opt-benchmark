@@ -202,7 +202,7 @@ $_ZTIN2cv10JSONParserE = comdat any
 @.str.45 = private unnamed_addr constant [23 x i8] c"Unexpected end of line\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv17createJSONEmitterEPNS_15FileStorage_APIE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv17createJSONEmitterEPNS_15FileStorage_APIE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 initializes((0, 16)) %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_11JSONEmitterEED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #11, !noalias !4
   %3 = getelementptr inbounds i8, ptr %2, i64 8
@@ -221,7 +221,7 @@ _ZN2cv3PtrINS_11JSONEmitterEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv16createJSONParserEPNS_15FileStorage_APIE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.4") align 8 %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv16createJSONParserEPNS_15FileStorage_APIE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.4") align 8 initializes((0, 16)) %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_10JSONParserEED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(5152) ptr @_Znwm(i64 noundef 5152) #11, !noalias !9
   %3 = getelementptr inbounds i8, ptr %2, i64 8

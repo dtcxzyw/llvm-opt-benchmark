@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.cmsVEC3 = type { [3 x double] }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_cmsVEC3init(ptr nocapture noundef writeonly %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
+define hidden void @_cmsVEC3init(ptr nocapture noundef writeonly initializes((0, 24)) %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
   store double %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store double %2, ptr %5, align 8
@@ -17,7 +17,7 @@ define hidden void @_cmsVEC3init(ptr nocapture noundef writeonly %0, double noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_cmsVEC3minus(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define hidden void @_cmsVEC3minus(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
   %4 = load double, ptr %1, align 8
   %5 = load double, ptr %2, align 8
   %6 = fsub double %4, %5
@@ -40,7 +40,7 @@ define hidden void @_cmsVEC3minus(ptr nocapture noundef writeonly %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_cmsVEC3cross(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define hidden void @_cmsVEC3cross(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 16
@@ -132,7 +132,7 @@ define hidden double @_cmsVEC3distance(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_cmsMAT3identity(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @_cmsMAT3identity(ptr nocapture noundef writeonly initializes((0, 72)) %0) local_unnamed_addr #0 {
   store double 1.000000e+00, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -192,7 +192,7 @@ define hidden range(i32 0, 2) i32 @_cmsMAT3isIdentity(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_cmsMAT3per(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define hidden void @_cmsMAT3per(ptr nocapture noundef writeonly initializes((0, 72)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
   %4 = load double, ptr %1, align 8
   %5 = load double, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -499,7 +499,7 @@ _cmsMAT3inverse.exit.thread:                      ; preds = %3, %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_cmsMAT3eval(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define hidden void @_cmsMAT3eval(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
   %4 = load double, ptr %1, align 8
   %5 = load double, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8

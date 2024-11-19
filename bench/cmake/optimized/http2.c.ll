@@ -1423,7 +1423,7 @@ should_close_session.exit.thread:                 ; preds = %.thread202, %267, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @cf_h2_recv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
+define internal i64 @cf_h2_recv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef initializes((0, 4)) %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %1, null
@@ -2372,7 +2372,7 @@ define dso_local i32 @Curl_http2_switch(ptr noundef %0, ptr noundef %1, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @http2_cfilter_add(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @http2_cfilter_add(ptr nocapture noundef nonnull writeonly initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = load ptr, ptr @Curl_ccalloc, align 8
@@ -3534,7 +3534,7 @@ declare void @Curl_pollset_set(ptr noundef, ptr noundef, i32 noundef, i1 noundef
 declare i32 @nghttp2_session_resume_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -1, 1) i64 @http2_handle_stream_close(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i64 -1, 1) i64 @http2_handle_stream_close(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef initializes((0, 4)) %3) unnamed_addr #0 {
   %5 = alloca %struct.dynbuf, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 324
   %7 = load i32, ptr %6, align 4
@@ -3912,7 +3912,7 @@ declare i64 @Curl_dyn_len(ptr noundef) local_unnamed_addr #1
 declare i32 @Curl_client_write(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @stream_recv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i64 @stream_recv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i64 noundef %4, ptr noundef initializes((0, 4)) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   store i32 81, ptr %5, align 4

@@ -710,7 +710,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.690 = private unnamed_addr constant [2 x i8] c"z\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @timelib_parse_zone(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define hidden i64 @timelib_parse_zone(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   %.promoted = load ptr, ptr %0, align 8
@@ -935,7 +935,7 @@ define hidden i64 @timelib_parse_zone(ptr nocapture noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i64 @timelib_parse_tz_cor(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #1 {
+define internal fastcc i64 @timelib_parse_tz_cor(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   store i32 1, ptr %1, align 4
   %4 = tail call ptr @__ctype_b_loc() #21
@@ -1538,7 +1538,7 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #6
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull initializes((40, 48), (60, 64)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

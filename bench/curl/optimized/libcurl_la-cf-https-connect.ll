@@ -111,7 +111,7 @@ cf_hc_reset.exit:                                 ; preds = %do.end, %cf_hc_ball
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cf_hc_connect(ptr noundef %cf, ptr noundef %data, i1 zeroext %blocking, ptr noundef %done) #0 {
+define internal i32 @cf_hc_connect(ptr noundef %cf, ptr noundef %data, i1 zeroext %blocking, ptr noundef initializes((0, 1)) %done) #0 {
 entry:
   %ctx1 = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx1, align 8

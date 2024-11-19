@@ -449,7 +449,7 @@ define dso_local void @psmouse_queue_work(ptr nocapture noundef readnone %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @psmouse_set_state(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local void @psmouse_set_state(ptr nocapture noundef initializes((80, 88), (241, 242), (256, 272), (280, 284)) %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 208

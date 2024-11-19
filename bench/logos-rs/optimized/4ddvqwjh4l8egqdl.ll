@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen6parser6nested15AttributeParser3new17h39c2dde93544591bE(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden void @_ZN13logos_codegen6parser6nested15AttributeParser3new17h39c2dde93544591bE(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 40)) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [40 x i8], align 8
   call void @"_ZN11proc_macro212token_stream96_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$proc_macro2..TokenStream$GT$9into_iter17h1d4d1d07c273ecc9E"(ptr nonnull sret([40 x i8]) align 8 %3, ptr align 8 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)

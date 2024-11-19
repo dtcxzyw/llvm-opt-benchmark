@@ -245,7 +245,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory13OutputChannelC2ERNS0_18StatisticsRegistryEPNS0_12TheoryEngineENS1_8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(100) %this, ptr noundef nonnull align 8 dereferenceable(72) %sr, ptr noundef %engine, i32 noundef %theory) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory13OutputChannelC2ERNS0_18StatisticsRegistryEPNS0_12TheoryEngineENS1_8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(72) %sr, ptr noundef %engine, i32 noundef %theory) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory13OutputChannelE, i64 16), ptr %this, align 8
@@ -289,7 +289,7 @@ declare void @_ZN4cvc58internal6theory8toStringB5cxx11ENS1_8TheoryIdE(ptr sret(%
 declare void @_ZN4cvc58internal6theory14getStatsPrefixB5cxx11ENS1_8TheoryIdE(ptr sret(%"class.std::__cxx11::basic_string") align 8, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory13OutputChannelC2ERNS0_18StatisticsRegistryEPNS0_12TheoryEngineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(100) %this, ptr noundef nonnull align 8 dereferenceable(72) %sr, ptr noundef %engine, ptr noundef nonnull align 8 dereferenceable(32) %name, i64 noundef %id) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory13OutputChannelC2ERNS0_18StatisticsRegistryEPNS0_12TheoryEngineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(72) %sr, ptr noundef %engine, ptr noundef nonnull align 8 dereferenceable(32) %name, i64 noundef %id) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory13OutputChannelE, i64 16), ptr %this, align 8

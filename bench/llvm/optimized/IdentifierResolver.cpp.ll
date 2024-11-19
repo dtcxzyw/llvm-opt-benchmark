@@ -58,7 +58,7 @@ _ZN4llvm15SmallVectorImplIPN5clang9NamedDeclEE5eraseEPKS3_.exit: ; preds = %12, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang18IdentifierResolverC2ERNS_12PreprocessorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(3288) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang18IdentifierResolverC2ERNS_12PreprocessorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(3288) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8

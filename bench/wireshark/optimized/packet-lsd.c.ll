@@ -267,7 +267,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_string_field(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_string_field(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull initializes((0, 4)) %6) unnamed_addr #0 {
   %8 = tail call ptr @proto_registrar_get_nth(i32 noundef %1) #3
   %9 = tail call i32 @tvb_find_line_end(ptr noundef %3, i32 noundef %4, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #3
   store i32 %9, ptr %6, align 4

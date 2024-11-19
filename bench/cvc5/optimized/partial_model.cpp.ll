@@ -285,7 +285,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariablesC2EPNS_7context7ContextENS3_20DeltaComputeCallbackE(ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef %c, ptr nocapture noundef readonly %deltaComputingFunc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariablesC2EPNS_7context7ContextENS3_20DeltaComputeCallbackE(ptr noundef nonnull align 8 dereferenceable(568) initializes((0, 148), (152, 240)) %this, ptr noundef %c, ptr nocapture noundef readonly %deltaComputingFunc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_pool = getelementptr inbounds i8, ptr %this, i64 152
   %d_released = getelementptr inbounds i8, ptr %this, i64 176
@@ -1227,7 +1227,7 @@ lpad:                                             ; preds = %if.end15.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory5arith6linear14ArithVariables6asNodeEj(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate.28") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(568) %this, i32 noundef %a) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal6theory5arith6linear14ArithVariables6asNodeEj(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate.28") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(568) %this, i32 noundef %a) local_unnamed_addr #3 align 2 {
 entry:
   %d_image.i = getelementptr inbounds i8, ptr %this, i64 48
   %conv.i = zext i32 %a to i64
@@ -1265,14 +1265,14 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables12var_iteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables12var_iteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables12var_iteratorC2EPKNS0_8DenseMapINS4_7VarInfoEEEN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %vars, ptr %ci.coerce) unnamed_addr #9 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables12var_iteratorC2EPKNS0_8DenseMapINS4_7VarInfoEEEN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %vars, ptr %ci.coerce) unnamed_addr #9 align 2 {
 entry:
   store ptr %vars, ptr %this, align 8
   %d_wrapped = getelementptr inbounds i8, ptr %this, i64 8
@@ -1551,7 +1551,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables7VarInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables7VarInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(113) initializes((0, 4)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::Rational", align 8
   %0 = load i32, ptr @_ZN4cvc58internal6theory5arith6linear17ARITHVAR_SENTINELE, align 4
@@ -1816,7 +1816,7 @@ _ZN4cvc58internal8RationalD2Ev.exit2:             ; preds = %_ZN4cvc58internal8R
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables7VarInfo10initializeEjNS0_12NodeTemplateILb1EEEb(ptr nocapture noundef nonnull align 8 dereferenceable(113) %this, i32 noundef %v, ptr noundef %n, i1 noundef zeroext %aux) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables7VarInfo10initializeEjNS0_12NodeTemplateILb1EEEb(ptr nocapture noundef nonnull align 8 dereferenceable(113) initializes((0, 4), (112, 113)) %this, i32 noundef %v, ptr noundef %n, i1 noundef zeroext %aux) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca %"class.cvc5::internal::theory::arith::linear::Polynomial", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.28", align 8
@@ -2653,7 +2653,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables7VarInfo12uninitializeEv(ptr nocapture noundef nonnull align 8 dereferenceable(113) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables7VarInfo12uninitializeEv(ptr nocapture noundef nonnull align 8 dereferenceable(113) initializes((0, 4)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate.28", align 8
   %0 = load i32, ptr @_ZN4cvc58internal6theory5arith6linear17ARITHVAR_SENTINELE, align 4
@@ -4136,7 +4136,7 @@ _ZN4cvc58internal13DeltaRationalaSERKS1_.exit:    ; preds = %if.end8, %if.end.i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables15invalidateDeltaEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(568) %this) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables15invalidateDeltaEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(568) initializes((512, 513)) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_deltaIsSafe = getelementptr inbounds i8, ptr %this, i64 512
   store i8 0, ptr %d_deltaIsSafe, align 8
@@ -4578,7 +4578,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables23setLowerBoundConstraintEPNS3_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef %c) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables23setLowerBoundConstraintEPNS3_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(568) initializes((512, 513)) %this, ptr noundef %c) local_unnamed_addr #3 align 2 {
 cond.false.i:
   %ref.tmp.i = alloca %"struct.std::pair.36", align 8
   %prev = alloca %"class.cvc5::internal::theory::arith::linear::BoundsInfo", align 8
@@ -4710,7 +4710,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables23setUpperBoundConstraintEPNS3_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef %c) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables23setUpperBoundConstraintEPNS3_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(568) initializes((512, 513)) %this, ptr noundef %c) local_unnamed_addr #3 align 2 {
 cond.false.i:
   %ref.tmp.i = alloca %"struct.std::pair.36", align 8
   %prev = alloca %"class.cvc5::internal::theory::arith::linear::BoundsInfo", align 8
@@ -6301,7 +6301,7 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables24startQueueingBoundCountsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(568) %this) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables24startQueueingBoundCountsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(568) initializes((328, 329)) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_enqueueingBoundCounts = getelementptr inbounds i8, ptr %this, i64 328
   store i8 1, ptr %d_enqueueingBoundCounts, align 8
@@ -6309,7 +6309,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables23stopQueueingBoundCountsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(568) %this) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables23stopQueueingBoundCountsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(568) initializes((328, 329)) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_enqueueingBoundCounts = getelementptr inbounds i8, ptr %this, i64 328
   store i8 0, ptr %d_enqueueingBoundCounts, align 8
@@ -6326,7 +6326,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables17LowerBoundCleanUpC2EPS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef %pm) unnamed_addr #8 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables17LowerBoundCleanUpC2EPS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %pm) unnamed_addr #8 align 2 {
 entry:
   store ptr %pm, ptr %this, align 8
   ret void
@@ -6341,7 +6341,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables17UpperBoundCleanUpC2EPS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef %pm) unnamed_addr #8 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear14ArithVariables17UpperBoundCleanUpC2EPS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %pm) unnamed_addr #8 align 2 {
 entry:
   store ptr %pm, ptr %this, align 8
   ret void

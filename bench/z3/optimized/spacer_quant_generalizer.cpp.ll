@@ -192,7 +192,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6spacer28lemma_quantifier_generalizerC2ERNS_7contextEb(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(712) %ctx, i1 noundef zeroext %normalize_cube) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6spacer28lemma_quantifier_generalizerC2ERNS_7contextEb(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(712) %ctx, i1 noundef zeroext %normalize_cube) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_ctx.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %ctx, ptr %m_ctx.i, align 8

@@ -28,7 +28,7 @@ $_ZN4llvm3pdb15NativeEnumTypesD0Ev = comdat any
 @_ZN4llvm3pdb15NativeEnumTypesC1ERNS0_13NativeSessionESt6vectorINS_8codeview9TypeIndexESaIS6_EE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN4llvm3pdb15NativeEnumTypesC2ERNS0_13NativeSessionESt6vectorINS_8codeview9TypeIndexESaIS6_EE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb15NativeEnumTypesC2ERNS0_13NativeSessionERNS_8codeview24LazyRandomTypeCollectionESt6vectorINS4_12TypeLeafKindESaIS8_EE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, ptr noundef nonnull align 8 dereferenceable(248) %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb15NativeEnumTypesC2ERNS0_13NativeSessionERNS_8codeview24LazyRandomTypeCollectionESt6vectorINS4_12TypeLeafKindESaIS8_EE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, ptr noundef nonnull align 8 dereferenceable(248) %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::codeview::CVRecord", align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm3pdb15NativeEnumTypesE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -480,7 +480,7 @@ declare noundef zeroext i1 @_ZN4llvm8codeview15isUdtForwardRefENS0_8CVRecordINS0
 declare i32 @_ZN4llvm8codeview15getModifiedTypeERKNS0_8CVRecordINS0_12TypeLeafKindEEE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm3pdb15NativeEnumTypesC2ERNS0_13NativeSessionESt6vectorINS_8codeview9TypeIndexESaIS6_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, ptr nocapture noundef %2) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm3pdb15NativeEnumTypesC2ERNS0_13NativeSessionESt6vectorINS_8codeview9TypeIndexESaIS6_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, ptr nocapture noundef %2) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm3pdb15NativeEnumTypesE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %2, align 8
@@ -567,7 +567,7 @@ define dso_local void @_ZN4llvm3pdb15NativeEnumTypes7getNextEv(ptr dead_on_unwin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb15NativeEnumTypes5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb15NativeEnumTypes5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((32, 36)) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %2, align 8
   ret void

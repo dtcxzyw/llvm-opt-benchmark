@@ -50,7 +50,7 @@ $_ZTV25XRelocationSetInstallTask = comdat any
 @_ZN14XRelocationSetC1EP8XWorkers = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN14XRelocationSetC2EP8XWorkers
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14XRelocationSetC2EP8XWorkers(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN14XRelocationSetC2EP8XWorkers(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN20XForwardingAllocatorC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #8

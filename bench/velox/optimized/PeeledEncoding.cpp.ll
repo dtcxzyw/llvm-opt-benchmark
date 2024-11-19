@@ -2906,7 +2906,7 @@ _ZN8facebook5velox17SelectivityVector10resizeFillEib.exit: ; preds = %for.body.i
 declare void @_ZN8facebook5velox20translateToInnerRowsERKNS0_17SelectivityVectorEPKiPKmRS1_(ptr noundef nonnull align 8 dereferenceable(38), ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(38)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox4exec14PeeledEncoding21setDictionaryWrappingERNS0_13DecodedVectorERKNS0_17SelectivityVectorERNS0_10BaseVectorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(120) %decoded, ptr nocapture noundef nonnull readonly align 8 dereferenceable(38) %rows, ptr noundef nonnull align 8 dereferenceable(99) %firstWrapper) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox4exec14PeeledEncoding21setDictionaryWrappingERNS0_13DecodedVectorERKNS0_17SelectivityVectorERNS0_10BaseVectorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (24, 28)) %this, ptr noundef nonnull align 8 dereferenceable(120) %decoded, ptr nocapture noundef nonnull readonly align 8 dereferenceable(38) %rows, ptr noundef nonnull align 8 dereferenceable(99) %firstWrapper) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::intrusive_ptr", align 8
   %wrapping = alloca %"struct.facebook::velox::DecodedVector::DictionaryWrapping", align 8

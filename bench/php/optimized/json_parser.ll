@@ -637,7 +637,7 @@ define internal noundef i32 @php_json_parser_object_create(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_json_parser_array_create(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #0 {
+define internal noundef i32 @php_json_parser_array_create(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) #0 {
   %3 = tail call ptr @_zend_new_array_0() #12
   store ptr %3, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -939,7 +939,7 @@ define i32 @php_json_parser_error_code(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_json_parser_init_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
+define void @php_json_parser_init_ex(ptr noundef initializes((0, 176)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 0, i64 176, i1 false)
   tail call void @php_json_scanner_init(ptr noundef %0, ptr noundef %2, i64 noundef %3, i32 noundef %4) #12
   %8 = getelementptr inbounds i8, ptr %0, i64 104
@@ -959,7 +959,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare void @php_json_scanner_init(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @php_json_parser_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @php_json_parser_init(ptr noundef initializes((0, 176)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 0, i64 176, i1 false)
   tail call void @php_json_scanner_init(ptr noundef %0, ptr noundef %2, i64 noundef %3, i32 noundef %4) #12
   %7 = getelementptr inbounds i8, ptr %0, i64 104
@@ -996,7 +996,7 @@ declare void @object_init(ptr noundef) local_unnamed_addr #6
 declare i32 @php_json_scan(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @php_json_parser_array_create_validate(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #9 {
+define internal noundef i32 @php_json_parser_array_create_validate(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) #9 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 1, ptr %3, align 8
   ret i32 0
@@ -1008,7 +1008,7 @@ define internal noundef i32 @php_json_parser_array_append_validate(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @php_json_parser_object_create_validate(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #9 {
+define internal noundef i32 @php_json_parser_object_create_validate(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) #9 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 1, ptr %3, align 8
   ret i32 0

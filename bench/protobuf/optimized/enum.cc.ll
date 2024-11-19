@@ -579,7 +579,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler3cpp13EnumGeneratorC2EPKNS0_14EnumDescriptorERKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef %descriptor, ptr noundef nonnull align 8 dereferenceable(206) %options) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler3cpp13EnumGeneratorC2EPKNS0_14EnumDescriptorERKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8)) %this, ptr noundef %descriptor, ptr noundef nonnull align 8 dereferenceable(206) %options) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %descriptor, ptr %this, align 8
   %options_ = getelementptr inbounds i8, ptr %this, i64 8

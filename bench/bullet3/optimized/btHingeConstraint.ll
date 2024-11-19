@@ -1786,7 +1786,7 @@ if.end138:                                        ; preds = %_Z13btPlaneSpace1I9
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17btHingeConstraint9testLimitERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(792) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transB) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN17btHingeConstraint9testLimitERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(792) initializes((752, 756)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transB) local_unnamed_addr #1 align 2 {
 entry:
   %m_rbAFrame.i = getelementptr inbounds i8, ptr %this, i64 576
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %this, i64 592
@@ -2129,7 +2129,7 @@ _ZL25btShortestAngularDistanceff.exit:            ; preds = %if.then.i.i, %if.el
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN33btHingeAccumulatedAngleConstraint24setAccumulatedHingeAngleEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(796) %this, float noundef %accAngle) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN33btHingeAccumulatedAngleConstraint24setAccumulatedHingeAngleEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(796) initializes((792, 796)) %this, float noundef %accAngle) local_unnamed_addr #7 align 2 {
 entry:
   %m_accumulatedAngle = getelementptr inbounds i8, ptr %this, i64 792
   store float %accAngle, ptr %m_accumulatedAngle, align 8
@@ -2137,7 +2137,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN33btHingeAccumulatedAngleConstraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E(ptr noundef nonnull align 8 dereferenceable(796) %this, ptr nocapture noundef %info) unnamed_addr #1 align 2 {
+define dso_local void @_ZN33btHingeAccumulatedAngleConstraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E(ptr noundef nonnull align 8 dereferenceable(796) %this, ptr nocapture noundef initializes((0, 8)) %info) unnamed_addr #1 align 2 {
 entry:
   %m_rbA.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_rbA.i, align 8
@@ -2243,7 +2243,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17btHingeConstraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E(ptr noundef nonnull align 8 dereferenceable(792) %this, ptr nocapture noundef %info) unnamed_addr #1 align 2 {
+define dso_local void @_ZN17btHingeConstraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E(ptr noundef nonnull align 8 dereferenceable(792) %this, ptr nocapture noundef initializes((0, 8)) %info) unnamed_addr #1 align 2 {
 entry:
   %m_useSolveConstraintObsolete = getelementptr inbounds i8, ptr %this, i64 762
   %0 = load i8, ptr %m_useSolveConstraintObsolete, align 2
@@ -2387,7 +2387,7 @@ if.end11:                                         ; preds = %if.end11.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN17btHingeConstraint18getInfo1NonVirtualEPN17btTypedConstraint17btConstraintInfo1E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(792) %this, ptr nocapture noundef writeonly %info) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN17btHingeConstraint18getInfo1NonVirtualEPN17btTypedConstraint17btConstraintInfo1E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(792) %this, ptr nocapture noundef writeonly initializes((0, 8)) %info) local_unnamed_addr #8 align 2 {
 entry:
   %m_useSolveConstraintObsolete = getelementptr inbounds i8, ptr %this, i64 762
   %0 = load i8, ptr %m_useSolveConstraintObsolete, align 2
@@ -3988,7 +3988,7 @@ if.end347:                                        ; preds = %if.end169, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17btHingeConstraint18getInfo2NonVirtualEPN17btTypedConstraint17btConstraintInfo2ERK11btTransformS5_RK9btVector3S8_(ptr noundef nonnull align 8 dereferenceable(792) %this, ptr nocapture noundef readonly %info, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %angVelA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %angVelB) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN17btHingeConstraint18getInfo2NonVirtualEPN17btTypedConstraint17btConstraintInfo2ERK11btTransformS5_RK9btVector3S8_(ptr noundef nonnull align 8 dereferenceable(792) initializes((752, 756)) %this, ptr nocapture noundef readonly %info, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %angVelA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %angVelB) local_unnamed_addr #1 align 2 {
 entry:
   %m_rbAFrame.i.i = getelementptr inbounds i8, ptr %this, i64 576
   %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %this, i64 592
@@ -4093,7 +4093,7 @@ declare noundef float @_ZN17btTypedConstraint14getMotorFactorEfffff(ptr noundef 
 declare float @llvm.fmuladd.f32(float, float, float) #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17btHingeConstraint9setFramesERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(792) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %frameA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %frameB) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN17btHingeConstraint9setFramesERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(792) initializes((576, 704)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %frameA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %frameB) local_unnamed_addr #4 align 2 {
 entry:
   %m_rbAFrame = getelementptr inbounds i8, ptr %this, i64 576
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_rbAFrame, ptr noundef nonnull align 4 dereferenceable(64) %frameA, i64 16, i1 false)

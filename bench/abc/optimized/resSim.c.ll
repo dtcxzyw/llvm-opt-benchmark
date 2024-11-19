@@ -165,7 +165,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define void @Res_SimAdjust(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define void @Res_SimAdjust(ptr nocapture noundef initializes((0, 12)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   tail call void @srand(i32 noundef 2748) #14
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2515,7 +2515,7 @@ define range(i32 0, 2) i32 @Res_SimVerifyValue(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Res_SimPrepare(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Res_SimPrepare(ptr noundef initializes((0, 12)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

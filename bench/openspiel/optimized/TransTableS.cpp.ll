@@ -89,7 +89,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define void @_ZN11TransTableSC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2396) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11TransTableSC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2396) initializes((0, 8), (2256, 2280)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV11TransTableS, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -157,7 +157,7 @@ define void @_ZN11TransTableS12SetConstantsEv(ptr nocapture noundef nonnull read
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN11TransTableSD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(2396) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11TransTableSD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(2396) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV11TransTableS, i64 16), ptr %0, align 8
   tail call void @_ZN11TransTableS15ReturnAllMemoryEv(ptr noundef nonnull align 8 dereferenceable(2396) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2256
@@ -448,7 +448,7 @@ define void @_ZN11TransTableS16SetMemoryDefaultEi(ptr nocapture nonnull readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11TransTableS16SetMemoryMaximumEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2396) %0, i32 noundef %1) unnamed_addr #10 align 2 {
+define void @_ZN11TransTableS16SetMemoryMaximumEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2396) initializes((360, 368)) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = mul nsw i32 %1, 1000000
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -780,7 +780,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #12
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN11TransTableS6InitTTEv(ptr nocapture noundef nonnull align 8 dereferenceable(2396) %0) local_unnamed_addr #14 align 2 {
+define void @_ZN11TransTableS6InitTTEv(ptr nocapture noundef nonnull align 8 dereferenceable(2396) initializes((352, 360), (368, 376), (396, 405), (408, 412), (1336, 1352), (1800, 1808)) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 356
   store i32 170000, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -2312,7 +2312,7 @@ _ZN11TransTableS10AddNodeSetEv.exit110:           ; preds = %181, %196, %198, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN11TransTableS9UpdateSOPEiiccP13nodeCardsType(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2396) %0, i32 noundef %1, i32 noundef %2, i8 noundef signext %3, i8 noundef signext %4, ptr noundef returned %5) local_unnamed_addr #19 align 2 {
+define noundef ptr @_ZN11TransTableS9UpdateSOPEiiccP13nodeCardsType(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2396) %0, i32 noundef %1, i32 noundef %2, i8 noundef signext %3, i8 noundef signext %4, ptr noundef returned initializes((2, 4)) %5) local_unnamed_addr #19 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = sext i8 %8 to i32

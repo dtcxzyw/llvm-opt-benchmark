@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.crtmgr_rsa_verify = private unnamed_addr constant [7 x i32] [i32 20, i32 16, i32 20, i32 20, i32 32, i32 48, i32 64], align 4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @cli_crt_init(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cli_crt_init(ptr nocapture noundef initializes((0, 408)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %0, i8 0, i64 408, i1 false)
   %2 = tail call ptr @BN_new() #10
   %3 = getelementptr inbounds i8, ptr %0, i64 328
@@ -598,7 +598,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @crtmgr_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #7 {
+define void @crtmgr_init(ptr nocapture noundef writeonly initializes((0, 12)) %0) local_unnamed_addr #7 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8

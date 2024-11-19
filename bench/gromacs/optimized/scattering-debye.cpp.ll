@@ -89,7 +89,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 @.str.8 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx22ComputeDebyeScattering16initPairDistHistEv(ptr noundef nonnull align 8 dereferenceable(153) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx22ComputeDebyeScattering16initPairDistHistEv(ptr noundef nonnull align 8 dereferenceable(153) initializes((24, 32)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load double, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -531,7 +531,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit35: ; preds = %_ZNSt6vectorId
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx22ComputeDebyeScattering10getMaxDistEPA3_f(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(153) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 align 2 {
+define void @_ZN3gmx22ComputeDebyeScattering10getMaxDistEPA3_f(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(153) initializes((16, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 align 2 {
   %3 = load float, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load float, ptr %4, align 4
@@ -2265,7 +2265,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEiEvT_S7_RKT0_.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx22ComputeDebyeScattering11setBinWidthEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(153) %0, double noundef %1) local_unnamed_addr #17 align 2 {
+define void @_ZN3gmx22ComputeDebyeScattering11setBinWidthEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(153) initializes((8, 16)) %0, double noundef %1) local_unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store double %1, ptr %3, align 8
   ret void

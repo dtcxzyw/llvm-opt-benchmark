@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.c6c37ec45a5faa45b719745f9ef93ce2.9 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.c6c37ec45a5faa45b719745f9ef93ce2.1, [16 x i8] c"'\00\00\00\00\00\00\005\01\00\003\00\00\00" }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17hb2038c00dcdaa2a7E"(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 dereferenceable(56) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17hb2038c00dcdaa2a7E"(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %6)
   %7 = ptrtoint ptr %2 to i64
@@ -79,7 +79,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer3new17ha3b8d1de7dca7142E(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { i32, i32 }, i64, { i32, [2 x i32] }, { i32, [2 x i32] }, i32, i32, i8, i8, i8, [5 x i8] }) align 8 dereferenceable(80) %0, i1 noundef zeroext %1) unnamed_addr #5 {
+define void @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer3new17ha3b8d1de7dca7142E(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { i32, i32 }, i64, { i32, [2 x i32] }, { i32, [2 x i32] }, i32, i32, i8, i8, i8, [5 x i8] }) align 8 dereferenceable(80) initializes((0, 8), (24, 28), (32, 44), (52, 56), (64, 75)) %0, i1 noundef zeroext %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 52
@@ -218,7 +218,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN9html5ever9tokenizer8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef i8 @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer11finish_none17hfbe9976e7665e0e5E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(80) %0) unnamed_addr #5 {
+define noundef i8 @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer11finish_none17hfbe9976e7665e0e5E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(80) initializes((52, 61)) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 52
   store i64 0, ptr %2, align 4
   %.sroa.43.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 60
@@ -227,7 +227,7 @@ define noundef i8 @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer11finish_no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef i8 @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer10finish_one17h19e869bb5a6967b1E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #5 {
+define noundef i8 @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer10finish_one17h19e869bb5a6967b1E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(80) initializes((52, 61)) %0, i32 noundef %1) unnamed_addr #5 {
   %.sroa.05.0.insert.ext = zext i32 %1 to i64
   %3 = getelementptr inbounds i8, ptr %0, i64 52
   store i64 %.sroa.05.0.insert.ext, ptr %3, align 4

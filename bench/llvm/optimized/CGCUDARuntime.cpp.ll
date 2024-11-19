@@ -39,7 +39,7 @@ define dso_local void @_ZN5clang7CodeGen13CGCUDARuntimeD0Ev(ptr nocapture nonnul
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen13CGCUDARuntime22EmitCUDAKernelCallExprERNS0_15CodeGenFunctionEPKNS_18CUDAKernelCallExprENS0_15ReturnValueSlotE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::RValue") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(6488) %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::ReturnValueSlot") align 8 %4) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang7CodeGen13CGCUDARuntime22EmitCUDAKernelCallExprERNS0_15CodeGenFunctionEPKNS_18CUDAKernelCallExprENS0_15ReturnValueSlotE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::RValue") align 8 initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(6488) %2, ptr noundef %3, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::ReturnValueSlot") align 8 %4) unnamed_addr #3 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.clang::CodeGen::CodeGenFunction::ConditionalEvaluation", align 8

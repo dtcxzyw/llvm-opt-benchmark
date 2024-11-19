@@ -32,7 +32,7 @@ FLAC__bitreader_free.exit:                        ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden void @FLAC__bitreader_free(ptr nocapture noundef %br) local_unnamed_addr #2 {
+define hidden void @FLAC__bitreader_free(ptr nocapture noundef initializes((8, 28), (40, 52), (56, 72)) %br) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %br, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -59,7 +59,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_init(ptr nocapture noundef writeonly %br, ptr noundef %rcb, ptr noundef %cd) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_init(ptr nocapture noundef writeonly initializes((0, 28)) %br, ptr noundef %rcb, ptr noundef %cd) local_unnamed_addr #4 {
 entry:
   %words = getelementptr inbounds i8, ptr %br, i64 12
   %capacity = getelementptr inbounds i8, ptr %br, i64 8
@@ -92,7 +92,7 @@ return:                                           ; preds = %entry, %if.end
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @FLAC__bitreader_clear(ptr nocapture noundef writeonly %br) local_unnamed_addr #6 {
+define hidden noundef i32 @FLAC__bitreader_clear(ptr nocapture noundef writeonly initializes((12, 28), (40, 52)) %br) local_unnamed_addr #6 {
 entry:
   %words = getelementptr inbounds i8, ptr %br, i64 12
   %read_limit_set = getelementptr inbounds i8, ptr %br, i64 40
@@ -106,7 +106,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define hidden void @FLAC__bitreader_set_framesync_location(ptr nocapture noundef %br) local_unnamed_addr #7 {
+define hidden void @FLAC__bitreader_set_framesync_location(ptr nocapture noundef initializes((48, 52)) %br) local_unnamed_addr #7 {
 entry:
   %consumed_words = getelementptr inbounds i8, ptr %br, i64 20
   %0 = load i32, ptr %consumed_words, align 4
@@ -121,7 +121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_rewind_to_after_last_seen_framesync(ptr nocapture noundef %br) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_rewind_to_after_last_seen_framesync(ptr nocapture noundef initializes((20, 28)) %br) local_unnamed_addr #7 {
 entry:
   %last_seen_framesync = getelementptr inbounds i8, ptr %br, i64 48
   %0 = load i32, ptr %last_seen_framesync, align 8
@@ -148,7 +148,7 @@ return:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define hidden void @FLAC__bitreader_reset_read_crc16(ptr nocapture noundef %br, i16 noundef zeroext %seed) local_unnamed_addr #7 {
+define hidden void @FLAC__bitreader_reset_read_crc16(ptr nocapture noundef initializes((28, 40)) %br, i16 noundef zeroext %seed) local_unnamed_addr #7 {
 entry:
   %conv = zext i16 %seed to i32
   %read_crc16 = getelementptr inbounds i8, ptr %br, i64 28
@@ -336,7 +336,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @FLAC__bitreader_set_limit(ptr nocapture noundef writeonly %br, i32 noundef %limit) local_unnamed_addr #6 {
+define hidden void @FLAC__bitreader_set_limit(ptr nocapture noundef writeonly initializes((40, 48)) %br, i32 noundef %limit) local_unnamed_addr #6 {
 entry:
   %read_limit = getelementptr inbounds i8, ptr %br, i64 44
   store i32 %limit, ptr %read_limit, align 4
@@ -346,7 +346,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @FLAC__bitreader_remove_limit(ptr nocapture noundef writeonly %br) local_unnamed_addr #6 {
+define hidden void @FLAC__bitreader_remove_limit(ptr nocapture noundef writeonly initializes((40, 48)) %br) local_unnamed_addr #6 {
 entry:
   %read_limit_set = getelementptr inbounds i8, ptr %br, i64 40
   store i32 0, ptr %read_limit_set, align 8
@@ -364,7 +364,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @FLAC__bitreader_limit_invalidate(ptr nocapture noundef writeonly %br) local_unnamed_addr #6 {
+define hidden void @FLAC__bitreader_limit_invalidate(ptr nocapture noundef writeonly initializes((44, 48)) %br) local_unnamed_addr #6 {
 entry:
   %read_limit = getelementptr inbounds i8, ptr %br, i64 44
   store i32 -1, ptr %read_limit, align 4
@@ -1310,7 +1310,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_unary_unsigned(ptr nocapture noundef %br, ptr nocapture noundef %val) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_unary_unsigned(ptr nocapture noundef %br, ptr nocapture noundef initializes((0, 4)) %val) local_unnamed_addr #8 {
 entry:
   store i32 0, ptr %val, align 4
   %consumed_words = getelementptr inbounds i8, ptr %br, i64 20

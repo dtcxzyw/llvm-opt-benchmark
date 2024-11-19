@@ -943,7 +943,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_110BTVL1_Base8getScaleEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_110BTVL1_Base8setScaleEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(984) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_110BTVL1_Base8setScaleEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(984) initializes((44, 48)) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 %1, ptr %3, align 4
   ret void
@@ -957,7 +957,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_110BTVL1_Base13getIterationsEv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_110BTVL1_Base13setIterationsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(984) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_110BTVL1_Base13setIterationsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(984) initializes((48, 52)) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %3, align 8
   ret void
@@ -971,7 +971,7 @@ define internal noundef double @_ZNK12_GLOBAL__N_110BTVL1_Base6getTauEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_110BTVL1_Base6setTauEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(984) %0, double noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_110BTVL1_Base6setTauEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(984) initializes((56, 64)) %0, double noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store double %1, ptr %3, align 8
   ret void
@@ -985,7 +985,7 @@ define internal noundef double @_ZNK12_GLOBAL__N_110BTVL1_Base9getLambdaEv(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_110BTVL1_Base9setLambdaEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(984) %0, double noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_110BTVL1_Base9setLambdaEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(984) initializes((64, 72)) %0, double noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store double %1, ptr %3, align 8
   ret void
@@ -999,7 +999,7 @@ define internal noundef double @_ZNK12_GLOBAL__N_110BTVL1_Base8getAlphaEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_110BTVL1_Base8setAlphaEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(984) %0, double noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_110BTVL1_Base8setAlphaEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(984) initializes((72, 80)) %0, double noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   store double %1, ptr %3, align 8
   ret void
@@ -1013,7 +1013,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_110BTVL1_Base13getKernelSizeEv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_110BTVL1_Base13setKernelSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(984) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_110BTVL1_Base13setKernelSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(984) initializes((80, 84)) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 %1, ptr %3, align 8
   ret void
@@ -1027,7 +1027,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_110BTVL1_Base17getBlurKernelSizeEv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_110BTVL1_Base17setBlurKernelSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(984) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_110BTVL1_Base17setBlurKernelSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(984) initializes((84, 88)) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 84
   store i32 %1, ptr %3, align 4
   ret void
@@ -1041,7 +1041,7 @@ define internal noundef double @_ZNK12_GLOBAL__N_110BTVL1_Base12getBlurSigmaEv(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_110BTVL1_Base12setBlurSigmaEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(984) %0, double noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_110BTVL1_Base12setBlurSigmaEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(984) initializes((88, 96)) %0, double noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   store double %1, ptr %3, align 8
   ret void
@@ -1055,14 +1055,14 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_110BTVL1_Base21getTemporalAreaRadi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_110BTVL1_Base21setTemporalAreaRadiusEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(984) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_110BTVL1_Base21setTemporalAreaRadiusEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(984) initializes((96, 100)) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_ZNK12_GLOBAL__N_110BTVL1_Base14getOpticalFlowEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.9") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(984) %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_110BTVL1_Base14getOpticalFlowEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.9") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(984) %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -1094,7 +1094,7 @@ _ZN2cv3PtrINS_8superres19DenseOpticalFlowExtEEC2ERKS3_.exit: ; preds = %2, %11, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_110BTVL1_Base14setOpticalFlowERKN2cv3PtrINS1_8superres19DenseOpticalFlowExtEEE(ptr nocapture noundef nonnull align 8 dereferenceable(984) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_110BTVL1_Base14setOpticalFlowERKN2cv3PtrINS1_8superres19DenseOpticalFlowExtEEE(ptr nocapture noundef nonnull align 8 dereferenceable(984) initializes((104, 112)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %3, align 8
@@ -1784,7 +1784,7 @@ _ZN2cv3PtrINS_8superres11FrameSourceEED2Ev.exit:  ; preds = %1, %21, %34, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_110BTVL1_BaseD2Ev(ptr noundef nonnull align 8 dereferenceable(984) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_110BTVL1_BaseD2Ev(ptr noundef nonnull align 8 dereferenceable(984) initializes((0, 16)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 264) (i8, ptr @_ZTVN12_GLOBAL__N_110BTVL1_BaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_110BTVL1_BaseE, i64 296), ptr %2, align 8
@@ -2273,7 +2273,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit30:    ; preds = %_ZNSt6vectorIN2cv3M
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N12_GLOBAL__N_110BTVL1_BaseD1Ev(ptr noundef %0) unnamed_addr #14 align 2 {
+define internal void @_ZThn8_N12_GLOBAL__N_110BTVL1_BaseD1Ev(ptr noundef initializes((-8, 8)) %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN12_GLOBAL__N_110BTVL1_BaseD2Ev(ptr noundef nonnull align 8 dereferenceable(984) %2) #30
   ret void
@@ -6099,7 +6099,7 @@ declare void @_ZNK2cv12_OutputArray5setToERKNS_11_InputArrayES3_(ptr noundef non
 declare void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121BtvRegularizationBodyIfED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_121BtvRegularizationBodyIfED2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_121BtvRegularizationBodyIfEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
@@ -6110,7 +6110,7 @@ define internal void @_ZN12_GLOBAL__N_121BtvRegularizationBodyIfED2Ev(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121BtvRegularizationBodyIfED0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_121BtvRegularizationBodyIfED0Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_121BtvRegularizationBodyIfEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
@@ -6294,7 +6294,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #20
 declare void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121BtvRegularizationBodyIN2cv7Point3_IfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_121BtvRegularizationBodyIN2cv7Point3_IfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_121BtvRegularizationBodyIN2cv7Point3_IfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
@@ -6305,7 +6305,7 @@ define internal void @_ZN12_GLOBAL__N_121BtvRegularizationBodyIN2cv7Point3_IfEEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121BtvRegularizationBodyIN2cv7Point3_IfEEED0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_121BtvRegularizationBodyIN2cv7Point3_IfEEED0Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_121BtvRegularizationBodyIN2cv7Point3_IfEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30

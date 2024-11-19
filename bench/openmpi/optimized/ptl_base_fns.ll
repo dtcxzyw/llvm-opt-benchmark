@@ -1720,7 +1720,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -32, 1) i32 @pmix_ptl_base_setup_connection(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix_ptl_base_setup_connection(ptr noundef %0, ptr noundef initializes((0, 128)) %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_ptl_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %4, 64
   br i1 %or.cond, label %5, label %11

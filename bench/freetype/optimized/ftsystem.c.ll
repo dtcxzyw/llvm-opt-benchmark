@@ -115,7 +115,7 @@ declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_add
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @ft_close_stream_by_munmap(ptr nocapture noundef %0) #0 {
+define internal void @ft_close_stream_by_munmap(ptr nocapture noundef initializes((0, 8)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -139,7 +139,7 @@ declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @ft_close_stream_by_free(ptr nocapture noundef %0) #7 {
+define internal void @ft_close_stream_by_free(ptr nocapture noundef initializes((0, 16)) %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #14

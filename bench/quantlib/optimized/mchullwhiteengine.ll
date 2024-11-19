@@ -217,7 +217,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib6detail23HullWhiteCapFloorPricerC2ERKNS_8CapFloor9argumentsEN5boost10shared_ptrINS_9HullWhiteEEEd(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(280) %args, ptr nocapture noundef %model, double noundef %forwardMeasureTime) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib6detail23HullWhiteCapFloorPricerC2ERKNS_8CapFloor9argumentsEN5boost10shared_ptrINS_9HullWhiteEEEd(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(280) %args, ptr nocapture noundef %model, double noundef %forwardMeasureTime) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %referenceDate = alloca %"class.QuantLib::Date", align 8
   %dayCounter = alloca %"class.QuantLib::DayCounter", align 8

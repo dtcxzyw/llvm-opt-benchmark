@@ -545,7 +545,7 @@ define hidden noundef zeroext i1 @_Z18register_jfr_dcmdsv() local_unnamed_addr #
 declare noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7JfrDCmdC2EP12outputStreambi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #2 align 2 {
+define hidden void @_ZN7JfrDCmdC2EP12outputStreambi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) initializes((0, 17), (24, 37)) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #2 align 2 {
   %5 = zext i1 %2 to i8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
@@ -657,7 +657,7 @@ declare void @_ZN14JfrJavaSupport12call_virtualEP16JfrJavaArgumentsP10JavaThread
 declare void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN7JfrDCmd5parseEP7CmdLinecP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) %0, ptr nocapture noundef readonly %1, i8 noundef signext %2, ptr nocapture readnone %3) unnamed_addr #5 align 2 {
+define hidden void @_ZN7JfrDCmd5parseEP7CmdLinecP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) initializes((24, 32), (36, 37)) %0, ptr nocapture noundef readonly %1, i8 noundef signext %2, ptr nocapture readnone %3) unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1333,7 +1333,7 @@ _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN30JfrConfigureFlightRecorderDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(729) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN30JfrConfigureFlightRecorderDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(729) initializes((0, 17), (24, 91), (104, 155), (168, 219), (232, 283), (296, 347), (376, 427), (456, 507), (536, 587), (616, 667), (672, 723), (728, 729)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8

@@ -57,7 +57,7 @@ $_ZN32pxrInternal_v0_24__pxrReserved__18HgiTextureBindDescC2ERKS0_ = comdat any
 @_ZN32pxrInternal_v0_24__pxrReserved__23HgiResourceBindingsDescC1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__23HgiResourceBindingsDescC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__19HgiResourceBindingsC2ERKNS_23HgiResourceBindingsDescE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__19HgiResourceBindingsC2ERKNS_23HgiResourceBindingsDescE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19HgiResourceBindingsE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %1)
@@ -93,7 +93,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__23HgiResourceBindingsDescC2ERKS0_.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__19HgiResourceBindingsD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #1 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__19HgiResourceBindingsD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19HgiResourceBindingsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23HgiResourceBindingsDescD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #16
@@ -186,7 +186,7 @@ define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HgiBufferBindDescC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(85) %0) unnamed_addr #4 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HgiBufferBindDescC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(85) initializes((0, 72), (76, 85)) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -328,7 +328,7 @@ _ZSteqIN32pxrInternal_v0_24__pxrReserved__9HgiHandleINS0_9HgiBufferEEESaIS3_EEbR
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18HgiTextureBindDescC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(61) %0) unnamed_addr #4 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18HgiTextureBindDescC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(61) initializes((0, 61)) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   store i32 2, ptr %2, align 8

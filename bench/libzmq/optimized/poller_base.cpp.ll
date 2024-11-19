@@ -36,7 +36,7 @@ $_ZTIN3zmq20worker_poller_base_tE = comdat any
 @_ZN3zmq13poller_base_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq13poller_base_tD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq13poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq13poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq13poller_base_tE, i64 16), ptr %this, align 8
   %_load.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -282,7 +282,7 @@ return:                                           ; preds = %if.end9, %if.then6,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq20worker_poller_base_tC2ERKNS_12thread_ctx_tE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(136) %ctx_) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq20worker_poller_base_tC2ERKNS_12thread_ctx_tE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(136) %ctx_) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq13poller_base_tE, i64 16), ptr %this, align 8
   %_clock.i = getelementptr inbounds i8, ptr %this, i64 8

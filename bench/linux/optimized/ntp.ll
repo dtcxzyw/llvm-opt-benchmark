@@ -300,7 +300,7 @@ define dso_local void @ntp_notify_cmos_timer() local_unnamed_addr #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr nocapture noundef initializes((56, 88), (96, 116), (120, 164)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 align 16 {
   %5 = load i32, ptr %0, align 8
   %6 = and i32 %5, 32768
   %7 = icmp eq i32 %6, 0

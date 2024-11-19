@@ -2972,7 +2972,7 @@ _ZNSt6vectorIN5clang3tok9TokenKindESaIS2_EEC2ERKS4_.exit: ; preds = %_ZNSt12_Vec
 declare void @_ZN5clang6format13TokenAnalyzerC2ERKNS0_11EnvironmentERKNS0_11FormatStyleE(ptr noundef nonnull align 8 dereferenceable(4276), ptr noundef nonnull align 8 dereferenceable(148), ptr noundef nonnull align 8 dereferenceable(936)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format32LeftRightQualifierAlignmentFixer7analyzeERNS0_14TokenAnnotatorERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS0_16FormatTokenLexerE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull align 8 dereferenceable(4384) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(3648) %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6format32LeftRightQualifierAlignmentFixer7analyzeERNS0_14TokenAnnotatorERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS0_16FormatTokenLexerE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(4384) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(3648) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::_Rb_tree<clang::tooling::Replacement, clang::tooling::Replacement, std::_Identity<clang::tooling::Replacement>, std::less<clang::tooling::Replacement>>::_Alloc_node", align 8
   %7 = alloca %"class.clang::tooling::Replacements", align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8

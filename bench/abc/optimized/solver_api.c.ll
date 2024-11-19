@@ -178,7 +178,7 @@ cdb_alloc.exit:
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @satoko_default_opts(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
+define void @satoko_default_opts(ptr nocapture noundef writeonly initializes((0, 104)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 104, i1 false)
   store double 8.000000e-01, ptr %2, align 8
@@ -552,7 +552,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @satoko_configure(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define void @satoko_configure(ptr nocapture noundef writeonly initializes((384, 488)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 384
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
   ret void
@@ -2317,7 +2317,7 @@ define void @satoko_assump_pop(ptr noundef %0) local_unnamed_addr #3 {
 declare void @solver_cancel_until(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -128, 128) i32 @satoko_solve(ptr noundef %0) local_unnamed_addr #3 {
+define range(i32 -128, 128) i32 @satoko_solve(ptr noundef initializes((312, 336), (344, 360), (368, 384)) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.timespec, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   %4 = getelementptr inbounds i8, ptr %0, i64 360
@@ -3049,7 +3049,7 @@ satoko_solve_assumptions_limit.exit102:           ; preds = %._crit_edge135, %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @satoko_final_conflict(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
+define i32 @satoko_final_conflict(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 8
@@ -3074,7 +3074,7 @@ define nonnull ptr @satoko_options(ptr noundef readnone %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @satoko_bookmark(ptr nocapture noundef %0) local_unnamed_addr #15 {
+define void @satoko_bookmark(ptr nocapture noundef initializes((248, 256), (260, 268), (485, 486)) %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -3105,7 +3105,7 @@ define void @satoko_bookmark(ptr nocapture noundef %0) local_unnamed_addr #15 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @satoko_unbookmark(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
+define void @satoko_unbookmark(ptr nocapture noundef writeonly initializes((248, 268), (485, 486)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   %3 = getelementptr inbounds i8, ptr %0, i64 485
   store i8 0, ptr %3, align 1
@@ -3942,21 +3942,21 @@ define i32 @satoko_conflictnum(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @satoko_set_stop(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @satoko_set_stop(ptr nocapture noundef writeonly initializes((288, 296)) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 288
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @satoko_set_stop_func(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @satoko_set_stop_func(ptr nocapture noundef writeonly initializes((304, 312)) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 304
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @satoko_set_runid(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @satoko_set_runid(ptr nocapture noundef writeonly initializes((296, 300)) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 296
   store i32 %1, ptr %3, align 8
   ret void

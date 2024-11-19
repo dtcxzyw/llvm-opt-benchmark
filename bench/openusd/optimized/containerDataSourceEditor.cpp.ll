@@ -3873,7 +3873,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdContainerDataSourceEditor29_FinishWithNoInitialContainerEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(264) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdContainerDataSourceEditor29_FinishWithNoInitialContainerEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.0") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(264) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__27HdContainerDataSourceEditor24_NodeContainerDataSourceEED2Ev.exit:
   %2 = alloca %"class.std::shared_ptr.16", align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__27HdContainerDataSourceEditor24_NodeContainerDataSource3NewIJRSt10shared_ptrINS0_5_NodeEEEEES3_IS1_EDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.16") align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %1)
@@ -4120,7 +4120,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__27HdContainerDataSourceEdit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdContainerDataSourceEditor24_NodeContainerDataSourceC2ESt10shared_ptrINS0_5_NodeEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdContainerDataSourceEditor24_NodeContainerDataSourceC2ESt10shared_ptrINS0_5_NodeEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__27HdContainerDataSourceEditor24_NodeContainerDataSourceE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %1, align 8
@@ -4153,7 +4153,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__27HdContainerDataSourceEdit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdContainerDataSourceEditor24_NodeContainerDataSource8GetNamesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.19") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdContainerDataSourceEditor24_NodeContainerDataSource8GetNamesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.19") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8

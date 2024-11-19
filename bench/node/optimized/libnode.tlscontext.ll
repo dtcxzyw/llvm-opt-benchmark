@@ -795,7 +795,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic10TLSContextC2EPNS_11EnvironmentENS0_4SideEPNS0_7SessionERKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef %env, i32 noundef %side, ptr noundef %session, ptr noundef nonnull align 8 dereferenceable(272) %options) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node4quic10TLSContextC2EPNS_11EnvironmentENS0_4SideEPNS0_7SessionERKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 16)) %this, ptr noundef %env, i32 noundef %side, ptr noundef %session, ptr noundef nonnull align 8 dereferenceable(272) %options) unnamed_addr #4 align 2 {
 entry:
   %bio.i52.i = alloca %"class.std::unique_ptr.11", align 8
   %agg.tmp.i.i = alloca %"class.std::shared_ptr.429", align 8
@@ -3176,7 +3176,7 @@ return:                                           ; preds = %entry, %_ZN4node13M
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic10TLSContext7Options4FromEPNS_11EnvironmentEN2v85LocalINS5_5ValueEEE(ptr noalias sret(%"class.v8::Maybe") align 8 %agg.result, ptr noundef %env, ptr %value.coerce) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node4quic10TLSContext7Options4FromEPNS_11EnvironmentEN2v85LocalINS5_5ValueEEE(ptr noalias sret(%"class.v8::Maybe") align 8 initializes((0, 1)) %agg.result, ptr noundef %env, ptr %value.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %params = alloca %"class.v8::Local", align 8
   %options = alloca %"struct.node::quic::TLSContext::Options", align 8

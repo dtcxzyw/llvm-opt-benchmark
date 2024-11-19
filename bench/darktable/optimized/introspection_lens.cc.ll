@@ -2658,7 +2658,7 @@ declare void @dt_iop_copy_image_roi(ptr noundef, ptr noundef, i64 noundef, ptr n
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @tiling_callback(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #9 {
+define void @tiling_callback(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr nocapture noundef writeonly initializes((0, 4), (8, 12), (16, 32)) %4) local_unnamed_addr #9 {
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 16, !tbaa !79
   %8 = load i32, ptr %7, align 8, !tbaa !150
@@ -3737,7 +3737,7 @@ define void @distort_mask(ptr nocapture noundef readnone %0, ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((0, 20)) %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 16, !tbaa !79
   %7 = load i32, ptr %6, align 8, !tbaa !150
@@ -5066,7 +5066,7 @@ define hidden i32 @_get_method(ptr nocapture noundef readonly %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef initializes((216, 220)) %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca [16 x float], align 16
   %6 = alloca [16 x float], align 16
   %7 = alloca [16 x float], align 16
@@ -6906,7 +6906,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 declare i32 @dt_image_is_monochrome(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #11 {
+define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #11 {
   %4 = tail call noalias dereferenceable_or_null(2568) ptr @calloc(i64 noundef 1, i64 noundef 2568) #36
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !79
@@ -6946,7 +6946,7 @@ declare void @_ZN6lfLensD1Ev(ptr noundef nonnull align 8 dereferenceable(116)) u
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define void @init_global(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @init_global(ptr nocapture noundef writeonly initializes((528, 536)) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca [4096 x i8], align 16
   %3 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #36
   %4 = getelementptr inbounds i8, ptr %0, i64 528
@@ -7795,7 +7795,7 @@ declare void @gtk_toggle_button_set_active(ptr noundef, i32 noundef) local_unnam
 declare i64 @gtk_toggle_button_get_type() local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #3 {
+define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.dt_iop_module_section_t, align 8
   %3 = tail call ptr @dt_alloc_aligned(i64 noundef 360)
   %4 = icmp eq ptr %3, null

@@ -1133,7 +1133,7 @@ encode_putfh.exit:                                ; preds = %23, %27
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs4_xdr_dec_read(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal i32 @nfs4_xdr_dec_read(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((48, 52)) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
@@ -1431,7 +1431,7 @@ encode_putfh.exit:                                ; preds = %23, %27
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs4_xdr_dec_write(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define internal i32 @nfs4_xdr_dec_write(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef initializes((48, 52)) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
@@ -1701,7 +1701,7 @@ encode_putfh.exit:                                ; preds = %21, %25
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs4_xdr_dec_commit(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define internal i32 @nfs4_xdr_dec_commit(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef initializes((32, 36)) %2) #0 align 16 {
   %4 = alloca %struct.compound_hdr, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !50
@@ -11622,7 +11622,7 @@ declare i32 @llvm.bswap.i32(i32) #4
 declare dso_local i32 @xdr_stream_pos(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 5) i32 @decode_attr_nlink(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 5) i32 @decode_attr_nlink(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #0 align 16 {
   store i32 1, ptr %2, align 4
   %4 = getelementptr i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -11656,7 +11656,7 @@ define internal fastcc noundef range(i32 -5, 5) i32 @decode_attr_nlink(ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -5, 8388609) i32 @decode_attr_owner(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -5, 8388609) i32 @decode_attr_owner(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef initializes((0, 4)) %3, ptr noundef %4) unnamed_addr #0 align 16 {
   store i32 -2, ptr %3, align 4
   %6 = getelementptr i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
@@ -11728,7 +11728,7 @@ define internal fastcc range(i32 -5, 8388609) i32 @decode_attr_owner(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -5, 16777217) i32 @decode_attr_group(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -5, 16777217) i32 @decode_attr_group(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef initializes((0, 4)) %3, ptr noundef %4) unnamed_addr #0 align 16 {
   store i32 -2, ptr %3, align 4
   %6 = getelementptr i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
@@ -11800,7 +11800,7 @@ define internal fastcc range(i32 -5, 16777217) i32 @decode_attr_group(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 33) i32 @decode_attr_rdev(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 33) i32 @decode_attr_rdev(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #0 align 16 {
   store i32 0, ptr %2, align 4
   %4 = getelementptr i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -11849,7 +11849,7 @@ define internal fastcc noundef range(i32 -5, 33) i32 @decode_attr_rdev(ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 513) i32 @decode_attr_space_used(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 513) i32 @decode_attr_space_used(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) unnamed_addr #0 align 16 {
   store i64 0, ptr %2, align 8
   %4 = getelementptr i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -11883,7 +11883,7 @@ define internal fastcc noundef range(i32 -5, 513) i32 @decode_attr_space_used(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 4097) i32 @decode_attr_time_access(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 4097) i32 @decode_attr_time_access(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = getelementptr i8, ptr %1, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -11927,7 +11927,7 @@ define internal fastcc noundef range(i32 -5, 4097) i32 @decode_attr_time_access(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 16385) i32 @decode_attr_time_metadata(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 16385) i32 @decode_attr_time_metadata(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = getelementptr i8, ptr %1, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -11971,7 +11971,7 @@ define internal fastcc noundef range(i32 -5, 16385) i32 @decode_attr_time_metada
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 8193) i32 @decode_attr_time_modify(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 8193) i32 @decode_attr_time_modify(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = getelementptr i8, ptr %1, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -12015,7 +12015,7 @@ define internal fastcc noundef range(i32 -5, 8193) i32 @decode_attr_time_modify(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 4194305) i32 @decode_attr_mounted_on_fileid(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 4194305) i32 @decode_attr_mounted_on_fileid(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) unnamed_addr #0 align 16 {
   store i64 0, ptr %2, align 8
   %4 = getelementptr i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -12435,7 +12435,7 @@ declare dso_local i32 @nfs_map_group_to_gid(ptr noundef, ptr noundef, i64 nounde
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @encode_compound_hdr(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @encode_compound_hdr(ptr noundef %0, ptr nocapture noundef initializes((32, 36)) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 3
@@ -14157,7 +14157,7 @@ define internal fastcc noundef i32 @decode_open(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @decode_getfh(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @decode_getfh(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 130)) %1) unnamed_addr #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 2 dereferenceable(130) %1, i8 0, i64 130, i1 false)
   %3 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 8) #12
   %4 = icmp eq ptr %3, null
@@ -14728,7 +14728,7 @@ decode_attr_maxfilesize.exit:                     ; preds = %64, %.thread22, %38
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_maxwrite(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_maxwrite(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #0 align 16 {
   store i32 1024, ptr %2, align 4
   %4 = load i32, ptr %1, align 4
   %5 = and i32 %4, 2147483647
@@ -14761,7 +14761,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_maxwrite(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_time_delta(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_time_delta(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = getelementptr i8, ptr %1, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -14883,7 +14883,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_pnfstype(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_layout_blksize(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_layout_blksize(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #0 align 16 {
   store i32 0, ptr %2, align 4
   %4 = getelementptr i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 4
@@ -14911,7 +14911,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_layout_blksize(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_clone_blksize(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_clone_blksize(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #0 align 16 {
   store i32 0, ptr %2, align 4
   %4 = getelementptr i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 4
@@ -14971,7 +14971,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_change_attr_typ
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_xattrsupport(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_xattrsupport(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #0 align 16 {
   store i32 0, ptr %2, align 4
   %4 = getelementptr i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 4
@@ -15307,7 +15307,7 @@ define internal fastcc i32 @decode_restorefh(ptr noundef %0) unnamed_addr #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_files_total(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_files_total(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) unnamed_addr #0 align 16 {
   store i64 0, ptr %2, align 8
   %4 = load i32, ptr %1, align 4
   %5 = zext i32 %4 to i64
@@ -15340,7 +15340,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_files_total(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_space_avail(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_space_avail(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) unnamed_addr #0 align 16 {
   store i64 0, ptr %2, align 8
   %4 = getelementptr i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -15374,7 +15374,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_space_avail(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_space_free(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_space_free(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) unnamed_addr #0 align 16 {
   store i64 0, ptr %2, align 8
   %4 = getelementptr i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -15408,7 +15408,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_space_free(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_space_total(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_space_total(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) unnamed_addr #0 align 16 {
   store i64 0, ptr %2, align 8
   %4 = getelementptr i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -15445,7 +15445,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_space_total(ptr
 declare dso_local void @xdr_terminate_string(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_fh_expire_type(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_fh_expire_type(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #0 align 16 {
   store i32 0, ptr %2, align 4
   %4 = load i32, ptr %1, align 4
   %5 = zext i32 %4 to i64
@@ -15478,7 +15478,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_fh_expire_type(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_link_support(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_link_support(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #0 align 16 {
   store i32 0, ptr %2, align 4
   %4 = load i32, ptr %1, align 4
   %5 = zext i32 %4 to i64
@@ -15511,7 +15511,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_link_support(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_symlink_support(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_symlink_support(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #0 align 16 {
   store i32 0, ptr %2, align 4
   %4 = load i32, ptr %1, align 4
   %5 = zext i32 %4 to i64
@@ -15544,7 +15544,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_symlink_support
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_aclsupport(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_aclsupport(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #0 align 16 {
   store i32 0, ptr %2, align 4
   %4 = load i32, ptr %1, align 4
   %5 = zext i32 %4 to i64
@@ -15577,7 +15577,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_aclsupport(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_case_insensitive(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_case_insensitive(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #0 align 16 {
   store i32 0, ptr %2, align 4
   %4 = load i32, ptr %1, align 4
   %5 = zext i32 %4 to i64
@@ -15610,7 +15610,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_case_insensitiv
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_case_preserving(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @decode_attr_case_preserving(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #0 align 16 {
   store i32 0, ptr %2, align 4
   %4 = load i32, ptr %1, align 4
   %5 = zext i32 %4 to i64

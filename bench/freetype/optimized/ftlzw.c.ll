@@ -342,7 +342,7 @@ ft_lzw_file_done.exit:                            ; preds = %4, %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ft_lzwstate_reset(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 {
+define hidden void @ft_lzwstate_reset(ptr nocapture noundef writeonly initializes((0, 8), (24, 33), (40, 48), (60, 64), (120, 124)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -358,7 +358,7 @@ define hidden void @ft_lzwstate_reset(ptr nocapture noundef writeonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ft_lzwstate_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden void @ft_lzwstate_init(ptr noundef initializes((0, 216)) %0, ptr noundef %1) local_unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 216, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   store ptr %1, ptr %3, align 8
@@ -388,7 +388,7 @@ define hidden void @ft_lzwstate_init(ptr noundef %0, ptr noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ft_lzwstate_done(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @ft_lzwstate_done(ptr noundef initializes((0, 8), (24, 33), (40, 48), (60, 64), (120, 124)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4

@@ -1587,7 +1587,7 @@ declare i32 @_ZNK17QAbstractItemView12editTriggersEv(ptr noundef nonnull align 8
 declare void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8UatFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 align 2 {
+define void @_ZN8UatFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV8UatFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV8UatFrame, i64 456), ptr %2, align 8
@@ -1657,7 +1657,7 @@ define void @_ZThn16_N8UatFrameD0Ev(ptr noundef %0) unnamed_addr #6 align 2 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8UatFrame6setUatEP8epan_uat(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8UatFrame6setUatEP8epan_uat(ptr noundef nonnull align 8 dereferenceable(72) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca { i64, i64 }, align 8
   %5 = alloca { i64, i64 }, align 8

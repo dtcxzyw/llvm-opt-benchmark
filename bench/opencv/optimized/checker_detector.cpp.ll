@@ -474,7 +474,7 @@ _ZNSt12_Vector_baseIN2cv3PtrINS0_3mcc8CCheckerEEESaIS4_EED2Ev.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv3mcc20CCheckerDetectorImplD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3mcc20CCheckerDetectorImplD2Ev(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN2cv3mcc20CCheckerDetectorImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
@@ -587,7 +587,7 @@ _ZNSt6vectorIN2cv3PtrINS0_3mcc8CCheckerEEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_De
 declare void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv3mcc20CCheckerDetectorImplD0Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv3mcc20CCheckerDetectorImplD0Ev(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN2cv3mcc20CCheckerDetectorImplD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
@@ -597,7 +597,7 @@ define hidden void @_ZN2cv3mcc20CCheckerDetectorImplD0Ev(ptr noundef nonnull ali
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv3mcc20CCheckerDetectorImpl6setNetENS_3dnn14dnn4_v202405213NetE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2cv3mcc20CCheckerDetectorImpl6setNetENS_3dnn14dnn4_v202405213NetE(ptr noundef nonnull align 8 dereferenceable(49) initializes((32, 40)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %3, align 8
@@ -2849,7 +2849,7 @@ declare noundef i32 @_ZNK2cv11_InputArray4colsEi(ptr noundef nonnull align 8 der
 declare noundef i32 @_ZNK2cv11_InputArray4rowsEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv3mcc20CCheckerDetectorImpl12prepareImageERKNS_11_InputArrayERKNS_12_OutputArrayES7_RfRKNS_3PtrINS0_18DetectorParametersEEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv3mcc20CCheckerDetectorImpl12prepareImageERKNS_11_InputArrayERKNS_12_OutputArrayES7_RfRKNS_3PtrINS0_18DetectorParametersEEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cv::mcc::CWienerFilter", align 1
   %8 = alloca %"class.cv::Mat", align 8
   %9 = alloca %"class.cv::_InputArray", align 8

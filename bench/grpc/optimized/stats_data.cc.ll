@@ -140,7 +140,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_(ptr noalias nocapture writeonly sret(%"class.grpc_core::Histogram_100000_20") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %right) local_unnamed_addr #1 {
+define void @_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_(ptr noalias nocapture writeonly sret(%"class.grpc_core::Histogram_100000_20") align 8 initializes((0, 160)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %right) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %agg.result, i8 0, i64 160, i1 false)
   br label %for.body
@@ -184,7 +184,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_(ptr noalias nocapture writeonly sret(%"class.grpc_core::Histogram_65536_26") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %right) local_unnamed_addr #1 {
+define void @_ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_(ptr noalias nocapture writeonly sret(%"class.grpc_core::Histogram_65536_26") align 8 initializes((0, 208)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %right) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %agg.result, i8 0, i64 208, i1 false)
   br label %for.body
@@ -228,7 +228,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_(ptr noalias nocapture writeonly sret(%"class.grpc_core::Histogram_16777216_20") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %right) local_unnamed_addr #1 {
+define void @_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_(ptr noalias nocapture writeonly sret(%"class.grpc_core::Histogram_16777216_20") align 8 initializes((0, 160)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %right) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %agg.result, i8 0, i64 160, i1 false)
   br label %for.body
@@ -272,7 +272,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_coremiERKNS_15Histogram_80_10ES2_(ptr noalias nocapture writeonly sret(%"class.grpc_core::Histogram_80_10") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %right) local_unnamed_addr #1 {
+define void @_ZN9grpc_coremiERKNS_15Histogram_80_10ES2_(ptr noalias nocapture writeonly sret(%"class.grpc_core::Histogram_80_10") align 8 initializes((0, 80)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %right) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %agg.result, i8 0, i64 80, i1 false)
   br label %for.body
@@ -316,7 +316,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_(ptr noalias nocapture writeonly sret(%"class.grpc_core::Histogram_10000_20") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %right) local_unnamed_addr #1 {
+define void @_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_(ptr noalias nocapture writeonly sret(%"class.grpc_core::Histogram_10000_20") align 8 initializes((0, 160)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %right) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %agg.result, i8 0, i64 160, i1 false)
   br label %for.body
@@ -524,7 +524,7 @@ return:                                           ; preds = %if.else11, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9grpc_core11GlobalStatsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2344) %this) unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core11GlobalStatsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2344) initializes((0, 2344)) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2344) %this, i8 0, i64 2344, i1 false)
   ret void

@@ -50,7 +50,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [25 x ptr] [ptr @__UNIQUE_ID___addressable_crypto_sha3_final305, ptr @__UNIQUE_ID___addressable_crypto_sha3_init303, ptr @__UNIQUE_ID___addressable_crypto_sha3_update304, ptr @__UNIQUE_ID___addressable_sha3_generic_mod_init307, ptr @__UNIQUE_ID_alias_crypto312, ptr @__UNIQUE_ID_alias_crypto314, ptr @__UNIQUE_ID_alias_crypto316, ptr @__UNIQUE_ID_alias_crypto318, ptr @__UNIQUE_ID_alias_crypto320, ptr @__UNIQUE_ID_alias_crypto322, ptr @__UNIQUE_ID_alias_crypto324, ptr @__UNIQUE_ID_alias_crypto326, ptr @__UNIQUE_ID_alias_userspace311, ptr @__UNIQUE_ID_alias_userspace313, ptr @__UNIQUE_ID_alias_userspace315, ptr @__UNIQUE_ID_alias_userspace317, ptr @__UNIQUE_ID_alias_userspace319, ptr @__UNIQUE_ID_alias_userspace321, ptr @__UNIQUE_ID_alias_userspace323, ptr @__UNIQUE_ID_alias_userspace325, ptr @__UNIQUE_ID_description310, ptr @__UNIQUE_ID_file308, ptr @__UNIQUE_ID_license309, ptr @__exitcall_sha3_generic_mod_fini, ptr @sha3_generic_mod_fini], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @crypto_sha3_init(ptr nocapture noundef %0) #0 align 16 {
+define dso_local noundef i32 @crypto_sha3_init(ptr nocapture noundef initializes((8, 220)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32

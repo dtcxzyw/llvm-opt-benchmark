@@ -240,7 +240,7 @@ _ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi5ELi1ELi0ELi5ELi1EEEEEbRSoRKNS2_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o16VertexIntrinsics15setToOriginImplEv(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(240) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o16VertexIntrinsics15setToOriginImplEv(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(240) initializes((176, 216)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store double 1.000000e+00, ptr %2, align 16, !noalias !10
   %3 = getelementptr inbounds i8, ptr %0, i64 184

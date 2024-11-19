@@ -84,7 +84,7 @@ declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #3
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Ssw_FramesWithClasses(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define ptr @Ssw_FramesWithClasses(ptr nocapture noundef initializes((256, 264)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 260
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 256
@@ -817,7 +817,7 @@ declare ptr @Aig_ObjCreateCo(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @Aig_ManCleanup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Ssw_SpeculativeReduction(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define ptr @Ssw_SpeculativeReduction(ptr nocapture noundef initializes((256, 264)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 260
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 256

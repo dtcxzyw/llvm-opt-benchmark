@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [46 x i8] c"******************* These are contained cuts:\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cut_NodeComputeCuts(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define ptr @Cut_NodeComputeCuts(ptr noundef initializes((92, 96)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.timespec, align 8
   %10 = alloca %struct.timespec, align 8
   %11 = alloca %struct.timespec, align 8

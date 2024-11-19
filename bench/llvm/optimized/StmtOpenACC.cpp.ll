@@ -1661,7 +1661,7 @@ _ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTyp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang20OpenACCLoopConstructC2Ej(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang20OpenACCLoopConstructC2Ej(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 1), (8, 56)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store i8 -117, ptr %0, align 8
   %3 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1
   %4 = trunc i8 %3 to i1
@@ -1705,7 +1705,7 @@ _ZSt29uninitialized_value_constructIPPKN5clang13OpenACCClauseEEvT_S5_.exit: ; pr
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang20OpenACCLoopConstructC2ENS_14SourceLocationES1_S1_N4llvm8ArrayRefIPKNS_13OpenACCClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 %1, i32 %2, i32 %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang20OpenACCLoopConstructC2ENS_14SourceLocationES1_S1_N4llvm8ArrayRefIPKNS_13OpenACCClauseEEEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 1), (8, 56)) %0, i32 %1, i32 %2, i32 %3, ptr nocapture readonly %4, i64 %5, ptr noundef %6) unnamed_addr #0 align 2 {
   store i8 -117, ptr %0, align 8
   %8 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1
   %9 = trunc i8 %8 to i1
@@ -1747,7 +1747,7 @@ _ZSt18uninitialized_copyIPKPKN5clang13OpenACCClauseEPS3_ET0_T_S8_S7_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang20OpenACCLoopConstruct7setLoopEPNS_4StmtE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang20OpenACCLoopConstruct7setLoopEPNS_4StmtE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   ret void

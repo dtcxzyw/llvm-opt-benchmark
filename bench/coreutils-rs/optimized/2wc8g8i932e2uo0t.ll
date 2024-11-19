@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.844ad9c1aa9c9405946a85b3fb6f145d.38.llvm.5112204137213319250 = hidden unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.844ad9c1aa9c9405946a85b3fb6f145d.37.llvm.5112204137213319250, [8 x i8] c"\01\00\00\00\00\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$GT$9to_string17h30cc80c750be000fE.llvm.5112204137213319250"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #0 {
+define hidden void @"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$GT$9to_string17h30cc80c750be000fE.llvm.5112204137213319250"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #0 {
   %.sroa.0 = alloca i32, align 4
   %3 = load i32, ptr %1, align 4, !range !4, !noundef !5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)

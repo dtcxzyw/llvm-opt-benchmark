@@ -30,7 +30,7 @@ declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #0
 declare i32 @php_hash_unserialize(ptr noundef, i64 noundef, ptr noundef) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_MD4InitArgs(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #1 {
+define void @PHP_MD4InitArgs(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture readnone %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 0, ptr %4, align 4
@@ -266,7 +266,7 @@ Encode.exit21:                                    ; preds = %73
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_MD2InitArgs(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #1 {
+define void @PHP_MD2InitArgs(ptr nocapture noundef writeonly initializes((0, 81)) %0, ptr nocapture readnone %1) #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(81) %0, i8 0, i64 81, i1 false)
   ret void
 }

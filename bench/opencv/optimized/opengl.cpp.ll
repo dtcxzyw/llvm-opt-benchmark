@@ -88,7 +88,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_112throw_no_oglEv() unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv3ogl6BufferC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3ogl6BufferC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((0, 28)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
   invoke fastcc void @_ZN12_GLOBAL__N_112throw_no_oglEv() #9
           to label %2 unwind label %3
@@ -179,7 +179,7 @@ _ZN2cv3PtrINS_3ogl6Buffer4ImplEED2Ev.exit:        ; preds = %3, %23, %36, %_ZNSt
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv3ogl6BufferC2Eiiijb(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 zeroext %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3ogl6BufferC2Eiiijb(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((0, 28)) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 zeroext %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
   invoke fastcc void @_ZN12_GLOBAL__N_112throw_no_oglEv() #9
           to label %7 unwind label %8
@@ -268,7 +268,7 @@ _ZN2cv3PtrINS_3ogl6Buffer4ImplEED2Ev.exit:        ; preds = %8, %28, %41, %_ZNSt
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv3ogl6BufferC2ENS_5Size_IiEEijb(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0, i64 %1, i32 %2, i32 %3, i1 zeroext %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3ogl6BufferC2ENS_5Size_IiEEijb(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((0, 28)) %0, i64 %1, i32 %2, i32 %3, i1 zeroext %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
   invoke fastcc void @_ZN12_GLOBAL__N_112throw_no_oglEv() #9
           to label %6 unwind label %7
@@ -357,7 +357,7 @@ _ZN2cv3PtrINS_3ogl6Buffer4ImplEED2Ev.exit:        ; preds = %7, %27, %40, %_ZNSt
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv3ogl6BufferC2ERKNS_11_InputArrayENS1_6TargetEb(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, i1 zeroext %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3ogl6BufferC2ERKNS_11_InputArrayENS1_6TargetEb(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((0, 28)) %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, i1 zeroext %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
   invoke fastcc void @_ZN12_GLOBAL__N_112throw_no_oglEv() #9
           to label %5 unwind label %6
@@ -547,7 +547,7 @@ define noundef i32 @_ZNK2cv3ogl6Buffer5bufIdEv(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv3ogl9Texture2DC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3ogl9Texture2DC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((0, 28)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
   invoke fastcc void @_ZN12_GLOBAL__N_112throw_no_oglEv() #9
           to label %2 unwind label %3
@@ -636,7 +636,7 @@ _ZN2cv3PtrINS_3ogl9Texture2D4ImplEED2Ev.exit:     ; preds = %3, %23, %36, %_ZNSt
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv3ogl9Texture2DC2EiiNS1_6FormatEjb(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 zeroext %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3ogl9Texture2DC2EiiNS1_6FormatEjb(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((0, 28)) %0, i32 %1, i32 %2, i32 %3, i32 %4, i1 zeroext %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
   invoke fastcc void @_ZN12_GLOBAL__N_112throw_no_oglEv() #9
           to label %7 unwind label %8
@@ -725,7 +725,7 @@ _ZN2cv3PtrINS_3ogl9Texture2D4ImplEED2Ev.exit:     ; preds = %8, %28, %41, %_ZNSt
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv3ogl9Texture2DC2ENS_5Size_IiEENS1_6FormatEjb(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0, i64 %1, i32 %2, i32 %3, i1 zeroext %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3ogl9Texture2DC2ENS_5Size_IiEENS1_6FormatEjb(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((0, 28)) %0, i64 %1, i32 %2, i32 %3, i1 zeroext %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
   invoke fastcc void @_ZN12_GLOBAL__N_112throw_no_oglEv() #9
           to label %6 unwind label %7
@@ -814,7 +814,7 @@ _ZN2cv3PtrINS_3ogl9Texture2D4ImplEED2Ev.exit:     ; preds = %7, %27, %40, %_ZNSt
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv3ogl9Texture2DC2ERKNS_11_InputArrayEb(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0, ptr nocapture nonnull readnone align 8 %1, i1 zeroext %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3ogl9Texture2DC2ERKNS_11_InputArrayEb(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((0, 28)) %0, ptr nocapture nonnull readnone align 8 %1, i1 zeroext %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
   invoke fastcc void @_ZN12_GLOBAL__N_112throw_no_oglEv() #9
           to label %4 unwind label %5
@@ -1244,7 +1244,7 @@ declare noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 der
 declare void @_ZNK2cv11_InputArray12getOGlBufferEv(ptr dead_on_unwind writable sret(%"class.cv::ogl::Buffer") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv3ogl6Arrays16resetVertexArrayEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv3ogl6Arrays16resetVertexArrayEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 4)) %0) local_unnamed_addr #6 align 2 {
   store i32 0, ptr %0, align 8
   ret void
 }
@@ -2055,7 +2055,7 @@ define void @_ZN2cv3ogl6Arrays18resetTexCoordArrayEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv3ogl6Arrays7releaseEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv3ogl6Arrays7releaseEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 4)) %0) local_unnamed_addr #6 align 2 {
   store i32 0, ptr %0, align 8
   ret void
 }

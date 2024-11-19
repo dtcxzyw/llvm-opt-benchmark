@@ -183,7 +183,7 @@ declare void @_ZN14JfrTypeManager7destroyEv() local_unnamed_addr #3
 declare void @_ZN21JfrTraceIdLoadBarrier7destroyEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20JfrCheckpointManagerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN20JfrCheckpointManagerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #4 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
@@ -380,7 +380,7 @@ _ZN19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb1EE10initializeEm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN20JfrCheckpointManager10initializeEP14JfrChunkWriter(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN20JfrCheckpointManager10initializeEP14JfrChunkWriter(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   %4 = tail call noundef zeroext i1 @_ZN14JfrTypeManager10initializeEv() #20

@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [4 x i8] c"\\%c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @make_simple_label(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @make_simple_label(ptr noundef %0, ptr nocapture noundef initializes((40, 56)) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.agxbuf, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = getelementptr inbounds i8, ptr %1, i64 48

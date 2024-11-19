@@ -1329,7 +1329,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i8 @dissect_coap_code(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
+define hidden zeroext i8 @dissect_coap_code(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 1)) %4) local_unnamed_addr #1 {
   %6 = load i32, ptr %3, align 4
   %7 = load i32, ptr %2, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef 1, i32 noundef 0) #9
@@ -1627,7 +1627,7 @@ coap_get_opt_uint.exit:                           ; preds = %6, %17, %15, %13, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_coap_opt_block(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #1 {
+define internal fastcc void @dissect_coap_opt_block(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef initializes((16, 24)) %5, ptr nocapture noundef readonly %6) unnamed_addr #1 {
   switch i32 %4, label %coap_get_opt_uint.exit [
     i32 0, label %8
     i32 4, label %18

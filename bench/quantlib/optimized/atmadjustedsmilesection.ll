@@ -372,7 +372,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #9 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23AtmAdjustedSmileSectionC2ERKN5boost10shared_ptrINS_12SmileSectionEEEdb(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %source, double noundef %atm, i1 noundef zeroext %recenterSmile) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23AtmAdjustedSmileSectionC2ERKN5boost10shared_ptrINS_12SmileSectionEEEdb(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 88), (96, 104)) %this, ptr noundef %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %source, double noundef %atm, i1 noundef zeroext %recenterSmile) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %source, align 8, !tbaa !39
   %cmp.not.i = icmp eq ptr %0, null
@@ -671,7 +671,7 @@ _ZN8QuantLib10DayCounterD2Ev.exit:                ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23AtmAdjustedSmileSectionC1ERKN5boost10shared_ptrINS_12SmileSectionEEEdb(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %source, double noundef %atm, i1 noundef zeroext %recenterSmile) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23AtmAdjustedSmileSectionC1ERKN5boost10shared_ptrINS_12SmileSectionEEEdb(ptr noundef nonnull align 8 dereferenceable(104) initializes((104, 112), (120, 124), (128, 136)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %source, double noundef %atm, i1 noundef zeroext %recenterSmile) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 104
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !35

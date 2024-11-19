@@ -656,7 +656,7 @@ declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) loca
 declare i64 @namein(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_publication_options(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc void @parse_publication_options(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef nonnull initializes((0, 1)) %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 1)) %4, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   store i8 0, ptr %2, align 1
   store i8 0, ptr %4, align 1

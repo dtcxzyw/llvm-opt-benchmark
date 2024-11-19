@@ -53,7 +53,7 @@ $_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll = comdat any
 @_ZN5ceres8internal21LowRankInverseHessianC1Eiib = hidden unnamed_addr alias void (ptr, i32, i32, i1), ptr @_ZN5ceres8internal21LowRankInverseHessianC2Eiib
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal21LowRankInverseHessianC2Eiib(ptr noundef nonnull align 8 dereferenceable(120) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal21LowRankInverseHessianC2Eiib(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 17), (24, 56)) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = zext i1 %3 to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal21LowRankInverseHessianE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8

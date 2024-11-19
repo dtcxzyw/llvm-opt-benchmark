@@ -45,7 +45,7 @@ $_ZTVN3zmq14encoder_base_tINS_12ws_encoder_tEEE = comdat any
 @_ZN3zmq12ws_encoder_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq12ws_encoder_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq12ws_encoder_tC2Emb(ptr noundef nonnull align 8 dereferenceable(168) %this, i64 noundef %bufsize_, i1 noundef zeroext %must_mask_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq12ws_encoder_tC2Emb(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 41), (48, 72), (88, 89)) %this, i64 noundef %bufsize_, i1 noundef zeroext %must_mask_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %must_mask_ to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14encoder_base_tINS_12ws_encoder_tEEE, i64 16), ptr %this, align 8
@@ -97,7 +97,7 @@ lpad:                                             ; preds = %_ZN3zmq14encoder_ba
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq12ws_encoder_t13message_readyEv(ptr noundef nonnull align 8 dereferenceable(168) %this) #0 align 2 {
+define void @_ZN3zmq12ws_encoder_t13message_readyEv(ptr noundef nonnull align 8 dereferenceable(168) initializes((72, 74), (160, 161)) %this) #0 align 2 {
 entry:
   %_is_binary = getelementptr inbounds i8, ptr %this, i64 160
   store i8 0, ptr %_is_binary, align 8

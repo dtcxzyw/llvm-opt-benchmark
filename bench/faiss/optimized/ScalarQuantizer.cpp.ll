@@ -758,7 +758,7 @@ _ZN5faiss15ScalarQuantizerD2Ev.exit:              ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss15ScalarQuantizerC2EmNS0_13QuantizerTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss15ScalarQuantizerC2EmNS0_13QuantizerTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 36), (40, 72)) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -879,7 +879,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss15ScalarQuantizerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0) unnamed_addr #2 align 2 {
+define void @_ZN5faiss15ScalarQuantizerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 36), (40, 72)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss15ScalarQuantizerE, i64 16), ptr %0, align 8
@@ -3748,7 +3748,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_str
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -3906,7 +3906,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -4030,7 +4030,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -4147,7 +4147,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -4415,7 +4415,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -4551,7 +4551,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -4765,7 +4765,7 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -4781,7 +4781,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -4836,7 +4836,7 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -4925,7 +4925,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -5032,7 +5032,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -5154,7 +5154,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -5269,7 +5269,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -5535,7 +5535,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -5669,7 +5669,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -5880,7 +5880,7 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -5896,7 +5896,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -5950,7 +5950,7 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -9036,7 +9036,7 @@ _ZN5faiss12_GLOBAL__N_124sel0_InvertedListScannerILi1EEEPNS_19InvertedListScanne
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((112, 120)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -9054,7 +9054,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -9401,7 +9401,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 declare void @_ZNK5faiss19InvertedListScanner19iterate_codes_rangeEPNS_21InvertedListsIteratorEfRNS_16RangeQueryResultERm(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, float noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
@@ -9417,7 +9417,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
@@ -9436,7 +9436,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 declare void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 dereferenceable(24), float noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((112, 120)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -9454,7 +9454,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -9799,7 +9799,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
@@ -9815,7 +9815,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
@@ -9832,7 +9832,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((112, 120)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -9850,7 +9850,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -10248,7 +10248,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
@@ -10264,7 +10264,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
@@ -10281,7 +10281,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((112, 120)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -10299,7 +10299,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -10660,7 +10660,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
@@ -10676,7 +10676,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
@@ -10693,7 +10693,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((112, 120)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -10711,7 +10711,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -11074,7 +11074,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
@@ -11090,7 +11090,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
@@ -11107,7 +11107,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((112, 120)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -11125,7 +11125,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -11470,7 +11470,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
@@ -11486,7 +11486,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
@@ -11503,7 +11503,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -11521,7 +11521,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -11876,7 +11876,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -11892,7 +11892,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -11909,7 +11909,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -11927,7 +11927,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -12284,7 +12284,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -12300,7 +12300,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -12317,7 +12317,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -12335,7 +12335,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -12749,7 +12749,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -12765,7 +12765,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -12782,7 +12782,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -12800,7 +12800,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -13179,7 +13179,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -13195,7 +13195,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -13212,7 +13212,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -13230,7 +13230,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -13611,7 +13611,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -13627,7 +13627,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -13644,7 +13644,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -13662,7 +13662,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -14025,7 +14025,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -14041,7 +14041,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -14058,7 +14058,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -14076,7 +14076,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -14575,7 +14575,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -14591,7 +14591,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -14608,7 +14608,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -14626,7 +14626,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -15127,7 +15127,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -15143,7 +15143,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -15160,7 +15160,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -15178,7 +15178,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -15661,7 +15661,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -15677,7 +15677,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -15694,7 +15694,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((104, 112)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 96
@@ -15712,7 +15712,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
@@ -16085,7 +16085,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -16101,7 +16101,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -16118,7 +16118,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((104, 112)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 96
@@ -16136,7 +16136,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
@@ -16511,7 +16511,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -16527,7 +16527,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -16544,7 +16544,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((104, 112)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 96
@@ -16562,7 +16562,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
@@ -16919,7 +16919,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -16935,7 +16935,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -16952,7 +16952,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -16990,7 +16990,7 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -17443,7 +17443,7 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13q
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -17471,7 +17471,7 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -17500,7 +17500,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12Similar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -17538,7 +17538,7 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -17994,7 +17994,7 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13q
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -18022,7 +18022,7 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -18051,7 +18051,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12Similar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1) unnamed_addr #23 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -18089,7 +18089,7 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -18519,7 +18519,7 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13q
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -18547,7 +18547,7 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -18576,7 +18576,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12Similar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((104, 112)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 96
@@ -18594,7 +18594,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
@@ -18989,7 +18989,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -19005,7 +19005,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -19022,7 +19022,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDire
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((104, 112)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 96
@@ -19040,7 +19040,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
@@ -19438,7 +19438,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -19454,7 +19454,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -19471,7 +19471,7 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDire
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((104, 112)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 96
@@ -19489,7 +19489,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
@@ -19861,7 +19861,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -19877,7 +19877,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -19894,14 +19894,14 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDire
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((8, 16), (100, 104)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -20240,14 +20240,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((8, 16), (100, 104)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -20588,14 +20588,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((8, 16), (100, 104)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -20990,14 +20990,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((8, 16), (100, 104)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -21354,14 +21354,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((8, 16), (100, 104)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -21720,14 +21720,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((8, 16), (100, 104)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -22068,14 +22068,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -22426,14 +22426,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -22786,14 +22786,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -23204,14 +23204,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -23586,14 +23586,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -23970,14 +23970,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -24336,14 +24336,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -24838,14 +24838,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -25342,14 +25342,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -25828,14 +25828,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((8, 16), (92, 96)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
@@ -26204,14 +26204,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((8, 16), (92, 96)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
@@ -26582,14 +26582,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((8, 16), (92, 96)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
@@ -26972,7 +26972,7 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE9set
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -27369,7 +27369,7 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %2, align 8
@@ -27387,7 +27387,7 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %2, align 8
@@ -27436,7 +27436,7 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE9set
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -27836,7 +27836,7 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %2, align 8
@@ -27854,7 +27854,7 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %2, align 8
@@ -27903,7 +27903,7 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE9set
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -28277,7 +28277,7 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %2, align 8
@@ -28295,7 +28295,7 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %2, align 8
@@ -28314,14 +28314,14 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12Similar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((8, 16), (92, 96)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
@@ -28713,14 +28713,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((8, 16), (92, 96)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
@@ -29115,14 +29115,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((8, 16), (92, 96)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88

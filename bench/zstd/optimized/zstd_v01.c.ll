@@ -3683,7 +3683,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i64 @ZSTDv01_resetDCtx(ptr nocapture noundef writeonly %dctx) local_unnamed_addr #3 {
+define noundef i64 @ZSTDv01_resetDCtx(ptr nocapture noundef writeonly initializes((10256, 10280), (10284, 10288)) %dctx) local_unnamed_addr #3 {
 entry:
   %expected = getelementptr inbounds i8, ptr %dctx, i64 10272
   store i64 4, ptr %expected, align 8

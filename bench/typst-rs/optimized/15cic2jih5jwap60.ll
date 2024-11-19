@@ -2034,7 +2034,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source12line_to_byte17hb1010177ae2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN12typst_syntax6source6Source13line_to_range17h5cbfb48723cea6e1E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #6 {
+define void @_ZN12typst_syntax6source6Source13line_to_range17h5cbfb48723cea6e1E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #6 {
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %4, i64 128
   %6 = load i64, ptr %5, align 16, !noalias !4, !noundef !4

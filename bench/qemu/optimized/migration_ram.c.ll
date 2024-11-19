@@ -5473,7 +5473,7 @@ declare i64 @llvm.ctpop.i64(i64) #13
 declare void @qemu_event_set(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @ram_state_init(ptr nocapture noundef %rsp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ram_state_init(ptr nocapture noundef initializes((0, 8)) %rsp) unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(360) ptr @g_try_malloc0_n(i64 noundef 1, i64 noundef 360) #22
   store ptr %call, ptr %rsp, align 8

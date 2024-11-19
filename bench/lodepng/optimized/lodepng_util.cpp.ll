@@ -2084,7 +2084,7 @@ return:                                           ; preds = %entry, %if.then18, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7lodepng22lodepng_icc_curve_initEPNS_15LodePNGICCCurveE(ptr nocapture noundef writeonly %curve) local_unnamed_addr #6 {
+define void @_ZN7lodepng22lodepng_icc_curve_initEPNS_15LodePNGICCCurveE(ptr nocapture noundef writeonly initializes((8, 24)) %curve) local_unnamed_addr #6 {
 entry:
   %lut = getelementptr inbounds i8, ptr %curve, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut, i8 0, i64 16, i1 false)
@@ -2101,7 +2101,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7lodepng16lodepng_icc_initEPNS_10LodePNGICCE(ptr nocapture noundef writeonly %icc) local_unnamed_addr #6 {
+define void @_ZN7lodepng16lodepng_icc_initEPNS_10LodePNGICCE(ptr nocapture noundef writeonly initializes((136, 152), (192, 208), (248, 264)) %icc) local_unnamed_addr #6 {
 entry:
   %lut.i = getelementptr inbounds i8, ptr %icc, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut.i, i8 0, i64 16, i1 false)

@@ -8034,7 +8034,7 @@ Vec_IntFree.exit118:                              ; preds = %Vec_IntFree.exit116
 declare void @Gia_ManFillValue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Of_ManSetDefaultPars(ptr nocapture noundef writeonly %0) local_unnamed_addr #10 {
+define void @Of_ManSetDefaultPars(ptr nocapture noundef writeonly initializes((0, 264)) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %2, i8 0, i64 232, i1 false)
   store i32 4, ptr %0, align 8

@@ -878,7 +878,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lj_opt_narrow_arith(ptr noundef %J, i32 noundef %rb, i32 noundef %rc, ptr noundef %vb, ptr noundef %vc, i32 noundef %op) local_unnamed_addr #0 {
+define hidden i32 @lj_opt_narrow_arith(ptr noundef initializes((184, 190)) %J, i32 noundef %rb, i32 noundef %rc, ptr noundef %vb, ptr noundef %vc, i32 noundef %op) local_unnamed_addr #0 {
 entry:
   %and.i = and i32 %rb, 520093696
   %cmp.i = icmp eq i32 %and.i, 67108864

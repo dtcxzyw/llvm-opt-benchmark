@@ -640,7 +640,7 @@ _ZNSt10unique_ptrIN7rocksdb17FilterBitsBuilderESt14default_deleteIS1_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb29PartitionedFilterBlockBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(664) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb29PartitionedFilterBlockBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(664) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb29PartitionedFilterBlockBuilderE, i64 16), ptr %this, align 8
   %value = getelementptr inbounds i8, ptr %this, i64 608
@@ -1597,7 +1597,7 @@ declare { ptr, i64 } @_ZN7rocksdb12BlockBuilder6FinishEv(ptr noundef nonnull ali
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb28PartitionedFilterBlockReaderC2EPKNS_15BlockBasedTableEONS_13CachableEntryINS_27Block_kFilterPartitionIndexEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %t, ptr nocapture noundef nonnull align 8 dereferenceable(25) %filter_block) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb28PartitionedFilterBlockReaderC2EPKNS_15BlockBasedTableEONS_13CachableEntryINS_27Block_kFilterPartitionIndexEEE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 41), (48, 57)) %this, ptr noundef %t, ptr nocapture noundef nonnull align 8 dereferenceable(25) %filter_block) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb23FilterBlockReaderCommonINS_27Block_kFilterPartitionIndexEEE, i64 16), ptr %this, align 8
   %table_.i = getelementptr inbounds i8, ptr %this, i64 8

@@ -959,7 +959,7 @@ Vec_IntFind.exit:                                 ; preds = %157, %Vec_IntPush.e
 declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Sbd_ManSolve2(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture noundef %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Sbd_ManSolve2(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture noundef %5, ptr nocapture noundef initializes((4, 8)) %6) local_unnamed_addr #0 {
   %8 = alloca [2 x i32], align 4
   %9 = shl nsw i32 %1, 1
   store i32 %9, ptr %8, align 4

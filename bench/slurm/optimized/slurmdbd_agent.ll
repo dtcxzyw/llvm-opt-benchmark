@@ -2188,7 +2188,7 @@ declare i32 @slurmdbd_unpack_list_msg(ptr noundef, i16 noundef zeroext, i32 noun
 declare i32 @slurm_list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_get_return_codes(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1, 1) i32 @_get_return_codes(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
   %3 = tail call fastcc i32 @_unpack_return_code(ptr noundef %0)
   store i32 %3, ptr %1, align 4
   %.not = icmp eq i32 %3, 0

@@ -282,7 +282,7 @@ return:                                           ; preds = %entry, %if.end52, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftp_do(ptr noundef %data, ptr nocapture noundef %done) #0 {
+define internal i32 @ftp_do(ptr noundef %data, ptr nocapture noundef initializes((0, 1)) %done) #0 {
 entry:
   %completed.i.i = alloca i32, align 4
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
@@ -1664,7 +1664,7 @@ return:                                           ; preds = %if.then15.i.i.i, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftp_connect(ptr noundef %data, ptr noundef %done) #0 {
+define internal i32 @ftp_connect(ptr noundef %data, ptr noundef initializes((0, 1)) %done) #0 {
 entry:
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
@@ -1719,7 +1719,7 @@ return:                                           ; preds = %if.then, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftp_multi_statemach(ptr noundef %data, ptr nocapture noundef writeonly %done) #0 {
+define internal i32 @ftp_multi_statemach(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %done) #0 {
 entry:
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
@@ -1734,7 +1734,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftp_doing(ptr noundef %data, ptr nocapture noundef writeonly %dophase_done) #0 {
+define internal i32 @ftp_doing(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %dophase_done) #0 {
 entry:
   %conn1.i = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1.i, align 8
@@ -1986,7 +1986,7 @@ freedirs.exit:                                    ; preds = %if.end11, %for.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_GetFTPResponse(ptr noundef %data, ptr nocapture noundef %nreadp, ptr noundef %ftpcode) local_unnamed_addr #0 {
+define hidden i32 @Curl_GetFTPResponse(ptr noundef %data, ptr nocapture noundef initializes((0, 8)) %nreadp, ptr noundef %ftpcode) local_unnamed_addr #0 {
 entry:
   %code.i = alloca i32, align 4
   %nread = alloca i64, align 8
@@ -6470,7 +6470,7 @@ declare void @Curl_conn_cf_discard_all(ptr noundef, ptr noundef, i32 noundef) lo
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @AllowServerConnect(ptr noundef %data, ptr nocapture noundef nonnull %connected) unnamed_addr #0 {
+define internal fastcc i32 @AllowServerConnect(ptr noundef %data, ptr nocapture noundef nonnull initializes((0, 1)) %connected) unnamed_addr #0 {
 entry:
   %now.i = alloca %struct.curltime, align 8
   store i8 0, ptr %connected, align 1
@@ -6639,7 +6639,7 @@ return:                                           ; preds = %if.end10, %lor.lhs.
 declare { i64, i32 } @Curl_pgrsTime(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 13) i32 @ReceivedServerConnect(ptr noundef %data, ptr nocapture noundef nonnull writeonly %received) unnamed_addr #0 {
+define internal fastcc range(i32 0, 13) i32 @ReceivedServerConnect(ptr noundef %data, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %received) unnamed_addr #0 {
 entry:
   %now.i = alloca %struct.curltime, align 8
   %nread = alloca i64, align 8

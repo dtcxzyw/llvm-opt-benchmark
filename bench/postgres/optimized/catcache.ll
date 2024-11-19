@@ -865,7 +865,7 @@ define dso_local void @InitCatCachePhase2(ptr noundef %0, i1 noundef zeroext %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @CatalogCacheInitializeCache(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @CatalogCacheInitializeCache(ptr noundef initializes((128, 136), (144, 145)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8
   %4 = tail call ptr @table_open(i32 noundef %3, i32 noundef 1) #12
@@ -2962,7 +2962,7 @@ define internal ptr @ResOwnerPrintCatCacheList(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %3) unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8

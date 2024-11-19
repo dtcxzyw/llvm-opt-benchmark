@@ -201,7 +201,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib31FdmShoutLogInnerValueCalculatorC2ENS_6HandleINS_21BlackVolTermStructureEEEN5boost10shared_ptrINS_26EscrowedDividendAdjustmentEEEdNS5_INS_18PlainVanillaPayoffEEENS5_INS_9FdmMesherEEEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, ptr nocapture noundef %blackVolatility, ptr nocapture noundef %escrowedDividendAdj, double noundef %maturity, ptr nocapture noundef %payoff, ptr nocapture noundef %mesher, i64 noundef %direction) unnamed_addr #8 align 2 {
+define void @_ZN8QuantLib31FdmShoutLogInnerValueCalculatorC2ENS_6HandleINS_21BlackVolTermStructureEEEN5boost10shared_ptrINS_26EscrowedDividendAdjustmentEEEdNS5_INS_18PlainVanillaPayoffEEENS5_INS_9FdmMesherEEEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 88)) %this, ptr nocapture noundef %blackVolatility, ptr nocapture noundef %escrowedDividendAdj, double noundef %maturity, ptr nocapture noundef %payoff, ptr nocapture noundef %mesher, i64 noundef %direction) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib31FdmShoutLogInnerValueCalculatorE, i64 16), ptr %this, align 8, !tbaa !14
   %blackVolatility_ = getelementptr inbounds nuw i8, ptr %this, i64 8

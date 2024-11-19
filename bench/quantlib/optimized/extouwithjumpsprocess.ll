@@ -214,7 +214,7 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21ExtOUWithJumpsProcessC2EN5boost10shared_ptrINS_32ExtendedOrnsteinUhlenbeckProcessEEEdddd(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef %process, double noundef %Y0, double noundef %beta, double noundef %jumpIntensity, double noundef %eta) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21ExtOUWithJumpsProcessC2EN5boost10shared_ptrINS_32ExtendedOrnsteinUhlenbeckProcessEEEdddd(ptr noundef nonnull align 8 dereferenceable(240) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %process, double noundef %Y0, double noundef %beta, double noundef %jumpIntensity, double noundef %eta) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 do.body:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -752,7 +752,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK8QuantLib21ExtOUWithJumpsProcess35getExtendedOrnsteinUhlenbeckProcessEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib21ExtOUWithJumpsProcess35getExtendedOrnsteinUhlenbeckProcessEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.6") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ouProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load ptr, ptr %ouProcess_, align 8, !tbaa !50
@@ -798,7 +798,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib21ExtOUWithJumpsProcess13initialValuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib21ExtOUWithJumpsProcess13initialValuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ouProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load ptr, ptr %ouProcess_, align 8, !tbaa !50
@@ -838,7 +838,7 @@ _ZN8QuantLib5ArrayC2ESt16initializer_listIdE.exit: ; preds = %_ZNK5boost10shared
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib21ExtOUWithJumpsProcess5driftEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this, double noundef %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib21ExtOUWithJumpsProcess5driftEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this, double noundef %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ouProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load ptr, ptr %ouProcess_, align 8, !tbaa !50
@@ -885,7 +885,7 @@ _ZN8QuantLib5ArrayC2ESt16initializer_listIdE.exit: ; preds = %_ZNK5boost10shared
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib21ExtOUWithJumpsProcess9diffusionEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this, double noundef %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib21ExtOUWithJumpsProcess9diffusionEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this, double noundef %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znam(i64 noundef 32) #31
   store ptr %call.i, ptr %agg.result, align 8, !tbaa !3
@@ -930,7 +930,7 @@ _ZN8QuantLib6MatrixD2Ev.exit:                     ; preds = %cond.false.i, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib21ExtOUWithJumpsProcess6evolveEdRKNS_5ArrayEdS3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(240) %this, double noundef %t0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0, double noundef %dt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dw) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib21ExtOUWithJumpsProcess6evolveEdRKNS_5ArrayEdS3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(240) %this, double noundef %t0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0, double noundef %dt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dw) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #31
   store ptr %call.i, ptr %agg.result, align 8, !tbaa !3

@@ -29,7 +29,7 @@ $_ZN4llvm24ScheduleHazardRecognizer9EmitNoopsEj = comdat any
 @_ZN4llvm26ScoreboardHazardRecognizerC1EPKNS_18InstrItineraryDataEPKNS_11ScheduleDAGEPKc = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN4llvm26ScoreboardHazardRecognizerC2EPKNS_18InstrItineraryDataEPKNS_11ScheduleDAGEPKc
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm26ScoreboardHazardRecognizerC2EPKNS_18InstrItineraryDataEPKNS_11ScheduleDAGEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm26ScoreboardHazardRecognizerC2EPKNS_18InstrItineraryDataEPKNS_11ScheduleDAGEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 12), (16, 96)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm26ScoreboardHazardRecognizerE, i64 16), ptr %0, align 8
@@ -166,7 +166,7 @@ _ZN4llvm26ScoreboardHazardRecognizer10Scoreboard5resetEm.exit36: ; preds = %12, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm26ScoreboardHazardRecognizer5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm26ScoreboardHazardRecognizer5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((44, 48), (64, 72), (88, 96)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -574,7 +574,7 @@ _ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit: ; preds = %16, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm26ScoreboardHazardRecognizer12AdvanceCycleEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm26ScoreboardHazardRecognizer12AdvanceCycleEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((44, 48)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -613,7 +613,7 @@ define dso_local void @_ZN4llvm26ScoreboardHazardRecognizer12AdvanceCycleEv(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm26ScoreboardHazardRecognizer11RecedeCycleEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm26ScoreboardHazardRecognizer11RecedeCycleEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((44, 48)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48

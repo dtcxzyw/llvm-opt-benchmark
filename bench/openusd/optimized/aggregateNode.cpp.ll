@@ -3978,7 +3978,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit124: ; preds = %406, %402,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNode21_SetAsRecursionMarkerENS_9TfWeakPtrIS0_EE(ptr nocapture noundef nonnull align 8 dereferenceable(185) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNode21_SetAsRecursionMarkerENS_9TfWeakPtrIS0_EE(ptr nocapture noundef nonnull align 8 dereferenceable(185) initializes((72, 80)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load i8, ptr %4, align 8

@@ -543,7 +543,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl20UFormattedNumberImplC2Ev(ptr noundef nonnull align 8 dereferenceable(456) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl20UFormattedNumberImplC2Ev(ptr noundef nonnull align 8 dereferenceable(456) initializes((0, 4), (8, 20), (24, 32)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 1430672896, ptr %this, align 8
   %fFormattedValue.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -610,7 +610,7 @@ lpad3.body:                                       ; preds = %ehcleanup.i, %lpad3
 declare void @_ZN6icu_756number15FormattedNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_756number4impl20UFormattedNumberImplD2Ev(ptr noundef nonnull align 8 dereferenceable(456) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_756number4impl20UFormattedNumberImplD2Ev(ptr noundef nonnull align 8 dereferenceable(456) initializes((32, 40)) %this) unnamed_addr #0 align 2 {
 entry:
   %fImpl = getelementptr inbounds i8, ptr %this, i64 24
   %fData = getelementptr inbounds i8, ptr %this, i64 32

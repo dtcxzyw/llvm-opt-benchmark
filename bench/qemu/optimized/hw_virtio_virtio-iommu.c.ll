@@ -458,7 +458,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_iommu_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly %config_data) #0 {
+define internal void @virtio_iommu_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly initializes((0, 37)) %config_data) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_IOMMU) #13
@@ -2153,7 +2153,7 @@ declare void @qemu_add_machine_init_done_notifier(ptr noundef) local_unnamed_add
 declare void @qemu_register_reset(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_iommu_system_reset(ptr nocapture noundef %opaque) #0 {
+define internal void @virtio_iommu_system_reset(ptr nocapture noundef initializes((572, 573)) %opaque) #0 {
 entry:
   %iter.i = alloca %struct._GHashTableIter, align 8
   %iommu_pci_bus.i = alloca ptr, align 8
@@ -3178,7 +3178,7 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @domain_preload(ptr nocapture noundef writeonly %opaque) #0 {
+define internal noundef i32 @domain_preload(ptr nocapture noundef writeonly initializes((8, 16)) %opaque) #0 {
 entry:
   %call = tail call ptr @g_tree_new_full(ptr noundef nonnull @interval_cmp, ptr noundef null, ptr noundef nonnull @g_free, ptr noundef nonnull @g_free) #13
   %mappings = getelementptr inbounds i8, ptr %opaque, i64 8
@@ -3204,7 +3204,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_iommu_translate(ptr noalias nocapture writeonly sret(%struct.IOMMUTLBEntry) align 8 %agg.result, ptr nocapture noundef readonly %mr, i64 noundef %addr, i32 noundef %flag, i32 %iommu_idx) #0 {
+define internal void @virtio_iommu_translate(ptr noalias nocapture writeonly sret(%struct.IOMMUTLBEntry) align 8 initializes((0, 36)) %agg.result, ptr nocapture noundef readonly %mr, i64 noundef %addr, i32 noundef %flag, i32 %iommu_idx) #0 {
 entry:
   %_now.i.i63 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8

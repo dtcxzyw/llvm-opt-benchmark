@@ -671,7 +671,7 @@ declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) 
 declare ptr @prte_proc_state_to_str(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @send_cons(ptr nocapture noundef writeonly %0) #4 {
+define internal void @send_cons(ptr nocapture noundef writeonly initializes((672, 676), (688, 708)) %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 688
@@ -698,7 +698,7 @@ define internal void @send_des(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @send_req_cons(ptr noundef %0) #0 {
+define internal void @send_req_cons(ptr noundef initializes((288, 300), (304, 368)) %0) #0 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rml_send_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
@@ -759,7 +759,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @recv_cons(ptr nocapture noundef writeonly %0) #4 {
+define internal void @recv_cons(ptr nocapture noundef writeonly initializes((544, 552)) %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 544
   store ptr null, ptr %2, align 8
   ret void
@@ -798,14 +798,14 @@ define internal void @rcv_des(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @prcv_cons(ptr nocapture noundef writeonly %0) #4 {
+define internal void @prcv_cons(ptr nocapture noundef writeonly initializes((424, 432)) %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 424
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @prq_cons(ptr nocapture noundef writeonly %0) #0 {
+define internal void @prq_cons(ptr nocapture noundef writeonly initializes((248, 249)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   store i8 0, ptr %2, align 8
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @prte_rml_posted_recv_t_class, i64 56), align 8
@@ -925,7 +925,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rtcon(ptr noundef %0) #0 {
+define internal void @rtcon(ptr noundef initializes((144, 148), (192, 204), (208, 272)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 -4, ptr %2, align 8
   %3 = load i32, ptr @pmix_class_init_epoch, align 4

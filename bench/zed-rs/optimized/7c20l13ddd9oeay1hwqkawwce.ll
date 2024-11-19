@@ -488,7 +488,7 @@ define hidden void @_ZN12futures_util11async_await6random7shuffle17ha03ae6a14d1e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN12futures_util6stream10try_stream11try_collect24TryCollect$LT$St$C$C$GT$3new17h0533e86ab8fe3ef7E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([88 x i8]) align 8 dereferenceable(88) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN12futures_util6stream10try_stream11try_collect24TryCollect$LT$St$C$C$GT$3new17h0533e86ab8fe3ef7E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([88 x i8]) align 8 dereferenceable(88) initializes((0, 88)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store i64 0, ptr %3, align 8
@@ -500,7 +500,7 @@ define hidden void @"_ZN12futures_util6stream10try_stream11try_collect24TryColle
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2db12open_main_db17hc97ae06f34533bcaE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([224 x i8]) align 8 dereferenceable(224) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 {
+define hidden void @_ZN2db12open_main_db17hc97ae06f34533bcaE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([224 x i8]) align 8 dereferenceable(224) initializes((0, 16), (216, 217)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -510,7 +510,7 @@ define hidden void @_ZN2db12open_main_db17hc97ae06f34533bcaE(ptr dead_on_unwind 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2db16open_fallback_db17h8bb7c2aba52cf7a6E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([184 x i8]) align 8 dereferenceable(184) %0) unnamed_addr #2 {
+define hidden void @_ZN2db16open_fallback_db17h8bb7c2aba52cf7a6E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([184 x i8]) align 8 dereferenceable(184) initializes((176, 177)) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   store i8 0, ptr %2, align 8
   ret void
@@ -7595,7 +7595,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17hf9cd5cae
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h0169a19985ec59c9E(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h0169a19985ec59c9E(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 128)) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 4
   %4 = alloca [8 x i8], align 4
   %5 = alloca [8 x i8], align 4
@@ -7727,7 +7727,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h09c55a32003aa446E(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h09c55a32003aa446E(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 128)) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 4
   %4 = alloca [8 x i8], align 4
   %5 = alloca [8 x i8], align 4
@@ -7859,7 +7859,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h178af605341b958bE(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h178af605341b958bE(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly initializes((0, 160)) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1757)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1760)
@@ -8021,7 +8021,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h19d3313bdcfa5ac8E(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr readonly %.0.val) unnamed_addr #0 {
+define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h19d3313bdcfa5ac8E(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly initializes((0, 352)) %1, ptr readonly %.0.val) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
@@ -8075,7 +8075,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h27ffd40e648936c7E(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #13 {
+define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h27ffd40e648936c7E(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 64)) %1) unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %.val34 = load ptr, ptr %3, align 8, !nonnull !4, !align !432, !noundef !4
   %4 = getelementptr i8, ptr %0, i64 24
@@ -8171,7 +8171,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3030c0787687d4c0E(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr readonly %.0.val) unnamed_addr #0 {
+define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h3030c0787687d4c0E(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly initializes((0, 256)) %1, ptr readonly %.0.val) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
@@ -8225,7 +8225,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h90ddc80444d93b0cE(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h90ddc80444d93b0cE(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 160)) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 4
   %4 = alloca [8 x i8], align 4
   %5 = alloca [8 x i8], align 4
@@ -8357,7 +8357,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h94d8e5d35eedaf29E(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr readonly %.0.val) unnamed_addr #0 {
+define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h94d8e5d35eedaf29E(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly initializes((0, 352)) %1, ptr readonly %.0.val) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
@@ -8411,7 +8411,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h95f3513f3f9d40bdE(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h95f3513f3f9d40bdE(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 160)) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 4
   %4 = alloca [8 x i8], align 4
   %5 = alloca [8 x i8], align 4
@@ -8550,7 +8550,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hab12e0dda8c8d15fE(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hab12e0dda8c8d15fE(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 64)) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8, !nonnull !4, !align !432, !noundef !4
   %4 = getelementptr i8, ptr %0, i64 24
@@ -8617,7 +8617,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hc6482c62cddf7ea5E(ptr noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hc6482c62cddf7ea5E(ptr noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 544)) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 4
   %4 = alloca [16 x i8], align 4
   %5 = alloca [16 x i8], align 4
@@ -8970,7 +8970,7 @@ switch.edge.i.i25:                                ; preds = %64
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd5df30f36b16af3cE(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr %.0.val) unnamed_addr #0 {
+define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hd5df30f36b16af3cE(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 256)) %1, ptr %.0.val) unnamed_addr #0 {
   %3 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr i8, ptr %0, i64 112
@@ -9046,7 +9046,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hda1ce230ed2b9dd6E(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hda1ce230ed2b9dd6E(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly initializes((0, 256)) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 8
   %4 = alloca [16 x i8], align 8
   %5 = alloca [16 x i8], align 8
@@ -9373,7 +9373,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17he158bee30b562cdcE(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17he158bee30b562cdcE(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 96)) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -9769,7 +9769,7 @@ switch.edge.i.i27:                                ; preds = %.thread
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable17h3363c38c62a0497fE(ptr noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef nonnull %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable17h3363c38c62a0497fE(ptr noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef nonnull initializes((0, 128)) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %.val.i = load i64, ptr %4, align 8, !noundef !4
   %5 = getelementptr i8, ptr %0, i64 24
@@ -9994,7 +9994,7 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17ha8ca89ddf80ba218E.ex
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable17h8282014391d99484E(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable17h8282014391d99484E(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef nonnull initializes((0, 128)) %2) unnamed_addr #0 {
   tail call fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17hab12e0dda8c8d15fE(ptr noundef %0, ptr noundef %2)
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = getelementptr inbounds i8, ptr %2, i64 64
@@ -10064,7 +10064,7 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hc6ab8ad27d044efdE.ex
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable17hb23b98653b20abdcE(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef nonnull %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable17hb23b98653b20abdcE(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef nonnull initializes((0, 128)) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr i8, ptr %0, i64 24
   %.val.i = load i64, ptr %4, align 8, !noundef !4
   %5 = getelementptr i8, ptr %0, i64 8
@@ -10223,7 +10223,7 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h21a0b08324685375E.ex
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable17hcb5ad358b3583244E(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef nonnull %2, ptr readonly %.0.val) unnamed_addr #0 {
+define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable17hcb5ad358b3583244E(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef nonnull initializes((0, 64)) %2, ptr readonly %.0.val) unnamed_addr #0 {
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -62511,7 +62511,7 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN5serde3ser12SerializeMap15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17hefe9408f39a8d43dE.llvm.5303619711544356246"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #2 {
+define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17hefe9408f39a8d43dE.llvm.5303619711544356246"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #2 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %2, align 8

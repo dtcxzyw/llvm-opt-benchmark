@@ -897,7 +897,7 @@ entry:
 declare void @_ZN8QuantLib19DoubleBarrierOptionC2ENS_13DoubleBarrier4TypeEdddRKN5boost10shared_ptrINS_17StrikedTypePayoffEEERKNS4_INS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(256), ptr noundef, i32 noundef, double noundef, double noundef, double noundef, ptr noundef nonnull align 1, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25QuantoDoubleBarrierOptionC1ENS_13DoubleBarrier4TypeEdddRKN5boost10shared_ptrINS_17StrikedTypePayoffEEERKNS4_INS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %barrierType, double noundef %barrier_lo, double noundef %barrier_hi, double noundef %rebate, ptr noundef nonnull align 1 %payoff, ptr noundef nonnull align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib25QuantoDoubleBarrierOptionC1ENS_13DoubleBarrier4TypeEdddRKN5boost10shared_ptrINS_17StrikedTypePayoffEEERKNS4_INS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(280) initializes((280, 288), (296, 300), (304, 312)) %this, i32 noundef %barrierType, double noundef %barrier_lo, double noundef %barrier_hi, double noundef %rebate, ptr noundef nonnull align 1 %payoff, ptr noundef nonnull align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 280
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !33

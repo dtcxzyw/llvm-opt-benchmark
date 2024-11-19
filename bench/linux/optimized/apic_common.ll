@@ -55,7 +55,7 @@ define dso_local zeroext i1 @default_check_apicid_used(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @default_ioapic_phys_id_map(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 align 16 {
+define dso_local void @default_ioapic_phys_id_map(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4096)) %1) local_unnamed_addr #3 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(4096) %1, ptr noundef align 8 dereferenceable(4096) %0, i64 4096, i1 false)
   ret void
 }

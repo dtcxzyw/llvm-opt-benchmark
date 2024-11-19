@@ -63,7 +63,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost7process2v26detail14get_last_errorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::system::error_code") align 8 %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost7process2v26detail14get_last_errorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::system::error_code") align 8 initializes((0, 24)) %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__errno_location() #11
   %3 = load i32, ptr %2, align 4, !tbaa !3
   store i64 0, ptr %0, align 8

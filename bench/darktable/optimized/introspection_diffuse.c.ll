@@ -3206,7 +3206,7 @@ declare void @dt_control_log(ptr noundef, ...) local_unnamed_addr #3
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dt_alloc_aligned(i64 noundef 128) #21
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4

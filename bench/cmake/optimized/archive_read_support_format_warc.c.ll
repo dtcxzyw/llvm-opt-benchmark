@@ -1286,7 +1286,7 @@ _warc_rduri.exit.thread:                          ; preds = %314, %342, %378, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_warc_read(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal i32 @_warc_read(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 2072
   %7 = load ptr, ptr %6, align 8

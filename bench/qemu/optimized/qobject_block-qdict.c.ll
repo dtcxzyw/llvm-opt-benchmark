@@ -286,7 +286,7 @@ declare i32 @strstart(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @qdict_del(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qdict_array_split(ptr noundef %src, ptr nocapture noundef %dst) local_unnamed_addr #0 {
+define dso_local void @qdict_array_split(ptr noundef %src, ptr nocapture noundef initializes((0, 8)) %dst) local_unnamed_addr #0 {
 entry:
   %subqdict = alloca ptr, align 8
   %indexstr = alloca [32 x i8], align 16

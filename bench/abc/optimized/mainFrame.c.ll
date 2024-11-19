@@ -1628,7 +1628,7 @@ define void @Abc_FrameRestart(ptr nocapture noundef readnone %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Abc_FrameClearVerifStatus(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define void @Abc_FrameClearVerifStatus(ptr nocapture noundef initializes((400, 408)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 404
   store i32 -1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 400

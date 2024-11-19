@@ -56047,7 +56047,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %5, %21, 
 declare i64 @PyLong_AsUnsignedLong(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZ38test_submodule_sequences_and_iteratorsRN8pybind117module_EEN8SequenceC2Em(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZ38test_submodule_sequences_and_iteratorsRN8pybind117module_EEN8SequenceC2Em(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, i64 noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct._Guard, align 8
   %4 = alloca %"struct.std::type_index", align 8
   %5 = alloca i64, align 8
@@ -99818,7 +99818,7 @@ _ZN8pybind116detail15argument_loaderIJRKNS_6objectEEE9load_argsERNS0_13function_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callINS_4listENS0_9void_typeERZ38test_submodule_sequences_and_iteratorsRNS_7module_EE4$_33EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callINS_4listENS0_9void_typeERZ38test_submodule_sequences_and_iteratorsRNS_7module_EE4$_33EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pybind11::iterator", align 8
   %4 = alloca %"class.pybind11::iterator", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3173)

@@ -699,7 +699,7 @@ _ZSt4fillIPN3gmx11BasicVectorIfEES2_EvT_S4_RKT0_.exit: ; preds = %.lr.ph.i.i.i76
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx12ForceBuffersC2EbNS_13PinningPolicyE(ptr noundef nonnull align 8 dereferenceable(137) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx12ForceBuffersC2EbNS_13PinningPolicyE(ptr noundef nonnull align 8 dereferenceable(137) initializes((0, 4), (8, 40)) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE6resizeEm.exit.i:
   %3 = alloca %"class.gmx::BasicVector", align 4
   %4 = alloca %"class.gmx::Allocator", align 4

@@ -108,7 +108,7 @@ define dso_local void @_ZN5clang18PCHContainerReaderD0Ev(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang21RawPCHContainerWriter27CreatePCHContainerGeneratorERNS_16CompilerInstanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteISD_EESt10shared_ptrINS_9PCHBufferEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 1 %2, ptr nocapture nonnull readnone align 8 %3, ptr nocapture nonnull readnone align 8 %4, ptr nocapture noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #3 align 2 {
+define dso_local void @_ZNK5clang21RawPCHContainerWriter27CreatePCHContainerGeneratorERNS_16CompilerInstanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteISD_EESt10shared_ptrINS_9PCHBufferEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 1 %2, ptr nocapture nonnull readnone align 8 %3, ptr nocapture nonnull readnone align 8 %4, ptr nocapture noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #3 align 2 {
   %8 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12, !noalias !4
   %9 = load i64, ptr %5, align 8, !noalias !4
   store ptr null, ptr %5, align 8, !noalias !4
@@ -164,7 +164,7 @@ define dso_local { ptr, i64 } @_ZNK5clang21RawPCHContainerReader10ExtractPCHEN4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang22PCHContainerOperationsC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang22PCHContainerOperationsC2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 48)) %0) unnamed_addr #3 align 2 {
   %2 = alloca %"class.std::unique_ptr.35", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 20, i1 false)
@@ -562,7 +562,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124RawPCHContainerGeneratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_124RawPCHContainerGeneratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_124RawPCHContainerGeneratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
@@ -656,7 +656,7 @@ _ZNSt10shared_ptrIN5clang9PCHBufferEED2Ev.exit:   ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124RawPCHContainerGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_124RawPCHContainerGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_124RawPCHContainerGeneratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8

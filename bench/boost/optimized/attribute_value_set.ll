@@ -113,7 +113,7 @@ _ZN5boost3log11v2_mt_posix19attribute_value_set14implementation6createERKNS1_13a
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix19attribute_value_setC2ERKS2_RKNS1_13attribute_setES7_m(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4) unnamed_addr #0 align 2 {
+define void @_ZN5boost3log11v2_mt_posix19attribute_value_setC2ERKS2_RKNS1_13attribute_setES7_m(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4) unnamed_addr #0 align 2 {
   %6 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix19attribute_value_set14implementation6createERKS2_RKNS1_13attribute_setES8_m(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4)
   store ptr %6, ptr %0, align 8, !tbaa !21
   ret void
@@ -261,7 +261,7 @@ _ZN5boost3log11v2_mt_posix19attribute_value_set14implementation15copy_nodes_from
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost3log11v2_mt_posix19attribute_value_set9constructERS2_RKNS1_13attribute_setES6_m(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
+define void @_ZN5boost3log11v2_mt_posix19attribute_value_set9constructERS2_RKNS1_13attribute_setES6_m(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = load ptr, ptr %1, align 8, !tbaa !21
   store ptr null, ptr %1, align 8, !tbaa !21
   %7 = load ptr, ptr %2, align 8, !tbaa !23
@@ -275,7 +275,7 @@ define void @_ZN5boost3log11v2_mt_posix19attribute_value_set9constructERS2_RKNS1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix19attribute_value_setC2ERKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 {
+define void @_ZN5boost3log11v2_mt_posix19attribute_value_setC2ERKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !21
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -672,7 +672,7 @@ _ZN5boost3log11v2_mt_posix19attribute_value_set14implementation6freezeEv.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix19attribute_value_set6insertENS1_14attribute_nameERKNS1_15attribute_valueE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
+define void @_ZN5boost3log11v2_mt_posix19attribute_value_set6insertENS1_14attribute_nameERKNS1_15attribute_valueE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair") align 8 initializes((0, 17)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %1, align 8, !tbaa !21
   %6 = tail call { ptr, i8 } @_ZN5boost3log11v2_mt_posix19attribute_value_set14implementation6insertENS1_14attribute_nameERKNS1_15attribute_valueE(ptr noundef nonnull align 8 dereferenceable(320) %5, i32 %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %.fca.0.extract = extractvalue { ptr, i8 } %6, 0

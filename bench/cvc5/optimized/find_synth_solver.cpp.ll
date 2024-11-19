@@ -97,7 +97,7 @@ entry:
 declare void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(576)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal3smt15FindSynthSolver9findSynthENS_5modes15FindSynthTargetERKSt6vectorINS0_8TypeNodeESaIS6_EE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(108) %this, i32 noundef %fst, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %gtns) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal3smt15FindSynthSolver9findSynthENS_5modes15FindSynthTargetERKSt6vectorINS0_8TypeNodeESaIS6_EE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(108) initializes((104, 108)) %this, i32 noundef %fst, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %gtns) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_fst = getelementptr inbounds i8, ptr %this, i64 104
   store i32 %fst, ptr %d_fst, align 8

@@ -6195,7 +6195,7 @@ declare void @_ZN5Yosys13log_cmd_errorEPKcz(ptr noundef, ...) local_unnamed_addr
 declare void @_ZN5Yosys8log_pushEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19qbf_solveEPN5Yosys5RTLIL6ModuleERKNS0_15QbfSolveOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(192) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19qbf_solveEPN5Yosys5RTLIL6ModuleERKNS0_15QbfSolveOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 72), (80, 90)) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(192) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::allocator", align 1
@@ -15741,7 +15741,7 @@ declare noundef zeroext i1 @_ZNK5Yosys5RTLIL10AttrObject18get_bool_attributeERKN
 declare void @_ZN5Yosys5RTLIL10AttrObject18set_bool_attributeERKNS0_8IdStringEb(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS0_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115call_qbf_solverEPN5Yosys5RTLIL6ModuleERKNS0_15QbfSolveOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbi(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 72), (80, 90)) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct.rusage, align 8
   %7 = alloca [2 x i32], align 4
   %8 = alloca %struct.rusage, align 8

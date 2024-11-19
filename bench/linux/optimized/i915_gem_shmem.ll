@@ -818,7 +818,7 @@ declare dso_local zeroext i1 @clear_page_dirty_for_io(ptr noundef) local_unnamed
 declare dso_local void @unlock_page(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__i915_gem_object_release_shmem(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
+define dso_local void @__i915_gem_object_release_shmem(ptr noundef initializes((648, 650)) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 912
@@ -892,7 +892,7 @@ define dso_local void @__i915_gem_object_release_shmem(ptr noundef %0, ptr nound
 declare dso_local void @drm_clflush_sg(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_gem_object_put_pages_shmem(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_gem_object_put_pages_shmem(ptr noundef initializes((648, 650)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 912
@@ -1250,7 +1250,7 @@ define internal void @shmem_put_pages(ptr noundef %0, ptr noundef %1) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @shmem_truncate(ptr nocapture noundef %0) #0 align 16 {
+define internal noundef i32 @shmem_truncate(ptr nocapture noundef initializes((744, 752)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 168

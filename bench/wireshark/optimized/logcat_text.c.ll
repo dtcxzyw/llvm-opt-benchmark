@@ -195,7 +195,7 @@ declare i32 @g_regex_match_simple(ptr noundef, ptr noundef, i32 noundef, i32 nou
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @logcat_text_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @logcat_text_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #11
   store i64 %8, ptr %5, align 8
@@ -540,7 +540,7 @@ define internal range(i32 -9, 1) i32 @logcat_text_brief_dump_can_write_encap(i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @logcat_text_brief_dump_open(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @logcat_text_brief_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #14
   store i32 164, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -867,7 +867,7 @@ define internal range(i32 -9, 1) i32 @logcat_text_process_dump_can_write_encap(i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @logcat_text_process_dump_open(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @logcat_text_process_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #14
   store i32 165, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -898,7 +898,7 @@ define internal range(i32 -9, 1) i32 @logcat_text_tag_dump_can_write_encap(i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @logcat_text_tag_dump_open(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @logcat_text_tag_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #14
   store i32 166, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -929,7 +929,7 @@ define internal range(i32 -9, 1) i32 @logcat_text_thread_dump_can_write_encap(i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @logcat_text_thread_dump_open(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @logcat_text_thread_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #14
   store i32 167, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -960,7 +960,7 @@ define internal range(i32 -9, 1) i32 @logcat_text_time_dump_can_write_encap(i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @logcat_text_time_dump_open(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @logcat_text_time_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #14
   store i32 168, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -991,7 +991,7 @@ define internal range(i32 -9, 1) i32 @logcat_text_threadtime_dump_can_write_enca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @logcat_text_threadtime_dump_open(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @logcat_text_threadtime_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #14
   store i32 169, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1022,7 +1022,7 @@ define internal range(i32 -9, 1) i32 @logcat_text_long_dump_can_write_encap(i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @logcat_text_long_dump_open(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @logcat_text_long_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #14
   store i32 170, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 40

@@ -560,7 +560,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog21bound_relation_pluginC2ERNS_16relation_managerE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(200) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog21bound_relation_pluginC2ERNS_16relation_managerE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 12), (16, 36)) %this, ptr noundef nonnull align 8 dereferenceable(200) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %class.symbol, align 8
   %ref.tmp6 = alloca %class.params_ref, align 8
@@ -3089,7 +3089,7 @@ _ZN8uint_setD2Ev.exit5:                           ; preds = %_ZN8uint_setD2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK7datalog14bound_relation12mk_intersectERKNS_9uint_set2ES3_Rb(ptr noalias nonnull sret(%"struct.datalog::uint_set2") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(16) %t1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %t2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %is_empty) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK7datalog14bound_relation12mk_intersectERKNS_9uint_set2ES3_Rb(ptr noalias nonnull sret(%"struct.datalog::uint_set2") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(16) %t1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %t2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %is_empty) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %is_empty, align 1
   tail call void @_ZN7datalog9uint_set2C2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %t1)
@@ -3536,7 +3536,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNK6vectorIjLb0EjE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK7datalog14bound_relation5mk_eqERK10union_findI22union_find_default_ctxS2_ES5_RKNS_9uint_set2E(ptr noalias sret(%"struct.datalog::uint_set2") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %old_eqs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %new_eqs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %t) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK7datalog14bound_relation5mk_eqERK10union_findI22union_find_default_ctxS2_ES5_RKNS_9uint_set2E(ptr noalias sret(%"struct.datalog::uint_set2") align 8 initializes((0, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %old_eqs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %new_eqs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %t) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i97 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i98 = alloca %"class.std::allocator", align 1

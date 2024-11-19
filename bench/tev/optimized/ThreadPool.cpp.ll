@@ -87,7 +87,7 @@ $_ZTVNSt3__117bad_function_callE = comdat any
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev10ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev10ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 64), (72, 256)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef i32 @_ZNSt3__16thread20hardware_concurrencyEv() #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev10ThreadPoolE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -123,7 +123,7 @@ _ZN3tev10ThreadPoolC2Emb.exit:                    ; preds = %1
 declare noundef i32 @_ZNSt3__16thread20hardware_concurrencyEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev10ThreadPoolC2Emb(ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev10ThreadPoolC2Emb(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 64), (72, 256)) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev10ThreadPoolE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72
@@ -429,7 +429,7 @@ _ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE16__destroy_vectorclB8ne190000Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3tev10ThreadPoolD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev10ThreadPoolD2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__1::unique_lock", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tev10ThreadPoolE, i64 16), ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -690,7 +690,7 @@ define dso_local void @_ZN3tev10ThreadPool15shutdownThreadsEm(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3tev10ThreadPoolD0Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN3tev10ThreadPoolD0Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN3tev10ThreadPoolD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void

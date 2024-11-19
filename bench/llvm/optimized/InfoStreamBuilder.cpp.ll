@@ -43,7 +43,7 @@ $_ZTVN4llvm18BinaryStreamWriterE = comdat any
 @_ZN4llvm3pdb17InfoStreamBuilderC1ERNS_3msf10MSFBuilderERNS0_14NamedStreamMapE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN4llvm3pdb17InfoStreamBuilderC2ERNS_3msf10MSFBuilderERNS0_14NamedStreamMapE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb17InfoStreamBuilderC2ERNS_3msf10MSFBuilderERNS0_14NamedStreamMapE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(120) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb17InfoStreamBuilderC2ERNS_3msf10MSFBuilderERNS0_14NamedStreamMapE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 40), (44, 45), (48, 65), (72, 80)) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(120) %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -66,7 +66,7 @@ define dso_local void @_ZN4llvm3pdb17InfoStreamBuilderC2ERNS_3msf10MSFBuilderERN
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb17InfoStreamBuilder10setVersionENS0_14PdbRaw_ImplVerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb17InfoStreamBuilder10setVersionENS0_14PdbRaw_ImplVerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %1, ptr %3, align 8
   ret void
@@ -149,7 +149,7 @@ _ZNSt6vectorIN4llvm3pdb17PdbRaw_FeatureSigESaIS2_EE9push_backERKS2_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb17InfoStreamBuilder24setHashPDBContentsToGUIDEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb17InfoStreamBuilder24setHashPDBContentsToGUIDEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((64, 65)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 %3, ptr %4, align 8
@@ -157,14 +157,14 @@ define dso_local void @_ZN4llvm3pdb17InfoStreamBuilder24setHashPDBContentsToGUID
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb17InfoStreamBuilder6setAgeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb17InfoStreamBuilder6setAgeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((36, 40)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb17InfoStreamBuilder12setSignatureEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb17InfoStreamBuilder12setSignatureEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((40, 48)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.ext, 4294967296
@@ -176,7 +176,7 @@ define dso_local void @_ZN4llvm3pdb17InfoStreamBuilder12setSignatureEj(ptr nocap
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb17InfoStreamBuilder7setGuidENS_8codeview4GUIDE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i64 %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb17InfoStreamBuilder7setGuidENS_8codeview4GUIDE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((48, 64)) %0, i64 %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %1, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56

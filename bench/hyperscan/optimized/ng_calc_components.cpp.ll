@@ -388,7 +388,7 @@ return:                                           ; preds = %for.inc28, %for.bod
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214calcComponentsESt10unique_ptrINS_8NGHolderESt14default_deleteIS1_EERKNS_4GreyE(ptr noalias nonnull sret(%"class.std::deque") align 8 %agg.result, ptr noundef %g, ptr nocapture noundef nonnull readonly align 8 dereferenceable(292) %grey) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214calcComponentsESt10unique_ptrINS_8NGHolderESt14default_deleteIS1_EERKNS_4GreyE(ptr noalias nonnull sret(%"class.std::deque") align 8 initializes((0, 80)) %agg.result, ptr noundef %g, ptr nocapture noundef nonnull readonly align 8 dereferenceable(292) %grey) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %shell_comp = alloca i8, align 1
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
@@ -653,7 +653,7 @@ ehcleanup:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L19splitIntoComponentsESt10unique_ptrINS_8NGHolderESt14default_deleteIS1_EERSt5dequeIS4_SaIS4_EERKNS_5depthESB_Pb(ptr noundef nonnull %g, ptr noundef nonnull align 8 dereferenceable(80) %comps, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %max_head_depth, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %max_tail_depth, ptr nocapture noundef nonnull writeonly %shell_comp) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L19splitIntoComponentsESt10unique_ptrINS_8NGHolderESt14default_deleteIS1_EERSt5dequeIS4_SaIS4_EERKNS_5depthESB_Pb(ptr noundef nonnull %g, ptr noundef nonnull align 8 dereferenceable(80) %comps, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %max_head_depth, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %max_tail_depth, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %shell_comp) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i520 = alloca %"struct.std::_Deque_iterator.74", align 8
   %agg.tmp2.i521 = alloca %"class.ue2::flat_detail::iter_wrapper", align 8

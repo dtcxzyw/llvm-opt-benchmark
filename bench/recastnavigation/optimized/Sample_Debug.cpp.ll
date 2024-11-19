@@ -161,7 +161,7 @@ declare void @_ZN6FileIOD1Ev(ptr noundef nonnull align 8 dereferenceable(20)) un
 declare void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12Sample_DebugD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12Sample_DebugD2Ev(ptr noundef nonnull align 8 dereferenceable(276) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV12Sample_Debug, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
@@ -211,7 +211,7 @@ declare void @_Z16rcFreeContourSetP12rcContourSet(ptr noundef) local_unnamed_add
 declare void @_Z14rcFreePolyMeshP10rcPolyMesh(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12Sample_DebugD0Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12Sample_DebugD0Ev(ptr noundef nonnull align 8 dereferenceable(276) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV12Sample_Debug, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
@@ -346,7 +346,7 @@ define dso_local void @_ZN12Sample_Debug19handleRenderOverlayEPdS0_Pi(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN12Sample_Debug17handleMeshChangedEP9InputGeom(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(276) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define dso_local void @_ZN12Sample_Debug17handleMeshChangedEP9InputGeom(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(276) initializes((8, 16)) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void

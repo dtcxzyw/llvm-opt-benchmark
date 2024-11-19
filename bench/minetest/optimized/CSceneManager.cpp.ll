@@ -179,7 +179,7 @@ $_ZTVN3irr17IReferenceCountedE = comdat any
 @.str.4 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene13CSceneManagerC2EPNS_5video12IVideoDriverEPNS_3gui14ICursorControlEPNS0_10IMeshCacheE(ptr noundef nonnull align 8 dereferenceable(572) %this, ptr nocapture noundef readonly %vtt, ptr noundef %driver, ptr noundef %cursorControl, ptr noundef %cache) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene13CSceneManagerC2EPNS_5video12IVideoDriverEPNS_3gui14ICursorControlEPNS0_10IMeshCacheE(ptr noundef nonnull align 8 dereferenceable(572) initializes((0, 16), (48, 49), (56, 156)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %driver, ptr noundef %cursorControl, ptr noundef %cache) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -619,7 +619,7 @@ declare void @_ZN3irr5scene18COBJMeshFileLoaderC1EPNS0_13ISceneManagerE(ptr noun
 declare void @_ZN3irr5scene18CB3DMeshFileLoaderC1EPNS0_13ISceneManagerE(ptr noundef nonnull align 8 dereferenceable(223), ptr noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene13CSceneManagerC1EPNS_5video12IVideoDriverEPNS_3gui14ICursorControlEPNS0_10IMeshCacheE(ptr noundef nonnull align 8 dereferenceable(572) %this, ptr noundef %driver, ptr noundef %cursorControl, ptr noundef %cache) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene13CSceneManagerC1EPNS_5video12IVideoDriverEPNS_3gui14ICursorControlEPNS0_10IMeshCacheE(ptr noundef nonnull align 8 dereferenceable(572) initializes((0, 16), (48, 49), (56, 156), (576, 596)) %this, ptr noundef %driver, ptr noundef %cursorControl, ptr noundef %cache) unnamed_addr #0 align 2 {
 _ZN3irr5scene10ISceneNode22updateAbsolutePositionEv.exit:
   %ref.tmp6.i = alloca %"class.irr::core::CMatrix4", align 4
   %0 = getelementptr inbounds i8, ptr %this, i64 576
@@ -1020,7 +1020,7 @@ _ZN3irr4core5arrayIPNS_5scene11IMeshLoaderEE9push_backEOS4_.exit132: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene13CSceneManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(572) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene13CSceneManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(572) initializes((0, 16)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -1538,14 +1538,14 @@ return:                                           ; preds = %_ZN3irr4core5arrayI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene13CSceneManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(572) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene13CSceneManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(572) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr5scene13CSceneManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(572) %this, ptr noundef nonnull @_ZTTN3irr5scene13CSceneManagerE) #22
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn8_N3irr5scene13CSceneManagerD1Ev(ptr noundef %this) unnamed_addr #5 align 2 {
+define void @_ZThn8_N3irr5scene13CSceneManagerD1Ev(ptr noundef initializes((-8, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN3irr5scene13CSceneManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(572) %0, ptr noundef nonnull @_ZTTN3irr5scene13CSceneManagerE) #22
@@ -1564,7 +1564,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene13CSceneManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(572) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene13CSceneManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(572) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr5scene13CSceneManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(572) %this, ptr noundef nonnull @_ZTTN3irr5scene13CSceneManagerE) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
@@ -1575,7 +1575,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn8_N3irr5scene13CSceneManagerD0Ev(ptr noundef %this) unnamed_addr #5 align 2 {
+define void @_ZThn8_N3irr5scene13CSceneManagerD0Ev(ptr noundef initializes((-8, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN3irr5scene13CSceneManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(572) %0, ptr noundef nonnull @_ZTTN3irr5scene13CSceneManagerE) #22
@@ -4169,7 +4169,7 @@ sw.epilog:                                        ; preds = %for.body, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene13CSceneManager35clearAllRegisteredNodesForRenderingEv(ptr nocapture noundef nonnull align 8 dereferenceable(572) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene13CSceneManager35clearAllRegisteredNodesForRenderingEv(ptr nocapture noundef nonnull align 8 dereferenceable(572) initializes((264, 281), (296, 313), (328, 345), (360, 377), (392, 409), (424, 441)) %this) unnamed_addr #0 align 2 {
 entry:
   %CameraList = getelementptr inbounds i8, ptr %this, i64 256
   %0 = load ptr, ptr %CameraList, align 8, !tbaa !92
@@ -5953,7 +5953,7 @@ if.end:                                           ; preds = %for.body.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5scene13CSceneManager15setAmbientLightERKNS_5video7SColorfE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(572) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %ambientColor) unnamed_addr #12 align 2 {
+define void @_ZN3irr5scene13CSceneManager15setAmbientLightERKNS_5video7SColorfE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(572) initializes((536, 552)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %ambientColor) unnamed_addr #12 align 2 {
 entry:
   %AmbientLight = getelementptr inbounds i8, ptr %this, i64 536
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %AmbientLight, ptr noundef nonnull align 4 dereferenceable(16) %ambientColor, i64 16, i1 false), !tbaa.struct !123

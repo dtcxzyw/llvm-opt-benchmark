@@ -80,7 +80,7 @@ target triple = "x86_64-pc-linux-gnu"
 @mca_btl_tcp_module = external local_unnamed_addr global %struct.mca_btl_tcp_module_t, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal void @mca_btl_tcp_frag_eager_constructor(ptr nocapture noundef writeonly %0) #0 {
+define internal void @mca_btl_tcp_frag_eager_constructor(ptr nocapture noundef writeonly initializes((256, 264), (272, 280)) %0) #0 {
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_module, i64 8), align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   store i64 %2, ptr %3, align 8
@@ -90,7 +90,7 @@ define internal void @mca_btl_tcp_frag_eager_constructor(ptr nocapture noundef w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal void @mca_btl_tcp_frag_max_constructor(ptr nocapture noundef writeonly %0) #0 {
+define internal void @mca_btl_tcp_frag_max_constructor(ptr nocapture noundef writeonly initializes((256, 264), (272, 280)) %0) #0 {
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_module, i64 24), align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   store i64 %2, ptr %3, align 8
@@ -100,7 +100,7 @@ define internal void @mca_btl_tcp_frag_max_constructor(ptr nocapture noundef wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @mca_btl_tcp_frag_user_constructor(ptr nocapture noundef writeonly %0) #1 {
+define internal void @mca_btl_tcp_frag_user_constructor(ptr nocapture noundef writeonly initializes((256, 264), (272, 280)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 272

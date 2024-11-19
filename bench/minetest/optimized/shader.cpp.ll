@@ -2112,7 +2112,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12ShaderSourceC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12ShaderSourceC2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.else.i:
   store ptr getelementptr inbounds (i8, ptr @_ZTV12ShaderSource, i64 16), ptr %this, align 8, !tbaa !58
   %m_main_thread = getelementptr inbounds i8, ptr %this, i64 8
@@ -2316,7 +2316,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12ShaderSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12ShaderSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV12ShaderSource, i64 16), ptr %this, align 8, !tbaa !58
   %m_shaderinfo_cache_mutex = getelementptr inbounds i8, ptr %this, i64 96
@@ -2579,7 +2579,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12ShaderSourceD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #10 align 2 {
+define dso_local void @_ZN12ShaderSourceD0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #10 align 2 {
 entry:
   tail call void @_ZN12ShaderSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) #29
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -3149,7 +3149,7 @@ return:                                           ; preds = %_ZSteqIcEN9__gnu_cx
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN12ShaderSource14generateShaderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE12MaterialType12NodeDrawType(ptr dead_on_unwind noalias writable sret(%struct.ShaderInfo) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %material_type, i8 noundef zeroext %drawtype) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12ShaderSource14generateShaderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE12MaterialType12NodeDrawType(ptr dead_on_unwind noalias writable sret(%struct.ShaderInfo) align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %material_type, i8 noundef zeroext %drawtype) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i1897 = alloca i64, align 8
   %__dnew.i.i1879 = alloca i64, align 8

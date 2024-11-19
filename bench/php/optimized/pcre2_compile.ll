@@ -239,7 +239,7 @@ define void @php_pcre2_code_free(ptr noundef %0) local_unnamed_addr #0 {
 declare void @_pcre2_jit_free_8(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -2147483647, 32769) i32 @_pcre2_check_escape_8(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #3 {
+define hidden range(i32 -2147483647, 32769) i32 @_pcre2_check_escape_8(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef initializes((0, 4)) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #3 {
   %9 = ptrtoint ptr %1 to i64
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
@@ -1454,7 +1454,7 @@ read_number.exit.thread:                          ; preds = %303, %294, %296, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @read_repeat_counts(ptr nocapture noundef nonnull %0, ptr noundef readnone %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @read_repeat_counts(ptr nocapture noundef nonnull %0, ptr noundef readnone %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) unnamed_addr #4 {
   %6 = ptrtoint ptr %1 to i64
   %7 = load ptr, ptr %0, align 8
   store i32 0, ptr %4, align 4
@@ -1831,7 +1831,7 @@ read_number.exit158:                              ; preds = %.critedge22, %.preh
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @read_number(ptr nocapture noundef nonnull %0, ptr noundef readnone %1, i32 noundef %2, i32 noundef range(i32 1000, 214748364) %3, i32 noundef range(i32 0, 180) %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @read_number(ptr nocapture noundef nonnull %0, ptr noundef readnone %1, i32 noundef %2, i32 noundef range(i32 1000, 214748364) %3, i32 noundef range(i32 0, 180) %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef writeonly initializes((0, 4)) %6) unnamed_addr #4 {
   %8 = load ptr, ptr %0, align 8
   store i32 0, ptr %6, align 4
   %9 = icmp sgt i32 %2, -1
@@ -7887,7 +7887,7 @@ read_number.exit.thread:                          ; preds = %1950, %.thread1170,
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_lookbehinds(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc i32 @check_lookbehinds(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr nocapture noundef nonnull initializes((168, 176)) %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12575,7 +12575,7 @@ define internal fastcc range(i32 0, 2) i32 @is_anchored(ptr noundef nonnull read
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 256) i32 @find_firstassertedcu(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef %2) unnamed_addr #9 {
+define internal fastcc range(i32 0, 256) i32 @find_firstassertedcu(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %1, i32 noundef %2) unnamed_addr #9 {
   %4 = alloca i32, align 4
   store i32 -2, ptr %1, align 4
   %.pr = load i8, ptr %0, align 1
@@ -12980,7 +12980,7 @@ declare i32 @_pcre2_study_8(ptr noundef) local_unnamed_addr #2
 declare i32 @_pcre2_is_newline_8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc nonnull ptr @handle_escdsw(i32 noundef %0, ptr noundef writeonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #10 {
+define internal fastcc nonnull ptr @handle_escdsw(i32 noundef %0, ptr noundef writeonly initializes((0, 4)) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #10 {
   %switch.tableidx = add i32 %0, -6
   %5 = icmp ult i32 %switch.tableidx, 6
   br i1 %5, label %switch.lookup, label %8

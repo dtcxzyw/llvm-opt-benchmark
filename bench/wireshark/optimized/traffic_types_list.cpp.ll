@@ -109,7 +109,7 @@ $_ZN9QtPrivate11QSlotObjectIM16TrafficTypesListFv5QListIiEENS_4ListIJS3_EEEvE4im
 @_ZN16TrafficTypesListC1EP7QWidget = unnamed_addr alias void (ptr, ptr), ptr @_ZN16TrafficTypesListC2EP7QWidget
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN19TrafficTypesRowDataC2Ei7QString(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19TrafficTypesRowDataC2Ei7QString(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((0, 4), (8, 33)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i32 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %2, align 8
@@ -142,7 +142,7 @@ define noundef i32 @_ZNK19TrafficTypesRowData8protocolEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK19TrafficTypesRowData4nameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19TrafficTypesRowData4nameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -174,7 +174,7 @@ define noundef zeroext i1 @_ZNK19TrafficTypesRowData7checkedEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19TrafficTypesRowData10setCheckedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
+define void @_ZN19TrafficTypesRowData10setCheckedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((32, 33)) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 %3, ptr %4, align 8
@@ -2833,7 +2833,7 @@ _ZN5QListIiED2Ev.exit6:                           ; preds = %21, %_ZN17QArrayDat
 declare void @_ZN16TrafficTypesList15clearFilterListEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK16TrafficTypesList9protocolsEb(ptr dead_on_unwind noalias writable sret(%class.QList.1) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK16TrafficTypesList9protocolsEb(ptr dead_on_unwind noalias writable sret(%class.QList.1) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %class.QModelIndex, align 8
   %6 = alloca %class.QModelIndex, align 8

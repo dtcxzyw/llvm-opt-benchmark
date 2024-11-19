@@ -377,7 +377,7 @@ declare ptr @zend_optimizer_get_called_func(ptr noundef, ptr noundef, ptr nounde
 declare void @_efree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @zend_build_call_graph(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @zend_build_call_graph(ptr nocapture noundef %0, ptr noundef %1, ptr noundef initializes((0, 4)) %2) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 8
   tail call void @zend_foreach_op_array(ptr noundef %1, ptr noundef nonnull @zend_op_array_calc, ptr noundef nonnull %2) #10
   %4 = load i32, ptr %2, align 8

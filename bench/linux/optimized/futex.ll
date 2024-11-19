@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @pcpu_hot = external dso_local global %struct.pcpu_hot, section ".data..percpu..shared_aligned", align 64
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @io_futex_cache_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @io_futex_cache_init(ptr nocapture noundef writeonly initializes((928, 952)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 928
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 936
@@ -781,7 +781,7 @@ define internal void @io_futex_wake_fn(ptr nocapture readnone %0, ptr noundef %1
 declare dso_local i32 @futex_wait_setup(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @io_futex_wake(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef i32 @io_futex_wake(ptr nocapture noundef initializes((80, 88)) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40

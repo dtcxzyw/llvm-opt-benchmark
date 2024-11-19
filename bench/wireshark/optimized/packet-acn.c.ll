@@ -6257,7 +6257,7 @@ dissect_acn_ept_base_pdu.exit:                    ; preds = %dissect_acn_common_
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @begin_dissect_acn_pdu(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull %7, ptr nocapture noundef nonnull writeonly %8, i32 noundef %9, i32 noundef range(i32 0, 2) %10) unnamed_addr #0 {
+define internal fastcc void @begin_dissect_acn_pdu(ptr nocapture noundef nonnull writeonly initializes((0, 8)) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2, ptr noundef %3, ptr nocapture noundef nonnull initializes((0, 4)) %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull initializes((0, 1)) %6, ptr nocapture noundef nonnull initializes((0, 4)) %7, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %8, i32 noundef %9, i32 noundef range(i32 0, 2) %10) unnamed_addr #0 {
   %12 = load i32, ptr %5, align 4
   store i32 %12, ptr %4, align 4
   %13 = add i32 %12, 1
@@ -6348,7 +6348,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_acn_root_pdu_header(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull %5, i8 noundef zeroext %6, i32 noundef %7, ptr nocapture noundef nonnull %8, ptr nocapture noundef nonnull %9, ptr nocapture noundef nonnull %10, i32 noundef range(i32 0, 2) %11, ptr nocapture noundef nonnull %12, i32 noundef range(i32 0, 2) %13) unnamed_addr #0 {
+define internal fastcc i32 @dissect_acn_root_pdu_header(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull %5, i8 noundef zeroext %6, i32 noundef %7, ptr nocapture noundef nonnull initializes((0, 4)) %8, ptr nocapture noundef nonnull initializes((0, 4)) %9, ptr nocapture noundef nonnull %10, i32 noundef range(i32 0, 2) %11, ptr nocapture noundef nonnull %12, i32 noundef range(i32 0, 2) %13) unnamed_addr #0 {
   %15 = alloca %struct._e_guid_t, align 4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.706, ptr noundef %4) #6
   %16 = and i8 %6, 32
@@ -6445,7 +6445,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @acn_add_dmp_address_type(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @acn_add_dmp_address_type(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull initializes((0, 1)) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #6
   store i8 %5, ptr %3, align 4
   %6 = lshr i8 %5, 4

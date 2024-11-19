@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @arenas = external local_unnamed_addr global [0 x %struct.atomic_p_t], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @buf_writer_init(ptr noundef %tsdn, ptr nocapture noundef writeonly %buf_writer, ptr noundef %write_cb, ptr noundef %cbopaque, ptr noundef %buf, i64 noundef %buf_len) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @buf_writer_init(ptr noundef %tsdn, ptr nocapture noundef writeonly initializes((0, 41)) %buf_writer, ptr noundef %write_cb, ptr noundef %cbopaque, ptr noundef %buf, i64 noundef %buf_len) local_unnamed_addr #0 {
 entry:
   %rtree_ctx_fallback.i269.i = alloca %struct.rtree_ctx_s, align 8
   %rtree_ctx_fallback.i.i = alloca %struct.rtree_ctx_s, align 8

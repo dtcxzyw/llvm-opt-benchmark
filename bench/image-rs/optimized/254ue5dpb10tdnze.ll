@@ -20191,7 +20191,7 @@ define hidden noundef float @"_ZN58_$LT$T$u20$as$u20$image..color..FromPrimitive
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17h0e18aa7896d753ceE.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ [3 x float] }) align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17h0e18aa7896d753ceE.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ [3 x float] }) align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load float, ptr %1, align 4, !alias.scope !1931, !noalias !1934, !noundef !4
   store float %3, ptr %0, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
@@ -20202,7 +20202,7 @@ define hidden void @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17h2ae01b70c676273cE.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ [4 x float] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #5 {
+define hidden void @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17h2ae01b70c676273cE.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ [4 x float] }) align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #5 {
   %3 = load float, ptr %1, align 4, !alias.scope !1936, !noalias !1939, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load float, ptr %4, align 4, !alias.scope !1936, !noalias !1939, !noundef !4
@@ -20303,7 +20303,7 @@ define hidden i32 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17hb7e9731aa2c5badeE"(ptr noalias nocapture noundef writeonly sret({ [3 x float] }) align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 {
+define hidden void @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17hb7e9731aa2c5badeE"(ptr noalias nocapture noundef writeonly sret({ [3 x float] }) align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !alias.scope !1971, !noalias !1974, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -20347,7 +20347,7 @@ define hidden i32 @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17hd25235444d9ff40cE"(ptr noalias nocapture noundef writeonly sret({ [4 x float] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN54_$LT$S$u20$as$u20$image..color..IntoColor$LT$O$GT$$GT$10into_color17hd25235444d9ff40cE"(ptr noalias nocapture noundef writeonly sret({ [4 x float] }) align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !alias.scope !1981, !noalias !1984, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -20557,14 +20557,14 @@ _ZN5image6traits11Enlargeable10clamp_from17hc0d2f00a5a1392d8E.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h02b64bf1ebd47ed5E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h02b64bf1ebd47ed5E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h0d20c6f838fb10d3E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h0d20c6f838fb10d3E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -20573,7 +20573,7 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h1fbab30ae3245ba9E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h1fbab30ae3245ba9E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -20584,14 +20584,14 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h64b5ed87442ebd01E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h64b5ed87442ebd01E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17ha000e7fcd5ee36f0E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17ha000e7fcd5ee36f0E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -20602,7 +20602,7 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hb8c29eb6fea9e43cE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hb8c29eb6fea9e43cE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -20613,7 +20613,7 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h5b299562f7122cc4E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h5b299562f7122cc4E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -20624,14 +20624,14 @@ define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h5f8378b59d5f79d6E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h5f8378b59d5f79d6E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h8b43b0c6c6a6a4ecE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h8b43b0c6c6a6a4ecE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -20642,14 +20642,14 @@ define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hb68cfa7c4bccd4d8E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hb68cfa7c4bccd4d8E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hc76d9fe1f97fa941E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hc76d9fe1f97fa941E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -20660,7 +20660,7 @@ define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hec11fc31c5952a3fE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hec11fc31c5952a3fE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -20719,7 +20719,7 @@ _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h2c75656c027b1942E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h2c75656c027b1942E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !alias.scope !2006, !noundef !4
   %4 = fpext float %3 to double
   %5 = fmul double %4, 2.126000e+03
@@ -20752,7 +20752,7 @@ _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h3ba8da5361907098E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h3ba8da5361907098E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2009, !noundef !4
   %5 = zext i8 %4 to i32
@@ -20773,7 +20773,7 @@ define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h6a2fa5143549fad9E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h6a2fa5143549fad9E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2012, !noundef !4
   %5 = zext i16 %4 to i32
@@ -20798,7 +20798,7 @@ define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h715724045f8becd6E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h715724045f8becd6E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2015, !noundef !4
   %5 = zext i16 %4 to i32
@@ -20821,7 +20821,7 @@ define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h8bf877ca463daeadE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h8bf877ca463daeadE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2018, !noundef !4
   %5 = zext i16 %4 to i32
@@ -20892,7 +20892,7 @@ _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hc72d48cebc2d17a5E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hc72d48cebc2d17a5E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2024, !noundef !4
   %5 = zext i8 %4 to i32
@@ -20914,7 +20914,7 @@ define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hf62f560086bdde4bE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hf62f560086bdde4bE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2027, !noundef !4
   %5 = zext i8 %4 to i32
@@ -20939,7 +20939,7 @@ define hidden void @"_ZN105_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h2632d46e01a7f773E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h2632d46e01a7f773E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !alias.scope !2030, !noundef !4
   %4 = fpext float %3 to double
   %5 = fmul double %4, 2.126000e+03
@@ -20972,7 +20972,7 @@ _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h2e69b42cebba59d1E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h2e69b42cebba59d1E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2033, !noundef !4
   %5 = zext i8 %4 to i32
@@ -20994,7 +20994,7 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h30b32c55012f4a68E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h30b32c55012f4a68E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2036, !noundef !4
   %5 = zext i16 %4 to i32
@@ -21019,7 +21019,7 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h39ab8ba9e77e6136E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h39ab8ba9e77e6136E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2039, !noundef !4
   %5 = zext i8 %4 to i32
@@ -21044,7 +21044,7 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h4cce3a227df9d1dcE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h4cce3a227df9d1dcE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2042, !noundef !4
   %5 = zext i8 %4 to i32
@@ -21065,7 +21065,7 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h8fc587610dd1b884E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h8fc587610dd1b884E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2045, !noundef !4
   %5 = zext i16 %4 to i32
@@ -21088,7 +21088,7 @@ define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hbadacc1418a4ba83E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hbadacc1418a4ba83E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2048, !noundef !4
   %5 = zext i16 %4 to i32
@@ -21209,7 +21209,7 @@ _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h2c7beae0aa7ef6e8E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h2c7beae0aa7ef6e8E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -21224,7 +21224,7 @@ define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h66085d37fb420b68E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h66085d37fb420b68E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -21243,7 +21243,7 @@ define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h87500253b14a6581E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h87500253b14a6581E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -21262,7 +21262,7 @@ define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h8d7ae4cd34bf487aE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h8d7ae4cd34bf487aE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   %4 = getelementptr inbounds i8, ptr %1, i64 2
@@ -21273,7 +21273,7 @@ define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h9825c7632e57c94dE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h9825c7632e57c94dE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -21292,7 +21292,7 @@ define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17ha1a5d6f316a1deb9E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17ha1a5d6f316a1deb9E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 1
@@ -21303,7 +21303,7 @@ define hidden void @"_ZN108_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h2acce9f2cadc8088E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h2acce9f2cadc8088E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2057, !noundef !4
   %5 = zext i8 %4 to i32
@@ -21330,7 +21330,7 @@ define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h6339d83458f7ac56E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h6339d83458f7ac56E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2060, !noundef !4
   %5 = zext i16 %4 to i32
@@ -21353,7 +21353,7 @@ define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h684adbcc2b420cdbE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h684adbcc2b420cdbE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2063, !noundef !4
   %5 = zext i16 %4 to i32
@@ -21484,7 +21484,7 @@ _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h9d5000b13ea842fdE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h9d5000b13ea842fdE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2072, !noundef !4
   %5 = zext i16 %4 to i32
@@ -21509,7 +21509,7 @@ define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hb74ec633fdec966fE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hb74ec633fdec966fE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !alias.scope !2075, !noundef !4
   %4 = fpext float %3 to double
   %5 = fmul double %4, 2.126000e+03
@@ -21544,7 +21544,7 @@ _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hddd5a1efcadbf1d0E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hddd5a1efcadbf1d0E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2078, !noundef !4
   %5 = zext i8 %4 to i32
@@ -21568,7 +21568,7 @@ define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hdf204e9643a756baE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hdf204e9643a756baE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2081, !noundef !4
   %5 = zext i8 %4 to i32
@@ -21591,7 +21591,7 @@ define hidden void @"_ZN106_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h0083690161b7364aE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h0083690161b7364aE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2084, !noundef !4
   %5 = zext i16 %4 to i32
@@ -21687,7 +21687,7 @@ _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h172b059ec57e9365E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h172b059ec57e9365E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2090, !noundef !4
   %5 = zext i8 %4 to i32
@@ -21720,7 +21720,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h223128be610f5b78E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h223128be610f5b78E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2093, !noundef !4
   %5 = zext i16 %4 to i32
@@ -21753,7 +21753,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h30247783bc56a59eE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h30247783bc56a59eE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2096, !noundef !4
   %5 = zext i8 %4 to i32
@@ -21781,7 +21781,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h387f56893c96dec4E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h387f56893c96dec4E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load float, ptr %1, align 4, !alias.scope !2099, !noundef !4
   %4 = fpext float %3 to double
   %5 = fmul double %4, 2.126000e+03
@@ -21889,7 +21889,7 @@ _ZN5image5color11rgb_to_luma17h97b5ecfd95d2b986E.llvm.1609853135345852838.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h84a66a6488e7a329E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h84a66a6488e7a329E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !alias.scope !2105, !noundef !4
   %5 = zext i8 %4 to i32
@@ -21914,7 +21914,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hc4f47d8f8d24b4b6E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hc4f47d8f8d24b4b6E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2, !alias.scope !2108, !noundef !4
   %5 = zext i16 %4 to i32
@@ -21945,7 +21945,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h406136956fc42102E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h406136956fc42102E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -21958,7 +21958,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h7e9a8b491368beb1E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h7e9a8b491368beb1E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 1
@@ -21967,7 +21967,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h81ea8e82e468294eE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h81ea8e82e468294eE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -21978,7 +21978,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17haf11465d1a5b1b99E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17haf11465d1a5b1b99E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 2
@@ -21987,7 +21987,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hdd56ad5aa3ffc224E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hdd56ad5aa3ffc224E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(2) initializes((0, 2)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -22000,7 +22000,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17he3a3c777790678d9E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17he3a3c777790678d9E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -22013,7 +22013,7 @@ define hidden void @"_ZN107_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h06ceb57c08b2ff06E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h06ceb57c08b2ff06E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -22040,7 +22040,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h18d5d36dd483eb28E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h18d5d36dd483eb28E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 1
@@ -22059,7 +22059,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hb8bf21e141af85f3E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hb8bf21e141af85f3E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -22268,7 +22268,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hc8838d8a895435faE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hc8838d8a895435faE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -22303,7 +22303,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hcb2c7e2ea1d40e82E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hcb2c7e2ea1d40e82E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -22338,7 +22338,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hf4bc050f10179cd7E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hf4bc050f10179cd7E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   %4 = getelementptr inbounds i8, ptr %1, i64 2
@@ -22357,7 +22357,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hf8742cbe50f45d11E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hf8742cbe50f45d11E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #5 {
   %3 = load float, ptr %1, align 4, !noundef !4
   store float %3, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 4
@@ -22376,7 +22376,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h035bf57d054a8836E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h035bf57d054a8836E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   %4 = getelementptr inbounds i8, ptr %1, i64 2
@@ -22461,7 +22461,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h46d9e21ff61010c1E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h46d9e21ff61010c1E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -22552,7 +22552,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h79c68d0d17a55193E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h79c68d0d17a55193E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -22581,7 +22581,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h7f693238bf74f103E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h7f693238bf74f103E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -22610,7 +22610,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h8a1ab35f7a9610b4E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h8a1ab35f7a9610b4E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #5 {
   %3 = load float, ptr %1, align 4, !noundef !4
   store float %3, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 4
@@ -22627,7 +22627,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17he4349809a69d09aaE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17he4349809a69d09aaE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 1
@@ -22644,7 +22644,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17he545f7f3798317d1E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17he545f7f3798317d1E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -22673,7 +22673,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h10ba5482680ab437E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h10ba5482680ab437E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -22696,7 +22696,7 @@ define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h4dd45da0551045abE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h4dd45da0551045abE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -22719,7 +22719,7 @@ define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h969430dbc42b9c64E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h969430dbc42b9c64E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 2
@@ -22734,7 +22734,7 @@ define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17ha1badcb35a9b28d5E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17ha1badcb35a9b28d5E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -22753,7 +22753,7 @@ define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17ha9158a4bf188104aE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17ha9158a4bf188104aE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #5 {
   %3 = load float, ptr %1, align 4, !noundef !4
   store float %3, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -22768,7 +22768,7 @@ define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hc004937052b085f7E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hc004937052b085f7E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -22791,7 +22791,7 @@ define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hfbf88cc174170622E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hfbf88cc174170622E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 1
@@ -22806,7 +22806,7 @@ define hidden void @"_ZN107_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h74e7454e13639ff1E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h74e7454e13639ff1E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 1
@@ -22819,7 +22819,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h863e1451f254c37dE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h863e1451f254c37dE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 2
@@ -22832,7 +22832,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h9846384d72fa2ec1E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h9846384d72fa2ec1E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(4) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -22849,7 +22849,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hbb0f3cc58eab5b6dE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hbb0f3cc58eab5b6dE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -22866,7 +22866,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hcd16b3c88901ffebE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hcd16b3c88901ffebE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -22883,7 +22883,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17he58274637bdf1041E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17he58274637bdf1041E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(8) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -22898,7 +22898,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h01afce633c04c48bE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h01afce633c04c48bE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) initializes((0, 3)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -22991,7 +22991,7 @@ define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h512bbe7a911f0912E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 {
+define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h512bbe7a911f0912E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) initializes((0, 3)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 1
@@ -23006,7 +23006,7 @@ define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h9f7a45c283816d39E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 {
+define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17h9f7a45c283816d39E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -23033,7 +23033,7 @@ define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hb17e9a7cc1ab4056E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 {
+define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hb17e9a7cc1ab4056E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -23060,7 +23060,7 @@ define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hc29f66e62ebcad6eE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hc29f66e62ebcad6eE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) initializes((0, 6)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -23147,7 +23147,7 @@ define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hf1fbea8bbec4b847E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #5 {
+define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hf1fbea8bbec4b847E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #5 {
   %3 = load float, ptr %1, align 4, !noundef !4
   store float %3, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 4
@@ -23162,7 +23162,7 @@ define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hf6b630b69451d440E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 {
+define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgb$LT$S$GT$$GT$$GT$10from_color17hf6b630b69451d440E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) initializes((0, 6)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   %4 = getelementptr inbounds i8, ptr %1, i64 2
@@ -23177,7 +23177,7 @@ define hidden void @"_ZN104_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h0c34bc72f453ca63E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h0c34bc72f453ca63E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) initializes((0, 6)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -23198,7 +23198,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h0cf4f261fdadb4ccE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h0cf4f261fdadb4ccE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -23225,7 +23225,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h45f64318f9118d88E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h45f64318f9118d88E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) initializes((0, 3)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -23252,7 +23252,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h4cfe444ef5397d25E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h4cfe444ef5397d25E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) initializes((0, 6)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   %4 = getelementptr inbounds i8, ptr %1, i64 2
@@ -23267,7 +23267,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h604b11efe5487ae7E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17h604b11efe5487ae7E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) initializes((0, 3)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 1
@@ -23414,7 +23414,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hc90e460a797b973eE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17hc90e460a797b973eE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -23441,7 +23441,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17he0278bdde2042793E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Rgba$LT$S$GT$$GT$$GT$10from_color17he0278bdde2042793E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #5 {
   %3 = load float, ptr %1, align 4, !noundef !4
   store float %3, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 4
@@ -23456,7 +23456,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h71075bdc2ba8aac8E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h71075bdc2ba8aac8E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -23471,7 +23471,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h971f0770a20edf43E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17h971f0770a20edf43E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) initializes((0, 3)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -23486,7 +23486,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hacf9ce6cd0bd8c6aE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hacf9ce6cd0bd8c6aE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) initializes((0, 6)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -23499,7 +23499,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hc4cd339abe377e2dE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hc4cd339abe377e2dE"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) initializes((0, 6)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 2
@@ -23510,7 +23510,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hd2693bda8cc4ee41E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hd2693bda8cc4ee41E"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) initializes((0, 3)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 1
@@ -23521,7 +23521,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hf5e6e354b4b9c046E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..LumaA$LT$S$GT$$GT$$GT$10from_color17hf5e6e354b4b9c046E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -23536,7 +23536,7 @@ define hidden void @"_ZN106_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h451a43de2266462cE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h451a43de2266462cE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #5 {
   %3 = load float, ptr %1, align 4, !noundef !4
   store float %3, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -23547,7 +23547,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h4670ece7d6f5293fE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h4670ece7d6f5293fE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = uitofp i8 %3 to float
   %5 = fdiv float %4, 2.550000e+02
@@ -23562,7 +23562,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h5a8561e8c8be96dbE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17h5a8561e8c8be96dbE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) initializes((0, 3)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = zext i16 %3 to i32
   %5 = add nuw nsw i32 %4, 128
@@ -23577,7 +23577,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hc3315f160e290b71E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hc3315f160e290b71E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) initializes((0, 6)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !4
   %4 = zext i8 %3 to i16
   %5 = mul nuw i16 %4, 257
@@ -23590,7 +23590,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hf06058820b25904bE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hf06058820b25904bE"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) initializes((0, 3)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !noundef !4
   store i8 %3, ptr %0, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 1
@@ -23601,7 +23601,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hfdfc4c24f7a1fb31E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hfdfc4c24f7a1fb31E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(6) initializes((0, 6)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   store i16 %3, ptr %0, align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 2
@@ -23612,7 +23612,7 @@ define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hffab52956746d00cE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
+define hidden void @"_ZN105_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..color..FromColor$LT$image..color..Luma$LT$S$GT$$GT$$GT$10from_color17hffab52956746d00cE"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #5 {
   %3 = load i16, ptr %1, align 2, !noundef !4
   %4 = uitofp i16 %3 to float
   %5 = fdiv float %4, 6.553500e+04
@@ -37618,7 +37618,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h00427f962b20bfeaE.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [4 x i32] }) align 4 dereferenceable(20) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h00427f962b20bfeaE.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [4 x i32] }) align 4 dereferenceable(20) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -37668,7 +37668,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h564baef6747e4108E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [6 x i32] }) align 4 dereferenceable(28) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h564baef6747e4108E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [6 x i32] }) align 4 dereferenceable(28) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -37717,7 +37717,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b1bb33e3420c5dE.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [5 x i32] }) align 4 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b1bb33e3420c5dE.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [5 x i32] }) align 4 dereferenceable(24) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -37766,7 +37766,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h74e81763f509de65E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h74e81763f509de65E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -37816,7 +37816,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h80519703799b0dc6E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h80519703799b0dc6E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -37866,7 +37866,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82885e47938eef5aE.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82885e47938eef5aE.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -37916,7 +37916,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9182ccdeae457f3eE.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9182ccdeae457f3eE.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -37966,7 +37966,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae5bf0e622d71781E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae5bf0e622d71781E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -38016,7 +38016,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7d0e4030e9d1075E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7d0e4030e9d1075E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -38066,7 +38066,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd9d97b3bf775d715E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [4 x i32] }) align 4 dereferenceable(20) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd9d97b3bf775d715E.llvm.1609853135345852838"(ptr noalias nocapture noundef writeonly sret({ i32, [4 x i32] }) align 4 dereferenceable(20) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -41584,7 +41584,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$13from_channels17h8e8ac863eaa1817dE"(ptr noalias nocapture noundef writeonly sret({ [3 x float] }) align 4 dereferenceable(12) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #8 {
+define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$13from_channels17h8e8ac863eaa1817dE"(ptr noalias nocapture noundef writeonly sret({ [3 x float] }) align 4 dereferenceable(12) initializes((0, 12)) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #8 {
 "_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17hd6e3087ca151e8f1E.exit":
   store float %1, ptr %0, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
@@ -41779,7 +41779,7 @@ define hidden range(i32 -16777216, 0) i32 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h7559bce6ad629c82E"(ptr noalias nocapture noundef writeonly sret({ [4 x float] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #5 {
+define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h7559bce6ad629c82E"(ptr noalias nocapture noundef writeonly sret({ [4 x float] }) align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #5 {
   %3 = load float, ptr %1, align 4, !alias.scope !4845, !noalias !4848, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load float, ptr %4, align 4, !alias.scope !4845, !noalias !4848, !noundef !4
@@ -42949,7 +42949,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$13from_channels17h99ffb1ebe942278cE"(ptr noalias nocapture noundef writeonly sret({ [4 x float] }) align 4 dereferenceable(16) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #8 {
+define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$13from_channels17h99ffb1ebe942278cE"(ptr noalias nocapture noundef writeonly sret({ [4 x float] }) align 4 dereferenceable(16) initializes((0, 16)) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #8 {
 "_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$10from_slice17h65b7115c728bd9a1E.exit":
   store float %1, ptr %0, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
@@ -43132,7 +43132,7 @@ define hidden i64 @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h92934a2fe87d9361E"(ptr noalias nocapture noundef writeonly sret({ [4 x float] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #5 {
+define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h92934a2fe87d9361E"(ptr noalias nocapture noundef writeonly sret({ [4 x float] }) align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #5 {
   %3 = load float, ptr %1, align 4, !alias.scope !5056, !noalias !5059, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load float, ptr %4, align 4, !alias.scope !5056, !noalias !5059, !noundef !4

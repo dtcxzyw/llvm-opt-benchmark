@@ -6042,7 +6042,7 @@ define dso_local void @_ZNK5clang7targets15RISCVTargetInfo20fillValidTuneCPUList
 declare void @_ZN4llvm5RISCV24fillValidTuneCPUArchListERNS_15SmallVectorImplINS_9StringRefEEEb(ptr noundef nonnull align 1, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang7targets15RISCVTargetInfo15parseTargetAttrEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"struct.clang::ParsedTargetAttr") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr %2, i64 %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK5clang7targets15RISCVTargetInfo15parseTargetAttrEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"struct.clang::ParsedTargetAttr") align 8 initializes((0, 88)) %0, ptr nocapture nonnull readnone align 8 %1, ptr %2, i64 %3) unnamed_addr #1 align 2 {
   %5 = alloca %"class.std::allocator.1", align 1
   %6 = alloca %"class.std::allocator.1", align 1
   %7 = alloca %"class.std::allocator.1", align 1

@@ -14,7 +14,7 @@ $_Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_ = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(280) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %plane, float noundef %margin, ptr nocapture noundef readonly %points, i32 noundef %point_count) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(280) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %plane, float noundef %margin, ptr nocapture noundef readonly %points, i32 noundef %point_count) local_unnamed_addr #0 align 2 {
 entry:
   %point_indices = alloca [16 x i32], align 16
   %m_point_count = getelementptr inbounds i8, ptr %this, i64 4

@@ -517,7 +517,7 @@ define noundef zeroext i1 @_ZN13sentencepiece35ModelProto_SentencePiece_Type_Par
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece11TrainerSpecC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece11TrainerSpecC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece11TrainerSpecE, i64 16), ptr %0, align 8
@@ -656,7 +656,7 @@ declare void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcS
 declare void @_ZN6google8protobuf8internal12ExtensionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece11TrainerSpecC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 8 dereferenceable(336) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece11TrainerSpecC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 28), (32, 52)) %0, ptr noundef nonnull align 8 dereferenceable(336) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece11TrainerSpecE, i64 16), ptr %0, align 8
@@ -8260,7 +8260,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece14NormalizerSpecC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece14NormalizerSpecC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece14NormalizerSpecE, i64 16), ptr %0, align 8
@@ -8301,7 +8301,7 @@ define void @_ZN13sentencepiece14NormalizerSpecC2EPN6google8protobuf5ArenaE(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece14NormalizerSpecC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece14NormalizerSpecC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 28), (32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece14NormalizerSpecE, i64 16), ptr %0, align 8
@@ -9924,7 +9924,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece19SelfTestData_SampleC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece19SelfTestData_SampleC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece19SelfTestData_SampleE, i64 16), ptr %0, align 8
@@ -9949,7 +9949,7 @@ define void @_ZN13sentencepiece19SelfTestData_SampleC2EPN6google8protobuf5ArenaE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece19SelfTestData_SampleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece19SelfTestData_SampleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece19SelfTestData_SampleE, i64 16), ptr %0, align 8
@@ -11048,7 +11048,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece12SelfTestDataC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece12SelfTestDataC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece12SelfTestDataE, i64 16), ptr %0, align 8
@@ -11134,7 +11134,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece19SelfTestData_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece12SelfTestDataC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece12SelfTestDataC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 28), (32, 64)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece12SelfTestDataE, i64 16), ptr %0, align 8
@@ -12263,7 +12263,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece24ModelProto_SentencePieceC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece24ModelProto_SentencePieceC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece24ModelProto_SentencePieceE, i64 16), ptr %0, align 8
@@ -12298,7 +12298,7 @@ define void @_ZN13sentencepiece24ModelProto_SentencePieceC2EPN6google8protobuf5A
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece24ModelProto_SentencePieceC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece24ModelProto_SentencePieceC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 28), (32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece24ModelProto_SentencePieceE, i64 16), ptr %0, align 8
@@ -13591,7 +13591,7 @@ define noundef nonnull align 8 dereferenceable(80) ptr @_ZN13sentencepiece10Mode
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece10ModelProtoC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece10ModelProtoC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece10ModelProtoE, i64 16), ptr %0, align 8
@@ -13683,7 +13683,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN13sentencepiece24ModelProto_Se
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece10ModelProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece10ModelProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 28), (32, 72)) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece10ModelProtoE, i64 16), ptr %0, align 8

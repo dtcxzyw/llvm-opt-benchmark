@@ -2033,7 +2033,7 @@ common.resume:                                    ; preds = %32, %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6uucore8features5fsext7FsUsage3new17habc5cc7f5c7c3909E(ptr noalias nocapture noundef writeonly sret({ i64, i64, i64, i64, i64, i64, i8, [7 x i8] }) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #11 {
+define void @_ZN6uucore8features5fsext7FsUsage3new17habc5cc7f5c7c3909E(ptr noalias nocapture noundef writeonly sret({ i64, i64, i64, i64, i64, i64, i8, [7 x i8] }) align 8 dereferenceable(56) initializes((0, 49)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2112,7 +2112,7 @@ define { ptr, i64 } @_ZN6uucore8features5fsext15pretty_filetype17h61d2013fabff03
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN6uucore8features5fsext13pretty_fstype17h7fcb8c32351f1fdfE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 {
+define void @_ZN6uucore8features5fsext13pretty_fstype17h7fcb8c32351f1fdfE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca [1 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8

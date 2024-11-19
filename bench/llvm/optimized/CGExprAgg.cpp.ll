@@ -405,7 +405,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114AggExprEmitter5VisitEPN5clang4Ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction19EmitAggExprToLValueEPKNS_4ExprE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::LValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction19EmitAggExprToLValueEPKNS_4ExprE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::LValue") align 8 initializes((0, 4), (8, 56), (64, 80), (84, 136)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %5 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %.sroa.6 = alloca [23 x i8], align 1

@@ -195,7 +195,7 @@ LookInStream_Read2.exit:                          ; preds = %6, %9, %12, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @LookToRead_CreateVTable(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @LookToRead_CreateVTable(ptr nocapture noundef writeonly initializes((0, 32)) %0, i32 noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq i32 %1, 0
   %3 = select i1 %.not, ptr @LookToRead_Look_Exact, ptr @LookToRead_Look_Lookahead
   store ptr %3, ptr %0, align 8
@@ -209,7 +209,7 @@ define void @LookToRead_CreateVTable(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @LookToRead_Look_Lookahead(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) #0 {
+define internal i32 @LookToRead_Look_Lookahead(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
@@ -258,7 +258,7 @@ define internal i32 @LookToRead_Look_Lookahead(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @LookToRead_Look_Exact(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #0 {
+define internal i32 @LookToRead_Look_Exact(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -353,7 +353,7 @@ define internal i32 @LookToRead_Read(ptr nocapture noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @LookToRead_Seek(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal i32 @LookToRead_Seek(ptr nocapture noundef initializes((40, 56)) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -365,14 +365,14 @@ define internal i32 @LookToRead_Seek(ptr nocapture noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @LookToRead_Init(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
+define void @LookToRead_Init(ptr nocapture noundef writeonly initializes((40, 56)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SecToLook_CreateVTable(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
+define void @SecToLook_CreateVTable(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #2 {
   store ptr @SecToLook_Read, ptr %0, align 8
   ret void
 }
@@ -410,7 +410,7 @@ LookInStream_LookRead.exit:                       ; preds = %3, %9, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SecToRead_CreateVTable(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
+define void @SecToRead_CreateVTable(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #2 {
   store ptr @SecToRead_Read, ptr %0, align 8
   ret void
 }

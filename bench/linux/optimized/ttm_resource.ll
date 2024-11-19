@@ -45,7 +45,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ttm_resource
 @llvm.compiler.used = appending global [11 x ptr] [ptr @__UNIQUE_ID___addressable_ttm_kmap_iter_iomap_init383, ptr @__UNIQUE_ID___addressable_ttm_lru_bulk_move_init372, ptr @__UNIQUE_ID___addressable_ttm_lru_bulk_move_tail373, ptr @__UNIQUE_ID___addressable_ttm_resource_fini377, ptr @__UNIQUE_ID___addressable_ttm_resource_free378, ptr @__UNIQUE_ID___addressable_ttm_resource_init376, ptr @__UNIQUE_ID___addressable_ttm_resource_manager_create_debugfs384, ptr @__UNIQUE_ID___addressable_ttm_resource_manager_debug382, ptr @__UNIQUE_ID___addressable_ttm_resource_manager_evict_all380, ptr @__UNIQUE_ID___addressable_ttm_resource_manager_init379, ptr @__UNIQUE_ID___addressable_ttm_resource_manager_usage381], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @ttm_lru_bulk_move_init(ptr nocapture noundef writeonly %0) #0 align 16 {
+define dso_local void @ttm_lru_bulk_move_init(ptr nocapture noundef writeonly initializes((0, 512)) %0) #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(512) %0, i8 0, i64 512, i1 false)
   ret void
 }
@@ -390,7 +390,7 @@ define dso_local void @ttm_resource_move_to_lru_tail(ptr noundef %0) local_unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ttm_resource_init(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #5 align 16 {
+define dso_local void @ttm_resource_init(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef initializes((0, 41), (44, 56)) %2) #5 align 16 {
   store i64 0, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 216
   %5 = load i64, ptr %4, align 8
@@ -941,7 +941,7 @@ define dso_local noundef zeroext i1 @ttm_resource_compat(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ttm_resource_set_bo(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #5 align 16 {
+define dso_local void @ttm_resource_set_bo(ptr nocapture noundef writeonly initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 352
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 2080
@@ -955,7 +955,7 @@ define dso_local void @ttm_resource_set_bo(ptr nocapture noundef writeonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @ttm_resource_manager_init(ptr noundef %0, ptr noundef %1, i64 noundef %2) #6 align 16 {
+define dso_local void @ttm_resource_manager_init(ptr noundef initializes((8, 24), (32, 36), (112, 120)) %0, ptr noundef %1, i64 noundef %2) #6 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1147,7 +1147,7 @@ define dso_local void @ttm_resource_manager_debug(ptr noundef %0, ptr noundef %1
 declare dso_local void @drm_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local ptr @ttm_resource_manager_first(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 align 16 {
+define dso_local ptr @ttm_resource_manager_first(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #9 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 0, ptr %1, align 4
   br label %8
@@ -1214,7 +1214,7 @@ define dso_local ptr @ttm_resource_manager_next(ptr noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef ptr @ttm_kmap_iter_iomap_init(ptr noundef returned writeonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define dso_local noundef ptr @ttm_kmap_iter_iomap_init(ptr noundef returned writeonly initializes((0, 64)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   store ptr @ttm_kmap_iter_io_ops, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -1494,7 +1494,7 @@ define internal void @ttm_kmap_iter_iomap_unmap_local(ptr nocapture readnone %0,
 declare dso_local ptr @sg_next(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @ttm_kmap_iter_linear_io_map_local(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #11 align 16 {
+define internal void @ttm_kmap_iter_linear_io_map_local(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 16)) %1, i64 noundef %2) #11 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %1, ptr noundef align 8 dereferenceable(16) %4, i64 16, i1 false)
   %5 = shl i64 %2, 12

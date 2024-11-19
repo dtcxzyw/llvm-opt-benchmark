@@ -345,7 +345,7 @@ declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local void @pci_walk_bus(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @via_no_dac_cb(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #5 align 16 {
+define internal noundef i32 @via_no_dac_cb(ptr nocapture noundef writeonly initializes((760, 768)) %0, ptr nocapture readnone %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 760
   store i64 4294967295, ptr %3, align 8
   ret i32 0

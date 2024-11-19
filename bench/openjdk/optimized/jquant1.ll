@@ -350,7 +350,7 @@ alloc_fs_workspace.exit:                          ; preds = %148, %138, %create_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @start_pass_1_quant(ptr noundef %0, i32 %1) #0 {
+define internal void @start_pass_1_quant(ptr noundef initializes((156, 168)) %0, i32 %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 624
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32

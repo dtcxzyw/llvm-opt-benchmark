@@ -39,7 +39,7 @@ entry:
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @_ZN6icu_758ByteSink15GetAppendBufferEiiPciPi(ptr nocapture nonnull readnone align 8 %this, i32 noundef %min_capacity, i32 %0, ptr noundef readnone %scratch, i32 noundef %scratch_capacity, ptr nocapture noundef writeonly %result_capacity) unnamed_addr #3 align 2 {
+define noundef ptr @_ZN6icu_758ByteSink15GetAppendBufferEiiPciPi(ptr nocapture nonnull readnone align 8 %this, i32 noundef %min_capacity, i32 %0, ptr noundef readnone %scratch, i32 noundef %scratch_capacity, ptr nocapture noundef writeonly initializes((0, 4)) %result_capacity) unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp slt i32 %min_capacity, 1
   %cmp2 = icmp slt i32 %scratch_capacity, %min_capacity
@@ -57,7 +57,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7520CheckedArrayByteSinkC2EPci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(29) %this, ptr noundef %outbuf, i32 noundef %capacity) unnamed_addr #3 align 2 {
+define void @_ZN6icu_7520CheckedArrayByteSinkC2EPci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(29) initializes((0, 29)) %this, ptr noundef %outbuf, i32 noundef %capacity) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520CheckedArrayByteSinkE, i64 16), ptr %this, align 8
   %outbuf_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -88,7 +88,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(29) ptr @_ZN6icu_7520CheckedArrayByteSink5ResetEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(29) %this) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(29) ptr @_ZN6icu_7520CheckedArrayByteSink5ResetEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(29) initializes((20, 29)) %this) unnamed_addr #3 align 2 {
 entry:
   %size_ = getelementptr inbounds i8, ptr %this, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %size_, i8 0, i64 9, i1 false)
@@ -161,7 +161,7 @@ return:                                           ; preds = %entry, %if.end20, %
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN6icu_7520CheckedArrayByteSink15GetAppendBufferEiiPciPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this, i32 noundef %min_capacity, i32 %0, ptr noundef readnone %scratch, i32 noundef %scratch_capacity, ptr nocapture noundef writeonly %result_capacity) unnamed_addr #8 align 2 {
+define noundef ptr @_ZN6icu_7520CheckedArrayByteSink15GetAppendBufferEiiPciPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this, i32 noundef %min_capacity, i32 %0, ptr noundef readnone %scratch, i32 noundef %scratch_capacity, ptr nocapture noundef writeonly initializes((0, 4)) %result_capacity) unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp slt i32 %min_capacity, 1
   %cmp2 = icmp slt i32 %scratch_capacity, %min_capacity

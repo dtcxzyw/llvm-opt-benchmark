@@ -11188,7 +11188,7 @@ declare noundef zeroext i1 @_Z13getflagsfieldP9lua_StateiPKcP8FlagDescPjS5_(ptr 
 declare i32 @luaL_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_Z16read_deco_simpleP9lua_StateP10DecoSimple(ptr noundef %L, ptr noundef %deco) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_Z16read_deco_simpleP9lua_StateP10DecoSimple(ptr noundef %L, ptr noundef initializes((336, 340)) %deco) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef i32 @_Z19getintfield_defaultP9lua_StateiPKci(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.128, i32 noundef 1)
   %conv = trunc i32 %call to i16
@@ -11495,7 +11495,7 @@ cleanup28:                                        ; preds = %if.end25, %_ZSt4end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_Z19read_deco_schematicP9lua_StateP16SchematicManagerP13DecoSchematic(ptr noundef %L, ptr noundef %schemmgr, ptr nocapture noundef writeonly %deco) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_Z19read_deco_schematicP9lua_StateP16SchematicManagerP13DecoSchematic(ptr noundef %L, ptr noundef %schemmgr, ptr nocapture noundef writeonly initializes((312, 316)) %deco) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %replace_names = alloca %"class.std::unordered_map", align 8
   %call = tail call noundef i32 @_Z12getenumfieldP9lua_StateiPKcPK10EnumStringi(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.135, ptr noundef nonnull @_ZN12ModApiMapgen11es_RotationE, i32 noundef 0)

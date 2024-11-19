@@ -1393,7 +1393,7 @@ declare zeroext i1 @consume(ptr noundef, i32 noundef, ptr noundef, ...) local_un
 declare void @advance(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @parse_arg_list(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @parse_arg_list(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   %.not = icmp eq ptr %3, null
@@ -1611,7 +1611,7 @@ extend_span_with_token.exit:                      ; preds = %33, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @parse_param_path(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @parse_param_path(ptr noundef %0, ptr nocapture noundef nonnull initializes((0, 8)) %1) unnamed_addr #1 {
   store ptr null, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   br label %4

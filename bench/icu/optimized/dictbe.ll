@@ -104,7 +104,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6icu_7519LanguageBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7521DictionaryBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #3 align 2 {
+define void @_ZN6icu_7521DictionaryBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521DictionaryBreakEngineE, i64 16), ptr %this, align 8
   %fSet = getelementptr inbounds i8, ptr %this, i64 8
@@ -537,7 +537,7 @@ declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet
 declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3addEii(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7515ThaiBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(1016) %this) unnamed_addr #3 align 2 {
+define void @_ZN6icu_7515ThaiBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(1016) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515ThaiBreakEngineE, i64 16), ptr %this, align 8
   %fDictionary = getelementptr inbounds i8, ptr %this, i64 1008
@@ -1536,7 +1536,7 @@ ehcleanup49:                                      ; preds = %ehcleanup48, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7514LaoBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(816) %this) unnamed_addr #3 align 2 {
+define void @_ZN6icu_7514LaoBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(816) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514LaoBreakEngineE, i64 16), ptr %this, align 8
   %fDictionary = getelementptr inbounds i8, ptr %this, i64 808
@@ -2358,7 +2358,7 @@ ehcleanup38:                                      ; preds = %ehcleanup37, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7518BurmeseBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(816) %this) unnamed_addr #3 align 2 {
+define void @_ZN6icu_7518BurmeseBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(816) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518BurmeseBreakEngineE, i64 16), ptr %this, align 8
   %fDictionary = getelementptr inbounds i8, ptr %this, i64 808
@@ -3200,7 +3200,7 @@ ehcleanup43:                                      ; preds = %ehcleanup42, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7516KhmerBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(816) %this) unnamed_addr #3 align 2 {
+define void @_ZN6icu_7516KhmerBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(816) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516KhmerBreakEngineE, i64 16), ptr %this, align 8
   %fDictionary = getelementptr inbounds i8, ptr %this, i64 808
@@ -4155,7 +4155,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7514CjkBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(928) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514CjkBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(928) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514CjkBreakEngineE, i64 16), ptr %this, align 8
   %fDictionary = getelementptr inbounds i8, ptr %this, i64 808

@@ -94,7 +94,7 @@ $_ZTVN4llvm13format_objectIJjEEE = comdat any
 @_ZN4llvm3rdf12RegisterAggr12ref_iteratorC1ERKS1_b = unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2ERKS1_b
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf20PhysicalRegisterInfoC2ERKNS_18TargetRegisterInfoERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull readonly align 8 dereferenceable(1041) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3rdf20PhysicalRegisterInfoC2ERKNS_18TargetRegisterInfoERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 128)) %0, ptr noundef nonnull align 8 dereferenceable(308) %1, ptr noundef nonnull readonly align 8 dereferenceable(1041) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::BitVector", align 8
   %5 = alloca %"class.llvm::BitVector", align 8
   %6 = alloca %"class.llvm::BitVector", align 8
@@ -1328,7 +1328,7 @@ _ZN4llvm3rdf8disjointIjEEbRKSt3setIT_St4lessIS3_ESaIS3_EES9_.exit: ; preds = %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3rdf20PhysicalRegisterInfo8getUnitsENS0_11RegisterRefE(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i32 %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3rdf20PhysicalRegisterInfo8getUnitsENS0_11RegisterRefE(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i32 %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1605,7 +1605,7 @@ _ZNSt3setIjSt4lessIjESaIjEE6insertERKj.exit62:    ; preds = %111, %_ZNSt8_Rb_tre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3rdf20PhysicalRegisterInfo11getAliasSetEj(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3rdf20PhysicalRegisterInfo11getAliasSetEj(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4214,7 +4214,7 @@ _ZN4llvm3rdf12RegisterAggrD2Ev.exit:              ; preds = %_ZN4llvm3rdf12Regis
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2ERKS1_b(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3rdf12RegisterAggr12ref_iteratorC2ERKS1_b(ptr noundef nonnull align 8 dereferenceable(72) initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::rdf::RegisterRef", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8

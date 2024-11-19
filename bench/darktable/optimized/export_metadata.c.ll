@@ -702,7 +702,7 @@ declare void @dtgtk_cairo_paint_plus_simple(ptr noundef, i32 noundef, i32 nounde
 declare void @gtk_box_pack_end(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_add_tag_button_clicked(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @_add_tag_button_clicked(ptr nocapture readnone %0, ptr noundef initializes((32, 40)) %1) #0 {
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.40, i32 noundef 5) #9
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -915,7 +915,7 @@ declare void @gtk_entry_set_text(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @gtk_entry_set_activates_default(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_tag_name_changed(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @_tag_name_changed(ptr nocapture readnone %0, ptr noundef initializes((40, 48)) %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !42
   %5 = tail call i64 @gtk_entry_get_type() #10

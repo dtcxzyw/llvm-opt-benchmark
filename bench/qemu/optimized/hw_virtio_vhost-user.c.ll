@@ -3002,7 +3002,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhost_user_set_device_state_fd(ptr nocapture noundef readonly %dev, i32 noundef %direction, i32 noundef %phase, i32 noundef %fd, ptr nocapture noundef writeonly %reply_fd, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_set_device_state_fd(ptr nocapture noundef readonly %dev, i32 noundef %direction, i32 noundef %phase, i32 noundef %fd, ptr nocapture noundef writeonly initializes((0, 4)) %reply_fd, ptr noundef %errp) #0 {
 entry:
   %fd.addr = alloca i32, align 4
   %msg = alloca %struct.VhostUserMsg, align 4
@@ -4191,7 +4191,7 @@ return:                                           ; preds = %if.end17, %if.end13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -22, 1) i32 @vhost_user_backend_handle_shared_object_lookup(ptr %u.8.val.0.val, ptr noundef %ioc, ptr noundef nonnull %hdr, ptr noundef nonnull %payload) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @vhost_user_backend_handle_shared_object_lookup(ptr %u.8.val.0.val, ptr noundef %ioc, ptr noundef nonnull initializes((8, 12)) %hdr, ptr noundef nonnull %payload) unnamed_addr #0 {
 entry:
   %iov.i.i = alloca [2 x %struct.iovec], align 16
   %uuid = alloca %struct.QemuUUID, align 4
@@ -4696,7 +4696,7 @@ declare void @postcopy_unregister_shared_ufd(ptr noundef) local_unnamed_addr #3
 declare void @postcopy_remove_notifier(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @vhost_user_add_remove_regions(ptr nocapture noundef readonly %dev, ptr noundef nonnull %msg, i1 noundef zeroext %reply_supported, i1 noundef zeroext %track_ramblocks) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @vhost_user_add_remove_regions(ptr nocapture noundef readonly %dev, ptr noundef nonnull initializes((8, 12)) %msg, i1 noundef zeroext %reply_supported, i1 noundef zeroext %track_ramblocks) unnamed_addr #0 {
 entry:
   %msg_reply.i.i39 = alloca %struct.VhostUserMsg, align 4
   %_now.i.i56.i = alloca %struct.timeval, align 8
@@ -5428,7 +5428,7 @@ return:                                           ; preds = %err, %if.then32, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -105, 1) i32 @vhost_user_fill_set_mem_table_msg(ptr nocapture noundef readonly %u, ptr nocapture noundef readonly %dev, ptr nocapture noundef nonnull writeonly %msg, ptr nocapture noundef nonnull writeonly %fds, ptr nocapture noundef nonnull %fd_num, i1 noundef zeroext %track_ramblocks) unnamed_addr #0 {
+define internal fastcc range(i32 -105, 1) i32 @vhost_user_fill_set_mem_table_msg(ptr nocapture noundef readonly %u, ptr nocapture noundef readonly %dev, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %msg, ptr nocapture noundef nonnull writeonly %fds, ptr nocapture noundef nonnull %fd_num, i1 noundef zeroext %track_ramblocks) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %offset = alloca i64, align 8

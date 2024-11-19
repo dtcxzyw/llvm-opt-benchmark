@@ -193,7 +193,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8facebook5velox4type6ParserC2EPNS1_7ScannerE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %scanner_yyarg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox4type6ParserC2EPNS1_7ScannerE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this, ptr noundef %scanner_yyarg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4type6ParserE, i64 16), ptr %this, align 8
@@ -217,7 +217,7 @@ _ZN8facebook5velox4type6Parser5stackINS2_17stack_symbol_typeESt6vectorIS4_SaIS4_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8facebook5velox4type6ParserD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox4type6ParserD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4type6ParserE, i64 16), ptr %this, align 8
   %yystack_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -281,14 +281,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox4type6Parser7by_kindC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this) unnamed_addr #5 align 2 {
+define void @_ZN8facebook5velox4type6Parser7by_kindC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this) unnamed_addr #5 align 2 {
 entry:
   store i32 -2, ptr %this, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox4type6Parser7by_kindC2EOS3_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %that) unnamed_addr #6 align 2 {
+define void @_ZN8facebook5velox4type6Parser7by_kindC2EOS3_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %that) unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %that, align 4
   store i32 %0, ptr %this, align 4
@@ -297,14 +297,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox4type6Parser7by_kind5clearEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this) local_unnamed_addr #5 align 2 {
+define void @_ZN8facebook5velox4type6Parser7by_kind5clearEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this) local_unnamed_addr #5 align 2 {
 entry:
   store i32 -2, ptr %this, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox4type6Parser7by_kindC2ERKS3_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %that) unnamed_addr #6 align 2 {
+define void @_ZN8facebook5velox4type6Parser7by_kindC2ERKS3_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %that) unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %that, align 4
   store i32 %0, ptr %this, align 4
@@ -312,7 +312,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox4type6Parser7by_kindC2ENS2_5token15token_kind_typeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, i32 noundef %t) unnamed_addr #5 align 2 {
+define void @_ZN8facebook5velox4type6Parser7by_kindC2ENS2_5token15token_kind_typeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, i32 noundef %t) unnamed_addr #5 align 2 {
 entry:
   %cmp.i = icmp slt i32 %t, 1
   br i1 %cmp.i, label %_ZN8facebook5velox4type6Parser12yytranslate_Ei.exit, label %if.else.i
@@ -357,7 +357,7 @@ return:                                           ; preds = %if.else, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox4type6Parser7by_kind4moveERS3_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %that) local_unnamed_addr #6 align 2 {
+define void @_ZN8facebook5velox4type6Parser7by_kind4moveERS3_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %that) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %that, align 4
   store i32 %0, ptr %this, align 4
@@ -380,14 +380,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox4type6Parser8by_stateC2Ev(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %this) unnamed_addr #5 align 2 {
+define void @_ZN8facebook5velox4type6Parser8by_stateC2Ev(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %this) unnamed_addr #5 align 2 {
 entry:
   store i8 0, ptr %this, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox4type6Parser8by_stateC2ERKS3_(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %that) unnamed_addr #6 align 2 {
+define void @_ZN8facebook5velox4type6Parser8by_stateC2ERKS3_(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %that) unnamed_addr #6 align 2 {
 entry:
   %0 = load i8, ptr %that, align 1
   store i8 %0, ptr %this, align 1
@@ -395,14 +395,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox4type6Parser8by_state5clearEv(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %this) local_unnamed_addr #5 align 2 {
+define void @_ZN8facebook5velox4type6Parser8by_state5clearEv(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %this) local_unnamed_addr #5 align 2 {
 entry:
   store i8 0, ptr %this, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox4type6Parser8by_state4moveERS3_(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull align 1 dereferenceable(1) %that) local_unnamed_addr #6 align 2 {
+define void @_ZN8facebook5velox4type6Parser8by_state4moveERS3_(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %this, ptr nocapture noundef nonnull align 1 dereferenceable(1) %that) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i8, ptr %that, align 1
   store i8 %0, ptr %this, align 1
@@ -411,7 +411,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox4type6Parser8by_stateC2Ea(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %this, i8 noundef signext %s) unnamed_addr #5 align 2 {
+define void @_ZN8facebook5velox4type6Parser8by_stateC2Ea(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %this, i8 noundef signext %s) unnamed_addr #5 align 2 {
 entry:
   store i8 %s, ptr %this, align 1
   ret void
@@ -437,7 +437,7 @@ return:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox4type6Parser17stack_symbol_typeC2Ev(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(64) %this) unnamed_addr #5 align 2 {
+define void @_ZN8facebook5velox4type6Parser17stack_symbol_typeC2Ev(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(64) initializes((0, 1), (16, 64)) %this) unnamed_addr #5 align 2 {
 entry:
   store i8 0, ptr %this, align 16
   %value.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -446,7 +446,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox4type6Parser17stack_symbol_typeC2EOS3_(ptr noundef nonnull align 16 dereferenceable(64) %this, ptr noundef nonnull align 16 dereferenceable(64) %that) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox4type6Parser17stack_symbol_typeC2EOS3_(ptr noundef nonnull align 16 dereferenceable(64) initializes((0, 1), (16, 64)) %this, ptr noundef nonnull align 16 dereferenceable(64) %that) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %that, align 16
   store i8 %0, ptr %this, align 16
@@ -744,7 +744,7 @@ _ZN8facebook5velox4type6Parser10value_type7destroyISt4pairINSt7__cxx1112basic_st
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox4type6Parser17stack_symbol_typeC2EaONS2_11symbol_typeE(ptr noundef nonnull align 16 dereferenceable(64) %this, i8 noundef signext %s, ptr noundef nonnull align 16 dereferenceable(64) %that) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox4type6Parser17stack_symbol_typeC2EaONS2_11symbol_typeE(ptr noundef nonnull align 16 dereferenceable(64) initializes((0, 1), (16, 64)) %this, i8 noundef signext %s, ptr noundef nonnull align 16 dereferenceable(64) %that) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 %s, ptr %this, align 16
   %value.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -5082,7 +5082,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox4type6Parser7contextC2ERKS2_RKNS2_11symbol_typeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(40) %yyparser, ptr noundef nonnull align 16 dereferenceable(64) %yyla) unnamed_addr #5 align 2 {
+define void @_ZN8facebook5velox4type6Parser7contextC2ERKS2_RKNS2_11symbol_typeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(40) %yyparser, ptr noundef nonnull align 16 dereferenceable(64) %yyla) unnamed_addr #5 align 2 {
 entry:
   store ptr %yyparser, ptr %this, align 8
   %yyla_ = getelementptr inbounds i8, ptr %this, i64 8

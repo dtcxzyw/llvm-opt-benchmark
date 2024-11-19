@@ -106,7 +106,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
 declare void @destroy_colors(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @fig_declare_color(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #5 {
+define internal noundef i32 @fig_declare_color(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((16, 20)) %1) #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %1, align 8
@@ -279,7 +279,7 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %15, %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @fig_textsize(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) #6 {
+define internal void @fig_textsize(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) #6 {
   %6 = mul i32 %3, 11
   %7 = udiv i32 %6, 10
   %8 = mul i32 %7, %2

@@ -968,7 +968,7 @@ declare void @_ZN5folly11AsyncSocket7destroyEv(ptr noundef nonnull align 8 deref
 declare void @_ZN5folly11AsyncSocket5closeEv(ptr noundef nonnull align 8 dereferenceable(1113)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14AsyncSSLSocket8closeNowEv(ptr noundef nonnull align 8 dereferenceable(1896) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14AsyncSSLSocket8closeNowEv(ptr noundef nonnull align 8 dereferenceable(1896) initializes((1132, 1136)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dg = alloca %"class.folly::DelayedDestructionBase::DestructorGuard", align 8
   %ref.tmp19 = alloca i32, align 4
@@ -1953,7 +1953,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly14AsyncSSLSocket14setEorTrackingEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1896) %this, i1 noundef zeroext %track) unnamed_addr #3 align 2 {
+define void @_ZN5folly14AsyncSSLSocket14setEorTrackingEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1896) initializes((941, 942)) %this, i1 noundef zeroext %track) unnamed_addr #3 align 2 {
 entry:
   %frombool.i = zext i1 %track to i8
   %trackEor_.i = getelementptr inbounds i8, ptr %this, i64 941
@@ -4553,7 +4553,7 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly14AsyncSSLSocket7connectEPNS_20AsyncSocketTransport15ConnectCallbackERKNS_13SocketAddressENSt6chrono8durationIlSt5ratioILl1ELl1000EEEESB_RKSt3mapINS_15SocketOptionKeyENS_17SocketOptionValueESt4lessISD_ESaISt4pairIKSD_SE_EEES6_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1896) %this, ptr noundef %callback, ptr noundef nonnull align 8 dereferenceable(27) %address, i64 %connectTimeout.coerce, i64 %totalConnectTimeout.coerce, ptr noundef nonnull align 1 %options, ptr noundef nonnull align 8 dereferenceable(27) %bindAddr, ptr noundef nonnull align 8 dereferenceable(32) %ifName) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14AsyncSSLSocket7connectEPNS_20AsyncSocketTransport15ConnectCallbackERKNS_13SocketAddressENSt6chrono8durationIlSt5ratioILl1ELl1000EEEESB_RKSt3mapINS_15SocketOptionKeyENS_17SocketOptionValueESt4lessISD_ESaISt4pairIKSD_SE_EEES6_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1896) initializes((939, 940), (1776, 1784)) %this, ptr noundef %callback, ptr noundef nonnull align 8 dereferenceable(27) %address, i64 %connectTimeout.coerce, i64 %totalConnectTimeout.coerce, ptr noundef nonnull align 1 %options, ptr noundef nonnull align 8 dereferenceable(27) %bindAddr, ptr noundef nonnull align 8 dereferenceable(32) %ifName) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %noTransparentTls_ = getelementptr inbounds i8, ptr %this, i64 939
   store i8 1, ptr %noTransparentTls_, align 1, !tbaa !200
@@ -5203,7 +5203,7 @@ unreachable:                                      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5folly14AsyncSSLSocket30getSelectedNextProtocolNoThrowEPPKhPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1896) %this, ptr noundef %protoName, ptr noundef %protoLen) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK5folly14AsyncSSLSocket30getSelectedNextProtocolNoThrowEPPKhPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1896) %this, ptr noundef initializes((0, 8)) %protoName, ptr noundef initializes((0, 4)) %protoLen) unnamed_addr #2 align 2 {
 entry:
   store ptr null, ptr %protoName, align 8, !tbaa !17
   store i32 0, ptr %protoLen, align 4, !tbaa !179
@@ -8205,7 +8205,7 @@ eh.resume:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly14AsyncSSLSocketD2Ev(ptr noundef nonnull align 8 dereferenceable(1896) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14AsyncSSLSocketD2Ev(ptr noundef nonnull align 8 dereferenceable(1896) initializes((0, 8), (16, 40)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8 = alloca %"class.google::LogMessage", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly14AsyncSSLSocketE, i64 16), ptr %this, align 8, !tbaa !15
@@ -9302,7 +9302,7 @@ declare noundef zeroext i1 @_ZNK5folly12AsyncTimeout11isScheduledEv(ptr noundef 
 declare void @_ZN5folly12AsyncTimeout13cancelTimeoutEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly14AsyncSSLSocket18invokeHandshakeErrERKNS_20AsyncSocketExceptionE(ptr noundef nonnull align 8 dereferenceable(1896) %this, ptr noundef nonnull align 8 dereferenceable(24) %ex) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly14AsyncSSLSocket18invokeHandshakeErrERKNS_20AsyncSocketExceptionE(ptr noundef nonnull align 8 dereferenceable(1896) initializes((1760, 1768)) %this, ptr noundef nonnull align 8 dereferenceable(24) %ex) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #38
   %handshakeEndTime_ = getelementptr inbounds i8, ptr %this, i64 1760
@@ -10381,7 +10381,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14RequestContext16getStaticContextEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14AsyncSSLSocket16attachSSLContextERKSt10shared_ptrIKNS_10SSLContextEE(ptr nocapture noundef nonnull align 8 dereferenceable(1896) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ctx) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14AsyncSSLSocket16attachSSLContextERKSt10shared_ptrIKNS_10SSLContextEE(ptr nocapture noundef nonnull align 8 dereferenceable(1896) initializes((1136, 1144)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ctx) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %guard = alloca %"class.std::unique_lock", align 8
   %ctx_116 = getelementptr inbounds i8, ptr %this, i64 1136
@@ -10637,7 +10637,7 @@ declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare ptr @__errno_location() local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14AsyncSSLSocket16detachSSLContextEv(ptr nocapture noundef nonnull align 8 dereferenceable(1896) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14AsyncSSLSocket16detachSSLContextEv(ptr nocapture noundef nonnull align 8 dereferenceable(1896) initializes((1136, 1144)) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %guard = alloca %"class.std::unique_lock", align 8
   %ctx_16 = getelementptr inbounds i8, ptr %this, i64 1136
@@ -14765,7 +14765,7 @@ declare void @_ZN5folly11AsyncSocket9startFailEv(ptr noundef nonnull align 8 der
 declare void @_ZN5folly11AsyncSocket10finishFailERKNS_20AsyncSocketExceptionE(ptr noundef nonnull align 8 dereferenceable(1113), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14AsyncSSLSocket17invokeHandshakeCBEv(ptr noundef nonnull align 8 dereferenceable(1896) %this) local_unnamed_addr #2 align 2 {
+define void @_ZN5folly14AsyncSSLSocket17invokeHandshakeCBEv(ptr noundef nonnull align 8 dereferenceable(1896) initializes((1760, 1768)) %this) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #38
   %handshakeEndTime_ = getelementptr inbounds i8, ptr %this, i64 1760
@@ -16318,7 +16318,7 @@ declare i32 @SSL_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare void @_ZN5folly3ssl17SSLSessionManager11attachToSSLEP6ssl_st(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14AsyncSSLSocket15startSSLConnectEv(ptr noundef nonnull align 8 dereferenceable(1896) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14AsyncSSLSocket15startSSLConnectEv(ptr noundef nonnull align 8 dereferenceable(1896) initializes((1752, 1768)) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #38
   %handshakeStartTime_ = getelementptr inbounds i8, ptr %this, i64 1752
@@ -17162,7 +17162,7 @@ return:                                           ; preds = %if.end, %entry
 declare i32 @X509_up_ref(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN5folly14AsyncSSLSocket9willBlockEiPiPm(ptr noundef nonnull align 8 dereferenceable(1896) %this, i32 noundef %ret, ptr nocapture noundef writeonly %sslErrorOut, ptr nocapture noundef writeonly %errErrorOut) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5folly14AsyncSSLSocket9willBlockEiPiPm(ptr noundef nonnull align 8 dereferenceable(1896) %this, i32 noundef %ret, ptr nocapture noundef writeonly %sslErrorOut, ptr nocapture noundef writeonly initializes((0, 8)) %errErrorOut) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp14 = alloca %"class.google::LogMessage", align 8
   %numfds = alloca i64, align 8
@@ -23651,7 +23651,7 @@ declare void @_ZN5folly11AsyncSocket14failByteEventsERKNS_20AsyncSocketException
 declare void @_ZN5folly11AsyncSocket16enableByteEventsEv(ptr noundef nonnull align 8 dereferenceable(1113)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14AsyncSSLSocket24enableClientHelloParsingEv(ptr nocapture noundef nonnull align 8 dereferenceable(1896) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14AsyncSSLSocket24enableClientHelloParsingEv(ptr nocapture noundef nonnull align 8 dereferenceable(1896) initializes((1716, 1717)) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"struct.folly::IOBufQueue::Options", align 1
   %parseClientHello_ = getelementptr inbounds i8, ptr %this, i64 1716

@@ -22,7 +22,7 @@ define hidden void @_ZNK15ClassFileStream20truncated_file_errorEP10JavaThread(pt
 declare void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15ClassFileStreamC2EPKhiPKcbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(42) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #2 align 2 {
+define hidden void @_ZN15ClassFileStreamC2EPKhiPKcbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(42) initializes((0, 42)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #2 align 2 {
   %7 = zext i1 %4 to i8
   %8 = zext i1 %5 to i8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15ClassFileStream, i64 16), ptr %0, align 8

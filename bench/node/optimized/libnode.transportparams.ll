@@ -311,7 +311,7 @@ _ZNSt8optionalIN4node13SocketAddressEED2Ev.exit4: ; preds = %_ZNSt8optionalIN4no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node4quic15TransportParams6ConfigC2ENS0_4SideERKNS0_3CIDES6_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i32 noundef %side, ptr noundef nonnull align 8 dereferenceable(48) %ocid, ptr noundef nonnull align 8 dereferenceable(48) %retry_scid) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node4quic15TransportParams6ConfigC2ENS0_4SideERKNS0_3CIDES6_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 4), (8, 24)) %this, i32 noundef %side, ptr noundef nonnull align 8 dereferenceable(48) %ocid, ptr noundef nonnull align 8 dereferenceable(48) %retry_scid) unnamed_addr #4 align 2 {
 entry:
   store i32 %side, ptr %this, align 8
   %ocid3 = getelementptr inbounds i8, ptr %this, i64 8
@@ -2212,7 +2212,7 @@ if.end8:                                          ; preds = %if.else.i.i28, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic15TransportParamsC2ENS1_4TypeE(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %type) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic15TransportParamsC2ENS1_4TypeE(ptr noundef nonnull align 8 dereferenceable(432) initializes((0, 4), (8, 301), (304, 329)) %this, i32 noundef %type) unnamed_addr #3 align 2 {
 entry:
   store i32 %type, ptr %this, align 8
   %params_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2234,7 +2234,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic15TransportParamsC2ENS1_4TypeEPK23ngtcp2_transport_params(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %type, ptr noundef %ptr) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic15TransportParamsC2ENS1_4TypeEPK23ngtcp2_transport_params(ptr noundef nonnull align 8 dereferenceable(432) initializes((0, 4), (8, 301), (304, 329), (336, 352)) %this, i32 noundef %type, ptr noundef %ptr) unnamed_addr #3 align 2 {
 entry:
   store i32 %type, ptr %this, align 8
   %params_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2253,7 +2253,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic15TransportParamsC2ERKNS1_6ConfigERKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %config, ptr nocapture noundef nonnull readonly align 8 dereferenceable(385) %options) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic15TransportParamsC2ERKNS1_6ConfigERKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(432) initializes((0, 4), (8, 301), (304, 329)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %config, ptr nocapture noundef nonnull readonly align 8 dereferenceable(385) %options) unnamed_addr #3 align 2 {
 entry:
   store i32 1, ptr %this, align 8
   %params_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2399,7 +2399,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4node4quic3CIDcvRK1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic15TransportParams19SetPreferredAddressERKNS_13SocketAddressE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(432) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %address) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic15TransportParams19SetPreferredAddressERKNS_13SocketAddressE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(432) initializes((283, 284)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %address) local_unnamed_addr #3 align 2 {
 entry:
   %preferred_address_present = getelementptr inbounds i8, ptr %this, i64 283
   store i8 1, ptr %preferred_address_present, align 1
@@ -2465,7 +2465,7 @@ do.end:                                           ; preds = %_ZNK4node13SocketAd
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic15TransportParamsC2ENS1_4TypeERK10ngtcp2_vec(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %vec) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic15TransportParamsC2ENS1_4TypeERK10ngtcp2_vec(ptr noundef nonnull align 8 dereferenceable(432) initializes((0, 4), (8, 301), (304, 329)) %this, i32 noundef %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %vec) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"class.node::quic::QuicError", align 8
   store i32 %type, ptr %this, align 8
@@ -2651,7 +2651,7 @@ if.end:                                           ; preds = %_ZN4node4quic15Tran
 declare noundef zeroext i1 @_ZNK4node4quic7Session9is_serverEv(ptr noundef nonnull align 8 dereferenceable(2616)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic15TransportParams27GenerateStatelessResetTokenERKNS0_8EndpointERKNS0_3CIDE(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef nonnull align 8 dereferenceable(1520) %endpoint, ptr noundef nonnull align 8 dereferenceable(48) %cid) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic15TransportParams27GenerateStatelessResetTokenERKNS0_8EndpointERKNS0_3CIDE(ptr noundef nonnull align 8 dereferenceable(432) initializes((280, 281)) %this, ptr noundef nonnull align 8 dereferenceable(1520) %endpoint, ptr noundef nonnull align 8 dereferenceable(48) %cid) local_unnamed_addr #3 align 2 {
 entry:
   %agg.tmp.ensured = alloca %"class.node::quic::StatelessResetToken", align 8
   %stateless_reset_token_present = getelementptr inbounds i8, ptr %this, i64 280

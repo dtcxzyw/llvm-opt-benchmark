@@ -2625,7 +2625,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 declare i32 @tolower(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @colorxlate(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @colorxlate(ptr noundef %0, ptr noundef writeonly initializes((32, 36)) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.agxbuf, align 8
   %5 = alloca double, align 8
   %6 = alloca double, align 8

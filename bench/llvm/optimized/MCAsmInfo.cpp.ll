@@ -162,7 +162,7 @@ $_ZTVN4llvm2cl3optINS0_13boolOrDefaultELb0ENS0_6parserIS2_EEEE = comdat any
 @_ZN4llvm9MCAsmInfoD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm9MCAsmInfoD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_112DefaultOnOffELb0ENS0_6parserIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_112DefaultOnOffELb0ENS0_6parserIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(600) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIN12_GLOBAL__N_112DefaultOnOffELb0ENS0_6parserIS3_EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
@@ -263,7 +263,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm9MCAsmInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(484) %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm9MCAsmInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(484) initializes((0, 22), (24, 35), (40, 67), (72, 83), (88, 136), (176, 190), (200, 201), (224, 244), (280, 281), (288, 344), (352, 354), (356, 368), (376, 386), (388, 409), (412, 417), (420, 433), (440, 472), (476, 484)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4llvm9MCAsmInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 4, ptr %2, align 8
@@ -481,7 +481,7 @@ define dso_local void @_ZN4llvm9MCAsmInfoC2Ev(ptr noundef nonnull align 8 derefe
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9MCAsmInfoD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(484) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9MCAsmInfoD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(484) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4llvm9MCAsmInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %3 = load ptr, ptr %2, align 8
@@ -747,7 +747,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull al
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(400) %2) #22
@@ -895,7 +895,7 @@ define internal noundef range(i32 2, 4) i32 @_ZNK4llvm2cl3optIN12_GLOBAL__N_112D
 declare void @_ZN4llvm2cl6Option6anchorEv(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_112DefaultOnOffELb0ENS0_6parserIS3_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_112DefaultOnOffELb0ENS0_6parserIS3_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(600) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIN12_GLOBAL__N_112DefaultOnOffELb0ENS0_6parserIS3_EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
@@ -1000,7 +1000,7 @@ define internal void @_ZNK4llvm2cl3optIN12_GLOBAL__N_112DefaultOnOffELb0ENS0_6pa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_112DefaultOnOffELb0ENS0_6parserIS3_EEE10setDefaultEv(ptr nocapture noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #11 align 2 {
+define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_112DefaultOnOffELb0ENS0_6parserIS3_EEE10setDefaultEv(ptr nocapture noundef nonnull align 8 dereferenceable(600) initializes((128, 132)) %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 148
   %.val.i = load i8, ptr %2, align 4
   %3 = trunc i8 %.val.i to i1
@@ -1022,7 +1022,7 @@ define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_112DefaultOnOffELb0ENS0_6par
 declare noundef zeroext i1 @_ZN4llvm2cl6Option13addOccurrenceEjNS_9StringRefES2_b(ptr noundef nonnull align 8 dereferenceable(128), i32 noundef, ptr, i64, ptr, i64, i1 noundef zeroext) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEED0Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEED0Ev(ptr noundef nonnull align 8 dereferenceable(416) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserIN12_GLOBAL__N_112DefaultOnOffEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(400) %2) #22

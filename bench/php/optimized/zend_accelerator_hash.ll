@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @accel_globals = external local_unnamed_addr global %struct._zend_accel_globals, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @zend_accel_hash_clean(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @zend_accel_hash_clean(ptr nocapture noundef initializes((16, 20), (24, 28)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24

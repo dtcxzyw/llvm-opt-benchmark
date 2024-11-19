@@ -128,7 +128,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_serial_register_types, ptr null }]
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @serial_pre_load(ptr nocapture noundef writeonly %opaque) #0 {
+define internal noundef i32 @serial_pre_load(ptr nocapture noundef writeonly initializes((176, 180), (360, 364)) %opaque) #0 {
 entry:
   %thr_ipending = getelementptr inbounds i8, ptr %opaque, i64 176
   store i32 -1, ptr %thr_ipending, align 16
@@ -276,7 +276,7 @@ return:                                           ; preds = %serial_write_fcr.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @serial_pre_save(ptr nocapture noundef %opaque) #2 {
+define internal noundef i32 @serial_pre_save(ptr nocapture noundef initializes((173, 174)) %opaque) #2 {
 entry:
   %fcr = getelementptr inbounds i8, ptr %opaque, i64 172
   %0 = load i8, ptr %fcr, align 4
@@ -286,7 +286,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @serial_set_frequency(ptr noundef %s, i32 noundef %frequency) local_unnamed_addr #1 {
+define dso_local void @serial_set_frequency(ptr noundef initializes((252, 256), (352, 360)) %s, i32 noundef %frequency) local_unnamed_addr #1 {
 entry:
   %baudbase = getelementptr inbounds i8, ptr %s, i64 252
   store i32 %frequency, ptr %baudbase, align 4
@@ -295,7 +295,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @serial_update_parameters(ptr noundef %s) unnamed_addr #1 {
+define internal fastcc void @serial_update_parameters(ptr noundef initializes((352, 360)) %s) unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %ssp = alloca %struct.QEMUSerialSetParams, align 4
@@ -1118,7 +1118,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare i32 @qemu_chr_fe_add_watch(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @serial_watch_cb(ptr nocapture readnone %do_not_use, i32 %cond, ptr noundef %opaque) #1 {
+define internal noundef i32 @serial_watch_cb(ptr nocapture readnone %do_not_use, i32 %cond, ptr noundef initializes((260, 264)) %opaque) #1 {
 entry:
   %watch_tag = getelementptr inbounds i8, ptr %opaque, i64 260
   store i32 0, ptr %watch_tag, align 4
@@ -1772,7 +1772,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @qemu_register_reset(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @serial_reset(ptr noundef %opaque) #1 {
+define internal void @serial_reset(ptr noundef initializes((160, 163), (165, 172), (256, 260), (344, 348), (352, 364)) %opaque) #1 {
 entry:
   %watch_tag = getelementptr inbounds i8, ptr %opaque, i64 260
   %0 = load i32, ptr %watch_tag, align 4

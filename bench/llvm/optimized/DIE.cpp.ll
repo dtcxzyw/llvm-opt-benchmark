@@ -890,7 +890,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm9DIEAbbrevD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3DIE14generateAbbrevEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::DIEAbbrev") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3DIE14generateAbbrevEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::DIEAbbrev") align 8 initializes((0, 15)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i16, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 30
@@ -2569,7 +2569,7 @@ _ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm7DIEUnitC2ENS_5dwarf3TagE(ptr noundef nonnull align 8 dereferenceable(72) %0, i16 noundef zeroext %1) unnamed_addr #8 align 2 {
+define dso_local void @_ZN4llvm7DIEUnitC2ENS_5dwarf3TagE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, i16 noundef zeroext %1) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm7DIEUnitE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = ptrtoint ptr %3 to i64

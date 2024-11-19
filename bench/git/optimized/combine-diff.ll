@@ -3889,7 +3889,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 declare i32 @xdi_diff_outf(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @consume_hunk(ptr nocapture noundef %state_, i64 noundef %ob, i64 noundef %on, i64 noundef %nb, i64 noundef %nn, ptr nocapture readnone %func, i64 %funclen) #0 {
+define internal void @consume_hunk(ptr nocapture noundef initializes((0, 20), (48, 56)) %state_, i64 noundef %ob, i64 noundef %on, i64 noundef %nb, i64 noundef %nn, ptr nocapture readnone %func, i64 %funclen) #0 {
 entry:
   %conv = trunc i64 %ob to i32
   %ob1 = getelementptr inbounds i8, ptr %state_, i64 4

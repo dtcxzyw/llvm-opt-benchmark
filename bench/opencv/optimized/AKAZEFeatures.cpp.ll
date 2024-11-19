@@ -329,7 +329,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv13AKAZEFeaturesC2ERKNS_12AKAZEOptionsE(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(68) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv13AKAZEFeaturesC2ERKNS_12AKAZEOptionsE(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 68), (72, 96), (104, 152)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(68) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 4 dereferenceable(68) %1, i64 68, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)

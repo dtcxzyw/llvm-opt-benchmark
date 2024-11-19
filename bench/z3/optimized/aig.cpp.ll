@@ -300,14 +300,14 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7aig_refC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN7aig_refC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7aig_refC2ER11aig_managerRK7aig_lit(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %l) unnamed_addr #4 align 2 {
+define hidden void @_ZN7aig_refC2ER11aig_managerRK7aig_lit(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(8) %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %l) unnamed_addr #4 align 2 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_ref = getelementptr inbounds i8, ptr %this, i64 8
@@ -622,7 +622,7 @@ if.end8:                                          ; preds = %_ZN6vectorIP3aigLb0
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11aig_managerC2ER11ast_manageryb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i64 noundef %max, i1 noundef zeroext %default_gate_encoding) unnamed_addr #6 align 2 {
+define hidden void @_ZN11aig_managerC2ER11ast_manageryb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i64 noundef %max, i1 noundef zeroext %default_gate_encoding) unnamed_addr #6 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 680)
   tail call void @_ZN11aig_manager3impC2ER11ast_manageryb(ptr noundef nonnull align 8 dereferenceable(680) %call, ptr noundef nonnull align 8 dereferenceable(976) %m, i64 noundef %max, i1 noundef zeroext %default_gate_encoding)
@@ -785,7 +785,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11aig_manager6mk_aigEP4expr(ptr noalias nocapture writeonly sret(%class.aig_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %n) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN11aig_manager6mk_aigEP4expr(ptr noalias nocapture writeonly sret(%class.aig_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %n) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call ptr @_ZN11aig_manager3imp6mk_aigEP4expr(ptr noundef nonnull align 8 dereferenceable(680) %0, ptr noundef %n)
@@ -859,7 +859,7 @@ lpad:                                             ; preds = %_ZN11aig_manager3im
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11aig_manager6mk_aigERK4goal(ptr noalias nocapture writeonly sret(%class.aig_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(124) %s) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN11aig_manager6mk_aigERK4goal(ptr noalias nocapture writeonly sret(%class.aig_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(124) %s) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call ptr @_ZN11aig_manager3imp6mk_aigI4goalEE7aig_litRKT_(ptr noundef nonnull align 8 dereferenceable(680) %0, ptr noundef nonnull align 8 dereferenceable(124) %s)
@@ -1298,7 +1298,7 @@ unreachable:                                      ; preds = %invoke.cont23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN11aig_manager6mk_notERK7aig_ref(ptr noalias nocapture writeonly sret(%class.aig_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN11aig_manager6mk_notERK7aig_ref(ptr noalias nocapture writeonly sret(%class.aig_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r) local_unnamed_addr #4 align 2 {
 entry:
   %m_ref2.i = getelementptr inbounds i8, ptr %r, i64 8
   %0 = load ptr, ptr %m_ref2.i, align 8
@@ -1318,7 +1318,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11aig_manager6mk_andERK7aig_refS2_(ptr noalias nocapture writeonly sret(%class.aig_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r2) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN11aig_manager6mk_andERK7aig_refS2_(ptr noalias nocapture writeonly sret(%class.aig_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r2) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_ref2.i = getelementptr inbounds i8, ptr %r1, i64 8
@@ -1340,7 +1340,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11aig_manager5mk_orERK7aig_refS2_(ptr noalias nocapture writeonly sret(%class.aig_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r2) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN11aig_manager5mk_orERK7aig_refS2_(ptr noalias nocapture writeonly sret(%class.aig_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r2) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_ref2.i = getelementptr inbounds i8, ptr %r1, i64 8
@@ -1370,7 +1370,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11aig_manager6mk_iffERK7aig_refS2_(ptr noalias nocapture writeonly sret(%class.aig_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r2) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN11aig_manager6mk_iffERK7aig_refS2_(ptr noalias nocapture writeonly sret(%class.aig_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r2) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_ref2.i = getelementptr inbounds i8, ptr %r1, i64 8
@@ -1743,7 +1743,7 @@ return:                                           ; preds = %_ZN11aig_manager3im
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11aig_manager6mk_iteERK7aig_refS2_S2_(ptr noalias nocapture writeonly sret(%class.aig_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r3) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN11aig_manager6mk_iteERK7aig_refS2_S2_(ptr noalias nocapture writeonly sret(%class.aig_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r3) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_ref2.i = getelementptr inbounds i8, ptr %r1, i64 8

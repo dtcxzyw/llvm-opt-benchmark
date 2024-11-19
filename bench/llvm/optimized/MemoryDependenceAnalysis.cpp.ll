@@ -8723,14 +8723,14 @@ define dso_local void @_ZNK4llvm23MemoryDependenceResults13verifyRemovedEPNS_11I
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm24MemoryDependenceAnalysisC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0) unnamed_addr #8 align 2 {
+define dso_local void @_ZN4llvm24MemoryDependenceAnalysisC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #8 align 2 {
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL14BlockScanLimit, i64 128), align 8
   store i32 %2, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm24MemoryDependenceAnalysis3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::MemoryDependenceResults") align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm24MemoryDependenceAnalysis3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::MemoryDependenceResults") align 8 initializes((0, 20), (24, 44), (48, 68), (72, 92), (96, 116), (120, 140), (144, 164), (168, 188), (192, 244), (248, 264)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm9AAManager3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %2) #20
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm18AssumptionAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %2) #20
@@ -8846,7 +8846,7 @@ define internal noundef nonnull ptr @_ZL45initializeMemoryDependenceWrapperPassP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm27MemoryDependenceWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(488) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm27MemoryDependenceWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(488) initializes((0, 28), (480, 481)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.416, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8888,7 +8888,7 @@ _ZN4llvm41initializeMemoryDependenceWrapperPassPassERNS_12PassRegistryE.exit: ; 
 declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm27MemoryDependenceWrapperPassD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm27MemoryDependenceWrapperPassD2Ev(ptr noundef nonnull align 8 dereferenceable(488) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN4llvm27MemoryDependenceWrapperPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %3 = load i8, ptr %2, align 8
@@ -8934,7 +8934,7 @@ _ZNSt8optionalIN4llvm23MemoryDependenceResultsEE5resetEv.exit: ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm27MemoryDependenceWrapperPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(161) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm27MemoryDependenceWrapperPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i8 1, ptr %3, align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(161) ptr @_ZN4llvm13AnalysisUsage13addRequiredIDERc(ptr noundef nonnull align 8 dereferenceable(161) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZN4llvm22AssumptionCacheTracker2IDE) #20

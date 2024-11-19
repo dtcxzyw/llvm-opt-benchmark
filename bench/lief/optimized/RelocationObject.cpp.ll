@@ -354,7 +354,7 @@ define noundef i64 @_ZNK4LIEF5MachO16RelocationObject6originEv(ptr nocapture non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO16RelocationObject11pc_relativeEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i1 noundef zeroext %1) unnamed_addr #9 align 2 {
+define void @_ZN4LIEF5MachO16RelocationObject11pc_relativeEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((56, 57)) %0, i1 noundef zeroext %1) unnamed_addr #9 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   store i8 %3, ptr %4, align 8

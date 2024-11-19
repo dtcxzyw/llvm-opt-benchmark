@@ -30,7 +30,7 @@ define hidden noundef range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17Exa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core5array40_$LT$impl$u20$$u5b$T$u3b$$u20$N$u5d$$GT$3map17hd0e8d1f5f18dc3e5E"(ptr noalias nocapture noundef writeonly sret([4 x [4 x i8]]) align 1 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4core5array40_$LT$impl$u20$$u5b$T$u3b$$u20$N$u5d$$GT$3map17hd0e8d1f5f18dc3e5E"(ptr noalias nocapture noundef writeonly sret([4 x [4 x i8]]) align 1 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { [4 x i32] }, align 4
   %4 = alloca { [4 x [4 x i8]] }, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -809,7 +809,7 @@ _ZN5alloc7raw_vec11finish_grow17he9c572a7ba3297a7E.exit.i: ; preds = %19, %15
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h898bfe47992ec56bE.llvm.13593472205236004856"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #7 {
+define hidden void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h898bfe47992ec56bE.llvm.13593472205236004856"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, i64 } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #7 {
   %3 = load i64, ptr %1, align 8, !range !4, !noundef !12
   store i64 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

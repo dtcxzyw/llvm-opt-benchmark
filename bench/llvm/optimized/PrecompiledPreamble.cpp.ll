@@ -738,7 +738,7 @@ define linkonce_odr hidden void @_ZN4llvm9StringMapIN5clang19PrecompiledPreamble
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang19PrecompiledPreambleC2EOS0_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(81) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang19PrecompiledPreambleC2EOS0_(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 56)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1) unnamed_addr #0 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8
@@ -2885,7 +2885,7 @@ declare void @_ZN5clang14FrontendAction7ExecuteEv(ptr dead_on_unwind writable sr
 declare { i32, ptr } @_ZN4llvm16errorToErrorCodeENS_5ErrorE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang19PrecompiledPreamble16PreambleFileHash13createForFileEll(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.clang::PrecompiledPreamble::PreambleFileHash") align 8 %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang19PrecompiledPreamble16PreambleFileHash13createForFileEll(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.clang::PrecompiledPreamble::PreambleFileHash") align 8 initializes((0, 32)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   store i64 %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -2926,7 +2926,7 @@ define linkonce_odr hidden void @_ZN5clang13SourceManager28getMemoryBufferForFil
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang19PrecompiledPreamble16PreambleFileHash21createForMemoryBufferERKN4llvm15MemoryBufferRefE(ptr dead_on_unwind noalias writable sret(%"struct.clang::PrecompiledPreamble::PreambleFileHash") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang19PrecompiledPreamble16PreambleFileHash21createForMemoryBufferERKN4llvm15MemoryBufferRefE(ptr dead_on_unwind noalias writable sret(%"struct.clang::PrecompiledPreamble::PreambleFileHash") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::MD5", align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
@@ -4159,7 +4159,7 @@ define dso_local void @_ZNK5clang19PrecompiledPreamble16OverridePreambleERNS_18C
 declare void @_ZN4llvm15MemoryBufferRefC1ERKNS_12MemoryBufferE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang19PrecompiledPreambleC2ESt10unique_ptrINS0_10PCHStorageESt14default_deleteIS2_EESt6vectorIcSaIcEEbN4llvm9StringMapINS0_16PreambleFileHashENS9_15MallocAllocatorEEENS9_9StringSetISC_EE(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr nocapture noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang19PrecompiledPreambleC2ESt10unique_ptrINS0_10PCHStorageESt14default_deleteIS2_EESt6vectorIcSaIcEEbN4llvm9StringMapINS0_16PreambleFileHashENS9_15MallocAllocatorEEENS9_9StringSetISC_EE(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 56)) %0, ptr nocapture noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #0 align 2 {
   %7 = zext i1 %3 to i8
   %8 = load i64, ptr %1, align 8
   store i64 %8, ptr %0, align 8
@@ -4527,7 +4527,7 @@ declare void @_ZN4llvm3vfs17getRealFileSystemEv(ptr dead_on_unwind writable sret
 declare void @_ZN4llvm3vfs10FileSystem16getBufferForFileERKNS_5TwineElbb(ptr dead_on_unwind writable sret(%"class.llvm::ErrorOr.724") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(34), i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_130createVFSOverlayForPreamblePCHEN4llvm9StringRefESt10unique_ptrINS0_12MemoryBufferESt14default_deleteIS3_EENS0_18IntrusiveRefCntPtrINS0_3vfs10FileSystemEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i64 %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_130createVFSOverlayForPreamblePCHEN4llvm9StringRefESt10unique_ptrINS0_12MemoryBufferESt14default_deleteIS3_EENS0_18IntrusiveRefCntPtrINS0_3vfs10FileSystemEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.std::unique_ptr.364", align 8
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -4653,7 +4653,7 @@ define dso_local void @_ZN5clang17PreambleCallbacks18HandleTopLevelDeclENS_12Dec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang17PreambleCallbacks17createPPCallbacksEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.418") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang17PreambleCallbacks17createPPCallbacksEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.418") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #5 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -7913,7 +7913,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang14FrontendAction22Prepar
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124PrecompilePreambleAction17CreateASTConsumerERN5clang16CompilerInstanceEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.143") align 8 %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(352) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_124PrecompilePreambleAction17CreateASTConsumerERN5clang16CompilerInstanceEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.143") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(352) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.std::shared_ptr.114", align 8
   %8 = alloca %"class.llvm::ArrayRef.1054", align 8
@@ -8151,7 +8151,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124PrecompilePreambleAction2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124PrecompilePreambleActionD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_124PrecompilePreambleActionD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_124PrecompilePreambleActionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
@@ -8246,7 +8246,7 @@ _ZNSt10shared_ptrIN5clang9PCHBufferEED2Ev.exit:   ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124PrecompilePreambleActionD0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_124PrecompilePreambleActionD0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_124PrecompilePreambleActionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8

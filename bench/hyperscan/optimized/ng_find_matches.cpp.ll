@@ -8460,7 +8460,7 @@ _ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graph
 declare noundef zeroext i1 @_ZN3ue216is_virtual_startENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_(ptr, i64, ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125gatherPredecessorsByDepthERKN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIS1_NS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEj(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr readonly %src.coerce0, i32 noundef range(i32 1, 0) %depth) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_125gatherPredecessorsByDepthERKN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIS1_NS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEj(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 24)) %agg.result, ptr readonly %src.coerce0, i32 noundef range(i32 1, 0) %depth) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %"class.ue2::graph_detail::vertex_descriptor", align 8
   %tmp = alloca %"struct.std::pair.199", align 8
@@ -9452,7 +9452,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18StateSetC2Emj(ptr noundef nonnull align 8 dereferenceable(100) %this, i64 noundef %sz, i32 noundef %dist_in) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18StateSetC2Emj(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 48)) %this, i64 noundef %sz, i32 noundef %dist_in) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v.i95 = alloca i64, align 8
   %v.i = alloca i64, align 8

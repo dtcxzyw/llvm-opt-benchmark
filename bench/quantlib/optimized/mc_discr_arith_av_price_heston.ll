@@ -190,7 +190,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib29ArithmeticAPOHestonPathPricerC2ENS_6Option4TypeEddSt6vectorImSaImEEdm(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %type, double noundef %strike, double noundef %discount, ptr nocapture noundef %fixingIndices, double noundef %runningSum, i64 noundef %pastFixings) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib29ArithmeticAPOHestonPathPricerC2ENS_6Option4TypeEddSt6vectorImSaImEEdm(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 20), (24, 80)) %this, i32 noundef %type, double noundef %strike, double noundef %discount, ptr nocapture noundef %fixingIndices, double noundef %runningSum, i64 noundef %pastFixings) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

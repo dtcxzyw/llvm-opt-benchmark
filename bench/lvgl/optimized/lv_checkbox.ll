@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [10 x i8] c"Check box\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_checkbox_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_checkbox_constructor(ptr nocapture readnone %0, ptr noundef initializes((64, 72)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr @.str.1, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72

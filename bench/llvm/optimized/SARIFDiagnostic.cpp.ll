@@ -454,7 +454,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %45, %55
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15SARIFDiagnostic24addDiagnosticLevelToRuleENS_9SarifRuleENS_17DiagnosticsEngine5LevelE(ptr dead_on_unwind noalias writable sret(%"class.clang::SarifRule") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang15SARIFDiagnostic24addDiagnosticLevelToRuleENS_9SarifRuleENS_17DiagnosticsEngine5LevelE(ptr dead_on_unwind noalias writable sret(%"class.clang::SarifRule") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %1, ptr noundef initializes((128, 140)) %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %switch.tableidx = add i32 %3, -1
   %5 = icmp ult i32 %switch.tableidx, 5
   br i1 %5, label %switch.lookup, label %8

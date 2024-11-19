@@ -87,7 +87,7 @@ $_ZTV30ShenandoahInitMarkRootsClosureIL24ShenandoahGenerationType0EE = comdat an
 @_ZN17ShenandoahSTWMarkC1Eb = hidden unnamed_addr alias void (ptr, i1), ptr @_ZN17ShenandoahSTWMarkC2Eb
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ShenandoahSTWMarkTaskC2EP17ShenandoahSTWMark(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN21ShenandoahSTWMarkTaskC2EP17ShenandoahSTWMark(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 20), (24, 32)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @.str, ptr %3, align 8

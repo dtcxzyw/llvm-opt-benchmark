@@ -1584,7 +1584,7 @@ declare x86_fp80 @llvm.fabs.f80(x86_fp80) #14
 declare i1 @llvm.is.fpclass.f80(x86_fp80, i32 immarg) #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local range(i32 0, 2) i32 @string2d(ptr noundef %s, i64 noundef %slen, ptr nocapture noundef writeonly %dp) local_unnamed_addr #13 {
+define dso_local range(i32 0, 2) i32 @string2d(ptr noundef %s, i64 noundef %slen, ptr nocapture noundef writeonly initializes((0, 8)) %dp) local_unnamed_addr #13 {
 entry:
   %eptr = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #30

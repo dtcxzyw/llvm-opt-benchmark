@@ -121,7 +121,7 @@ declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #2
 declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_image_buf_get_transformed_area(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, ptr noundef %6) local_unnamed_addr #0 {
+define void @lv_image_buf_get_transformed_area(ptr nocapture noundef writeonly initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca [4 x %struct.lv_point_t], align 16
   %9 = icmp eq i32 %3, 0
   %10 = icmp eq i16 %4, 256

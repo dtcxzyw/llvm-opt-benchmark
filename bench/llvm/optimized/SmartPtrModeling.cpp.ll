@@ -3915,7 +3915,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit30: ; preds =
 declare void @_ZN5clang4ento18CallDescriptionSetC1EOSt16initializer_listINS0_15CallDescriptionEE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116SmartPtrModelingD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_116SmartPtrModelingD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_116SmartPtrModelingE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -4085,7 +4085,7 @@ _ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_116SmartPtrModelingEKFvRKNS0_9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116SmartPtrModelingD0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_116SmartPtrModelingD0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_116SmartPtrModelingD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #20
   ret void

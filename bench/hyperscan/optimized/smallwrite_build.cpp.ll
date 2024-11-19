@@ -553,7 +553,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS2_EESaIS5_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ue212_GLOBAL__N_119SmallWriteBuildImplD2Ev(ptr noundef nonnull align 8 dereferenceable(201) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ue212_GLOBAL__N_119SmallWriteBuildImplD2Ev(ptr noundef nonnull align 8 dereferenceable(201) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119SmallWriteBuildImplE, i64 16), ptr %this, align 8
   %lit_trie_nocase = getelementptr inbounds i8, ptr %this, i64 120
@@ -696,7 +696,7 @@ _ZNSt6vectorISt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS2_EESaIS5_EED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ue212_GLOBAL__N_119SmallWriteBuildImplD0Ev(ptr noundef nonnull align 8 dereferenceable(201) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN3ue212_GLOBAL__N_119SmallWriteBuildImplD0Ev(ptr noundef nonnull align 8 dereferenceable(201) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN3ue212_GLOBAL__N_119SmallWriteBuildImplD2Ev(ptr noundef nonnull align 8 dereferenceable(201) %this) #26
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -2732,7 +2732,7 @@ if.end21:                                         ; preds = %if.end21.sink.split
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK3ue212_GLOBAL__N_119SmallWriteBuildImpl11all_reportsEv(ptr noalias sret(%"class.std::set") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(201) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK3ue212_GLOBAL__N_119SmallWriteBuildImpl11all_reportsEv(ptr noalias sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(201) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i9 = alloca %"class.ue2::flat_detail::iter_wrapper", align 8
   %agg.tmp1.i.i10 = alloca %"class.ue2::flat_detail::iter_wrapper", align 8
@@ -12333,7 +12333,7 @@ declare void @_ZN3ue212mergeAllDfasERKSt6vectorIPKNS_7raw_dfaESaIS3_EEmPKNS_13Re
 declare noundef i32 @_ZN3ue219remove_leading_dotsERNS_7raw_dfaE(ptr noundef nonnull align 8 dereferenceable(560)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L6getDfaERNS_7raw_dfaERKNS_14CompileContextERKNS_13ReportManagerEbRSt3setItSt4lessItESaItEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(560) %rdfa, ptr noundef nonnull align 8 dereferenceable(320) %cc, ptr noundef nonnull align 8 dereferenceable(505) %rm, i1 noundef zeroext %has_non_literals, ptr noundef nonnull align 8 dereferenceable(48) %accel_states) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L6getDfaERNS_7raw_dfaERKNS_14CompileContextERKNS_13ReportManagerEbRSt3setItSt4lessItESaItEE(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(560) %rdfa, ptr noundef nonnull align 8 dereferenceable(320) %cc, ptr noundef nonnull align 8 dereferenceable(505) %rm, i1 noundef zeroext %has_non_literals, ptr noundef nonnull align 8 dereferenceable(48) %accel_states) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.ue2::bytecode_ptr.148", align 8
   %ref.tmp10 = alloca %"class.ue2::bytecode_ptr.148", align 8

@@ -2763,7 +2763,7 @@ _ZNSt10unique_ptrI4HWLMN3ue212bytecode_ptrIS0_E7deleterIS0_EEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue225buildFloatingMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EEmPyPm(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.199") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %fragments, i64 noundef %longLitLengthThreshold, ptr nocapture noundef %fgroups, ptr nocapture noundef %historyRequired) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue225buildFloatingMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EEmPyPm(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.199") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %fragments, i64 noundef %longLitLengthThreshold, ptr nocapture noundef initializes((0, 8)) %fgroups, ptr nocapture noundef %historyRequired) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.153", align 8
   %mp = alloca %"struct.ue2::(anonymous namespace)::MatcherProto", align 8
@@ -2951,7 +2951,7 @@ unreachable:                                      ; preds = %invoke.cont36
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L16makeMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EENS_18rose_literal_tableEbmj(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %fragments.0.val, ptr readnone %fragments.8.val, i32 noundef range(i32 1, 4) %table, i1 noundef zeroext %delay_rebuild, i64 noundef %max_len, i32 noundef range(i32 -1, 33) %max_offset) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L16makeMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EENS_18rose_literal_tableEbmj(ptr noalias nonnull align 8 initializes((0, 56)) %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %fragments.0.val, ptr readnone %fragments.8.val, i32 noundef range(i32 1, 4) %table, i1 noundef zeroext %delay_rebuild, i64 noundef %max_len, i32 noundef range(i32 -1, 33) %max_offset) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %msk.i316 = alloca %"class.std::vector.93", align 8

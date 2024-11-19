@@ -1407,7 +1407,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8subtermsC2ERK10ref_vectorI4expr11ast_managerEbP10ptr_vectorIS1_EP8obj_markIS1_10bit_vector14default_t2uintIS1_EE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %es, i1 noundef zeroext %include_bound, ptr noundef %esp, ptr noundef %vp) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8subtermsC2ERK10ref_vectorI4expr11ast_managerEbP10ptr_vectorIS1_EP8obj_markIS1_10bit_vector14default_t2uintIS1_EE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 1), (8, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %es, i1 noundef zeroext %include_bound, ptr noundef %esp, ptr noundef %vp) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %include_bound to i8
   store i8 %frombool, ptr %this, align 8
@@ -1502,7 +1502,7 @@ _ZN10ref_vectorI4expr11ast_managerEC2ERKS2_.exit: ; preds = %_ZNK15ref_vector_co
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8subtermsC2ERK7obj_refI4expr11ast_managerEbP10ptr_vectorIS1_EP8obj_markIS1_10bit_vector14default_t2uintIS1_EE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %e, i1 noundef zeroext %include_bound, ptr noundef %esp, ptr noundef %vp) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8subtermsC2ERK7obj_refI4expr11ast_managerEbP10ptr_vectorIS1_EP8obj_markIS1_10bit_vector14default_t2uintIS1_EE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 1), (8, 40)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %e, i1 noundef zeroext %include_bound, ptr noundef %esp, ptr noundef %vp) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %include_bound to i8
   store i8 %frombool, ptr %this, align 8
@@ -1641,7 +1641,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK8subterms5beginEv(ptr noalias nonnull sret(%"class.subterms::iterator") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK8subterms5beginEv(ptr noalias nonnull sret(%"class.subterms::iterator") align 8 initializes((0, 1), (8, 24), (32, 56)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_esp = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_esp, align 8
@@ -1652,7 +1652,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK8subterms3endEv(ptr noalias sret(%"class.subterms::iterator") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK8subterms3endEv(ptr noalias sret(%"class.subterms::iterator") align 8 initializes((0, 1), (8, 16), (32, 48)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %frombool3.i = and i8 %0, 1
@@ -1670,7 +1670,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8subterms8iteratorC2ERKS_P10ptr_vectorI4exprEP8obj_markIS4_10bit_vector14default_t2uintIS4_EEb(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %f, ptr noundef %esp, ptr noundef %vp, i1 noundef zeroext %start) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8subterms8iteratorC2ERKS_P10ptr_vectorI4exprEP8obj_markIS4_10bit_vector14default_t2uintIS4_EEb(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 1), (8, 24), (32, 56)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %f, ptr noundef %esp, ptr noundef %vp, i1 noundef zeroext %start) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %0 = load i8, ptr %f, align 8
   %frombool3 = and i8 %0, 1
@@ -2327,7 +2327,7 @@ _ZNK8subterms8iteratoreqERKS0_.exit:              ; preds = %for.cond.i, %for.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18subterms_postorderC2ERK10ref_vectorI4expr11ast_managerEb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %es, i1 noundef zeroext %include_bound) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18subterms_postorderC2ERK10ref_vectorI4expr11ast_managerEb(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 1), (8, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %es, i1 noundef zeroext %include_bound) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %include_bound to i8
   store i8 %frombool, ptr %this, align 8
@@ -2418,7 +2418,7 @@ _ZN10ref_vectorI4expr11ast_managerEC2ERKS2_.exit: ; preds = %_ZNK15ref_vector_co
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18subterms_postorderC2ERK7obj_refI4expr11ast_managerEb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %e, i1 noundef zeroext %include_bound) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18subterms_postorderC2ERK7obj_refI4expr11ast_managerEb(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 1), (8, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %e, i1 noundef zeroext %include_bound) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %include_bound to i8
   store i8 %frombool, ptr %this, align 8
@@ -2484,21 +2484,21 @@ if.end:                                           ; preds = %_ZN15ref_vector_cor
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18subterms_postorder5beginEv(ptr noalias nonnull sret(%"class.subterms_postorder::iterator") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN18subterms_postorder5beginEv(ptr noalias nonnull sret(%"class.subterms_postorder::iterator") align 8 initializes((0, 1), (8, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN18subterms_postorder8iteratorC2ERS_b(ptr noundef nonnull align 8 dereferenceable(72) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18subterms_postorder3endEv(ptr noalias nonnull sret(%"class.subterms_postorder::iterator") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN18subterms_postorder3endEv(ptr noalias nonnull sret(%"class.subterms_postorder::iterator") align 8 initializes((0, 1), (8, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN18subterms_postorder8iteratorC2ERS_b(ptr noundef nonnull align 8 dereferenceable(72) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18subterms_postorder8iteratorC2ERS_b(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %f, i1 noundef zeroext %start) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18subterms_postorder8iteratorC2ERS_b(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 1), (8, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %f, i1 noundef zeroext %start) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %f, align 8
   %frombool3 = and i8 %0, 1

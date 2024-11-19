@@ -3378,7 +3378,7 @@ declare i64 @archive_entry_size(ptr noundef) local_unnamed_addr #2
 declare ptr @archive_strncat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -20, 1) i32 @parse_device(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -20, 1) i32 @parse_device(ptr nocapture noundef nonnull writeonly initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [3 x i64], align 16
   %6 = alloca ptr, align 8

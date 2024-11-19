@@ -173,7 +173,7 @@ define internal noundef i32 @__engine_unpark(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -16, 1) i32 @__engine_park(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -16, 1) i32 @__engine_park(ptr noundef initializes((-136, -132)) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -352
   %3 = getelementptr i8, ptr %0, i64 -136
   store i32 0, ptr %3, align 8

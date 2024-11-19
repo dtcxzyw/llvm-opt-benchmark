@@ -848,7 +848,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_011ImageOutputC2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_011ImageOutputC2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_011ImageOutputE, i64 16), ptr %this, align 8
@@ -963,7 +963,7 @@ _ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EED2Ev.exit: ; preds = %_ZNSt6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18OpenImageIO_v2_6_011ImageOutputD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_011ImageOutputD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_011ImageOutputE, i64 16), ptr %this, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 176

@@ -2171,7 +2171,7 @@ get_ref_frame_buf.exit.thread:                    ; preds = %get_ref_frame_buf.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @av1_setup_motion_field(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @av1_setup_motion_field(ptr nocapture noundef initializes((27876, 27884)) %0) local_unnamed_addr #0 {
   %2 = alloca [7 x ptr], align 16
   %3 = alloca [7 x i32], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 25224
@@ -3367,7 +3367,7 @@ has_top_right.exit.thread:                        ; preds = %92, %198, %321, %32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @av1_setup_skip_mode_allowed(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden void @av1_setup_skip_mode_allowed(ptr nocapture noundef initializes((16, 20), (24, 32)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 25224
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %3, align 4

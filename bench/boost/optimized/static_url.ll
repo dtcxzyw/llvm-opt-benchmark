@@ -195,7 +195,7 @@ declare void @_ZN5boost4urls19parse_uri_referenceENS_4core17basic_string_viewIcE
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost4urls15static_url_base10clear_implEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #5 align 2 {
+define void @_ZN5boost4urls15static_url_base10clear_implEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) initializes((16, 178), (180, 187)) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(154) %.sroa.4.0..sroa_idx, i8 0, i64 154, i1 false)

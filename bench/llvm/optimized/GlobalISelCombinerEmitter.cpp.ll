@@ -20239,7 +20239,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_129CombineRuleOperandTypeChecker19getMCOIOperandTypesB5cxx11ERKN4llvm2gi25CodeGenInstructionPatternE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_129CombineRuleOperandTypeChecker19getMCOIOperandTypesB5cxx11ERKN4llvm2gi25CodeGenInstructionPatternE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(328) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -31728,7 +31728,7 @@ define internal noundef ptr @"_ZN4llvm12function_refIFPKNS_2gi18InstructionPatte
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4llvm12function_refIFNS_2gi18InstructionOperandERKS2_EE11callback_fnIKZN12_GLOBAL__N_118CombineRuleBuilder23emitPatFragMatchPatternERNS_14CodeExpansionsERKNS_8DenseMapIPKNS1_7PatternEjNS_12DenseMapInfoISF_vEENS_6detail12DenseMapPairISF_jEEEERNS1_11RuleMatcherEPNS1_18InstructionMatcherERKNS1_14PatFragPatternERNS_8DenseSetISF_SH_EEE3$_1EES2_lS4_"(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::gi::InstructionOperand") align 8 %0, i64 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %2) #0 align 2 {
+define internal void @"_ZN4llvm12function_refIFNS_2gi18InstructionOperandERKS2_EE11callback_fnIKZN12_GLOBAL__N_118CombineRuleBuilder23emitPatFragMatchPatternERNS_14CodeExpansionsERKNS_8DenseMapIPKNS1_7PatternEjNS_12DenseMapInfoISF_vEENS_6detail12DenseMapPairISF_jEEEERNS1_11RuleMatcherEPNS1_18InstructionMatcherERKNS1_14PatFragPatternERNS_8DenseSetISF_SH_EEE3$_1EES2_lS4_"(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::gi::InstructionOperand") align 8 initializes((0, 64)) %0, i64 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %2) #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -34372,7 +34372,7 @@ _ZN4llvm2gi13BuildMIAction11addRendererINS0_19IntrinsicIDRendererEJPKNS_16CodeGe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118CombineRuleBuilder23getLLTCodeGenOrTempTypeERKN4llvm2gi11PatternTypeERNS2_11RuleMatcherE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(416) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(448) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118CombineRuleBuilder23getLLTCodeGenOrTempTypeERKN4llvm2gi11PatternTypeERNS2_11RuleMatcherE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((16, 17)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(416) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(448) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -35134,7 +35134,7 @@ define internal noundef ptr @"_ZN4llvm12function_refIFPKNS_2gi18InstructionPatte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN4llvm12function_refIFNS_2gi18InstructionOperandERKS2_EE11callback_fnIZN12_GLOBAL__N_118CombineRuleBuilder34emitCodeGenInstructionMatchPatternERNS_14CodeExpansionsERKNS_8DenseMapIPKNS1_7PatternEjNS_12DenseMapInfoISF_vEENS_6detail12DenseMapPairISF_jEEEERNS1_11RuleMatcherERNS1_18InstructionMatcherERKNS1_25CodeGenInstructionPatternERNS_8DenseSetISF_SH_EENS0_IFPKNS1_18InstructionPatternENS_9StringRefEEEES6_Ed_UlRKT_E_EES2_lS4_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::gi::InstructionOperand") align 8 %0, i64 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %2) #16 align 2 {
+define internal void @_ZN4llvm12function_refIFNS_2gi18InstructionOperandERKS2_EE11callback_fnIZN12_GLOBAL__N_118CombineRuleBuilder34emitCodeGenInstructionMatchPatternERNS_14CodeExpansionsERKNS_8DenseMapIPKNS1_7PatternEjNS_12DenseMapInfoISF_vEENS_6detail12DenseMapPairISF_jEEEERNS1_11RuleMatcherERNS1_18InstructionMatcherERKNS1_25CodeGenInstructionPatternERNS_8DenseSetISF_SH_EENS0_IFPKNS1_18InstructionPatternENS_9StringRefEEEES6_Ed_UlRKT_E_EES2_lS4_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::gi::InstructionOperand") align 8 initializes((0, 64)) %0, i64 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %2) #16 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(64) %2, i64 64, i1 false)
   ret void
 }

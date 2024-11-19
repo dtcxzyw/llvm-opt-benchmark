@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Alpha_to = internal unnamed_addr global [256 x i32] zeroinitializer, align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @encode_rs(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden noundef i32 @encode_rs(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 48)) %1) local_unnamed_addr #0 {
   %.b = load i1, ptr @RS_init, align 4
   br i1 %.b, label %.preheader41, label %3
 

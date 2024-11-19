@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3net10CubicBytesC1EPKNS_9QuicClockE = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN3net10CubicBytesC2EPKNS_9QuicClockE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net10CubicBytesC2EPKNS_9QuicClockE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, ptr noundef %clock) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net10CubicBytesC2EPKNS_9QuicClockE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 12), (16, 76), (80, 88)) %this, ptr noundef %clock) unnamed_addr #0 align 2 {
 entry:
   store ptr %clock, ptr %this, align 8
   %num_connections_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -19,7 +19,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net10CubicBytes5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net10CubicBytes5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((16, 76), (80, 88)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %epoch_ = getelementptr inbounds i8, ptr %this, i64 16
   %last_target_congestion_window_ = getelementptr inbounds i8, ptr %this, i64 80
@@ -29,7 +29,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net10CubicBytes17SetNumConnectionsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, i32 noundef %num_connections) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net10CubicBytes17SetNumConnectionsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((8, 12)) %this, i32 noundef %num_connections) local_unnamed_addr #0 align 2 {
 entry:
   %num_connections_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %num_connections, ptr %num_connections_, align 8
@@ -70,7 +70,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net10CubicBytes20OnApplicationLimitedEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net10CubicBytes20OnApplicationLimitedEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((16, 24)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %epoch_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %epoch_, align 8
@@ -78,7 +78,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 -2147483648, 2147483648) i64 @_ZN3net10CubicBytes31CongestionWindowAfterPacketLossEm(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %current_congestion_window) local_unnamed_addr #2 align 2 {
+define dso_local noundef range(i64 -2147483648, 2147483648) i64 @_ZN3net10CubicBytes31CongestionWindowAfterPacketLossEm(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((16, 24)) %this, i64 noundef %current_congestion_window) local_unnamed_addr #2 align 2 {
 entry:
   %last_max_congestion_window_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %last_max_congestion_window_, align 8

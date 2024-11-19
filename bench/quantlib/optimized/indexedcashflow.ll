@@ -521,7 +521,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15IndexedCashFlowC2EdN5boost10shared_ptrINS_5IndexEEERKNS_4DateES7_S7_b(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr nocapture noundef readonly %vtt, double noundef %notional, ptr nocapture noundef %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %baseDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %fixingDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %paymentDate, i1 noundef zeroext %growthOnly) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15IndexedCashFlowC2EdN5boost10shared_ptrINS_5IndexEEERKNS_4DateES7_S7_b(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 20), (32, 81)) %this, ptr nocapture noundef readonly %vtt, double noundef %notional, ptr nocapture noundef %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %baseDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %fixingDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %paymentDate, i1 noundef zeroext %growthOnly) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1106,7 +1106,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15IndexedCashFlowC1EdN5boost10shared_ptrINS_5IndexEEERKNS_4DateES7_S7_b(ptr noundef nonnull align 8 dereferenceable(81) %this, double noundef %notional, ptr nocapture noundef %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %baseDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %fixingDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %paymentDate, i1 noundef zeroext %growthOnly) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15IndexedCashFlowC1EdN5boost10shared_ptrINS_5IndexEEERKNS_4DateES7_S7_b(ptr noundef nonnull align 8 dereferenceable(81) initializes((104, 108), (112, 120)) %this, double noundef %notional, ptr nocapture noundef %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %baseDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %fixingDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %paymentDate, i1 noundef zeroext %growthOnly) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

@@ -732,7 +732,7 @@ declare void @_ZNK4cvc56parser24SetBenchmarkLogicCommand8getLogicB5cxx11Ev(ptr s
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc54main16ExecutionContext13parseCommandsEPNS_6parser11InputParserE(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this, ptr noundef %parser) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc54main16ExecutionContext13parseCommandsEPNS_6parser11InputParserE(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this, ptr noundef %parser) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmd = alloca %"class.cvc5::parser::Command", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -2474,7 +2474,7 @@ invoke.cont4:                                     ; preds = %if.end
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc54main15PortfolioDriver11getStrategyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"struct.cvc5::main::PortfolioStrategy") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %logic) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc54main15PortfolioDriver11getStrategyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"struct.cvc5::main::PortfolioStrategy") align 8 initializes((0, 24)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %logic) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %timeout.addr.i3836 = alloca double, align 8
   %timeout.addr.i3766 = alloca double, align 8

@@ -167,7 +167,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly19ImmediateFileWriterC2ENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr %path.coerce0, ptr %path.coerce1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly19ImmediateFileWriterC2ENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this, ptr %path.coerce0, ptr %path.coerce1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -305,7 +305,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly19ImmediateFileWriterC2EONS_4FileE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(5) %file) unnamed_addr #3 align 2 {
+define void @_ZN5folly19ImmediateFileWriterC2EONS_4FileE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this, ptr noundef nonnull align 4 dereferenceable(5) %file) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly19ImmediateFileWriterE, i64 16), ptr %this, align 8, !tbaa !7
   %file_ = getelementptr inbounds i8, ptr %this, i64 8

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN6XErrnoC1Ei = hidden unnamed_addr alias void (ptr, i32), ptr @_ZN6XErrnoC2Ei
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6XErrnoC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN6XErrnoC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #0 align 2 {
   %2 = tail call ptr @__errno_location() #6
   %3 = load i32, ptr %2, align 4
   store i32 %3, ptr %0, align 4
@@ -20,7 +20,7 @@ define hidden void @_ZN6XErrnoC2Ev(ptr nocapture noundef nonnull writeonly align
 declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6XErrnoC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN6XErrnoC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   store i32 %1, ptr %0, align 4
   ret void
 }

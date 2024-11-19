@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @WebPUpsamplers = external local_unnamed_addr global [0 x ptr], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @WebPInitCustomIo(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @WebPInitCustomIo(ptr noundef %0, ptr nocapture noundef writeonly initializes((56, 88)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   store ptr @CustomPut, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 72

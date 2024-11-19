@@ -788,7 +788,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh14FoldingSetBaseC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i32 noundef %Log2InitSize) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh14FoldingSetBaseC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, i32 noundef %Log2InitSize) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14FoldingSetBaseE, i64 16), ptr %this, align 8
   %shl = shl nuw i32 1, %Log2InitSize
@@ -816,7 +816,7 @@ _ZL15AllocateBucketsj.exit:                       ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN4llvh14FoldingSetBaseC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %Arg) unnamed_addr #5 align 2 {
+define hidden void @_ZN4llvh14FoldingSetBaseC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %Arg) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14FoldingSetBaseE, i64 16), ptr %this, align 8
   %Buckets = getelementptr inbounds i8, ptr %this, i64 8
@@ -836,7 +836,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvh14FoldingSetBaseaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %RHS) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvh14FoldingSetBaseaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(24) initializes((16, 24)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %RHS) local_unnamed_addr #6 align 2 {
 entry:
   %Buckets = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Buckets, align 8
@@ -860,7 +860,7 @@ entry:
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @_ZN4llvh14FoldingSetBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN4llvh14FoldingSetBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14FoldingSetBaseE, i64 16), ptr %this, align 8
   %Buckets = getelementptr inbounds i8, ptr %this, i64 8
@@ -870,7 +870,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4llvh14FoldingSetBase5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN4llvh14FoldingSetBase5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((20, 24)) %this) local_unnamed_addr #8 align 2 {
 entry:
   %Buckets = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Buckets, align 8
@@ -893,7 +893,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh14FoldingSetBase15GrowBucketCountEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %NewBucketCount) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh14FoldingSetBase15GrowBucketCountEj(ptr noundef nonnull align 8 dereferenceable(24) initializes((20, 24)) %this, i32 noundef %NewBucketCount) local_unnamed_addr #0 align 2 {
 entry:
   %TempID.i = alloca %"class.llvh::FoldingSetNodeID", align 8
   %TempID = alloca %"class.llvh::FoldingSetNodeID", align 8
@@ -1089,7 +1089,7 @@ if.end:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh14FoldingSetBase13GrowHashTableEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh14FoldingSetBase13GrowHashTableEv(ptr noundef nonnull align 8 dereferenceable(24) initializes((20, 24)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %NumBuckets, align 8
@@ -1122,7 +1122,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(144) %ID, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %InsertPos) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(144) %ID, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %InsertPos) local_unnamed_addr #0 align 2 {
 entry:
   %TempID = alloca %"class.llvh::FoldingSetNodeID", align 8
   %0 = load ptr, ptr %ID, align 8
@@ -1464,7 +1464,7 @@ if.end:                                           ; preds = %lor.rhs, %do.body, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN4llvh28FoldingSetBucketIteratorImplC2EPPv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef %Bucket) unnamed_addr #5 align 2 {
+define hidden void @_ZN4llvh28FoldingSetBucketIteratorImplC2EPPv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %Bucket) unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %Bucket, align 8
   %tobool.not = icmp eq ptr %0, null

@@ -1100,7 +1100,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13CodeGenTargetC2ERNS_12RecordKeeperE(ptr noundef nonnull align 8 dereferenceable(724) %0, ptr noundef nonnull align 8 dereferenceable(232) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13CodeGenTargetC2ERNS_12RecordKeeperE(ptr noundef nonnull align 8 dereferenceable(724) initializes((0, 8), (16, 36), (40, 72)) %0, ptr noundef nonnull align 8 dereferenceable(232) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::vector", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -2047,7 +2047,7 @@ _ZNSt6vectorIPN4llvm20CodeGenRegisterClassESaIS2_EED2Ev.exit: ; preds = %5, %86,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm13CodeGenTarget21ReadRegAltNameIndicesEv(ptr nocapture noundef nonnull align 8 dereferenceable(724) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm13CodeGenTarget21ReadRegAltNameIndicesEv(ptr nocapture noundef nonnull align 8 dereferenceable(724) initializes((56, 64)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.std::vector", align 8
   %3 = load ptr, ptr %0, align 8
   call void @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %2, ptr noundef nonnull align 8 dereferenceable(232) %3, ptr nonnull @.str.269, i64 15) #21
@@ -2189,7 +2189,7 @@ _ZNK4llvm13CodeGenTarget10getRegBankEv.exit:      ; preds = %2, %5, %_ZNKSt14def
 declare noundef ptr @_ZNK4llvm14CodeGenRegBank11getRegClassEPKNS_6RecordE(ptr noundef nonnull align 8 dereferenceable(1008), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm13CodeGenTarget14getRegisterVTsEPNS_6RecordE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.227") align 8 %0, ptr noundef nonnull align 8 dereferenceable(724) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm13CodeGenTarget14getRegisterVTsEPNS_6RecordE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.227") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(724) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null

@@ -7015,7 +7015,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage5WriteERKNS_8HioImage11StorageSpecERKNS_12VtDictionaryE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage5WriteERKNS_8HioImage11StorageSpecERKNS_12VtDictionaryE(ptr noundef nonnull align 8 dereferenceable(152) initializes((144, 152)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %2, ptr %5, align 8

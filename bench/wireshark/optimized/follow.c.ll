@@ -249,7 +249,7 @@ declare ptr @proto_get_protocol_filter_name(i32 noundef) local_unnamed_addr #2
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @follow_reset_stream(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @follow_reset_stream(ptr nocapture noundef initializes((24, 32), (56, 64), (72, 80), (96, 104)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr i8, ptr %0, i64 28
   store i32 0, ptr %3, align 4
@@ -402,7 +402,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 declare void @g_list_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @follow_info_free(ptr noundef %0) local_unnamed_addr #0 {
+define void @follow_info_free(ptr noundef initializes((24, 32), (56, 64), (72, 80), (96, 104)) %0) local_unnamed_addr #0 {
   tail call void @follow_reset_stream(ptr noundef %0)
   tail call void @g_free(ptr noundef %0) #9
   ret void

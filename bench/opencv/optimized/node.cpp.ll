@@ -38,7 +38,7 @@ $_ZNK3ade5Graph12HandleMapperclINS_4EdgeEEENS_6HandleIT_EEPS5_ = comdat any
 @_ZN3ade4NodeD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3ade4NodeD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3ade4NodeC2EPNS_5GraphE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ade4NodeC2EPNS_5GraphE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
@@ -669,7 +669,7 @@ define hidden noundef ptr @_ZNK3ade4Node9getParentEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3ade4Node7inEdgesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN3ade4Node7inEdgesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 32
@@ -681,7 +681,7 @@ define hidden void @_ZN3ade4Node7inEdgesEv(ptr dead_on_unwind noalias nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ade4Node7inEdgesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange.38") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZNK3ade4Node7inEdgesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange.38") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 32
@@ -693,7 +693,7 @@ define hidden void @_ZNK3ade4Node7inEdgesEv(ptr dead_on_unwind noalias nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3ade4Node8outEdgesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN3ade4Node8outEdgesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 56
@@ -705,7 +705,7 @@ define hidden void @_ZN3ade4Node8outEdgesEv(ptr dead_on_unwind noalias nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ade4Node8outEdgesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange.38") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZNK3ade4Node8outEdgesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange.38") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 56
@@ -717,7 +717,7 @@ define hidden void @_ZNK3ade4Node8outEdgesEv(ptr dead_on_unwind noalias nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3ade4Node7inNodesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange.43") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN3ade4Node7inNodesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange.43") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !noalias !6
   %5 = getelementptr inbounds i8, ptr %1, i64 32
@@ -729,7 +729,7 @@ define hidden void @_ZN3ade4Node7inNodesEv(ptr dead_on_unwind noalias nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ade4Node7inNodesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange.46") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZNK3ade4Node7inNodesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange.46") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !noalias !9
   %5 = getelementptr inbounds i8, ptr %1, i64 32
@@ -741,7 +741,7 @@ define hidden void @_ZNK3ade4Node7inNodesEv(ptr dead_on_unwind noalias nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3ade4Node8outNodesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange.49") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN3ade4Node8outNodesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange.49") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8, !noalias !12
   %5 = getelementptr inbounds i8, ptr %1, i64 56
@@ -753,7 +753,7 @@ define hidden void @_ZN3ade4Node8outNodesEv(ptr dead_on_unwind noalias nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ade4Node8outNodesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange.52") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZNK3ade4Node8outNodesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange.52") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8, !noalias !15
   %5 = getelementptr inbounds i8, ptr %1, i64 56

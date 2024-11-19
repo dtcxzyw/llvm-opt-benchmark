@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @php_hash_fnv1a64_ops = hidden local_unnamed_addr constant %struct._php_hash_ops { ptr @.str.5, ptr @PHP_FNV164Init, ptr @PHP_FNV1a64Update, ptr @PHP_FNV164Final, ptr @php_hash_copy, ptr @php_hash_serialize, ptr @php_hash_unserialize, ptr @.str.4, i64 8, i64 4, i64 8, i8 0 }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_FNV132Init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define void @PHP_FNV132Init(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture readnone %1) #0 {
   store i32 -2128831035, ptr %0, align 4
   ret void
 }
@@ -96,7 +96,7 @@ fnv_32_buf.exit:                                  ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_FNV164Init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define void @PHP_FNV164Init(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture readnone %1) #0 {
   store i64 -3750763034362895579, ptr %0, align 8
   ret void
 }

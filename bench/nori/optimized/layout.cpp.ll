@@ -91,7 +91,7 @@ $_ZTIN7nanogui6LayoutE = comdat any
 @_ZN7nanogui18AdvancedGridLayoutC1ERKSt6vectorIiSaIiEES5_i = hidden unnamed_addr alias void (ptr, ptr, ptr, i32), ptr @_ZN7nanogui18AdvancedGridLayoutC2ERKSt6vectorIiSaIiEES5_i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7nanogui9BoxLayoutC2ENS_11OrientationENS_9AlignmentEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %0, i32 noundef %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN7nanogui9BoxLayoutC2ENS_11OrientationENS_9AlignmentEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 17), (20, 28)) %0, i32 noundef %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui9BoxLayoutE, i64 16), ptr %0, align 8
@@ -1579,7 +1579,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit121:                 ; preds = %243, %247
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui18AdvancedGridLayoutC2ERKSt6vectorIiSaIiEES5_i(ptr noundef nonnull align 8 dereferenceable(172) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui18AdvancedGridLayoutC2ERKSt6vectorIiSaIiEES5_i(ptr noundef nonnull align 8 dereferenceable(172) initializes((0, 12), (16, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca float, align 4
   %6 = alloca float, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 8

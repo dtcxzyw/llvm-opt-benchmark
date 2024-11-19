@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Ssw_CreatePair(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Ssw_CreatePair(ptr nocapture noundef %0, ptr noundef initializes((40, 48)) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 40
@@ -358,7 +358,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ssw_MatchingExtendOne(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define void @Ssw_MatchingExtendOne(ptr noundef %0, ptr nocapture noundef initializes((4, 8)) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #14

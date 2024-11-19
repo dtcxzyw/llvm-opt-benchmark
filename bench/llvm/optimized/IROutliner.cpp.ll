@@ -17251,7 +17251,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueES3_NS_12DenseMapInfoIS3_vEENS_6de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm10IROutliner14extractSectionERNS_16OutlinableRegionE(ptr noundef nonnull align 8 dereferenceable(396) %0, ptr nocapture noundef nonnull align 8 dereferenceable(264) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm10IROutliner14extractSectionERNS_16OutlinableRegionE(ptr noundef nonnull align 8 dereferenceable(396) %0, ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((208, 216)) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::ilist_iterator_w_bits", align 8
   %4 = alloca %"class.llvm::SetVector", align 8
   %5 = alloca %"class.llvm::SetVector", align 8
@@ -17680,7 +17680,7 @@ _ZN4llvm11SmallVectorIPNS_10AllocaInstELj16EED2Ev.exit: ; preds = %_ZN4llvm8Dens
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm10IROutliner9doOutlineERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(396) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm10IROutliner9doOutlineERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(396) initializes((392, 395)) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %4 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %5 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
@@ -20995,7 +20995,7 @@ _ZZN4llvm24SpecificBumpPtrAllocatorINS_13CodeExtractorEE10DestroyAllEvENKUlPcS3_
 declare void @_ZN4llvm8Function15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm10IROutliner3runERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(396) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm10IROutliner3runERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(396) initializes((0, 2), (392, 395)) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL11NoCostModel, i64 128), align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = and i8 %3, 1

@@ -1725,7 +1725,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16VanillaVPPOptionC1EdddmmddRKN5boost10shared_ptrINS_13SwingExerciseEEEmm(ptr noundef nonnull align 8 dereferenceable(256) %this, double noundef %heatRate, double noundef %pMin, double noundef %pMax, i64 noundef %tMinUp, i64 noundef %tMinDown, double noundef %startUpFuel, double noundef %startUpFixCost, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %exercise, i64 noundef %nStarts, i64 noundef %nRunningHours) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16VanillaVPPOptionC1EdddmmddRKN5boost10shared_ptrINS_13SwingExerciseEEEmm(ptr noundef nonnull align 8 dereferenceable(256) initializes((256, 264), (272, 276), (280, 288)) %this, double noundef %heatRate, double noundef %pMin, double noundef %pMax, i64 noundef %tMinUp, i64 noundef %tMinDown, double noundef %startUpFuel, double noundef %startUpFixCost, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %exercise, i64 noundef %nStarts, i64 noundef %nRunningHours) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.16", align 8
   %ref.tmp2 = alloca %"class.boost::shared_ptr.17", align 8

@@ -860,7 +860,7 @@ declare noundef zeroext i1 @_ZNK5clang4Type32isSignedIntegerOrEnumerationTypeEv(
 declare void @_ZN5clang7CodeGen15CodeGenFunction14SanitizerScopeC1EPS1_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL33EmitBitfieldSignChangeCheckHelperPN4llvm5ValueEN5clang8QualTypeES1_S3_RNS2_7CodeGen11CGBuilderTyE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, i64 %2, ptr noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(160) %5) unnamed_addr #0 {
+define internal fastcc void @_ZL33EmitBitfieldSignChangeCheckHelperPN4llvm5ValueEN5clang8QualTypeES1_S3_RNS2_7CodeGen11CGBuilderTyE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 1), (8, 32)) %0, ptr noundef %1, i64 %2, ptr noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(160) %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = tail call fastcc noundef ptr @_ZL24EmitIsNegativeTestHelperPN4llvm5ValueEN5clang8QualTypeEPKcRNS2_7CodeGen11CGBuilderTyE(ptr noundef %1, i64 %2, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(160) %5)
   %9 = tail call fastcc noundef ptr @_ZL24EmitIsNegativeTestHelperPN4llvm5ValueEN5clang8QualTypeEPKcRNS2_7CodeGen11CGBuilderTyE(ptr noundef %3, i64 %4, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(160) %5)
@@ -4630,7 +4630,7 @@ _ZN12_GLOBAL__N_135OMPLastprivateConditionalUpdateRAIID2Ev.exit: ; preds = %1235
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EmitObjCIsaExprEPKNS_11ObjCIsaExprE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::LValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EmitObjCIsaExprEPKNS_11ObjCIsaExprE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::LValue") align 8 initializes((0, 4), (8, 56), (64, 80), (84, 136)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %5 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %6 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
@@ -9741,7 +9741,7 @@ _ZN4llvm13IRBuilderBase9CreateXorEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %.l
 declare noundef ptr @_ZN4llvm13IRBuilderBase12CreateSelectEPNS_5ValueES2_S2_RKNS_5TwineEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(34), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction22EmitCheckedInBoundsGEPENS0_7AddressEN4llvm8ArrayRefIPNS3_5ValueEEEPNS3_4TypeEbbNS_14SourceLocationENS_9CharUnitsERKNS3_5TwineE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2, ptr %3, i64 %4, ptr noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i32 %8, i64 %9, ptr noundef nonnull align 8 dereferenceable(34) %10) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction22EmitCheckedInBoundsGEPENS0_7AddressEN4llvm8ArrayRefIPNS3_5ValueEEEPNS3_4TypeEbbNS_14SourceLocationENS_9CharUnitsERKNS3_5TwineE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 initializes((0, 24), (32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2, ptr %3, i64 %4, ptr noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i32 %8, i64 %9, ptr noundef nonnull align 8 dereferenceable(34) %10) local_unnamed_addr #0 align 2 {
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 2088
   %.sroa.0.0.copyload.i = load i64, ptr %12, align 8
   %13 = and i64 %.sroa.0.0.copyload.i, 17179869184
@@ -11671,7 +11671,7 @@ define internal fastcc noundef ptr @_ZN5clang15StmtVisitorBaseISt11add_pointerN1
 declare void @_ZN5clang7CodeGen18ApplyDebugLocationD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter11VisitBinMulEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter11VisitBinMulEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 17)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"struct.(anonymous namespace)::BinOpInfo", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11726,7 +11726,7 @@ _ZN12_GLOBAL__N_117ScalarExprEmitter19EmitUnPromotedValueEPN4llvm5ValueEN5clang8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter11VisitBinDivEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter11VisitBinDivEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 17)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"struct.(anonymous namespace)::BinOpInfo", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11781,7 +11781,7 @@ _ZN12_GLOBAL__N_117ScalarExprEmitter19EmitUnPromotedValueEPN4llvm5ValueEN5clang8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter11VisitBinRemEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter11VisitBinRemEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 17)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"struct.(anonymous namespace)::BinOpInfo", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11836,7 +11836,7 @@ _ZN12_GLOBAL__N_117ScalarExprEmitter19EmitUnPromotedValueEPN4llvm5ValueEN5clang8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter11VisitBinAddEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter11VisitBinAddEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 17)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"struct.(anonymous namespace)::BinOpInfo", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11891,7 +11891,7 @@ _ZN12_GLOBAL__N_117ScalarExprEmitter19EmitUnPromotedValueEPN4llvm5ValueEN5clang8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter11VisitBinSubEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter11VisitBinSubEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 17)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"struct.(anonymous namespace)::BinOpInfo", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11946,7 +11946,7 @@ _ZN12_GLOBAL__N_117ScalarExprEmitter19EmitUnPromotedValueEPN4llvm5ValueEN5clang8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter11VisitBinShlEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter11VisitBinShlEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 17)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"struct.(anonymous namespace)::BinOpInfo", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12001,7 +12001,7 @@ _ZN12_GLOBAL__N_117ScalarExprEmitter19EmitUnPromotedValueEPN4llvm5ValueEN5clang8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter11VisitBinShrEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter11VisitBinShrEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 17)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"struct.(anonymous namespace)::BinOpInfo", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12094,7 +12094,7 @@ _ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_117ScalarExprEmitterEPN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter11VisitBinAndEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter11VisitBinAndEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 17)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"struct.(anonymous namespace)::BinOpInfo", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12149,7 +12149,7 @@ _ZN12_GLOBAL__N_117ScalarExprEmitter19EmitUnPromotedValueEPN4llvm5ValueEN5clang8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter11VisitBinXorEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter11VisitBinXorEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 17)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"struct.(anonymous namespace)::BinOpInfo", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12204,7 +12204,7 @@ _ZN12_GLOBAL__N_117ScalarExprEmitter19EmitUnPromotedValueEPN4llvm5ValueEN5clang8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter10VisitBinOrEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter10VisitBinOrEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 17)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"struct.(anonymous namespace)::BinOpInfo", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -14980,7 +14980,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread:        ; preds = %2, %_ZNK5clang4Type
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter14VisitUnaryPlusEPKN5clang13UnaryOperatorENS1_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter14VisitUnaryPlusEPKN5clang13UnaryOperatorENS1_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(32) initializes((16, 17)) %0, ptr nocapture noundef readonly %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.(anonymous namespace)::ScalarExprEmitter", align 8
   %5 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -15077,7 +15077,7 @@ _ZN12_GLOBAL__N_117ScalarExprEmitter19EmitUnPromotedValueEPN4llvm5ValueEN5clang8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter15VisitUnaryMinusEPKN5clang13UnaryOperatorENS1_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter15VisitUnaryMinusEPKN5clang13UnaryOperatorENS1_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(32) initializes((16, 17)) %0, ptr noundef %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %.not.i.i = icmp ult i64 %2, 16
   br i1 %.not.i.i, label %5, label %12
@@ -15141,7 +15141,7 @@ _ZN12_GLOBAL__N_117ScalarExprEmitter19EmitUnPromotedValueEPN4llvm5ValueEN5clang8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter13VisitUnaryNotEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter13VisitUnaryNotEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(32) initializes((16, 17)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -17875,7 +17875,7 @@ _ZN5clang4Expr10EvalResultD2Ev.exit:              ; preds = %_ZN4llvm6APSIntD2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter24VisitMatrixSubscriptExprEPN5clang19MatrixSubscriptExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter24VisitMatrixSubscriptExprEPN5clang19MatrixSubscriptExprE(ptr noundef nonnull align 8 dereferenceable(32) initializes((16, 17)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::MatrixBuilder", align 8
@@ -18151,7 +18151,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK5clang12APIntSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter17VisitInitListExprEPN5clang12InitListExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter17VisitInitListExprEPN5clang12InitListExprE(ptr noundef nonnull align 8 dereferenceable(32) initializes((16, 17)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   %4 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   %5 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
@@ -20772,7 +20772,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter23VisitA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter23VisitArraySubscriptExprEPN5clang18ArraySubscriptExprE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter23VisitArraySubscriptExprEPN5clang18ArraySubscriptExprE(ptr noundef nonnull align 8 dereferenceable(32) initializes((16, 17)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::CodeGen::RValue", align 8
   %4 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   %5 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
@@ -23160,7 +23160,7 @@ _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread: ; preds = %31, %_ZNK5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117ScalarExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117ScalarExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 40)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 17)) %1, ptr noundef %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   %6 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   %7 = alloca %"class.(anonymous namespace)::ScalarExprEmitter", align 8
@@ -23382,7 +23382,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm13IRBuilderBase13CreateFPTruncEP
 declare noundef ptr @_ZN4llvm13IRBuilderBase23CreateConstrainedFPCastEjPNS_5ValueEPNS_4TypeEPNS_11InstructionERKNS_5TwineEPNS_6MDNodeESt8optionalINS_12RoundingModeEESC_INS_2fp17ExceptionBehaviorEE(ptr noundef nonnull align 8 dereferenceable(128), i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(34), ptr noundef, i16, i16) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter11EmitCompareEPKN5clang14BinaryOperatorEN4llvm7CmpInst9PredicateES7_S7_b(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef range(i32 32, 38) %2, i32 noundef range(i32 32, 42) %3, i32 noundef range(i32 1, 15) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter11EmitCompareEPKN5clang14BinaryOperatorEN4llvm7CmpInst9PredicateES7_S7_b(ptr noundef nonnull align 8 dereferenceable(32) initializes((16, 17)) %0, ptr noundef %1, i32 noundef range(i32 32, 38) %2, i32 noundef range(i32 32, 42) %3, i32 noundef range(i32 1, 15) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
@@ -27249,7 +27249,7 @@ declare noundef ptr @_ZN5clang7CodeGen13CodeGenModule24getMemberPointerConstantE
 declare noundef ptr @_ZNK5clang7CodeGen6LValue10getPointerERNS0_15CodeGenFunctionE(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(6488)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter10VisitMinusEPKN5clang13UnaryOperatorENS1_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter10VisitMinusEPKN5clang13UnaryOperatorENS1_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(32) initializes((16, 17)) %0, ptr noundef %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   %5 = alloca %"class.(anonymous namespace)::ScalarExprEmitter", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -32370,7 +32370,7 @@ declare void @_ZN5clang7CodeGen15CodeGenFunction15EmitBoundsCheckEPKNS_4ExprES4_
 declare noundef ptr @_ZN5clang7CodeGen15CodeGenFunction14GetAddrOfLabelEPKNS_9LabelDeclE(ptr noundef nonnull align 8 dereferenceable(6488), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter32VisitAbstractConditionalOperatorEPKN5clang27AbstractConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter32VisitAbstractConditionalOperatorEPKN5clang27AbstractConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(32) initializes((16, 17)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
@@ -36232,7 +36232,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL32EmitIntegerTruncationCheckHelperPN4llvm5ValueEN5clang8QualTypeES1_S3_RNS2_7CodeGen11CGBuilderTyE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, i64 %2, ptr noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(160) %5) unnamed_addr #0 {
+define internal fastcc void @_ZL32EmitIntegerTruncationCheckHelperPN4llvm5ValueEN5clang8QualTypeES1_S3_RNS2_7CodeGen11CGBuilderTyE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 1), (8, 32)) %0, ptr noundef %1, i64 %2, ptr noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(160) %5) unnamed_addr #0 {
   %.sroa.010 = alloca [2 x i64], align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8

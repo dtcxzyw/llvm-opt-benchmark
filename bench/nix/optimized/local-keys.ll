@@ -450,7 +450,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix19BorrowedCryptoValue5parseESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.nix::BorrowedCryptoValue") align 8 %0, i64 %1, ptr %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix19BorrowedCryptoValue5parseESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.nix::BorrowedCryptoValue") align 8 initializes((0, 16)) %0, i64 %1, ptr %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i
 

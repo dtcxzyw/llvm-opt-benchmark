@@ -137,7 +137,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental28TcpOptionsFromEndpointConfigERKNS0_14EndpointConfigE(ptr noalias sret(%"struct.grpc_event_engine::experimental::PosixTcpOptions") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %config) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental28TcpOptionsFromEndpointConfigERKNS0_14EndpointConfigE(ptr noalias sret(%"struct.grpc_event_engine::experimental::PosixTcpOptions") align 8 initializes((0, 25), (28, 38), (40, 44), (48, 72)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %config) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 8192, ptr %agg.result, align 8
   %tcp_min_read_chunk_size.i = getelementptr inbounds i8, ptr %agg.result, i64 4
@@ -546,7 +546,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN17grpc_event_engine12experimental7Accept4EiRNS0_11EventEngine15ResolvedAddressEii(i32 noundef %sockfd, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(132) %addr, i32 noundef %nonblock, i32 noundef %cloexec) local_unnamed_addr #3 {
+define noundef i32 @_ZN17grpc_event_engine12experimental7Accept4EiRNS0_11EventEngine15ResolvedAddressEii(i32 noundef %sockfd, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(132) initializes((0, 132)) %addr, i32 noundef %nonblock, i32 noundef %cloexec) local_unnamed_addr #3 {
 entry:
   %peer_addr = alloca %"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress", align 4
   %len = alloca i32, align 4
@@ -961,7 +961,7 @@ eh.resume:                                        ; preds = %lpad22, %lpad26, %l
 declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN17grpc_event_engine12experimental18PosixSocketWrapper28SetSocketNoSigpipeIfPossibleEv(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %this) local_unnamed_addr #8 align 2 {
+define void @_ZN17grpc_event_engine12experimental18PosixSocketWrapper28SetSocketNoSigpipeIfPossibleEv(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %this) local_unnamed_addr #8 align 2 {
 entry:
   store i64 0, ptr %agg.result, align 8, !alias.scope !14
   ret void

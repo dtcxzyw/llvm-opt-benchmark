@@ -2172,7 +2172,7 @@ _ZN8QuantLib15Interpolation2DD2Ev.exit:           ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20BlackVarianceSurfaceC1ERKNS_4DateERKNS_8CalendarERKSt6vectorIS1_SaIS1_EES7_IdSaIdEERKNS_6MatrixENS_10DayCounterENS0_13ExtrapolationESI_(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, ptr noundef nonnull align 8 dereferenceable(16) %cal, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dates, ptr nocapture noundef %strikes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %blackVolMatrix, ptr nocapture noundef %dayCounter, i32 noundef %lowerEx, i32 noundef %upperEx) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20BlackVarianceSurfaceC1ERKNS_4DateERKNS_8CalendarERKSt6vectorIS1_SaIS1_EES7_IdSaIdEERKNS_6MatrixENS_10DayCounterENS0_13ExtrapolationESI_(ptr noundef nonnull align 8 dereferenceable(208) initializes((208, 216), (224, 228), (232, 240)) %this, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, ptr noundef nonnull align 8 dereferenceable(16) %cal, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dates, ptr nocapture noundef %strikes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %blackVolMatrix, ptr nocapture noundef %dayCounter, i32 noundef %lowerEx, i32 noundef %upperEx) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::DayCounter", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8

@@ -2931,7 +2931,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_Z15getAltInstrMaskN4llvm8ArrayRefIPNS_5ValueEEEjj(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallBitVector") align 8 %0, ptr nocapture readonly %1, i64 %2, i32 %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local void @_Z15getAltInstrMaskN4llvm8ArrayRefIPNS_5ValueEEEjj(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallBitVector") align 8 initializes((0, 8)) %0, ptr nocapture readonly %1, i64 %2, i32 %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -26405,7 +26405,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueEPNS_13slpvectorizer7BoUpSL
 declare noundef zeroext i1 @_ZNK4llvm5Value14hasNUsesOrMoreEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm13slpvectorizer7BoUpSLP17collectUserStoresEPKNS1_9TreeEntryE(ptr dead_on_unwind noalias writable sret(%"class.llvm::DenseMap.555") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3008) %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm13slpvectorizer7BoUpSLP17collectUserStoresEPKNS1_9TreeEntryE(ptr dead_on_unwind noalias writable sret(%"class.llvm::DenseMap.555") align 8 initializes((0, 20)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3008) %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #25
@@ -38105,7 +38105,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE12makeIteratorEPKPKv.exit: ; preds = %.lr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110PHIHandlerC2ERN4llvm13DominatorTreeEPNS1_7PHINodeENS1_8ArrayRefIPNS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_110PHIHandlerC2ERN4llvm13DominatorTreeEPNS1_7PHINodeENS1_8ArrayRefIPNS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::SmallVector.170", align 8
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -50490,7 +50490,7 @@ _ZN4llvm14SmallBitVectorD2Ev.exit72:              ; preds = %266, %50, %95, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL12buildUseMaskiN4llvm8ArrayRefIiEEN12_GLOBAL__N_17UseMaskE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, ptr readonly %2, i64 %3, i32 noundef range(i32 0, 3) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL12buildUseMaskiN4llvm8ArrayRefIiEEN12_GLOBAL__N_17UseMaskE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, i32 noundef %1, ptr readonly %2, i64 %3, i32 noundef range(i32 0, 3) %4) unnamed_addr #0 {
   %6 = icmp ult i32 %1, 58
   br i1 %6, label %7, label %15
 
@@ -99321,7 +99321,7 @@ define linkonce_odr hidden void @_ZN4llvm11SmallVectorIPKNS_13slpvectorizer7BoUp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK4llvm13slpvectorizer7BoUpSLP21collectValuesToDemoteERKNS1_9TreeEntryEbRjRNS_15SmallVectorImplIjEERNS_8DenseSetIPS3_NS_12DenseMapInfoISA_vEEEES5_RbbENK4$_10clENS_12function_refIFbjjEEESF_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture readonly %1, i64 %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK4llvm13slpvectorizer7BoUpSLP21collectValuesToDemoteERKNS1_9TreeEntryEbRjRNS_15SmallVectorImplIjEERNS_8DenseSetIPS3_NS_12DenseMapInfoISA_vEEEES5_RbbENK4$_10clENS_12function_refIFbjjEEESF_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture readonly %1, i64 %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %3) unnamed_addr #0 align 2 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %0, align 8
@@ -109007,7 +109007,7 @@ _ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12Den
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 512) i16 @_ZN4llvm17SLPVectorizerPass19vectorizeStoreChainENS_8ArrayRefIPNS_5ValueEEERNS_13slpvectorizer7BoUpSLPEjjRj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(3008) %3, i32 %4, i32 noundef %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %6) local_unnamed_addr #0 align 2 {
+define dso_local range(i16 0, 512) i16 @_ZN4llvm17SLPVectorizerPass19vectorizeStoreChainENS_8ArrayRefIPNS_5ValueEEERNS_13slpvectorizer7BoUpSLPEjjRj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(3008) %3, i32 %4, i32 noundef %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %9 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %10 = alloca %"class.llvm::ArrayRef", align 8

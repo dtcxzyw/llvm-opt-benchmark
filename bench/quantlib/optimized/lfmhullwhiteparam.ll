@@ -214,7 +214,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib28LfmHullWhiteParameterizationC2ERKN5boost10shared_ptrINS_24LiborForwardModelProcessEEERKNS2_INS_28OptionletVolatilityStructureEEERKNS_6MatrixEm(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %capletVol, ptr noundef nonnull align 8 dereferenceable(24) %correlation, i64 noundef %factors) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib28LfmHullWhiteParameterizationC2ERKN5boost10shared_ptrINS_24LiborForwardModelProcessEEERKNS2_INS_28OptionletVolatilityStructureEEERKNS_6MatrixEm(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 72)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %capletVol, ptr noundef nonnull align 8 dereferenceable(24) %correlation, i64 noundef %factors) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2243,7 +2243,7 @@ _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib28LfmHullWhiteParameterization9diffusionEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, double noundef %t, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib28LfmHullWhiteParameterization9diffusionEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, double noundef %t, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %size_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %size_, align 8, !tbaa !21
@@ -2350,7 +2350,7 @@ nrvo.skipdtor:                                    ; preds = %for.cond3.for.cond.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib28LfmHullWhiteParameterization10covarianceEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, double noundef %t, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib28LfmHullWhiteParameterization10covarianceEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, double noundef %t, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %size_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %size_, align 8, !tbaa !21
@@ -2455,7 +2455,7 @@ nrvo.skipdtor:                                    ; preds = %for.cond4.for.cond.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib28LfmHullWhiteParameterization20integratedCovarianceEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, double noundef %t, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib28LfmHullWhiteParameterization20integratedCovarianceEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, double noundef %t, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %size_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %size_, align 8, !tbaa !21

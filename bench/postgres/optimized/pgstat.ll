@@ -1839,7 +1839,7 @@ declare zeroext i1 @pgstat_lock_entry_shared(ptr noundef, i1 noundef zeroext) lo
 declare void @pgstat_unlock_entry(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pgstat_get_stat_snapshot_timestamp(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pgstat_get_stat_snapshot_timestamp(ptr nocapture noundef writeonly initializes((0, 1)) %0) local_unnamed_addr #0 {
   %.b2 = load i1, ptr @force_stats_snapshot_clear, align 1
   br i1 %.b2, label %2, label %5
 

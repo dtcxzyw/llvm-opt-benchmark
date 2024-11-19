@@ -64,7 +64,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN3sat6clauseC2EjjPKNS_7literalEb(ptr nocapture noundef nonnull align 4 dereferenceable(20) %this, i32 noundef %id, i32 noundef %sz, ptr nocapture noundef readonly %lits, i1 noundef zeroext %learned) unnamed_addr #3 align 2 {
+define hidden void @_ZN3sat6clauseC2EjjPKNS_7literalEb(ptr nocapture noundef nonnull align 4 dereferenceable(20) initializes((0, 16)) %this, i32 noundef %id, i32 noundef %sz, ptr nocapture noundef readonly %lits, i1 noundef zeroext %learned) unnamed_addr #3 align 2 {
 entry:
   store i32 %id, ptr %this, align 4
   %m_size = getelementptr inbounds i8, ptr %this, i64 4
@@ -391,7 +391,7 @@ if.end:                                           ; preds = %_ZN3sat6clause17mar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3sat6clause7restoreEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %this, i32 noundef %num_lits) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN3sat6clause7restoreEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((4, 8)) %this, i32 noundef %num_lits) local_unnamed_addr #6 align 2 {
 entry:
   %m_size = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %num_lits, ptr %m_size, align 4
@@ -453,7 +453,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3sat6clause14set_new_offsetEm(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %this, i64 noundef %offset) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN3sat6clause14set_new_offsetEm(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((20, 28)) %this, i64 noundef %offset) local_unnamed_addr #6 align 2 {
 entry:
   %conv = trunc i64 %offset to i32
   %m_lits = getelementptr inbounds i8, ptr %this, i64 20
@@ -549,7 +549,7 @@ if.end17:                                         ; preds = %if.else, %_ZN3sat6c
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3sat16clause_allocatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(568) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3sat16clause_allocatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(568) initializes((0, 556), (560, 568)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr @.str, ptr %this, align 8
   %m_alloc_size.i = getelementptr inbounds i8, ptr %this, i64 8

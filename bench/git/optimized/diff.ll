@@ -2667,7 +2667,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @diff_set_noprefix(ptr nocapture noundef writeonly %options) local_unnamed_addr #13 {
+define dso_local void @diff_set_noprefix(ptr nocapture noundef writeonly initializes((72, 88)) %options) local_unnamed_addr #13 {
 entry:
   %b_prefix = getelementptr inbounds i8, ptr %options, i64 80
   store ptr @.str.38, ptr %b_prefix, align 8
@@ -2677,7 +2677,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @diff_set_default_prefix(ptr nocapture noundef writeonly %options) local_unnamed_addr #13 {
+define dso_local void @diff_set_default_prefix(ptr nocapture noundef writeonly initializes((72, 88)) %options) local_unnamed_addr #13 {
 entry:
   %a_prefix = getelementptr inbounds i8, ptr %options, i64 72
   store ptr @.str.39, ptr %a_prefix, align 8
@@ -3099,7 +3099,7 @@ if.end30:                                         ; preds = %if.end8, %if.then21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @repo_diff_setup(ptr noundef %r, ptr nocapture noundef %options) local_unnamed_addr #18 {
+define dso_local void @repo_diff_setup(ptr noundef %r, ptr nocapture noundef initializes((0, 600)) %options) local_unnamed_addr #18 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(600) %options, ptr noundef nonnull align 8 dereferenceable(600) @default_diff_options, i64 600, i1 false)
   %0 = load ptr, ptr @stdout, align 8
@@ -8709,7 +8709,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @diff_flush_patch_id(ptr nocapture noundef readonly %options, ptr nocapture noundef %oid, i32 noundef %diff_header_only) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @diff_flush_patch_id(ptr nocapture noundef readonly %options, ptr nocapture noundef initializes((0, 36)) %oid, i32 noundef %diff_header_only) local_unnamed_addr #0 {
 entry:
   %hash.i.i = alloca [32 x i8], align 16
   %buf.i105.i = alloca [12 x i8], align 1
@@ -13263,7 +13263,7 @@ if.end122:                                        ; preds = %if.then114, %diff_f
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @compute_diffstat(ptr nocapture noundef %options, ptr noundef %diffstat, ptr nocapture noundef readonly %q) local_unnamed_addr #0 {
+define dso_local void @compute_diffstat(ptr nocapture noundef %options, ptr noundef initializes((0, 16)) %diffstat, ptr nocapture noundef readonly %q) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %diffstat, i8 0, i64 16, i1 false)
   %nr = getelementptr inbounds i8, ptr %q, i64 12
@@ -13928,7 +13928,7 @@ declare void @promisor_remote_get_direct(ptr noundef, ptr noundef, i32 noundef) 
 declare void @oid_array_clear(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @init_diffstat_widths(ptr nocapture noundef writeonly %options) local_unnamed_addr #13 {
+define dso_local void @init_diffstat_widths(ptr nocapture noundef writeonly initializes((392, 404)) %options) local_unnamed_addr #13 {
 entry:
   %stat_width = getelementptr inbounds i8, ptr %options, i64 392
   store i32 -1, ptr %stat_width, align 8
@@ -16404,7 +16404,7 @@ declare i32 @whitespace_rule(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ll_merge_marker_size(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @checkdiff_consume_hunk(ptr nocapture noundef writeonly %priv, i64 %ob, i64 %on, i64 noundef %nb, i64 %nn, ptr nocapture readnone %func, i64 %funclen) #13 {
+define internal void @checkdiff_consume_hunk(ptr nocapture noundef writeonly initializes((8, 12)) %priv, i64 %ob, i64 %on, i64 noundef %nb, i64 %nn, ptr nocapture readnone %func, i64 %funclen) #13 {
 entry:
   %0 = trunc i64 %nb to i32
   %conv = add i32 %0, -1
@@ -19875,7 +19875,7 @@ return:                                           ; preds = %cond.end54, %if.end
 declare ptr @__errno_location() local_unnamed_addr #27
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @prep_temp_blob(ptr noundef %istate, ptr noundef %path, ptr noundef %temp, ptr noundef %blob, i64 noundef %size, ptr noundef %oid, i32 noundef range(i32 0, 65536) %mode) unnamed_addr #0 {
+define internal fastcc void @prep_temp_blob(ptr noundef %istate, ptr noundef %path, ptr noundef initializes((88, 96)) %temp, ptr noundef %blob, i64 noundef %size, ptr noundef %oid, i32 noundef range(i32 0, 65536) %mode) unnamed_addr #0 {
 entry:
   %ca.i = alloca %struct.conv_attrs, align 8
   %buf = alloca %struct.strbuf, align 8
@@ -21207,7 +21207,7 @@ if.end39:                                         ; preds = %entry, %if.then35, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @diff_words_fill(ptr nocapture noundef %buffer, ptr nocapture noundef nonnull %out, ptr noundef %word_regex) unnamed_addr #0 {
+define internal fastcc void @diff_words_fill(ptr nocapture noundef initializes((32, 36)) %buffer, ptr nocapture noundef nonnull initializes((0, 16)) %out, ptr noundef %word_regex) unnamed_addr #0 {
 entry:
   %match.i = alloca [1 x %struct.regmatch_t], align 4
   %size = getelementptr inbounds i8, ptr %out, i64 8

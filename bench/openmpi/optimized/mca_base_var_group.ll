@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_value_array_t_class = external global %struct.opal_class_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_base_var_group_constructor(ptr noundef %0) #0 {
+define internal void @mca_base_var_group_constructor(ptr noundef initializes((40, 280)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(240) %2, i8 0, i64 240, i1 false)
   %3 = load i32, ptr @opal_class_init_epoch, align 4

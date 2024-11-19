@@ -198,7 +198,7 @@ define hidden range(i8 -1, 3) i8 @"_ZN63_$LT$alloc..string..String$u20$as$u20$co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN20wasmtime_wit_bindgen6source115_$LT$impl$u20$core..convert..From$LT$wasmtime_wit_bindgen..source..Source$GT$$u20$for$u20$alloc..string..String$GT$4from17h72ffa950f5a9a772E"(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
+define void @"_ZN20wasmtime_wit_bindgen6source115_$LT$impl$u20$core..convert..From$LT$wasmtime_wit_bindgen..source..Source$GT$$u20$for$u20$alloc..string..String$GT$4from17h72ffa950f5a9a772E"(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }

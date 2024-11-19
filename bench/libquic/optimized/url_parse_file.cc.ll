@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.url::Component" = type { i32, i32 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url12ParseFileURLEPKciPNS_6ParsedE(ptr noundef %url, i32 noundef %url_len, ptr noundef %parsed) local_unnamed_addr #0 {
+define dso_local void @_ZN3url12ParseFileURLEPKciPNS_6ParsedE(ptr noundef %url, i32 noundef %url_len, ptr noundef initializes((8, 24), (32, 40), (48, 64)) %parsed) local_unnamed_addr #0 {
 entry:
   %ref.tmp.i.i = alloca %"struct.url::Component", align 8
   %ref.tmp16.i.i = alloca %"struct.url::Component", align 8
@@ -348,7 +348,7 @@ _ZN3url12_GLOBAL__N_114DoParseFileURLIcEEvPKT_iPNS_6ParsedE.exit: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url12ParseFileURLEPKtiPNS_6ParsedE(ptr noundef %url, i32 noundef %url_len, ptr noundef %parsed) local_unnamed_addr #0 {
+define dso_local void @_ZN3url12ParseFileURLEPKtiPNS_6ParsedE(ptr noundef %url, i32 noundef %url_len, ptr noundef initializes((8, 24), (32, 40), (48, 64)) %parsed) local_unnamed_addr #0 {
 entry:
   %ref.tmp.i.i = alloca %"struct.url::Component", align 8
   %ref.tmp16.i.i = alloca %"struct.url::Component", align 8

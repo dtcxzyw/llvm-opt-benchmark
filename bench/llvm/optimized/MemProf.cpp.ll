@@ -3484,7 +3484,7 @@ _ZN4llvm11SmallVectorISt4pairImNS0_ImLj6EEEELj0EED2Ev.exit: ; preds = %_ZN4llvm2
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7memprof21computeFrameHistogramERNS_9MapVectorImNS_11SmallVectorImLj6EEENS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEENS2_ISt4pairImS3_ELj0EEEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::DenseMap.38") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm7memprof21computeFrameHistogramERNS_9MapVectorImNS_11SmallVectorImLj6EEENS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEENS2_ISt4pairImS3_ELj0EEEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::DenseMap.38") align 8 initializes((0, 20)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8

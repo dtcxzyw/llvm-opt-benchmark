@@ -622,7 +622,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad.i.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly16ManualTimekeeperC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly16ManualTimekeeperC2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 24), (32, 36), (40, 48)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly16ManualTimekeeperE, i64 16), ptr %this, align 8, !tbaa !7
   %executor_ = getelementptr inbounds i8, ptr %this, i64 8

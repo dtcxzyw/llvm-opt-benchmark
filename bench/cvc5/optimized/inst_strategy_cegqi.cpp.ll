@@ -360,7 +360,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers17InstRewriterCegqiC2EPNS2_17InstStrategyCegqiE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %p) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers17InstRewriterCegqiC2EPNS2_17InstStrategyCegqiE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %p) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers17InstRewriterCegqiE, i64 16), ptr %this, align 8
   %d_parent = getelementptr inbounds i8, ptr %this, i64 8
@@ -1747,7 +1747,7 @@ _ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers17InstStrategyCegqiD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers17InstStrategyCegqiD2Ev(ptr noundef nonnull align 8 dereferenceable(544) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers17InstStrategyCegqiE, i64 16), ptr %this, align 8
   %d_nestedQe = getelementptr inbounds i8, ptr %this, i64 536
@@ -2000,7 +2000,7 @@ _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers17InstRewriterCegqiESt14def
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers17InstStrategyCegqiD0Ev(ptr noundef nonnull align 8 dereferenceable(544) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers17InstStrategyCegqiD0Ev(ptr noundef nonnull align 8 dereferenceable(544) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory11quantifiers17InstStrategyCegqiD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %this) #26
   tail call void @_ZdlPv(ptr noundef nonnull %this) #28
@@ -6664,7 +6664,7 @@ declare noundef ptr @_ZN4cvc58internal6theory22TheoryInferenceManager18getDecisi
 declare void @_ZN4cvc58internal6theory15DecisionManager16registerStrategyENS2_10StrategyIdEPNS1_16DecisionStrategyENS2_13StrategyScopeE(ptr noundef nonnull align 8 dereferenceable(184), i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers17InstStrategyCegqi11reset_roundENS1_6Theory6EffortE(ptr noundef nonnull align 8 dereferenceable(544) %this, i32 %effort) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers17InstStrategyCegqi11reset_roundENS1_6Theory6EffortE(ptr noundef nonnull align 8 dereferenceable(544) initializes((56, 58)) %this, i32 %effort) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.835", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.838", align 1

@@ -905,13 +905,13 @@ define internal noundef zeroext i1 @"_ZN69_$LT$core..alloc..layout..LayoutError$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN95_$LT$rich_text..Highlight$u20$as$u20$core..convert..From$LT$gpui..style..HighlightStyle$GT$$GT$4from17h2dfc0f4f4273e68eE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([112 x i8]) align 4 dereferenceable(112) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(112) %1) unnamed_addr #2 {
+define void @"_ZN95_$LT$rich_text..Highlight$u20$as$u20$core..convert..From$LT$gpui..style..HighlightStyle$GT$$GT$4from17h2dfc0f4f4273e68eE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([112 x i8]) align 4 dereferenceable(112) initializes((0, 112)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(112) %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, ptr noundef nonnull align 4 dereferenceable(112) %1, i64 112, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN104_$LT$rich_text..Highlight$u20$as$u20$core..convert..From$LT$language..highlight_map..HighlightId$GT$$GT$4from17hed740e40b3f9a8e7E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([112 x i8]) align 4 dereferenceable(112) %0, i32 noundef %1) unnamed_addr #3 {
+define void @"_ZN104_$LT$rich_text..Highlight$u20$as$u20$core..convert..From$LT$language..highlight_map..HighlightId$GT$$GT$4from17hed740e40b3f9a8e7E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([112 x i8]) align 4 dereferenceable(112) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 3, ptr %0, align 4

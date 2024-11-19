@@ -1630,7 +1630,7 @@ invoke.cont60:                                    ; preds = %for.end59
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt17MatchingFilenamesENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull %filenameBase) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt17MatchingFilenamesENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull %filenameBase) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %basePath = alloca %"class.filesystem::path", align 8
   %dirStr = alloca %"class.std::__cxx11::basic_string", align 8

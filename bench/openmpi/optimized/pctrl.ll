@@ -1370,7 +1370,7 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 declare i32 @PMIx_Job_control_nb(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbfunc(i32 noundef %0, ptr nocapture readnone %1, i64 %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 {
+define internal void @cbfunc(i32 noundef %0, ptr nocapture readnone %1, i64 %2, ptr noundef initializes((472, 476)) %3, ptr noundef readonly %4, ptr noundef %5) #0 {
   fence acquire
   %7 = getelementptr inbounds i8, ptr %3, i64 472
   store i32 %0, ptr %7, align 8

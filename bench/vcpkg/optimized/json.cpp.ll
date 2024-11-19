@@ -1294,13 +1294,13 @@ _ZNR5vcpkg4Json5Value6objectENS_8LineInfoE.exit:  ; preds = %_ZNK5vcpkg4Json5Val
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5vcpkg4Json5ValueC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg4Json5ValueC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5vcpkg4Json5ValueC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #8 align 2 {
+define dso_local void @_ZN5vcpkg4Json5ValueC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #8 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8
@@ -1316,7 +1316,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5vcpkg4Json5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg4Json5ValueC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg4Json5ValueC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.vcpkg::LineInfo", align 8
   store ptr null, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
@@ -1848,13 +1848,13 @@ _ZNSt10unique_ptrIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5vcpkg4Json5Value4nullEDn(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Json::Value") align 8 %0, ptr nocapture readnone %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg4Json5Value4nullEDn(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Json::Value") align 8 initializes((0, 8)) %0, ptr nocapture readnone %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg4Json5Value7booleanEb(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Json::Value") align 8 %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg4Json5Value7booleanEb(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Json::Value") align 8 initializes((0, 8)) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %3 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
           to label %_ZNSt10unique_ptrIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EED2Ev.exit unwind label %6
@@ -1876,7 +1876,7 @@ _ZNSt10unique_ptrIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg4Json5Value7integerEl(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Json::Value") align 8 %0, i64 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg4Json5Value7integerEl(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Json::Value") align 8 initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %3 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
           to label %_ZNSt10unique_ptrIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EED2Ev.exit unwind label %5
@@ -2058,7 +2058,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg6Checks21msg_exit_with_messageIJEJE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Json::Value") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Json::Value") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %3 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
           to label %_ZNSt10unique_ptrIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EED2Ev.exit unwind label %12
@@ -2089,7 +2089,7 @@ _ZNSt10unique_ptrIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg4Json5Value5arrayERKNS0_5ArrayE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Json::Value") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg4Json5Value5arrayERKNS0_5ArrayE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Json::Value") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"struct.std::integral_constant.14", align 1
   store ptr null, ptr %0, align 8
@@ -2190,7 +2190,7 @@ _ZNSt16allocator_traitsISaIN5vcpkg4Json5ValueEEE8allocateERS3_m.exit.i.i.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Json::Value") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg4Json5Value6objectEONS0_6ObjectE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Json::Value") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %3 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
           to label %_ZNSt10unique_ptrIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EED2Ev.exit unwind label %12
@@ -2221,7 +2221,7 @@ _ZNSt10unique_ptrIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg4Json5Value6objectERKNS0_6ObjectE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Json::Value") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg4Json5Value6objectERKNS0_6ObjectE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Json::Value") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"struct.std::integral_constant.15", align 1
   store ptr null, ptr %0, align 8
@@ -5559,7 +5559,7 @@ define dso_local void @_ZN5vcpkg4Json6Object9sort_keysEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK5vcpkg4Json18StringDeserializer12visit_stringB5cxx11ERNS0_6ReaderENS_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr %3, i64 %4) unnamed_addr #9 align 2 {
+define dso_local void @_ZNK5vcpkg4Json18StringDeserializer12visit_stringB5cxx11ERNS0_6ReaderENS_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional") align 8 initializes((0, 1)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr %3, i64 %4) unnamed_addr #9 align 2 {
   %6 = alloca %"struct.vcpkg::StringView", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %3, ptr %6, align 8
@@ -5595,7 +5595,7 @@ define dso_local void @_ZNK5vcpkg4Json16PathDeserializer9type_nameEv(ptr dead_on
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK5vcpkg4Json16PathDeserializer12visit_stringERNS0_6ReaderENS_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.21") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr %3, i64 %4) unnamed_addr #9 align 2 {
+define dso_local void @_ZNK5vcpkg4Json16PathDeserializer12visit_stringERNS0_6ReaderENS_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.21") align 8 initializes((0, 1)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr %3, i64 %4) unnamed_addr #9 align 2 {
   %6 = alloca %"struct.vcpkg::Path", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @_ZN5vcpkg4PathC1ENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr %3, i64 %4)
@@ -5620,7 +5620,7 @@ define dso_local void @_ZNK5vcpkg4Json25NaturalNumberDeserializer9type_nameEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK5vcpkg4Json25NaturalNumberDeserializer13visit_integerERNS0_6ReaderEl(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.25") align 4 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, i64 noundef %3) unnamed_addr #7 align 2 {
+define dso_local void @_ZNK5vcpkg4Json25NaturalNumberDeserializer13visit_integerERNS0_6ReaderEl(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.25") align 4 initializes((0, 1), (4, 5)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, i64 noundef %3) unnamed_addr #7 align 2 {
   %or.cond = icmp ugt i64 %3, 2147483647
   br i1 %or.cond, label %5, label %7
 
@@ -5654,7 +5654,7 @@ define dso_local void @_ZNK5vcpkg4Json19BooleanDeserializer9type_nameEv(ptr dead
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK5vcpkg4Json19BooleanDeserializer13visit_booleanERNS0_6ReaderEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.29") align 1 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, i1 noundef zeroext %3) unnamed_addr #7 align 2 {
+define dso_local void @_ZNK5vcpkg4Json19BooleanDeserializer13visit_booleanERNS0_6ReaderEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.29") align 1 initializes((0, 2)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, i1 noundef zeroext %3) unnamed_addr #7 align 2 {
   %5 = zext i1 %3 to i8
   store i8 1, ptr %0, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 1
@@ -7013,7 +7013,7 @@ define dso_local noundef i64 @_ZN5vcpkg4Json22get_json_parsing_statsEv() local_u
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg4Json6ReaderC2ENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr %1, i64 %2) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg4Json6ReaderC2ENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 48)) %0, ptr %1, i64 %2) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)

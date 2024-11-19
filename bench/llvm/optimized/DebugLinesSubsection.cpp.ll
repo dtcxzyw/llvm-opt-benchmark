@@ -1487,7 +1487,7 @@ _ZN4llvm15BinaryStreamRefD2Ev.exit:               ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm8codeview23DebugLinesSubsectionRefC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm8codeview23DebugLinesSubsectionRefC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 12), (16, 56), (64, 65), (72, 84)) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 242, ptr %2, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm8codeview23DebugLinesSubsectionRefE, i64 16), ptr %0, align 8
@@ -1896,7 +1896,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8codeview23DebugLinesSubsectionRef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm8codeview20DebugLinesSubsectionC2ERNS0_24DebugChecksumsSubsectionERNS0_26DebugStringTableSubsectionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr nocapture nonnull readnone align 1 %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm8codeview20DebugLinesSubsectionC2ERNS0_24DebugChecksumsSubsectionERNS0_26DebugStringTableSubsectionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 12), (16, 30), (32, 38), (40, 64)) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr nocapture nonnull readnone align 1 %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 242, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm8codeview20DebugLinesSubsectionE, i64 16), ptr %0, align 8
@@ -2436,7 +2436,7 @@ define dso_local noundef i32 @_ZNK4llvm8codeview20DebugLinesSubsection23calculat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm8codeview20DebugLinesSubsection20setRelocationAddressEtj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm8codeview20DebugLinesSubsection20setRelocationAddressEtj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((24, 30)) %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2445,14 +2445,14 @@ define dso_local void @_ZN4llvm8codeview20DebugLinesSubsection20setRelocationAdd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm8codeview20DebugLinesSubsection11setCodeSizeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm8codeview20DebugLinesSubsection11setCodeSizeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm8codeview20DebugLinesSubsection8setFlagsENS0_9LineFlagsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i16 noundef zeroext %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm8codeview20DebugLinesSubsection8setFlagsENS0_9LineFlagsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((36, 38)) %0, i16 noundef zeroext %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i16 %1, ptr %3, align 4
   ret void

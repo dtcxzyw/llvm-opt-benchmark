@@ -2858,7 +2858,7 @@ declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local i32 @__sysfs_match_string(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @serial_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal i64 @serial_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef initializes((20, 21)) %2) #2 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -184
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %2, i64 20

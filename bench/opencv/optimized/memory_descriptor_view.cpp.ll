@@ -74,7 +74,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZN3ade20MemoryDescriptorViewD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3ade20MemoryDescriptorViewD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3ade20MemoryDescriptorViewC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ade20MemoryDescriptorViewC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 76), (80, 96)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)
   store i32 1, ptr %2, align 8
@@ -84,7 +84,7 @@ define hidden void @_ZN3ade20MemoryDescriptorViewC2Ev(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ade20MemoryDescriptorViewC2ERNS_16MemoryDescriptorERKNS_4util9DynMdSpanILm6EEENS0_17RetargetableStateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, i32 noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ade20MemoryDescriptorViewC2ERNS_16MemoryDescriptorERKNS_4util9DynMdSpanILm6EEENS0_17RetargetableStateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 76), (80, 96)) %0, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, i32 noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
@@ -119,7 +119,7 @@ define hidden void @_ZNK3ade20MemoryDescriptorView10checkSpansERNS_16MemoryDescr
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZN3ade20MemoryDescriptorViewC2ERS0_RKNS_4util9DynMdSpanILm6EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ade20MemoryDescriptorViewC2ERS0_RKNS_4util9DynMdSpanILm6EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 76), (80, 96)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -876,7 +876,7 @@ _ZN3ade20MemoryDescriptorView9Connector14removeListenerEPS0_PNS_29IMemoryDescrip
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZNK3ade20MemoryDescriptorView4sizeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::DynMdSize") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #10 align 2 {
+define hidden void @_ZNK3ade20MemoryDescriptorView4sizeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::DynMdSize") align 8 initializes((24, 32)) %0, ptr noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %4 = getelementptr inbounds i8, ptr %0, i64 24

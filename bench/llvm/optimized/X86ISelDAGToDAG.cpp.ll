@@ -432,7 +432,7 @@ define internal noundef nonnull ptr @_ZL39initializeX86DAGToDAGISelLegacyPassOnc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19X86ISelDAGToDAGPassC2ERNS_16X86TargetMachineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1272) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19X86ISelDAGToDAGPassC2ERNS_16X86TargetMachineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(1272) %1) unnamed_addr #0 align 2 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_115X86DAGToDAGISelESt14default_deleteIS1_EED2Ev.exit:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 664
   %3 = load i32, ptr %2, align 8
@@ -508,7 +508,7 @@ declare void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef, i1 noundef zeroext)
 declare void @_ZN4llvm22SelectionDAGISelLegacyC2ERcSt10unique_ptrINS_16SelectionDAGISelESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121X86DAGToDAGISelLegacyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121X86DAGToDAGISelLegacyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN4llvm22SelectionDAGISelLegacyE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -529,7 +529,7 @@ _ZN4llvm22SelectionDAGISelLegacyD2Ev.exit:        ; preds = %1, %_ZNKSt14default
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121X86DAGToDAGISelLegacyD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121X86DAGToDAGISelLegacyD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN4llvm22SelectionDAGISelLegacyE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -639,7 +639,7 @@ define internal void @_ZN12_GLOBAL__N_115X86DAGToDAGISelD0Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115X86DAGToDAGISel20runOnMachineFunctionERN4llvm15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115X86DAGToDAGISel20runOnMachineFunctionERN4llvm15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(288) initializes((272, 282)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -28833,7 +28833,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZNK4llvm3EVT8isVec
 declare noundef i32 @_ZNK4llvm18MachinePointerInfo12getAddrSpaceEv(ptr noundef nonnull align 8 dereferenceable(21)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115X86DAGToDAGISel18getAddressOperandsERNS_18X86ISelAddressModeERKN4llvm5SDLocENS3_3MVTERNS3_7SDValueES9_S9_S9_S9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(119) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i16 %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %7, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %8) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115X86DAGToDAGISel18getAddressOperandsERNS_18X86ISelAddressModeERKN4llvm5SDLocENS3_3MVTERNS3_7SDValueES9_S9_S9_S9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(119) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i16 %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %7, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %8) unnamed_addr #0 align 2 {
   %10 = alloca %"struct.llvm::EVT", align 8
   %11 = alloca %"class.llvm::ArrayRef.438", align 8
   %12 = alloca %"class.llvm::SDLoc", align 8
@@ -34455,7 +34455,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %89, %91
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115X86DAGToDAGISel17selectTLSADDRAddrEN4llvm7SDValueERS2_S3_S3_S3_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, ptr nocapture readonly %1, i32 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %7) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115X86DAGToDAGISel17selectTLSADDRAddrEN4llvm7SDValueERS2_S3_S3_S3_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, ptr nocapture readonly %1, i32 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"struct.(anonymous namespace)::X86ISelAddressMode", align 8
   %10 = alloca %"class.llvm::SDLoc", align 8
   store i32 0, ptr %9, align 8

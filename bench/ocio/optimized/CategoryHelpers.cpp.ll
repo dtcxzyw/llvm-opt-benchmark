@@ -841,7 +841,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i16, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetColorSpacesESt10shared_ptrIKNS_6ConfigEEbNS_24SearchReferenceSpaceTypeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %config, i1 noundef zeroext %includeColorSpaces, i32 noundef %colorSpaceType, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %categories) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114GetColorSpacesESt10shared_ptrIKNS_6ConfigEEbNS_24SearchReferenceSpaceTypeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly %config, i1 noundef zeroext %includeColorSpaces, i32 noundef %colorSpaceType, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %categories) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %cs = alloca %"class.std::shared_ptr.18", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -4887,7 +4887,7 @@ ehcleanup246:                                     ; preds = %if.then.i.i.i1057, 
 declare noundef i32 @_ZNK19OpenColorIO_v2_4dev6Config15getMajorVersionEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118GetNamedTransformsESt10shared_ptrIKNS_6ConfigEEbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %config, i1 noundef zeroext %includeNamedTransforms, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %categories) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118GetNamedTransformsESt10shared_ptrIKNS_6ConfigEEbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly %config, i1 noundef zeroext %includeNamedTransforms, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %categories) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %nt = alloca %"class.std::shared_ptr.24", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -5131,7 +5131,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt10shared_ptrIK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_127GetColorSpacesFromEncodingsESt10shared_ptrIKNS_6ConfigEEbNS_24SearchReferenceSpaceTypeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %config, i1 noundef zeroext %includeColorSpaces, i32 noundef %colorSpaceType, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %encodings) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_127GetColorSpacesFromEncodingsESt10shared_ptrIKNS_6ConfigEEbNS_24SearchReferenceSpaceTypeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly %config, i1 noundef zeroext %includeColorSpaces, i32 noundef %colorSpaceType, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %encodings) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::allocator.0", align 1
@@ -5426,7 +5426,7 @@ _ZNSt6vectorIPKN19OpenColorIO_v2_4dev10ColorSpaceESaIS3_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_131GetNamedTransformsFromEncodingsESt10shared_ptrIKNS_6ConfigEEbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %config, i1 noundef zeroext %includeNamedTransforms, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %encodings) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_131GetNamedTransformsFromEncodingsESt10shared_ptrIKNS_6ConfigEEbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly %config, i1 noundef zeroext %includeNamedTransforms, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %encodings) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::allocator.0", align 1
@@ -5703,7 +5703,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt10shared_ptrIK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18GetInfosERSt10shared_ptrIKNS_6ConfigEERKSt6vectorIPKNS_10ColorSpaceESaIS9_EERKS6_IPKNS_14NamedTransformESaISG_EE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %config, ptr readonly %css.0.val, ptr readnone %css.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %nts) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18GetInfosERSt10shared_ptrIKNS_6ConfigEERKSt6vectorIPKNS_10ColorSpaceESaIS9_EERKS6_IPKNS_14NamedTransformESaISG_EE(ptr noalias align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %config, ptr readonly %css.0.val, ptr readnone %css.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %nts) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.21", align 8
   %ref.tmp19 = alloca %"class.std::shared_ptr.21", align 8

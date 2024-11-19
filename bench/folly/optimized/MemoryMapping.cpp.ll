@@ -100,7 +100,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 declare void @_ZN6google14FlagRegistererC1IlEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly13MemoryMappingC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13MemoryMappingC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 5), (8, 37), (40, 49), (56, 72)) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i = alloca %"struct.folly::MemoryMapping::Options", align 8
   store i32 -1, ptr %this, align 8, !tbaa !7
@@ -859,7 +859,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN5folly4FileC1Eib(ptr noundef nonnull align 4 dereferenceable(5), i32 noundef, i1 noundef zeroext) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13MemoryMappingC2ENS0_13AnonymousTypeElNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 %0, i64 noundef %length, ptr nocapture noundef readonly byval(%"struct.folly::MemoryMapping::Options") align 8 %options) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13MemoryMappingC2ENS0_13AnonymousTypeElNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 5), (8, 49), (56, 72)) %this, i32 %0, i64 noundef %length, ptr nocapture noundef readonly byval(%"struct.folly::MemoryMapping::Options") align 8 %options) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 -1, ptr %this, align 8, !tbaa !7
   %ownsFd_.i = getelementptr inbounds i8, ptr %this, i64 4

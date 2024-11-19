@@ -136,7 +136,7 @@ declare void @Gia_ManIncrementTravId(ptr noundef) local_unnamed_addr #2
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @Gia_ManQuantSetSuppStart(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
+define void @Gia_ManQuantSetSuppStart(ptr nocapture noundef writeonly initializes((976, 992)) %0) local_unnamed_addr #4 {
 Vec_WrdPush.exit:
   %1 = getelementptr inbounds i8, ptr %0, i64 976
   store i32 0, ptr %1, align 8
@@ -1502,7 +1502,7 @@ define internal fastcc void @Vec_IntFree(ptr nocapture noundef %0) unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManQuantExist_rec(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define void @Gia_ManQuantExist_rec(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #1 {
   %4 = alloca [2 x i32], align 4
   %5 = alloca [2 x i32], align 4
   %6 = getelementptr i8, ptr %0, i64 176

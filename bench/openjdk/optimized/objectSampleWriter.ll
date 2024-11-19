@@ -509,7 +509,7 @@ _ZL10is_gc_rootPK10StoredEdge.exit:               ; preds = %_ZL26add_old_object
 declare noundef i64 @_ZNK9EdgeStore6get_idEPK4Edge(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ObjectSampleWriterC2ER19JfrCheckpointWriterP9EdgeStore(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN18ObjectSampleWriterC2ER19JfrCheckpointWriterP9EdgeStore(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8

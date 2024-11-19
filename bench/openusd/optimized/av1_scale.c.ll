@@ -171,7 +171,7 @@ define internal i32 @scaled_y(i32 noundef %0, ptr nocapture noundef readonly %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @av1_setup_scale_factors_for_frame(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @av1_setup_scale_factors_for_frame(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = shl nsw i32 %3, 1
   %.not.i = icmp slt i32 %6, %1
   %7 = shl nsw i32 %4, 1

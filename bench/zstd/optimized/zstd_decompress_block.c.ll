@@ -63,7 +63,7 @@ return:                                           ; preds = %do.end8, %entry, %d
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -70, 1048579) i64 @ZSTD_decodeLiteralsBlock_wrapper(ptr noundef %dctx, ptr noundef %src, i64 noundef %srcSize, ptr noundef %dst, i64 noundef %dstCapacity) local_unnamed_addr #1 {
+define range(i64 -70, 1048579) i64 @ZSTD_decodeLiteralsBlock_wrapper(ptr noundef initializes((30176, 30180)) %dctx, ptr noundef %src, i64 noundef %srcSize, ptr noundef %dst, i64 noundef %dstCapacity) local_unnamed_addr #1 {
 entry:
   %isFrameDecompression = getelementptr inbounds i8, ptr %dctx, i64 30176
   store i32 0, ptr %isFrameDecompression, align 8
@@ -7820,7 +7820,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_decompressBlock_deprecated(ptr noundef %dctx, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_decompressBlock_deprecated(ptr noundef initializes((30176, 30180)) %dctx, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %isFrameDecompression = getelementptr inbounds i8, ptr %dctx, i64 30176
   store i32 0, ptr %isFrameDecompression, align 8
@@ -7861,7 +7861,7 @@ return:                                           ; preds = %ZSTD_checkContinuit
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_decompressBlock(ptr noundef %dctx, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_decompressBlock(ptr noundef initializes((30176, 30180)) %dctx, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %isFrameDecompression.i = getelementptr inbounds i8, ptr %dctx, i64 30176
   store i32 0, ptr %isFrameDecompression.i, align 8

@@ -1776,7 +1776,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20CmsMarketCalibrationC2ERNS_6HandleINS_27SwaptionVolatilityStructureEEERN5boost10shared_ptrINS_9CmsMarketEEERKNS_6MatrixENS0_15CalibrationTypeE(ptr noundef nonnull align 8 dereferenceable(148) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volCube, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cmsMarket, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %weights, i32 noundef %calibrationType) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20CmsMarketCalibrationC2ERNS_6HandleINS_27SwaptionVolatilityStructureEEERN5boost10shared_ptrINS_9CmsMarketEEERKNS_6MatrixENS0_15CalibrationTypeE(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volCube, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cmsMarket, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %weights, i32 noundef %calibrationType) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4669,7 +4669,7 @@ _ZN5boost10shared_ptrIN8QuantLib10Constraint4ImplEED2Ev.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117ObjectiveFunctionC2EPN8QuantLib20CmsMarketCalibrationE(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull %smileAndCms) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_117ObjectiveFunctionC2EPN8QuantLib20CmsMarketCalibrationE(ptr noundef nonnull align 8 dereferenceable(76) initializes((0, 48)) %this, ptr noundef nonnull %smileAndCms) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_117ObjectiveFunctionE, i64 16), ptr %this, align 8, !tbaa !14
   %smileAndCms_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -8906,7 +8906,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 declare double @sqrt(double noundef) local_unnamed_addr #11
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117ObjectiveFunctionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_117ObjectiveFunctionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_117ObjectiveFunctionE, i64 16), ptr %this, align 8, !tbaa !14
   %weights_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -9534,7 +9534,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118ObjectiveFunction2D0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_118ObjectiveFunction2D0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_117ObjectiveFunctionE, i64 16), ptr %this, align 8, !tbaa !14
   %weights_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -10572,7 +10572,7 @@ unreachable:                                      ; preds = %invoke.cont17
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117ObjectiveFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_117ObjectiveFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(76) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_117ObjectiveFunctionE, i64 16), ptr %this, align 8, !tbaa !14
   %weights_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -39550,7 +39550,7 @@ declare noundef double @_ZN8QuantLib9CmsMarket20weightedSpotNpvErrorERKNS_6Matri
 declare noundef double @_ZN8QuantLib9CmsMarket19weightedFwdNpvErrorERKNS_6MatrixE(ptr noundef nonnull align 8 dereferenceable(544), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118ObjectiveFunction4D0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_118ObjectiveFunction4D0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_117ObjectiveFunctionE, i64 16), ptr %this, align 8, !tbaa !14
   %weights_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -42348,7 +42348,7 @@ unreachable:                                      ; preds = %invoke.cont43
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118ObjectiveFunction3D0Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_118ObjectiveFunction3D0Ev(ptr noundef nonnull align 8 dereferenceable(76) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_117ObjectiveFunctionE, i64 16), ptr %this, align 8, !tbaa !14
   %weights_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -42922,7 +42922,7 @@ unreachable:                                      ; preds = %invoke.cont21
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118ObjectiveFunction5D0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_118ObjectiveFunction5D0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_117ObjectiveFunctionE, i64 16), ptr %this, align 8, !tbaa !14
   %weights_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -43802,7 +43802,7 @@ unreachable:                                      ; preds = %invoke.cont21
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118ObjectiveFunction6D0Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_118ObjectiveFunction6D0Ev(ptr noundef nonnull align 8 dereferenceable(76) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_117ObjectiveFunctionE, i64 16), ptr %this, align 8, !tbaa !14
   %weights_.i = getelementptr inbounds nuw i8, ptr %this, i64 48

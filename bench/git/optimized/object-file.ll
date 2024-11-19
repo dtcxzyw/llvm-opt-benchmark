@@ -217,7 +217,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @git_hash_sha1_clone(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) #2 {
+define internal void @git_hash_sha1_clone(ptr nocapture noundef writeonly initializes((0, 2400)) %dst, ptr nocapture noundef readonly %src) #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2400) %dst, ptr noundef nonnull readonly align 8 dereferenceable(2400) %src, i64 2400, i1 false)
   ret void
@@ -256,7 +256,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @git_hash_sha256_clone(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) #2 {
+define internal void @git_hash_sha256_clone(ptr nocapture noundef writeonly initializes((0, 112)) %dst, ptr nocapture noundef readonly %src) #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %dst, ptr noundef nonnull readonly align 8 dereferenceable(112) %src, i64 112, i1 false)
   ret void
@@ -697,7 +697,7 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #4
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @loose_object_path(ptr nocapture noundef readonly %r, ptr noundef %buf, ptr nocapture noundef readonly %oid) local_unnamed_addr #1 {
+define dso_local ptr @loose_object_path(ptr nocapture noundef readonly %r, ptr noundef initializes((8, 16)) %buf, ptr nocapture noundef readonly %oid) local_unnamed_addr #1 {
 entry:
   %objects = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load ptr, ptr %objects, align 8
@@ -707,7 +707,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @odb_loose_path(ptr nocapture noundef readonly %odb, ptr noundef %buf, ptr nocapture noundef readonly %oid) unnamed_addr #1 {
+define internal fastcc ptr @odb_loose_path(ptr nocapture noundef readonly %odb, ptr noundef initializes((8, 16)) %buf, ptr nocapture noundef readonly %oid) unnamed_addr #1 {
 entry:
   %len2.i = getelementptr inbounds i8, ptr %buf, i64 8
   store i64 0, ptr %len2.i, align 8
@@ -2550,7 +2550,7 @@ return:                                           ; preds = %entry, %if.end, %_.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 3) i32 @unpack_loose_header(ptr noundef %stream, ptr noundef %map, i64 noundef %mapsize, ptr noundef %buffer, i64 noundef %bufsiz, ptr noundef %header) local_unnamed_addr #1 {
+define dso_local range(i32 0, 3) i32 @unpack_loose_header(ptr noundef initializes((0, 160)) %stream, ptr noundef %map, i64 noundef %mapsize, ptr noundef %buffer, i64 noundef %bufsiz, ptr noundef %header) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %stream, i8 0, i64 144, i1 false)
   %next_in = getelementptr inbounds i8, ptr %stream, i64 144
@@ -4285,7 +4285,7 @@ declare void @prepare_loose_object_bulk_checkin() local_unnamed_addr #4
 declare ptr @get_object_directory() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @start_loose_object_common(ptr noundef %tmp_file, ptr noundef %filename, i32 noundef %flags, ptr noundef nonnull %stream, ptr noundef nonnull %buf, ptr noundef nonnull %c, ptr noundef %hdr, i32 noundef %hdrlen) unnamed_addr #1 {
+define internal fastcc range(i32 -1, -2147483648) i32 @start_loose_object_common(ptr noundef initializes((8, 16)) %tmp_file, ptr noundef %filename, i32 noundef %flags, ptr noundef nonnull %stream, ptr noundef nonnull %buf, ptr noundef nonnull %c, ptr noundef %hdr, i32 noundef %hdrlen) unnamed_addr #1 {
 entry:
   %call.i.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %filename, i32 noundef 47) #26
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
@@ -5970,7 +5970,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @odb_clear_loose_cache(ptr nocapture noundef %odb) local_unnamed_addr #1 {
+define dso_local void @odb_clear_loose_cache(ptr nocapture noundef initializes((8, 40)) %odb) local_unnamed_addr #1 {
 entry:
   %loose_objects_cache = getelementptr inbounds i8, ptr %odb, i64 40
   %0 = load ptr, ptr %loose_objects_cache, align 8

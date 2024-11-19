@@ -406,7 +406,7 @@ $_ZTVN16MetaspaceClosure6MSORefI5KlassEE = comdat any
 @switch.table._ZN14AccessInternal15RuntimeDispatchILm544836EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm544836ES1_EELNS_11BarrierTypeE2ELm544836EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm544836ES1_EELNS_11BarrierTypeE2ELm544836EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm544836ES1_EELNS_11BarrierTypeE2ELm544836EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm544836ES1_EELNS_11BarrierTypeE2ELm544836EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm544836ES1_EELNS_11BarrierTypeE2ELm544836EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm544836ES1_EELNS_11BarrierTypeE2ELm544836EE18oop_access_barrierEPv], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5Klass15set_java_mirrorE6Handle(ptr nocapture noundef nonnull align 8 dereferenceable(196) %0, ptr %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5Klass15set_java_mirrorE6Handle(ptr nocapture noundef nonnull align 8 dereferenceable(196) initializes((112, 120)) %0, ptr %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.OopHandle, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
@@ -621,7 +621,7 @@ _ZN16java_lang_String9hash_codeEPKai.exit:        ; preds = %_ZN16java_lang_Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5Klass8set_nameEP6Symbol(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5Klass8set_nameEP6Symbol(ptr noundef nonnull align 8 dereferenceable(196) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.elapsedTimer, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
@@ -1424,7 +1424,7 @@ define hidden noundef ptr @_ZN5KlassnwEmP15ClassLoaderDatamP10JavaThread(i64 nou
 declare noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5KlassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(196) %0) unnamed_addr #8 align 2 {
+define hidden void @_ZN5KlassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(196) initializes((0, 8), (12, 16), (112, 120), (164, 168)) %0) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds inrange(-16, 328) (i8, ptr @_ZTV5Klass, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 7, ptr %2, align 4
@@ -1436,7 +1436,7 @@ define hidden void @_ZN5KlassC2Ev(ptr nocapture noundef nonnull writeonly align 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5KlassC2ENS_9KlassKindE(ptr noundef nonnull align 8 dereferenceable(196) %0, i32 noundef %1) unnamed_addr #8 align 2 {
+define hidden void @_ZN5KlassC2ENS_9KlassKindE(ptr noundef nonnull align 8 dereferenceable(196) initializes((0, 8), (12, 16), (112, 120), (164, 168), (186, 190), (192, 196)) %0, i32 noundef %1) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds inrange(-16, 328) (i8, ptr @_ZTV5Klass, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %1, ptr %3, align 4
@@ -1519,13 +1519,13 @@ define hidden noundef zeroext i1 @_ZNK5Klass25can_be_primary_super_slowEv(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5Klass20set_secondary_supersEP5ArrayIPS_E(ptr nocapture noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5Klass20set_secondary_supersEP5ArrayIPS_E(ptr nocapture noundef nonnull align 8 dereferenceable(196) initializes((40, 48), (176, 184)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN5Klass20set_secondary_supersEP5ArrayIPS_Em(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %1, i64 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5Klass20set_secondary_supersEP5ArrayIPS_Em(ptr nocapture noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5Klass20set_secondary_supersEP5ArrayIPS_Em(ptr nocapture noundef nonnull align 8 dereferenceable(196) initializes((40, 48), (176, 184)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.LogMessageTemplate, align 8
   %5 = alloca %class.NonInterleavingLogStream, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 176
@@ -2568,7 +2568,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %156, %154, %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noalias noundef ptr @_ZN5Klass24compute_secondary_supersEiP5ArrayIP13InstanceKlassE(ptr nocapture noundef nonnull align 8 dereferenceable(196) %0, i32 %1, ptr nocapture readnone %2) unnamed_addr #0 align 2 {
+define hidden noalias noundef ptr @_ZN5Klass24compute_secondary_supersEiP5ArrayIP13InstanceKlassE(ptr nocapture noundef nonnull align 8 dereferenceable(196) initializes((40, 48), (176, 184)) %0, i32 %1, ptr nocapture readnone %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr @_ZN8Universe22_the_empty_klass_arrayE, align 8
   %5 = load i64, ptr @_ZN8Universe23_the_empty_klass_bitmapE, align 8
   tail call void @_ZN5Klass20set_secondary_supersEP5ArrayIPS_Em(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %4, i64 noundef %5)
@@ -3774,7 +3774,7 @@ declare noundef ptr @_ZN10HeapShared8get_rootEib(i32 noundef, i1 noundef zeroext
 declare void @_ZN10HeapShared10clear_rootEi(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5Klass24set_archived_java_mirrorEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(196) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN5Klass24set_archived_java_mirrorEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(196) initializes((192, 196)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   store i32 %1, ptr %3, align 8
   ret void

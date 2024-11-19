@@ -9887,7 +9887,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @BrotliDecoderSetMetadataCallbacks(ptr nocapture noundef writeonly %state, ptr noundef %start_func, ptr noundef %chunk_func, ptr noundef %opaque) local_unnamed_addr #9 {
+define void @BrotliDecoderSetMetadataCallbacks(ptr nocapture noundef writeonly initializes((720, 744)) %state, ptr noundef %start_func, ptr noundef %chunk_func, ptr noundef %opaque) local_unnamed_addr #9 {
 entry:
   %metadata_start_func = getelementptr inbounds i8, ptr %state, i64 720
   store ptr %start_func, ptr %metadata_start_func, align 8

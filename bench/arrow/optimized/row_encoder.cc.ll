@@ -404,7 +404,7 @@ $_ZTIN5arrow7compute8internal19VarLengthKeyEncoderINS_15LargeBinaryTypeEEE = com
 @_ZTIN5arrow7compute8internal19VarLengthKeyEncoderINS_15LargeBinaryTypeEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5arrow7compute8internal19VarLengthKeyEncoderINS_15LargeBinaryTypeEEE, ptr @_ZTIN5arrow7compute8internal10KeyEncoderE }, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal10KeyEncoder11DecodeNullsEPNS_10MemoryPoolEiPPhPSt10shared_ptrINS_6BufferEEPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %pool, i32 noundef %length, ptr nocapture noundef %encoded_bytes, ptr nocapture noundef %null_bitmap, ptr nocapture noundef writeonly %null_count) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal10KeyEncoder11DecodeNullsEPNS_10MemoryPoolEiPPhPSt10shared_ptrINS_6BufferEEPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %pool, i32 noundef %length, ptr nocapture noundef %encoded_bytes, ptr nocapture noundef %null_bitmap, ptr nocapture noundef writeonly initializes((0, 4)) %null_count) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result", align 8
   store i32 0, ptr %null_count, align 4
@@ -5070,7 +5070,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6ResultISt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal10RowEncoder4InitERKSt6vectorINS_10TypeHolderESaIS4_EEPNS0_11ExecContextE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %column_types, ptr noundef %ctx) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal10RowEncoder4InitERKSt6vectorINS_10TypeHolderESaIS4_EEPNS0_11ExecContextE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %column_types, ptr noundef %ctx) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i.i = alloca %"class.std::shared_ptr.8", align 8
   %agg.tmp.i.i.i.i = alloca %"class.std::shared_ptr.8", align 8

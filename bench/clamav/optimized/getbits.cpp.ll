@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN8BitInputD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8BitInputD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8BitInputC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define void @_ZN8BitInputC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 9), (16, 24)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %3, align 8
   br i1 %1, label %4, label %6

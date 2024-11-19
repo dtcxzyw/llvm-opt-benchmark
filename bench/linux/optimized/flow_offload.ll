@@ -178,7 +178,7 @@ define dso_local noalias ptr @offload_action_alloc(i32 noundef %0) local_unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_meta(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_meta(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -198,7 +198,7 @@ define dso_local void @flow_rule_match_meta(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_basic(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_basic(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -218,7 +218,7 @@ define dso_local void @flow_rule_match_basic(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_control(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_control(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -238,7 +238,7 @@ define dso_local void @flow_rule_match_control(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_eth_addrs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_eth_addrs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -258,7 +258,7 @@ define dso_local void @flow_rule_match_eth_addrs(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_vlan(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_vlan(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -278,7 +278,7 @@ define dso_local void @flow_rule_match_vlan(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_cvlan(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_cvlan(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -298,7 +298,7 @@ define dso_local void @flow_rule_match_cvlan(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_arp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_arp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -318,7 +318,7 @@ define dso_local void @flow_rule_match_arp(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_ipv4_addrs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_ipv4_addrs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -338,7 +338,7 @@ define dso_local void @flow_rule_match_ipv4_addrs(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_ipv6_addrs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_ipv6_addrs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -358,7 +358,7 @@ define dso_local void @flow_rule_match_ipv6_addrs(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_ip(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_ip(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -378,7 +378,7 @@ define dso_local void @flow_rule_match_ip(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_ports(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_ports(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -398,7 +398,7 @@ define dso_local void @flow_rule_match_ports(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_ports_range(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_ports_range(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -418,7 +418,7 @@ define dso_local void @flow_rule_match_ports_range(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_tcp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_tcp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -438,7 +438,7 @@ define dso_local void @flow_rule_match_tcp(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_ipsec(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_ipsec(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -458,7 +458,7 @@ define dso_local void @flow_rule_match_ipsec(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_icmp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_icmp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -478,7 +478,7 @@ define dso_local void @flow_rule_match_icmp(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_mpls(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_mpls(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -498,7 +498,7 @@ define dso_local void @flow_rule_match_mpls(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_enc_control(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_enc_control(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -518,7 +518,7 @@ define dso_local void @flow_rule_match_enc_control(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_enc_ipv4_addrs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_enc_ipv4_addrs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -538,7 +538,7 @@ define dso_local void @flow_rule_match_enc_ipv4_addrs(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_enc_ipv6_addrs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_enc_ipv6_addrs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -558,7 +558,7 @@ define dso_local void @flow_rule_match_enc_ipv6_addrs(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_enc_ip(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_enc_ip(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -578,7 +578,7 @@ define dso_local void @flow_rule_match_enc_ip(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_enc_ports(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_enc_ports(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -598,7 +598,7 @@ define dso_local void @flow_rule_match_enc_ports(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_enc_keyid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_enc_keyid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -618,7 +618,7 @@ define dso_local void @flow_rule_match_enc_keyid(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_enc_opts(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_enc_opts(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -668,7 +668,7 @@ define dso_local void @flow_action_cookie_destroy(ptr noundef %0) #0 align 16 {
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_ct(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_ct(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -688,7 +688,7 @@ define dso_local void @flow_rule_match_ct(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_pppoe(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_pppoe(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -708,7 +708,7 @@ define dso_local void @flow_rule_match_pppoe(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @flow_rule_match_l2tpv3(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local void @flow_rule_match_l2tpv3(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8

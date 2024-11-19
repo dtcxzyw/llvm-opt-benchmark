@@ -658,7 +658,7 @@ return:                                           ; preds = %lor.rhs, %if.then45
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat8parallelC2ERNS_6solverE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(4408) %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3sat8parallelC2ERNS_6solverE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(4408) %s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
   %call.i.i.i.i2 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 96)
@@ -2697,7 +2697,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3sat8parallel12_from_solverERNS_14i_local_searchE(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(8) %s) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN3sat8parallel12_from_solverERNS_14i_local_searchE(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((128, 129)) %this, ptr noundef nonnull align 8 dereferenceable(8) %s) local_unnamed_addr #4 align 2 {
 entry:
   %m_consumer_ready = getelementptr inbounds i8, ptr %this, i64 128
   store i8 1, ptr %m_consumer_ready, align 8

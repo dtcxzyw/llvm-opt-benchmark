@@ -1070,7 +1070,7 @@ RelationGetSmgr.exit:                             ; preds = %33, %37
 declare void @pgstat_assoc_relation(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ReadBuffer_common(ptr noundef %0, i8 noundef signext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
+define internal fastcc i32 @ReadBuffer_common(ptr noundef %0, i8 noundef signext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %6) unnamed_addr #0 {
   %8 = alloca %struct.SpinDelayStatus, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %struct.SpinDelayStatus, align 8
@@ -3732,7 +3732,7 @@ define dso_local i32 @BufferGetBlockNumber(i32 noundef %0) local_unnamed_addr #6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @BufferGetTag(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #7 {
+define dso_local void @BufferGetTag(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #7 {
   %5 = icmp slt i32 %0, 0
   br i1 %5, label %6, label %11
 
@@ -7081,7 +7081,7 @@ declare void @perform_spin_delay(ptr noundef) local_unnamed_addr #2
 declare void @finish_spin_delay(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @WritebackContextInit(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #9 {
+define dso_local void @WritebackContextInit(ptr nocapture noundef writeonly initializes((0, 12)) %0, ptr noundef %1) local_unnamed_addr #9 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8

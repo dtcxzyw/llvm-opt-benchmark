@@ -58,7 +58,7 @@ define hidden noundef zeroext i1 @"_ZN70_$LT$core..num..error..TryFromIntError$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12grep_printer4util11PrinterPath3new17h99a107403f61c59cE(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { { i64, [2 x i64] } } } }) align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 {
+define void @_ZN12grep_printer4util11PrinterPath3new17h99a107403f61c59cE(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { { i64, [2 x i64] } } } }) align 8 dereferenceable(48) initializes((0, 32)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 {
   store i64 -9223372036854775808, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8

@@ -34,7 +34,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku12range_buffer13record_header4initEPK10__toku_dbtS4_b(ptr nocapture noundef nonnull align 2 dereferenceable(10) %this, ptr noundef %left_key, ptr noundef %right_key, i1 noundef zeroext %is_exclusive) local_unnamed_addr #1 align 2 {
+define void @_ZN4toku12range_buffer13record_header4initEPK10__toku_dbtS4_b(ptr nocapture noundef nonnull align 2 dereferenceable(10) initializes((0, 9)) %this, ptr noundef %left_key, ptr noundef %right_key, i1 noundef zeroext %is_exclusive) local_unnamed_addr #1 align 2 {
 entry:
   %frombool = zext i1 %is_exclusive to i8
   %is_exclusive_lock = getelementptr inbounds i8, ptr %this, i64 8
@@ -184,7 +184,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku12range_buffer8iterator6record11deserializeEPKc(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %buf) local_unnamed_addr #1 align 2 {
+define void @_ZN4toku12range_buffer8iterator6record11deserializeEPKc(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 10)) %this, ptr noundef %buf) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %this, ptr noundef nonnull align 1 dereferenceable(10) %buf, i64 10, i1 false)
   %0 = load i8, ptr %this, align 8
@@ -248,7 +248,7 @@ declare noundef ptr @_Z13toku_fill_dbtP10__toku_dbtPKvm(ptr noundef, ptr noundef
 declare noundef ptr @_Z16toku_copyref_dbtP10__toku_dbtS_(ptr noundef, ptr noundef byval(%struct.__toku_dbt) align 8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4toku12range_buffer8iteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
+define void @_ZN4toku12range_buffer8iteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 12), (16, 48)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   %_chunk_idx.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -259,7 +259,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku12range_buffer8iteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %buffer) unnamed_addr #1 align 2 {
+define void @_ZN4toku12range_buffer8iteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 12), (16, 48)) %this, ptr noundef %buffer) unnamed_addr #1 align 2 {
 entry:
   store ptr %buffer, ptr %this, align 8
   %_chunk_idx.i = getelementptr inbounds i8, ptr %this, i64 8

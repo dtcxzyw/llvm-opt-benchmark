@@ -5422,7 +5422,7 @@ declare ptr @dictFind(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @zsetAdd(ptr noundef %zobj, double noundef %score, ptr noundef %ele, i32 noundef %in_flags, ptr nocapture noundef %out_flags, ptr noundef writeonly %newscore) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @zsetAdd(ptr noundef %zobj, double noundef %score, ptr noundef %ele, i32 noundef %in_flags, ptr nocapture noundef initializes((0, 4)) %out_flags, ptr noundef writeonly %newscore) local_unnamed_addr #0 {
 entry:
   %eptr.addr.i = alloca ptr, align 8
   %curscore = alloca double, align 8
@@ -7356,7 +7356,7 @@ if.end143:                                        ; preds = %if.then8.i, %if.end
 declare i32 @getLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc range(i32 -1, 1) i32 @zslParseRange(ptr nocapture noundef readonly %min, ptr nocapture noundef readonly %max, ptr nocapture noundef nonnull writeonly %spec) unnamed_addr #9 {
+define internal fastcc range(i32 -1, 1) i32 @zslParseRange(ptr nocapture noundef readonly %min, ptr nocapture noundef readonly %max, ptr nocapture noundef nonnull writeonly initializes((0, 8), (16, 24)) %spec) unnamed_addr #9 {
 entry:
   %eptr = alloca ptr, align 8
   %maxex = getelementptr inbounds i8, ptr %spec, i64 20
@@ -15210,7 +15210,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zrangeResultBeginClient(ptr nocapture noundef %handler, i64 noundef %length) #0 {
+define internal void @zrangeResultBeginClient(ptr nocapture noundef initializes((32, 40)) %handler, i64 noundef %length) #0 {
 entry:
   %cmp = icmp sgt i64 %length, 0
   br i1 %cmp, label %if.then, label %if.end4
@@ -15347,7 +15347,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zrangeResultBeginStore(ptr nocapture noundef writeonly %handler, i64 noundef %length) #0 {
+define internal void @zrangeResultBeginStore(ptr nocapture noundef writeonly initializes((24, 32)) %handler, i64 noundef %length) #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5024), align 8
   %cmp.not.i = icmp ugt i64 %length, %0

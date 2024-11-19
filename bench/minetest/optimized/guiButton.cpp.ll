@@ -1130,7 +1130,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9GUIButtonC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiNS0_4core4rectIiEEP20ISimpleTextureSourceb(ptr noundef nonnull align 8 dereferenceable(7452) %this, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i64 %rectangle.coerce0, i64 %rectangle.coerce1, ptr noundef %tsrc, i1 noundef zeroext %noclip) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9GUIButtonC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiNS0_4core4rectIiEEP20ISimpleTextureSourceb(ptr noundef nonnull align 8 dereferenceable(7452) initializes((7456, 7476)) %this, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i64 %rectangle.coerce0, i64 %rectangle.coerce1, ptr noundef %tsrc, i1 noundef zeroext %noclip) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %first.i = alloca ptr, align 8
   %closest.i = alloca ptr, align 8
@@ -1658,7 +1658,7 @@ _ZN9GUIButton11ButtonImageD2Ev.exit91.8:          ; preds = %delete.notnull.i.i8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9GUIButtonD2Ev(ptr noundef nonnull align 8 dereferenceable(7452) %this, ptr noundef %vtt) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9GUIButtonD2Ev(ptr noundef nonnull align 8 dereferenceable(7452) initializes((0, 8)) %this, ptr noundef %vtt) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !4
@@ -1977,7 +1977,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9GUIButtonD1Ev(ptr noundef nonnull align 8 dereferenceable(7452) %this) unnamed_addr #7 align 2 {
+define dso_local void @_ZN9GUIButtonD1Ev(ptr noundef nonnull align 8 dereferenceable(7452) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN9GUIButtonD2Ev(ptr noundef nonnull align 8 dereferenceable(7452) %this, ptr noundef nonnull @_ZTT9GUIButton) #30
   ret void
@@ -1995,7 +1995,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9GUIButtonD0Ev(ptr noundef nonnull align 8 dereferenceable(7452) %this) unnamed_addr #7 align 2 {
+define dso_local void @_ZN9GUIButtonD0Ev(ptr noundef nonnull align 8 dereferenceable(7452) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN9GUIButtonD2Ev(ptr noundef nonnull align 8 dereferenceable(7452) %this, ptr noundef nonnull @_ZTT9GUIButton) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -2018,7 +2018,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN9GUIButton13setScaleImageEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(7452) %this, i1 noundef zeroext %scaleImage) unnamed_addr #12 align 2 {
+define dso_local void @_ZN9GUIButton13setScaleImageEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(7452) initializes((7370, 7371)) %this, i1 noundef zeroext %scaleImage) unnamed_addr #12 align 2 {
 entry:
   %frombool = zext i1 %scaleImage to i8
   %ScaleImage = getelementptr inbounds i8, ptr %this, i64 7370
@@ -2036,7 +2036,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN9GUIButton13setDrawBorderEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(7452) %this, i1 noundef zeroext %border) unnamed_addr #12 align 2 {
+define dso_local void @_ZN9GUIButton13setDrawBorderEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(7452) initializes((7369, 7370)) %this, i1 noundef zeroext %border) unnamed_addr #12 align 2 {
 entry:
   %frombool = zext i1 %border to i8
   %DrawBorder = getelementptr inbounds i8, ptr %this, i64 7369
@@ -3534,7 +3534,7 @@ return:                                           ; preds = %if.then4, %if.end, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9GUIButton16setOverrideColorEN3irr5video6SColorE(ptr nocapture noundef nonnull align 8 dereferenceable(7452) %this, i32 %color.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN9GUIButton16setOverrideColorEN3irr5video6SColorE(ptr nocapture noundef nonnull align 8 dereferenceable(7452) initializes((7344, 7345), (7348, 7352)) %this, i32 %color.coerce) unnamed_addr #3 align 2 {
 entry:
   %OverrideColor = getelementptr inbounds i8, ptr %this, i64 7348
   store i32 %color.coerce, ptr %OverrideColor, align 4, !tbaa !62
@@ -3564,7 +3564,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN9GUIButton19enableOverrideColorEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(7452) %this, i1 noundef zeroext %enable) unnamed_addr #12 align 2 {
+define dso_local void @_ZN9GUIButton19enableOverrideColorEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(7452) initializes((7344, 7345)) %this, i1 noundef zeroext %enable) unnamed_addr #12 align 2 {
 entry:
   %frombool = zext i1 %enable to i8
   %OverrideColorEnabled = getelementptr inbounds i8, ptr %this, i64 7344
@@ -3950,7 +3950,7 @@ _ZN3irr4core6stringIwEaSIwEERS2_PKT_.exit:        ; preds = %for.body.i, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN9GUIButton15setIsPushButtonEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(7452) %this, i1 noundef zeroext %isPushButton) unnamed_addr #12 align 2 {
+define dso_local void @_ZN9GUIButton15setIsPushButtonEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(7452) initializes((7366, 7367)) %this, i1 noundef zeroext %isPushButton) unnamed_addr #12 align 2 {
 entry:
   %frombool = zext i1 %isPushButton to i8
   %IsPushButton = getelementptr inbounds i8, ptr %this, i64 7366
@@ -4008,7 +4008,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN9GUIButton18setUseAlphaChannelEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(7452) %this, i1 noundef zeroext %useAlphaChannel) unnamed_addr #12 align 2 {
+define dso_local void @_ZN9GUIButton18setUseAlphaChannelEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(7452) initializes((7368, 7369)) %this, i1 noundef zeroext %useAlphaChannel) unnamed_addr #12 align 2 {
 entry:
   %frombool = zext i1 %useAlphaChannel to i8
   %UseAlphaChannel = getelementptr inbounds i8, ptr %this, i64 7368
@@ -4111,7 +4111,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9GUIButton8setColorEN3irr5video6SColorE(ptr nocapture noundef nonnull align 8 dereferenceable(7452) %this, i32 %color.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN9GUIButton8setColorEN3irr5video6SColorE(ptr nocapture noundef nonnull align 8 dereferenceable(7452) initializes((7372, 7388), (7448, 7452)) %this, i32 %color.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %BgColor = getelementptr inbounds i8, ptr %this, i64 7448
   store i32 %color.coerce, ptr %BgColor, align 8, !tbaa !62
@@ -4669,7 +4669,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9GUIButton12setFromStyleERK9StyleSpec(ptr noundef nonnull align 8 dereferenceable(7452) %this, ptr noundef nonnull align 8 dereferenceable(833) %style) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9GUIButton12setFromStyleERK9StyleSpec(ptr noundef nonnull align 8 dereferenceable(7452) initializes((7372, 7388), (7448, 7452)) %this, ptr noundef nonnull align 8 dereferenceable(833) %style) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vec.i = alloca %"class.irr::core::vector2d.1", align 8
   %rect.i394 = alloca %"class.irr::core::rect", align 8
@@ -5849,7 +5849,7 @@ cleanup:                                          ; preds = %_ZNSt6vectorINSt7__
 declare noundef ptr @_Z21guiScalingImageButtonPN3irr5video12IVideoDriverEPNS0_8ITextureEii(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9GUIButton9setStylesERKSt5arrayI9StyleSpecLm8EE(ptr noundef nonnull align 8 dereferenceable(7452) %this, ptr noundef nonnull align 8 dereferenceable(6720) %styles) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN9GUIButton9setStylesERKSt5arrayI9StyleSpecLm8EE(ptr noundef nonnull align 8 dereferenceable(7452) initializes((616, 641)) %this, ptr noundef nonnull align 8 dereferenceable(6720) %styles) local_unnamed_addr #3 align 2 {
 entry:
   %Styles = getelementptr inbounds i8, ptr %this, i64 616
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %Styles, ptr noundef nonnull align 8 dereferenceable(25) %styles, i64 25, i1 false), !tbaa.struct !121

@@ -652,7 +652,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3euf13th_euf_solverC2ERNS_6solverERK6symboli(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) %this, ptr noundef nonnull align 8 dereferenceable(9136) %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name, i32 noundef %id) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3euf13th_euf_solverC2ERNS_6solverERK6symboli(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) initializes((0, 9), (12, 108)) %this, ptr noundef nonnull align 8 dereferenceable(9136) %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name, i32 noundef %id) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m.i = getelementptr inbounds i8, ptr %ctx, i64 136
   %0 = load ptr, ptr %m.i, align 8
@@ -788,7 +788,7 @@ _ZNK3euf6solver13bool_var2exprEj.exit:            ; preds = %entry, %_ZNK6vector
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3euf13th_euf_solver12literal2exprEN3sat7literalE(ptr noalias nocapture writeonly sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %this, i32 %lit.coerce) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK3euf13th_euf_solver12literal2exprEN3sat7literalE(ptr noalias nocapture writeonly sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %this, i32 %lit.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %ctx, align 8
@@ -2178,7 +2178,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3euf10th_explainC2EjPKN3sat7literalEjPKSt4pairIPNS_5enodeES7_ES2_RS9_PKNS_13th_proof_hintE(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %n_lits, ptr nocapture noundef readonly %lits, i32 noundef %n_eqs, ptr nocapture noundef readonly %eqs, i32 %c.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %p, ptr noundef %pma) unnamed_addr #13 align 2 {
+define hidden void @_ZN3euf10th_explainC2EjPKN3sat7literalEjPKSt4pairIPNS_5enodeES7_ES2_RS9_PKNS_13th_proof_hintE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 4), (8, 40)) %this, i32 noundef %n_lits, ptr nocapture noundef readonly %lits, i32 noundef %n_eqs, ptr nocapture noundef readonly %eqs, i32 %c.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %p, ptr noundef %pma) unnamed_addr #13 align 2 {
 entry:
   %m_eq = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_eq, i8 0, i64 16, i1 false)

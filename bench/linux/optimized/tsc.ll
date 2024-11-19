@@ -169,7 +169,7 @@ define internal i32 @tsc_early_khz_setup(ptr noundef %0) #0 section ".init.text"
 }
 
 ; Function Attrs: alwaysinline fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__cyc2ns_read(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 align 16 {
+define dso_local void @__cyc2ns_read(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   br label %4
@@ -202,7 +202,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: alwaysinline fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cyc2ns_read_begin(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 align 16 {
+define dso_local void @cyc2ns_read_begin(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #1 align 16 {
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !15
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !16
   %2 = getelementptr inbounds i8, ptr %0, i64 8

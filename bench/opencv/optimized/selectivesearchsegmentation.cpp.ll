@@ -3035,7 +3035,7 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImpl8setImageERKNS_11_InputArrayES5_S5_i(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImpl8setImageERKNS_11_InputArrayES5_S5_i(ptr noundef nonnull align 8 dereferenceable(144) initializes((136, 140)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::Mat", align 8
   %7 = alloca %"class.cv::Mat", align 8
   %8 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !58
@@ -3222,7 +3222,7 @@ define hidden void @_ZN2cv8ximgproc12segmentation43SelectiveSearchSegmentationSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv8ximgproc12segmentation45createSelectiveSearchSegmentationStrategySizeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.29") align 8 %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv8ximgproc12segmentation45createSelectiveSearchSegmentationStrategySizeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.29") align 8 initializes((0, 16)) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplEED2Ev.exit:
   %1 = alloca %"class.std::allocator.118", align 1
   %2 = alloca %"class.std::shared_ptr.34", align 8

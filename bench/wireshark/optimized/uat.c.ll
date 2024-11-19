@@ -552,7 +552,7 @@ define noundef ptr @uat_get_table_by_name(ptr noundef %0) local_unnamed_addr #0 
 declare i32 @g_str_equal(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @uat_set_default_values(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @uat_set_default_values(ptr nocapture noundef writeonly initializes((112, 120)) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %1, ptr %3, align 8
   ret void
@@ -1375,7 +1375,7 @@ declare zeroext i1 @uat_load(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @report_failure(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @uat_fld_chk_str(ptr nocapture noundef readnone %0, ptr noundef readnone %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define noundef zeroext i1 @uat_fld_chk_str(ptr nocapture noundef readnone %0, ptr noundef readnone %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #0 {
   %7 = icmp ne ptr %1, null
   br i1 %7, label %10, label %8
 
@@ -1390,7 +1390,7 @@ define noundef zeroext i1 @uat_fld_chk_str(ptr nocapture noundef readnone %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @uat_fld_chk_oid(ptr nocapture noundef readnone %0, ptr noundef readonly %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @uat_fld_chk_oid(ptr nocapture noundef readnone %0, ptr noundef readonly %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #0 {
   store ptr null, ptr %5, align 8
   %7 = icmp eq ptr %1, null
   br i1 %7, label %.sink.split, label %8
@@ -1464,7 +1464,7 @@ define hidden noundef zeroext i1 @uat_fld_chk_oid(ptr nocapture noundef readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @uat_fld_chk_proto(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define noundef zeroext i1 @uat_fld_chk_proto(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %16, label %7
 
@@ -1776,7 +1776,7 @@ uat_fld_chk_num_check_result.exit:                ; preds = %13, %13, %.thread13
 declare zeroext i1 @ws_strtoi64(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @uat_fld_chk_bool(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define noundef zeroext i1 @uat_fld_chk_bool(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #0 {
   %7 = zext i32 %2 to i64
   %8 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %7) #16
   %9 = tail call i32 @g_strcmp0(ptr noundef %8, ptr noundef nonnull @.str.17) #16
@@ -1839,7 +1839,7 @@ define noundef zeroext i1 @uat_fld_chk_enum(ptr nocapture noundef readnone %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @uat_fld_chk_range(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define noundef zeroext i1 @uat_fld_chk_range(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = zext i32 %2 to i64
   %9 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %8) #16

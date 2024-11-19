@@ -29,7 +29,7 @@ $_ZNK20b2SeparationFunction8EvaluateEiif = comdat any
 @b2_toiMaxRootIters = local_unnamed_addr global i32 0, align 4
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z14b2TimeOfImpactP11b2TOIOutputPK10b2TOIInput(ptr nocapture noundef writeonly %output, ptr noundef %input) local_unnamed_addr #0 {
+define void @_Z14b2TimeOfImpactP11b2TOIOutputPK10b2TOIInput(ptr nocapture noundef writeonly initializes((0, 8)) %output, ptr noundef %input) local_unnamed_addr #0 {
 entry:
   %timer = alloca %class.b2Timer, align 8
   %sweepA = alloca %struct.b2Sweep, align 4

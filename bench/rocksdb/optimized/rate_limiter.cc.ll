@@ -120,7 +120,7 @@ if.end13:                                         ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18GenericRateLimiterC2ElliNS_11RateLimiter4ModeERKSt10shared_ptrINS_11SystemClockEEb(ptr noundef nonnull align 8 dereferenceable(608) %this, i64 noundef %rate_bytes_per_sec, i64 noundef %refill_period_us, i32 noundef %fairness, i32 noundef %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %clock, i1 noundef zeroext %auto_tuned) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18GenericRateLimiterC2ElliNS_11RateLimiter4ModeERKSt10shared_ptrINS_11SystemClockEEb(ptr noundef nonnull align 8 dereferenceable(608) initializes((0, 12)) %this, i64 noundef %rate_bytes_per_sec, i64 noundef %refill_period_us, i32 noundef %fairness, i32 noundef %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %clock, i1 noundef zeroext %auto_tuned) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %auto_tuned to i8
   %mode_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -436,7 +436,7 @@ _ZNSt12__shared_ptrIN7rocksdb11SystemClockELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
 declare void @_ZN7rocksdb4port5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb18GenericRateLimiterD2Ev(ptr noundef nonnull align 8 dereferenceable(608) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18GenericRateLimiterD2Ev(ptr noundef nonnull align 8 dereferenceable(608) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %queue = alloca %"class.std::deque", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18GenericRateLimiterE, i64 16), ptr %this, align 8
@@ -1364,7 +1364,7 @@ _ZN7rocksdb9MutexLockD2Ev.exit39:                 ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18GenericRateLimiter10TuneLockedEv(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(608) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18GenericRateLimiter10TuneLockedEv(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(608) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tuned_time_ = getelementptr inbounds i8, ptr %this, i64 600
   %0 = load i64, ptr %tuned_time_, align 8
@@ -1605,7 +1605,7 @@ _ZNSt6vectorIN7rocksdb3Env10IOPriorityESaIS2_EED2Ev.exit20: ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18GenericRateLimiter36GeneratePriorityIterationOrderLockedEv(ptr noalias nocapture writeonly sret(%"class.std::vector.5") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(608) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18GenericRateLimiter36GeneratePriorityIterationOrderLockedEv(ptr noalias nocapture writeonly sret(%"class.std::vector.5") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(608) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18

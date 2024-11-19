@@ -121,7 +121,7 @@ define internal noundef i32 @init_query(i1 zeroext %0, i1 zeroext %1) #1 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write) uwtable
-define internal noundef ptr @file_query(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #2 {
+define internal noundef ptr @file_query(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #2 {
   %4 = load i32, ptr @priority_param, align 4
   store i32 %4, ptr %2, align 4
   %5 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #10
@@ -152,7 +152,7 @@ define internal noundef i32 @file_unquery(ptr nocapture readnone %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal noundef i32 @delete_query(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #4 {
+define internal noundef i32 @delete_query(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) #4 {
   %6 = load i32, ptr @delete_priority_param, align 4
   store i32 %6, ptr %4, align 4
   store i8 1, ptr %3, align 1

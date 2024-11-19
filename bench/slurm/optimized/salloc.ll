@@ -1712,7 +1712,7 @@ declare void @print_db_notok(ptr noundef, i1 noundef zeroext) local_unnamed_addr
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_set_cluster_name(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @_set_cluster_name(ptr nocapture noundef writeonly initializes((464, 472)) %0, ptr nocapture readnone %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
   %4 = tail call ptr @xstrdup(ptr noundef %3) #16
   %5 = getelementptr inbounds i8, ptr %0, i64 464
@@ -1962,7 +1962,7 @@ define internal void @_node_fail_handler(ptr nocapture noundef readonly %0) #0 {
 declare ptr @slurm_allocation_msg_thr_create(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @_copy_other_port(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal noundef i32 @_copy_other_port(ptr nocapture noundef writeonly initializes((472, 474)) %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i16, ptr %1, align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 472
   store i16 %3, ptr %4, align 8

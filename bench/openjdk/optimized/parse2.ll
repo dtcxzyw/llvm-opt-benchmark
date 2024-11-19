@@ -6542,7 +6542,7 @@ define hidden void @_ZN5Parse6do_retEv(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN5Parse12merge_commonEPNS_5BlockEi(ptr noundef nonnull align 8 dereferenceable(352), ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef float @_ZN5Parse25dynamic_branch_predictionERfN8BoolTest4maskEP4Node(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef float @_ZN5Parse25dynamic_branch_predictionERfN8BoolTest4maskEP4Node(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [30 x i8], align 16
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
@@ -6822,7 +6822,7 @@ declare noundef i32 @_ZN8ciMethod11scale_countEif(ptr noundef nonnull align 8 de
 declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef float @_ZN5Parse17branch_predictionERfN8BoolTest4maskEiP4Node(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 align 2 {
+define hidden noundef float @_ZN5Parse17branch_predictionERfN8BoolTest4maskEiP4Node(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 align 2 {
   %6 = tail call noundef float @_ZN5Parse25dynamic_branch_predictionERfN8BoolTest4maskEP4Node(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, ptr noundef %4)
   %7 = fcmp une float %6, -1.000000e+00
   br i1 %7, label %48, label %8

@@ -1289,7 +1289,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v912format_errorD2Ev(ptr noundef non
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev10toU8stringERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev10toU8stringERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__1::basic_string") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = load i8, ptr %1, align 8
   %4 = and i8 %3, 1
@@ -1347,7 +1347,7 @@ _ZN4utf815replace_invalidINSt3__111__wrap_iterIPKcEENS1_20back_insert_iteratorIN
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev12fromU8stringERKNSt3__112basic_stringIDuNS0_11char_traitsIDuEENS0_9allocatorIDuEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__1::basic_string.2") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev12fromU8stringERKNSt3__112basic_stringIDuNS0_11char_traitsIDuEENS0_9allocatorIDuEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__1::basic_string.2") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = load i8, ptr %1, align 8
   %4 = and i8 %3, 1
@@ -1395,7 +1395,7 @@ _ZN4utf815replace_invalidINSt3__111__wrap_iterIPKDuEENS1_20back_insert_iteratorI
 declare void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev10ensureUtf8ERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__1::basic_string.2") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev10ensureUtf8ERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__1::basic_string.2") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = load i8, ptr %1, align 8
   %4 = and i8 %3, 1
@@ -1440,7 +1440,7 @@ _ZN4utf815replace_invalidINSt3__111__wrap_iterIPKcEENS1_20back_insert_iteratorIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev8utf16to8ERKNSt3__112basic_stringIwNS0_11char_traitsIwEENS0_9allocatorIwEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__1::basic_string.2") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev8utf16to8ERKNSt3__112basic_stringIwNS0_11char_traitsIwEENS0_9allocatorIwEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__1::basic_string.2") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = load i8, ptr %1, align 8
   %4 = and i8 %3, 1
@@ -1800,7 +1800,7 @@ _ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEED2Ev.exit4: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev5splitENSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEERKS6_(ptr dead_on_unwind noalias writable sret(%"class.std::__1::vector") align 8 %0, ptr noundef %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev5splitENSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEERKS6_(ptr dead_on_unwind noalias writable sret(%"class.std::__1::vector") align 8 initializes((0, 24)) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__1::allocator.9", align 1
   %5 = alloca %"class.std::__1::allocator.9", align 1
   %6 = alloca %"class.std::__1::basic_string.2", align 8
@@ -2900,7 +2900,7 @@ _ZN3fmt2v97vformatENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basi
 declare ptr @strerror(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev13homeDirectoryEv(ptr dead_on_unwind noalias writable sret(%"class.std::__1::__fs::filesystem::path") align 8 %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev13homeDirectoryEv(ptr dead_on_unwind noalias writable sret(%"class.std::__1::__fs::filesystem::path") align 8 initializes((0, 24)) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = tail call i32 @getuid() #29
   %3 = tail call ptr @getpwuid(i32 noundef %2)
   %4 = getelementptr inbounds i8, ptr %3, i64 32

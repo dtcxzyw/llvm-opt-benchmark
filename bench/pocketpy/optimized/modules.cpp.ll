@@ -7340,7 +7340,7 @@ declare void @_ZN4pkpy14pool64_deallocEPv(ptr noundef) local_unnamed_addr #1
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN4pkpy15add_module_enumEPNS_2VMEEN3$_08__invokeES1_PNS_10PyTypeInfoE"(ptr noundef %0, ptr nocapture noundef %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN4pkpy15add_module_enumEPNS_2VMEEN3$_08__invokeES1_PNS_10PyTypeInfoE"(ptr noundef %0, ptr nocapture noundef initializes((26, 27)) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pkpy::Str", align 8
   %4 = alloca %"class.std::tuple", align 8
   %5 = alloca %"class.std::tuple.151", align 1

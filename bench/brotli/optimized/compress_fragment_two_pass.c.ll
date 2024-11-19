@@ -8927,7 +8927,7 @@ return:                                           ; preds = %entry, %ShannonEntr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @StoreCommands(ptr noundef %s, ptr nocapture noundef readonly %literals, i64 noundef %num_literals, ptr nocapture noundef readonly %commands, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %num_commands, ptr noundef %storage_ix, ptr noundef %storage) unnamed_addr #0 {
+define internal fastcc void @StoreCommands(ptr noundef initializes((0, 1024), (1792, 2688)) %s, ptr nocapture noundef readonly %literals, i64 noundef %num_literals, ptr nocapture noundef readonly %commands, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %num_commands, ptr noundef %storage_ix, ptr noundef %storage) unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %s, i8 0, i64 1024, i1 false)
   %cmd_depth = getelementptr inbounds i8, ptr %s, i64 2304

@@ -565,7 +565,7 @@ define dso_local void @led_trigger_set_default(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -17, 1) i32 @led_trigger_register(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @led_trigger_register(ptr noundef initializes((32, 36)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -876,7 +876,7 @@ define dso_local void @led_trigger_blink_oneshot(ptr noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @led_trigger_register_simple(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local void @led_trigger_register_simple(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 align 16 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 80) #13
   %5 = icmp eq ptr %4, null

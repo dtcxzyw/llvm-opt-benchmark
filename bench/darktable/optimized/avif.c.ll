@@ -1138,7 +1138,7 @@ define noundef i32 @flags(ptr nocapture noundef readnone %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #19
   %3 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.11) #18
   %4 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.12) #18

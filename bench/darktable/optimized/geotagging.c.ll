@@ -188,7 +188,7 @@ declare void @g_object_set(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr #1 {
   %2 = alloca [24 x i8], align 16
   %3 = alloca [256 x i8], align 16
   %4 = alloca [4096 x i8], align 16

@@ -1811,7 +1811,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dns_qr_stats_tree_packet = private unnamed_addr constant [8 x ptr] [ptr @.str.881, ptr @.str.882, ptr @.str.883, ptr @.str.901, ptr @.str.902, ptr @.str.903, ptr @.str.904, ptr @.str.905], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @get_dns_name(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define hidden i32 @get_dns_name(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef initializes((0, 8)) %4, ptr nocapture noundef initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = tail call ptr @wmem_packet_scope() #10
   %8 = tail call noalias ptr @wmem_alloc(ptr noundef %7, i64 noundef 255) #10
   store ptr %8, ptr %4, align 8

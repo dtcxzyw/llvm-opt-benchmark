@@ -130,7 +130,7 @@ $_ZNSt6vectorISt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEE
 @_ZN4llvm4coro11LowererBaseC1ERNS_6ModuleE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm4coro11LowererBaseC2ERNS_6ModuleE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm4coro11LowererBaseC2ERNS_6ModuleE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm4coro11LowererBaseC2ERNS_6ModuleE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -414,7 +414,7 @@ declare void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 
 declare { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm4coro5Shape9buildFromERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm4coro5Shape9buildFromERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::ArrayRef.146", align 8
   %4 = alloca %"class.llvm::InsertPosition", align 8
   %5 = alloca ptr, align 8

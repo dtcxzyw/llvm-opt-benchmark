@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kvm_prefix = internal unnamed_addr constant [5 x i8] c"\0F\0Bkvm", align 1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @insn_init(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local void @insn_init(ptr nocapture noundef writeonly initializes((0, 112)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = tail call i32 @llvm.smin.i32(i32 %2, i32 15)
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(112) %0, i8 0, i64 88, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 88
@@ -1527,7 +1527,7 @@ define dso_local noundef range(i32 -61, 1) i32 @insn_get_length(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -61, 1) i32 @insn_decode(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -61, 1) i32 @insn_decode(ptr nocapture noundef initializes((0, 112)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 16 {
   %5 = icmp eq i32 %3, 2
   br i1 %5, label %6, label %16
 

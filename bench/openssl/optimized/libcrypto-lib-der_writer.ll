@@ -451,7 +451,7 @@ declare i32 @BN_is_negative(ptr noundef) local_unnamed_addr #1
 declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @int_put_bytes_bn(ptr noundef %pkt, ptr noundef %v, ptr nocapture noundef writeonly %top_byte) #0 {
+define internal range(i32 0, 2) i32 @int_put_bytes_bn(ptr noundef %pkt, ptr noundef %v, ptr nocapture noundef writeonly initializes((0, 4)) %top_byte) #0 {
 entry:
   %p = alloca ptr, align 8
   store ptr null, ptr %p, align 8

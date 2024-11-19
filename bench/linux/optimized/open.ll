@@ -2780,7 +2780,7 @@ define internal fastcc i32 @do_dentry_open(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @finish_no_open(ptr nocapture noundef writeonly %0, ptr noundef %1) #6 align 16 {
+define dso_local noundef i32 @finish_no_open(ptr nocapture noundef writeonly initializes((160, 168)) %0, ptr noundef %1) #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr %1, ptr %3, align 8
   ret i32 0
@@ -2797,7 +2797,7 @@ define dso_local ptr @file_path(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
 declare dso_local ptr @d_path(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @vfs_open(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @vfs_open(ptr nocapture noundef readonly %0, ptr noundef initializes((152, 168)) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %3, ptr noundef align 8 dereferenceable(16) %0, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2926,7 +2926,7 @@ define dso_local ptr @kernel_file_open(ptr nocapture noundef readonly %0, i32 no
 declare dso_local ptr @alloc_empty_file_noaccount(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @build_open_how(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.open_how) align 8 %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #7 align 16 {
+define dso_local void @build_open_how(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.open_how) align 8 initializes((0, 24)) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #7 align 16 {
   %4 = and i32 %1, 8388547
   %5 = zext nneg i32 %4 to i64
   store i64 %5, ptr %0, align 8

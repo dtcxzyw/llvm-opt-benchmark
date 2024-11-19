@@ -178,7 +178,7 @@ define internal void @cvBandPrecFree(ptr nocapture noundef readonly %0) #0 {
 declare i32 @CVSpilsSetPreconditioner(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @cvBandPrecSetup(double noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, double noundef %5, ptr nocapture noundef %6, ptr noundef %7, ptr noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 -1, 2) i32 @cvBandPrecSetup(double noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, double noundef %5, ptr nocapture noundef %6, ptr noundef %7, ptr noundef %8, ptr nocapture readnone %9) #0 {
   %11 = getelementptr inbounds i8, ptr %6, i64 56
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq i32 %3, 0

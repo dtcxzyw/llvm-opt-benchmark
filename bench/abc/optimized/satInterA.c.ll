@@ -209,7 +209,7 @@ define i32 @Inta_ManGlobalVars(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Inta_ManResize(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @Inta_ManResize(ptr nocapture noundef initializes((116, 120)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 116
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 28
@@ -2204,7 +2204,7 @@ Inta_ManEnqueue.exit76:                           ; preds = %144
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Inta_ManProcessRoots(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Inta_ManProcessRoots(ptr nocapture noundef initializes((40, 44)) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 40

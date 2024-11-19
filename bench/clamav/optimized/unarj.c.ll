@@ -50,7 +50,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.38 = private unnamed_addr constant [24 x i8] c"UNARJ: bounds exceeded\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 27) i32 @cli_unarj_open(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 27) i32 @cli_unarj_open(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef initializes((32, 48)) %2) local_unnamed_addr #0 {
   %4 = alloca i16, align 2
   %5 = alloca %struct.arj_main_hdr_tag, align 1
   %6 = alloca %struct.text_norm_state, align 8

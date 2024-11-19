@@ -264,7 +264,7 @@ return:                                           ; preds = %_ZN4absl14flags_int
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPiPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPiPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 4)) %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
 entry:
   %val.i.i = alloca i32, align 4
   %call.i.i = tail call { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %text.coerce0, ptr %text.coerce1)
@@ -315,7 +315,7 @@ _ZN4absl14flags_internal13ParseFlagImplIiEEbSt17basic_string_viewIcSt11char_trai
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPjPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPjPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 4)) %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
 entry:
   %val.i.i = alloca i32, align 4
   %call.i.i = tail call { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %text.coerce0, ptr %text.coerce1)
@@ -366,7 +366,7 @@ _ZN4absl14flags_internal13ParseFlagImplIjEEbSt17basic_string_viewIcSt11char_trai
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPlPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPlPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 8)) %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
 entry:
   %val.i.i = alloca i64, align 8
   %call.i.i = tail call { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %text.coerce0, ptr %text.coerce1)
@@ -417,7 +417,7 @@ _ZN4absl14flags_internal13ParseFlagImplIlEEbSt17basic_string_viewIcSt11char_trai
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPmPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPmPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 8)) %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
 entry:
   %val.i.i = alloca i64, align 8
   %call.i.i = tail call { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %text.coerce0, ptr %text.coerce1)
@@ -468,7 +468,7 @@ _ZN4absl14flags_internal13ParseFlagImplImEEbSt17basic_string_viewIcSt11char_trai
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPxPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPxPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 8)) %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
 entry:
   %val.i.i = alloca i64, align 8
   %call.i.i = tail call { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %text.coerce0, ptr %text.coerce1)
@@ -519,7 +519,7 @@ _ZN4absl14flags_internal13ParseFlagImplIxEEbSt17basic_string_viewIcSt11char_trai
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPyPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPyPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 8)) %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
 entry:
   %val.i.i = alloca i64, align 8
   %call.i.i = tail call { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %text.coerce0, ptr %text.coerce1)

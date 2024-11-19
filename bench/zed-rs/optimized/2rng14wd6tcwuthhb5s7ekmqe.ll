@@ -339,7 +339,7 @@ define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN9anthropic5Model7from_id17h4f9b15afa8a4097dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([120 x i8]) align 8 dereferenceable(120) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define void @_ZN9anthropic5Model7from_id17h4f9b15afa8a4097dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([120 x i8]) align 8 dereferenceable(120) initializes((0, 8)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
   %.not.i = icmp ult i64 %2, 17
   br i1 %.not.i, label %6, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h8479005df42cc7e2E.exit"
@@ -484,7 +484,7 @@ default.unreachable:                              ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9anthropic5Model19cache_configuration17h8795eb97ef6d2647E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #4 {
+define void @_ZN9anthropic5Model19cache_configuration17h8795eb97ef6d2647E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((16, 17)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #4 {
   %3 = load i64, ptr %1, align 8, !range !93, !noundef !4
   %4 = xor i64 %3, -9223372036854775808
   %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 4)
@@ -642,7 +642,7 @@ _ZN9anthropic5Model2id17hb72e6cbcd6427368E.exit:  ; preds = %13, %12, %11, %10, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9anthropic8complete17h3016a9c667d46f61E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([664 x i8]) align 8 dereferenceable(664) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias nocapture noundef readonly align 8 dereferenceable(200) %7) unnamed_addr #4 {
+define void @_ZN9anthropic8complete17h3016a9c667d46f61E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([664 x i8]) align 8 dereferenceable(664) initializes((0, 248), (608, 609)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias nocapture noundef readonly align 8 dereferenceable(200) %7) unnamed_addr #4 {
   %9 = getelementptr inbounds i8, ptr %0, i64 200
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 208
@@ -662,7 +662,7 @@ define void @_ZN9anthropic8complete17h3016a9c667d46f61E(ptr dead_on_unwind noali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9anthropic17stream_completion17hfda99c86cb6e933aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([960 x i8]) align 8 dereferenceable(960) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias nocapture noundef readonly align 8 dereferenceable(200) %7, i64 %8, i32 noundef %9) unnamed_addr #4 {
+define void @_ZN9anthropic17stream_completion17hfda99c86cb6e933aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([960 x i8]) align 8 dereferenceable(960) initializes((0, 212), (216, 264), (952, 953)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias nocapture noundef readonly align 8 dereferenceable(200) %7, i64 %8, i32 noundef %9) unnamed_addr #4 {
   %11 = getelementptr inbounds i8, ptr %0, i64 216
   store ptr %1, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 224
@@ -686,7 +686,7 @@ define void @_ZN9anthropic17stream_completion17hfda99c86cb6e933aE(ptr dead_on_un
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) %0, ptr noalias noundef readonly align 8 dereferenceable(96) %1) unnamed_addr #1 {
+define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) initializes((0, 8), (44, 48)) %0, ptr noalias noundef readonly align 8 dereferenceable(96) %1) unnamed_addr #1 {
   %3 = alloca [16 x i8], align 4
   %.sroa.952 = alloca [11 x i8], align 1
   %4 = alloca [16 x i8], align 4
@@ -1047,7 +1047,7 @@ define internal fastcc void @_ZN9anthropic10get_header17h8ecd7fd9eb231eb8E(ptr d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9anthropic38stream_completion_with_rate_limit_info17he1666e7332dffe14E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([688 x i8]) align 8 dereferenceable(688) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias nocapture noundef readonly align 8 dereferenceable(200) %7, i64 %8, i32 noundef %9) unnamed_addr #4 {
+define void @_ZN9anthropic38stream_completion_with_rate_limit_info17he1666e7332dffe14E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([688 x i8]) align 8 dereferenceable(688) initializes((0, 212), (216, 264), (488, 489)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias nocapture noundef readonly align 8 dereferenceable(200) %7, i64 %8, i32 noundef %9) unnamed_addr #4 {
   %11 = getelementptr inbounds i8, ptr %0, i64 216
   store ptr %1, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 224
@@ -1071,7 +1071,7 @@ define void @_ZN9anthropic38stream_completion_with_rate_limit_info17he1666e7332d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9anthropic29extract_tool_args_from_events17h54861d9ad4a616b3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([112 x i8]) align 8 dereferenceable(112) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(40) %3) unnamed_addr #4 {
+define void @_ZN9anthropic29extract_tool_args_from_events17h54861d9ad4a616b3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([112 x i8]) align 8 dereferenceable(112) initializes((0, 40), (104, 105)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(40) %3) unnamed_addr #4 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %2, ptr %5, align 8
@@ -1141,7 +1141,7 @@ define void @"_ZN9anthropic1_94_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$an
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN9anthropic1_94_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$anthropic..AnthropicModelCacheConfiguration$GT$9schema_id17h370541192842edb5E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define void @"_ZN9anthropic1_94_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$anthropic..AnthropicModelCacheConfiguration$GT$9schema_id17h370541192842edb5E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.9fcaf8c50144155af2d2d346a196bddc.27.llvm.8224143551337678459, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1295,7 +1295,7 @@ define void @"_ZN9anthropic1_67_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$an
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN9anthropic1_67_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$anthropic..Model$GT$9schema_id17hae1c3f6057c113a5E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define void @"_ZN9anthropic1_67_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$anthropic..Model$GT$9schema_id17hae1c3f6057c113a5E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.9fcaf8c50144155af2d2d346a196bddc.34, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1804,7 +1804,7 @@ define { i64, i64 } @"_ZN60_$LT$anthropic..Model$u20$as$u20$strum..IntoEnumItera
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @"_ZN79_$LT$anthropic..ModelIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h09343602266bfc7aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([120 x i8]) align 8 dereferenceable(120) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #8 {
+define void @"_ZN79_$LT$anthropic..ModelIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h09343602266bfc7aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([120 x i8]) align 8 dereferenceable(120) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #8 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
   %3 = load i64, ptr %1, align 8, !alias.scope !155, !noalias !152, !noundef !4
@@ -1875,7 +1875,7 @@ define void @"_ZN79_$LT$anthropic..ModelIter$u20$as$u20$core..iter..traits..iter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN79_$LT$anthropic..ModelIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2b49c88195229bd6E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #4 {
+define void @"_ZN79_$LT$anthropic..ModelIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2b49c88195229bd6E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #4 {
   %3 = load i64, ptr %1, align 8, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4
@@ -1892,7 +1892,7 @@ define void @"_ZN79_$LT$anthropic..ModelIter$u20$as$u20$core..iter..traits..iter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN79_$LT$anthropic..ModelIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hf0f637c9940346eaE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([120 x i8]) align 8 dereferenceable(120) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1, i64 noundef %2) unnamed_addr #4 {
+define void @"_ZN79_$LT$anthropic..ModelIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hf0f637c9940346eaE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([120 x i8]) align 8 dereferenceable(120) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1, i64 noundef %2) unnamed_addr #4 {
   %4 = load i64, ptr %1, align 8, !noundef !4
   %5 = add i64 %4, %2
   %6 = add i64 %5, 1
@@ -1974,7 +1974,7 @@ define noundef range(i64 0, 6) i64 @"_ZN90_$LT$anthropic..ModelIter$u20$as$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN94_$LT$anthropic..ModelIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h56e6af477deca4e9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([120 x i8]) align 8 dereferenceable(120) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #4 {
+define void @"_ZN94_$LT$anthropic..ModelIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h56e6af477deca4e9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([120 x i8]) align 8 dereferenceable(120) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = add i64 %4, 1
@@ -2609,7 +2609,7 @@ _ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit19: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN86_$LT$anthropic..AnthropicError$u20$as$u20$core..convert..From$LT$anyhow..Error$GT$$GT$4from17hb377ad059f163d4cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noundef nonnull %1) unnamed_addr #6 {
+define void @"_ZN86_$LT$anthropic..AnthropicError$u20$as$u20$core..convert..From$LT$anyhow..Error$GT$$GT$4from17hb377ad059f163d4cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 16)) %0, ptr noundef nonnull %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store i64 -9223372036854775808, ptr %0, align 8

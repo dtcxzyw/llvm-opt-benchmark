@@ -254,7 +254,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16DirectionalLight19createSplitMatricesEPK6Camera(ptr nocapture noundef nonnull align 4 dereferenceable(429) %this, ptr nocapture noundef readonly %cam) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN16DirectionalLight19createSplitMatricesEPK6Camera(ptr nocapture noundef nonnull align 4 dereferenceable(429) initializes((260, 426)) %this, ptr nocapture noundef readonly %cam) local_unnamed_addr #5 align 2 {
 entry:
   %ref.tmp116 = alloca %"class.irr::core::vector3d", align 8
   %m_camera_direction.i = getelementptr inbounds i8, ptr %cam, i64 72
@@ -696,7 +696,7 @@ declare noundef signext i16 @_Z10adjustDistsf(i16 noundef signext, float noundef
 declare float @llvm.fmuladd.f32(float, float, float) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN16DirectionalLightC2EjRKN3irr4core8vector3dIfEENS0_5video7SColorfEf(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(429) %this, i32 noundef %shadowMapResolution, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %position, <2 x float> %lightColor.coerce0, <2 x float> %lightColor.coerce1, float noundef %farValue) unnamed_addr #9 align 2 {
+define dso_local void @_ZN16DirectionalLightC2EjRKN3irr4core8vector3dIfEENS0_5video7SColorfEf(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(429) initializes((0, 1), (4, 250), (252, 426), (428, 429)) %this, i32 noundef %shadowMapResolution, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %position, <2 x float> %lightColor.coerce0, <2 x float> %lightColor.coerce1, float noundef %farValue) unnamed_addr #9 align 2 {
 entry:
   store i8 1, ptr %this, align 4, !tbaa !64
   %diffuseColor = getelementptr inbounds i8, ptr %this, i64 4
@@ -960,7 +960,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16DirectionalLight12setDirectionEN3irr4core8vector3dIfEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(429) %this, <2 x float> %dir.coerce0, float %dir.coerce1) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN16DirectionalLight12setDirectionEN3irr4core8vector3dIfEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(429) initializes((40, 52)) %this, <2 x float> %dir.coerce0, float %dir.coerce1) local_unnamed_addr #12 align 2 {
 entry:
   %0 = extractelement <2 x float> %dir.coerce0, i64 0
   %1 = fneg nsz <2 x float> %dir.coerce0
@@ -1049,7 +1049,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @_ZN16DirectionalLight17getViewProjMatrixEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.irr::core::CMatrix4") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(429) %this) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN16DirectionalLight17getViewProjMatrixEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.irr::core::CMatrix4") align 4 initializes((0, 64)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(429) %this) local_unnamed_addr #14 align 2 {
 entry:
   %ProjOrthMat = getelementptr inbounds i8, ptr %this, i64 92
   %ViewMat = getelementptr inbounds i8, ptr %this, i64 156

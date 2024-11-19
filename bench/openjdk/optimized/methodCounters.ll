@@ -35,7 +35,7 @@ $_ZNK8Metadata8on_stackEv = comdat any
 @_ZN14MethodCountersC1ERK12methodHandle = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN14MethodCountersC2ERK12methodHandle
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14MethodCountersC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(46) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN14MethodCountersC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(46) initializes((0, 8), (16, 28), (40, 46)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
   %3 = alloca double, align 8
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTV14MethodCounters, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

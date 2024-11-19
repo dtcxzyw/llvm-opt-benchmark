@@ -110,7 +110,7 @@ target triple = "x86_64-pc-linux-gnu"
 @php_addslashes = ifunc ptr (ptr), ptr @resolve_addslashes
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @localeconv_r(ptr noundef returned writeonly %0) local_unnamed_addr #0 {
+define noundef ptr @localeconv_r(ptr noundef returned writeonly initializes((0, 96)) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @localeconv() #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 96, i1 false)
   ret ptr %0
@@ -9791,7 +9791,7 @@ define hidden void @zif_substr(ptr noundef %0, ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_zend_substr(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc void @_zend_substr(ptr nocapture noundef writeonly initializes((0, 12)) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i64 noundef %4) unnamed_addr #0 {
   %6 = icmp slt i64 %2, 0
   br i1 %6, label %7, label %13
 
@@ -11872,7 +11872,7 @@ define hidden void @zif_ucwords(ptr noundef %0, ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_charmask(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc void @php_charmask(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 256)) %2) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %2, i8 0, i64 256, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 %1
   %5 = icmp sgt i64 %1, 0

@@ -77,7 +77,7 @@ define internal i32 @vfat_fill_super(ptr noundef %0, ptr noundef %1, i32 noundef
 declare dso_local i32 @fat_fill_super(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal void @setup(ptr nocapture noundef %0) #3 align 16 {
+define internal void @setup(ptr nocapture noundef initializes((1016, 1024)) %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 872
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 248
@@ -2403,7 +2403,7 @@ declare dso_local i32 @fat_dir_empty(ptr noundef) local_unnamed_addr #1
 declare dso_local void @drop_nlink(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @vfat_update_dotdot_de(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #2 align 16 {
+define internal fastcc i32 @vfat_update_dotdot_de(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((20, 22), (26, 28)) %3) unnamed_addr #2 align 16 {
   %5 = getelementptr i8, ptr %0, i64 -108
   %6 = load i32, ptr %5, align 4
   %7 = trunc i32 %6 to i16

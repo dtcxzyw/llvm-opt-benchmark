@@ -435,7 +435,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i42: 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN14cranelift_wasm5state20FuncTranslationState10initialize17ha61fe127e2540491E(ptr noalias noundef align 8 dereferenceable(248) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1, i32 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @_ZN14cranelift_wasm5state20FuncTranslationState10initialize17ha61fe127e2540491E(ptr noalias noundef align 8 dereferenceable(248) initializes((240, 241)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1, i32 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 240
   store i8 1, ptr %4, align 8, !alias.scope !46
   %5 = getelementptr inbounds i8, ptr %0, i64 72

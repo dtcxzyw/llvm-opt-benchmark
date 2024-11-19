@@ -2435,7 +2435,7 @@ define hidden { i64, i64 } @_ZNK5clang6driver10toolchains15HIPSPVToolChain18comp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZNK5clang6driver10toolchains15HIPSPVToolChain19adjustDebugInfoKindERN4llvm14codegenoptions13DebugInfoKindERKNS3_3opt7ArgListE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #5 align 2 {
+define hidden void @_ZNK5clang6driver10toolchains15HIPSPVToolChain19adjustDebugInfoKindERN4llvm14codegenoptions13DebugInfoKindERKNS3_3opt7ArgListE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #5 align 2 {
   store i32 0, ptr %1, align 4
   ret void
 }

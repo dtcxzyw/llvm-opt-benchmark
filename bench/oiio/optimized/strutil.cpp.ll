@@ -5610,7 +5610,7 @@ declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(p
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_07Strutil7splitsvENS_17basic_string_viewIcSt11char_traitsIcEEES4_i(ptr noalias sret(%"class.std::vector.1") align 8 %agg.result, ptr nocapture noundef readonly %str, ptr nocapture noundef readonly %sep, i32 noundef %maxsplit) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_07Strutil7splitsvENS_17basic_string_viewIcSt11char_traitsIcEEES4_i(ptr noalias sret(%"class.std::vector.1") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef readonly %str, ptr nocapture noundef readonly %sep, i32 noundef %maxsplit) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %ref.tmp28.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -8590,7 +8590,7 @@ return:                                           ; preds = %if.end.i19, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_07Strutil6splitsB5cxx11ENS_17basic_string_viewIcSt11char_traitsIcEEES4_i(ptr noalias sret(%"class.std::vector.11") align 8 %agg.result, ptr nocapture noundef readonly %str, ptr nocapture noundef readonly %sep, i32 noundef %maxsplit) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_07Strutil6splitsB5cxx11ENS_17basic_string_viewIcSt11char_traitsIcEEES4_i(ptr noalias sret(%"class.std::vector.11") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef readonly %str, ptr nocapture noundef readonly %sep, i32 noundef %maxsplit) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %sr_result = alloca %"class.std::vector.1", align 8
@@ -8826,7 +8826,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_07Strutil5splitENS_17basic_string_viewIcSt11char_traitsIcEEERSt6vectorINSt7__cxx1112basic_stringIcS3_SaIcEEESaIS9_EES4_i(ptr nocapture noundef readonly %str, ptr nocapture noundef nonnull align 8 dereferenceable(24) %result, ptr nocapture noundef readonly %sep, i32 noundef %maxsplit) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_07Strutil5splitENS_17basic_string_viewIcSt11char_traitsIcEEERSt6vectorINSt7__cxx1112basic_stringIcS3_SaIcEEESaIS9_EES4_i(ptr nocapture noundef readonly %str, ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((16, 24)) %result, ptr nocapture noundef readonly %sep, i32 noundef %maxsplit) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.11", align 8
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -8906,7 +8906,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_07Strutil5splitENS_17basic_string_viewIcSt11char_traitsIcEEERSt6vectorIS4_SaIS4_EES4_i(ptr nocapture noundef readonly %str, ptr nocapture noundef nonnull align 8 dereferenceable(24) %result, ptr nocapture noundef readonly %sep, i32 noundef %maxsplit) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_07Strutil5splitENS_17basic_string_viewIcSt11char_traitsIcEEERSt6vectorIS4_SaIS4_EES4_i(ptr nocapture noundef readonly %str, ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 24)) %result, ptr nocapture noundef readonly %sep, i32 noundef %maxsplit) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.1", align 8
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -11696,7 +11696,7 @@ if.end:                                           ; preds = %land.rhs.lr.ph.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN18OpenImageIO_v2_6_07Strutil10parse_lineERNS_17basic_string_viewIcSt11char_traitsIcEEEb(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %str, i1 noundef zeroext %eat) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_07Strutil10parse_lineERNS_17basic_string_viewIcSt11char_traitsIcEEEb(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %str, i1 noundef zeroext %eat) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %m_len.i.i = getelementptr inbounds i8, ptr %str, i64 8

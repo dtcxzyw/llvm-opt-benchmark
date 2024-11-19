@@ -95,7 +95,7 @@ declare noundef ptr @_ZN11PtrQueueSet24exchange_buffer_with_newER8PtrQueue(ptr n
 declare void @_ZN11PtrQueueSet13retry_enqueueER8PtrQueuePv(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27G1RedirtyCardsLocalQueueSet5flushEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.BufferNodeList) align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27G1RedirtyCardsLocalQueueSet5flushEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.BufferNodeList) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %struct.BufferNodeList, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   tail call void @_ZN11PtrQueueSet11flush_queueER8PtrQueue(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
@@ -214,7 +214,7 @@ define hidden void @_ZN22G1RedirtyCardsQueueSetC2EPN10BufferNode9AllocatorE(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22G1RedirtyCardsQueueSetD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN22G1RedirtyCardsQueueSetD2Ev(ptr noundef nonnull align 8 dereferenceable(408) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV22G1RedirtyCardsQueueSet, i64 16), ptr %0, align 8
   tail call void @_ZN11PtrQueueSetD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #6
   ret void

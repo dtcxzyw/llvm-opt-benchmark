@@ -46,7 +46,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4epnpC2ERKNS_3MatES3_S3_(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4epnpC2ERKNS_3MatES3_S3_(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1660,7 +1660,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit8:                   ; preds = %_ZNSt6vectorIdSaIdE
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4epnp21choose_control_pointsEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv4epnp21choose_control_pointsEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((136, 160)) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca [9 x double], align 16
   %4 = alloca [3 x double], align 16
@@ -2050,7 +2050,7 @@ define hidden void @_ZN2cv4epnp6fill_MEP5CvMatiPKddd(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv4epnp11compute_ccsEPKdS2_(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN2cv4epnp11compute_ccsEPKdS2_(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((232, 328)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #10 align 2 {
 .preheader23:
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, i8 0, i64 96, i1 false)
@@ -2162,7 +2162,7 @@ define hidden void @_ZN2cv4epnp11compute_pcsEv(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4epnp12compute_poseERNS_3MatES2_(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4epnp12compute_poseERNS_3MatES2_(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((136, 160)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca [144 x double], align 16
   %6 = alloca [12 x double], align 16
@@ -2643,7 +2643,7 @@ define hidden void @_ZN2cv4epnp14compute_L_6x10EPKdPd(ptr nocapture nonnull read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv4epnp11compute_rhoEPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #13 align 2 {
+define hidden void @_ZN2cv4epnp11compute_rhoEPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %0, ptr nocapture noundef writeonly initializes((0, 48)) %1) local_unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   %5 = load double, ptr %3, align 8
@@ -3103,7 +3103,7 @@ define hidden void @_ZN2cv4epnp12gauss_newtonEPK5CvMatS3_Pd(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef double @_ZN2cv4epnp15compute_R_and_tEPKdS2_PA3_dPd(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #3 align 2 {
+define hidden noundef double @_ZN2cv4epnp15compute_R_and_tEPKdS2_PA3_dPd(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((232, 328)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #3 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   br label %7

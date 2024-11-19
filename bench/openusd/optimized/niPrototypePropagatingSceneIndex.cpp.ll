@@ -4889,7 +4889,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototypePropagatingSceneIndex21GetEncapsulatedScenesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.51") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototypePropagatingSceneIndex21GetEncapsulatedScenesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.51") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [1 x %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.3"], align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %5 = load ptr, ptr %4, align 8
@@ -5013,7 +5013,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn120_NK32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototypePropagatingSceneIndex21GetEncapsulatedScenesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.51") align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #8 align 2 {
+define void @_ZThn120_NK32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototypePropagatingSceneIndex21GetEncapsulatedScenesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.51") align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -120
   tail call void @_ZNK32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototypePropagatingSceneIndex21GetEncapsulatedScenesEv(ptr dead_on_unwind writable sret(%"class.std::vector.51") align 8 %0, ptr noundef nonnull align 8 dereferenceable(272) %3)
   ret void
@@ -5194,7 +5194,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit3: ; preds = %30, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototypePropagatingSceneIndex38_InstanceAggregationSceneIndexObserverC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototypePropagatingSceneIndex38_InstanceAggregationSceneIndexObserverC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototypePropagatingSceneIndex38_InstanceAggregationSceneIndexObserverE, i64 16), ptr %0, align 8
@@ -5383,7 +5383,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototypePropaga
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver36ConvertPrimsRenamedToRemovedAndAddedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS0_16RenamedPrimEntryELj16EEEPS0_(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 1, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototypePropagatingSceneIndex26_MergingSceneIndexObserverC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototypePropagatingSceneIndex26_MergingSceneIndexObserverC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__42UsdImagingNiPrototypePropagatingSceneIndex26_MergingSceneIndexObserverE, i64 16), ptr %0, align 8

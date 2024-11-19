@@ -62,7 +62,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.H5HL__minimize_heap_space = private unnamed_addr constant [26 x i8] c"H5HL__minimize_heap_space\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HL_create(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5HL_create(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %21, label %4
 

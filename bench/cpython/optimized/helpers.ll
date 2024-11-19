@@ -170,7 +170,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_PyTokenizer_indenterror(ptr nocapture noundef %tok) local_unnamed_addr #1 {
+define hidden noundef i32 @_PyTokenizer_indenterror(ptr nocapture noundef initializes((8, 16), (64, 68)) %tok) local_unnamed_addr #1 {
 entry:
   %done = getelementptr inbounds i8, ptr %tok, i64 64
   store i32 18, ptr %done, align 8
@@ -182,7 +182,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @_PyTokenizer_error_ret(ptr nocapture noundef %tok) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @_PyTokenizer_error_ret(ptr nocapture noundef initializes((8, 24), (48, 68), (2748, 2752)) %tok) local_unnamed_addr #0 {
 entry:
   %decoding_erred = getelementptr inbounds i8, ptr %tok, i64 2748
   store i32 1, ptr %decoding_erred, align 4

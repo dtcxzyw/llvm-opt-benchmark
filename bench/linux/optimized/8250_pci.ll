@@ -878,7 +878,7 @@ define internal i32 @ce4100_serial_setup(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @kt_serial_setup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
+define internal i32 @kt_serial_setup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef initializes((24, 32), (136, 144)) %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 272
   %6 = load i64, ptr %5, align 8
   %7 = or i64 %6, 67108864
@@ -1387,7 +1387,7 @@ define internal noundef i32 @pci_quatech_init(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pci_quatech_setup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
+define internal i32 @pci_quatech_setup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef initializes((8, 16)) %2, i32 noundef %3) #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 920
   %7 = load i32, ptr %1, align 4
@@ -2143,7 +2143,7 @@ define internal i32 @pci_timedia_setup(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pci_sunix_setup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
+define internal i32 @pci_sunix_setup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef initializes((296, 300)) %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 272
   %6 = load i64, ptr %5, align 8
   %7 = or i64 %6, 134217728
@@ -2527,7 +2527,7 @@ define internal i32 @pci_omegapci_setup(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pci_wch_ch353_setup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
+define internal i32 @pci_wch_ch353_setup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef initializes((296, 300)) %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 272
   %6 = load i64, ptr %5, align 8
   %7 = or i64 %6, 134217728
@@ -2600,7 +2600,7 @@ define internal i32 @pci_wch_ch353_setup(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pci_wch_ch355_setup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
+define internal i32 @pci_wch_ch355_setup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef initializes((296, 300)) %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 272
   %6 = load i64, ptr %5, align 8
   %7 = or i64 %6, 134217728
@@ -2673,7 +2673,7 @@ define internal i32 @pci_wch_ch355_setup(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pci_wch_ch38x_setup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
+define internal i32 @pci_wch_ch38x_setup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef initializes((296, 300)) %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 272
   %6 = load i64, ptr %5, align 8
   %7 = or i64 %6, 134217728
@@ -2981,7 +2981,7 @@ define internal range(i32 -22, 256) i32 @pci_fintek_init(ptr noundef %0) #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -12, 1) i32 @pci_fintek_setup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @pci_fintek_setup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((8, 16), (144, 152), (194, 195), (432, 464)) %2, i32 noundef %3) #0 align 16 {
   %5 = alloca i16, align 2
   %6 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #15

@@ -1260,7 +1260,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5boost3anyESt4les
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20OvernightIndexFutureC1EN5boost10shared_ptrINS_14OvernightIndexEEERKNS_4DateES7_NS_6HandleINS_5QuoteEEENS_13RateAveraging4TypeE(ptr noundef nonnull align 8 dereferenceable(156) %this, ptr nocapture noundef %overnightIndex, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %valueDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %maturityDate, ptr nocapture noundef %convexityAdjustment, i32 noundef %averagingMethod) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20OvernightIndexFutureC1EN5boost10shared_ptrINS_14OvernightIndexEEERKNS_4DateES7_NS_6HandleINS_5QuoteEEENS_13RateAveraging4TypeE(ptr noundef nonnull align 8 dereferenceable(156) initializes((160, 168), (176, 180), (184, 192)) %this, ptr nocapture noundef %overnightIndex, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %valueDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %maturityDate, ptr nocapture noundef %convexityAdjustment, i32 noundef %averagingMethod) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

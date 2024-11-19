@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timespec = type { i64, i64 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_bddIte(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @Cudd_bddIte(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 448
   br label %6
 
@@ -732,7 +732,7 @@ declare ptr @cuddConstantLookup(ptr noundef, i64 noundef, ptr noundef, ptr nound
 declare void @cuddCacheInsert(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_bddIntersect(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define ptr @Cudd_bddIntersect(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   br label %5
 
@@ -951,7 +951,7 @@ define ptr @cuddBddIntersectRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define ptr @Cudd_bddAnd(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   br label %5
 
@@ -1228,7 +1228,7 @@ Abc_Clock.exit:                                   ; preds = %52, %55
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_bddAndLimit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @Cudd_bddAndLimit(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 244
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 228
@@ -1260,7 +1260,7 @@ define ptr @Cudd_bddAndLimit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_bddOr(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Cudd_bddOr(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   %5 = ptrtoint ptr %1 to i64
   %6 = xor i64 %5, 1
@@ -1287,7 +1287,7 @@ define ptr @Cudd_bddOr(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_bddNand(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Cudd_bddNand(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   br label %5
 
@@ -1308,7 +1308,7 @@ define ptr @Cudd_bddNand(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_bddNor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Cudd_bddNor(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   %5 = ptrtoint ptr %1 to i64
   %6 = xor i64 %5, 1
@@ -1330,7 +1330,7 @@ define ptr @Cudd_bddNor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_bddXor(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define ptr @Cudd_bddXor(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   br label %5
 
@@ -1551,7 +1551,7 @@ define ptr @cuddBddXorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_bddXnor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Cudd_bddXnor(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   %5 = ptrtoint ptr %2 to i64
   %6 = xor i64 %5, 1

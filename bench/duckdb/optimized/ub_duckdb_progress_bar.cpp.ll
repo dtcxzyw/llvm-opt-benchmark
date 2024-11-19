@@ -404,7 +404,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11ProgressBar25DefaultProgressBarDisplayEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr") align 8 %agg.result) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11ProgressBar25DefaultProgressBarDisplayEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN6duckdb26TerminalProgressBarDisplayESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23, !noalias !32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb26TerminalProgressBarDisplayE, i64 16), ptr %call.i, align 8, !tbaa !35, !noalias !32
@@ -423,7 +423,7 @@ _ZNSt10unique_ptrIN6duckdb26TerminalProgressBarDisplayESt14default_deleteIS1_EED
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11ProgressBarC2ERNS_8ExecutorEmPFNS_10unique_ptrINS_18ProgressBarDisplayESt14default_deleteIS4_ELb1EEEvE(ptr noundef nonnull align 8 dereferenceable(74) %this, ptr noundef nonnull align 8 dereferenceable(384) %executor, i64 noundef %show_progress_after, ptr noundef readonly %create_display_func) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11ProgressBarC2ERNS_8ExecutorEmPFNS_10unique_ptrINS_18ProgressBarDisplayESt14default_deleteIS4_ELb1EEEvE(ptr noundef nonnull align 8 dereferenceable(74) initializes((0, 25), (32, 40)) %this, ptr noundef nonnull align 8 dereferenceable(384) %executor, i64 noundef %show_progress_after, ptr noundef readonly %create_display_func) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::unique_ptr", align 8
   store ptr %executor, ptr %this, align 8, !tbaa !46
@@ -507,7 +507,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb11ProgressBar5StartEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(74) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11ProgressBar5StartEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(74) initializes((8, 16), (24, 25)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %profiler = getelementptr inbounds i8, ptr %this, i64 8
   %finished.i = getelementptr inbounds i8, ptr %this, i64 24

@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [25 x i8] c"out of memory on line %d\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ecpg_init_sqlca(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @ecpg_init_sqlca(ptr nocapture noundef writeonly initializes((0, 256)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
   ret void
 }

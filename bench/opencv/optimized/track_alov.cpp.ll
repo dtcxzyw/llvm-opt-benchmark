@@ -3965,7 +3965,7 @@ define hidden noundef zeroext i1 @_ZN2cv8datasets14TRACK_alovImpl8getFrameERNS_3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv8datasets10TRACK_alov6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.30") align 8 %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv8datasets10TRACK_alov6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.30") align 8 initializes((0, 16)) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_8datasets14TRACK_alovImplEED2Ev.exit:
   %1 = alloca %"struct.cv::Ptr.34", align 8
   %2 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #24
@@ -3991,7 +3991,7 @@ _ZN2cv3PtrINS_8datasets14TRACK_alovImplEED2Ev.exit:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8datasets14TRACK_alovImpl9getNextGTEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.23") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8datasets14TRACK_alovImpl9getNextGTEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.23") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::Ptr", align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 104
   %5 = getelementptr inbounds i8, ptr %1, i64 128
@@ -4174,7 +4174,7 @@ _ZN2cv3PtrINS_8datasets13TRACK_alovObjEED2Ev.exit: ; preds = %.loopexit, %67, %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8datasets14TRACK_alovImpl5getGTEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.23") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8datasets14TRACK_alovImpl5getGTEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.23") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.cv::Ptr", align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 104
   %7 = load ptr, ptr %6, align 8

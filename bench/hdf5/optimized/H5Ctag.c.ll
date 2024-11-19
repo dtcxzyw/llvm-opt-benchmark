@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [20 x i8] c"can't expunge entry\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @H5C_ignore_tags(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define noundef i32 @H5C_ignore_tags(ptr nocapture noundef writeonly initializes((524736, 524737)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 524736
   store i8 1, ptr %2, align 8
   ret i32 0
@@ -2390,7 +2390,7 @@ define internal range(i32 -1, 1) i32 @H5C__expunge_tag_type_metadata_cb(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5C_get_tag(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 {
+define noundef i32 @H5C_get_tag(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %4, align 8

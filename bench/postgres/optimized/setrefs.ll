@@ -2408,7 +2408,7 @@ define dso_local void @record_plan_type_dependency(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @extract_query_dependencies(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local void @extract_query_dependencies(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.PlannerGlobal, align 8
   %6 = alloca %struct.PlannerInfo, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5, i8 0, i64 136, i1 false)

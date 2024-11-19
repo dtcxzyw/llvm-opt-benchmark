@@ -35,7 +35,7 @@ define hidden void @ftype_register_ieee_11073_float() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @sfloat_ieee_11073_fvalue_new(ptr nocapture noundef writeonly %0) #1 {
+define internal void @sfloat_ieee_11073_fvalue_new(ptr nocapture noundef writeonly initializes((8, 10)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i16 0, ptr %2, align 8
   ret void
@@ -445,7 +445,7 @@ switch.lookup:                                    ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @sfloat_ieee_11073_value_set(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @sfloat_ieee_11073_value_set(ptr nocapture noundef writeonly initializes((8, 10)) %0, i32 noundef %1) #1 {
   %3 = trunc i32 %1 to i16
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i16 %3, ptr %4, align 8
@@ -793,7 +793,7 @@ define internal zeroext i1 @sfloat_ieee_11073_is_zero(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @float_ieee_11073_fvalue_new(ptr nocapture noundef writeonly %0) #1 {
+define internal void @float_ieee_11073_fvalue_new(ptr nocapture noundef writeonly initializes((8, 12)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   ret void
@@ -1200,7 +1200,7 @@ switch.lookup:                                    ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @float_ieee_11073_value_set(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @float_ieee_11073_value_set(ptr nocapture noundef writeonly initializes((8, 12)) %0, i32 noundef %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void

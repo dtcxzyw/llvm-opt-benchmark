@@ -166,7 +166,7 @@ $_ZTVN5folly12BadFormatArgE = comdat any
 @_ZN8facebook5velox6crypto10MD5ContextC1Ev = unnamed_addr alias void (ptr), ptr @_ZN8facebook5velox6crypto10MD5ContextC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox6crypto10MD5ContextC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(88) %this) unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox6crypto10MD5ContextC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(88) initializes((0, 24)) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 1732584193, ptr %this, align 4
   %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 4
@@ -808,7 +808,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox6crypto10MD5Context6FinishEPh(ptr nocapture noundef nonnull align 4 dereferenceable(88) %this, ptr nocapture noundef writeonly %out_digest) local_unnamed_addr #3 align 2 {
+define void @_ZN8facebook5velox6crypto10MD5Context6FinishEPh(ptr nocapture noundef nonnull align 4 dereferenceable(88) %this, ptr nocapture noundef writeonly initializes((0, 16)) %out_digest) local_unnamed_addr #3 align 2 {
 entry:
   %bits = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %bits, align 4

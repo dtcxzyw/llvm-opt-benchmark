@@ -36,7 +36,7 @@ declare i32 @onigenc_single_byte_code_to_mbclen(i32 noundef, ptr noundef) #1
 declare i32 @onigenc_single_byte_code_to_mbc(i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 1, 3) i32 @mbc_case_fold(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4) #2 {
+define internal range(i32 1, 3) i32 @mbc_case_fold(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, ptr nocapture readnone %4) #2 {
   %6 = load ptr, ptr %1, align 8
   %7 = load i8, ptr %6, align 1
   %8 = icmp ne i8 %7, -33

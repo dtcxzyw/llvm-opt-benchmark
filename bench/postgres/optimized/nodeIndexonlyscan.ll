@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.IndexOnlyRecheck = private unnamed_addr constant [17 x i8] c"IndexOnlyRecheck\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanIndexOnlyScan(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanIndexOnlyScan(ptr noundef initializes((276, 277)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -385,7 +385,7 @@ declare ptr @index_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare void @ExecIndexBuildScanKeys(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecIndexOnlyScanEstimate(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @ExecIndexOnlyScanEstimate(ptr nocapture noundef initializes((320, 328)) %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 288
@@ -413,7 +413,7 @@ declare i64 @index_parallelscan_estimate(ptr noundef, ptr noundef) local_unnamed
 declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecIndexOnlyScanInitializeDSM(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecIndexOnlyScanInitializeDSM(ptr nocapture noundef initializes((296, 304), (312, 316)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 88
@@ -493,7 +493,7 @@ define dso_local void @ExecIndexOnlyScanReInitializeDSM(ptr nocapture noundef re
 declare void @index_parallelrescan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecIndexOnlyScanInitializeWorker(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecIndexOnlyScanInitializeWorker(ptr nocapture noundef initializes((296, 304)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8

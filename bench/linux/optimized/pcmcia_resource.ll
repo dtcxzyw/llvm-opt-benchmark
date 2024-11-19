@@ -1245,7 +1245,7 @@ define dso_local i32 @pcmcia_request_irq(ptr nocapture noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @pcmcia_cleanup_irq(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 align 16 {
+define dso_local void @pcmcia_cleanup_irq(ptr nocapture noundef writeonly initializes((552, 556)) %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 552
   store i32 0, ptr %2, align 8
   ret void

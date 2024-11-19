@@ -560,7 +560,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_bt_dedup_start_pending(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #3 {
+define dso_local void @_bt_dedup_start_pending(ptr nocapture noundef initializes((16, 26), (32, 40), (48, 64)) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %1, i64 6
   %5 = load i16, ptr %4, align 2
   %6 = and i16 %5, 8192

@@ -3981,7 +3981,7 @@ _ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBas
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__34UsdImagingSelectionSceneIndex_Impl8_GetPathESt10shared_ptrINS_24HdTypedSampledDataSourceINS_7VtArrayINS_7SdfPathEEEEEEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__34UsdImagingSelectionSceneIndex_Impl8_GetPathESt10shared_ptrINS_24HdTypedSampledDataSourceINS_7VtArrayINS_7SdfPathEEEEEEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.48", align 8
   %5 = icmp slt i32 %2, 0
   br i1 %5, label %6, label %7
@@ -6447,7 +6447,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__34UsdImagingSelectionScen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__34UsdImagingSelectionSceneIndex_Impl49_ComputePiPropagatedPathsAndNestedInstanceIndicesERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.68") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__34UsdImagingSelectionSceneIndex_Impl49_ComputePiPropagatedPathsAndNestedInstanceIndicesERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.68") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdImagingUsdPrimInfoSchema", align 8
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = alloca %"class.std::vector.60", align 8
@@ -11471,7 +11471,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__29UsdImagingSelectionSceneIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__29UsdImagingSelectionSceneIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null

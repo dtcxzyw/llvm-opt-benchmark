@@ -84,7 +84,7 @@ define void @_ZN3gmx9imd_sleepEj(i32 noundef %0) local_unnamed_addr #1 {
 declare i32 @sleep(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3gmx12imdsock_bindEPNS_9IMDSocketEi(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
+define noundef i32 @_ZN3gmx12imdsock_bindEPNS_9IMDSocketEi(ptr noundef initializes((0, 16)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 12, i1 false)
   store i16 2, ptr %0, align 4

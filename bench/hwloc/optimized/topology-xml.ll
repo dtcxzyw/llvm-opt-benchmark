@@ -354,7 +354,7 @@ define void @hwloc_xml_callbacks_reset() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @hwloc__xml_import_diff(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
+define range(i32 -2147483648, 1) i32 @hwloc__xml_import_diff(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #5 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.hwloc__xml_import_state_s, align 8
@@ -743,7 +743,7 @@ hwloc__xml_verbose.exit89.i:                      ; preds = %118, %113
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i32 @hwloc_topology_diff_load_xml(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+define i32 @hwloc_topology_diff_load_xml(ptr noundef %0, ptr noundef initializes((0, 8)) %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = alloca %struct.hwloc__xml_import_state_s, align 8
   %5 = alloca %struct.hwloc_xml_backend_data_s, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 8
@@ -887,7 +887,7 @@ declare void @hwloc_components_fini() local_unnamed_addr #8
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define i32 @hwloc_topology_diff_load_xmlbuffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 {
+define i32 @hwloc_topology_diff_load_xmlbuffer(ptr noundef %0, i32 noundef %1, ptr noundef initializes((0, 8)) %2, ptr noundef %3) local_unnamed_addr #5 {
   %5 = alloca %struct.hwloc__xml_import_state_s, align 8
   %6 = alloca %struct.hwloc_xml_backend_data_s, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 8
@@ -4034,7 +4034,7 @@ hwloc_nolibxml_export.exit:                       ; preds = %2, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @hwloc_topology_set_userdata_export_callback(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #13 {
+define void @hwloc_topology_set_userdata_export_callback(ptr nocapture noundef writeonly initializes((704, 712)) %0, ptr noundef %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 704
   store ptr %1, ptr %3, align 8
   ret void
@@ -4341,7 +4341,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
 declare i32 @hwloc_encode_to_base64(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @hwloc_topology_set_userdata_import_callback(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #13 {
+define void @hwloc_topology_set_userdata_import_callback(ptr nocapture noundef writeonly initializes((712, 720)) %0, ptr noundef %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 712
   store ptr %1, ptr %3, align 8
   ret void
@@ -6638,7 +6638,7 @@ define internal void @hwloc_xml_backend_disable(ptr noundef %0) #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @hwloc__xml_import_object(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly %4, ptr noundef nonnull %5) unnamed_addr #5 {
+define internal fastcc i32 @hwloc__xml_import_object(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef initializes((72, 80)) %3, ptr nocapture noundef nonnull writeonly %4, ptr noundef nonnull %5) unnamed_addr #5 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8

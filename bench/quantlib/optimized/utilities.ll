@@ -525,7 +525,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib10isInSubsetERKSt6vectorIdSaIdEES4_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::valarray") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %set, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %subset) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib10isInSubsetERKSt6vectorIdSaIdEES4_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::valarray") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %set, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %subset) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8

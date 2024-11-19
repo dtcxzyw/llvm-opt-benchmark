@@ -607,7 +607,7 @@ declare void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 
 declare void @abort() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6fs_dir9DirHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(90) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6fs_dir9DirHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(90) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6fs_dir9DirHandleE, i64 16), ptr %this, align 8
   %closing_ = getelementptr inbounds i8, ptr %this, i64 88
@@ -956,7 +956,7 @@ return:                                           ; preds = %if.end.sink.split.i
 declare void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6fs_dir9DirHandleD0Ev(ptr noundef nonnull align 8 dereferenceable(90) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6fs_dir9DirHandleD0Ev(ptr noundef nonnull align 8 dereferenceable(90) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6fs_dir9DirHandleE, i64 16), ptr %this, align 8
   %closing_.i = getelementptr inbounds i8, ptr %this, i64 88

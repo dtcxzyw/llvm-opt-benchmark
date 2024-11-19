@@ -131,7 +131,7 @@ $_ZTVN4llvm15DwarfExpressionE = comdat any
 @_ZN4llvm9DwarfUnitD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm9DwarfUnitD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18DIEDwarfExpressionC2ERKNS_10AsmPrinterERNS_16DwarfCompileUnitERNS_6DIELocE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(785) %1, ptr noundef nonnull align 8 dereferenceable(696) %2, ptr noundef nonnull align 8 dereferenceable(12) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18DIEDwarfExpressionC2ERKNS_10AsmPrinterERNS_16DwarfCompileUnitERNS_6DIELocE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 9), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(785) %1, ptr noundef nonnull align 8 dereferenceable(696) %2, ptr noundef nonnull align 8 dereferenceable(12) %3) unnamed_addr #0 align 2 {
   %5 = tail call noundef zeroext i16 @_ZNK4llvm10AsmPrinter15getDwarfVersionEv(ptr noundef nonnull align 8 dereferenceable(785) %1) #19
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4llvm15DwarfExpressionE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -353,14 +353,14 @@ define dso_local void @_ZN4llvm18DIEDwarfExpression15emitBaseTypeRefEm(ptr nound
 declare void @_ZN4llvm16DwarfCompileUnit14addBaseTypeRefERNS_12DIEValueListEl(ptr noundef nonnull align 8 dereferenceable(696), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18DIEDwarfExpression21enableTemporaryBufferEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm18DIEDwarfExpression21enableTemporaryBufferEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((120, 121)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i8 1, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18DIEDwarfExpression22disableTemporaryBufferEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm18DIEDwarfExpression22disableTemporaryBufferEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((120, 121)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i8 0, ptr %2, align 8
   ret void
@@ -522,7 +522,7 @@ define dso_local void @_ZN4llvm13DwarfTypeUnitC2ERNS_16DwarfCompileUnitEPNS_10As
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9DwarfUnitD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9DwarfUnitD2Ev(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm9DwarfUnitE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280

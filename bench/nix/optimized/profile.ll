@@ -26068,7 +26068,7 @@ _ZNSt10shared_ptrIN3nix9EvalStateEED2Ev.exit:     ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL24builtPathsPerInstallableRKSt6vectorISt4pairIN3nix3refINS1_11InstallableEEENS1_19BuiltPathWithResultEESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL24builtPathsPerInstallableRKSt6vectorISt4pairIN3nix3refINS1_11InstallableEEENS1_19BuiltPathWithResultEESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((8, 12), (16, 24)) %0, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.anon.762, align 8
   %3 = alloca %"struct.std::pair.443", align 8
   %4 = alloca %"struct.std::pair.445", align 8

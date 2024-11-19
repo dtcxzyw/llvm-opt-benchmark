@@ -1277,7 +1277,7 @@ define internal void @__cxx_global_var_init.51() #0 section ".text.startup" comd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Luau18FindNthOccurenceOfC2ENS_3NthE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i64 %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau18FindNthOccurenceOfC2ENS_3NthE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 20), (24, 32)) %0, i64 %1) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau18FindNthOccurenceOfE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8

@@ -6674,7 +6674,7 @@ declare i32 @path_matches_pattern_list(ptr noundef, i32 noundef, ptr noundef, pt
 declare void @stop_progress_msg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @unpack_single_entry(i32 noundef %n, i64 noundef %mask, i64 noundef %dirmask, ptr noundef nonnull %src, ptr nocapture noundef readonly %names, ptr noundef %info, ptr nocapture noundef nonnull writeonly %is_new_sparse_dir) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @unpack_single_entry(i32 noundef %n, i64 noundef %mask, i64 noundef %dirmask, ptr noundef nonnull %src, ptr nocapture noundef readonly %names, ptr noundef %info, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %is_new_sparse_dir) unnamed_addr #0 {
 entry:
   %dirpath.i = alloca %struct.strbuf, align 8
   %data = getelementptr inbounds i8, ptr %info, i64 72

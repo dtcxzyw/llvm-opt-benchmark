@@ -2486,7 +2486,7 @@ _ZNSt13unordered_mapIPKcN7glslang16TBuiltInVariableEN12_GLOBAL__N_18str_hashENS4
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang15HlslScanContext8tokenizeERNS_9HlslTokenE(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang15HlslScanContext8tokenizeERNS_9HlslTokenE(ptr noundef nonnull align 8 dereferenceable(76) initializes((56, 64)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef i32 @_ZN7glslang15HlslScanContext13tokenizeClassERNS_9HlslTokenE(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %3, ptr %4, align 8
@@ -2494,7 +2494,7 @@ define void @_ZN7glslang15HlslScanContext8tokenizeERNS_9HlslTokenE(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7glslang15HlslScanContext13tokenizeClassERNS_9HlslTokenE(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN7glslang15HlslScanContext13tokenizeClassERNS_9HlslTokenE(ptr noundef nonnull align 8 dereferenceable(76) initializes((56, 64)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.glslang::TPpToken", align 8
   %4 = alloca [2 x i8], align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 56

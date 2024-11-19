@@ -543,7 +543,7 @@ $_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppre
 @_ZN8facebook5velox6common10SpillStatsC1Emmmmjmmmmmmmm = unnamed_addr alias void (ptr, i64, i64, i64, i64, i32, i64, i64, i64, i64, i64, i64, i64, i64), ptr @_ZN8facebook5velox6common10SpillStatsC2Emmmmjmmmmmmmm
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox6common10SpillStatsC2Emmmmjmmmmmmmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this, i64 noundef %_spillRuns, i64 noundef %_spilledInputBytes, i64 noundef %_spilledBytes, i64 noundef %_spilledRows, i32 noundef %_spilledPartitions, i64 noundef %_spilledFiles, i64 noundef %_spillFillTimeUs, i64 noundef %_spillSortTimeUs, i64 noundef %_spillSerializationTimeUs, i64 noundef %_spillDiskWrites, i64 noundef %_spillFlushTimeUs, i64 noundef %_spillWriteTimeUs, i64 noundef %_spillMaxLevelExceededCount) unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox6common10SpillStatsC2Emmmmjmmmmmmmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 36), (40, 104)) %this, i64 noundef %_spillRuns, i64 noundef %_spilledInputBytes, i64 noundef %_spilledBytes, i64 noundef %_spilledRows, i32 noundef %_spilledPartitions, i64 noundef %_spilledFiles, i64 noundef %_spillFillTimeUs, i64 noundef %_spillSortTimeUs, i64 noundef %_spillSerializationTimeUs, i64 noundef %_spillDiskWrites, i64 noundef %_spillFlushTimeUs, i64 noundef %_spillWriteTimeUs, i64 noundef %_spillMaxLevelExceededCount) unnamed_addr #0 align 2 {
 entry:
   store i64 %_spillRuns, ptr %this, align 8
   %spilledInputBytes = getelementptr inbounds i8, ptr %this, i64 8
@@ -656,7 +656,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK8facebook5velox6common10SpillStatsmiERKS2_(ptr noalias nocapture writeonly sret(%"struct.facebook::velox::common::SpillStats") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %other) local_unnamed_addr #1 align 2 {
+define void @_ZNK8facebook5velox6common10SpillStatsmiERKS2_(ptr noalias nocapture writeonly sret(%"struct.facebook::velox::common::SpillStats") align 8 initializes((0, 36), (40, 104)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %other) local_unnamed_addr #1 align 2 {
 entry:
   %spilledFiles.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %0 = load i64, ptr %this, align 8
@@ -1215,7 +1215,7 @@ _ZSteqIJRKmS1_S1_S1_RKjS1_S1_S1_S1_S1_S1_S1_S1_EJS1_S1_S1_S1_S3_S1_S1_S1_S1_S1_S
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox6common10SpillStats5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox6common10SpillStats5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 36), (40, 104)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %spilledFiles = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %this, i8 0, i64 36, i1 false)
@@ -2388,7 +2388,7 @@ _ZN5folly9LockedPtrINS_12SynchronizedIN8facebook5velox6common10SpillStatsENS_15S
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6common16globalSpillStatsEv(ptr noalias nocapture sret(%"struct.facebook::velox::common::SpillStats") align 8 %agg.result) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6common16globalSpillStatsEv(ptr noalias nocapture sret(%"struct.facebook::velox::common::SpillStats") align 8 initializes((0, 36), (40, 104)) %agg.result) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.25", align 1
   %spilledFiles.i = getelementptr inbounds i8, ptr %agg.result, i64 40

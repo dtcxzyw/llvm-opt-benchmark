@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.4 = private unnamed_addr constant [25 x i8] c"Solution does not exist.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Sbd_ProblemSetup(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef ptr @Sbd_ProblemSetup(ptr nocapture noundef initializes((0, 548)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %6 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4

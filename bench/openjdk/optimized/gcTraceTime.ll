@@ -57,7 +57,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN14GCTraceCPUTimeD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN14GCTraceCPUTimeD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21GCTraceTimeLoggerImpl9log_startE11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, i64 %1, i64 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21GCTraceTimeLoggerImpl9log_startE11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((72, 88)) %0, i64 %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.LogStream, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   store i64 %1, ptr %5, align 8
@@ -189,7 +189,7 @@ declare noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef) local_
 declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14GCTraceCPUTimeC2EP8GCTracer(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN14GCTraceCPUTimeC2EP8GCTracer(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 1), (8, 40)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_28ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not5 = icmp eq ptr %3, null
   br i1 %.not5, label %6, label %.thread

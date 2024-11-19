@@ -285,7 +285,7 @@ define linkonce_odr void @_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11ch
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu17ParserTokenReader6AssignERKS0_(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull align 8 dereferenceable(400) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2mu17ParserTokenReader6AssignERKS0_(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(400) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4728,7 +4728,7 @@ _ZSt23__copy_move_backward_a1ILb1EPiiEN9__gnu_cxx11__enable_ifIXsr23__is_random_
 declare noundef ptr @_ZNK2mu14ParserCallback5CloneEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu17ParserTokenReaderC2EPNS_10ParserBaseE(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2mu17ParserTokenReaderC2EPNS_10ParserBaseE(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %1, ptr %0, align 8
@@ -4932,7 +4932,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu17ParserTokenReader9SetParentEPNS_10ParserBaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) %0, ptr noundef %1) local_unnamed_addr #13 align 2 {
+define void @_ZN2mu17ParserTokenReader9SetParentEPNS_10ParserBaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) initializes((0, 8), (56, 112)) %0, ptr noundef %1) local_unnamed_addr #13 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 128
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -4997,7 +4997,7 @@ _ZNSt10unique_ptrIN2mu17ParserTokenReaderESt14default_deleteIS1_EED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(104) ptr @_ZN2mu17ParserTokenReader16SaveBeforeReturnERKNS_11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(104) ptr @_ZN2mu17ParserTokenReader16SaveBeforeReturnERKNS_11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(400) initializes((288, 292), (296, 304)) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 288
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %3, align 8
@@ -5065,7 +5065,7 @@ define void @_ZN2mu17ParserTokenReader11AddValIdentEPFiPKcPiPdE(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu17ParserTokenReader13SetVarCreatorEPFPdPKcPvES4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #13 align 2 {
+define void @_ZN2mu17ParserTokenReader13SetVarCreatorEPFPdPKcPvES4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) initializes((112, 128)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #13 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 120
@@ -5101,7 +5101,7 @@ define void @_ZN2mu17ParserTokenReader10SetFormulaERKNSt7__cxx1112basic_stringIc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu17ParserTokenReader6ReInitEv(ptr noundef nonnull align 8 dereferenceable(400) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2mu17ParserTokenReader6ReInitEv(ptr noundef nonnull align 8 dereferenceable(400) initializes((40, 48)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i = alloca { ptr, i64 }, align 8
   %2 = alloca %"class.std::stack", align 8
   %3 = alloca %"class.mu::ParserToken", align 8
@@ -5299,7 +5299,7 @@ _ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu17ParserTokenReader14IgnoreUndefVarEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) %0, i1 noundef zeroext %1) local_unnamed_addr #13 align 2 {
+define void @_ZN2mu17ParserTokenReader14IgnoreUndefVarEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) initializes((48, 49)) %0, i1 noundef zeroext %1) local_unnamed_addr #13 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 %3, ptr %4, align 8
@@ -9936,7 +9936,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 declare void @_ZNK2mu10ParserBase5ErrorENS_11EErrorCodesEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(596), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2mu17ParserTokenReader9SetArgSepEc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) %0, i8 noundef signext %1) local_unnamed_addr #13 align 2 {
+define void @_ZN2mu17ParserTokenReader9SetArgSepEc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) initializes((392, 393)) %0, i8 noundef signext %1) local_unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 392
   store i8 %1, ptr %3, align 8
   ret void

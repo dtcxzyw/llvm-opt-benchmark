@@ -113,7 +113,7 @@ _ZN6vectorISt4pairIP4exprjELb0EjE6shrinkEj.exit:  ; preds = %for.end.thread, %fo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN9act_cache4initEv(ptr nocapture noundef nonnull align 8 dereferenceable(92) %this) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN9act_cache4initEv(ptr nocapture noundef nonnull align 8 dereferenceable(92) initializes((80, 88)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_max_unused = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %m_max_unused, align 8
@@ -231,7 +231,7 @@ for.end:                                          ; preds = %if.end.i.i.i.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN9act_cacheC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN9act_cacheC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((0, 8), (16, 28)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_init_slots.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -287,7 +287,7 @@ invoke.cont4:                                     ; preds = %for.body.i.i.i.i.i
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN9act_cacheC2ER11ast_managerj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %max_unused) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN9act_cacheC2ER11ast_managerj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((0, 8), (16, 28)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %max_unused) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_init_slots.i.i = getelementptr inbounds i8, ptr %this, i64 20

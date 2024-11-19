@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_zddProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Cudd_zddProduct(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   br label %5
 
@@ -323,7 +323,7 @@ tailrecurse:                                      ; preds = %21, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_zddUnateProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Cudd_zddUnateProduct(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   br label %5
 
@@ -529,7 +529,7 @@ cuddZddGetCofactors2.exit.thread:                 ; preds = %15, %13, %tailrecur
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_zddWeakDiv(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Cudd_zddWeakDiv(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   br label %5
 
@@ -755,7 +755,7 @@ define ptr @cuddZddWeakDiv(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_zddDivide(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Cudd_zddDivide(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   br label %5
 
@@ -899,7 +899,7 @@ cuddZddGetCofactors2.exit.thread:                 ; preds = %16, %23, %14, %12, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_zddWeakDivF(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Cudd_zddWeakDivF(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   br label %5
 
@@ -1229,7 +1229,7 @@ define ptr @cuddZddWeakDivF(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_zddDivideF(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Cudd_zddDivideF(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   br label %5
 
@@ -1690,7 +1690,7 @@ declare ptr @cuddZddGetNode(ptr noundef, i32 noundef, ptr noundef, ptr noundef) 
 declare void @cuddCacheInsert2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @cuddZddGetCofactors2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddZddGetCofactors2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 8)) %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = tail call ptr @cuddZddSubset1(ptr noundef %0, ptr noundef %1, i32 noundef %2) #4
   store ptr %6, ptr %3, align 8
   %7 = icmp eq ptr %6, null

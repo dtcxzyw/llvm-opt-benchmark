@@ -151,7 +151,7 @@ define dso_local ptr @__next_zones_zonelist(ptr noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local void @lruvec_init(ptr noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local void @lruvec_init(ptr noundef initializes((0, 136)) %0) local_unnamed_addr #2 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false)
   br label %2
 

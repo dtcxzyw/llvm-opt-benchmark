@@ -66,7 +66,7 @@ define void @_ZN5draco11MeshEncoderC2Ev(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN5draco17PointCloudEncoderC2Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5draco11MeshEncoder7SetMeshERKNS_4MeshE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN5draco11MeshEncoder7SetMeshERKNS_4MeshE(ptr noundef nonnull align 8 dereferenceable(128) initializes((112, 120)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %1, ptr %3, align 8
   tail call void @_ZN5draco17PointCloudEncoder13SetPointCloudERKNS_10PointCloudE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(164) %1)

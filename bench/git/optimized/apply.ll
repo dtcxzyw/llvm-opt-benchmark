@@ -316,7 +316,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.267 = private unnamed_addr constant [44 x i8] c"option callback does not expect an argument\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @init_apply_state(ptr noundef %state, ptr noundef %repo, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @init_apply_state(ptr noundef initializes((0, 448)) %state, ptr noundef %repo, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %state, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(448) %0, i8 0, i64 440, i1 false)
@@ -828,7 +828,7 @@ free_fragment_list.exit:                          ; preds = %if.end.i, %entry
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @parse_git_diff_header(ptr noundef %root, ptr nocapture noundef %linenr, i32 noundef %p_value, ptr noundef %line, i32 noundef %len, i32 noundef %size, ptr noundef %patch) local_unnamed_addr #0 {
+define dso_local i32 @parse_git_diff_header(ptr noundef %root, ptr nocapture noundef %linenr, i32 noundef %p_value, ptr noundef %line, i32 noundef %len, i32 noundef %size, ptr noundef initializes((32, 40)) %patch) local_unnamed_addr #0 {
 entry:
   %second.i = alloca ptr, align 8
   %first.i = alloca %struct.strbuf, align 8
@@ -1623,7 +1623,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @gitdiff_oldmode(ptr nocapture noundef readonly %state, ptr noundef %line, ptr nocapture noundef writeonly %patch) #0 {
+define internal range(i32 -1, 1) i32 @gitdiff_oldmode(ptr nocapture noundef readonly %state, ptr noundef %line, ptr nocapture noundef writeonly initializes((24, 28)) %patch) #0 {
 entry:
   %end.i = alloca ptr, align 8
   %linenr = getelementptr inbounds i8, ptr %state, i64 8
@@ -1667,7 +1667,7 @@ parse_mode_line.exit:                             ; preds = %lor.lhs.false.i, %_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @gitdiff_newmode(ptr nocapture noundef readonly %state, ptr noundef %line, ptr nocapture noundef writeonly %patch) #0 {
+define internal range(i32 -1, 1) i32 @gitdiff_newmode(ptr nocapture noundef readonly %state, ptr noundef %line, ptr nocapture noundef writeonly initializes((28, 32)) %patch) #0 {
 entry:
   %end.i = alloca ptr, align 8
   %linenr = getelementptr inbounds i8, ptr %state, i64 8
@@ -1711,7 +1711,7 @@ parse_mode_line.exit:                             ; preds = %lor.lhs.false.i, %_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @gitdiff_delete(ptr nocapture noundef readonly %state, ptr noundef %line, ptr nocapture noundef %patch) #0 {
+define internal range(i32 -1, 1) i32 @gitdiff_delete(ptr nocapture noundef readonly %state, ptr noundef %line, ptr nocapture noundef initializes((24, 28), (36, 40)) %patch) #0 {
 entry:
   %end.i.i = alloca ptr, align 8
   %is_delete = getelementptr inbounds i8, ptr %patch, i64 36
@@ -1772,7 +1772,7 @@ gitdiff_oldmode.exit:                             ; preds = %lor.lhs.false.i.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @gitdiff_newfile(ptr nocapture noundef readonly %state, ptr noundef %line, ptr nocapture noundef %patch) #0 {
+define internal range(i32 -1, 1) i32 @gitdiff_newfile(ptr nocapture noundef readonly %state, ptr noundef %line, ptr nocapture noundef initializes((28, 36)) %patch) #0 {
 entry:
   %end.i.i = alloca ptr, align 8
   %is_new = getelementptr inbounds i8, ptr %patch, i64 32
@@ -2421,7 +2421,7 @@ if.end85:                                         ; preds = %if.then84, %end
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -128, 2) i32 @apply_patch(ptr noundef %state, i32 noundef range(i32 0, -2147483648) %fd, ptr noundef %filename, i32 noundef %options) unnamed_addr #0 {
+define internal fastcc range(i32 -128, 2) i32 @apply_patch(ptr noundef initializes((120, 128)) %state, i32 noundef range(i32 0, -2147483648) %fd, ptr noundef %filename, i32 noundef %options) unnamed_addr #0 {
 entry:
   %result.i = alloca %struct.index_state, align 8
   %lock.i = alloca %struct.lock_file, align 8
@@ -12780,7 +12780,7 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #16
 declare i32 @repo_get_oid(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @clear_image(ptr nocapture noundef nonnull %image) unnamed_addr #17 {
+define internal fastcc void @clear_image(ptr nocapture noundef nonnull initializes((8, 32), (40, 48)) %image) unnamed_addr #17 {
 entry:
   %0 = load ptr, ptr %image, align 8
   tail call void @free(ptr noundef %0) #21

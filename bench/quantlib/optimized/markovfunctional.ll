@@ -9174,7 +9174,7 @@ _ZN8QuantLib28TermStructureConsistentModelD2Ev.exit: ; preds = %_ZNSt13unordered
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16MarkovFunctionalC1ERKNS_6HandleINS_18YieldTermStructureEEEdSt6vectorINS_4DateESaIS7_EES6_IdSaIdEERKNS1_INS_27SwaptionVolatilityStructureEEERKS9_RKS6_INS_6PeriodESaISI_EERKN5boost10shared_ptrINS_9SwapIndexEEENS0_13ModelSettingsE(ptr noundef nonnull align 8 dereferenceable(1344) %this, ptr noundef nonnull align 8 dereferenceable(16) %termStructure, double noundef %reversion, ptr nocapture noundef %volstepdates, ptr nocapture noundef %volatilities, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %swaptionVol, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %swaptionExpiries, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %swaptionTenors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %swapIndexBase, ptr nocapture noundef %modelSettings) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16MarkovFunctionalC1ERKNS_6HandleINS_18YieldTermStructureEEEdSt6vectorINS_4DateESaIS7_EES6_IdSaIdEERKNS1_INS_27SwaptionVolatilityStructureEEERKS9_RKS6_INS_6PeriodESaISI_EERKN5boost10shared_ptrINS_9SwapIndexEEENS0_13ModelSettingsE(ptr noundef nonnull align 8 dereferenceable(1344) initializes((1344, 1352), (1360, 1364), (1368, 1376)) %this, ptr noundef nonnull align 8 dereferenceable(16) %termStructure, double noundef %reversion, ptr nocapture noundef %volstepdates, ptr nocapture noundef %volatilities, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %swaptionVol, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %swaptionExpiries, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %swaptionTenors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %swapIndexBase, ptr nocapture noundef %modelSettings) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::shared_ptr.131", align 8
   %ref.tmp = alloca %"class.QuantLib::ConstantParameter", align 8
@@ -11839,7 +11839,7 @@ unreachable:                                      ; preds = %invoke.cont131, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16MarkovFunctionalC1ERKNS_6HandleINS_18YieldTermStructureEEEdSt6vectorINS_4DateESaIS7_EES6_IdSaIdEERKNS1_INS_28OptionletVolatilityStructureEEERKS9_N5boost10shared_ptrINS_9IborIndexEEENS0_13ModelSettingsE(ptr noundef nonnull align 8 dereferenceable(1344) %this, ptr noundef nonnull align 8 dereferenceable(16) %termStructure, double noundef %reversion, ptr nocapture noundef %volstepdates, ptr nocapture noundef %volatilities, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %capletVol, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %capletExpiries, ptr nocapture noundef %iborIndex, ptr nocapture noundef %modelSettings) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16MarkovFunctionalC1ERKNS_6HandleINS_18YieldTermStructureEEEdSt6vectorINS_4DateESaIS7_EES6_IdSaIdEERKNS1_INS_28OptionletVolatilityStructureEEERKS9_N5boost10shared_ptrINS_9IborIndexEEENS0_13ModelSettingsE(ptr noundef nonnull align 8 dereferenceable(1344) initializes((1344, 1352), (1360, 1364), (1368, 1376)) %this, ptr noundef nonnull align 8 dereferenceable(16) %termStructure, double noundef %reversion, ptr nocapture noundef %volstepdates, ptr nocapture noundef %volatilities, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %capletVol, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %capletExpiries, ptr nocapture noundef %iborIndex, ptr nocapture noundef %modelSettings) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::shared_ptr.132", align 8
   %ref.tmp = alloca %"class.QuantLib::ConstantParameter", align 8
@@ -25178,7 +25178,7 @@ unreachable:                                      ; preds = %invoke.cont40
 declare noundef double @_ZNK8QuantLib18YieldTermStructure8discountEdb(ptr noundef nonnull align 8 dereferenceable(152), double noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib16MarkovFunctional21deflatedZerobondArrayEddRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1344) %this, double noundef %T, double noundef %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %y) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib16MarkovFunctional21deflatedZerobondArrayEddRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1344) %this, double noundef %T, double noundef %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %y) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ya = alloca %"class.QuantLib::Array", align 8
   %res = alloca %"class.QuantLib::Array", align 8
@@ -31159,7 +31159,7 @@ _ZN8QuantLib5ArrayD2Ev.exit225:                   ; preds = %ehcleanup222, %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib16MarkovFunctional14numeraireArrayEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1344) %this, double noundef %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %y) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib16MarkovFunctional14numeraireArrayEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1344) %this, double noundef %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %y) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 24
   %vtable = load ptr, ptr %add.ptr, align 8, !tbaa !14

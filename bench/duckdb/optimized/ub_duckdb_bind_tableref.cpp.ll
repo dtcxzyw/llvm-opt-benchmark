@@ -8123,7 +8123,7 @@ _ZN6duckdb10unique_ptrINS_14BoundQueryNodeESt14default_deleteIS1_ELb1EE13AssertN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb6Binder4BindERNS_13EmptyTableRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %ref) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb6Binder4BindERNS_13EmptyTableRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %ref) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN6duckdb18BoundEmptyTableRefESt14default_deleteIS1_EED2Ev.exit:
   %call = tail call noundef i64 @_ZN6duckdb6Binder18GenerateTableIndexEv(ptr noundef nonnull align 8 dereferenceable(752) %this)
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26, !noalias !350
@@ -47818,7 +47818,7 @@ ehcleanup15:                                      ; preds = %if.then.i.i74, %_ZN
 declare void @_ZNK6duckdb5Value13DefaultCastAsERKNS_11LogicalTypeEb(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb6Binder10CreatePlanERNS_17BoundBaseTableRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.941") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(752) %this, ptr nocapture noundef nonnull align 8 dereferenceable(40) %ref) local_unnamed_addr #11 align 2 {
+define void @_ZN6duckdb6Binder10CreatePlanERNS_17BoundBaseTableRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.941") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(752) %this, ptr nocapture noundef nonnull align 8 dereferenceable(40) %ref) local_unnamed_addr #11 align 2 {
 entry:
   %get = getelementptr inbounds i8, ptr %ref, i64 32
   %0 = load i64, ptr %get, align 8, !tbaa !67
@@ -53057,7 +53057,7 @@ declare void @_ZN6duckdb23NotImplementedExceptionC1ERKNSt7__cxx1112basic_stringI
 declare void @_ZN6duckdb6Binder10CreatePlanERNS_14BoundQueryNodeE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.941") align 8, ptr noundef nonnull align 8 dereferenceable(752), ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb6Binder10CreatePlanERNS_18BoundTableFunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.941") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(752) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %ref) local_unnamed_addr #11 align 2 {
+define void @_ZN6duckdb6Binder10CreatePlanERNS_18BoundTableFunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.941") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(752) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %ref) local_unnamed_addr #11 align 2 {
 entry:
   %get = getelementptr inbounds i8, ptr %ref, i64 24
   %0 = load i64, ptr %get, align 8, !tbaa !67

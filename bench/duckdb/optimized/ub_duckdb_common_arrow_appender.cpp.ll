@@ -668,7 +668,7 @@ _ZN6duckdb21TemplatedValidityMaskImED2Ev.exit:    ; preds = %if.then7.i.i.i.i14,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6duckdb13ArrowBoolData8FinalizeERNS_15ArrowAppendDataERKNS_11LogicalTypeEP10ArrowArray(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %append_data, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %type, ptr nocapture noundef %result) local_unnamed_addr #4 align 2 {
+define void @_ZN6duckdb13ArrowBoolData8FinalizeERNS_15ArrowAppendDataERKNS_11LogicalTypeEP10ArrowArray(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %append_data, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %type, ptr nocapture noundef initializes((24, 32)) %result) local_unnamed_addr #4 align 2 {
 entry:
   %n_buffers = getelementptr inbounds i8, ptr %result, i64 24
   store i64 2, ptr %n_buffers, align 8, !tbaa !77
@@ -1561,7 +1561,7 @@ _ZN6duckdb10unique_ptrINS_6VectorESt14default_deleteIS1_ELb1EE13AssertNotNullEb.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb15ArrowStructData8FinalizeERNS_15ArrowAppendDataERKNS_11LogicalTypeEP10ArrowArray(ptr noundef nonnull align 8 dereferenceable(336) %append_data, ptr noundef nonnull align 8 dereferenceable(24) %type, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb15ArrowStructData8FinalizeERNS_15ArrowAppendDataERKNS_11LogicalTypeEP10ArrowArray(ptr noundef nonnull align 8 dereferenceable(336) %append_data, ptr noundef nonnull align 8 dereferenceable(24) %type, ptr nocapture noundef writeonly initializes((24, 40), (48, 56)) %result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.duckdb::unique_ptr.32", align 8
   %n_buffers = getelementptr inbounds i8, ptr %result, i64 24
@@ -2843,7 +2843,7 @@ _ZNSt12_Vector_baseIN6duckdb6VectorESaIS1_EED2Ev.exit: ; preds = %if.then.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb14ArrowUnionData8FinalizeERNS_15ArrowAppendDataERKNS_11LogicalTypeEP10ArrowArray(ptr noundef nonnull align 8 dereferenceable(336) %append_data, ptr noundef nonnull align 8 dereferenceable(24) %type, ptr nocapture noundef %result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb14ArrowUnionData8FinalizeERNS_15ArrowAppendDataERKNS_11LogicalTypeEP10ArrowArray(ptr noundef nonnull align 8 dereferenceable(336) %append_data, ptr noundef nonnull align 8 dereferenceable(24) %type, ptr nocapture noundef initializes((24, 32)) %result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::vector.26", align 8
   %agg.tmp = alloca %"class.duckdb::unique_ptr.32", align 8

@@ -862,7 +862,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @mycon(ptr noundef %0) #0 {
+define internal void @mycon(ptr noundef initializes((168, 180), (184, 248)) %0) #0 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3

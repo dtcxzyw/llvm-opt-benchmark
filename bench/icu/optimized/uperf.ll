@@ -86,7 +86,7 @@ entry:
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9UPerfTestC2EiPPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 {
+define void @_ZN9UPerfTestC2EiPPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 12), (16, 57), (64, 84), (88, 101), (104, 118), (120, 132), (136, 144)) %this, i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV9UPerfTest, i64 16), ptr %this, align 8
   %_argc = getelementptr inbounds i8, ptr %this, i64 8
@@ -126,7 +126,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9UPerfTest4initEP7UOptioniR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef %addOptions, i32 noundef %addOptionsCount, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #3 align 2 {
+define void @_ZN9UPerfTest4initEP7UOptioniR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) initializes((32, 40), (80, 84)) %this, ptr nocapture noundef %addOptions, i32 noundef %addOptionsCount, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #3 align 2 {
 entry:
   %len = alloca i32, align 4
   %resolvedFileName = getelementptr inbounds i8, ptr %this, i64 32
@@ -365,7 +365,7 @@ if.end86:                                         ; preds = %if.end71, %if.then8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9UPerfTestC2EiPPKcP7UOptioniS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %argc, ptr noundef %argv, ptr nocapture noundef %addOptions, i32 noundef %addOptionsCount, ptr noundef %addUsage, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 {
+define void @_ZN9UPerfTestC2EiPPKcP7UOptioniS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 12), (16, 57), (64, 84), (88, 101), (104, 118), (120, 132), (136, 144)) %this, i32 noundef %argc, ptr noundef %argv, ptr nocapture noundef %addOptions, i32 noundef %addOptionsCount, ptr noundef %addUsage, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV9UPerfTest, i64 16), ptr %this, align 8
   %_argc = getelementptr inbounds i8, ptr %this, i64 8
@@ -720,7 +720,7 @@ return:                                           ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN9UPerfTest7runTestEPcS0_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %name, ptr noundef %par) local_unnamed_addr #3 align 2 {
+define noundef signext i8 @_ZN9UPerfTest7runTestEPcS0_(ptr noundef nonnull align 8 dereferenceable(160) initializes((152, 160)) %this, ptr noundef %name, ptr noundef %par) local_unnamed_addr #3 align 2 {
 entry:
   %tobool.not = icmp eq ptr %name, null
   br i1 %tobool.not, label %if.then10.thread, label %if.end
@@ -805,7 +805,7 @@ declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #11
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9UPerfTest7setPathEPc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %this, ptr noundef %pathVal) local_unnamed_addr #12 align 2 {
+define void @_ZN9UPerfTest7setPathEPc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((152, 160)) %this, ptr noundef %pathVal) local_unnamed_addr #12 align 2 {
 entry:
   %path = getelementptr inbounds i8, ptr %this, i64 152
   store ptr %pathVal, ptr %path, align 8
@@ -1198,7 +1198,7 @@ do.end:                                           ; preds = %if.end9, %do.body, 
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9UPerfTest9setCallerEPS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %this, ptr noundef %callingTest) local_unnamed_addr #15 align 2 {
+define void @_ZN9UPerfTest9setCallerEPS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((144, 152)) %this, ptr noundef %callingTest) local_unnamed_addr #15 align 2 {
 entry:
   %caller = getelementptr inbounds i8, ptr %this, i64 144
   store ptr %callingTest, ptr %caller, align 8
@@ -1217,7 +1217,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN9UPerfTest8callTestERS_Pc(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(160) %testToBeCalled, ptr noundef %par) unnamed_addr #3 align 2 {
+define noundef signext i8 @_ZN9UPerfTest8callTestERS_Pc(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(160) initializes((116, 117), (144, 160)) %testToBeCalled, ptr noundef %par) unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr @_ZL9execCount, align 4
   %dec = add nsw i32 %0, -1
@@ -1235,7 +1235,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9UPerfTestD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9UPerfTestD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV9UPerfTest, i64 16), ptr %this, align 8
   %lines = getelementptr inbounds i8, ptr %this, i64 88

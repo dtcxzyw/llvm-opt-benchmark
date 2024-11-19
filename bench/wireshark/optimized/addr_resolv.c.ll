@@ -1083,7 +1083,7 @@ define hidden void @addr_resolve_pref_init(ptr noundef %0) local_unnamed_addr #2
 declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @dnsserver_uat_fld_ip_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly %5) #2 {
+define internal noundef zeroext i1 @dnsserver_uat_fld_ip_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %7
 
@@ -1114,7 +1114,7 @@ define internal void @dnsserverlist_uats_ipaddr_set_cb(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dnsserverlist_uats_ipaddr_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
+define internal void @dnsserverlist_uats_ipaddr_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -1139,7 +1139,7 @@ define internal void @dnsserverlist_uats_ipaddr_tostr_cb(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @dnsserver_uat_fld_port_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly %5) #2 {
+define internal noundef zeroext i1 @dnsserver_uat_fld_port_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #2 {
   %7 = alloca i16, align 2
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %17, label %8
@@ -1189,7 +1189,7 @@ define internal void @dnsserverlist_uats_tcp_port_set_cb(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dnsserverlist_uats_tcp_port_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
+define internal void @dnsserverlist_uats_tcp_port_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str, i32 noundef %7) #20
@@ -1211,7 +1211,7 @@ define internal void @dnsserverlist_uats_udp_port_set_cb(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dnsserverlist_uats_udp_port_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
+define internal void @dnsserverlist_uats_udp_port_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str, i32 noundef %7) #20
@@ -1225,7 +1225,7 @@ define internal void @dnsserverlist_uats_udp_port_tostr_cb(ptr nocapture noundef
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @dns_server_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
+define internal noundef ptr @dns_server_copy_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #20
   store ptr %5, ptr %0, align 8

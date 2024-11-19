@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @"__PRETTY_FUNCTION__._ZZ28_gmx_selelem_set_kwpos_flagsPN3gmx20SelectionTreeElementEiENK3$_0clEv" = private unnamed_addr constant [107 x i8] c"auto _gmx_selelem_set_kwpos_flags(gmx::SelectionTreeElement *, int)::(anonymous class)::operator()() const\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL13init_data_posiP18gmx_ana_selparam_t(i32 noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal noundef ptr @_ZL13init_data_posiP18gmx_ana_selparam_t(i32 noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) #0 {
   %3 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 208, i64 noundef 1, i64 noundef 64)
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -57,13 +57,13 @@ define internal noundef ptr @_ZL13init_data_posiP18gmx_ana_selparam_t(i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL15set_poscoll_posPN3gmx29PositionCalculationCollectionEPv(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 {
+define internal void @_ZL15set_poscoll_posPN3gmx29PositionCalculationCollectionEPv(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #1 {
   store ptr %0, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL10init_kwposPK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 {
+define internal void @_ZL10init_kwposPK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr noundef initializes((32, 40)) %3) #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 4
@@ -155,7 +155,7 @@ declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr n
 declare void @_Z22gmx_ana_poscalc_updateP17gmx_ana_poscalc_tP13gmx_ana_pos_tP15gmx_ana_index_tP10t_trxframePK5t_pbc(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL8init_cogPK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 {
+define internal void @_ZL8init_cogPK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr noundef initializes((32, 40), (56, 60)) %3) #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = shl i32 %6, 2
@@ -178,7 +178,7 @@ define internal void @_ZL8init_cogPK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr noc
 declare noundef ptr @_ZN3gmx29PositionCalculationCollection17createCalculationE11e_poscalc_ti(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL8init_comPK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 {
+define internal void @_ZL8init_comPK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr noundef initializes((32, 40), (56, 60)) %3) #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = shl i32 %6, 2

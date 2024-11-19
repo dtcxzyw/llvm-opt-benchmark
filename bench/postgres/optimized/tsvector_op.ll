@@ -3465,7 +3465,7 @@ define dso_local ptr @TS_execute_locations(ptr noundef %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @TS_execute_locations_recurse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc zeroext i1 @TS_execute_locations_recurse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull initializes((0, 8)) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   tail call void @check_stack_depth() #14
@@ -4504,7 +4504,7 @@ ts_accum.exit:                                    ; preds = %._crit_edge.i, %106
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ts_setup_firstcall(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @ts_setup_firstcall(ptr noundef %0, ptr nocapture noundef initializes((16, 24)) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %2, ptr %5, align 8

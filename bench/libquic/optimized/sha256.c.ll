@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @SHA256.buf = internal global [32 x i8] zeroinitializer, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @SHA224_Init(ptr nocapture noundef writeonly %sha) local_unnamed_addr #0 {
+define hidden noundef i32 @SHA224_Init(ptr nocapture noundef writeonly initializes((0, 112)) %sha) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %sha, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 76, i1 false)
@@ -37,7 +37,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @SHA256_Init(ptr nocapture noundef writeonly %sha) local_unnamed_addr #0 {
+define hidden noundef i32 @SHA256_Init(ptr nocapture noundef writeonly initializes((0, 112)) %sha) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %sha, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %0, i8 0, i64 76, i1 false)

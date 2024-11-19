@@ -3145,7 +3145,7 @@ define dso_local void @set_job_failed_assoc_qos_ptr(ptr noundef %0) local_unname
 declare i32 @assoc_mgr_fill_in_assoc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_determine_and_validate_qos(ptr noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, i1 noundef zeroext %5, i32 noundef range(i32 2, 7) %6) unnamed_addr #0 {
+define internal fastcc ptr @_determine_and_validate_qos(ptr noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4, i1 noundef zeroext %5, i32 noundef range(i32 2, 7) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
   tail call void @assoc_mgr_get_default_qos_info(ptr noundef %1, ptr noundef nonnull %3) #28
@@ -25527,7 +25527,7 @@ define internal fastcc void @_pack_pending_job_details(ptr noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @handle_invalid_dependency(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @handle_invalid_dependency(ptr noundef initializes((904, 908)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 39, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 896
@@ -36425,7 +36425,7 @@ declare i32 @job_test_resv_now(ptr noundef) local_unnamed_addr #1
 declare i32 @jobacct_storage_job_start_direct(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2018) i32 @job_node_ready(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2018) i32 @job_node_ready(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
   store i32 0, ptr %1, align 4
   %3 = load ptr, ptr @job_hash, align 8
   %4 = load i32, ptr @hash_table_size, align 4
@@ -41363,7 +41363,7 @@ define internal fastcc range(i32 -1, 1) i32 @_select_nodes_resvs(ptr noundef %0,
 declare i32 @select_nodes(ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_select_nodes_parts_resvs(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_select_nodes_parts_resvs(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull initializes((0, 4)) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   store ptr %0, ptr %7, align 8
   %8 = call i32 @job_limits_check(ptr noundef nonnull %7, i1 noundef zeroext false)
@@ -44188,7 +44188,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @_max_switch_wait(i32 nound
 declare ptr @find_resv_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2071) i32 @_alt_part_test(ptr noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2071) i32 @_alt_part_test(ptr noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1) unnamed_addr #0 {
   store ptr null, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 298
   %4 = load i16, ptr %3, align 2
@@ -45114,7 +45114,7 @@ declare i32 @license_job_get(ptr noundef, i1 noundef zeroext) local_unnamed_addr
 declare i32 @fed_mgr_update_job(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_release_job_rec(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_release_job_rec(ptr noundef initializes((224, 226)) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call i64 @time(ptr noundef null) #28
   %4 = getelementptr inbounds i8, ptr %0, i64 216
   %5 = load ptr, ptr %4, align 8
@@ -45190,7 +45190,7 @@ set_job_prio.exit:                                ; preds = %11, %17, %22, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_hold_job_rec(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_hold_job_rec(ptr noundef initializes((224, 226), (712, 716)) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call i64 @time(ptr noundef null) #28
   %4 = getelementptr inbounds i8, ptr %0, i64 224
   store i16 1, ptr %4, align 8

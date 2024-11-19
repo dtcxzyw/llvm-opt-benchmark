@@ -61,7 +61,7 @@ define zeroext i1 @"_ZN67_$LT$logos_codegen..graph..NodeId$u20$as$u20$core..fmt.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN13logos_codegen4leaf142_$LT$impl$u20$core..convert..From$LT$logos_codegen..leaf..Leaf$GT$$u20$for$u20$logos_codegen..graph..Node$LT$logos_codegen..leaf..Leaf$GT$$GT$4from17h0cdb4722b469afedE"(ptr nocapture writeonly sret([88 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
+define void @"_ZN13logos_codegen4leaf142_$LT$impl$u20$core..convert..From$LT$logos_codegen..leaf..Leaf$GT$$u20$for$u20$logos_codegen..graph..Node$LT$logos_codegen..leaf..Leaf$GT$$GT$4from17h0cdb4722b469afedE"(ptr nocapture writeonly sret([88 x i8]) align 8 initializes((0, 88)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
   ret void
 }

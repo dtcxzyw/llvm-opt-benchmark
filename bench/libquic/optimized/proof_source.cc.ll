@@ -34,7 +34,7 @@ $_ZTIN4base10RefCountedIN3net11ProofSource5ChainEEE = comdat any
 @_ZN3net11ProofSource5ChainD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net11ProofSource5ChainD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net11ProofSource5ChainC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %certs) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net11ProofSource5ChainC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 12)) %this, ptr noundef nonnull align 8 dereferenceable(24) %certs) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %0, align 8
@@ -151,7 +151,7 @@ eh.resume:                                        ; preds = %if.then.i.i, %lpad1
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net11ProofSource5ChainD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net11ProofSource5ChainD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net11ProofSource5ChainE, i64 16), ptr %this, align 8
   %certs = getelementptr inbounds i8, ptr %this, i64 16
@@ -186,7 +186,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net11ProofSource5ChainD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net11ProofSource5ChainD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net11ProofSource5ChainE, i64 16), ptr %this, align 8
   %certs.i = getelementptr inbounds i8, ptr %this, i64 16

@@ -2227,7 +2227,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_117InvalidPtrCheckerEKFvRKNS0_9CallEventERNS0_14CheckerContextEEEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionESA_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr readonly %.0.val, i64 %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_117InvalidPtrCheckerEKFvRKNS0_9CallEventERNS0_14CheckerContextEEEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionESA_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr readonly %.0.val, i64 %.8.val) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds %"struct.std::pair.149", ptr %.0.val, i64 %.8.val
   %.idx.i = mul nsw i64 %.8.val, 80
@@ -2800,7 +2800,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit71: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117InvalidPtrCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117InvalidPtrCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_117InvalidPtrCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
@@ -2976,7 +2976,7 @@ _ZN5clang4ento15CallDescriptionD2Ev.exit:         ; preds = %_ZSt8_DestroyIPNSt7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117InvalidPtrCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117InvalidPtrCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_117InvalidPtrCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 256) #21
   ret void

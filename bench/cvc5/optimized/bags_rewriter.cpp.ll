@@ -153,7 +153,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory4bags19BagsRewriteResponseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory4bags19BagsRewriteResponseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %0 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !4
@@ -190,7 +190,7 @@ _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %if.then.i.i.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory4bags19BagsRewriteResponseC2ENS0_12NodeTemplateILb1EEENS2_7RewriteE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, ptr nocapture noundef readonly %n, i32 noundef %rewrite) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory4bags19BagsRewriteResponseC2ENS0_12NodeTemplateILb1EEENS2_7RewriteE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr nocapture noundef readonly %n, i32 noundef %rewrite) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %n, align 8
   store ptr %0, ptr %this, align 8
@@ -226,7 +226,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory4bags19BagsRewriteResponseC2ERKS3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %r) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory4bags19BagsRewriteResponseC2ERKS3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %r) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %r, align 8
   store ptr %0, ptr %this, align 8
@@ -264,7 +264,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory4bags12BagsRewriterC2EPNS1_8RewriterEPNS0_13HistogramStatINS2_7RewriteEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %r, ptr noundef %statistics) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory4bags12BagsRewriterC2EPNS1_8RewriterEPNS0_13HistogramStatINS2_7RewriteEEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, ptr noundef %r, ptr noundef %statistics) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp7 = alloca %"class.cvc5::internal::Rational", align 8
@@ -4618,7 +4618,7 @@ eh.resume:                                        ; preds = %ehcleanup10.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory4bags12BagsRewriter15rewriteUnionMaxERKNS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::bags::BagsRewriteResponse") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory4bags12BagsRewriter15rewriteUnionMaxERKNS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::bags::BagsRewriteResponse") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp35 = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -6391,7 +6391,7 @@ eh.resume:                                        ; preds = %lpad.i, %lpad18, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory4bags12BagsRewriter22rewriteIntersectionMinERKNS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::bags::BagsRewriteResponse") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory4bags12BagsRewriter22rewriteIntersectionMinERKNS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::bags::BagsRewriteResponse") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp14 = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -9829,7 +9829,7 @@ eh.resume:                                        ; preds = %lpad14, %lpad215, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory4bags12BagsRewriter11rewriteCardERKNS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::bags::BagsRewriteResponse") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory4bags12BagsRewriter11rewriteCardERKNS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::bags::BagsRewriteResponse") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp2 = alloca %"class.cvc5::internal::NodeTemplate.60", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -17481,7 +17481,7 @@ ehcleanup67:                                      ; preds = %lpad64, %lpad58, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory4bags12BagsRewriter15preRewriteEqualERKNS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::bags::BagsRewriteResponse") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory4bags12BagsRewriter15preRewriteEqualERKNS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::bags::BagsRewriteResponse") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp5 = alloca i8, align 1

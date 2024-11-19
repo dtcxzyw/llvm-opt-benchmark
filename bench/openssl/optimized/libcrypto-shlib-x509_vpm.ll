@@ -737,7 +737,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @X509_VERIFY_PARAM_set_inh_flags(ptr nocapture noundef writeonly %param, i32 noundef %flags) local_unnamed_addr #4 {
+define noundef i32 @X509_VERIFY_PARAM_set_inh_flags(ptr nocapture noundef writeonly initializes((16, 20)) %param, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %inh_flags = getelementptr inbounds i8, ptr %param, i64 16
   store i32 %flags, ptr %inh_flags, align 8
@@ -765,7 +765,7 @@ entry:
 declare i32 @X509_TRUST_set(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_VERIFY_PARAM_set_depth(ptr nocapture noundef writeonly %param, i32 noundef %depth) local_unnamed_addr #4 {
+define void @X509_VERIFY_PARAM_set_depth(ptr nocapture noundef writeonly initializes((40, 44)) %param, i32 noundef %depth) local_unnamed_addr #4 {
 entry:
   %depth1 = getelementptr inbounds i8, ptr %param, i64 40
   store i32 %depth, ptr %depth1, align 8
@@ -773,7 +773,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_VERIFY_PARAM_set_auth_level(ptr nocapture noundef writeonly %param, i32 noundef %auth_level) local_unnamed_addr #4 {
+define void @X509_VERIFY_PARAM_set_auth_level(ptr nocapture noundef writeonly initializes((44, 48)) %param, i32 noundef %auth_level) local_unnamed_addr #4 {
 entry:
   %auth_level1 = getelementptr inbounds i8, ptr %param, i64 44
   store i32 %auth_level, ptr %auth_level1, align 4
@@ -789,7 +789,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @X509_VERIFY_PARAM_set_time(ptr nocapture noundef %param, i64 noundef %t) local_unnamed_addr #2 {
+define void @X509_VERIFY_PARAM_set_time(ptr nocapture noundef initializes((8, 16)) %param, i64 noundef %t) local_unnamed_addr #2 {
 entry:
   %check_time = getelementptr inbounds i8, ptr %param, i64 8
   store i64 %t, ptr %check_time, align 8
@@ -956,7 +956,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_VERIFY_PARAM_set_hostflags(ptr nocapture noundef writeonly %param, i32 noundef %flags) local_unnamed_addr #4 {
+define void @X509_VERIFY_PARAM_set_hostflags(ptr nocapture noundef writeonly initializes((64, 68)) %param, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %hostflags = getelementptr inbounds i8, ptr %param, i64 64
   store i32 %flags, ptr %hostflags, align 8

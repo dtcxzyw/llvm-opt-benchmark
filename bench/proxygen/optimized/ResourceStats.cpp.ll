@@ -286,7 +286,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen13ResourceStatsD2Ev(ptr noundef nonnull align 16 dereferenceable(184) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen13ResourceStatsD2Ev(ptr noundef nonnull align 16 dereferenceable(184) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13ResourceStatsE, i64 16), ptr %this, align 16
   %schedulerMutex_.i = getelementptr inbounds i8, ptr %this, i64 64

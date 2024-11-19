@@ -154,7 +154,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers16ExampleEvalCacheC2EPNS2_11TermDbSygusENS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %tds, ptr noundef nonnull %e) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers16ExampleEvalCacheC2EPNS2_11TermDbSygusENS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 32)) %this, ptr noundef %tds, ptr noundef nonnull %e) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   store ptr %tds, ptr %this, align 8

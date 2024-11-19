@@ -339,7 +339,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @InitSSL_Method(ptr nocapture noundef writeonly %method, i16 %pv.coerce) local_unnamed_addr #2 {
+define void @InitSSL_Method(ptr nocapture noundef writeonly initializes((0, 4)) %method, i16 %pv.coerce) local_unnamed_addr #2 {
 entry:
   store i16 %pv.coerce, ptr %method, align 1
   %side = getelementptr inbounds i8, ptr %method, i64 2
@@ -353,7 +353,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @InitSSL_Ctx(ptr noundef %ctx, ptr noundef %method, ptr noundef %heap) local_unnamed_addr #4 {
+define i32 @InitSSL_Ctx(ptr noundef initializes((0, 304)) %ctx, ptr noundef %method, ptr noundef %heap) local_unnamed_addr #4 {
 entry:
   %ret = alloca i32, align 4
   store i32 0, ptr %ret, align 4
@@ -694,7 +694,7 @@ declare void @wolfSSL_RefDec(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @wolfSSL_RefFree(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @InitCiphers(ptr nocapture noundef writeonly %ssl) local_unnamed_addr #2 {
+define void @InitCiphers(ptr nocapture noundef writeonly initializes((256, 264), (280, 288), (289, 290), (296, 304), (320, 328), (329, 330), (1184, 1193)) %ssl) local_unnamed_addr #2 {
 entry:
   %encrypt = getelementptr inbounds i8, ptr %ssl, i64 256
   store ptr null, ptr %encrypt, align 16
@@ -965,7 +965,7 @@ if.end75:                                         ; preds = %if.end63, %if.then7
 declare void @wc_AesFree(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @InitCipherSpecs(ptr nocapture noundef writeonly %cs) local_unnamed_addr #2 {
+define void @InitCipherSpecs(ptr nocapture noundef writeonly initializes((0, 16)) %cs) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %cs, i8 0, i64 16, i1 false)
   %bulk_cipher_algorithm = getelementptr inbounds i8, ptr %cs, i64 8
@@ -974,7 +974,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @InitSuitesHashSigAlgo_ex2(ptr noundef writeonly %hashSigAlgo, i32 noundef %haveSig, i32 noundef %tls1_2, i32 %keySz, ptr nocapture noundef writeonly %len) local_unnamed_addr #2 {
+define void @InitSuitesHashSigAlgo_ex2(ptr noundef writeonly %hashSigAlgo, i32 noundef %haveSig, i32 noundef %tls1_2, i32 %keySz, ptr nocapture noundef writeonly initializes((0, 2)) %len) local_unnamed_addr #2 {
 entry:
   %and = and i32 %haveSig, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -1139,7 +1139,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @InitSuitesHashSigAlgo_ex(ptr noundef %hashSigAlgo, i32 noundef %haveECDSAsig, i32 noundef %haveRSAsig, i32 noundef %haveFalconSig, i32 noundef %haveDilithiumSig, i32 noundef %haveAnon, i32 noundef %tls1_2, i32 noundef %keySz, ptr nocapture noundef writeonly %len) local_unnamed_addr #2 {
+define void @InitSuitesHashSigAlgo_ex(ptr noundef %hashSigAlgo, i32 noundef %haveECDSAsig, i32 noundef %haveRSAsig, i32 noundef %haveFalconSig, i32 noundef %haveDilithiumSig, i32 noundef %haveAnon, i32 noundef %tls1_2, i32 noundef %keySz, ptr nocapture noundef writeonly initializes((0, 2)) %len) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp ne i32 %haveECDSAsig, 0
   %spec.select = zext i1 %tobool.not to i32
@@ -1616,7 +1616,7 @@ if.end439:                                        ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @DecodeSigAlg(ptr nocapture noundef readonly %input, ptr nocapture noundef writeonly %hashAlgo, ptr nocapture noundef writeonly %hsType) local_unnamed_addr #8 {
+define void @DecodeSigAlg(ptr nocapture noundef readonly %input, ptr nocapture noundef writeonly initializes((0, 1)) %hashAlgo, ptr nocapture noundef writeonly initializes((0, 1)) %hsType) local_unnamed_addr #8 {
 entry:
   store i8 -1, ptr %hsType, align 1
   %0 = load i8, ptr %input, align 1
@@ -3043,7 +3043,7 @@ return:                                           ; preds = %if.end40, %if.then4
 declare i32 @wc_InitRng_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i32 @InitSSL(ptr noundef %ssl, ptr noundef %ctx, i32 noundef %writeDup) local_unnamed_addr #4 {
+define i32 @InitSSL(ptr noundef initializes((0, 1216)) %ssl, ptr noundef %ctx, i32 noundef %writeDup) local_unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1216) %ssl, i8 0, i64 1216, i1 false)
   %heap = getelementptr inbounds i8, ptr %ctx, i64 160
@@ -5141,7 +5141,7 @@ if.end4:                                          ; preds = %FreeSSL_Ctx.exit, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @WriteSEQ(ptr nocapture noundef %ssl, i32 noundef %verifyOrder, ptr nocapture noundef writeonly %out) local_unnamed_addr #8 {
+define void @WriteSEQ(ptr nocapture noundef %ssl, i32 noundef %verifyOrder, ptr nocapture noundef writeonly initializes((0, 8)) %out) local_unnamed_addr #8 {
 entry:
   %dtls = getelementptr inbounds i8, ptr %ssl, i64 1008
   %bf.load = load i64, ptr %dtls, align 8
@@ -6984,7 +6984,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ProcessPeerCerts(ptr noundef %ssl, ptr noundef %input, ptr nocapture noundef %inOutIdx, i32 noundef %totalSz) local_unnamed_addr #4 {
+define i32 @ProcessPeerCerts(ptr noundef initializes((1028, 1029)) %ssl, ptr noundef %input, ptr nocapture noundef %inOutIdx, i32 noundef %totalSz) local_unnamed_addr #4 {
 sw.bb:
   %args = alloca [1 x %struct.ProcPeerCertArgs], align 16
   %add502 = alloca ptr, align 8
@@ -9966,7 +9966,7 @@ return:                                           ; preds = %if.end85, %while.bo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @DoServerKeyExchange(ptr noundef %ssl, ptr noundef %input, ptr nocapture noundef %inOutIdx, i32 noundef %size) unnamed_addr #4 {
+define internal fastcc i32 @DoServerKeyExchange(ptr noundef initializes((1028, 1029)) %ssl, ptr noundef %input, ptr nocapture noundef %inOutIdx, i32 noundef %size) unnamed_addr #4 {
 sw.bb:
   %args = alloca [1 x %struct.DskeArgs], align 16
   %encodedSig = alloca [512 x i8], align 16
@@ -11652,7 +11652,7 @@ return:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @DoClientKeyExchange(ptr noundef %ssl, ptr noundef %input, ptr nocapture noundef %inOutIdx, i32 noundef %size) unnamed_addr #4 {
+define internal fastcc i32 @DoClientKeyExchange(ptr noundef initializes((1028, 1029)) %ssl, ptr noundef %input, ptr nocapture noundef %inOutIdx, i32 noundef %size) unnamed_addr #4 {
 sw.bb:
   %outTmp.i = alloca ptr, align 8
   %args = alloca [1 x %struct.DckeArgs], align 16
@@ -12357,7 +12357,7 @@ if.end554:                                        ; preds = %while.body12.i, %wh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -329, 1) i32 @DoCertificateVerify(ptr noundef %ssl, ptr noundef %input, ptr nocapture noundef %inOutIdx, i32 noundef %size) unnamed_addr #4 {
+define internal fastcc range(i32 -329, 1) i32 @DoCertificateVerify(ptr noundef initializes((1028, 1029)) %ssl, ptr noundef %input, ptr nocapture noundef %inOutIdx, i32 noundef %size) unnamed_addr #4 {
 sw.bb11:
   %args = alloca [1 x %struct.DcvArgs], align 16
   %encodedSig = alloca [512 x i8], align 16
@@ -16288,7 +16288,7 @@ return:                                           ; preds = %do.body, %if.end57,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @DecryptTls(ptr noundef %ssl, ptr noundef %plain, ptr noundef %input, i16 noundef zeroext %sz) unnamed_addr #4 {
+define internal fastcc i32 @DecryptTls(ptr noundef initializes((328, 329)) %ssl, ptr noundef %plain, ptr noundef %input, i16 noundef zeroext %sz) unnamed_addr #4 {
 entry:
   %state = getelementptr inbounds i8, ptr %ssl, i64 328
   store i8 0, ptr %state, align 8
@@ -19723,7 +19723,7 @@ return:                                           ; preds = %entry, %if.end34.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -387, 1) i32 @SendAlert_ex(ptr noundef %ssl, i32 noundef %severity, i32 noundef %type) unnamed_addr #4 {
+define internal fastcc range(i32 -387, 1) i32 @SendAlert_ex(ptr noundef initializes((640, 648)) %ssl, i32 noundef %severity, i32 noundef %type) unnamed_addr #4 {
 entry:
   %input = alloca [2 x i8], align 2
   %pendingAlert = getelementptr inbounds i8, ptr %ssl, i64 640
@@ -21088,7 +21088,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -501, 1) i32 @PickHashSigAlgo(ptr nocapture noundef %ssl, ptr nocapture noundef readonly %hashSigAlgo, i32 noundef %hashSigAlgoSz) local_unnamed_addr #21 {
+define range(i32 -501, 1) i32 @PickHashSigAlgo(ptr nocapture noundef initializes((1019, 1021)) %ssl, ptr nocapture noundef readonly %hashSigAlgo, i32 noundef %hashSigAlgoSz) local_unnamed_addr #21 {
 entry:
   %version = getelementptr inbounds i8, ptr %ssl, i64 694
   %0 = load i16, ptr %version, align 2

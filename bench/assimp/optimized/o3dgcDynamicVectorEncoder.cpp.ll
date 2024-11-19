@@ -20,7 +20,7 @@ $_ZN5o3dgc12BinaryStream15WriteFloat32BinEf = comdat any
 @_ZN5o3dgc20DynamicVectorEncoderD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5o3dgc20DynamicVectorEncoderD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5o3dgc20DynamicVectorEncoderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN5o3dgc20DynamicVectorEncoderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((0, 60)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %this, i8 0, i64 60, i1 false)
   ret void
@@ -56,7 +56,7 @@ delete.end4:                                      ; preds = %delete.notnull3, %d
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc20DynamicVectorEncoder6EncodeERKNS_14DVEncodeParamsERKNS_13DynamicVectorERNS_12BinaryStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %params, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %dynamicVector, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN5o3dgc20DynamicVectorEncoder6EncodeERKNS_14DVEncodeParamsERKNS_13DynamicVectorERNS_12BinaryStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((56, 60)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %params, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %dynamicVector, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #3 align 2 {
 entry:
   %m_size.i.i = getelementptr inbounds i8, ptr %bstream, i64 16
   %0 = load i64, ptr %m_size.i.i, align 8
@@ -122,7 +122,7 @@ _ZN5o3dgc12BinaryStream11WriteUInt32EmmNS_15O3DGCStreamTypeE.exit: ; preds = %fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc20DynamicVectorEncoder12EncodeHeaderERKNS_14DVEncodeParamsERKNS_13DynamicVectorERNS_12BinaryStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %params, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %dynamicVector, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN5o3dgc20DynamicVectorEncoder12EncodeHeaderERKNS_14DVEncodeParamsERKNS_13DynamicVectorERNS_12BinaryStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((56, 60)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %params, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %dynamicVector, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #3 align 2 {
 entry:
   %m_streamTypeMode.i = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %m_streamTypeMode.i, align 8

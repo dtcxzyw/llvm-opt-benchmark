@@ -1099,7 +1099,7 @@ declare void @dt_iop_default_init(ptr noundef) local_unnamed_addr #3
 declare i32 @dt_conf_get_int(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @init_global(ptr nocapture noundef writeonly %0) local_unnamed_addr #9 {
+define void @init_global(ptr nocapture noundef writeonly initializes((528, 536)) %0) local_unnamed_addr #9 {
   %2 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 528
   store ptr %2, ptr %3, align 8, !tbaa !116
@@ -1483,7 +1483,7 @@ declare void @dt_masks_change_form_gui(ptr noundef) local_unnamed_addr #3
 declare void @dt_iop_refresh_center(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @tiling_callback(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #13 {
+define void @tiling_callback(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr nocapture noundef writeonly initializes((0, 32)) %4) local_unnamed_addr #13 {
   %6 = getelementptr inbounds i8, ptr %0, i64 680
   %7 = load ptr, ptr %6, align 8, !tbaa !35
   %8 = getelementptr inbounds i8, ptr %7, i64 13204
@@ -1501,7 +1501,7 @@ define void @tiling_callback(ptr nocapture noundef readonly %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #14 {
+define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #14 {
   %4 = tail call noalias dereferenceable_or_null(13260) ptr @malloc(i64 noundef 13260) #28
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !151
@@ -2307,7 +2307,7 @@ define void @change_image(ptr nocapture noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #1 {
   %2 = alloca [3 x double], align 16
   %3 = alloca %struct._GdkRGBA, align 16
   %4 = tail call ptr @dt_alloc_aligned(i64 noundef 336) #27
@@ -5605,7 +5605,7 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
 declare void @dt_control_signal_disconnect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @modify_roi_in(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
+define void @modify_roi_in(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((0, 20)) %3) local_unnamed_addr #1 {
   %5 = alloca [4 x float], align 16
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -11337,7 +11337,7 @@ define internal fastcc void @image_lab2rgb(ptr nocapture noundef nonnull %0, i32
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #24 {
+define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 12)) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #24 {
   %6 = add nsw i32 %4, -1
   %7 = sitofp i32 %6 to float
   %8 = add nsw i32 %4, -2

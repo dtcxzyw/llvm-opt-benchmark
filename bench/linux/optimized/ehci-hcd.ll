@@ -1495,7 +1495,7 @@ define internal fastcc noundef range(i32 -110, 1) i32 @ehci_halt(ptr noundef %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -110, 1) i32 @ehci_setup(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -110, 1) i32 @ehci_setup(ptr noundef initializes((800, 808), (816, 824), (1313, 1314)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 608
   %3 = getelementptr inbounds i8, ptr %0, i64 792
   %4 = load ptr, ptr %3, align 8
@@ -2193,7 +2193,7 @@ define dso_local noundef range(i32 0, 2) i32 @ehci_resume(ptr noundef %0, i1 nou
 declare dso_local void @usb_root_hub_lost_power(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @ehci_init_driver(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) #5 align 16 {
+define dso_local void @ehci_init_driver(ptr nocapture noundef writeonly initializes((0, 376)) %0, ptr noundef readonly %1) #5 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(376) %0, ptr noundef nonnull align 8 dereferenceable(376) @ehci_hc_driver, i64 376, i1 false)
   %3 = icmp eq ptr %1, null
   br i1 %3, label %19, label %4
@@ -2366,7 +2366,7 @@ define internal noundef i32 @ehci_hrtimer_func(ptr noundef %0) #0 align 16 {
 declare dso_local i64 @ktime_get() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ehci_enable_event(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @ehci_enable_event(ptr noundef initializes((48, 56)) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 48
   %3 = tail call i64 @ktime_get() #19
   %4 = add i64 %3, 2000000
@@ -7318,7 +7318,7 @@ define internal noundef range(i32 0, 2) i32 @ehci_irq(ptr noundef %0) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -110, 1) i32 @ehci_run(ptr nocapture noundef %0) #0 align 16 {
+define internal noundef range(i32 -110, 1) i32 @ehci_run(ptr nocapture noundef initializes((824, 828)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 340
   %3 = load i16, ptr %2, align 4
   %4 = or i16 %3, 32
@@ -9344,7 +9344,7 @@ define internal void @ehci_endpoint_reset(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 3) i32 @ehci_hub_status_data(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal range(i32 0, 3) i32 @ehci_hub_status_data(ptr noundef %0, ptr nocapture noundef initializes((0, 1)) %1) #0 align 16 {
   store i8 0, ptr %1, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 816
   %4 = load i32, ptr %3, align 8
@@ -12410,7 +12410,7 @@ define internal fastcc noundef ptr @iso_stream_alloc() unnamed_addr #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @iso_stream_init(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @iso_stream_init(ptr nocapture noundef nonnull initializes((8, 9), (48, 64), (84, 86), (90, 91), (92, 93), (104, 112)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 80

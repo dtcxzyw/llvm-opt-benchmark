@@ -123,7 +123,7 @@ define dso_local range(i32 0, 3) i32 @acpi_ns_local(i32 noundef %0) local_unname
 declare dso_local zeroext i8 @acpi_ut_valid_object_type(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @acpi_ns_get_internal_name_length(ptr nocapture noundef %0) local_unnamed_addr #4 align 16 {
+define dso_local void @acpi_ns_get_internal_name_length(ptr nocapture noundef initializes((28, 37)) %0) local_unnamed_addr #4 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 28

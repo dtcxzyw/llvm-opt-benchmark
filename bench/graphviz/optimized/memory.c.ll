@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @freeinit(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @freeinit(ptr nocapture noundef initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   %3 = and i32 %1, 7
   %4 = icmp eq i32 %3, 0
@@ -161,7 +161,7 @@ gv_calloc.exit:                                   ; preds = %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @makefree(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
+define void @makefree(ptr noundef initializes((0, 8)) %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   store ptr %0, ptr %1, align 8

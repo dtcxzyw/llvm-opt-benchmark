@@ -660,7 +660,7 @@ declare void @_cmsFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Chromaticity_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 {
+define internal ptr @Type_Chromaticity_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
   store i32 0, ptr %2, align 4
@@ -843,7 +843,7 @@ define internal void @Type_Chromaticity_Free(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_ColorantOrderType_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal ptr @Type_ColorantOrderType_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %2, align 4
   %6 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef nonnull %5) #13
@@ -935,7 +935,7 @@ define internal void @Type_ColorantOrderType_Free(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_S15Fixed16_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 {
+define internal ptr @Type_S15Fixed16_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
   store i32 0, ptr %2, align 4
   %5 = lshr i32 %3, 2
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1023,7 +1023,7 @@ define internal void @Type_S15Fixed16_Free(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_U16Fixed16_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 {
+define internal ptr @Type_U16Fixed16_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %2, align 4
   %6 = lshr i32 %3, 2
@@ -1214,7 +1214,7 @@ define internal void @Type_Text_Free(ptr nocapture readnone %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Text_Description_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 {
+define internal ptr @Type_Text_Description_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1537,7 +1537,7 @@ define internal void @Type_Text_Description_Free(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Curve_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal ptr @Type_Curve_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca double, align 8
   %7 = alloca i16, align 2
@@ -1811,7 +1811,7 @@ define internal void @Type_ParametricCurve_Free(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_DateTime_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal ptr @Type_DateTime_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
   %5 = alloca %struct.cmsDateTimeNumber, align 2
   store i32 0, ptr %2, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1866,7 +1866,7 @@ define internal void @Type_DateTime_Free(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_LUT8_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal ptr @Type_LUT8_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -2463,7 +2463,7 @@ define internal void @Type_LUT8_Free(ptr nocapture readnone %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_LUT16_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal ptr @Type_LUT16_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -3238,7 +3238,7 @@ define internal void @Type_ColorantTable_Free(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_NamedColor_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal ptr @Type_NamedColor_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3457,7 +3457,7 @@ define internal void @Type_NamedColor_Free(ptr nocapture readnone %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_MLU_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 {
+define internal ptr @Type_MLU_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3733,7 +3733,7 @@ define internal void @Type_MLU_Free(ptr nocapture readnone %0, ptr noundef %1) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_ProfileSequenceDesc_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 {
+define internal ptr @Type_ProfileSequenceDesc_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %2, align 4
   %6 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef nonnull %5) #13
@@ -4108,7 +4108,7 @@ define internal void @Type_Measurement_Free(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Data_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 {
+define internal ptr @Type_Data_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
   store i32 0, ptr %2, align 4
   %5 = icmp ult i32 %3, 4
   br i1 %5, label %28, label %6
@@ -4971,7 +4971,7 @@ define internal void @Type_LUTB2A_Free(ptr nocapture readnone %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_UcrBg_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 {
+define internal ptr @Type_UcrBg_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -5259,7 +5259,7 @@ define internal void @Type_UcrBg_Free(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @Type_CrdInfo_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 {
+define internal noundef ptr @Type_CrdInfo_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   store i32 %3, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -5972,7 +5972,7 @@ define internal void @Type_ViewingConditions_Free(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_XYZ_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal ptr @Type_XYZ_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
   store i32 0, ptr %2, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -6022,7 +6022,7 @@ define internal void @Type_XYZ_Free(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_ProfileSequenceId_Read(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal ptr @Type_ProfileSequenceId_Read(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %2, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 304
@@ -6094,7 +6094,7 @@ define internal void @Type_ProfileSequenceId_Free(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_Dictionary_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 {
+define internal ptr @Type_Dictionary_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -7008,7 +7008,7 @@ define internal void @Type_VideoSignal_Free(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_vcgt_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 {
+define internal ptr @Type_vcgt_Read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i16, align 2
   %7 = alloca i16, align 2
@@ -9372,7 +9372,7 @@ GetHandler.exit:                                  ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Type_MPEcurve_Read(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 %3) #0 {
+define internal ptr @Type_MPEcurve_Read(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #0 {
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
   store i32 0, ptr %2, align 4
@@ -10638,7 +10638,7 @@ SaveDescription.exit.thread:                      ; preds = %24, %20, %SaveDescr
 declare ptr @cmsDictAlloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @AllocArray(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @AllocArray(ptr noundef %0, ptr nocapture noundef nonnull initializes((0, 96)) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %1, i8 0, i64 96, i1 false)
   %5 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %2, i32 noundef 4) #13
   %6 = getelementptr inbounds i8, ptr %1, i64 8

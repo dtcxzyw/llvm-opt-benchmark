@@ -2777,14 +2777,14 @@ declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((168, 176)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTables10init_queryEPKf(ptr noundef nonnull align 8 dereferenceable(184) %3, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((8, 16), (176, 188)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -9434,7 +9434,7 @@ _ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDec
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(528) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTablesC2ERKNS_10IndexIVFPQEPKNS_19SearchParametersIVFE(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8), (16, 20), (24, 37), (40, 44), (80, 128), (152, 176)) %0, ptr noundef nonnull align 8 dereferenceable(528) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -9898,7 +9898,7 @@ _ZNSt12_Vector_baseIPKfSaIS1_EE13_M_deallocateEPS1_m.exit35: ; preds = %_ZNSt6ve
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTables10init_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTables10init_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((128, 136)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -18847,14 +18847,14 @@ declare float @llvm.fmuladd.f32(float, float, float) #22
 declare void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 dereferenceable(24), float noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((168, 176)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTables10init_queryEPKf(ptr noundef nonnull align 8 dereferenceable(184) %3, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((8, 16), (176, 188)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -33268,14 +33268,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
 declare noundef float @_ZN5faiss10fvec_L2sqrEPKfS1_m(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((168, 176)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTables10init_queryEPKf(ptr noundef nonnull align 8 dereferenceable(184) %3, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((8, 16), (176, 188)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -47693,14 +47693,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((168, 176)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTables10init_queryEPKf(ptr noundef nonnull align 8 dereferenceable(184) %3, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((8, 16), (176, 188)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -62112,14 +62112,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((168, 176)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTables10init_queryEPKf(ptr noundef nonnull align 8 dereferenceable(184) %3, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((8, 16), (176, 188)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -77775,14 +77775,14 @@ _ZN5faiss16PQDecoderGeneric6decodeEv.exit71:      ; preds = %._crit_edge.i62, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((168, 176)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTables10init_queryEPKf(ptr noundef nonnull align 8 dereferenceable(184) %3, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((8, 16), (176, 188)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -93061,14 +93061,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((168, 176)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTables10init_queryEPKf(ptr noundef nonnull align 8 dereferenceable(184) %3, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_10PQDecoder8ELb0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((8, 16), (176, 188)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -106692,14 +106692,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_10PQDecoder8EE27Ru
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((168, 176)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTables10init_queryEPKf(ptr noundef nonnull align 8 dereferenceable(184) %3, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_10PQDecoder8ELb0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((8, 16), (176, 188)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -120317,14 +120317,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_10PQDecoder8EE27Ru
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((168, 176)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTables10init_queryEPKf(ptr noundef nonnull align 8 dereferenceable(184) %3, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_11PQDecoder16ELb0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((8, 16), (176, 188)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -133948,14 +133948,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_11PQDecoder16EE27R
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((168, 176)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTables10init_queryEPKf(ptr noundef nonnull align 8 dereferenceable(184) %3, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_11PQDecoder16ELb0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((8, 16), (176, 188)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -147573,14 +147573,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_11PQDecoder16EE27R
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((168, 176)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTables10init_queryEPKf(ptr noundef nonnull align 8 dereferenceable(184) %3, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE0ENS_4CMinIflEENS_16PQDecoderGenericELb0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((8, 16), (176, 188)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -162584,14 +162584,14 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneric
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((168, 176)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call fastcc void @_ZN5faiss12_GLOBAL__N_111QueryTables10init_queryEPKf(ptr noundef nonnull align 8 dereferenceable(184) %3, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_112IVFPQScannerILNS_10MetricTypeE1ENS_4CMaxIflEENS_16PQDecoderGenericELb0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((8, 16), (176, 188)) %0, i64 noundef %1, float noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -177589,7 +177589,7 @@ _ZN5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneric
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss15IndexIVFPQStats5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0) local_unnamed_addr #23 align 2 {
+define void @_ZN5faiss15IndexIVFPQStats5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0) local_unnamed_addr #23 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
@@ -177623,7 +177623,7 @@ declare void @_ZN5faiss8IndexIVFC2Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN5faiss16ProductQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK5faiss10IndexIVFPQ15find_duplicatesEPlPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(528) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK5faiss10IndexIVFPQ15find_duplicatesEPlPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(528) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store i64 0, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8

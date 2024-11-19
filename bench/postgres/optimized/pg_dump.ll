@@ -11114,7 +11114,7 @@ declare zeroext i1 @parse_sync_method(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 6) i32 @parseArchiveFormat(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #4 {
+define internal fastcc range(i32 1, 6) i32 @parseArchiveFormat(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %1) unnamed_addr #4 {
   store i32 1, ptr %1, align 4
   %3 = tail call i32 @pg_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.615) #14
   %4 = icmp eq i32 %3, 0
@@ -16089,7 +16089,7 @@ thread-pre-split:                                 ; preds = %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getOperators(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getOperators(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.202) #14
   %4 = load ptr, ptr %3, align 8
@@ -16280,7 +16280,7 @@ selectDumpableObject.exit:                        ; preds = %84, %87, %90, %95, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getCollations(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getCollations(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.208) #14
   %4 = load ptr, ptr %3, align 8
@@ -16460,7 +16460,7 @@ selectDumpableObject.exit:                        ; preds = %75, %78, %81, %86, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getConversions(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getConversions(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.212) #14
   %4 = load ptr, ptr %3, align 8
@@ -16640,7 +16640,7 @@ selectDumpableObject.exit:                        ; preds = %75, %78, %81, %86, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getAccessMethods(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getAccessMethods(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, 90600
@@ -16769,7 +16769,7 @@ selectDumpableAccessMethod.exit:                  ; preds = %50, %53, %56, %chec
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getOpclasses(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getOpclasses(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.220) #14
   %4 = load ptr, ptr %3, align 8
@@ -16949,7 +16949,7 @@ selectDumpableObject.exit:                        ; preds = %75, %78, %81, %86, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getOpfamilies(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getOpfamilies(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.224) #14
   %4 = load ptr, ptr %3, align 8
@@ -17129,7 +17129,7 @@ selectDumpableObject.exit:                        ; preds = %75, %78, %81, %86, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getAggregates(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getAggregates(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @createPQExpBuffer() #14
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -17396,7 +17396,7 @@ selectDumpableObject.exit:                        ; preds = %116, %119, %122, %1
 declare void @parseOidArray(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getFuncs(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getFuncs(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @createPQExpBuffer() #14
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -17691,7 +17691,7 @@ selectDumpableObject.exit:                        ; preds = %132, %135, %138, %1
 declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getTables(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getTables(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %4, ptr noundef nonnull @.str.251) #14
@@ -18460,7 +18460,7 @@ define dso_local void @getOwnedSeqs(ptr nocapture noundef readnone %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getInherits(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getInherits(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.313) #14
   %4 = load ptr, ptr %3, align 8
@@ -19413,7 +19413,7 @@ define internal fastcc void @addConstrChildIdxDeps(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getRules(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getRules(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.368) #14
   %4 = load ptr, ptr %3, align 8
@@ -19758,7 +19758,7 @@ define dso_local void @getTriggers(ptr noundef %0, ptr noundef %1, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getEventTriggers(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getEventTriggers(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, 90300
@@ -19960,7 +19960,7 @@ selectDumpableObject.exit:                        ; preds = %89, %92, %95, %101,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getProcLangs(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getProcLangs(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.391) #14
   %4 = load ptr, ptr %3, align 8
@@ -20177,7 +20177,7 @@ selectDumpableProcLang.exit:                      ; preds = %98, %101, %104, %ch
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getCasts(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getCasts(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = tail call ptr @createPQExpBuffer() #14
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -20334,7 +20334,7 @@ declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #2
 declare ptr @findTypeByOid(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getTransforms(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getTransforms(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
@@ -21516,7 +21516,7 @@ define dso_local zeroext i1 @shouldPrintColumn(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getTSParsers(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getTSParsers(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.465) #14
   %4 = load ptr, ptr %3, align 8
@@ -21669,7 +21669,7 @@ selectDumpableObject.exit:                        ; preds = %71, %74, %77, %82, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getTSDictionaries(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getTSDictionaries(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.473) #14
   %4 = load ptr, ptr %3, align 8
@@ -21869,7 +21869,7 @@ selectDumpableObject.exit:                        ; preds = %87, %90, %93, %98, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getTSTemplates(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getTSTemplates(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.479) #14
   %4 = load ptr, ptr %3, align 8
@@ -22004,7 +22004,7 @@ selectDumpableObject.exit:                        ; preds = %56, %59, %62, %67, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getTSConfigurations(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getTSConfigurations(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.484) #14
   %4 = load ptr, ptr %3, align 8
@@ -22190,7 +22190,7 @@ selectDumpableObject.exit:                        ; preds = %80, %83, %86, %91, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getForeignDataWrappers(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getForeignDataWrappers(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.489) #14
   %4 = load ptr, ptr %3, align 8
@@ -22397,7 +22397,7 @@ selectDumpableObject.exit:                        ; preds = %90, %93, %96, %101,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getForeignServers(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getForeignServers(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %3, ptr noundef nonnull @.str.496) #14
   %4 = load ptr, ptr %3, align 8
@@ -22613,7 +22613,7 @@ selectDumpableObject.exit:                        ; preds = %95, %98, %101, %106
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getDefaultACLs(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local ptr @getDefaultACLs(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @createPQExpBuffer() #14
   tail call void @appendPQExpBufferStr(ptr noundef %4, ptr noundef nonnull @.str.504) #14

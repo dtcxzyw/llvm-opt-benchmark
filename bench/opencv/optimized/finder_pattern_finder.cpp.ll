@@ -12377,7 +12377,7 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder8distanceENS_3
 declare void @_ZN5zxing6qrcode17FinderPatternInfo14calculateSidesENS_3RefINS0_13FinderPatternEEES4_S4_RfS5_S5_(ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing6qrcode19FinderPatternFinderC2ENS_3RefINS_9BitMatrixEEENS2_INS_11UnicomBlockEEE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing6qrcode19FinderPatternFinderC2ENS_3RefINS_9BitMatrixEEENS2_INS_11UnicomBlockEEE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 12), (16, 73), (80, 88)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -12456,7 +12456,7 @@ define hidden void @_ZN5zxing6qrcode19FinderPatternFinderC2ENS_3RefINS_9BitMatri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5zxing6qrcode19FinderPatternFinder8getImageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN5zxing6qrcode19FinderPatternFinder8getImageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null

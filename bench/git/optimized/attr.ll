@@ -515,14 +515,14 @@ do.end:                                           ; preds = %entry.do.end_crit_e
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @attr_check_reset(ptr nocapture noundef writeonly %check) local_unnamed_addr #5 {
+define dso_local void @attr_check_reset(ptr nocapture noundef writeonly initializes((0, 4)) %check) local_unnamed_addr #5 {
 entry:
   store i32 0, ptr %check, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @attr_check_clear(ptr nocapture noundef %check) local_unnamed_addr #1 {
+define dso_local void @attr_check_clear(ptr nocapture noundef initializes((0, 8), (16, 20)) %check) local_unnamed_addr #1 {
 entry:
   %items = getelementptr inbounds i8, ptr %check, i64 8
   %0 = load ptr, ptr %items, align 8
@@ -1750,7 +1750,7 @@ fill.exit:                                        ; preds = %for.inc14.i, %all_a
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @git_all_attrs(ptr noundef %istate, ptr noundef %path, ptr nocapture noundef %check) local_unnamed_addr #1 {
+define dso_local void @git_all_attrs(ptr noundef %istate, ptr noundef %path, ptr nocapture noundef initializes((0, 4)) %check) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc ptr @default_attr_source()
   store i32 0, ptr %check, align 8

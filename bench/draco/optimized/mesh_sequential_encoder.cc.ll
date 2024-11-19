@@ -1080,7 +1080,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 declare noundef zeroext i1 @_ZN5draco13EncodeSymbolsEPKjiiPKNS_7OptionsEPNS_13EncoderBufferE(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5draco21MeshSequentialEncoder28ComputeNumberOfEncodedPointsEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #8 align 2 {
+define void @_ZN5draco21MeshSequentialEncoder28ComputeNumberOfEncodedPointsEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((104, 112)) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 160
@@ -1092,7 +1092,7 @@ define void @_ZN5draco21MeshSequentialEncoder28ComputeNumberOfEncodedPointsEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5draco21MeshSequentialEncoder27ComputeNumberOfEncodedFacesEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #8 align 2 {
+define void @_ZN5draco21MeshSequentialEncoder27ComputeNumberOfEncodedFacesEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((120, 128)) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 192

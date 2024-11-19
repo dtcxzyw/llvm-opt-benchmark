@@ -335,7 +335,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node8profiler20V8ProfilerConnectionC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %env) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node8profiler20V8ProfilerConnectionC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this, ptr noundef %env) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.298", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 16), ptr %this, align 8

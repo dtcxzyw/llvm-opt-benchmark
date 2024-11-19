@@ -75,7 +75,7 @@ if.end:                                           ; preds = %entry
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @loc_push_none(ptr noundef returned %loc) local_unnamed_addr #3 {
+define dso_local noundef ptr @loc_push_none(ptr noundef returned initializes((0, 4), (16, 24)) %loc) local_unnamed_addr #3 {
 loc_push_restore.exit:
   store i32 0, ptr %loc, align 8
   %prev = getelementptr inbounds i8, ptr %loc, i64 16
@@ -109,7 +109,7 @@ if.end:                                           ; preds = %land.lhs.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @loc_save(ptr noundef returned writeonly %loc) local_unnamed_addr #4 {
+define dso_local noundef ptr @loc_save(ptr noundef returned writeonly initializes((0, 24)) %loc) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr @cur_loc, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %loc, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 16, i1 false)

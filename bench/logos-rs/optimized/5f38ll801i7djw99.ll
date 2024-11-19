@@ -344,7 +344,7 @@ _ZN12regex_syntax3hir3Hir4fail17he2ee867dce36e74dE.exit: ; preds = %.noexc
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN63_$LT$regex_syntax..hir..Class$u20$as$u20$core..clone..Clone$GT$5clone17h67a0f3bcd9a93336E"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden void @"_ZN63_$LT$regex_syntax..hir..Class$u20$as$u20$core..clone..Clone$GT$5clone17h67a0f3bcd9a93336E"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 33)) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = load i64, ptr %1, align 8

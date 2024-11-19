@@ -3519,7 +3519,7 @@ define hidden void @_ZN17itableMethodEntry10initializeEP13InstanceKlassP6Method(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11klassItableC2EP13InstanceKlass(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define hidden void @_ZN11klassItableC2EP13InstanceKlass(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 292
   %4 = load i32, ptr %3, align 4

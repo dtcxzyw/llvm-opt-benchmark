@@ -206,13 +206,13 @@ declare void @_ZN4llvm12PassRegistry12registerPassERKNS_8PassInfoEb(ptr noundef 
 declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113TailDuplicateD2Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113TailDuplicateD2Ev(ptr noundef nonnull align 8 dereferenceable(233) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_117TailDuplicateBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113TailDuplicateD0Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113TailDuplicateD0Ev(ptr noundef nonnull align 8 dereferenceable(233) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_117TailDuplicateBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) #12
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 240) #15
   ret void
@@ -437,7 +437,7 @@ define linkonce_odr hidden i64 @_ZNK4llvm19MachineFunctionPass20getClearedProper
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117TailDuplicateBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117TailDuplicateBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(233) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_117TailDuplicateBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %3 = load ptr, ptr %2, align 8
@@ -523,7 +523,7 @@ _ZN4llvm14TailDuplicatorD2Ev.exit:                ; preds = %_ZN4llvm8DenseMapIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117TailDuplicateBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117TailDuplicateBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(233) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_117TailDuplicateBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) #12
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 240) #15
   ret void
@@ -611,13 +611,13 @@ _ZN12_GLOBAL__N_118EarlyTailDuplicateC2Ev.exit:   ; preds = %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118EarlyTailDuplicateD2Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118EarlyTailDuplicateD2Ev(ptr noundef nonnull align 8 dereferenceable(233) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_117TailDuplicateBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118EarlyTailDuplicateD0Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118EarlyTailDuplicateD0Ev(ptr noundef nonnull align 8 dereferenceable(233) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_117TailDuplicateBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) #12
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 240) #15
   ret void

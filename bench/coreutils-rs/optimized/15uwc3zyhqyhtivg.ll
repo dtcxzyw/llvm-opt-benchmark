@@ -747,7 +747,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h8f35cb274d7b4e1cE.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN9uu_csplit11SplitWriter3new17he0daf4c2d53d75d3E(ptr noalias nocapture noundef writeonly sret({ { i64, [3 x i64] }, ptr, i64, i64, i8, [7 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(104) %1) unnamed_addr #1 {
+define void @_ZN9uu_csplit11SplitWriter3new17he0daf4c2d53d75d3E(ptr noalias nocapture noundef writeonly sret({ { i64, [3 x i64] }, ptr, i64, i64, i8, [7 x i8] }) align 8 dereferenceable(64) initializes((0, 8), (32, 57)) %0, ptr noalias noundef readonly align 8 dereferenceable(104) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -854,7 +854,7 @@ common.resume:                                    ; preds = %15, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN9uu_csplit11SplitWriter11as_dev_null17h609803ad7d0f9143E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(64) %0) unnamed_addr #1 {
+define void @_ZN9uu_csplit11SplitWriter11as_dev_null17h609803ad7d0f9143E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(64) initializes((56, 57)) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i8 1, ptr %2, align 8
   ret void

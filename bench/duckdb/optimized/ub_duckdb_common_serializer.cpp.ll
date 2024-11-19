@@ -3381,7 +3381,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb18BufferedFileReaderC2ERNS_10FileSystemEPKcNS_12FileLockTypeENS_12optional_ptrINS_10FileOpenerEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %fs, ptr noundef readonly %path, i8 noundef zeroext %lock_type, ptr %opener.coerce) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18BufferedFileReaderC2ERNS_10FileSystemEPKcNS_12FileLockTypeENS_12optional_ptrINS_10FileOpenerEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 48), (56, 64)) %this, ptr noundef nonnull align 8 dereferenceable(8) %fs, ptr noundef readonly %path, i8 noundef zeroext %lock_type, ptr %opener.coerce) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.duckdb::unique_ptr.38", align 8
@@ -3888,7 +3888,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb18BufferedFileWriterC2ERNS_10FileSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %fs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %path_p, i8 noundef zeroext %open_flags) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18BufferedFileWriterC2ERNS_10FileSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(8) %fs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %path_p, i8 noundef zeroext %open_flags) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.duckdb::unique_ptr.38", align 8
@@ -4226,7 +4226,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare void @_ZN6duckdb10FileHandle8TruncateEl(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @_ZN6duckdb12MemoryStreamC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i64 noundef %capacity) unnamed_addr #11 align 2 {
+define void @_ZN6duckdb12MemoryStreamC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 33), (40, 48)) %this, i64 noundef %capacity) unnamed_addr #11 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb12MemoryStreamE, i64 16), ptr %this, align 8, !tbaa !17
@@ -4247,7 +4247,7 @@ entry:
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb12MemoryStreamC2EPhm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %buffer, i64 noundef %capacity) unnamed_addr #13 align 2 {
+define void @_ZN6duckdb12MemoryStreamC2EPhm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 33), (40, 48)) %this, ptr noundef %buffer, i64 noundef %capacity) unnamed_addr #13 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb12MemoryStreamE, i64 16), ptr %this, align 8, !tbaa !17
@@ -4264,7 +4264,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_ZN6duckdb12MemoryStreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #14 align 2 {
+define void @_ZN6duckdb12MemoryStreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %this) unnamed_addr #14 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb12MemoryStreamE, i64 16), ptr %this, align 8, !tbaa !17
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
@@ -4519,7 +4519,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb12MemoryStream6RewindEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this) local_unnamed_addr #13 align 2 {
+define void @_ZN6duckdb12MemoryStream6RewindEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((16, 24)) %this) local_unnamed_addr #13 align 2 {
 entry:
   %position = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %position, align 8, !tbaa !135
@@ -4527,7 +4527,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb12MemoryStream7ReleaseEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this) local_unnamed_addr #13 align 2 {
+define void @_ZN6duckdb12MemoryStream7ReleaseEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((32, 33)) %this) local_unnamed_addr #13 align 2 {
 entry:
   %owns_data = getelementptr inbounds i8, ptr %this, i64 32
   store i8 0, ptr %owns_data, align 8, !tbaa !138

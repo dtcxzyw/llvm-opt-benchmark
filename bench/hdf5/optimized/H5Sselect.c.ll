@@ -180,7 +180,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.H5S_select_deserialize = private unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds (i8, ptr @H5S_sel_none, i64 48), ptr getelementptr inbounds (i8, ptr @H5S_sel_point, i64 48), ptr getelementptr inbounds (i8, ptr @H5S_sel_hyper, i64 48), ptr getelementptr inbounds (i8, ptr @H5S_sel_all, i64 48)], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5S_select_offset(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define noundef i32 @H5S_select_offset(ptr nocapture noundef initializes((88, 89)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -1042,7 +1042,7 @@ define i32 @H5S_select_project_simple(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5S_select_iter_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define i32 @H5S_select_iter_init(ptr noundef initializes((8, 12), (528, 548)) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8

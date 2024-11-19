@@ -61,7 +61,7 @@ $_ZTIN8QuantLib16ExerciseStrategyINS_10CurveStateEEE = comdat any
 @_ZN8QuantLib15SwapRateTriggerC1ERKSt6vectorIdSaIdEES3_S5_ = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN8QuantLib15SwapRateTriggerC2ERKSt6vectorIdSaIdEES3_S5_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15SwapRateTriggerC2ERKSt6vectorIdSaIdEES3_S5_(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes, ptr nocapture noundef %swapTriggers, ptr noundef nonnull align 8 dereferenceable(24) %exerciseTimes) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15SwapRateTriggerC2ERKSt6vectorIdSaIdEES3_S5_(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes, ptr nocapture noundef %swapTriggers, ptr noundef nonnull align 8 dereferenceable(24) %exerciseTimes) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp14 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -856,7 +856,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #5 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib15SwapRateTrigger13exerciseTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib15SwapRateTrigger13exerciseTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %exerciseTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -902,7 +902,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.threa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib15SwapRateTrigger13relevantTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib15SwapRateTrigger13relevantTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %exerciseTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -948,7 +948,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.threa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib15SwapRateTrigger5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %this) unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib15SwapRateTrigger5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((80, 88)) %this) unnamed_addr #6 align 2 {
 entry:
   %currentIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i64 0, ptr %currentIndex_, align 8, !tbaa !33

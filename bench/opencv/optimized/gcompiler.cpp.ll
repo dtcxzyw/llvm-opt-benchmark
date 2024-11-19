@@ -1307,7 +1307,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv5gimpl9GCompilerC2ERKNS_12GComputationEOSt6vectorINS_4util7variantIJNS6_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISE_EEOS5_INS_11GCompileArgESaISI_EE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv5gimpl9GCompilerC2ERKNS_12GComputationEOSt6vectorINS_4util7variantIJNS6_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISE_EEOS5_INS_11GCompileArgESaISI_EE(ptr noundef nonnull align 8 dereferenceable(456) initializes((0, 56)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::array.796", align 8
   %6 = alloca %"struct.std::array.796", align 8
   %7 = alloca %"class.cv::util::bad_optional_access", align 8

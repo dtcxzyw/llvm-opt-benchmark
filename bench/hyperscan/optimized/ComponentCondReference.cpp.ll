@@ -123,7 +123,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3ue222ComponentCondReferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue222ComponentCondReferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(137) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue222ComponentCondReferenceE, i64 16), ptr %this, align 8
   %assertion = getelementptr inbounds i8, ptr %this, i64 128
@@ -150,7 +150,7 @@ _ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit: ; preds = %
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3ue222ComponentCondReferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(137) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue222ComponentCondReferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(137) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue222ComponentCondReferenceE, i64 16), ptr %this, align 8
   %assertion.i = getelementptr inbounds i8, ptr %this, i64 128
@@ -834,7 +834,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZN3ue217ComponentSequence14addAlternationEv(ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZNK3ue222ComponentCondReference5firstEv(ptr noalias nocapture writeonly sret(%"class.std::vector.14") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define hidden void @_ZNK3ue222ComponentCondReference5firstEv(ptr noalias nocapture writeonly sret(%"class.std::vector.14") align 8 initializes((0, 24)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   ret void
@@ -844,7 +844,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZNK3ue222ComponentCondReference4lastEv(ptr noalias nocapture writeonly sret(%"class.std::vector.14") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define hidden void @_ZNK3ue222ComponentCondReference4lastEv(ptr noalias nocapture writeonly sret(%"class.std::vector.14") align 8 initializes((0, 24)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   ret void

@@ -66,7 +66,7 @@ $_ZN17QArrayDataPointerIP14ManufTableItemE12allocateGrowERKS2_xN10QArrayData14Gr
 @_ZN25ManufSortFilterProxyModelC1EP7QObject = unnamed_addr alias void (ptr, ptr), ptr @_ZN25ManufSortFilterProxyModelC2EP7QObject
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14ManufTableItemC2EP8ws_manuf(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14ManufTableItemC2EP8ws_manuf(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 48)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QByteArray, align 8
   %4 = alloca [64 x i8], align 16
   %5 = alloca %class.QString, align 8
@@ -461,7 +461,7 @@ _ZN17QArrayDataPointerIP14ManufTableItemED2Ev.exit: ; preds = %1, %_ZN17QArrayDa
 declare void @_ZN19QAbstractTableModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15ManufTableModelD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15ManufTableModelD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV15ManufTableModel, i64 16), ptr %0, align 8
   invoke void @_ZN15ManufTableModel5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %2 unwind label %8
@@ -1042,7 +1042,7 @@ define void @_ZN25ManufSortFilterProxyModel11clearFilterEv(ptr noundef nonnull a
 declare void @_ZN21QSortFilterProxyModel16invalidateFilterEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN25ManufSortFilterProxyModel16setFilterAddressERK10QByteArray(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN25ManufSortFilterProxyModel16setFilterAddressERK10QByteArray(ptr noundef nonnull align 8 dereferenceable(56) initializes((16, 20)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1055,7 +1055,7 @@ define void @_ZN25ManufSortFilterProxyModel16setFilterAddressERK10QByteArray(ptr
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArrayaSERKS_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN25ManufSortFilterProxyModel13setFilterNameER18QRegularExpression(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN25ManufSortFilterProxyModel13setFilterNameER18QRegularExpression(ptr noundef nonnull align 8 dereferenceable(56) initializes((16, 20)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 2, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48

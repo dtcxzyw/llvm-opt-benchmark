@@ -2042,7 +2042,7 @@ declare dso_local ptr @sg_next(ptr noundef) local_unnamed_addr #2
 declare dso_local ptr @blk_mq_alloc_request(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @scsi_init_command(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @scsi_init_command(ptr noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 -224
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 254
@@ -2278,7 +2278,7 @@ declare dso_local void @blk_queue_virt_boundary(ptr noundef, i64 noundef) local_
 declare dso_local void @blk_queue_dma_alignment(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @scsi_mq_setup_tags(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @scsi_mq_setup_tags(ptr noundef initializes((224, 392)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 224
   %3 = getelementptr inbounds i8, ptr %0, i64 458
   %4 = load i16, ptr %3, align 2
@@ -2585,7 +2585,7 @@ define dso_local i32 @scsi_mode_select(ptr nocapture noundef readonly %0, i32 no
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @scsi_mode_sense(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef %8, ptr noundef %9) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @scsi_mode_sense(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef initializes((0, 12)) %8, ptr noundef %9) #0 align 16 {
   %11 = alloca [12 x i8], align 1
   %12 = alloca %struct.scsi_sense_hdr, align 8
   %13 = alloca %struct.scsi_exec_args, align 8
@@ -4305,7 +4305,7 @@ define dso_local range(i32 -11, 65536) i32 @scsi_vpd_tpg_id(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @scsi_build_sense(ptr nocapture noundef %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) #0 align 16 {
+define dso_local void @scsi_build_sense(ptr nocapture noundef initializes((288, 292)) %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 248
   %7 = load ptr, ptr %6, align 8
   tail call void @scsi_build_sense_buffer(i32 noundef %1, ptr noundef %7, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) #16
@@ -5567,7 +5567,7 @@ define internal void @scsi_mq_put_budget(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @scsi_mq_set_rq_budget_token(ptr nocapture noundef writeonly %0, i32 noundef %1) #11 align 16 {
+define internal void @scsi_mq_set_rq_budget_token(ptr nocapture noundef writeonly initializes((380, 384)) %0, i32 noundef %1) #11 align 16 {
   %3 = getelementptr i8, ptr %0, i64 380
   store i32 %1, ptr %3, align 4
   ret void
@@ -5606,14 +5606,14 @@ define internal i32 @scsi_mq_poll(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @scsi_init_hctx(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 %2) #11 align 16 {
+define internal noundef i32 @scsi_init_hctx(ptr nocapture noundef writeonly initializes((200, 208)) %0, ptr noundef %1, i32 %2) #11 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 200
   store ptr %1, ptr %4, align 8
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @scsi_mq_init_request(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2, i32 noundef %3) #0 align 16 {
+define internal i32 @scsi_mq_init_request(ptr nocapture noundef readonly %0, ptr noundef initializes((496, 504)) %1, i32 %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %1, i64 248

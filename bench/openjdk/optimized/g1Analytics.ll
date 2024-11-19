@@ -127,7 +127,7 @@ _ZNK13G1Predictions7predictEPK12TruncatedSeq.exit5: ; preds = %23, %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11G1AnalyticsC2EPK13G1Predictions(ptr noundef nonnull align 8 dereferenceable(2048) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN11G1AnalyticsC2EPK13G1Predictions(ptr noundef nonnull align 8 dereferenceable(2048) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %3, i32 noundef 10, double noundef 3.000000e-01) #7

@@ -523,7 +523,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8proxygen2hq14HQControlCodec17checkFrameAllowedENS0_9FrameTypeE(ptr noalias nocapture writeonly sret(%"class.folly::Optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 16 dereferenceable(232) %this, i64 noundef %type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq14HQControlCodec17checkFrameAllowedENS0_9FrameTypeE(ptr noalias nocapture writeonly sret(%"class.folly::Optional") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 16 dereferenceable(232) %this, i64 noundef %type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i64 %type, label %sw.epilog [
     i64 0, label %sw.bb
@@ -610,7 +610,7 @@ return:                                           ; preds = %if.end31, %if.then2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZThn32_N8proxygen2hq14HQControlCodec17checkFrameAllowedENS0_9FrameTypeE(ptr noalias nocapture writeonly sret(%"class.folly::Optional") align 8 %agg.result, ptr nocapture noundef readonly %this, i64 noundef %type) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn32_N8proxygen2hq14HQControlCodec17checkFrameAllowedENS0_9FrameTypeE(ptr noalias nocapture writeonly sret(%"class.folly::Optional") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef readonly %this, i64 noundef %type) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   switch i64 %type, label %sw.epilog.i [

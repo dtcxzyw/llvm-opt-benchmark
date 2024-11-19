@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZZ14gmx_md5_finishP11md5_state_sE3pad = internal constant <{ i8, [63 x i8] }> <{ i8 -128, [63 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z12gmx_md5_initP11md5_state_s(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @_Z12gmx_md5_initP11md5_state_s(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   store i32 0, ptr %0, align 4

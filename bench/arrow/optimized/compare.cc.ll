@@ -8465,7 +8465,7 @@ declare noundef i64 @_ZNK5arrow9ArrayData12GetNullCountEv(ptr noundef nonnull al
 declare noundef zeroext i1 @_ZN5arrow8internal20OptionalBitmapEqualsERKSt10shared_ptrINS_6BufferEElS5_ll(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareWithTypeERKNS_8DataTypeE(ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(72) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareWithTypeERKNS_8DataTypeE(ptr noundef nonnull align 8 dereferenceable(57) initializes((56, 57)) %this, ptr noundef nonnull align 8 dereferenceable(72) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_s = alloca %"class.arrow::Status", align 8
   %ref.tmp4 = alloca %"class.arrow::util::ArrowLog", align 8
@@ -18765,7 +18765,7 @@ for.end:                                          ; preds = %for.cond, %for.end.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14DictionaryTypeE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(57) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %type) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl5VisitERKNS_14DictionaryTypeE(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(57) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %type) unnamed_addr #0 align 2 {
 entry:
   %impl.i = alloca %"class.arrow::(anonymous namespace)::RangeDataEqualsImpl", align 8
   %left_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -21240,7 +21240,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_119ScalarEqualsVisitor5VisitERKNS_11FloatScalarE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(34) %this, float %left.44.val) unnamed_addr #13 align 2 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_119ScalarEqualsVisitor5VisitERKNS_11FloatScalarE(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(34) initializes((33, 34)) %this, float %left.44.val) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !657)
   %0 = load ptr, ptr %this, align 8, !noalias !657
@@ -21427,7 +21427,7 @@ _ZN5arrow12_GLOBAL__N_119ScalarEqualsVisitor15CompareFloatingINS_11FloatScalarEE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_119ScalarEqualsVisitor5VisitERKNS_12DoubleScalarE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(34) %this, double %left.48.val) unnamed_addr #13 align 2 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_119ScalarEqualsVisitor5VisitERKNS_12DoubleScalarE(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(34) initializes((33, 34)) %this, double %left.48.val) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !663)
   %0 = load ptr, ptr %this, align 8, !noalias !663
@@ -21675,7 +21675,7 @@ if.end:                                           ; preds = %for.cond.preheader,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_119ScalarEqualsVisitor5VisitERKNS_17SparseUnionScalarE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(34) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %left) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_119ScalarEqualsVisitor5VisitERKNS_17SparseUnionScalarE(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(34) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %left) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %value = getelementptr inbounds i8, ptr %left, i64 72
@@ -21705,7 +21705,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_119ScalarEqualsVisitor5VisitERKNS_16DictionaryScalarE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(34) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %left) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_119ScalarEqualsVisitor5VisitERKNS_16DictionaryScalarE(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(34) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %left) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %value = getelementptr inbounds i8, ptr %left, i64 48

@@ -1659,7 +1659,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIKN7openvdb5v11_08GridBaseEESaIS5_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8), (88, 96)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskE, i64 16), ptr %this, align 8
   %mMetadata = getelementptr inbounds i8, ptr %this, i64 88
@@ -2145,7 +2145,7 @@ _ZNSt12__shared_ptrIN7openvdb5v11_02io7ArchiveELN9__gnu_cxx12_Lock_policyE2EED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskD0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8), (88, 96)) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -2245,7 +2245,7 @@ terminate.lpad:                                   ; preds = %lpad7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7openvdb5v11_02io12_GLOBAL__N_14TaskD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7openvdb5v11_02io12_GLOBAL__N_14TaskD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_14TaskE, i64 16), ptr %this, align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -2519,7 +2519,7 @@ if.end26:                                         ; preds = %if.end.thread, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_110OutputTaskC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 12), (16, 48)) %this, ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_02io12_GLOBAL__N_14TaskE, i64 16), ptr %this, align 8
   %mId.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -4378,7 +4378,7 @@ declare void @_ZN3tbb6detail2r17enqueueERNS0_2d14taskEPNS2_15task_arena_baseE(pt
 declare noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_ED2Ev(ptr noundef nonnull align 64 dereferenceable(216) %this) unnamed_addr #6 align 2 {
+define internal void @_ZN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_ED2Ev(ptr noundef nonnull align 64 dereferenceable(216) initializes((0, 8), (72, 80), (160, 168)) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_EE, i64 16), ptr %this, align 64
   %m_func = getelementptr inbounds i8, ptr %this, i64 72
@@ -4387,7 +4387,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_ED0Ev(ptr noundef nonnull align 64 dereferenceable(216) %this) unnamed_addr #6 align 2 {
+define internal void @_ZN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_ED0Ev(ptr noundef nonnull align 64 dereferenceable(216) initializes((0, 8), (72, 80), (160, 168)) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tbb6detail2d112enqueue_taskIZN7openvdb5v11_02io5Queue4Impl7enqueueERNS5_12_GLOBAL__N_110OutputTaskEEUlvE_EE, i64 16), ptr %this, align 64
   %m_func.i = getelementptr inbounds i8, ptr %this, i64 72

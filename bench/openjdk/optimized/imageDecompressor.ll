@@ -316,7 +316,7 @@ define hidden noundef zeroext i8 @_ZN15ZipDecompressor10decompressEPvyS0_yPPc(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24SharedStringDecompressor19decompress_resourceEPhS0_P14ResourceHeaderPK12ImageStrings(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN24SharedStringDecompressor19decompress_resourceEPhS0_P14ResourceHeaderPK12ImageStrings(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef initializes((0, 10)) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %2, ptr noundef nonnull align 1 dereferenceable(10) %1, i64 10, i1 false)
   %6 = getelementptr inbounds i8, ptr %2, i64 10
   %7 = getelementptr inbounds i8, ptr %1, i64 8

@@ -659,7 +659,7 @@ while.end:                                        ; preds = %while.cond
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @portio_list_set_flush_coalesced(ptr nocapture noundef writeonly %piolist) local_unnamed_addr #4 {
+define dso_local void @portio_list_set_flush_coalesced(ptr nocapture noundef writeonly initializes((56, 57)) %piolist) local_unnamed_addr #4 {
 entry:
   %flush_coalesced_mmio = getelementptr inbounds i8, ptr %piolist, i64 56
   store i8 1, ptr %flush_coalesced_mmio, align 8
@@ -706,7 +706,7 @@ declare void @object_unref(ptr noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @portio_list_add(ptr nocapture noundef %piolist, ptr noundef %address_space, i32 noundef %start) local_unnamed_addr #1 {
+define dso_local void @portio_list_add(ptr nocapture noundef initializes((16, 24)) %piolist, ptr noundef %address_space, i32 noundef %start) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %piolist, align 8
   %address_space1 = getelementptr inbounds i8, ptr %piolist, i64 16

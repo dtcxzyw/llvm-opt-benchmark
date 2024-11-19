@@ -65,7 +65,7 @@ define dso_local void @_ZN4llvm6object6BinaryD0Ev(ptr noundef nonnull align 8 de
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm6object6BinaryC2EjNS_15MemoryBufferRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm6object6BinaryC2EjNS_15MemoryBufferRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 12), (16, 48)) %0, i32 noundef %1, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %2) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm6object6BinaryE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %4, align 8
@@ -100,7 +100,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm6object6Binary11getFileNameEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4llvm6object6Binary18getMemoryBufferRefEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::MemoryBufferRef") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4llvm6object6Binary18getMemoryBufferRefEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::MemoryBufferRef") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   ret void
@@ -310,7 +310,7 @@ declare void @_ZN4llvm6object12MinidumpFile6createENS_15MemoryBufferRefE(ptr dea
 declare void @_ZN4llvm6object13TapiUniversal6createENS_15MemoryBufferRefE(ptr dead_on_unwind writable sret(%"class.llvm::Expected.25") align 8, ptr noundef byval(%"class.llvm::MemoryBufferRef") align 8) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object12createBinaryENS_9StringRefEPNS_11LLVMContextEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.29") align 8 %0, ptr %1, i64 %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm6object12createBinaryENS_9StringRefEPNS_11LLVMContextEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.29") align 8 initializes((0, 8)) %0, ptr %1, i64 %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
   %6 = alloca %"class.llvm::ErrorOr", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Error", align 8

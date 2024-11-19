@@ -1669,7 +1669,7 @@ define hidden range(i32 0, 3) i32 @VP8GetThreadMethod(ptr noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @VP8InitFrame(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @VP8InitFrame(ptr noundef initializes((204, 208)) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 204
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 200

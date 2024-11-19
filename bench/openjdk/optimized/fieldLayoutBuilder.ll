@@ -85,7 +85,7 @@ $_ZN26GrowableArrayWithAllocatorIP10FieldGroup13GrowableArrayIS1_EE9expand_toEi 
 @_ZN18FieldLayoutBuilderC1EPK6SymbolPK13InstanceKlassP12ConstantPoolP13GrowableArrayI9FieldInfoEbP15FieldLayoutInfo = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, i1, ptr), ptr @_ZN18FieldLayoutBuilderC2EPK6SymbolPK13InstanceKlassP12ConstantPoolP13GrowableArrayI9FieldInfoEbP15FieldLayoutInfo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14LayoutRawBlockC2ENS_4KindEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN14LayoutRawBlockC2ENS_4KindEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) initializes((0, 37)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i32 %1, ptr %4, align 8
@@ -103,7 +103,7 @@ define hidden void @_ZN14LayoutRawBlockC2ENS_4KindEi(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14LayoutRawBlockC2EiNS_4KindEiib(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN14LayoutRawBlockC2EiNS_4KindEiib(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) initializes((0, 37)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = zext i1 %5 to i8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -137,7 +137,7 @@ define hidden noundef zeroext i1 @_ZN14LayoutRawBlock3fitEii(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10FieldGroupC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN10FieldGroupC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i32 %1, ptr %3, align 8
@@ -328,7 +328,7 @@ define linkonce_odr hidden noundef i32 @_ZN14LayoutRawBlock21compare_size_invert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11FieldLayoutC2EP13GrowableArrayI9FieldInfoEP12ConstantPool(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN11FieldLayoutC2EP13GrowableArrayI9FieldInfoEP12ConstantPool(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -338,7 +338,7 @@ define hidden void @_ZN11FieldLayoutC2EP13GrowableArrayI9FieldInfoEP12ConstantPo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11FieldLayout24initialize_static_layoutEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11FieldLayout24initialize_static_layoutEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((16, 40)) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
   %3 = getelementptr inbounds i8, ptr %2, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
@@ -430,7 +430,7 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit: ; preds = %36, %39
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN11FieldLayout6insertEP14LayoutRawBlockS1_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef returned %2) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN11FieldLayout6insertEP14LayoutRawBlockS1_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef returned initializes((0, 16), (20, 24)) %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 20
@@ -1145,7 +1145,7 @@ define hidden void @_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef returned %2) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef returned initializes((0, 16), (20, 24)) %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 24
@@ -1293,7 +1293,7 @@ _ZN11FieldLayout6removeEP14LayoutRawBlock.exit:   ; preds = %68, %64, %_ZN11Fiel
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11FieldLayout19add_field_at_offsetEP14LayoutRawBlockiS1_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11FieldLayout19add_field_at_offsetEP14LayoutRawBlockiS1_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef initializes((20, 24)) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 20
   store i32 %2, ptr %5, align 4
   %6 = icmp eq ptr %3, null
@@ -1921,7 +1921,7 @@ declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 derefe
 declare noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18FieldLayoutBuilderC2EPK6SymbolPK13InstanceKlassP12ConstantPoolP13GrowableArrayI9FieldInfoEbP15FieldLayoutInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(106) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6) unnamed_addr #2 align 2 {
+define hidden void @_ZN18FieldLayoutBuilderC2EPK6SymbolPK13InstanceKlassP12ConstantPoolP13GrowableArrayI9FieldInfoEbP15FieldLayoutInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(106) initializes((0, 106)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6) unnamed_addr #2 align 2 {
   %8 = zext i1 %5 to i8
   store ptr %1, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2024,7 +2024,7 @@ _ZN26GrowableArrayWithAllocatorIP10FieldGroup13GrowableArrayIS1_EE6appendERKS1_.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18FieldLayoutBuilder8prologueEv(ptr nocapture noundef nonnull align 8 dereferenceable(106) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN18FieldLayoutBuilder8prologueEv(ptr nocapture noundef nonnull align 8 dereferenceable(106) initializes((40, 48), (72, 96)) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -2445,7 +2445,7 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit: ; preds = %32, %28, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18FieldLayoutBuilder22compute_regular_layoutEv(ptr noundef nonnull align 8 dereferenceable(106) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN18FieldLayoutBuilder22compute_regular_layoutEv(ptr noundef nonnull align 8 dereferenceable(106) initializes((40, 48), (72, 96)) %0) local_unnamed_addr #2 align 2 {
   tail call void @_ZN18FieldLayoutBuilder8prologueEv(ptr noundef nonnull align 8 dereferenceable(106) %0)
   tail call void @_ZN18FieldLayoutBuilder21regular_field_sortingEv(ptr noundef nonnull align 8 dereferenceable(106) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 105
@@ -3784,7 +3784,7 @@ declare void @_ZN19OopMapBlocksBuilder3addEii(ptr noundef nonnull align 8 derefe
 declare void @_ZN19OopMapBlocksBuilder7compactEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18FieldLayoutBuilder12build_layoutEv(ptr noundef nonnull align 8 dereferenceable(106) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN18FieldLayoutBuilder12build_layoutEv(ptr noundef nonnull align 8 dereferenceable(106) initializes((40, 48), (72, 96)) %0) local_unnamed_addr #2 align 2 {
   tail call void @_ZN18FieldLayoutBuilder22compute_regular_layoutEv(ptr noundef nonnull align 8 dereferenceable(106) %0)
   ret void
 }

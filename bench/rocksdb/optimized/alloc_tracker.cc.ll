@@ -9,7 +9,7 @@ $__clang_call_terminate = comdat any
 @_ZN7rocksdb12AllocTrackerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7rocksdb12AllocTrackerD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb12AllocTrackerC2EPNS_18WriteBufferManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(18) %this, ptr noundef %write_buffer_manager) unnamed_addr #0 align 2 {
+define void @_ZN7rocksdb12AllocTrackerC2EPNS_18WriteBufferManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(18) initializes((0, 18)) %this, ptr noundef %write_buffer_manager) unnamed_addr #0 align 2 {
 entry:
   store ptr %write_buffer_manager, ptr %this, align 8
   %bytes_allocated_ = getelementptr inbounds i8, ptr %this, i64 8

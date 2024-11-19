@@ -129,7 +129,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks14RemarkStreamerC2ESt10unique_ptrINS0_16RemarkSerializerESt14default_deleteIS3_EESt8optionalINS_9StringRefEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef %1, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks14RemarkStreamerC2ESt10unique_ptrINS0_16RemarkSerializerESt14default_deleteIS3_EESt8optionalINS_9StringRefEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((16, 17), (24, 32)) %0, ptr nocapture noundef %1, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -210,7 +210,7 @@ define void @_ZN8WasmEdge4Host4WASI9DirHolder5resetEv(ptr nocapture noundef nonn
 declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8WasmEdge4Host4WASI5INode5stdInEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.WasmEdge::Host::WASI::INode") align 8 %0) local_unnamed_addr #7 align 2 {
+define void @_ZN8WasmEdge4Host4WASI5INode5stdInEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.WasmEdge::Host::WASI::INode") align 8 initializes((0, 4), (152, 153), (160, 200)) %0) local_unnamed_addr #7 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 4
@@ -225,7 +225,7 @@ define void @_ZN8WasmEdge4Host4WASI5INode5stdInEv(ptr dead_on_unwind noalias noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8WasmEdge4Host4WASI5INode6stdOutEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.WasmEdge::Host::WASI::INode") align 8 %0) local_unnamed_addr #7 align 2 {
+define void @_ZN8WasmEdge4Host4WASI5INode6stdOutEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.WasmEdge::Host::WASI::INode") align 8 initializes((0, 4), (152, 153), (160, 200)) %0) local_unnamed_addr #7 align 2 {
   store i32 1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 4
@@ -240,7 +240,7 @@ define void @_ZN8WasmEdge4Host4WASI5INode6stdOutEv(ptr dead_on_unwind noalias no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8WasmEdge4Host4WASI5INode6stdErrEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.WasmEdge::Host::WASI::INode") align 8 %0) local_unnamed_addr #7 align 2 {
+define void @_ZN8WasmEdge4Host4WASI5INode6stdErrEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.WasmEdge::Host::WASI::INode") align 8 initializes((0, 4), (152, 153), (160, 200)) %0) local_unnamed_addr #7 align 2 {
   store i32 2, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 4
@@ -463,7 +463,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10fdDatasyncEv(ptr
 declare i32 @fdatasync(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @_ZNK8WasmEdge4Host4WASI5INode11fdFdstatGetER15__wasi_fdstat_t(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define i32 @_ZNK8WasmEdge4Host4WASI5INode11fdFdstatGetER15__wasi_fdstat_t(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((8, 153)) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %3, i8 0, i64 144, i1 false)
@@ -560,7 +560,7 @@ _ZNK8WasmEdge4Host4WASI5INode14unsafeFiletypeEv.exit: ; preds = %18, %switch.loo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10updateStatEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10updateStatEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((8, 153)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 144, i1 false)
@@ -659,7 +659,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode16fdFdstatSetFlags
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode13fdFilestatGetER17__wasi_filestat_t(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode13fdFilestatGetER17__wasi_filestat_t(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((8, 153)) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %3, i8 0, i64 144, i1 false)
@@ -2416,7 +2416,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host4WASI5INode8sockOpenE23__wasi_address_family_t18__wasi_sock_type_t(ptr dead_on_unwind noalias nocapture writable sret(%"class.cxx20::expected") align 8 %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host4WASI5INode8sockOpenE23__wasi_address_family_t18__wasi_sock_type_t(ptr dead_on_unwind noalias nocapture writable sret(%"class.cxx20::expected") align 8 initializes((0, 1), (8, 10)) %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %switch.tableidx = add i8 %1, -1
   %4 = icmp ult i8 %switch.tableidx, 3
   br i1 %4, label %switch.lookup, label %5
@@ -4176,7 +4176,7 @@ define range(i32 0, -65535) i32 @_ZN8WasmEdge4Host4WASI6Poller5Timer7setTimeEmm2
 declare i32 @timerfd_settime(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host4WASI6PollerC2ERNS1_13PollerContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 {
+define void @_ZN8WasmEdge4Host4WASI6PollerC2ERNS1_13PollerContextE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 4), (8, 56)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 {
   %3 = tail call i32 @epoll_create1(i32 noundef 524288) #24
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -4217,7 +4217,7 @@ define void @_ZN8WasmEdge4Host4WASI6PollerC2ERNS1_13PollerContextE(ptr noundef n
 declare i32 @epoll_create1(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 1, 3145729) i32 @_ZN8WasmEdge4Host4WASI6Poller7prepareEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i32 1, 3145729) i32 @_ZN8WasmEdge4Host4WASI6Poller7prepareEN5cxx204spanI14__wasi_event_tLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(216) initializes((16, 32)) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
@@ -6237,7 +6237,7 @@ _ZNSt6vectorI11epoll_eventSaIS0_EE5clearEv.exit:  ; preds = %.lr.ph99, %77, %224
 declare i32 @epoll_wait(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN8WasmEdge4Host4WASI6Poller4waitEvENK3$_0clERK11epoll_eventRNS2_13OptionalEventE"(ptr nocapture noundef nonnull readonly align 1 dereferenceable(12) %0, ptr nocapture noundef nonnull align 8 dereferenceable(33) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN8WasmEdge4Host4WASI6Poller4waitEvENK3$_0clERK11epoll_eventRNS2_13OptionalEventE"(ptr nocapture noundef nonnull readonly align 1 dereferenceable(12) %0, ptr nocapture noundef nonnull align 8 dereferenceable(33) initializes((8, 10), (32, 33)) %1) unnamed_addr #0 align 2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -6318,7 +6318,7 @@ define internal fastcc void @"_ZZN8WasmEdge4Host4WASI6Poller4waitEvENK3$_0clERK1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8WasmEdge4Host4WASI6Poller5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host4WASI6Poller5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) initializes((16, 32)) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 32

@@ -23,7 +23,7 @@ $_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocatorBlockEE6removeINS0_7Support7Com
 @_ZN6asmjit9_abi_1_1012JitAllocatorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6asmjit9_abi_1_1012JitAllocatorD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocatorC2EPKNS1_12CreateParamsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocatorC2EPKNS1_12CreateParamsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = tail call i64 @_ZN6asmjit9_abi_1_107VirtMem4infoEv() #9
   %4 = icmp eq ptr %1, null
   %5 = select i1 %4, ptr @_ZN6asmjit9_abi_1_10L23JitAllocatorParams_noneE, ptr %1
@@ -505,7 +505,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.asmjit::_abi_1_10::JitAllocator::Statistics") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.asmjit::_abi_1_10::JitAllocator::Statistics") align 8 initializes((0, 8), (16, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   store i64 0, ptr %0, align 8, !tbaa !72
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -2099,7 +2099,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 6) i32 @_ZNK6asmjit9_abi_1_1012JitAllocator5queryEPvPS2_S3_Pm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 6) i32 @_ZNK6asmjit9_abi_1_1012JitAllocator5queryEPvPS2_S3_Pm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #0 align 2 {
   store ptr null, ptr %2, align 8, !tbaa !37
   store ptr null, ptr %3, align 8, !tbaa !37
   store i64 0, ptr %4, align 8, !tbaa !51

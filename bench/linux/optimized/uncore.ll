@@ -4051,7 +4051,7 @@ define internal fastcc i32 @uncore_pci_pmu_register(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @uncore_pmu_register(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc i32 @uncore_pmu_register(ptr noundef initializes((0, 304)) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 224

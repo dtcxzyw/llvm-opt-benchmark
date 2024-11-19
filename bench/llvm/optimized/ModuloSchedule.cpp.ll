@@ -678,7 +678,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %2, %12, %14, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm22ModuloScheduleExpander6expandEv(ptr noundef nonnull align 8 dereferenceable(152) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm22ModuloScheduleExpander6expandEv(ptr noundef nonnull align 8 dereferenceable(152) initializes((48, 64)) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZN4llvm11MachineLoop11getTopBlockEv(ptr noundef nonnull align 8 dereferenceable(152) %3) #18
@@ -23378,7 +23378,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit88: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm29PeelingModuloScheduleExpander6expandEv(ptr noundef nonnull align 8 dereferenceable(496) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm29PeelingModuloScheduleExpander6expandEv(ptr noundef nonnull align 8 dereferenceable(496) initializes((48, 64)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.std::unique_ptr", align 8
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
@@ -23432,7 +23432,7 @@ _ZNSt10unique_ptrIN4llvm15TargetInstrInfo17PipelinerLoopInfoESt14default_deleteI
 declare noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE16getLoopPreheaderEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm29PeelingModuloScheduleExpander37validateAgainstModuloScheduleExpanderEv(ptr noundef nonnull align 8 dereferenceable(496) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm29PeelingModuloScheduleExpander37validateAgainstModuloScheduleExpanderEv(ptr noundef nonnull align 8 dereferenceable(496) initializes((48, 64)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -24409,7 +24409,7 @@ _ZN4llvm22ModuloScheduleExpanderD2Ev.exit:        ; preds = %463, %_ZNKSt14defau
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117KernelOperandInfoC2EPN4llvm14MachineOperandERNS1_19MachineRegisterInfoERKNS1_15SmallPtrSetImplIPNS1_12MachineInstrEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(512) %2, ptr noundef nonnull align 8 dereferenceable(28) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117KernelOperandInfoC2EPN4llvm14MachineOperandERNS1_19MachineRegisterInfoERKNS1_15SmallPtrSetImplIPNS1_12MachineInstrEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(512) %2, ptr noundef nonnull align 8 dereferenceable(28) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -24800,7 +24800,7 @@ _ZN4llvm11SmallVectorINS_14MachineOperandELj4EED2Ev.exit: ; preds = %_ZN4llvm8De
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm25ModuloScheduleExpanderMVE21generatePipelinedLoopEv(ptr nocapture noundef nonnull align 8 dereferenceable(132) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm25ModuloScheduleExpanderMVE21generatePipelinedLoopEv(ptr nocapture noundef nonnull align 8 dereferenceable(132) initializes((128, 132)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.llvm::SmallVector.272", align 8
@@ -25239,7 +25239,7 @@ _ZN4llvm11SmallVectorINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm25ModuloScheduleExpanderMVE13calcNumUnrollEv(ptr nocapture noundef nonnull align 8 dereferenceable(132) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm25ModuloScheduleExpanderMVE13calcNumUnrollEv(ptr nocapture noundef nonnull align 8 dereferenceable(132) initializes((128, 132)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::DenseMap.335", align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -30096,7 +30096,7 @@ _ZN4llvm20filter_iterator_baseIPNS_14MachineOperandEPFbRKS1_ESt26bidirectional_i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm25ModuloScheduleExpanderMVE6expandEv(ptr nocapture noundef nonnull align 8 dereferenceable(132) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm25ModuloScheduleExpanderMVE6expandEv(ptr nocapture noundef nonnull align 8 dereferenceable(132) initializes((48, 72), (128, 132)) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZN4llvm11MachineLoop11getTopBlockEv(ptr noundef nonnull align 8 dereferenceable(152) %3) #18

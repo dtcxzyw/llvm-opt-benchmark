@@ -53,7 +53,7 @@ $_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE16_M_push_back_auxIJRKS1_EEEvDpOT_ 
 @_ZN3net20QuicUnackedPacketMapD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net20QuicUnackedPacketMapD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net20QuicUnackedPacketMapC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net20QuicUnackedPacketMapC2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 96)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %unacked_packets_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 96, i1 false)
@@ -1242,7 +1242,7 @@ _ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEPNS_16TransmissionInfoE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net20QuicUnackedPacketMap23IncreaseLargestObservedEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %this, i64 noundef %largest_observed) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net20QuicUnackedPacketMap23IncreaseLargestObservedEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((8, 16)) %this, i64 noundef %largest_observed) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %largest_observed_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %largest_observed, ptr %largest_observed_, align 8

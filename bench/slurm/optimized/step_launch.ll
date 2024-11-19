@@ -138,7 +138,7 @@ target triple = "x86_64-pc-linux-gnu"
 @working_cluster_rec = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @slurm_step_launch_params_t_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @slurm_step_launch_params_t_init(ptr nocapture noundef writeonly initializes((0, 384)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %0, i8 0, i64 384, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 68
   store i8 1, ptr %2, align 4

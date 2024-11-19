@@ -408,7 +408,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm38createAArch64LoadStoreOptimizati
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64LoadStoreOptC2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64LoadStoreOptC2Ev(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 28), (32, 56), (88, 96)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.561, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1618,7 +1618,7 @@ declare void @_ZN4llvm12PassRegistry12registerPassERKNS_8PassInfoEb(ptr noundef 
 declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119AArch64LoadStoreOptD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_119AArch64LoadStoreOptD2Ev(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_119AArch64LoadStoreOptE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %2) #19
@@ -1661,7 +1661,7 @@ _ZN4llvm12LiveRegUnitsD2Ev.exit2:                 ; preds = %_ZN4llvm12LiveRegUn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119AArch64LoadStoreOptD0Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_119AArch64LoadStoreOptD0Ev(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_119AArch64LoadStoreOptD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 328) #22
   ret void

@@ -8226,7 +8226,7 @@ _ZN4llvm8ExpectedIPKNS_6object13Elf_Shdr_ImplINS1_7ELFTypeILNS_10endiannessE1ELb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm6objectL21defaultWarningHandlerERKNS_5TwineE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1) #1 {
+define internal void @_ZN4llvm6objectL21defaultWarningHandlerERKNS_5TwineE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(34) %1) #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !656)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !659)
   %3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #20, !noalias !662

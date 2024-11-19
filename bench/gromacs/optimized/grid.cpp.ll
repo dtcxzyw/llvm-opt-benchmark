@@ -115,7 +115,7 @@ $_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi
 @_ZN5Nbnxm4GridC1E12PairlistTypeRKbN3gmx13PinningPolicyE = unnamed_addr alias void (ptr, i32, ptr, i32), ptr @_ZN5Nbnxm4GridC2E12PairlistTypeRKbN3gmx13PinningPolicyE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Nbnxm4Grid8GeometryC2E12PairlistType(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Nbnxm4Grid8GeometryC2E12PairlistType(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((0, 1), (4, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %4 = icmp ne i32 %1, 3
   %5 = zext i1 %4 to i8
@@ -629,7 +629,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 declare void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Nbnxm4Grid13setDimensionsEiiRKN3gmx11BasicVectorIfEES5_Pff(ptr noundef nonnull align 8 dereferenceable(372) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %4, ptr nocapture noundef %5, float noundef %6) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Nbnxm4Grid13setDimensionsEiiRKN3gmx11BasicVectorIfEES5_Pff(ptr noundef nonnull align 8 dereferenceable(372) initializes((20, 44)) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %4, ptr nocapture noundef %5, float noundef %6) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
   %9 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3729,7 +3729,7 @@ define void @_ZN5Nbnxm4Grid17calcColumnIndicesERKNS0_10DimensionsEPKN3gmx15Updat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Nbnxm4Grid14setCellIndicesEiiPNS_11GridSetDataEN3gmx8ArrayRefINS_8GridWorkEEENS3_5RangeIiEENS4_IKlEENS4_IKNS3_11BasicVectorIfEEEEiP16nbnxn_atomdata_t(ptr noundef nonnull align 8 dereferenceable(372) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr %4, ptr %5, i64 %6, ptr noundef byval(%"class.gmx::ArrayRef.25") align 8 %7, ptr noundef byval(%"class.gmx::ArrayRef.28") align 8 %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Nbnxm4Grid14setCellIndicesEiiPNS_11GridSetDataEN3gmx8ArrayRefINS_8GridWorkEEENS3_5RangeIiEENS4_IKlEENS4_IKNS3_11BasicVectorIfEEEEiP16nbnxn_atomdata_t(ptr noundef nonnull align 8 dereferenceable(372) initializes((92, 96), (100, 108)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr %4, ptr %5, i64 %6, ptr noundef byval(%"class.gmx::ArrayRef.25") align 8 %7, ptr noundef byval(%"class.gmx::ArrayRef.28") align 8 %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %12 = alloca [3 x double], align 16
   %13 = alloca %"class.gmx::ArrayRef.82", align 8
   %14 = alloca i32, align 4

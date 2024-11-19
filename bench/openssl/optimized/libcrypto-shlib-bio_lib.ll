@@ -177,7 +177,7 @@ return:                                           ; preds = %bio_call_callback.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @BIO_set_data(ptr nocapture noundef writeonly %a, ptr noundef %ptr) local_unnamed_addr #2 {
+define void @BIO_set_data(ptr nocapture noundef writeonly initializes((64, 72)) %a, ptr noundef %ptr) local_unnamed_addr #2 {
 entry:
   %ptr1 = getelementptr inbounds i8, ptr %a, i64 64
   store ptr %ptr, ptr %ptr1, align 8
@@ -193,7 +193,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @BIO_set_init(ptr nocapture noundef writeonly %a, i32 noundef %init) local_unnamed_addr #2 {
+define void @BIO_set_init(ptr nocapture noundef writeonly initializes((40, 44)) %a, i32 noundef %init) local_unnamed_addr #2 {
 entry:
   %init1 = getelementptr inbounds i8, ptr %a, i64 40
   store i32 %init, ptr %init1, align 8
@@ -209,7 +209,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @BIO_set_shutdown(ptr nocapture noundef writeonly %a, i32 noundef %shut) local_unnamed_addr #2 {
+define void @BIO_set_shutdown(ptr nocapture noundef writeonly initializes((44, 48)) %a, i32 noundef %shut) local_unnamed_addr #2 {
 entry:
   %shutdown = getelementptr inbounds i8, ptr %a, i64 44
   store i32 %shut, ptr %shutdown, align 4
@@ -280,7 +280,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @BIO_set_callback(ptr nocapture noundef writeonly %b, ptr noundef %cb) local_unnamed_addr #2 {
+define void @BIO_set_callback(ptr nocapture noundef writeonly initializes((16, 24)) %b, ptr noundef %cb) local_unnamed_addr #2 {
 entry:
   %callback = getelementptr inbounds i8, ptr %b, i64 16
   store ptr %cb, ptr %callback, align 8
@@ -296,7 +296,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @BIO_set_callback_ex(ptr nocapture noundef writeonly %b, ptr noundef %cb) local_unnamed_addr #2 {
+define void @BIO_set_callback_ex(ptr nocapture noundef writeonly initializes((24, 32)) %b, ptr noundef %cb) local_unnamed_addr #2 {
 entry:
   %callback_ex = getelementptr inbounds i8, ptr %b, i64 24
   store ptr %cb, ptr %callback_ex, align 8
@@ -304,7 +304,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @BIO_set_callback_arg(ptr nocapture noundef writeonly %b, ptr noundef %arg) local_unnamed_addr #2 {
+define void @BIO_set_callback_arg(ptr nocapture noundef writeonly initializes((32, 40)) %b, ptr noundef %arg) local_unnamed_addr #2 {
 entry:
   %cb_arg = getelementptr inbounds i8, ptr %b, i64 32
   store ptr %arg, ptr %cb_arg, align 8
@@ -1763,7 +1763,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @BIO_set_retry_reason(ptr nocapture noundef writeonly %bio, i32 noundef %reason) local_unnamed_addr #2 {
+define void @BIO_set_retry_reason(ptr nocapture noundef writeonly initializes((52, 56)) %bio, i32 noundef %reason) local_unnamed_addr #2 {
 entry:
   %retry_reason = getelementptr inbounds i8, ptr %bio, i64 52
   store i32 %reason, ptr %retry_reason, align 4
@@ -1846,7 +1846,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @BIO_set_next(ptr nocapture noundef writeonly %b, ptr noundef %next) local_unnamed_addr #2 {
+define void @BIO_set_next(ptr nocapture noundef writeonly initializes((72, 80)) %b, ptr noundef %next) local_unnamed_addr #2 {
 entry:
   %next_bio = getelementptr inbounds i8, ptr %b, i64 72
   store ptr %next, ptr %next_bio, align 8
@@ -1989,7 +1989,7 @@ return:                                           ; preds = %for.inc, %while.bod
 declare i32 @CRYPTO_dup_ex_data(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @BIO_copy_next_retry(ptr nocapture noundef %b) local_unnamed_addr #8 {
+define void @BIO_copy_next_retry(ptr nocapture noundef initializes((52, 56)) %b) local_unnamed_addr #8 {
 entry:
   %next_bio = getelementptr inbounds i8, ptr %b, i64 72
   %0 = load ptr, ptr %next_bio, align 8

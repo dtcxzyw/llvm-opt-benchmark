@@ -135,7 +135,7 @@ $_ZN4llvm15SmallVectorImplIN5clang7CodeGen7CallArgEE15insert_one_implIRKS3_EEPS3
 @_ZN5clang7CodeGen8CGCXXABID1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang7CodeGen8CGCXXABID2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen8CGCXXABID2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen8CGCXXABID2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 760) (i8, ptr @_ZTVN5clang7CodeGen8CGCXXABIE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -164,7 +164,7 @@ define dso_local void @_ZN5clang7CodeGen8CGCXXABID0Ev(ptr nocapture nonnull read
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen8CGCXXABI14getThisAddressERNS0_15CodeGenFunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::Address") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(6488) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen8CGCXXABI14getThisAddressERNS0_15CodeGenFunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::Address") align 8 initializes((0, 48)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(6488) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4536
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4528
@@ -355,7 +355,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen8CGCXXABI24ConvertMemberPointerTy
 declare i64 @_ZNK5clang10ASTContext18getPointerDiffTypeEv(ptr noundef nonnull align 8 dereferenceable(23096)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen8CGCXXABI31EmitLoadOfMemberFunctionPointerERNS0_15CodeGenFunctionEPKNS_4ExprENS0_7AddressERPN4llvm5ValueESA_PKNS_17MemberPointerTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::CGCallee") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(6488) %2, ptr nocapture readnone %3, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %5, ptr nocapture readnone %6, ptr nocapture noundef readonly %7) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen8CGCXXABI31EmitLoadOfMemberFunctionPointerERNS0_15CodeGenFunctionEPKNS_4ExprENS0_7AddressERPN4llvm5ValueESA_PKNS_17MemberPointerTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::CGCallee") align 8 initializes((0, 28), (32, 33), (40, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(6488) %2, ptr nocapture readnone %3, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %5, ptr nocapture readnone %6, ptr nocapture noundef readonly %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.clang::CodeGen::Address", align 8
   tail call void @_ZN5clang7CodeGen8CGCXXABI19ErrorUnsupportedABIERNS0_15CodeGenFunctionEN4llvm9StringRefE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(6488) %2, ptr nonnull @.str.1, i64 29)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -584,7 +584,7 @@ define dso_local noundef zeroext i1 @_ZN5clang7CodeGen8CGCXXABI19isZeroInitializ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen8CGCXXABI14buildThisParamERNS0_15CodeGenFunctionERNS0_15FunctionArgListE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(144) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen8CGCXXABI14buildThisParamERNS0_15CodeGenFunctionERNS0_15FunctionArgListE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull align 8 dereferenceable(6488) initializes((4528, 4536), (4552, 4560)) %1, ptr noundef nonnull align 8 dereferenceable(144) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1912
   %.0.copyload.i.i.i.i = load i64, ptr %4, align 8
   %5 = and i64 %.0.copyload.i.i.i.i, -8
@@ -892,7 +892,7 @@ _ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang7CodeGen8CGCXXABI18setCXXABIThisValueERNS0_15CodeGenFunctionEPN4llvm5ValueE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(6488) %1, ptr noundef %2) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN5clang7CodeGen8CGCXXABI18setCXXABIThisValueERNS0_15CodeGenFunctionEPN4llvm5ValueE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(6488) initializes((4536, 4544)) %1, ptr noundef %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4536
   store ptr %2, ptr %4, align 8
   ret void
@@ -1257,7 +1257,7 @@ define dso_local noundef i64 @_ZN5clang7CodeGen8CGCXXABI22getArrayCookieSizeImpl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen8CGCXXABI21InitializeArrayCookieERNS0_15CodeGenFunctionENS0_7AddressEPN4llvm5ValueEPKNS_10CXXNewExprENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6488) %2, ptr nocapture noundef readnone byval(%"class.clang::CodeGen::Address") align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, i64 %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen8CGCXXABI21InitializeArrayCookieERNS0_15CodeGenFunctionENS0_7AddressEPN4llvm5ValueEPKNS_10CXXNewExprENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 initializes((0, 24), (32, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6488) %2, ptr nocapture noundef readnone byval(%"class.clang::CodeGen::Address") align 8 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, i64 %6) unnamed_addr #0 align 2 {
   tail call void @_ZN5clang7CodeGen8CGCXXABI19ErrorUnsupportedABIERNS0_15CodeGenFunctionEN4llvm9StringRefE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(6488) %2, ptr nonnull @.str.7, i64 27)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 24, i1 false), !alias.scope !22
@@ -1322,7 +1322,7 @@ _ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit:  ; preds = %5, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen8CGCXXABI15ReadArrayCookieERNS0_15CodeGenFunctionENS0_7AddressEPKNS_13CXXDeleteExprENS_8QualTypeERPN4llvm5ValueESC_RNS_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef %3, i64 %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull align 8 dereferenceable(8) %7) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen8CGCXXABI15ReadArrayCookieERNS0_15CodeGenFunctionENS0_7AddressEPKNS_13CXXDeleteExprENS_8QualTypeERPN4llvm5ValueESC_RNS_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 initializes((8, 16)) %2, ptr noundef %3, i64 %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %6, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %7) unnamed_addr #0 align 2 {
 _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit:
   %8 = alloca ptr, align 8
   %.sroa.6 = alloca [23 x i8], align 1
@@ -1547,7 +1547,7 @@ define dso_local { ptr, i32 } @_ZN5clang7CodeGen8CGCXXABI19getCatchAllTypeInfoEv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang7CodeGen8CGCXXABI15getVBPtrOffsetsEPKNS_13CXXRecordDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.979") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture readnone %2) unnamed_addr #6 align 2 {
+define dso_local void @_ZN5clang7CodeGen8CGCXXABI15getVBPtrOffsetsEPKNS_13CXXRecordDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.979") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture readnone %2) unnamed_addr #6 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }

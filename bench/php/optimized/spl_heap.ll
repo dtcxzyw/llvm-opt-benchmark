@@ -821,7 +821,7 @@ define hidden void @zim_SplPriorityQueue_extract(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_pqueue_extract_helper(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @spl_pqueue_extract_helper(ptr noundef initializes((0, 12)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = and i32 %2, 3
   %5 = icmp eq i32 %4, 3
   br i1 %5, label %6, label %24
@@ -2211,7 +2211,7 @@ define internal noundef ptr @spl_heap_object_clone(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @spl_heap_object_count_elements(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1, 1) i32 @spl_heap_object_count_elements(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 -8
   %5 = load ptr, ptr %4, align 8
@@ -2262,7 +2262,7 @@ define internal range(i32 -1, 1) i32 @spl_heap_object_count_elements(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @spl_heap_object_get_gc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
+define internal ptr @spl_heap_object_get_gc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -32
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -2352,7 +2352,7 @@ define internal noundef ptr @spl_pqueue_get_iterator(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @spl_pqueue_object_get_gc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
+define internal ptr @spl_pqueue_object_get_gc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -32
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -2744,7 +2744,7 @@ define internal ptr @spl_heap_it_get_current_data(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @spl_heap_it_get_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #11 {
+define internal void @spl_heap_it_get_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -32

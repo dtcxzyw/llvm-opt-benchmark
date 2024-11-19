@@ -632,7 +632,7 @@ define linkonce_odr hidden noundef ptr @_ZN11PaddedArrayI18PSPromotionManagerL8M
 declare void @_ZN17PreservedMarksSet4initEj(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18PSPromotionManager24register_preserved_marksEP14PreservedMarks(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(912) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN18PSPromotionManager24register_preserved_marksEP14PreservedMarks(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(912) initializes((824, 832)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 824
   store ptr %1, ptr %3, align 8
   ret void
@@ -906,7 +906,7 @@ define hidden void @_ZN18PSPromotionManager10flush_labsEv(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18PSPromotionManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(912) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN18PSPromotionManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(912) initializes((0, 36), (40, 76), (80, 88)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)

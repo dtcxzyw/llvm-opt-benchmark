@@ -182,7 +182,7 @@ define noundef i32 @SUNAdaptController_UpdateH_ARKUserControl(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @SUNAdaptController_Space_ARKUserControl(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #6 {
+define noundef i32 @SUNAdaptController_Space_ARKUserControl(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #6 {
   store i64 4, ptr %1, align 8
   store i64 2, ptr %2, align 8
   ret i32 0

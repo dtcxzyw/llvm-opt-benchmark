@@ -1432,7 +1432,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #1 sectio
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @netdev_queue_release(ptr nocapture noundef %0) #0 align 16 {
+define internal void @netdev_queue_release(ptr nocapture noundef initializes((0, 64)) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -24
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   %3 = load ptr, ptr %2, align 64

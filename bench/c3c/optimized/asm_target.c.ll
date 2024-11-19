@@ -3873,7 +3873,7 @@ fnv1a.exit657:                                    ; preds = %386
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal void @clobbers_make(ptr dead_on_unwind noalias nocapture nonnull writable sret(%struct.Clobbers) align 8 %0, i32 noundef range(i32 0, 3) %1, ...) unnamed_addr #3 {
+define internal void @clobbers_make(ptr dead_on_unwind noalias nocapture nonnull writable sret(%struct.Clobbers) align 8 initializes((0, 32)) %0, i32 noundef range(i32 0, 3) %1, ...) unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)

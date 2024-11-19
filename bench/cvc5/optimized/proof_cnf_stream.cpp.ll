@@ -888,7 +888,7 @@ _ZNK4cvc57context9CDHashSetISt10shared_ptrINS_8internal9ProofNodeEENS3_21ProofNo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal4prop14ProofCnfStream15getInputClausesEv(ptr noalias sret(%"class.std::vector.310") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(848) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop14ProofCnfStream15getInputClausesEv(ptr noalias sret(%"class.std::vector.310") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(848) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -1091,7 +1091,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal4prop14ProofCnfStream15getLemmaClausesEv(ptr noalias sret(%"class.std::vector.310") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(848) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop14ProofCnfStream15getLemmaClausesEv(ptr noalias sret(%"class.std::vector.310") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(848) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -1235,7 +1235,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal4prop14ProofCnfStream21getInputClausesProofsEv(ptr noalias sret(%"class.std::vector.315") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(848) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop14ProofCnfStream21getInputClausesProofsEv(ptr noalias sret(%"class.std::vector.315") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(848) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp5 = alloca %"class.std::shared_ptr", align 8
@@ -1702,7 +1702,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal4prop14ProofCnfStream21getLemmaClausesProofsEv(ptr noalias sret(%"class.std::vector.315") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(848) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop14ProofCnfStream21getLemmaClausesProofsEv(ptr noalias sret(%"class.std::vector.315") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(848) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp5 = alloca %"class.std::shared_ptr", align 8
@@ -2601,7 +2601,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN4cvc58internal4prop15SatProofManager22registerSatAssumptionsERKSt6vectorINS0_12NodeTemplateILb1EEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(1128), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal4prop14ProofCnfStream16convertAndAssertENS0_12NodeTemplateILb0EEEbbbPNS0_14ProofGeneratorE(ptr noundef nonnull align 8 dereferenceable(848) %this, ptr nocapture noundef readonly %node, i1 noundef zeroext %negated, i1 noundef zeroext %removable, i1 noundef zeroext %input, ptr noundef %pg) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop14ProofCnfStream16convertAndAssertENS0_12NodeTemplateILb0EEEbbbPNS0_14ProofGeneratorE(ptr noundef nonnull align 8 dereferenceable(848) initializes((32, 33)) %this, ptr nocapture noundef readonly %node, i1 noundef zeroext %negated, i1 noundef zeroext %removable, i1 noundef zeroext %input, ptr noundef %pg) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %nb.i.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i.i = alloca %"class.cvc5::internal::NodeTemplate.320", align 8

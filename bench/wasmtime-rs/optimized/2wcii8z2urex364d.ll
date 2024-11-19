@@ -2865,7 +2865,7 @@ define zeroext i1 @"_ZN83_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder3new17hc65f1fc56024fcb6E(ptr nocapture writeonly sret({ { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, i8, [1 x i8] }) align 2 %0) unnamed_addr #4 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder3new17hc65f1fc56024fcb6E(ptr nocapture writeonly sret({ { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, i8, [1 x i8] }) align 2 initializes((0, 2), (6, 8), (12, 14), (18, 20), (24, 26), (30, 31)) %0) unnamed_addr #4 {
   store i16 0, ptr %0, align 2
   %2 = getelementptr inbounds i8, ptr %0, i64 6
   store i16 0, ptr %2, align 2
@@ -2881,7 +2881,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder3new
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder16includes_scalars17h5e87033ff456d308E(ptr nocapture writeonly sret({ { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, i8, [1 x i8] }) align 2 %0, ptr nocapture align 2 %1, i1 zeroext %2) unnamed_addr #5 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder16includes_scalars17h5e87033ff456d308E(ptr nocapture writeonly sret({ { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, i8, [1 x i8] }) align 2 initializes((0, 32)) %0, ptr nocapture align 2 initializes((30, 31)) %1, i1 zeroext %2) unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %1, i64 30
   %5 = zext i1 %2 to i8
   store i8 %5, ptr %4, align 2

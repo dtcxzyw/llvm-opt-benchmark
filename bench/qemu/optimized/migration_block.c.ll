@@ -2011,7 +2011,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #5
 declare ptr @blk_aio_preadv(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_mig_read_cb(ptr noundef %opaque, i32 noundef %ret) #1 {
+define internal void @blk_mig_read_cb(ptr noundef initializes((80, 84), (88, 96)) %opaque, i32 noundef %ret) #1 {
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr

@@ -1198,7 +1198,7 @@ define dso_local i64 @gen_pool_size(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen_pool_set_algo(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local void @gen_pool_set_algo(ptr nocapture noundef writeonly initializes((32, 48)) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   tail call void @__rcu_read_lock() #12
   %4 = icmp eq ptr %1, null
   %5 = select i1 %4, ptr @gen_pool_first_fit, ptr %1

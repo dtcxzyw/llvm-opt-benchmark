@@ -79,7 +79,7 @@ $_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Ident
 @_ZN8FileTestD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN8FileTestD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8FileTestC2EPKc(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %path) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8FileTestC2EPKc(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 16)) %this, ptr noundef %path) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %type_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
@@ -440,7 +440,7 @@ entry:
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8FileTest9ClearTestEv(ptr noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8FileTest9ClearTestEv(ptr noundef nonnull align 8 dereferenceable(176) initializes((12, 16)) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %start_line_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %start_line_, align 4

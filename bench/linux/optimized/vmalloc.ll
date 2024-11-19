@@ -10037,7 +10037,7 @@ define internal fastcc void @free_vmap_area_rb_augment_cb_propagate(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @free_vmap_area_rb_augment_cb_rotate(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #17 align 16 {
+define internal void @free_vmap_area_rb_augment_cb_rotate(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((40, 48)) %1) #17 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -16
   %4 = getelementptr i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8

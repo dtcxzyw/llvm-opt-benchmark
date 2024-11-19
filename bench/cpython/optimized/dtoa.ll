@@ -3942,7 +3942,7 @@ return:                                           ; preds = %if.else.i169, %if.t
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_Py_dg_freedtoa(ptr noundef %s) local_unnamed_addr #0 {
+define hidden void @_Py_dg_freedtoa(ptr noundef initializes((4, 12)) %s) local_unnamed_addr #0 {
 if.then.i:
   %add.ptr = getelementptr i8, ptr %s, i64 -4
   %0 = load i32, ptr %add.ptr, align 4
@@ -3976,7 +3976,7 @@ Bfree.exit:                                       ; preds = %if.then1.i, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @_Py_dg_dtoa(double noundef %dd, i32 noundef %mode, i32 noundef %ndigits, ptr nocapture noundef writeonly %decpt, ptr nocapture noundef writeonly %sign, ptr noundef writeonly %rve) local_unnamed_addr #0 {
+define hidden noundef ptr @_Py_dg_dtoa(double noundef %dd, i32 noundef %mode, i32 noundef %ndigits, ptr nocapture noundef writeonly %decpt, ptr nocapture noundef writeonly initializes((0, 4)) %sign, ptr noundef writeonly %rve) local_unnamed_addr #0 {
 entry:
   %0 = bitcast double %dd to i64
   %tobool.not = icmp slt i64 %0, 0

@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ToastAttrInfo = type { ptr, i32, i8, i8 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @toast_tuple_init(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @toast_tuple_init(ptr nocapture noundef initializes((40, 41)) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 64
   %4 = load ptr, ptr %3, align 8

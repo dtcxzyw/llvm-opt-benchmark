@@ -113,7 +113,7 @@ define void @_ZN16TimelineDelegateC2EP7QWidget(ptr noundef nonnull align 8 deref
 declare void @_ZN19QStyledItemDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16TimelineDelegate11setDataRoleEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN16TimelineDelegate11setDataRoleEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   ret void

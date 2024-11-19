@@ -823,7 +823,7 @@ define dso_local void @_ZN29cmLocalUnixMakefileGenerator3C2EP17cmGlobalGenerator
 declare void @_ZN22cmLocalCommonGeneratorC2EP17cmGlobalGeneratorP10cmMakefile(ptr noundef nonnull align 8 dereferenceable(848), ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN29cmLocalUnixMakefileGenerator3D2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN29cmLocalUnixMakefileGenerator3D2Ev(ptr noundef nonnull align 8 dereferenceable(1112) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV29cmLocalUnixMakefileGenerator3, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1064
   %3 = getelementptr inbounds i8, ptr %0, i64 1080
@@ -951,7 +951,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare void @_ZN22cmLocalCommonGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(848)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN29cmLocalUnixMakefileGenerator3D0Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN29cmLocalUnixMakefileGenerator3D0Ev(ptr noundef nonnull align 8 dereferenceable(1112) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN29cmLocalUnixMakefileGenerator3D2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) #21
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void

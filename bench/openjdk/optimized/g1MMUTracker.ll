@@ -31,7 +31,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_88ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN12G1MMUTrackerC1Edd = hidden unnamed_addr alias void (ptr, double, double), ptr @_ZN12G1MMUTrackerC2Edd
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12G1MMUTrackerC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1052) %0, double noundef %1, double noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN12G1MMUTrackerC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1052) initializes((0, 1052)) %0, double noundef %1, double noundef %2) unnamed_addr #0 align 2 {
   store double %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store double %2, ptr %4, align 8

@@ -474,7 +474,7 @@ freeCEN.exit:                                     ; preds = %16, %._crit_edge.i.
 declare i64 @lseek64(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @readCEN(ptr nocapture noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i64 @readCEN(ptr nocapture noundef nonnull initializes((104, 112)) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
   %4 = alloca [4 x i8], align 1
   %5 = alloca [128 x i8], align 16
@@ -2671,7 +2671,7 @@ readFullyAt.exit:                                 ; preds = %.outer.i.i, %readFu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @InflateFully(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @InflateFully(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.z_stream_s, align 8
   %6 = alloca [4096 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2966,7 +2966,7 @@ declare i32 @getErrorString(i32 noundef, ptr noundef, i64 noundef) local_unnamed
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @ZIP_InflateFully(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @ZIP_InflateFully(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.z_stream_s, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, i8 0, i64 112, i1 false)
   store ptr null, ptr %4, align 8
@@ -3043,7 +3043,7 @@ define zeroext range(i8 0, 2) i8 @ZIP_InflateFully(ptr noundef %0, i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ZIP_GZip_InitParams(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @ZIP_GZip_InitParams(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr noundef initializes((0, 8)) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.z_stream_s, align 8
   store i64 0, ptr %2, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, i8 0, i64 112, i1 false)
@@ -3095,7 +3095,7 @@ declare i64 @deflateBound(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare i32 @deflateEnd(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZIP_GZip_Fully(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, ptr noundef %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #0 {
+define i64 @ZIP_GZip_Fully(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, ptr noundef %7, ptr nocapture noundef writeonly initializes((0, 8)) %8) local_unnamed_addr #0 {
   %10 = alloca %struct.z_stream_s, align 8
   %11 = alloca %struct.gz_header_s, align 8
   %12 = alloca [2 x ptr], align 16

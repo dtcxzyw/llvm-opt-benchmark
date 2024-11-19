@@ -65,13 +65,13 @@ define noundef nonnull ptr @WebPGetWorkerInterface() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @Init(ptr nocapture noundef writeonly %0) #3 {
+define internal void @Init(ptr nocapture noundef writeonly initializes((0, 48)) %0) #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Reset(ptr noundef %0) #4 {
+define internal range(i32 0, 2) i32 @Reset(ptr noundef initializes((40, 44)) %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8

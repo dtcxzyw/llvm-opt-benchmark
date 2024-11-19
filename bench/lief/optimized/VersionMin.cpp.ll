@@ -168,7 +168,7 @@ define noundef nonnull align 4 dereferenceable(12) ptr @_ZNK4LIEF5MachO10Version
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF5MachO10VersionMin7versionERKSt5arrayIjLm3EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO10VersionMin7versionERKSt5arrayIjLm3EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((56, 68)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   ret void
@@ -181,7 +181,7 @@ define noundef nonnull align 4 dereferenceable(12) ptr @_ZNK4LIEF5MachO10Version
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF5MachO10VersionMin3sdkERKSt5arrayIjLm3EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO10VersionMin3sdkERKSt5arrayIjLm3EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((68, 80)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 68
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   ret void

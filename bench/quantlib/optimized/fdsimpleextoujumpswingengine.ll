@@ -1046,7 +1046,7 @@ _ZN8QuantLib10LazyObject6updateEv.exit:           ; preds = %entry, %if.end9.i
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib28FdSimpleExtOUJumpSwingEngineC2EN5boost10shared_ptrINS_21ExtOUWithJumpsProcessEEENS2_INS_18YieldTermStructureEEEmmmNS2_ISt6vectorISt4pairIddESaIS9_EEEERKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr nocapture noundef %process, ptr nocapture noundef %rTS, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %yGrid, ptr nocapture noundef %shape, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib28FdSimpleExtOUJumpSwingEngineC2EN5boost10shared_ptrINS_21ExtOUWithJumpsProcessEEENS2_INS_18YieldTermStructureEEEmmmNS2_ISt6vectorISt4pairIddESaIS9_EEEERKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(448) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %process, ptr nocapture noundef %rTS, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %yGrid, ptr nocapture noundef %shape, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !20

@@ -231,7 +231,7 @@ $_ZTSN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18PcpPrimIndex_GraphEEE = c
 @_ZN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_GraphC1ERKNS_17PcpLayerStackSiteEb = unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_GraphC2ERKNS_17PcpLayerStackSiteEb
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph5_Node6SetArcERKNS_6PcpArcE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph5_Node6SetArcERKNS_6PcpArcE(ptr noundef nonnull align 8 dereferenceable(44) initializes((24, 28), (36, 40)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -832,7 +832,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_Unsha
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_GraphC2ERKNS_17PcpLayerStackSiteEb(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_GraphC2ERKNS_17PcpLayerStackSiteEb(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::PcpArc", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::PcpMapExpression", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

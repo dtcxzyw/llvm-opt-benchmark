@@ -1395,7 +1395,7 @@ ehcleanup32:                                      ; preds = %ehcleanup26, %ehcle
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly8settings6detail12SnapshotBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly8settings6detail12SnapshotBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i41 = alloca i32, align 4
   %state.i.i.i = alloca i32, align 4
@@ -6142,7 +6142,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly8settings6detail12SnapshotBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly8settings6detail12SnapshotBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i20 = alloca i32, align 4
   %state.i.i.i = alloca i32, align 4

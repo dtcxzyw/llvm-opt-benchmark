@@ -56,7 +56,7 @@ $_ZNSt6vectorIdSaIdEEaSERKS1_ = comdat any
 @_ZN3gmx15CorrelationGridC1EiidNS0_18BlockLengthMeasureEd = unnamed_addr alias void (ptr, i32, i32, double, i32, double), ptr @_ZN3gmx15CorrelationGridC2EiidNS0_18BlockLengthMeasureEd
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx15CorrelationGridC2EiidNS0_18BlockLengthMeasureEd(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, double noundef %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx15CorrelationGridC2EiidNS0_18BlockLengthMeasureEd(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, double noundef %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.gmx::CorrelationTensor", align 8
   store double %5, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8

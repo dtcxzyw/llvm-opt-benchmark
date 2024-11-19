@@ -1527,7 +1527,7 @@ xhci_giveback_urb_in_irq.exit26:                  ; preds = %352, %353, %366, %3
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xhci_cleanup_command_queue(ptr noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local void @xhci_cleanup_command_queue(ptr noundef initializes((312, 320)) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 312
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 168

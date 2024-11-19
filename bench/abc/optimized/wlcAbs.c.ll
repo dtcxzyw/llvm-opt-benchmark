@@ -4229,7 +4229,7 @@ Vec_IntFree.exit151:                              ; preds = %Vec_IntFree.exit149
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Wla_ManBitBlast(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define ptr @Wla_ManBitBlast(ptr nocapture noundef initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @Wlc_NtkBitBlast(ptr noundef %1, ptr noundef null) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %3, ptr %4, align 8
@@ -7124,7 +7124,7 @@ Vec_BitFree.exit:                                 ; preds = %23, %28
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i32 @Wla_ManSolve(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define i32 @Wla_ManSolve(ptr noundef initializes((88, 92)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)

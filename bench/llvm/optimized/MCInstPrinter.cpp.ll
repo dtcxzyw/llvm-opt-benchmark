@@ -554,7 +554,7 @@ _ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i: ; preds = %4, %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm13MCInstPrinter9formatDecEl(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::format_object") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(58) %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZNK4llvm13MCInstPrinter9formatDecEl(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::format_object") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(58) %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str.1, ptr %4, align 8, !alias.scope !7
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !alias.scope !7
@@ -727,7 +727,7 @@ define dso_local void @_ZNK4llvm13MCInstPrinter6markupERNS_11raw_ostreamENS0_6Ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13MCInstPrinter10WithMarkupC2ERNS_11raw_ostreamENS0_6MarkupEbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13MCInstPrinter10WithMarkupC2ERNS_11raw_ostreamENS0_6MarkupEbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(10) initializes((0, 10)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = zext i1 %3 to i8
   %7 = zext i1 %4 to i8
   store ptr %1, ptr %0, align 8

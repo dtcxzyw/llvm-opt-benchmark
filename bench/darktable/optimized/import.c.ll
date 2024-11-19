@@ -576,7 +576,7 @@ define internal void @_import_add_file_callback(ptr noundef %0, ptr noundef %1, 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(480) ptr @g_malloc0(i64 noundef 480) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !6
@@ -1047,7 +1047,7 @@ define void @init_presets(ptr nocapture noundef readnone %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @get_params(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define ptr @get_params(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 {
   store i32 0, ptr %1, align 4, !tbaa !87
   %3 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.16) #16
   %4 = icmp ne i32 %3, 0
@@ -2641,7 +2641,7 @@ define internal fastcc void @_import_from_dialog_run(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_import_from_dialog_free(ptr nocapture %0) unnamed_addr #1 {
+define internal fastcc void @_import_from_dialog_free(ptr nocapture initializes((248, 252)) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   store i32 0, ptr %2, align 8, !tbaa !109
   %3 = getelementptr inbounds i8, ptr %0, i64 256
@@ -3056,7 +3056,7 @@ define internal void @_paned_places_position_changed(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_update_places_list(ptr nocapture %0) unnamed_addr #1 {
+define internal fastcc void @_update_places_list(ptr nocapture initializes((376, 384)) %0) unnamed_addr #1 {
   %2 = alloca %struct._GtkTreeIter, align 8
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 360
@@ -5276,7 +5276,7 @@ define internal void @_lib_import_tethered_callback(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define internal void @_lib_import_unmount_callback(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #14 {
+define internal void @_lib_import_unmount_callback(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((32968, 32972)) %1) #14 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32968
   store i32 1, ptr %3, align 8, !tbaa !139
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !66
@@ -5286,7 +5286,7 @@ define internal void @_lib_import_unmount_callback(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define internal void @_lib_import_mount_callback(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #14 {
+define internal void @_lib_import_mount_callback(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((24, 28)) %1) #14 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 1, ptr %3, align 8, !tbaa !141
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 152), align 8, !tbaa !66

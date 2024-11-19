@@ -1353,7 +1353,7 @@ declare void @htmlerror(ptr noundef) local_unnamed_addr #4
 declare ptr @dtopen(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @parseHTML(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @parseHTML(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.agxbuf, align 8
   %5 = alloca %struct.sfont_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)

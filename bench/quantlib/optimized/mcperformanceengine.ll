@@ -192,7 +192,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib27PerformanceOptionPathPricerC2ENS_6Option4TypeEdSt6vectorIdSaIdEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %type, double noundef %strike, ptr nocapture noundef %discounts) unnamed_addr #8 align 2 {
+define void @_ZN8QuantLib27PerformanceOptionPathPricerC2ENS_6Option4TypeEdSt6vectorIdSaIdEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 20), (24, 48)) %this, i32 noundef %type, double noundef %strike, ptr nocapture noundef %discounts) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib27PerformanceOptionPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %strike_ = getelementptr inbounds nuw i8, ptr %this, i64 8

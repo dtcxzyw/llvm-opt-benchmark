@@ -200,7 +200,7 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19CardTableBarrierSetD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN19CardTableBarrierSetD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTV19CardTableBarrierSet, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -219,7 +219,7 @@ define hidden void @_ZN19CardTableBarrierSetD2Ev(ptr nocapture noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19CardTableBarrierSetD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN19CardTableBarrierSetD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTV19CardTableBarrierSet, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8

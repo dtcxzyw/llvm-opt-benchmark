@@ -32,7 +32,7 @@ define nonnull align 8 ptr @_ZN4core3cmp6max_by17h4da1ba4a31c68a77E(ptr align 8 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @_ZN4core3cmp6max_by17h59a6d3712d77358dE(ptr nocapture writeonly sret({ { i64, ptr }, { ptr, ptr } }) align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 1 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN4core3cmp6max_by17h59a6d3712d77358dE(ptr nocapture writeonly sret({ { i64, ptr }, { ptr, ptr } }) align 8 initializes((0, 32)) %0, ptr align 8 %1, ptr align 8 %2, ptr align 1 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
   %6 = icmp ne ptr %2, null

@@ -429,7 +429,7 @@ declare void @_ZN13G1BatchedTask15add_serial_taskEP17G1AbstractSubTask(ptr nound
 declare void @_ZN13G1BatchedTask17add_parallel_taskEP17G1AbstractSubTask(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN35G1PreEvacuateCollectionSetBatchTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN35G1PreEvacuateCollectionSetBatchTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.ThreadLocalAllocStats, align 8
   %3 = alloca %class.G1ConcurrentRefineStats, align 8
   %4 = alloca %class.G1ConcurrentRefineStats, align 8

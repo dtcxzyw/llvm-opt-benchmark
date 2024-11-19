@@ -491,7 +491,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @casadi_register_integrator_cvodes(ptr nocapture noundef writeonly %0) #4 {
+define noundef i32 @casadi_register_integrator_cvodes(ptr nocapture noundef writeonly initializes((0, 28), (32, 48)) %0) #4 {
   store ptr @_ZN6casadi15CvodesInterface7creatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FunctionEdRKSt6vectorIdSaIdEE, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @.str.5, ptr %2, align 8
@@ -564,7 +564,7 @@ define void @_ZN6casadi15CvodesInterfaceC2ERKNSt7__cxx1112basic_stringIcSt11char
 declare void @_ZN6casadi17SundialsInterfaceC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FunctionEdRKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(2120), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), double noundef, ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi15CvodesInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(2152) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi15CvodesInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(2152) initializes((0, 8), (1520, 1528)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi15CvodesInterfaceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1520
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi15CvodesInterfaceE, i64 1008), ptr %2, align 8

@@ -57,7 +57,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN23ObjectSampleDescriptionC1EP7oopDesc = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN23ObjectSampleDescriptionC2EP7oopDesc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN24ObjectDescriptionBuilderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN24ObjectDescriptionBuilderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 1), (104, 112)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   store i64 0, ptr %2, align 8
   store i8 0, ptr %0, align 8
@@ -65,7 +65,7 @@ define hidden void @_ZN24ObjectDescriptionBuilderC2Ev(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN24ObjectDescriptionBuilder5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN24ObjectDescriptionBuilder5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 1), (104, 112)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   store i64 0, ptr %2, align 8
   store i8 0, ptr %0, align 8
@@ -219,7 +219,7 @@ declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFail
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN23ObjectSampleDescriptionC2EP7oopDesc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN23ObjectSampleDescriptionC2EP7oopDesc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((8, 9), (112, 128)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   store i64 0, ptr %4, align 8
@@ -247,7 +247,7 @@ define hidden void @_ZN23ObjectSampleDescription18ensure_initializedEv(ptr nocap
 declare noundef ptr @_ZN11SymbolTable20new_permanent_symbolEPKc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23ObjectSampleDescription17print_descriptionEP12outputStream(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN23ObjectSampleDescription17print_descriptionEP12outputStream(ptr noundef nonnull align 8 dereferenceable(128) initializes((8, 9), (112, 120)) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @_ZL11symbol_size, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN23ObjectSampleDescription22write_object_to_bufferEv.exit
@@ -268,7 +268,7 @@ _ZN23ObjectSampleDescription22write_object_to_bufferEv.exit: ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23ObjectSampleDescription22write_object_to_bufferEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN23ObjectSampleDescription22write_object_to_bufferEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((8, 9), (112, 120)) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZL11symbol_size, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %_ZN23ObjectSampleDescription18ensure_initializedEv.exit
@@ -288,7 +288,7 @@ _ZN23ObjectSampleDescription18ensure_initializedEv.exit: ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN23ObjectSampleDescription11descriptionEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN23ObjectSampleDescription11descriptionEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((8, 9), (112, 120)) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZL11symbol_size, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %_ZN23ObjectSampleDescription22write_object_to_bufferEv.exit

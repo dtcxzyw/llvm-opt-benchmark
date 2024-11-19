@@ -22,7 +22,7 @@ define internal noundef i32 @pbkdf2_sha1(ptr noundef %0, i64 noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @aes_ctr_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 {
+define internal range(i32 -1, 1) i32 @aes_ctr_init(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 {
   %4 = tail call ptr @EVP_CIPHER_CTX_new() #7
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %4, null
@@ -230,7 +230,7 @@ aes_ctr_encrypt_counter.exit59:                   ; preds = %aes_ctr_increase_co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_ctr_release(ptr nocapture noundef %0) #1 {
+define internal noundef i32 @aes_ctr_release(ptr nocapture noundef initializes((52, 68)) %0) #1 {
   %2 = load ptr, ptr %0, align 8
   tail call void @EVP_CIPHER_CTX_free(ptr noundef %2) #7
   %3 = getelementptr inbounds i8, ptr %0, i64 16

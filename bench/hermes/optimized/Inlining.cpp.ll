@@ -3132,7 +3132,7 @@ declare void @_ZN6hermes5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull alig
 declare void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes14createInliningEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.133") align 8 %agg.result) local_unnamed_addr #0 {
+define hidden void @_ZN6hermes14createInliningEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.133") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN6hermes8InliningESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13, !noalias !10
   %kind.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -4013,7 +4013,7 @@ declare noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(pt
 declare noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN6hermesL14inlineFunctionERNS_9IRBuilderEPNS_8FunctionEPNS_8CallInstEPNS_10BasicBlockEENK3$_0clEPNS_11InstructionE"(ptr %this.0.val, ptr %this.8.val, ptr noundef nonnull %I) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN6hermesL14inlineFunctionERNS_9IRBuilderEPNS_8FunctionEPNS_8CallInstEPNS_10BasicBlockEENK3$_0clEPNS_11InstructionE"(ptr initializes((8, 12)) %this.0.val, ptr %this.8.val, ptr noundef nonnull %I) unnamed_addr #0 align 2 {
 entry:
   %oldOp = alloca ptr, align 8
   %Size.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 8

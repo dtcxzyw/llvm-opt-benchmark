@@ -239,7 +239,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z39grpc_chttp2_settings_parser_begin_frameP27grpc_chttp2_settings_parserjhPj(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr nocapture noundef writeonly %parser, i32 noundef %length, i8 noundef zeroext %flags, ptr noundef %settings) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z39grpc_chttp2_settings_parser_begin_frameP27grpc_chttp2_settings_parserjhPj(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr nocapture noundef writeonly initializes((0, 4), (8, 17), (24, 56)) %parser, i32 noundef %length, i8 noundef zeroext %flags, ptr noundef %settings) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp4 = alloca %"class.std::vector", align 8

@@ -1306,7 +1306,7 @@ define void @_ZN13dsl_auto_type9auto_type16settings_builder21DeriveSettingsBuild
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN13dsl_auto_type9auto_type16settings_builder21DeriveSettingsBuilder27default_generate_type_alias17hf28c0e478b53200aE(ptr noalias nocapture noundef writeonly sret({ { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, i8, [5 x i8] } }) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef align 8 dereferenceable(56) %1, i1 noundef zeroext %2) unnamed_addr #7 {
+define void @_ZN13dsl_auto_type9auto_type16settings_builder21DeriveSettingsBuilder27default_generate_type_alias17hf28c0e478b53200aE(ptr noalias nocapture noundef writeonly sret({ { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, i8, [5 x i8] } }) align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noalias nocapture noundef align 8 dereferenceable(56) initializes((48, 49)) %1, i1 noundef zeroext %2) unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = zext i1 %2 to i8
   store i8 %5, ptr %4, align 8
@@ -1315,7 +1315,7 @@ define void @_ZN13dsl_auto_type9auto_type16settings_builder21DeriveSettingsBuild
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN13dsl_auto_type9auto_type16settings_builder21DeriveSettingsBuilder24default_method_type_case17h5b0bccec6c5fec13E(ptr noalias nocapture noundef writeonly sret({ { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, i8, [5 x i8] } }) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef align 8 dereferenceable(56) %1, i8 noundef %2) unnamed_addr #7 {
+define void @_ZN13dsl_auto_type9auto_type16settings_builder21DeriveSettingsBuilder24default_method_type_case17h5b0bccec6c5fec13E(ptr noalias nocapture noundef writeonly sret({ { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, i8, [5 x i8] } }) align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noalias nocapture noundef align 8 dereferenceable(56) initializes((49, 50)) %1, i8 noundef %2) unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %1, i64 49
   store i8 %2, ptr %4, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
@@ -1323,7 +1323,7 @@ define void @_ZN13dsl_auto_type9auto_type16settings_builder21DeriveSettingsBuild
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN13dsl_auto_type9auto_type16settings_builder21DeriveSettingsBuilder26default_function_type_case17h7da9c20a2981a62fE(ptr noalias nocapture noundef writeonly sret({ { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, i8, [5 x i8] } }) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef align 8 dereferenceable(56) %1, i8 noundef %2) unnamed_addr #7 {
+define void @_ZN13dsl_auto_type9auto_type16settings_builder21DeriveSettingsBuilder26default_function_type_case17h7da9c20a2981a62fE(ptr noalias nocapture noundef writeonly sret({ { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, i8, [5 x i8] } }) align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noalias nocapture noundef align 8 dereferenceable(56) initializes((50, 51)) %1, i8 noundef %2) unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %1, i64 50
   store i8 %2, ptr %4, align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
@@ -1331,7 +1331,7 @@ define void @_ZN13dsl_auto_type9auto_type16settings_builder21DeriveSettingsBuild
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN13dsl_auto_type9auto_type16settings_builder21DeriveSettingsBuilder5build17h8603215e2de65243E(ptr noalias nocapture noundef writeonly sret({ { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, i8, [5 x i8] }) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #7 {
+define void @_ZN13dsl_auto_type9auto_type16settings_builder21DeriveSettingsBuilder5build17h8603215e2de65243E(ptr noalias nocapture noundef writeonly sret({ { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, i8, [5 x i8] }) align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #7 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   ret void
 }
@@ -1364,7 +1364,7 @@ define void @_ZN13dsl_auto_type9auto_type16settings_builder23InferrerSettingsBui
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN13dsl_auto_type9auto_type16settings_builder23InferrerSettingsBuilder17method_types_case17h01a05f2544e6bcf1E(ptr noalias nocapture noundef writeonly sret({ { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, [6 x i8] } }) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef align 8 dereferenceable(56) %1, i8 noundef %2) unnamed_addr #7 {
+define void @_ZN13dsl_auto_type9auto_type16settings_builder23InferrerSettingsBuilder17method_types_case17h01a05f2544e6bcf1E(ptr noalias nocapture noundef writeonly sret({ { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, [6 x i8] } }) align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noalias nocapture noundef align 8 dereferenceable(56) initializes((48, 49)) %1, i8 noundef %2) unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   store i8 %2, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
@@ -1372,7 +1372,7 @@ define void @_ZN13dsl_auto_type9auto_type16settings_builder23InferrerSettingsBui
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN13dsl_auto_type9auto_type16settings_builder23InferrerSettingsBuilder19function_types_case17h2a80f5b0f5748013E(ptr noalias nocapture noundef writeonly sret({ { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, [6 x i8] } }) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef align 8 dereferenceable(56) %1, i8 noundef %2) unnamed_addr #7 {
+define void @_ZN13dsl_auto_type9auto_type16settings_builder23InferrerSettingsBuilder19function_types_case17h2a80f5b0f5748013E(ptr noalias nocapture noundef writeonly sret({ { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, [6 x i8] } }) align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noalias nocapture noundef align 8 dereferenceable(56) initializes((49, 50)) %1, i8 noundef %2) unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %1, i64 49
   store i8 %2, ptr %4, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
@@ -1380,7 +1380,7 @@ define void @_ZN13dsl_auto_type9auto_type16settings_builder23InferrerSettingsBui
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN13dsl_auto_type9auto_type16settings_builder23InferrerSettingsBuilder5build17h51984a7fab1ea053E(ptr noalias nocapture noundef writeonly sret({ { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, [6 x i8] }) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #7 {
+define void @_ZN13dsl_auto_type9auto_type16settings_builder23InferrerSettingsBuilder5build17h51984a7fab1ea053E(ptr noalias nocapture noundef writeonly sret({ { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, [6 x i8] }) align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #7 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   ret void
 }

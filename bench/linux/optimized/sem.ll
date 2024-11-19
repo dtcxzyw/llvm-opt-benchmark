@@ -74,7 +74,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched203], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sem_init_ns(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @sem_init_ns(ptr noundef initializes((648, 668)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 648
   store i32 32000, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 652
@@ -3536,7 +3536,7 @@ define internal fastcc i32 @semctl_info(ptr noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @semctl_stat(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @semctl_stat(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, ptr noundef initializes((0, 104)) %3) unnamed_addr #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(104) %3, i8 0, i64 104, i1 false)
   tail call void @__rcu_read_lock() #12
   %5 = icmp eq i32 %2, 20

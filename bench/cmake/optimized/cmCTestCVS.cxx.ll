@@ -265,7 +265,7 @@ define dso_local void @_ZN10cmCTestCVSC2EP7cmCTestRSo(ptr noundef nonnull align 
 declare void @_ZN9cmCTestVCC2EP7cmCTestRSo(ptr noundef nonnull align 8 dereferenceable(388), ptr noundef, ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10cmCTestCVSD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmCTestCVSD2Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV10cmCTestCVS, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 392
   %3 = getelementptr inbounds i8, ptr %0, i64 408
@@ -289,7 +289,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10cmCTestCVS9Dire
 declare void @_ZN9cmCTestVCD2Ev(ptr noundef nonnull align 8 dereferenceable(388)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10cmCTestCVSD0Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmCTestCVSD0Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV10cmCTestCVS, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 392
   %3 = getelementptr inbounds i8, ptr %0, i64 408

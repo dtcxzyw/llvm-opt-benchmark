@@ -411,7 +411,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryESt10unique_ptrINS_12Memo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 4) i32 @_ZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr %1, i64 %2, i32 noundef %3, i32 %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i64 noundef %8, ptr nocapture noundef readonly byval(%"struct.clang::ASTFileSignature") align 8 %9, ptr nocapture noundef readonly %10, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(32) %12) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 4) i32 @_ZN5clang13serialization13ModuleManager9addModuleEN4llvm9StringRefENS0_10ModuleKindENS_14SourceLocationEPNS0_10ModuleFileEjllNS_16ASTFileSignatureEPFS8_S3_ERS7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr %1, i64 %2, i32 noundef %3, i32 %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i64 noundef %8, ptr nocapture noundef readonly byval(%"struct.clang::ASTFileSignature") align 8 %9, ptr nocapture noundef readonly %10, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %11, ptr noundef nonnull align 8 dereferenceable(32) %12) local_unnamed_addr #0 align 2 {
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
   %16 = alloca %"struct.std::array", align 1
@@ -1105,7 +1105,7 @@ _ZNSt10unique_ptrIN5clang13serialization10ModuleFileESt14default_deleteIS2_EED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang13serialization13ModuleManager16lookupModuleFileEN4llvm9StringRefEllRNS_20CustomizableOptionalINS_12FileEntryRefEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, ptr %1, i64 %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %5) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang13serialization13ModuleManager16lookupModuleFileEN4llvm9StringRefEllRNS_20CustomizableOptionalINS_12FileEntryRefEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, ptr %1, i64 %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::Error", align 8
   %8 = alloca %"class.llvm::Error", align 8
   %9 = alloca %class.anon.403, align 1
@@ -2625,7 +2625,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EEaSEOS4_.exit: ; p
 declare noundef ptr @_ZN5clang11FileManager14getVirtualFileEN4llvm9StringRefEll(ptr noundef nonnull align 8 dereferenceable(808), ptr, i64, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13serialization13ModuleManager18allocateVisitStateEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang13serialization13ModuleManager18allocateVisitStateEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2826,7 +2826,7 @@ _ZNSt10unique_ptrIN5clang13serialization13ModuleManager10VisitStateESt14default_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13serialization13ModuleManager14setGlobalIndexEPNS_17GlobalModuleIndexE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang13serialization13ModuleManager14setGlobalIndexEPNS_17GlobalModuleIndexE(ptr noundef nonnull align 8 dereferenceable(288) initializes((272, 280)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %1, ptr %3, align 8
   %.not = icmp eq ptr %1, null

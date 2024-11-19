@@ -565,7 +565,7 @@ _ZN17QArrayDataPointerIN10LabelStack10_StackItemEED2Ev.exit: ; preds = %1, %_ZN1
 declare void @_ZN6QLabelD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10LabelStack19setTemporaryContextEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN10LabelStack19setTemporaryContextEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((40, 44)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %1, ptr %3, align 8
   ret void
@@ -807,7 +807,7 @@ declare void @_ZN10LabelStack20toggleTemporaryFlashEb(ptr noundef nonnull align 
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10LabelStack13setShrinkableEb(ptr noundef nonnull align 8 dereferenceable(112) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10LabelStack13setShrinkableEb(ptr noundef nonnull align 8 dereferenceable(112) initializes((72, 73)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QFontMetrics, align 8
   %4 = zext i1 %1 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 72

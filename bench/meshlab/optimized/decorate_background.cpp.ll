@@ -551,14 +551,14 @@ _ZNK24DecorateBackgroundPlugin14decorationInfoEi.exit: ; preds = %4, %5, %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK24DecorateBackgroundPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(220) %1) unnamed_addr #10 align 2 {
+define void @_ZNK24DecorateBackgroundPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(220) %1) unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.10, i32 noundef 18)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n40_NK24DecorateBackgroundPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #12 align 2 {
+define void @_ZTv0_n40_NK24DecorateBackgroundPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #12 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.10, i32 noundef 18), !noalias !16
   store ptr %3, ptr %0, align 8, !alias.scope !16
@@ -3582,7 +3582,7 @@ declare void @glDepthMask(i8 noundef zeroext) local_unnamed_addr #0
 declare float @fmodf(float noundef, float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN24DecorateBackgroundPlugin8setValueE7QStringN3vcg4ShotIfNS1_8Matrix44IfEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(220) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readonly %2) local_unnamed_addr #17 align 2 {
+define void @_ZN24DecorateBackgroundPlugin8setValueE7QStringN3vcg4ShotIfNS1_8Matrix44IfEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(220) initializes((88, 220)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readonly %2) local_unnamed_addr #17 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %4, ptr noundef nonnull align 4 dereferenceable(132) %2, i64 132, i1 false)
   ret void

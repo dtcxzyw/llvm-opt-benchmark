@@ -1500,7 +1500,7 @@ declare dso_local i32 @ipv6_skip_exthdr(ptr noundef, i32 noundef, ptr noundef, p
 declare dso_local void @raw6_icmp_error(ptr noundef, i32 noundef, i8 noundef zeroext, i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @icmpv6_flow_init(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local void @icmpv6_flow_init(ptr noundef %0, ptr noundef initializes((0, 88)) %1, i8 noundef zeroext %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(88) %1, i8 0, i64 88, i1 false)
   %7 = getelementptr inbounds i8, ptr %1, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %7, ptr noundef align 4 dereferenceable(16) %3, i64 16, i1 false)
@@ -1599,7 +1599,7 @@ define dso_local void @icmpv6_cleanup() local_unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local i32 @icmpv6_err_convert(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr nocapture noundef writeonly %2) #9 align 16 {
+define dso_local i32 @icmpv6_err_convert(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #9 align 16 {
   store i32 71, ptr %2, align 4
   switch i8 %0, label %15 [
     i8 1, label %4

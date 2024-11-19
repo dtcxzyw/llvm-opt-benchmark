@@ -1475,7 +1475,7 @@ _ZN8proxygen12HPACKEncoderD2Ev.exit:              ; preds = %_ZNSt6vectorIN8prox
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen10HTTP2CodecD2Ev(ptr noundef nonnull align 8 dereferenceable(1062) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen10HTTP2CodecD2Ev(ptr noundef nonnull align 8 dereferenceable(1062) initializes((0, 8), (96, 104)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen10HTTP2CodecE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 96
@@ -10496,7 +10496,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen10HTTP2Codec13onDecodeErrorENS_5HPACK11DecodeErrorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1062) %this, i8 noundef zeroext %decodeError) unnamed_addr #11 align 2 {
+define void @_ZN8proxygen10HTTP2Codec13onDecodeErrorENS_5HPACK11DecodeErrorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1062) initializes((1000, 1001)) %this, i8 noundef zeroext %decodeError) unnamed_addr #11 align 2 {
 entry:
   %decodeError2 = getelementptr inbounds i8, ptr %this, i64 1000
   store i8 %decodeError, ptr %decodeError2, align 8
@@ -10504,7 +10504,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZThn96_N8proxygen10HTTP2Codec13onDecodeErrorENS_5HPACK11DecodeErrorE(ptr nocapture noundef writeonly %this, i8 noundef zeroext %decodeError) unnamed_addr #11 align 2 {
+define void @_ZThn96_N8proxygen10HTTP2Codec13onDecodeErrorENS_5HPACK11DecodeErrorE(ptr nocapture noundef writeonly initializes((904, 905)) %this, i8 noundef zeroext %decodeError) unnamed_addr #11 align 2 {
 entry:
   %decodeError2.i = getelementptr inbounds i8, ptr %this, i64 904
   store i8 %decodeError, ptr %decodeError2.i, align 8

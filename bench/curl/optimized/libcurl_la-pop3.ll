@@ -47,7 +47,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @Curl_ccalloc = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 28) i32 @pop3_setup_connection(ptr nocapture noundef writeonly %data, ptr nocapture noundef %conn) #0 {
+define internal range(i32 0, 28) i32 @pop3_setup_connection(ptr nocapture noundef writeonly initializes((392, 400)) %data, ptr nocapture noundef %conn) #0 {
 entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %call.i = tail call ptr %0(i64 noundef 1, i64 noundef 24) #7
@@ -69,7 +69,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pop3_do(ptr noundef %data, ptr nocapture noundef writeonly %done) #0 {
+define internal i32 @pop3_do(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %done) #0 {
 entry:
   %ssldone3.i.i.i = alloca i8, align 1
   store i8 0, ptr %done, align 1
@@ -279,7 +279,7 @@ return:                                           ; preds = %entry, %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pop3_connect(ptr noundef %data, ptr nocapture noundef writeonly %done) #0 {
+define internal i32 @pop3_connect(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %done) #0 {
 entry:
   %ssldone3.i = alloca i8, align 1
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32

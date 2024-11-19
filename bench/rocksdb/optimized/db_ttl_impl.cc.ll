@@ -1264,7 +1264,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb16TtlMergeOperatorC2ERKSt10shared_ptrINS_13MergeOperatorEEPNS_11SystemClockE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %merge_op, ptr noundef %clock) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb16TtlMergeOperatorC2ERKSt10shared_ptrINS_13MergeOperatorEEPNS_11SystemClockE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %merge_op, ptr noundef %clock) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.5", align 1
@@ -2889,7 +2889,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb19TtlCompactionFilterC2EiPNS_11SystemClockEPKNS_16CompactionFilterESt10unique_ptrIS4_St14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %ttl, ptr noundef %clock, ptr noundef %_user_comp_filter, ptr nocapture noundef %_user_comp_filter_from_factory) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb19TtlCompactionFilterC2EiPNS_11SystemClockEPKNS_16CompactionFilterESt10unique_ptrIS4_St14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 52), (56, 64)) %this, i32 noundef %ttl, ptr noundef %clock, ptr noundef %_user_comp_filter, ptr nocapture noundef %_user_comp_filter_from_factory) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.5", align 1
@@ -3191,7 +3191,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb26TtlCompactionFilterFactoryC2EiPNS_11SystemClockESt10shared_ptrINS_23CompactionFilterFactoryEE(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %ttl, ptr noundef %clock, ptr nocapture noundef readonly %comp_filter_factory) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb26TtlCompactionFilterFactoryC2EiPNS_11SystemClockESt10shared_ptrINS_23CompactionFilterFactoryEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 36), (40, 64)) %this, i32 noundef %ttl, ptr noundef %clock, ptr nocapture noundef readonly %comp_filter_factory) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.5", align 1
@@ -4119,7 +4119,7 @@ eh.resume:                                        ; preds = %_ZNKSt14default_del
 declare noundef i64 @_ZNK7rocksdb13ObjectLibrary15GetFactoryCountEPm(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb13DBWithTTLImplC2EPNS_2DBE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) %this, ptr noundef %db) unnamed_addr #8 align 2 {
+define void @_ZN7rocksdb13DBWithTTLImplC2EPNS_2DBE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((0, 33)) %this, ptr noundef %db) unnamed_addr #8 align 2 {
 entry:
   %db_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %db, ptr %db_.i.i, align 8
@@ -4132,7 +4132,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb13DBWithTTLImplD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13DBWithTTLImplD2Ev(ptr noundef nonnull align 8 dereferenceable(33) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb13DBWithTTLImplE, i64 16), ptr %this, align 8
@@ -4288,7 +4288,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13DBWithTTLImpl5CloseEv(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13DBWithTTLImpl5CloseEv(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %default_options = alloca %"struct.rocksdb::Options", align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
@@ -8140,7 +8140,7 @@ ehcleanup:                                        ; preds = %_ZN7rocksdb6StatusD
 declare void @_ZNK7rocksdb10WriteBatch7IterateEPNS0_7HandlerE(ptr sret(%"class.rocksdb::Status") align 8, ptr noundef nonnull align 8 dereferenceable(96), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN7rocksdb13DBWithTTLImpl5WriteERKNS_12WriteOptionsEPNS_10WriteBatchEEN7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 {
+define internal void @_ZZN7rocksdb13DBWithTTLImpl5WriteERKNS_12WriteOptionsEPNS_10WriteBatchEEN7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN7rocksdb13DBWithTTLImpl5WriteERKNS_12WriteOptionsEPNS_10WriteBatchEE7Handler, i64 16), ptr %this, align 8
   %updates_ttl = getelementptr inbounds i8, ptr %this, i64 8
@@ -15238,7 +15238,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 declare void @_ZN7rocksdb10WriteBatch7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN7rocksdb13DBWithTTLImpl5WriteERKNS_12WriteOptionsEPNS_10WriteBatchEEN7HandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 {
+define internal void @_ZZN7rocksdb13DBWithTTLImpl5WriteERKNS_12WriteOptionsEPNS_10WriteBatchEEN7HandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN7rocksdb13DBWithTTLImpl5WriteERKNS_12WriteOptionsEPNS_10WriteBatchEE7Handler, i64 16), ptr %this, align 8
   %updates_ttl.i = getelementptr inbounds i8, ptr %this, i64 8

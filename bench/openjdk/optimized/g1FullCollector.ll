@@ -797,7 +797,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_158ELS1_0ELS1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1FullCollectorC2EP15G1CollectedHeapbbP14G1FullGCTracer(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN15G1FullCollectorC2EP15G1CollectedHeapbbP14G1FullGCTracer(ptr noundef nonnull align 8 dereferenceable(824) initializes((0, 8)) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 952

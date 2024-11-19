@@ -969,7 +969,7 @@ define dso_local void @_ZN4llvm17TimePassesHandlerC2Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm17TimePassesHandler12setOutStreamERNS_11raw_ostreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(418) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm17TimePassesHandler12setOutStreamERNS_11raw_ostreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(418) initializes((408, 416)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store ptr %1, ptr %3, align 8
   ret void

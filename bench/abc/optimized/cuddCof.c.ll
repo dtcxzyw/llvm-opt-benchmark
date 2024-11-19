@@ -247,7 +247,7 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @cuddGetBranches(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define void @cuddGetBranches(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #1 {
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr

@@ -83,7 +83,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node4quic3CIDC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic3CIDC2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic3CIDE, i64 16), ptr %this, align 8
   %ptr_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -94,7 +94,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic3CIDC2ERK10ngtcp2_cid(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %cid) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node4quic3CIDC2ERK10ngtcp2_cid(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(32) %cid) unnamed_addr #4 align 2 {
 entry:
   %data = getelementptr inbounds i8, ptr %cid, i64 8
   %0 = load i64, ptr %cid, align 8
@@ -108,7 +108,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic3CIDC2EPKhm(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %data, i64 noundef %len) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node4quic3CIDC2EPKhm(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, ptr noundef %data, i64 noundef %len) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic3CIDE, i64 16), ptr %this, align 8
   %ptr_.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -122,7 +122,7 @@ entry:
 declare void @ngtcp2_cid_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic3CIDC2EPK10ngtcp2_cid(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %cid) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node4quic3CIDC2EPK10ngtcp2_cid(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 8), (40, 48)) %this, ptr noundef %cid) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic3CIDE, i64 16), ptr %this, align 8
   %ptr_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -145,7 +145,7 @@ declare void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic3CIDC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %other) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node4quic3CIDC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %other) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic3CIDE, i64 16), ptr %this, align 8
   %ptr_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -415,7 +415,7 @@ _ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node4quic12_GLOBAL__N_116RandomCIDFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(4152) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN4node4quic12_GLOBAL__N_116RandomCIDFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(4152) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic12_GLOBAL__N_116RandomCIDFactoryE, i64 16), ptr %this, align 8
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 4112
@@ -470,7 +470,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node4quic12_GLOBAL__N_116RandomCIDFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(4152) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN4node4quic12_GLOBAL__N_116RandomCIDFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(4152) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic12_GLOBAL__N_116RandomCIDFactoryE, i64 16), ptr %this, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %this, i64 4112

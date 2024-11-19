@@ -121,7 +121,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17cmOutputConverterC2ERK15cmStateSnapshot(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17cmOutputConverterC2ERK15cmStateSnapshot(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 33)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV17cmOutputConverter, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
@@ -1488,7 +1488,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN17cmOutputConverter20GetFortran
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN17cmOutputConverter18SetLinkScriptShellEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN17cmOutputConverter18SetLinkScriptShellEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) initializes((32, 33)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 %3, ptr %4, align 8

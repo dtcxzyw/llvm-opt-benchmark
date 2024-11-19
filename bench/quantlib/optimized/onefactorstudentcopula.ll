@@ -1979,7 +1979,7 @@ _ZN8QuantLib6HandleINS_5QuoteEED2Ev.exit:         ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22OneFactorStudentCopulaC1ERKNS_6HandleINS_5QuoteEEEiidm(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %correlation, i32 noundef %nz, i32 noundef %nm, double noundef %maximum, i64 noundef %integrationSteps) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22OneFactorStudentCopulaC1ERKNS_6HandleINS_5QuoteEEEiidm(ptr noundef nonnull align 8 dereferenceable(136) initializes((136, 144), (152, 156), (160, 168)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %correlation, i32 noundef %nz, i32 noundef %nm, double noundef %maximum, i64 noundef %integrationSteps) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Handle", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -3161,7 +3161,7 @@ unreachable:                                      ; preds = %invoke.cont25
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30OneFactorGaussianStudentCopulaC1ERKNS_6HandleINS_5QuoteEEEidm(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %correlation, i32 noundef %nz, double noundef %maximum, i64 noundef %integrationSteps) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30OneFactorGaussianStudentCopulaC1ERKNS_6HandleINS_5QuoteEEEidm(ptr noundef nonnull align 8 dereferenceable(160) initializes((160, 168), (176, 180), (184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %correlation, i32 noundef %nz, double noundef %maximum, i64 noundef %integrationSteps) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Handle", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -4181,7 +4181,7 @@ unreachable:                                      ; preds = %invoke.cont25
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30OneFactorStudentGaussianCopulaC1ERKNS_6HandleINS_5QuoteEEEidm(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %correlation, i32 noundef %nm, double noundef %maximum, i64 noundef %integrationSteps) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30OneFactorStudentGaussianCopulaC1ERKNS_6HandleINS_5QuoteEEEidm(ptr noundef nonnull align 8 dereferenceable(192) initializes((192, 200), (208, 212), (216, 224)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %correlation, i32 noundef %nm, double noundef %maximum, i64 noundef %integrationSteps) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Handle", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8

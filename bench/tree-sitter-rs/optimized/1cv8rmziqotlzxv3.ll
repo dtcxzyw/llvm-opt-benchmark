@@ -51,7 +51,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdf63d8ee2d79b5a3E.ll
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN77_$LT$tree_sitter_highlight..Highlighter$u20$as$u20$core..default..Default$GT$7default17hf17a62f33b497479E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, ptr }) align 8 dereferenceable(32) %0) unnamed_addr #1 {
+define void @"_ZN77_$LT$tree_sitter_highlight..Highlighter$u20$as$u20$core..default..Default$GT$7default17hf17a62f33b497479E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, ptr }) align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %2 = tail call noundef nonnull ptr @_ZN11tree_sitter6Parser3new17h667018fdda0184baE(), !noalias !5
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -65,7 +65,7 @@ define void @"_ZN77_$LT$tree_sitter_highlight..Highlighter$u20$as$u20$core..defa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN21tree_sitter_highlight11Highlighter3new17hcc20723a1fa0746cE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, ptr }) align 8 dereferenceable(32) %0) unnamed_addr #1 {
+define void @_ZN21tree_sitter_highlight11Highlighter3new17hcc20723a1fa0746cE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, ptr }) align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #1 {
   %2 = tail call noundef nonnull ptr @_ZN11tree_sitter6Parser3new17h667018fdda0184baE()
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %2, ptr %3, align 8
@@ -832,7 +832,7 @@ define void @_ZN21tree_sitter_highlight12HtmlRenderer3new17h8e082e91e73d5bbaE(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN21tree_sitter_highlight12HtmlRenderer29set_carriage_return_highlight17h0a85fa94717ae560E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(64) %0, i64 noundef %1, i64 %2) unnamed_addr #3 {
+define void @_ZN21tree_sitter_highlight12HtmlRenderer29set_carriage_return_highlight17h0a85fa94717ae560E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(64) initializes((0, 16)) %0, i64 noundef %1, i64 %2) unnamed_addr #3 {
   store i64 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -935,7 +935,7 @@ _ZN21tree_sitter_highlight16shrink_and_clear17h18666b936662a449E.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN21tree_sitter_highlight12HtmlRenderer5lines17h6d4f3d3333986b11E(ptr noalias nocapture noundef writeonly sret({ { { ptr, ptr }, i64 }, ptr }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #4 {
+define void @_ZN21tree_sitter_highlight12HtmlRenderer5lines17h6d4f3d3333986b11E(ptr noalias nocapture noundef writeonly sret({ { { ptr, ptr }, i64 }, ptr }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 56

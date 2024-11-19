@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [33 x i8] c"could not identify CTID operator\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanTidRangeScan(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanTidRangeScan(ptr noundef initializes((244, 245)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 244
   store i8 0, ptr %2, align 4
   tail call void @ExecScanReScan(ptr noundef %0) #7

@@ -7454,7 +7454,7 @@ _ZNK4llvm5APInt12getBoolValueEv.exit:             ; preds = %188, %191
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6X86_MC18X86MCInstrAnalysis14findPltEntriesEmNS_8ArrayRefIhEERKNS_6TripleE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.9") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 noundef %2, ptr %3, i64 %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %5) unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4llvm6X86_MC18X86MCInstrAnalysis14findPltEntriesEmNS_8ArrayRefIhEERKNS_6TripleE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.9") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, i64 noundef %2, ptr %3, i64 %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %5) unnamed_addr #3 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %142 [

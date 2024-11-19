@@ -25744,7 +25744,7 @@ define internal fastcc noundef zeroext i1 @tryAttachPartitionForeignKey(ptr noca
 declare void @ConstraintSetParentConstraint(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @GetForeignKeyCheckTriggers(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc void @GetForeignKeyCheckTriggers(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull initializes((0, 4)) %4, ptr nocapture noundef nonnull initializes((0, 4)) %5) unnamed_addr #0 {
   %7 = alloca %struct.ScanKeyData, align 8
   store i32 0, ptr %5, align 4
   store i32 0, ptr %4, align 4

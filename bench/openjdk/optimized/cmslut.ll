@@ -2378,7 +2378,7 @@ _cmsStageAllocPlaceholder.exit:                   ; preds = %1, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @EvaluateLab2XYZ(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #0 {
+define internal void @EvaluateLab2XYZ(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr nocapture readnone %2) #0 {
   %4 = alloca %struct.cmsCIELab, align 8
   %5 = alloca %struct.cmsCIEXYZ, align 8
   %6 = load float, ptr %0, align 4
@@ -2655,7 +2655,7 @@ _cmsStageAllocPlaceholder.exit:                   ; preds = %1, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @EvaluateXYZ2Lab(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #0 {
+define internal void @EvaluateXYZ2Lab(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr nocapture readnone %2) #0 {
   %4 = alloca %struct.cmsCIELab, align 8
   %5 = alloca %struct.cmsCIEXYZ, align 8
   %6 = load float, ptr %0, align 4
@@ -3890,7 +3890,7 @@ define hidden ptr @cmsPipelineGetPtrToLastStage(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_cmsPipelineSetOptimizationParameters(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #14 {
+define hidden void @_cmsPipelineSetOptimizationParameters(ptr nocapture noundef writeonly initializes((16, 32), (40, 56)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #14 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48

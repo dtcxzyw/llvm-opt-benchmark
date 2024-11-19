@@ -83,7 +83,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11WriteThreadC2ERKNS_18ImmutableDBOptionsE(ptr noundef nonnull align 16 dereferenceable(432) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(569) %db_options) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11WriteThreadC2ERKNS_18ImmutableDBOptionsE(ptr noundef nonnull align 16 dereferenceable(432) initializes((0, 26), (32, 75), (76, 81), (88, 146), (152, 174), (176, 190), (192, 200), (304, 320)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(569) %db_options) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb11WriteThreadE, i64 16), ptr %this, align 16
   %max_yield_usec_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1401,7 +1401,7 @@ if.end5:                                          ; preds = %_ZNSt10lock_guardIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN7rocksdb11WriteThread23EnterAsBatchGroupLeaderEPNS0_6WriterEPNS0_10WriteGroupE(ptr nocapture noundef nonnull readonly align 16 dereferenceable(432) %this, ptr noundef %leader, ptr noundef %write_group) local_unnamed_addr #2 align 2 {
+define noundef i64 @_ZN7rocksdb11WriteThread23EnterAsBatchGroupLeaderEPNS0_6WriterEPNS0_10WriteGroupE(ptr nocapture noundef nonnull readonly align 16 dereferenceable(432) %this, ptr noundef initializes((88, 96)) %leader, ptr noundef %write_group) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %leader, align 16
   %rep_.i = getelementptr inbounds i8, ptr %0, i64 64
@@ -1547,7 +1547,7 @@ while.end:                                        ; preds = %if.end50, %land.lhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11WriteThread21EnterAsMemTableWriterEPNS0_6WriterEPNS0_10WriteGroupE(ptr nocapture noundef nonnull readonly align 16 dereferenceable(432) %this, ptr noundef %leader, ptr noundef %write_group) local_unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb11WriteThread21EnterAsMemTableWriterEPNS0_6WriterEPNS0_10WriteGroupE(ptr nocapture noundef nonnull readonly align 16 dereferenceable(432) %this, ptr noundef initializes((88, 96)) %leader, ptr noundef %write_group) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %leader, align 16
   %rep_.i = getelementptr inbounds i8, ptr %0, i64 64

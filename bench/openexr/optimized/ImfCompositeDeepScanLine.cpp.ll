@@ -154,7 +154,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7Imf_3_221CompositeDeepScanLine4DataC2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7Imf_3_221CompositeDeepScanLine4DataC2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 48), (56, 60), (64, 72)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %0, align 8
@@ -185,7 +185,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_221CompositeDeepScanLineC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_221CompositeDeepScanLineC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_221CompositeDeepScanLineE, i64 16), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #26
@@ -228,7 +228,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Imf_3_221CompositeDeepScanLineD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 {
+define void @_ZN7Imf_3_221CompositeDeepScanLineD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_221CompositeDeepScanLineE, i64 16), ptr %this, align 8
   %_Data = getelementptr inbounds i8, ptr %this, i64 8

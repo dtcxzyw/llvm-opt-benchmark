@@ -846,7 +846,7 @@ declare noundef i64 @_ZNK6casadi16FunctionInternal6nnz_inEv(ptr noundef nonnull 
 declare noundef i64 @_ZNK6casadi16FunctionInternal7nnz_outEv(ptr noundef nonnull align 8 dereferenceable(1304)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi11JitFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(1408) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi11JitFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(1408) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi11JitFunctionE, i64 16), ptr %0, align 8
   invoke void @_ZN6casadi13ProtoFunction9clear_memEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %2 unwind label %6

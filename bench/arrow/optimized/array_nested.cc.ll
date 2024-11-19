@@ -1341,7 +1341,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceIN5arrow16SparseUnionArrayESaIvELN9__gnu_cxx12_L
 @_ZN5arrow15DenseUnionArrayC1ESt10shared_ptrINS_8DataTypeEElSt6vectorIS1_INS_5ArrayEESaIS6_EES1_INS_6BufferEESA_l = unnamed_addr alias void (ptr, ptr, i64, ptr, ptr, ptr, i64), ptr @_ZN5arrow15DenseUnionArrayC2ESt10shared_ptrINS_8DataTypeEElSt6vectorIS1_INS_5ArrayEESaIS6_EES1_INS_6BufferEESA_l
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow9ListArrayC2ESt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow9ListArrayC2ESt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %this, ptr noundef nonnull %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %data_.i.i.i, i8 0, i64 56, i1 false)
@@ -1369,7 +1369,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow9ListArrayC2ESt10shared_ptrINS_8DataTypeEElS1_INS_6BufferEES1_INS_5ArrayEES5_ll(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef %type, i64 noundef %length, ptr nocapture noundef %value_offsets, ptr nocapture noundef readonly %values, ptr nocapture noundef %null_bitmap, i64 noundef %null_count, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow9ListArrayC2ESt10shared_ptrINS_8DataTypeEElS1_INS_6BufferEES1_INS_5ArrayEES5_ll(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %this, ptr nocapture noundef %type, i64 noundef %length, ptr nocapture noundef %value_offsets, ptr nocapture noundef readonly %values, ptr nocapture noundef %null_bitmap, i64 noundef %null_count, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.arrow::util::ArrowLog", align 8
   %internal_data = alloca %"class.std::shared_ptr", align 8
@@ -9632,7 +9632,7 @@ eh.resume:                                        ; preds = %arraydestroy.body9,
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5int32Ev() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow14LargeListArrayC2ERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow14LargeListArrayC2ERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %this, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %data_.i.i.i, i8 0, i64 56, i1 false)
@@ -9658,7 +9658,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow14LargeListArrayC2ERKSt10shared_ptrINS_8DataTypeEElRKS1_INS_6BufferEERKS1_INS_5ArrayEES9_ll(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, i64 noundef %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value_offsets, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %values, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %null_bitmap, i64 noundef %null_count, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow14LargeListArrayC2ERKSt10shared_ptrINS_8DataTypeEElRKS1_INS_6BufferEERKS1_INS_5ArrayEES9_ll(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, i64 noundef %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value_offsets, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %values, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %null_bitmap, i64 noundef %null_count, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.arrow::util::ArrowLog", align 8
   %internal_data = alloca %"class.std::shared_ptr", align 8
@@ -16819,7 +16819,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5int64Ev() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow13ListViewArrayC2ESt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow13ListViewArrayC2ESt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 72)) %this, ptr noundef nonnull %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %data_.i.i.i, i8 0, i64 56, i1 false)
@@ -16892,7 +16892,7 @@ _ZNK5arrow9ArrayData13GetValuesSafeIiEEPKT_il.exit: ; preds = %entry, %land.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow13ListViewArrayC2ESt10shared_ptrINS_8DataTypeEElS1_INS_6BufferEES5_S1_INS_5ArrayEES5_ll(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef %type, i64 noundef %length, ptr nocapture noundef %value_offsets, ptr nocapture noundef %value_sizes, ptr nocapture noundef readonly %values, ptr nocapture noundef %null_bitmap, i64 noundef %null_count, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow13ListViewArrayC2ESt10shared_ptrINS_8DataTypeEElS1_INS_6BufferEES5_S1_INS_5ArrayEES5_ll(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 72)) %this, ptr nocapture noundef %type, i64 noundef %length, ptr nocapture noundef %value_offsets, ptr nocapture noundef %value_sizes, ptr nocapture noundef readonly %values, ptr nocapture noundef %null_bitmap, i64 noundef %null_count, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %agg.tmp = alloca %"class.std::shared_ptr.3", align 8
@@ -25743,7 +25743,7 @@ eh.resume:                                        ; preds = %arraydestroy.body11
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow18LargeListViewArrayC2ESt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow18LargeListViewArrayC2ESt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 72)) %this, ptr noundef nonnull %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %data_.i.i.i, i8 0, i64 56, i1 false)
@@ -25816,7 +25816,7 @@ _ZNK5arrow9ArrayData13GetValuesSafeIlEEPKT_il.exit: ; preds = %entry, %land.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow18LargeListViewArrayC2ESt10shared_ptrINS_8DataTypeEElS1_INS_6BufferEES5_S1_INS_5ArrayEES5_ll(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef readonly %type, i64 noundef %length, ptr nocapture noundef %value_offsets, ptr nocapture noundef %value_sizes, ptr nocapture noundef readonly %values, ptr nocapture noundef %null_bitmap, i64 noundef %null_count, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow18LargeListViewArrayC2ESt10shared_ptrINS_8DataTypeEElS1_INS_6BufferEES5_S1_INS_5ArrayEES5_ll(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 72)) %this, ptr nocapture noundef readonly %type, i64 noundef %length, ptr nocapture noundef %value_offsets, ptr nocapture noundef %value_sizes, ptr nocapture noundef readonly %values, ptr nocapture noundef %null_bitmap, i64 noundef %null_count, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %agg.tmp = alloca %"class.std::shared_ptr.3", align 8
@@ -31345,7 +31345,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8MapArrayC2ERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8MapArrayC2ERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 64), (72, 104)) %this, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %data_.i.i.i.i, i8 0, i64 56, i1 false)
@@ -32062,7 +32062,7 @@ _ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8MapArrayC2ERKSt10shared_ptrINS_8DataTypeEElRKS1_INS_6BufferEERKS1_INS_5ArrayEES9_ll(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, i64 noundef %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %offsets, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %values, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %null_bitmap, i64 noundef %null_count, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8MapArrayC2ERKSt10shared_ptrINS_8DataTypeEElRKS1_INS_6BufferEERKS1_INS_5ArrayEES9_ll(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 64), (72, 104)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, i64 noundef %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %offsets, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %values, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %null_bitmap, i64 noundef %null_count, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %agg.tmp = alloca %"class.std::shared_ptr.3", align 8
@@ -32833,7 +32833,7 @@ arraydestroy.done52:                              ; preds = %arraydestroy.body48
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8MapArrayC2ERKSt10shared_ptrINS_8DataTypeEElSt6vectorIS1_INS_6BufferEESaIS8_EERKS1_INS_5ArrayEESE_ll(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, i64 noundef %length, ptr nocapture noundef %buffers, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %keys, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %items, i64 noundef %null_count, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8MapArrayC2ERKSt10shared_ptrINS_8DataTypeEElSt6vectorIS1_INS_6BufferEESaIS8_EERKS1_INS_5ArrayEESE_ll(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 64), (72, 104)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, i64 noundef %length, ptr nocapture noundef %buffers, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %keys, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %items, i64 noundef %null_count, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pair_data = alloca %"class.std::shared_ptr", align 8
   %agg.tmp = alloca %"class.std::shared_ptr.3", align 8
@@ -37674,7 +37674,7 @@ declare void @_ZNK5arrow6Status8ToStringB5cxx11Ev(ptr sret(%"class.std::__cxx11:
 declare void @_ZN5arrow9MakeArrayERKSt10shared_ptrINS_9ArrayDataEE(ptr sret(%"class.std::shared_ptr.0") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow18FixedSizeListArrayC2ERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow18FixedSizeListArrayC2ERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 32), (40, 56)) %this, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i, i8 0, i64 24, i1 false)
@@ -38013,7 +38013,7 @@ eh.resume:                                        ; preds = %lpad65, %lpad29, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow18FixedSizeListArrayC2ERKSt10shared_ptrINS_8DataTypeEElRKS1_INS_5ArrayEERKS1_INS_6BufferEEll(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, i64 noundef %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %values, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %null_bitmap, i64 noundef %null_count, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow18FixedSizeListArrayC2ERKSt10shared_ptrINS_8DataTypeEElRKS1_INS_5ArrayEERKS1_INS_6BufferEEll(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 32), (40, 56)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, i64 noundef %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %values, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %null_bitmap, i64 noundef %null_count, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %internal_data = alloca %"class.std::shared_ptr", align 8
   %agg.tmp = alloca %"class.std::shared_ptr.3", align 8
@@ -40523,7 +40523,7 @@ _ZN5arrow12_GLOBAL__N_116FlattenListArrayINS_18FixedSizeListArrayEEENS_6ResultIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow11StructArrayC2ERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow11StructArrayC2ERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %this, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::util::ArrowLog", align 8
   %data_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -40827,7 +40827,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow11StructArrayC2ERKSt10shared_ptrINS_8DataTypeEElRKSt6vectorIS1_INS_5ArrayEESaIS8_EES1_INS_6BufferEEll(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, i64 noundef %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %children, ptr nocapture noundef readonly %null_bitmap, i64 noundef %null_count, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow11StructArrayC2ERKSt10shared_ptrINS_8DataTypeEElRKSt6vectorIS1_INS_5ArrayEESaIS8_EES1_INS_6BufferEEll(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, i64 noundef %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %children, ptr nocapture noundef readonly %null_bitmap, i64 noundef %null_count, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.arrow::util::ArrowLog", align 8
   %ref.tmp14 = alloca %"class.std::shared_ptr", align 8
@@ -43817,7 +43817,7 @@ _ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit218:    ; preds = %cleanup, %_ZN9__gnu
 declare void @_ZNK5arrow9ArrayData5SliceEll(ptr sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(104), i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow11StructArray14GetFieldByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.0") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow11StructArray14GetFieldByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.0") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_.i, align 8
@@ -43985,7 +43985,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow11StructArray25CanReferenceFieldsByNamesERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %names) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow11StructArray25CanReferenceFieldsByNamesERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %names) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %0 = load ptr, ptr %names, align 8
@@ -46904,7 +46904,7 @@ eh.resume:                                        ; preds = %lpad47, %lpad24, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow16SparseUnionArrayC2ESt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow16SparseUnionArrayC2ESt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 32), (48, 72)) %this, ptr nocapture noundef %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
   %data_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -47008,7 +47008,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow16SparseUnionArrayC2ESt10shared_ptrINS_8DataTypeEElSt6vectorIS1_INS_5ArrayEESaIS6_EES1_INS_6BufferEEl(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef %type, i64 noundef %length, ptr nocapture noundef readonly %children, ptr nocapture noundef %type_codes, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow16SparseUnionArrayC2ESt10shared_ptrINS_8DataTypeEElSt6vectorIS1_INS_5ArrayEESaIS6_EES1_INS_6BufferEEl(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 32), (48, 72)) %this, ptr nocapture noundef %type, i64 noundef %length, ptr nocapture noundef readonly %children, ptr nocapture noundef %type_codes, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %internal_data = alloca %"class.std::shared_ptr", align 8
   %agg.tmp = alloca %"class.std::shared_ptr.3", align 8
@@ -48540,7 +48540,7 @@ return:                                           ; preds = %if.end8.sink.split.
 declare void @_ZN5arrow8internal9BitmapAndEPKhlS2_lllPh(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow15DenseUnionArrayC2ERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow15DenseUnionArrayC2ERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 32), (48, 72)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i, i8 0, i64 24, i1 false)
@@ -48561,7 +48561,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow15DenseUnionArrayC2ESt10shared_ptrINS_8DataTypeEElSt6vectorIS1_INS_5ArrayEESaIS6_EES1_INS_6BufferEESA_l(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef %type, i64 noundef %length, ptr nocapture noundef readonly %children, ptr nocapture noundef %type_ids, ptr nocapture noundef %value_offsets, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow15DenseUnionArrayC2ESt10shared_ptrINS_8DataTypeEElSt6vectorIS1_INS_5ArrayEESaIS6_EES1_INS_6BufferEESA_l(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 32), (48, 72)) %this, ptr nocapture noundef %type, i64 noundef %length, ptr nocapture noundef readonly %children, ptr nocapture noundef %type_ids, ptr nocapture noundef %value_offsets, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %internal_data = alloca %"class.std::shared_ptr", align 8
   %agg.tmp = alloca %"class.std::shared_ptr.3", align 8
@@ -51348,7 +51348,7 @@ eh.resume:                                        ; preds = %arraydestroy.body37
 declare void @_ZN5arrow12sparse_unionERKSt6vectorISt10shared_ptrINS_5ArrayEESaIS3_EES0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EES0_IaSaIaEE(ptr sret(%"class.std::shared_ptr.3") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow10UnionArray5fieldEi(ptr noalias sret(%"class.std::shared_ptr.0") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %i) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow10UnionArray5fieldEi(ptr noalias sret(%"class.std::shared_ptr.0") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %i) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__lock.i.i89 = alloca %"struct.std::_Sp_locker", align 1
   %__lock.i.i = alloca %"struct.std::_Sp_locker", align 1

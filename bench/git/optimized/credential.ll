@@ -68,7 +68,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @git_gettext_enabled = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @credential_init(ptr nocapture noundef writeonly %c) local_unnamed_addr #0 {
+define dso_local void @credential_init(ptr nocapture noundef writeonly initializes((0, 128)) %c) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %c, ptr noundef nonnull align 8 dereferenceable(128) @__const.match_partial_url.want, i64 128, i1 false)
   ret void

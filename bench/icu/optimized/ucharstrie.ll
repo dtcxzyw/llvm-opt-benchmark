@@ -72,7 +72,7 @@ return:                                           ; preds = %cond.true, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 4) i32 @_ZN6icu_7510UCharsTrie17firstForCodePointEi(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %cp) local_unnamed_addr #5 align 2 {
+define noundef range(i32 0, 4) i32 @_ZN6icu_7510UCharsTrie17firstForCodePointEi(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((24, 28)) %this, i32 noundef %cp) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp slt i32 %cp, 65536
   br i1 %cmp, label %cond.true, label %cond.false

@@ -103,7 +103,7 @@ define dso_local void @_bt_pageinit(ptr noundef %0, i64 noundef %1) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_bt_upgrademetapage(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
+define dso_local void @_bt_upgrademetapage(ptr nocapture noundef writeonly initializes((12, 14), (28, 32), (48, 52), (56, 65)) %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 28
   store i32 3, ptr %2, align 4
   %3 = getelementptr i8, ptr %0, i64 48
@@ -1286,7 +1286,7 @@ define dso_local i32 @_bt_getrootheight(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_bt_metaversion(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local void @_bt_metaversion(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

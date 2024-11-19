@@ -1787,7 +1787,7 @@ _ZN8QuantLib10InstrumentD2Ev.exit:                ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19NonstandardSwaptionC1ERKNS_8SwaptionE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %fromSwaption) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19NonstandardSwaptionC1ERKNS_8SwaptionE(ptr noundef nonnull align 8 dereferenceable(160) initializes((160, 168), (176, 180), (184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %fromSwaption) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.16", align 8
   %agg.tmp2 = alloca %"class.boost::shared_ptr.17", align 8
@@ -2493,7 +2493,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19NonstandardSwaptionC1EN5boost10shared_ptrINS_15NonstandardSwapEEERKNS2_INS_8ExerciseEEENS_10Settlement4TypeENS9_6MethodE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef %swap, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %exercise, i32 noundef %delivery, i32 noundef %settlementMethod) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19NonstandardSwaptionC1EN5boost10shared_ptrINS_15NonstandardSwapEEERKNS2_INS_8ExerciseEEENS_10Settlement4TypeENS9_6MethodE(ptr noundef nonnull align 8 dereferenceable(160) initializes((160, 168), (176, 180), (184, 192)) %this, ptr nocapture noundef %swap, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %exercise, i32 noundef %delivery, i32 noundef %settlementMethod) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.16", align 8
   %agg.tmp2 = alloca %"class.boost::shared_ptr.17", align 8

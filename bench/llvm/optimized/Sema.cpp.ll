@@ -2114,7 +2114,7 @@ _ZNK5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema25ActOnTranslationUnitScopeEPNS_5ScopeE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema25ActOnTranslationUnitScopeEPNS_5ScopeE(ptr noundef nonnull align 8 dereferenceable(17560) initializes((192, 200)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -2135,7 +2135,7 @@ define dso_local void @_ZN5clang4Sema25ActOnTranslationUnitScopeEPNS_5ScopeE(ptr
 declare void @_ZN5clang4Sema15PushDeclContextEPNS_5ScopeEPNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(17560), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4SemaC2ERNS_12PreprocessorERNS_10ASTContextERNS_11ASTConsumerENS_19TranslationUnitKindEPNS_20CodeCompleteConsumerE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef nonnull align 8 dereferenceable(23096) %2, ptr noundef nonnull align 8 dereferenceable(9) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4SemaC2ERNS_12PreprocessorERNS_10ASTContextERNS_11ASTConsumerENS_19TranslationUnitKindEPNS_20CodeCompleteConsumerE(ptr noundef nonnull align 8 dereferenceable(17560) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef nonnull align 8 dereferenceable(23096) %2, ptr noundef nonnull align 8 dereferenceable(9) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca %"class.clang::CleanupInfo", align 2
@@ -23424,7 +23424,7 @@ _ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEED2Ev.exit: ; preds =
 declare noundef zeroext i1 @_ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8SemaBase21SemaDiagnosticBuilderC2ENS1_4KindENS_14SourceLocationEjPKNS_12FunctionDeclERNS_4SemaE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, i32 %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(17560) %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang8SemaBase21SemaDiagnosticBuilderC2ENS1_4KindENS_14SourceLocationEjPKNS_12FunctionDeclERNS_4SemaE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 25), (80, 81), (92, 93)) %0, i32 noundef %1, i32 %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(17560) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.clang::SourceLocation", align 4
   %8 = alloca %"class.clang::SemaBase::ImmediateDiagBuilder", align 8
   %9 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -23684,7 +23684,7 @@ declare void @_ZN5clang8SemaBase20ImmediateDiagBuilderD1Ev(ptr noundef nonnull a
 declare void @_ZN5clang8SemaBase5PDiagEj(ptr dead_on_unwind writable sret(%"class.clang::PartialDiagnostic") align 8, ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8SemaBase21SemaDiagnosticBuilderC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang8SemaBase21SemaDiagnosticBuilderC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 25), (80, 81), (88, 96)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -27226,7 +27226,7 @@ define dso_local void @_ZN5clang18ExternalSemaSource32ReadMismatchingDeleteExpre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema13tryExprAsCallERNS_4ExprERNS_8QualTypeERNS_17UnresolvedSetImplE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema13tryExprAsCallERNS_4ExprERNS_8QualTypeERNS_17UnresolvedSetImplE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 align 2 {
   store i64 0, ptr %2, align 8
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -28207,7 +28207,7 @@ define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5clang4Sem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5clang4Sema19FPFeaturesStateRAIIC2ERS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1) unnamed_addr #10 align 2 {
+define dso_local void @_ZN5clang4Sema19FPFeaturesStateRAIIC2ERS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 28)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1) unnamed_addr #10 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 232

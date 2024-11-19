@@ -283,7 +283,7 @@ declare void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5Ph
 declare void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ShenandoahThreadRootsC2EN22ShenandoahPhaseTimings5PhaseEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN21ShenandoahThreadRootsC2EN22ShenandoahPhaseTimings5PhaseEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) initializes((0, 5)) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   store i32 %1, ptr %0, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -396,7 +396,7 @@ define hidden void @_ZN21ShenandoahThreadRootsD2Ev(ptr nocapture nonnull readnon
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24ShenandoahCodeCacheRootsC2EN22ShenandoahPhaseTimings5PhaseE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN24ShenandoahCodeCacheRootsC2EN22ShenandoahPhaseTimings5PhaseE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN27ShenandoahCodeRootsIteratorC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
@@ -419,7 +419,7 @@ define hidden void @_ZN24ShenandoahCodeCacheRoots11nmethods_doEP14NMethodClosure
 declare void @_ZN27ShenandoahCodeRootsIterator29possibly_parallel_nmethods_doEP14NMethodClosure(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23ShenandoahRootProcessorC2EN22ShenandoahPhaseTimings5PhaseE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN23ShenandoahRootProcessorC2EN22ShenandoahPhaseTimings5PhaseE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -430,7 +430,7 @@ define hidden void @_ZN23ShenandoahRootProcessorC2EN22ShenandoahPhaseTimings5Pha
 declare void @_ZN23ShenandoahGCWorkerPhaseC1EN22ShenandoahPhaseTimings5PhaseE(ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24ShenandoahSTWRootScannerC2EN22ShenandoahPhaseTimings5PhaseE(ptr noundef nonnull align 8 dereferenceable(481) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN24ShenandoahSTWRootScannerC2EN22ShenandoahPhaseTimings5PhaseE(ptr noundef nonnull align 8 dereferenceable(481) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -488,7 +488,7 @@ define hidden void @_ZN24ShenandoahSTWRootScannerC2EN22ShenandoahPhaseTimings5Ph
 declare noundef zeroext i1 @_ZNK14ShenandoahHeap14unload_classesEv(ptr noundef nonnull align 8 dereferenceable(2657)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN37ShenandoahConcurrentMarkThreadClosureC2EP10OopClosure(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN37ShenandoahConcurrentMarkThreadClosureC2EP10OopClosure(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV37ShenandoahConcurrentMarkThreadClosure, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -506,7 +506,7 @@ define hidden void @_ZN37ShenandoahConcurrentMarkThreadClosure9do_threadEP6Threa
 declare void @_ZN17StackWatermarkSet17finish_processingEP10JavaThreadPv18StackWatermarkKind(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN31ShenandoahConcurrentRootScannerC2EjN22ShenandoahPhaseTimings5PhaseE(ptr noundef nonnull align 8 dereferenceable(540) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN31ShenandoahConcurrentRootScannerC2EjN22ShenandoahPhaseTimings5PhaseE(ptr noundef nonnull align 8 dereferenceable(540) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -942,7 +942,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN24ShenandoahStackWat
 declare void @_ZN21ThreadLocalAllocStats7publishEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ShenandoahRootUpdaterC2EjN22ShenandoahPhaseTimings5PhaseE(ptr noundef nonnull align 8 dereferenceable(1056) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN21ShenandoahRootUpdaterC2EjN22ShenandoahPhaseTimings5PhaseE(ptr noundef nonnull align 8 dereferenceable(1056) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -989,7 +989,7 @@ define hidden void @_ZN21ShenandoahRootUpdaterC2EjN22ShenandoahPhaseTimings5Phas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ShenandoahRootAdjusterC2EjN22ShenandoahPhaseTimings5PhaseE(ptr noundef nonnull align 8 dereferenceable(1056) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN22ShenandoahRootAdjusterC2EjN22ShenandoahPhaseTimings5PhaseE(ptr noundef nonnull align 8 dereferenceable(1056) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1211,7 +1211,7 @@ _ZN27OopStorageSetStrongParStateILb0ELb0EE7oops_doI10OopClosureEEvPT_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN34ShenandoahHeapIterationRootScannerC2Ej(ptr noundef nonnull align 8 dereferenceable(1056) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN34ShenandoahHeapIterationRootScannerC2Ej(ptr noundef nonnull align 8 dereferenceable(1056) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

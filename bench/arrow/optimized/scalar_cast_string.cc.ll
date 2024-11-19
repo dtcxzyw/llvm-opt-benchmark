@@ -21580,7 +21580,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_10BinaryTypeENS_10StringTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_10BinaryTypeENS_10StringTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   call void @_ZN5arrow7compute8internal16ZeroCopyCastExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp, ptr noundef nonnull %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out)
@@ -21656,7 +21656,7 @@ entry:
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_10BinaryTypeES4_EENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_10BinaryTypeES4_EENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   call void @_ZN5arrow7compute8internal16ZeroCopyCastExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp, ptr noundef nonnull %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out)
@@ -21699,7 +21699,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_10BinaryTypeENS_15LargeStringTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_10BinaryTypeENS_15LargeStringTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %values.i = getelementptr inbounds i8, ptr %batch, i64 8
@@ -22263,7 +22263,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @_ZN5arrow8internal12DowncastIntsEPKlPil(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_10BinaryTypeENS_15LargeBinaryTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_10BinaryTypeENS_15LargeBinaryTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %values.i = getelementptr inbounds i8, ptr %batch, i64 8
@@ -24034,7 +24034,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_15LargeBinaryTypeENS_10StringTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_15LargeBinaryTypeENS_10StringTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %values.i = getelementptr inbounds i8, ptr %batch, i64 8
@@ -24295,7 +24295,7 @@ cleanup:                                          ; preds = %invoke.cont17, %if.
 declare void @_ZN5arrow8internal10UpcastIntsEPKiPll(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_15LargeBinaryTypeENS_10BinaryTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_15LargeBinaryTypeENS_10BinaryTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %values.i = getelementptr inbounds i8, ptr %batch, i64 8
@@ -24341,7 +24341,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_15LargeBinaryTypeENS_15LargeStringTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_15LargeBinaryTypeENS_15LargeStringTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   call void @_ZN5arrow7compute8internal16ZeroCopyCastExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp, ptr noundef nonnull %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out)
@@ -24384,7 +24384,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_15LargeBinaryTypeES4_EENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_15LargeBinaryTypeES4_EENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   call void @_ZN5arrow7compute8internal16ZeroCopyCastExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp, ptr noundef nonnull %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out)
@@ -68736,7 +68736,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_10StringTypeES4_EENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_10StringTypeES4_EENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   call void @_ZN5arrow7compute8internal16ZeroCopyCastExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp, ptr noundef nonnull %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out)
@@ -68779,7 +68779,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_10StringTypeENS_10BinaryTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_10StringTypeENS_10BinaryTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp14 = alloca %"class.arrow::Status", align 8
@@ -69307,7 +69307,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_10StringTypeENS_15LargeStringTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_10StringTypeENS_15LargeStringTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %values.i = getelementptr inbounds i8, ptr %batch, i64 8
@@ -69353,7 +69353,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_10StringTypeENS_15LargeBinaryTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_10StringTypeENS_15LargeBinaryTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp14 = alloca %"class.arrow::Status", align 8
@@ -90384,7 +90384,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15Larg
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_15LargeStringTypeENS_10StringTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_15LargeStringTypeENS_10StringTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %values.i = getelementptr inbounds i8, ptr %batch, i64 8
@@ -90430,7 +90430,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_15LargeStringTypeENS_10BinaryTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_15LargeStringTypeENS_10BinaryTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp14 = alloca %"class.arrow::Status", align 8
@@ -90494,7 +90494,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_15LargeStringTypeES4_EENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_15LargeStringTypeES4_EENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   call void @_ZN5arrow7compute8internal16ZeroCopyCastExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp, ptr noundef nonnull %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out)
@@ -90537,7 +90537,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_15LargeStringTypeENS_15LargeBinaryTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCastExecINS_15LargeStringTypeENS_15LargeBinaryTypeEEENSt9enable_ifIXsr19is_base_binary_typeIT0_EE5valueENS_6StatusEE4typeEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp14 = alloca %"class.arrow::Status", align 8

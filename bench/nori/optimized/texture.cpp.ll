@@ -27,7 +27,7 @@ $__clang_call_terminate = comdat any
 @_ZN7nanogui7TextureC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17InterpolationModeES9_NS0_8WrapModeE = hidden unnamed_addr alias void (ptr, ptr, i8, i8, i8), ptr @_ZN7nanogui7TextureC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17InterpolationModeES9_NS0_8WrapModeE
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui7TextureC2ENS0_11PixelFormatENS0_15ComponentFormatERKNS_5ArrayIiLm2EEENS0_17InterpolationModeES7_NS0_8WrapModeEhhb(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i8 noundef zeroext %8, i1 noundef zeroext %9) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui7TextureC2ENS0_11PixelFormatENS0_15ComponentFormatERKNS_5ArrayIiLm2EEENS0_17InterpolationModeES7_NS0_8WrapModeEhhb(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 19), (20, 29), (32, 40)) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i8 noundef zeroext %8, i1 noundef zeroext %9) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %11 = zext i1 %9 to i8
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %12, align 8
@@ -76,7 +76,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui7TextureC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17InterpolationModeES9_NS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui7TextureC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_17InterpolationModeES9_NS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 12), (13, 19), (28, 29), (32, 40)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8

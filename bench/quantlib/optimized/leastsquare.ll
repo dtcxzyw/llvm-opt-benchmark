@@ -2107,7 +2107,7 @@ _ZN8QuantLib5ArrayD2Ev.exit61:                    ; preds = %ehcleanup43, %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20NonLinearLeastSquareC2ERNS_10ConstraintEdm(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, double noundef %accuracy, i64 noundef %maxiter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20NonLinearLeastSquareC2ERNS_10ConstraintEdm(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 32), (40, 44), (48, 56), (64, 72)) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, double noundef %accuracy, i64 noundef %maxiter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %agg.tmp.i = alloca %"class.boost::shared_ptr.2", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr.2", align 8
@@ -2357,7 +2357,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib20NonLinearLeastSquareC2ERNS_10ConstraintEdmN5boost10shared_ptrINS_18OptimizationMethodEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, double noundef %accuracy, i64 noundef %maxiter, ptr nocapture noundef %om) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20NonLinearLeastSquareC2ERNS_10ConstraintEdmN5boost10shared_ptrINS_18OptimizationMethodEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 32), (40, 44), (48, 56), (64, 72), (80, 104)) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, double noundef %accuracy, i64 noundef %maxiter, ptr nocapture noundef %om) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %exitFlag_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)

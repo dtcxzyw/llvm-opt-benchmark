@@ -440,7 +440,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ethtool_aggregate_phy_stats(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local void @ethtool_aggregate_phy_stats(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) #0 align 16 {
   %3 = alloca %struct.ethtool_eth_phy_stats, align 8
   %4 = alloca %struct.ethtool_eth_phy_stats, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 760

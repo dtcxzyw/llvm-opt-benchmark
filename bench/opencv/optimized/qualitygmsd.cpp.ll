@@ -903,7 +903,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %14, %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv7quality11QualityGMSD9_mat_data7computeERKS2_S4_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv7quality11QualityGMSD9_mat_data7computeERKS2_S4_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::UMat", align 8
   %5 = alloca %"class.cv::UMat", align 8
   %6 = alloca %"class.cv::UMat", align 8

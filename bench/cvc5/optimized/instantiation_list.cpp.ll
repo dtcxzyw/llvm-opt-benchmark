@@ -29,7 +29,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal16InstantiationVecC2ERKSt6vectorINS0_12NodeTemplateILb1EEESaIS4_EENS0_6theory11InferenceIdES4_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vec, i32 noundef %id, ptr nocapture noundef readonly %pfArg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal16InstantiationVecC2ERKSt6vectorINS0_12NodeTemplateILb1EEESaIS4_EENS0_6theory11InferenceIdES4_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vec, i32 noundef %id, ptr nocapture noundef readonly %pfArg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds i8, ptr %vec, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8

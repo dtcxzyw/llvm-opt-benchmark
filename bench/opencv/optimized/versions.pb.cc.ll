@@ -82,7 +82,7 @@ define weak hidden noundef ptr @_Z40descriptor_table_versions_2eproto_getterv() 
 declare void @_ZN6google8protobuf8internal20AddDescriptorsRunnerC1EPKNS1_15DescriptorTableE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17opencv_tensorflow10VersionDefC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow10VersionDefC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -149,7 +149,7 @@ _ZN6google8protobuf11MessageLiteD2Ev.exit:        ; preds = %1, %11, %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17opencv_tensorflow10VersionDefC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow10VersionDefC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow10VersionDefE, i64 16), ptr %0, align 8

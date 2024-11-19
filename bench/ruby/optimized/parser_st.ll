@@ -368,7 +368,7 @@ rb_parser_st_init_table_with_size.exit:           ; preds = %1, %4, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @rb_parser_st_clear(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define dso_local void @rb_parser_st_clear(ptr nocapture noundef initializes((16, 24), (32, 48)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1617,7 +1617,7 @@ set_bin.exit:                                     ; preds = %74, %71, %68, %65, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn uwtable
-define dso_local noundef ptr @rb_parser_st_replace(ptr noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+define dso_local noundef ptr @rb_parser_st_replace(ptr noundef writeonly initializes((0, 56)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8

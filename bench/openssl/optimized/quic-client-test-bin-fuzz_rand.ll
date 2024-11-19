@@ -49,7 +49,7 @@ if.end:                                           ; preds = %lor.lhs.false3
 declare i32 @OSSL_PROVIDER_add_builtin(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fuzz_rand_provider_init(ptr nocapture readnone %handle, ptr nocapture readnone %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) #0 {
+define internal range(i32 0, 2) i32 @fuzz_rand_provider_init(ptr nocapture readnone %handle, ptr nocapture readnone %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly initializes((0, 8)) %provctx) #0 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #6
   store ptr %call, ptr %provctx, align 8
@@ -87,7 +87,7 @@ declare ptr @OSSL_LIB_CTX_new() local_unnamed_addr #1
 declare void @OSSL_LIB_CTX_free(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef ptr @fuzz_rand_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr nocapture noundef writeonly %no_cache) #3 {
+define internal noundef ptr @fuzz_rand_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr nocapture noundef writeonly initializes((0, 4)) %no_cache) #3 {
 entry:
   store i32 0, ptr %no_cache, align 4
   %cond = icmp eq i32 %operation_id, 5
@@ -118,14 +118,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @fuzz_rand_instantiate(ptr nocapture noundef writeonly %vrng, i32 %strength, i32 %prediction_resistance, ptr nocapture readnone %pstr, i64 %pstr_len, ptr nocapture readnone %params) #3 {
+define internal noundef i32 @fuzz_rand_instantiate(ptr nocapture noundef writeonly initializes((0, 4)) %vrng, i32 %strength, i32 %prediction_resistance, ptr nocapture readnone %pstr, i64 %pstr_len, ptr nocapture readnone %params) #3 {
 entry:
   store i32 1, ptr %vrng, align 4
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @fuzz_rand_uninstantiate(ptr nocapture noundef writeonly %vrng) #3 {
+define internal noundef i32 @fuzz_rand_uninstantiate(ptr nocapture noundef writeonly initializes((0, 4)) %vrng) #3 {
 entry:
   store i32 0, ptr %vrng, align 4
   ret i32 1

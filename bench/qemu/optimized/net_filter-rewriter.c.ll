@@ -754,7 +754,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @reset_seq_offset(ptr nocapture readnone %key, ptr nocapture noundef writeonly %value, ptr nocapture readnone %user_data) #6 {
+define internal void @reset_seq_offset(ptr nocapture readnone %key, ptr nocapture noundef writeonly initializes((64, 68)) %value, ptr nocapture readnone %user_data) #6 {
 entry:
   %offset = getelementptr inbounds i8, ptr %value, i64 64
   store i32 0, ptr %offset, align 8

@@ -1857,7 +1857,7 @@ declare noundef zeroext i1 @_ZN4cvc58internal24isCardinalityClassFiniteENS0_16Ca
 declare noundef i64 @_ZN4cvc58internal8TypeNode19getCardinalityClassEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal3Env25setUninterpretedSortOwnerENS0_6theory8TheoryIdE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(576) %this, i32 noundef %theory) local_unnamed_addr #12 align 2 {
+define hidden void @_ZN4cvc58internal3Env25setUninterpretedSortOwnerENS0_6theory8TheoryIdE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(576) initializes((552, 556)) %this, i32 noundef %theory) local_unnamed_addr #12 align 2 {
 entry:
   %d_uninterpretedSortOwner = getelementptr inbounds i8, ptr %this, i64 552
   store i32 %theory, ptr %d_uninterpretedSortOwner, align 8
@@ -2024,7 +2024,7 @@ _ZNK4cvc58internal8TypeNode6isNullEv.exit:        ; preds = %entry, %init.check.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal3Env13getSepLocTypeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal3Env13getSepLocTypeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_sepLocType = getelementptr inbounds i8, ptr %this, i64 560
   %0 = load ptr, ptr %d_sepLocType, align 8
@@ -2059,7 +2059,7 @@ _ZN4cvc58internal8TypeNodeC2ERKS1_.exit:          ; preds = %if.then.i.i, %if.el
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal3Env14getSepDataTypeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal3Env14getSepDataTypeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_sepDataType = getelementptr inbounds i8, ptr %this, i64 568
   %0 = load ptr, ptr %d_sepDataType, align 8

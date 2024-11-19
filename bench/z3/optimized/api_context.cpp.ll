@@ -178,7 +178,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3api6objectC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(3048) %c) unnamed_addr #3 align 2 {
+define hidden void @_ZN3api6objectC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(3048) %c) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i.i = alloca %struct._key_data, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3api6objectE, i64 16), ptr %this, align 8
@@ -694,7 +694,7 @@ entry:
 declare void @_Z16reg_decl_pluginsR11ast_manager(ptr noundef nonnull align 8 dereferenceable(976)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3api7contextC2EP18ast_context_paramsb(ptr noundef nonnull align 8 dereferenceable(3048) %this, ptr noundef %p, i1 noundef zeroext %user_ref_count) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3api7contextC2EP18ast_context_paramsb(ptr noundef nonnull align 8 dereferenceable(3048) initializes((0, 20)) %this, ptr noundef %p, i1 noundef zeroext %user_ref_count) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i84 = alloca %class.symbol, align 8
   %ref.tmp.i78 = alloca %class.symbol, align 8
@@ -2840,7 +2840,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3api7context17set_interruptableC2ERS0_R13event_handler(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(3048) %ctx, ptr noundef nonnull align 8 dereferenceable(12) %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3api7context17set_interruptableC2ERS0_R13event_handler(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(3048) %ctx, ptr noundef nonnull align 8 dereferenceable(12) %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %ctx, ptr %this, align 8
   %m_mux = getelementptr inbounds i8, ptr %ctx, i64 256
@@ -3007,7 +3007,7 @@ invoke.cont10:                                    ; preds = %invoke.cont6
 declare void @_ZN8reslimit6cancelEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3api7context14set_error_codeE13Z3_error_codePKc(ptr noundef nonnull align 8 dereferenceable(3048) %this, i32 noundef %err, ptr noundef %opt_msg) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3api7context14set_error_codeE13Z3_error_codePKc(ptr noundef nonnull align 8 dereferenceable(3048) initializes((1560, 1564)) %this, i32 noundef %err, ptr noundef %opt_msg) local_unnamed_addr #3 align 2 {
 entry:
   %m_error_code = getelementptr inbounds i8, ptr %this, i64 1560
   store i32 %err, ptr %m_error_code, align 8
@@ -3064,7 +3064,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3api7context14set_error_codeE13Z3_error_codeONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3048) %this, i32 noundef %err, ptr noundef nonnull align 8 dereferenceable(32) %opt_msg) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3api7context14set_error_codeE13Z3_error_codeONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3048) initializes((1560, 1564)) %this, i32 noundef %err, ptr noundef nonnull align 8 dereferenceable(32) %opt_msg) local_unnamed_addr #3 align 2 {
 entry:
   %m_error_code = getelementptr inbounds i8, ptr %this, i64 1560
   store i32 %err, ptr %m_error_code, align 8
@@ -3720,7 +3720,7 @@ _ZN3refIN3api6objectEEaSEPS1_.exit:               ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3api7context16handle_exceptionER12z3_exception(ptr noundef nonnull align 8 dereferenceable(3048) %this, ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3api7context16handle_exceptionER12z3_exception(ptr noundef nonnull align 8 dereferenceable(3048) initializes((1560, 1564)) %this, ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK12z3_exception14has_error_codeEv(ptr noundef nonnull align 8 dereferenceable(8) %ex)
   %vtable = load ptr, ptr %ex, align 8
@@ -5029,7 +5029,7 @@ _ZN10z3_log_ctxD2Ev.exit5:                        ; preds = %if.end, %if.then.i4
 declare void @_Z21log_Z3_get_error_codeP11_Z3_context(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Z3_set_error_handler(ptr nocapture noundef writeonly %c, ptr noundef %h) local_unnamed_addr #10 {
+define void @Z3_set_error_handler(ptr nocapture noundef writeonly initializes((1560, 1564), (1568, 1576)) %c, ptr noundef %h) local_unnamed_addr #10 {
 entry:
   %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
@@ -5039,7 +5039,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @Z3_set_error(ptr noundef %c, i32 noundef %e) local_unnamed_addr #3 {
+define void @Z3_set_error(ptr noundef initializes((1560, 1564)) %c, i32 noundef %e) local_unnamed_addr #3 {
 entry:
   %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 %e, ptr %m_error_code.i, align 8

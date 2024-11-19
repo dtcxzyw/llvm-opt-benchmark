@@ -40,7 +40,7 @@ $_ZN26GrowableArrayWithAllocatorIPK5Klass13GrowableArrayIS2_EE9expand_toEi = com
 @_ZN14JfrArtifactSetD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN14JfrArtifactSetD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JfrArtifactSetC2Eb(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN14JfrArtifactSetC2Eb(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 41)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 0, ptr %4, align 8
@@ -52,7 +52,7 @@ define hidden void @_ZN14JfrArtifactSetC2Eb(ptr nocapture noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JfrArtifactSet10initializeEb(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JfrArtifactSet10initializeEb(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((8, 41)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 %3, ptr %4, align 8

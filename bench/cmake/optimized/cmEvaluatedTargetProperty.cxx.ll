@@ -95,7 +95,7 @@ declare void @_ZN5cmsys18SystemToolsManagerD1Ev(ptr noundef nonnull align 1 dere
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN28EvaluatedTargetPropertyEntryC2ERK14cmLinkImplItem19cmListFileBacktrace(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr nocapture noundef %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN28EvaluatedTargetPropertyEntryC2ERK14cmLinkImplItem19cmListFileBacktrace(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 49)) %0, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr nocapture noundef %2) unnamed_addr #3 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %2, align 8
@@ -113,7 +113,7 @@ define dso_local void @_ZN28EvaluatedTargetPropertyEntryC2ERK14cmLinkImplItem19c
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z27EvaluateTargetPropertyEntryPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_P31cmGeneratorExpressionDAGCheckerRNS_19TargetPropertyEntryE(ptr dead_on_unwind noalias writable sret(%struct.EvaluatedTargetPropertyEntry) align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z27EvaluateTargetPropertyEntryPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_P31cmGeneratorExpressionDAGCheckerRNS_19TargetPropertyEntryE(ptr dead_on_unwind noalias writable sret(%struct.EvaluatedTargetPropertyEntry) align 8 initializes((0, 49)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZN19cmListFileBacktraceD2Ev.exit:
   %6 = alloca %class.cmListFileBacktrace, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 8
@@ -372,7 +372,7 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %_ZNSt6vectorINSt7__
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z29EvaluateTargetPropertyEntriesPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_P31cmGeneratorExpressionDAGCheckerRKSt6vectorISt10unique_ptrINS_19TargetPropertyEntryESt14default_deleteISE_EESaISH_EE(ptr dead_on_unwind noalias nonnull writable sret(%struct.EvaluatedTargetPropertyEntries) align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z29EvaluateTargetPropertyEntriesPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_P31cmGeneratorExpressionDAGCheckerRKSt6vectorISt10unique_ptrINS_19TargetPropertyEntryESt14default_deleteISE_EESaISH_EE(ptr dead_on_unwind noalias nonnull writable sret(%struct.EvaluatedTargetPropertyEntries) align 8 initializes((0, 25)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %struct.EvaluatedTargetPropertyEntry, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %0, i8 0, i64 25, i1 false)
   %8 = getelementptr inbounds i8, ptr %5, i64 8

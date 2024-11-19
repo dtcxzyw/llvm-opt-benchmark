@@ -1337,7 +1337,7 @@ declare void @dtls1_clear_sent_buffer(ptr noundef) local_unnamed_addr #2
 declare i32 @tls_finish_handshake(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @ossl_statem_server_post_work(ptr noundef %s, i32 noundef %wst) local_unnamed_addr #1 {
+define range(i32 0, 4) i32 @ossl_statem_server_post_work(ptr noundef initializes((256, 264)) %s, i32 noundef %wst) local_unnamed_addr #1 {
 entry:
   %dummy = alloca i64, align 8
   %init_num = getelementptr inbounds i8, ptr %s, i64 256

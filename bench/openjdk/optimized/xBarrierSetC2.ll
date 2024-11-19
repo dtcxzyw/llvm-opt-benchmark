@@ -211,7 +211,7 @@ declare noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef, ptr noundef) local_unn
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18XLoadBarrierStubC2C2EPK8MachNode7Address8RegisterS4_h(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef %1, ptr noundef %2, i32 %3, i32 %4, i8 noundef zeroext %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN18XLoadBarrierStubC2C2EPK8MachNode7Address8RegisterS4_h(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i32 %3, i32 %4, i8 noundef zeroext %5) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 21, i1 false)
@@ -247,7 +247,7 @@ define hidden void @_ZN18XLoadBarrierStubC2C2EPK8MachNode7Address8RegisterS4_h(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK18XLoadBarrierStubC28ref_addrEv(ptr dead_on_unwind noalias writable sret(%class.Address) align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK18XLoadBarrierStubC28ref_addrEv(ptr dead_on_unwind noalias writable sret(%class.Address) align 8 initializes((0, 21)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 21, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 24

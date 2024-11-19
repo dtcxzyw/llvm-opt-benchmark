@@ -16,7 +16,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ip_options_r
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable___ip_options_compile732, ptr @__UNIQUE_ID___addressable_ip_options_compile733, ptr @__UNIQUE_ID___addressable_ip_options_rcv_srr734], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ip_options_build(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local void @ip_options_build(ptr noundef initializes((44, 60)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 180
@@ -128,7 +128,7 @@ declare dso_local i32 @inet_current_timestamp() local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @__ip_options_echo(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @__ip_options_echo(ptr noundef %0, ptr nocapture noundef initializes((0, 16)) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 4

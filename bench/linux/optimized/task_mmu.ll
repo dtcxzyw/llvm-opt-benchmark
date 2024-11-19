@@ -272,7 +272,7 @@ define dso_local range(i64 0, -4095) i64 @task_vsize(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local i64 @task_statm(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #4 align 16 {
+define dso_local i64 @task_statm(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #4 align 16 {
   %6 = getelementptr i8, ptr %0, i64 832
   %7 = load volatile i64, ptr %6, align 8
   %8 = tail call i64 @llvm.smax.i64(i64 %7, i64 0)
@@ -1585,7 +1585,7 @@ define internal ptr @m_next(ptr nocapture noundef readonly %0, ptr nocapture rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @show_map(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef i32 @show_map(ptr noundef initializes((32, 40)) %0, ptr noundef %1) #0 align 16 {
   tail call fastcc void @show_map_vma(ptr noundef %0, ptr noundef %1)
   ret i32 0
 }
@@ -1657,7 +1657,7 @@ declare dso_local void @up_read(ptr noundef) local_unnamed_addr #2
 declare dso_local void @__mmap_lock_do_trace_released(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @show_map_vma(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @show_map_vma(ptr noundef initializes((32, 40)) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 136
@@ -1793,7 +1793,7 @@ select.unfold:                                    ; preds = %85, %51, %81, %88
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @show_vma_header_prefix(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef range(i64 0, -4095) %4, i32 noundef %5, i64 noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc void @show_vma_header_prefix(ptr noundef initializes((32, 40)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef range(i64 0, -4095) %4, i32 noundef %5, i64 noundef %6) unnamed_addr #0 align 16 {
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, 72
@@ -1858,7 +1858,7 @@ declare dso_local void @seq_put_decimal_ull(ptr noundef, ptr noundef, i64 nounde
 declare dso_local void @__mmdrop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @show_smap(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef i32 @show_smap(ptr noundef initializes((32, 40)) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.mem_size_stats, align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %3) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 0, i64 176, i1 false)

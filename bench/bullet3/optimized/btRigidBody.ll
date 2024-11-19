@@ -76,7 +76,7 @@ declare void @_ZN17btCollisionObjectC2Ev(ptr noundef nonnull align 8 dereference
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11btRigidBody14setupRigidBodyERKNS_27btRigidBodyConstructionInfoE(ptr noundef nonnull align 8 dereferenceable(744) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(156) %constructionInfo) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN11btRigidBody14setupRigidBodyERKNS_27btRigidBodyConstructionInfoE(ptr noundef nonnull align 8 dereferenceable(744) initializes((272, 276), (420, 452), (456, 504), (520, 561), (564, 588), (592, 600), (672, 688), (736, 744)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(156) %constructionInfo) local_unnamed_addr #2 align 2 {
 entry:
   %m_internalType = getelementptr inbounds i8, ptr %this, i64 272
   store i32 2, ptr %m_internalType, align 8
@@ -483,7 +483,7 @@ lpad11:                                           ; preds = %invoke.cont18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN11btRigidBody10setDampingEff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(744) %this, float noundef %lin_damping, float noundef %ang_damping) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN11btRigidBody10setDampingEff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(744) initializes((552, 560)) %this, float noundef %lin_damping, float noundef %ang_damping) local_unnamed_addr #5 align 2 {
 entry:
   %cmp.i = fcmp olt float %lin_damping, 0.000000e+00
   %cmp1.i = fcmp ogt float %lin_damping, 1.000000e+00
@@ -501,7 +501,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN11btRigidBody12setMassPropsEfRK9btVector3(ptr nocapture noundef nonnull align 8 dereferenceable(744) %this, float noundef %mass, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %inertia) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN11btRigidBody12setMassPropsEfRK9btVector3(ptr nocapture noundef nonnull align 8 dereferenceable(744) initializes((452, 456), (472, 488), (504, 520), (688, 704)) %this, float noundef %mass, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %inertia) local_unnamed_addr #6 align 2 {
 entry:
   %cmp = fcmp oeq float %mass, 0.000000e+00
   %m_collisionFlags = getelementptr inbounds i8, ptr %this, i64 224
@@ -581,7 +581,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN11btRigidBody19updateInertiaTensorEv(ptr nocapture noundef nonnull align 8 dereferenceable(744) %this) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN11btRigidBody19updateInertiaTensorEv(ptr nocapture noundef nonnull align 8 dereferenceable(744) initializes((372, 420)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_worldTransform = getelementptr inbounds i8, ptr %this, i64 8
   %m_invInertiaLocal = getelementptr inbounds i8, ptr %this, i64 504
@@ -1002,7 +1002,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN11btRigidBody10setGravityERK9btVector3(ptr nocapture noundef nonnull align 8 dereferenceable(744) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %acceleration) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN11btRigidBody10setGravityERK9btVector3(ptr nocapture noundef nonnull align 8 dereferenceable(744) initializes((488, 504)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %acceleration) local_unnamed_addr #6 align 2 {
 entry:
   %m_inverseMass = getelementptr inbounds i8, ptr %this, i64 452
   %0 = load float, ptr %m_inverseMass, align 4

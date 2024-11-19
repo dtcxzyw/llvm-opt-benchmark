@@ -3044,7 +3044,7 @@ return:                                           ; preds = %lor.rhs, %_ZN5boost
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue217buildAnchoredDfasERNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS3_EE(ptr noalias sret(%"class.std::vector.134") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %fragments) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue217buildAnchoredDfasERNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS3_EE(ptr noalias sret(%"class.std::vector.134") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %fragments) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %small_starts.i = alloca %"class.std::vector.146", align 8
   %big_starts.i = alloca %"class.std::vector.146", align 8
@@ -7579,7 +7579,7 @@ declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #11
 declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue212_GLOBAL__N_116Automaton_HolderC2ERKNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(1286) %this, ptr noundef nonnull align 8 dereferenceable(136) %g_in) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue212_GLOBAL__N_116Automaton_HolderC2ERKNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(1286) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(136) %g_in) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   %esets.i = alloca %"class.std::vector.225", align 8
   %t.i = alloca %"class.ue2::CharReach", align 8

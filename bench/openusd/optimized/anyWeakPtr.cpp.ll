@@ -37,7 +37,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolderD0
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder5CloneEPNS0_5_DataE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly %1) unnamed_addr #3 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder5CloneEPNS0_5_DataE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolderE, i64 16), ptr %1, align 8
   ret void
 }

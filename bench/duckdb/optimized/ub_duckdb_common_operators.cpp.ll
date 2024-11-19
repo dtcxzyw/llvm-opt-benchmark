@@ -1010,7 +1010,7 @@ $_ZTIN6duckdb21InvalidInputExceptionE = comdat any
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbbEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbbEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %frombool.i.i = zext i1 %input to i8
   store i8 %frombool.i.i, ptr %result, align 1, !tbaa !3
@@ -1018,7 +1018,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbaEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbaEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %frombool.i.i = zext i1 %input to i8
   store i8 %frombool.i.i, ptr %result, align 1, !tbaa !7
@@ -1026,7 +1026,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbsEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbsEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = zext i1 %input to i16
   store i16 %conv.i.i, ptr %result, align 2, !tbaa !8
@@ -1034,7 +1034,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbiEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbiEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = zext i1 %input to i32
   store i32 %conv.i.i, ptr %result, align 4, !tbaa !10
@@ -1042,7 +1042,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIblEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIblEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = zext i1 %input to i64
   store i64 %conv.i.i, ptr %result, align 8, !tbaa !12
@@ -1050,7 +1050,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbNS_9hugeint_tEEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbNS_9hugeint_tEEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %upper.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %upper.i.i, align 8, !tbaa !14
@@ -1060,7 +1060,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbhEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbhEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %frombool.i.i = zext i1 %input to i8
   store i8 %frombool.i.i, ptr %result, align 1, !tbaa !7
@@ -1068,7 +1068,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbtEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbtEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = zext i1 %input to i16
   store i16 %conv.i.i, ptr %result, align 2, !tbaa !8
@@ -1076,7 +1076,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbjEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbjEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = zext i1 %input to i32
   store i32 %conv.i.i, ptr %result, align 4, !tbaa !10
@@ -1084,7 +1084,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbmEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbmEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = zext i1 %input to i64
   store i64 %conv.i.i, ptr %result, align 8, !tbaa !12
@@ -1092,7 +1092,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbfEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbfEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = uitofp i1 %input to float
   store float %conv.i.i, ptr %result, align 4, !tbaa !17
@@ -1100,7 +1100,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbdEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbdEEbT_RT0_b(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = uitofp i1 %input to double
   store double %conv.i.i, ptr %result, align 8, !tbaa !19
@@ -1108,7 +1108,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIabEEbT_RT0_b(i8 noundef signext %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIabEEbT_RT0_b(i8 noundef signext %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.i.i = icmp ne i8 %input, 0
   %frombool.i.i = zext i1 %tobool.i.i to i8
@@ -1117,14 +1117,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIaaEEbT_RT0_b(i8 noundef signext %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIaaEEbT_RT0_b(i8 noundef signext %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   store i8 %input, ptr %result, align 1, !tbaa !7
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIasEEbT_RT0_b(i8 noundef signext %input, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIasEEbT_RT0_b(i8 noundef signext %input, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = sext i8 %input to i16
   store i16 %conv.i.i, ptr %result, align 2, !tbaa !8
@@ -1132,7 +1132,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIaiEEbT_RT0_b(i8 noundef signext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIaiEEbT_RT0_b(i8 noundef signext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = sext i8 %input to i32
   store i32 %conv.i.i, ptr %result, align 4, !tbaa !10
@@ -1140,7 +1140,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIalEEbT_RT0_b(i8 noundef signext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIalEEbT_RT0_b(i8 noundef signext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = sext i8 %input to i64
   store i64 %conv.i.i, ptr %result, align 8, !tbaa !12
@@ -1214,7 +1214,7 @@ _ZN6duckdb14NumericTryCast9OperationIamEEbT_RT0_b.exit: ; preds = %if.end2.i.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIafEEbT_RT0_b(i8 noundef signext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIafEEbT_RT0_b(i8 noundef signext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = sitofp i8 %input to float
   store float %conv.i.i, ptr %result, align 4, !tbaa !17
@@ -1222,7 +1222,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIadEEbT_RT0_b(i8 noundef signext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIadEEbT_RT0_b(i8 noundef signext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = sitofp i8 %input to double
   store double %conv.i.i, ptr %result, align 8, !tbaa !19
@@ -1230,7 +1230,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsbEEbT_RT0_b(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsbEEbT_RT0_b(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.i.i = icmp ne i16 %input, 0
   %frombool.i.i = zext i1 %tobool.i.i to i8
@@ -1255,14 +1255,14 @@ _ZN6duckdb14NumericTryCast9OperationIsaEEbT_RT0_b.exit: ; preds = %if.end10.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIssEEbT_RT0_b(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIssEEbT_RT0_b(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   store i16 %input, ptr %result, align 2, !tbaa !8
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsiEEbT_RT0_b(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsiEEbT_RT0_b(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = sext i16 %input to i32
   store i32 %conv.i.i, ptr %result, align 4, !tbaa !10
@@ -1270,7 +1270,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIslEEbT_RT0_b(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIslEEbT_RT0_b(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = sext i16 %input to i64
   store i64 %conv.i.i, ptr %result, align 8, !tbaa !12
@@ -1344,7 +1344,7 @@ _ZN6duckdb14NumericTryCast9OperationIsmEEbT_RT0_b.exit: ; preds = %if.end2.i.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsfEEbT_RT0_b(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsfEEbT_RT0_b(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = sitofp i16 %input to float
   store float %conv.i.i, ptr %result, align 4, !tbaa !17
@@ -1352,7 +1352,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsdEEbT_RT0_b(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsdEEbT_RT0_b(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = sitofp i16 %input to double
   store double %conv.i.i, ptr %result, align 8, !tbaa !19
@@ -1360,7 +1360,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIibEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIibEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.i.i = icmp ne i32 %input, 0
   %frombool.i.i = zext i1 %tobool.i.i to i8
@@ -1401,14 +1401,14 @@ _ZN6duckdb14NumericTryCast9OperationIisEEbT_RT0_b.exit: ; preds = %if.end6.i.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIiiEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIiiEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   store i32 %input, ptr %result, align 4, !tbaa !10
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIilEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIilEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = sext i32 %input to i64
   store i64 %conv.i.i, ptr %result, align 8, !tbaa !12
@@ -1482,7 +1482,7 @@ _ZN6duckdb14NumericTryCast9OperationIimEEbT_RT0_b.exit: ; preds = %if.end2.i.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIifEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIifEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = sitofp i32 %input to float
   store float %conv.i.i, ptr %result, align 4, !tbaa !17
@@ -1490,7 +1490,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIidEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIidEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = sitofp i32 %input to double
   store double %conv.i.i, ptr %result, align 8, !tbaa !19
@@ -1498,7 +1498,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIlbEEbT_RT0_b(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIlbEEbT_RT0_b(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.i.i = icmp ne i64 %input, 0
   %frombool.i.i = zext i1 %tobool.i.i to i8
@@ -1555,7 +1555,7 @@ _ZN6duckdb14NumericTryCast9OperationIliEEbT_RT0_b.exit: ; preds = %if.end6.i.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIllEEbT_RT0_b(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIllEEbT_RT0_b(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   store i64 %input, ptr %result, align 8, !tbaa !12
   ret i1 true
@@ -1628,7 +1628,7 @@ _ZN6duckdb14NumericTryCast9OperationIlmEEbT_RT0_b.exit: ; preds = %if.end2.i.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIlfEEbT_RT0_b(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIlfEEbT_RT0_b(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = sitofp i64 %input to float
   store float %conv.i.i, ptr %result, align 4, !tbaa !17
@@ -1636,7 +1636,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIldEEbT_RT0_b(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIldEEbT_RT0_b(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = sitofp i64 %input to double
   store double %conv.i.i, ptr %result, align 8, !tbaa !19
@@ -1644,7 +1644,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEbEEbT_RT0_b(i64 %input.coerce0, i64 %input.coerce1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEbEEbT_RT0_b(i64 %input.coerce0, i64 %input.coerce1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %cmp.i.i = icmp ne i64 %input.coerce1, 0
   %cmp1.i.i = icmp ne i64 %input.coerce0, 0
@@ -1686,7 +1686,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tES2_EEbT_RT0_b(i64 %input.coerce0, i64 %input.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tES2_EEbT_RT0_b(i64 %input.coerce0, i64 %input.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   store i64 %input.coerce0, ptr %result, align 8, !tbaa !12
   %value.sroa.2.0.result.addr.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %result, i64 8
@@ -1737,7 +1737,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhbEEbT_RT0_b(i8 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhbEEbT_RT0_b(i8 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.i.i = icmp ne i8 %input, 0
   %frombool.i.i = zext i1 %tobool.i.i to i8
@@ -1760,7 +1760,7 @@ _ZN6duckdb14NumericTryCast9OperationIhaEEbT_RT0_b.exit: ; preds = %if.then3.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhsEEbT_RT0_b(i8 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhsEEbT_RT0_b(i8 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = zext i8 %input to i16
   store i16 %conv.i.i, ptr %result, align 2, !tbaa !8
@@ -1768,7 +1768,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhiEEbT_RT0_b(i8 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhiEEbT_RT0_b(i8 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = zext i8 %input to i32
   store i32 %conv.i.i, ptr %result, align 4, !tbaa !10
@@ -1776,7 +1776,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhlEEbT_RT0_b(i8 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhlEEbT_RT0_b(i8 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = zext i8 %input to i64
   store i64 %conv.i.i, ptr %result, align 8, !tbaa !12
@@ -1791,14 +1791,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhhEEbT_RT0_b(i8 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhhEEbT_RT0_b(i8 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   store i8 %input, ptr %result, align 1, !tbaa !7
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhtEEbT_RT0_b(i8 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhtEEbT_RT0_b(i8 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = zext i8 %input to i16
   store i16 %conv.i.i, ptr %result, align 2, !tbaa !8
@@ -1806,7 +1806,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhjEEbT_RT0_b(i8 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhjEEbT_RT0_b(i8 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = zext i8 %input to i32
   store i32 %conv.i.i, ptr %result, align 4, !tbaa !10
@@ -1814,7 +1814,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhmEEbT_RT0_b(i8 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhmEEbT_RT0_b(i8 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = zext i8 %input to i64
   store i64 %conv.i.i, ptr %result, align 8, !tbaa !12
@@ -1822,7 +1822,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhfEEbT_RT0_b(i8 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhfEEbT_RT0_b(i8 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = uitofp i8 %input to float
   store float %conv.i.i, ptr %result, align 4, !tbaa !17
@@ -1830,7 +1830,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhdEEbT_RT0_b(i8 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhdEEbT_RT0_b(i8 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = uitofp i8 %input to double
   store double %conv.i.i, ptr %result, align 8, !tbaa !19
@@ -1838,7 +1838,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItbEEbT_RT0_b(i16 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItbEEbT_RT0_b(i16 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.i.i = icmp ne i16 %input, 0
   %frombool.i.i = zext i1 %tobool.i.i to i8
@@ -1876,7 +1876,7 @@ _ZN6duckdb14NumericTryCast9OperationItsEEbT_RT0_b.exit: ; preds = %if.then3.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItiEEbT_RT0_b(i16 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItiEEbT_RT0_b(i16 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = zext i16 %input to i32
   store i32 %conv.i.i, ptr %result, align 4, !tbaa !10
@@ -1884,7 +1884,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItlEEbT_RT0_b(i16 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItlEEbT_RT0_b(i16 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = zext i16 %input to i64
   store i64 %conv.i.i, ptr %result, align 8, !tbaa !12
@@ -1914,14 +1914,14 @@ _ZN6duckdb14NumericTryCast9OperationIthEEbT_RT0_b.exit: ; preds = %if.end10.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIttEEbT_RT0_b(i16 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIttEEbT_RT0_b(i16 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   store i16 %input, ptr %result, align 2, !tbaa !8
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItjEEbT_RT0_b(i16 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItjEEbT_RT0_b(i16 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = zext i16 %input to i32
   store i32 %conv.i.i, ptr %result, align 4, !tbaa !10
@@ -1929,7 +1929,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItmEEbT_RT0_b(i16 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItmEEbT_RT0_b(i16 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = zext i16 %input to i64
   store i64 %conv.i.i, ptr %result, align 8, !tbaa !12
@@ -1937,7 +1937,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItfEEbT_RT0_b(i16 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItfEEbT_RT0_b(i16 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = uitofp i16 %input to float
   store float %conv.i.i, ptr %result, align 4, !tbaa !17
@@ -1945,7 +1945,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItdEEbT_RT0_b(i16 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItdEEbT_RT0_b(i16 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = uitofp i16 %input to double
   store double %conv.i.i, ptr %result, align 8, !tbaa !19
@@ -1953,7 +1953,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjbEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjbEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.i.i = icmp ne i32 %input, 0
   %frombool.i.i = zext i1 %tobool.i.i to i8
@@ -2006,7 +2006,7 @@ _ZN6duckdb14NumericTryCast9OperationIjiEEbT_RT0_b.exit: ; preds = %if.then2.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjlEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjlEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = zext i32 %input to i64
   store i64 %conv.i.i, ptr %result, align 8, !tbaa !12
@@ -2051,14 +2051,14 @@ _ZN6duckdb14NumericTryCast9OperationIjtEEbT_RT0_b.exit: ; preds = %if.end6.i.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjjEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjjEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   store i32 %input, ptr %result, align 4, !tbaa !10
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjmEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjmEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = zext i32 %input to i64
   store i64 %conv.i.i, ptr %result, align 8, !tbaa !12
@@ -2066,7 +2066,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjfEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjfEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = uitofp i32 %input to float
   store float %conv.i.i, ptr %result, align 4, !tbaa !17
@@ -2074,7 +2074,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjdEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjdEEbT_RT0_b(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = uitofp i32 %input to double
   store double %conv.i.i, ptr %result, align 8, !tbaa !19
@@ -2082,7 +2082,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImbEEbT_RT0_b(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImbEEbT_RT0_b(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.i.i = icmp ne i64 %input, 0
   %frombool.i.i = zext i1 %tobool.i.i to i8
@@ -2202,14 +2202,14 @@ _ZN6duckdb14NumericTryCast9OperationImjEEbT_RT0_b.exit: ; preds = %if.end6.i.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImmEEbT_RT0_b(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImmEEbT_RT0_b(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   store i64 %input, ptr %result, align 8, !tbaa !12
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImfEEbT_RT0_b(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImfEEbT_RT0_b(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = uitofp i64 %input to float
   store float %conv.i.i, ptr %result, align 4, !tbaa !17
@@ -2217,7 +2217,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImdEEbT_RT0_b(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImdEEbT_RT0_b(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = uitofp i64 %input to double
   store double %conv.i.i, ptr %result, align 8, !tbaa !19
@@ -2225,7 +2225,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfbEEbT_RT0_b(float noundef %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfbEEbT_RT0_b(float noundef %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.i.i = fcmp une float %input, 0.000000e+00
   %frombool.i.i = zext i1 %tobool.i.i to i8
@@ -2426,14 +2426,14 @@ _ZN6duckdb14NumericTryCast9OperationIfmEEbT_RT0_b.exit: ; preds = %if.end3.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIffEEbT_RT0_b(float noundef %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIffEEbT_RT0_b(float noundef %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   store float %input, ptr %result, align 4, !tbaa !17
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfdEEbT_RT0_b(float noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfdEEbT_RT0_b(float noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = fpext float %input to double
   store double %conv.i.i, ptr %result, align 8, !tbaa !19
@@ -2441,7 +2441,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdbEEbT_RT0_b(double noundef %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdbEEbT_RT0_b(double noundef %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.i.i = fcmp une double %input, 0.000000e+00
   %frombool.i.i = zext i1 %tobool.i.i to i8
@@ -2662,7 +2662,7 @@ _ZN6duckdb14NumericTryCast9OperationIdfEEbT_RT0_b.exit: ; preds = %return.sink.s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIddEEbT_RT0_b(double noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIddEEbT_RT0_b(double noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   store double %input, ptr %result, align 8, !tbaa !19
   ret i1 true
@@ -12092,7 +12092,7 @@ return:                                           ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_6date_tES2_EEbT_RT0_b(i32 %input.coerce, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_6date_tES2_EEbT_RT0_b(i32 %input.coerce, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   store i32 %input.coerce, ptr %result, align 4, !tbaa !10
   ret i1 true
@@ -12129,14 +12129,14 @@ declare noundef zeroext i1 @_ZN6duckdb9Timestamp15TryFromDatetimeENS_6date_tENS_
 declare i64 @_ZN6duckdb4Time8FromTimeEiiii(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_7dtime_tES2_EEbT_RT0_b(i64 %input.coerce, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_7dtime_tES2_EEbT_RT0_b(i64 %input.coerce, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   store i64 %input.coerce, ptr %result, align 8, !tbaa !12
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_7dtime_tENS_10dtime_tz_tEEEbT_RT0_b(i64 %input.coerce, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_7dtime_tENS_10dtime_tz_tEEEbT_RT0_b(i64 %input.coerce, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %shl.i = shl i64 %input.coerce, 24
   %or.i = or disjoint i64 %shl.i, 5612400
@@ -12145,14 +12145,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_10dtime_tz_tES2_EEbT_RT0_b(i64 %input.coerce, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_10dtime_tz_tES2_EEbT_RT0_b(i64 %input.coerce, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   store i64 %input.coerce, ptr %result, align 8, !tbaa !12
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_10dtime_tz_tENS_7dtime_tEEEbT_RT0_b(i64 %input.coerce, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_10dtime_tz_tENS_7dtime_tEEEbT_RT0_b(i64 %input.coerce, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   %shr.i = lshr i64 %input.coerce, 24
   store i64 %shr.i, ptr %result, align 8, !tbaa !12
@@ -12160,7 +12160,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_11timestamp_tENS_6date_tEEEbT_RT0_b(i64 %input.coerce, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, i1 noundef zeroext %strict) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_11timestamp_tENS_6date_tEEEbT_RT0_b(i64 %input.coerce, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, i1 noundef zeroext %strict) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call i32 @_ZN6duckdb9Timestamp7GetDateENS_11timestamp_tE(i64 %input.coerce)
   store i32 %call, ptr %result, align 4, !tbaa !10
@@ -12192,7 +12192,7 @@ return:                                           ; preds = %if.end, %entry, %en
 declare i64 @_ZN6duckdb9Timestamp7GetTimeENS_11timestamp_tE(i64) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_11timestamp_tES2_EEbT_RT0_b(i64 %input.coerce, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_11timestamp_tES2_EEbT_RT0_b(i64 %input.coerce, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   store i64 %input.coerce, ptr %result, align 8, !tbaa !12
   ret i1 true
@@ -12221,7 +12221,7 @@ return:                                           ; preds = %if.end, %entry, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_10interval_tES2_EEbT_RT0_b(i64 %input.coerce0, i64 %input.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_10interval_tES2_EEbT_RT0_b(i64 %input.coerce0, i64 %input.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %result, i1 noundef zeroext %strict) local_unnamed_addr #0 align 2 {
 entry:
   store i64 %input.coerce0, ptr %result, align 8, !tbaa.struct !187
   %input.sroa.2.0.result.addr.0..sroa_idx = getelementptr inbounds i8, ptr %result, i64 8
@@ -23022,7 +23022,7 @@ _ZN6duckdb8string_t8FinalizeEv.exit:              ; preds = %if.else.i, %for.bod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb16TryCastToDecimal9OperationIbsEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb16TryCastToDecimal9OperationIbsEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 {
 entry:
   %cmp.i = icmp ugt i8 %width, %scale
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -23048,7 +23048,7 @@ _ZN6duckdb20TryCastBoolToDecimalIsNS_13NumericHelperEEEbbRT_PNSt7__cxx1112basic_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb16TryCastToDecimal9OperationIbiEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb16TryCastToDecimal9OperationIbiEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 {
 entry:
   %cmp.i = icmp ugt i8 %width, %scale
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -23074,7 +23074,7 @@ _ZN6duckdb20TryCastBoolToDecimalIiNS_13NumericHelperEEEbbRT_PNSt7__cxx1112basic_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb16TryCastToDecimal9OperationIblEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb16TryCastToDecimal9OperationIblEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 {
 entry:
   %cmp.i = icmp ugt i8 %width, %scale
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -23099,7 +23099,7 @@ _ZN6duckdb20TryCastBoolToDecimalIlNS_13NumericHelperEEEbbRT_PNSt7__cxx1112basic_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6duckdb16TryCastToDecimal9OperationIbNS_9hugeint_tEEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN6duckdb16TryCastToDecimal9OperationIbNS_9hugeint_tEEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i1 noundef zeroext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp.i = alloca %"struct.duckdb::hugeint_t", align 8
   %cmp.i = icmp ugt i8 %width, %scale
@@ -23136,7 +23136,7 @@ _ZN6duckdb20TryCastBoolToDecimalINS_9hugeint_tENS_7HugeintEEEbbRT_PNSt7__cxx1112
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsbEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsbEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.i.i.i = icmp ne i16 %input, 0
   %frombool.i.i.i = zext i1 %tobool.i.i.i to i8
@@ -23145,7 +23145,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIibEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIibEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.i.i.i = icmp ne i32 %input, 0
   %frombool.i.i.i = zext i1 %tobool.i.i.i to i8
@@ -23154,7 +23154,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIlbEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIlbEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.i.i.i = icmp ne i64 %input, 0
   %frombool.i.i.i = zext i1 %tobool.i.i.i to i8
@@ -23163,7 +23163,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEbEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 %input.coerce0, i64 %input.coerce1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEbEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 %input.coerce0, i64 %input.coerce1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 {
 entry:
   %cmp.i.i.i = icmp ne i64 %input.coerce1, 0
   %cmp1.i.i.i = icmp ne i64 %input.coerce0, 0
@@ -34890,7 +34890,7 @@ cleanup:                                          ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIssEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIssEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %idxprom.i = zext i8 %scale to i64
   %arrayidx.i = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom.i
@@ -35607,7 +35607,7 @@ cleanup:                                          ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsiEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsiEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %idxprom.i = zext i8 %scale to i64
   %arrayidx.i = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom.i
@@ -35629,7 +35629,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIiiEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIiiEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %idxprom.i = zext i8 %scale to i64
   %arrayidx.i = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom.i
@@ -36125,7 +36125,7 @@ cleanup:                                          ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIslEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIslEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %idxprom.i = zext i8 %scale to i64
   %arrayidx.i = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom.i
@@ -36146,7 +36146,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIilEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIilEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %idxprom.i = zext i8 %scale to i64
   %arrayidx.i = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom.i
@@ -36167,7 +36167,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIllEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIllEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %idxprom.i = zext i8 %scale to i64
   %arrayidx.i = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom.i
@@ -40817,7 +40817,7 @@ cleanup:                                          ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsfEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsfEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv.i.i.i.i.i = sitofp i16 %input to float
   %idxprom.i = zext i8 %scale to i64
@@ -40830,7 +40830,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIifEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIifEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv.i.i.i.i.i = sitofp i32 %input to float
   %idxprom.i = zext i8 %scale to i64
@@ -40843,7 +40843,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIlfEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIlfEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv.i.i.i.i.i = sitofp i64 %input to float
   %idxprom.i = zext i8 %scale to i64
@@ -40939,7 +40939,7 @@ _ZN6duckdb4Cast9OperationINS_9hugeint_tEfEET0_T_.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsdEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsdEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv.i.i.i.i.i = sitofp i16 %input to double
   %idxprom.i = zext i8 %scale to i64
@@ -40951,7 +40951,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIidEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIidEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv.i.i.i.i.i = sitofp i32 %input to double
   %idxprom.i = zext i8 %scale to i64
@@ -40963,7 +40963,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIldEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIldEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %result, ptr nocapture noundef readnone %error_message, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv.i.i.i.i.i = sitofp i64 %input to double
   %idxprom.i = zext i8 %scale to i64

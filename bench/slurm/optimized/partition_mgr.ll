@@ -338,7 +338,7 @@ declare void @assoc_mgr_set_unset_qos_tres_relative_cnt(i1 noundef zeroext) loca
 declare void @assoc_mgr_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2019) i32 @build_part_bitmap(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2019) i32 @build_part_bitmap(ptr noundef initializes((308, 324)) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8

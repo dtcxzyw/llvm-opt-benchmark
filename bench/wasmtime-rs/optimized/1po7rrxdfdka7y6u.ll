@@ -25,7 +25,7 @@ define range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hb5012b55e363681bE"(ptr nocapture writeonly sret({ { i64, ptr }, { ptr, ptr } }) align 8 %0, ptr align 1 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hb5012b55e363681bE"(ptr nocapture writeonly sret({ { i64, ptr }, { ptr, ptr } }) align 8 initializes((0, 32)) %0, ptr align 1 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { ptr, ptr }, align 8
   %6 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %6)
@@ -52,7 +52,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17h2222d26db13544cdE"(ptr nocapture writeonly sret({ { i64, ptr }, { ptr, ptr } }) align 8 %0, ptr align 1 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17h2222d26db13544cdE"(ptr nocapture writeonly sret({ { i64, ptr }, { ptr, ptr } }) align 8 initializes((0, 32)) %0, ptr align 1 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { ptr, ptr }, align 8
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -117,7 +117,7 @@ define align 8 ptr @"_ZN4core4iter6traits8iterator8Iterator6max_by4fold28_$u7b$$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h07ae6ae441e9be85E"(ptr nocapture writeonly sret({ i64, [5 x i64] }) align 16 %0, ptr align 8 %1, ptr align 16 %2, ptr align 8 %3) unnamed_addr #1 {
+define void @"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h07ae6ae441e9be85E"(ptr nocapture writeonly sret({ i64, [5 x i64] }) align 16 initializes((0, 8)) %0, ptr align 8 %1, ptr align 16 %2, ptr align 8 %3) unnamed_addr #1 {
   %5 = alloca { i64, [5 x i64] }, align 16
   %6 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %6)
@@ -141,7 +141,7 @@ define void @"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17hd740efded3f93f53E"(ptr nocapture writeonly sret({ i64, [5 x i64] }) align 16 %0, ptr align 8 %1, ptr align 16 %2, ptr align 8 %3) unnamed_addr #1 {
+define void @"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17hd740efded3f93f53E"(ptr nocapture writeonly sret({ i64, [5 x i64] }) align 16 initializes((0, 8)) %0, ptr align 8 %1, ptr align 16 %2, ptr align 8 %3) unnamed_addr #1 {
   %5 = alloca { i64, [5 x i64] }, align 16
   %6 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %6)

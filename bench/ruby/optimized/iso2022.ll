@@ -45,7 +45,7 @@ define void @Init_iso2022() local_unnamed_addr #0 {
 declare void @rb_register_transcoder(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @iso2022jp_init(ptr nocapture noundef writeonly %0) #2 {
+define internal noundef i32 @iso2022jp_init(ptr nocapture noundef writeonly initializes((0, 1)) %0) #2 {
   store i8 0, ptr %0, align 1
   ret i32 0
 }
@@ -228,7 +228,7 @@ define internal range(i64 0, 4) i64 @iso2022jp_encoder_reset_sequence_size(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @fun_so_stateless_iso2022jp_to_eucjp(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #4 {
+define internal noundef i64 @fun_so_stateless_iso2022jp_to_eucjp(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 2)) %3, i64 %4) #4 {
   %6 = getelementptr inbounds i8, ptr %1, i64 1
   %7 = load i8, ptr %6, align 1
   store i8 %7, ptr %3, align 1
@@ -240,7 +240,7 @@ define internal noundef i64 @fun_so_stateless_iso2022jp_to_eucjp(ptr nocapture r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @fun_so_eucjp_to_stateless_iso2022jp(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #4 {
+define internal noundef i64 @fun_so_eucjp_to_stateless_iso2022jp(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 3)) %3, i64 %4) #4 {
   store i8 -110, ptr %3, align 1
   %6 = load i8, ptr %1, align 1
   %7 = getelementptr inbounds i8, ptr %3, i64 1

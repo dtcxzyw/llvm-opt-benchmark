@@ -928,7 +928,7 @@ declare void @_ZN4node10HandleWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE
 declare i32 @uv_signal_init(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_110SignalWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(241) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_110SignalWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(241) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %this, align 8
   %handle_wrap_queue_.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -946,7 +946,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_110SignalWrapD0Ev(ptr noundef nonnull align 8 dereferenceable(241) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_110SignalWrapD0Ev(ptr noundef nonnull align 8 dereferenceable(241) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10HandleWrapE, i64 16), ptr %this, align 8
   %handle_wrap_queue_.i.i = getelementptr inbounds i8, ptr %this, i64 64

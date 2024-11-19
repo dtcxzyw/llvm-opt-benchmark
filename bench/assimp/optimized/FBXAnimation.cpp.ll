@@ -1829,7 +1829,7 @@ ehcleanup11:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX14AnimationLayer5NodesEPKPKcm(ptr noalias nocapture sret(%"class.std::vector.64") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef readonly %target_prop_whitelist, i64 noundef %whitelist_size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp3FBX14AnimationLayer5NodesEPKPKcm(ptr noalias nocapture sret(%"class.std::vector.64") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef readonly %target_prop_whitelist, i64 noundef %whitelist_size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.57", align 8
   %ref.tmp18 = alloca %"class.std::__cxx11::basic_string", align 8

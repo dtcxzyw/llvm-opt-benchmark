@@ -9414,7 +9414,7 @@ _ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEED2Ev.exit: ; preds = %entry, %if
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureD1Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (96, 104), (152, 160)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-32, 120) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureE, i64 32), ptr %this, align 8, !tbaa !33
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -9534,7 +9534,7 @@ _ZN8QuantLib8ObserverD2Ev.exit:                   ; preds = %for.cond.cleanup.i
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (96, 104), (152, 160)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 208) #32

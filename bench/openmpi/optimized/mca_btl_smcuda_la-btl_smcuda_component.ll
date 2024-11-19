@@ -400,7 +400,7 @@ mca_btl_smcuda_component_verify.exit:             ; preds = %20, %23, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @mca_btl_smcuda_component_init(ptr nocapture noundef writeonly %0, i1 zeroext %1, i1 zeroext %2) #0 {
+define internal noalias noundef ptr @mca_btl_smcuda_component_init(ptr nocapture noundef writeonly initializes((0, 4)) %0, i1 zeroext %1, i1 zeroext %2) #0 {
   store i32 0, ptr %0, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 320), i8 0, i64 16, i1 false)
   %4 = tail call i32 @mca_btl_smcuda_accelerator_init() #14

@@ -231,7 +231,7 @@ declare noundef ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_a
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11DwarfParser24parse_dwarf_instructionsEmmPKh(ptr nocapture noundef nonnull align 8 dereferenceable(61) %0, i64 noundef %1, i64 noundef %2, ptr noundef readnone %3) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11DwarfParser24parse_dwarf_instructionsEmmPKh(ptr nocapture noundef nonnull align 8 dereferenceable(61) initializes((40, 48)) %0, i64 noundef %1, i64 noundef %2, ptr noundef readnone %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -699,7 +699,7 @@ define hidden noundef i32 @_ZN11DwarfParser12get_pc_rangeEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN11DwarfParser13process_dwarfEm(ptr nocapture noundef nonnull align 8 dereferenceable(61) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN11DwarfParser13process_dwarfEm(ptr nocapture noundef nonnull align 8 dereferenceable(61) initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4400
   %5 = load ptr, ptr %4, align 8

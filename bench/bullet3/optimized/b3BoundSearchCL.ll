@@ -67,7 +67,7 @@ $_ZTI13b3OpenCLArrayIjE = comdat any
 @_ZN15b3BoundSearchCLD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN15b3BoundSearchCLD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15b3BoundSearchCLC2EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %queue, i32 noundef %maxSize) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15b3BoundSearchCLC2EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 56)) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %queue, i32 noundef %maxSize) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pErrNum = alloca i32, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTV15b3BoundSearchCL, i64 16), ptr %this, align 8
@@ -182,7 +182,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 declare void @_ZN8b3FillCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queue(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15b3BoundSearchCLD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15b3BoundSearchCLD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV15b3BoundSearchCL, i64 16), ptr %this, align 8
   %m_lower = getelementptr inbounds i8, ptr %this, i64 64
@@ -268,7 +268,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15b3BoundSearchCLD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15b3BoundSearchCLD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV15b3BoundSearchCL, i64 16), ptr %this, align 8
   %m_lower.i = getelementptr inbounds i8, ptr %this, i64 64

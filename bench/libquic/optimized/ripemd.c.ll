@@ -1731,7 +1731,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @RIPEMD160_Final(ptr nocapture noundef writeonly %md, ptr nocapture noundef %c) local_unnamed_addr #0 {
+define hidden noundef i32 @RIPEMD160_Final(ptr nocapture noundef writeonly initializes((0, 20)) %md, ptr nocapture noundef %c) local_unnamed_addr #0 {
 entry:
   %num = getelementptr inbounds i8, ptr %c, i64 92
   %0 = load i32, ptr %num, align 4
@@ -1878,7 +1878,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @RIPEMD160_Init(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #3 {
+define hidden noundef i32 @RIPEMD160_Init(ptr nocapture noundef writeonly initializes((0, 96)) %ctx) local_unnamed_addr #3 {
 entry:
   %0 = getelementptr inbounds i8, ptr %ctx, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %0, i8 0, i64 76, i1 false)
@@ -1895,7 +1895,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @RIPEMD160(ptr nocapture noundef readonly %data, i64 noundef %len, ptr noundef returned writeonly %out) local_unnamed_addr #0 {
+define hidden noundef ptr @RIPEMD160(ptr nocapture noundef readonly %data, i64 noundef %len, ptr noundef returned writeonly initializes((0, 20)) %out) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.RIPEMD160state_st, align 4
   %0 = getelementptr inbounds i8, ptr %ctx, i64 20

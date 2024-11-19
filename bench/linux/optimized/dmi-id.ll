@@ -463,7 +463,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @sys_dmi_field_show(ptr n
 declare dso_local i32 @scnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @sys_dmi_modalias_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal noundef i64 @sys_dmi_modalias_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef initializes((0, 4)) %2) #2 align 16 {
   %4 = tail call fastcc i64 @get_modalias(ptr noundef %2, i64 noundef 4095)
   %5 = getelementptr i8, ptr %2, i64 %4
   store i8 10, ptr %5, align 1
@@ -474,7 +474,7 @@ define internal noundef i64 @sys_dmi_modalias_show(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i64 @get_modalias(ptr noundef %0, i64 noundef range(i64 -2147481599, 2147485697) %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef i64 @get_modalias(ptr noundef initializes((0, 4)) %0, i64 noundef range(i64 -2147481599, 2147485697) %1) unnamed_addr #2 align 16 {
   store i32 6909284, ptr %0, align 1
   %3 = getelementptr i8, ptr %0, i64 3
   %4 = icmp sgt i64 %1, 4

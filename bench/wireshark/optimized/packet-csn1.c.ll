@@ -64,7 +64,7 @@ target triple = "x86_64-pc-linux-gnu"
 @tvb_get_masked_bits8.maskBits = internal unnamed_addr constant [9 x i8] c"\00\01\03\07\0F\1F?\7F\FF", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @csnStreamInit(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @csnStreamInit(ptr nocapture noundef writeonly initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   store i32 %2, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %5, align 4

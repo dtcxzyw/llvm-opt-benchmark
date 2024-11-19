@@ -67,7 +67,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN10ReflowScanC2EP3MapPK14NodeDefManager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(260) %this, ptr noundef %map, ptr noundef %ndef) unnamed_addr #3 align 2 {
+define dso_local void @_ZN10ReflowScanC2EP3MapPK14NodeDefManager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(260) initializes((0, 28), (32, 40)) %this, ptr noundef %map, ptr noundef %ndef) unnamed_addr #3 align 2 {
 entry:
   store ptr %map, ptr %this, align 8, !tbaa !4
   %m_ndef = getelementptr inbounds i8, ptr %this, i64 8
@@ -80,7 +80,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ReflowScan4scanEP8MapBlockP11UniqueQueueIN3irr4core8vector3dIsEEE(ptr noundef nonnull align 8 dereferenceable(260) %this, ptr noundef %block, ptr noundef %liquid_queue) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN10ReflowScan4scanEP8MapBlockP11UniqueQueueIN3irr4core8vector3dIsEEE(ptr noundef nonnull align 8 dereferenceable(260) initializes((16, 28), (32, 260)) %this, ptr noundef %block, ptr noundef %liquid_queue) local_unnamed_addr #4 align 2 {
 entry:
   %m_pos.i = getelementptr inbounds i8, ptr %block, i64 10
   %retval.sroa.0.0.copyload.i = load i48, ptr %m_pos.i, align 2, !tbaa.struct !14

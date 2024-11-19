@@ -41,7 +41,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_n_tty_inheri
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_n_tty_inherit_ops389], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @n_tty_inherit_ops(ptr nocapture noundef writeonly %0) #0 align 16 {
+define dso_local void @n_tty_inherit_ops(ptr nocapture noundef writeonly initializes((0, 144)) %0) #0 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(144) @n_tty_ops, i64 136, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   store ptr null, ptr %2, align 8

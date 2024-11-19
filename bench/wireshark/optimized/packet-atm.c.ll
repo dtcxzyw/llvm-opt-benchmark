@@ -567,7 +567,7 @@ define internal ptr @atm_value(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @atm_prompt(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #3 {
+define internal void @atm_prompt(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 23)) %1) #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %1, ptr noundef nonnull align 1 dereferenceable(23) @.str.308, i64 23, i1 false)
   ret void
 }

@@ -629,7 +629,7 @@ declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 
 declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @php_network_parse_network_address_with_port(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @php_network_parse_network_address_with_port(ptr noundef %0, i64 noundef %1, ptr noundef initializes((0, 28)) %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
@@ -1399,7 +1399,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @php_any_addr(i32 noundef %0, ptr nocapture noundef writeonly %1, i16 noundef zeroext %2) local_unnamed_addr #10 {
+define void @php_any_addr(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 128)) %1, i16 noundef zeroext %2) local_unnamed_addr #10 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
   switch i32 %0, label %13 [
     i32 10, label %4

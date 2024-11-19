@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN22ZNMethodTableIterationC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN22ZNMethodTableIterationC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN22ZNMethodTableIterationC2Ev(ptr noundef nonnull align 64 dereferenceable(72) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN22ZNMethodTableIterationC2Ev(ptr noundef nonnull align 64 dereferenceable(72) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store volatile i64 0, ptr %2, align 64
@@ -25,7 +25,7 @@ define hidden noundef zeroext i1 @_ZNK22ZNMethodTableIteration11in_progressEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN22ZNMethodTableIteration17nmethods_do_beginEP18ZNMethodTableEntrym(ptr noundef nonnull align 64 dereferenceable(72) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN22ZNMethodTableIteration17nmethods_do_beginEP18ZNMethodTableEntrym(ptr noundef nonnull align 64 dereferenceable(72) initializes((0, 16)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 64
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -35,7 +35,7 @@ define hidden void @_ZN22ZNMethodTableIteration17nmethods_do_beginEP18ZNMethodTa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22ZNMethodTableIteration15nmethods_do_endEv(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(72) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN22ZNMethodTableIteration15nmethods_do_endEv(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(72) initializes((0, 8)) %0) local_unnamed_addr #2 align 2 {
   store ptr null, ptr %0, align 64
   ret void
 }

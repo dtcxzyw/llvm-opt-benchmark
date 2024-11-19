@@ -94,7 +94,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.33 = private unnamed_addr constant [6 x i8] c"value\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @zend_enum_new(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define hidden ptr @zend_enum_new(ptr nocapture noundef writeonly initializes((0, 12)) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = tail call ptr @zend_objects_new(ptr noundef %1) #12
   store ptr %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -528,7 +528,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @zend_objects_not_comparable(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zend_enum_add_interfaces(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @zend_enum_add_interfaces(ptr nocapture noundef initializes((360, 368)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 424
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, 1
@@ -1448,7 +1448,7 @@ define internal void @zend_enum_cases_func(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_enum_register_func(ptr noundef %0, i32 noundef range(i32 62, 66) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_enum_register_func(ptr noundef %0, i32 noundef range(i32 62, 66) %1, ptr noundef initializes((0, 1), (16, 24), (72, 76), (88, 96)) %2) unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = load ptr, ptr @zend_known_strings, align 8
   %6 = zext nneg i32 %1 to i64

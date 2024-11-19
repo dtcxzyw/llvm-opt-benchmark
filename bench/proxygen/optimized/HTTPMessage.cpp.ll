@@ -944,7 +944,7 @@ entry:
 declare void @_ZN8proxygen11HTTPHeaders18stripPerHopHeadersERS0_bPKS0_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11HTTPMessageC2Ev(ptr noundef nonnull align 8 dereferenceable(616) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11HTTPMessageC2Ev(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #23
@@ -1287,7 +1287,7 @@ _ZN5folly13SocketAddressD2Ev.exit:                ; preds = %_ZN8proxygen11HTTPM
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11HTTPMessageC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull align 8 dereferenceable(616) %message) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11HTTPMessageC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(616) %message) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i43 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<folly::Range<const char *>, std::pair<const folly::Range<const char *>, folly::Range<const char *>>, std::_Select1st<std::pair<const folly::Range<const char *>, folly::Range<const char *>>>, std::less<folly::Range<const char *>>>::_Alloc_node", align 8
@@ -1845,7 +1845,7 @@ if.end28:                                         ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen11HTTPMessageC2EOS0_(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull align 8 dereferenceable(616) %message) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11HTTPMessageC2EOS0_(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(616) %message) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured = alloca %"class.proxygen::ParseURL", align 8
   %0 = load i64, ptr %message, align 8
@@ -3295,7 +3295,7 @@ return:                                           ; preds = %entry, %_ZN5boost3g
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen14methodToStringB5cxx11ENS_10HTTPMethodE(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11HTTPMessage14setHTTPVersionEhh(ptr noundef nonnull align 8 dereferenceable(616) %this, i8 noundef zeroext %maj, i8 noundef zeroext %min) local_unnamed_addr #2 align 2 {
+define void @_ZN8proxygen11HTTPMessage14setHTTPVersionEhh(ptr noundef nonnull align 8 dereferenceable(616) initializes((608, 610)) %this, i8 noundef zeroext %maj, i8 noundef zeroext %min) local_unnamed_addr #2 align 2 {
 entry:
   %maj.addr = alloca i8, align 1
   %min.addr = alloca i8, align 1
@@ -4260,7 +4260,7 @@ _ZN8proxygen11HTTPMessage8responseEv.exit:        ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11HTTPMessage23constructDirectResponseERKSt4pairIhhEi(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %version, i32 noundef %contentLength) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11HTTPMessage23constructDirectResponseERKSt4pairIhhEi(ptr noundef nonnull align 8 dereferenceable(616) initializes((608, 610)) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %version, i32 noundef %contentLength) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i3 = alloca %"class.folly::Range", align 8
   %ref.tmp.i = alloca ptr, align 8
@@ -7564,7 +7564,7 @@ return:                                           ; preds = %entry, %sw.epilog, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11HTTPMessage18setURLImplInternalEbb(ptr noalias sret(%"class.proxygen::ParseURL") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(616) %this, i1 noundef zeroext %unparse, i1 noundef zeroext %strict) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11HTTPMessage18setURLImplInternalEbb(ptr noalias sret(%"class.proxygen::ParseURL") align 8 initializes((0, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(616) %this, i1 noundef zeroext %unparse, i1 noundef zeroext %strict) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(202) ptr @_ZN8proxygen11HTTPMessage7requestEv(ptr noundef nonnull align 8 dereferenceable(616) %this)
   %url_ = getelementptr inbounds i8, ptr %call, i64 168

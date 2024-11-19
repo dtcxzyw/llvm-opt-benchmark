@@ -1083,7 +1083,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @atkbd_probe(ptr noundef non
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 2, 4) i32 @atkbd_select_set(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 2, 4) i32 @atkbd_select_set(ptr noundef initializes((1306, 1307)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
   %4 = alloca [2 x i8], align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #17
   %5 = getelementptr inbounds i8, ptr %0, i64 1306
@@ -1182,7 +1182,7 @@ define internal fastcc noundef range(i32 2, 4) i32 @atkbd_select_set(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @atkbd_set_keycode_table(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc void @atkbd_set_keycode_table(ptr noundef initializes((210, 1234), (1240, 1304)) %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 210
   tail call void @llvm.memset.p0.i64(ptr noundef align 2 dereferenceable(1024) %2, i8 0, i64 1024, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 1240

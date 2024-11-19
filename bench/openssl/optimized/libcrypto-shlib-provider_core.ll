@@ -2694,7 +2694,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ossl_provider_set_child(ptr nocapture noundef %prov, ptr noundef %handle) local_unnamed_addr #7 {
+define noundef i32 @ossl_provider_set_child(ptr nocapture noundef initializes((192, 200)) %prov, ptr noundef %handle) local_unnamed_addr #7 {
 entry:
   %handle1 = getelementptr inbounds i8, ptr %prov, i64 192
   store ptr %handle, ptr %handle1, align 8

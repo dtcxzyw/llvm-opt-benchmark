@@ -309,7 +309,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare zeroext i16 @eth_get_l3_proto(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @extract_ip_and_port(i32 noundef %tmp_ports, ptr nocapture noundef writeonly %key, ptr nocapture noundef readonly %pkt, i1 noundef zeroext %reverse) local_unnamed_addr #5 {
+define dso_local void @extract_ip_and_port(i32 noundef %tmp_ports, ptr nocapture noundef writeonly initializes((0, 12)) %key, ptr nocapture noundef readonly %pkt, i1 noundef zeroext %reverse) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr inbounds i8, ptr %pkt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -357,7 +357,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @fill_connection_key(ptr nocapture noundef readonly %pkt, ptr nocapture noundef writeonly %key, i1 noundef zeroext %reverse) local_unnamed_addr #5 {
+define dso_local void @fill_connection_key(ptr nocapture noundef readonly %pkt, ptr nocapture noundef writeonly initializes((0, 13)) %key, i1 noundef zeroext %reverse) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr inbounds i8, ptr %pkt, i64 8
   %1 = load ptr, ptr %0, align 8

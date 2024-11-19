@@ -1494,7 +1494,7 @@ define { i64, i64 } @"_ZN90_$LT$nom..traits..SaturatingIterator$u20$as$u20$core.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN60_$LT$usize$u20$as$u20$nom..traits..NomRange$LT$usize$GT$$GT$6bounds17h0a017c89d4830a8fE"(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, { i64, [1 x i64] } }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #6 {
+define void @"_ZN60_$LT$usize$u20$as$u20$nom..traits..NomRange$LT$usize$GT$$GT$6bounds17h0a017c89d4830a8fE"(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, { i64, [1 x i64] } }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #6 {
   %3 = load i64, ptr %1, align 8, !noundef !4
   store i64 0, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

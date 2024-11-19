@@ -669,7 +669,7 @@ declare void @_ZN15b2DistanceProxy3SetEPK7b2Shapei(ptr noundef nonnull align 8 d
 declare void @_Z10b2DistanceP16b2DistanceOutputP14b2SimplexCachePK15b2DistanceInput(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_Z13b2ComputeHullPK6b2Vec2i(ptr noalias nocapture sret(%struct.b2Hull) align 4 %agg.result, ptr nocapture noundef readonly %points, i32 noundef %count) local_unnamed_addr #6 {
+define hidden void @_Z13b2ComputeHullPK6b2Vec2i(ptr noalias nocapture sret(%struct.b2Hull) align 4 initializes((64, 68)) %agg.result, ptr nocapture noundef readonly %points, i32 noundef %count) local_unnamed_addr #6 {
 entry:
   %ps = alloca [8 x %struct.b2Vec2], align 16
   %rightPoints = alloca [6 x %struct.b2Vec2], align 16
@@ -1096,7 +1096,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL13b2RecurseHull6b2Vec2S_PS_i(ptr noalias nocapture nonnull align 4 %agg.result, <2 x float> %p1.coerce, <2 x float> %p2.coerce, ptr nocapture noundef nonnull readonly %ps, i32 noundef %count) unnamed_addr #6 {
+define internal fastcc void @_ZL13b2RecurseHull6b2Vec2S_PS_i(ptr noalias nocapture nonnull align 4 initializes((64, 68)) %agg.result, <2 x float> %p1.coerce, <2 x float> %p2.coerce, ptr nocapture noundef nonnull readonly %ps, i32 noundef %count) unnamed_addr #6 {
 entry:
   %rightPoints = alloca [8 x %struct.b2Vec2], align 16
   %hull1 = alloca %struct.b2Hull, align 4

@@ -2415,7 +2415,7 @@ getPackInfo.exit:                                 ; preds = %getPack.exit.i, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @getPackInfo(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define i32 @getPackInfo(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef initializes((4, 13), (16, 20), (24, 44)) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %6 = tail call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.14) #18
@@ -2460,7 +2460,7 @@ getPack.exit:                                     ; preds = %7, %4
 declare void @dotneato_postprocess(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @parsePackModeInfo(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define i32 @parsePackModeInfo(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((4, 8), (16, 20), (32, 44)) %2) local_unnamed_addr #1 {
   %4 = alloca float, align 4
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 40
@@ -2640,7 +2640,7 @@ mode2Str.exit:                                    ; preds = %56, %switch.lookup
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @getPackModeInfo(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define i32 @getPackModeInfo(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((4, 8), (16, 20), (32, 44)) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.13) #18
   %5 = tail call i32 @parsePackModeInfo(ptr noundef %4, i32 noundef %1, ptr noundef %2)
   ret i32 %5

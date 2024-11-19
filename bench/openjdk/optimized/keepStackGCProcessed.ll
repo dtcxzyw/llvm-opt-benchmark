@@ -39,7 +39,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN24KeepStackGCProcessedMarkD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN24KeepStackGCProcessedMarkD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24KeepStackGCProcessedMarkC2EP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN24KeepStackGCProcessedMarkC2EP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 1), (8, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store i8 1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8

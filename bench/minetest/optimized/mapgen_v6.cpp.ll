@@ -2546,7 +2546,7 @@ declare noundef zeroext i16 @_ZNK14NodeDefManager5getIdERKNSt7__cxx1112basic_str
 declare void @_ZN6MapgenD2Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN8MapgenV6D2Ev(ptr noundef nonnull align 8 dereferenceable(422) %this) unnamed_addr #10 align 2 {
+define dso_local void @_ZN8MapgenV6D2Ev(ptr noundef nonnull align 8 dereferenceable(422) initializes((0, 8)) %this) unnamed_addr #10 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV8MapgenV6, i64 16), ptr %this, align 8, !tbaa !15
   %noise_terrain_base = getelementptr inbounds i8, ptr %this, i64 240
@@ -2658,7 +2658,7 @@ declare void @_ZN5NoiseD1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unn
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN8MapgenV6D0Ev(ptr noundef nonnull align 8 dereferenceable(422) %this) unnamed_addr #10 align 2 {
+define dso_local void @_ZN8MapgenV6D0Ev(ptr noundef nonnull align 8 dereferenceable(422) initializes((0, 8)) %this) unnamed_addr #10 align 2 {
 entry:
   tail call void @_ZN8MapgenV6D2Ev(ptr noundef nonnull align 8 dereferenceable(422) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -2666,7 +2666,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN14MapgenV6ParamsC2Ev(ptr noundef nonnull writeonly align 8 dereferenceable(508) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14MapgenV6ParamsC2Ev(ptr noundef nonnull writeonly align 8 dereferenceable(508) initializes((0, 14), (16, 36), (40, 53), (56, 94), (96, 134), (136, 174), (176, 214), (216, 254), (256, 294), (296, 334), (336, 374), (376, 414), (416, 454), (456, 494), (496, 508)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont42:
   %mgtype.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %mgtype.i, align 8, !tbaa !104
@@ -5561,7 +5561,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8MapgenV69makeChunkEP13BlockMakeData(ptr noundef nonnull align 8 dereferenceable(422) %this, ptr noundef %data) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8MapgenV69makeChunkEP13BlockMakeData(ptr noundef nonnull align 8 dereferenceable(422) initializes((24, 25), (32, 40), (48, 60), (208, 238)) %this, ptr noundef %data) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mudflow_minpos = alloca i16, align 2
   %mudflow_maxpos = alloca i16, align 2

@@ -2647,7 +2647,7 @@ declare i32 @in_grouping_b_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef,
 declare i32 @skip_b_utf8(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @r_stem_suffix_chain_before_ki(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_stem_suffix_chain_before_ki(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24

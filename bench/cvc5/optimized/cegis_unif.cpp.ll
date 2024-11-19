@@ -974,7 +974,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit128: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers9CegisUnifD2Ev(ptr noundef nonnull align 8 dereferenceable(2272) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers9CegisUnifD2Ev(ptr noundef nonnull align 8 dereferenceable(2272) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers9CegisUnifE, i64 16), ptr %this, align 8
   %d_cenum_to_strat_pt = getelementptr inbounds i8, ptr %this, i64 2224
@@ -1280,7 +1280,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers9CegisUnifD0Ev(ptr noundef nonnull align 8 dereferenceable(2272) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers9CegisUnifD0Ev(ptr noundef nonnull align 8 dereferenceable(2272) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory11quantifiers9CegisUnifD2Ev(ptr noundef nonnull align 8 dereferenceable(2272) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -2298,7 +2298,7 @@ declare void @_ZN4cvc58internal6theory11quantifiers11TermDbSygus18registerEnumer
 declare void @_ZNK4cvc58internal6theory11quantifiers11SygusUnifRl30getConditionForEvaluationPointENS0_12NodeTemplateILb1EEE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(680), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers29CegisUnifEnumDecisionStrategy10initializeERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EERKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEERKSB_IS6_S8_SD_SaISE_ISF_S8_EEE(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %es, ptr noundef nonnull readonly align 8 dereferenceable(48) %e_to_cond, ptr noundef nonnull readonly align 8 dereferenceable(48) %strategy_lemmas) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers29CegisUnifEnumDecisionStrategy10initializeERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EERKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEERKSB_IS6_S8_SD_SaISE_ISF_S8_EEE(ptr noundef nonnull align 8 dereferenceable(240) initializes((169, 170)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %es, ptr noundef nonnull readonly align 8 dereferenceable(48) %e_to_cond, ptr noundef nonnull readonly align 8 dereferenceable(48) %strategy_lemmas) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__z.i = alloca %"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, std::pair<const cvc5::internal::NodeTemplate<true>, cvc5::internal::theory::quantifiers::CegisUnifEnumDecisionStrategy::StrategyPtInfo>, std::_Select1st<std::pair<const cvc5::internal::NodeTemplate<true>, cvc5::internal::theory::quantifiers::CegisUnifEnumDecisionStrategy::StrategyPtInfo>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Auto_node", align 8
   %ref.tmp9.i588 = alloca %"class.std::tuple.875", align 8

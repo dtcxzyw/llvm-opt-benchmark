@@ -3319,7 +3319,7 @@ declare i32 @ssl_load_stores(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 declare void @SSL_CTX_set_next_protos_advertised_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @next_proto_cb(ptr nocapture readnone %s, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %len, ptr nocapture noundef readonly %arg) #7 {
+define internal noundef i32 @next_proto_cb(ptr nocapture readnone %s, ptr nocapture noundef writeonly initializes((0, 8)) %data, ptr nocapture noundef writeonly initializes((0, 4)) %len, ptr nocapture noundef readonly %arg) #7 {
 entry:
   %0 = load ptr, ptr %arg, align 8
   store ptr %0, ptr %data, align 8
@@ -6636,7 +6636,7 @@ return:                                           ; preds = %if.end26, %if.then2
 declare void @SSL_CTX_sess_set_get_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @get_session(ptr nocapture readnone %ssl, ptr nocapture noundef readonly %id, i32 noundef %idlen, ptr nocapture noundef writeonly %do_copy) #0 {
+define internal ptr @get_session(ptr nocapture readnone %ssl, ptr nocapture noundef readonly %id, i32 noundef %idlen, ptr nocapture noundef writeonly initializes((0, 4)) %do_copy) #0 {
 entry:
   %p = alloca ptr, align 8
   store i32 0, ptr %do_copy, align 4

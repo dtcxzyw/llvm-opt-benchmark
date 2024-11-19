@@ -1213,7 +1213,7 @@ Vec_PtrAlloc.exit:                                ; preds = %2, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cof_ManCountRemoved(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @Cof_ManCountRemoved(ptr nocapture noundef %0, ptr noundef initializes((8, 12), (16, 20)) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, 1

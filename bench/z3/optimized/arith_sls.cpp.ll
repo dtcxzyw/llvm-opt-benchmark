@@ -150,7 +150,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5arith3slsC2ERNS_6solverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(1144) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5arith3slsC2ERNS_6solverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(97) initializes((0, 36), (40, 60), (64, 97)) %this, ptr noundef nonnull align 8 dereferenceable(1144) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arith3slsE, i64 16), ptr %this, align 8
   %s2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -2111,7 +2111,7 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5arith3sls3setEPN3sat4ddfwE(ptr noundef nonnull align 8 dereferenceable(97) %this, ptr noundef %d) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN5arith3sls3setEPN3sat4ddfwE(ptr noundef nonnull align 8 dereferenceable(97) initializes((24, 32)) %this, ptr noundef %d) local_unnamed_addr #5 align 2 {
 entry:
   %m_bool_search = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %d, ptr %m_bool_search, align 8
@@ -5886,7 +5886,7 @@ return:                                           ; preds = %_ZN5arith3sls10dtt_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef double @_ZN5arith3sls13dscore_rewardEj(ptr noundef nonnull align 8 dereferenceable(97) %this, i32 noundef %bv) local_unnamed_addr #5 align 2 {
+define hidden noundef double @_ZN5arith3sls13dscore_rewardEj(ptr noundef nonnull align 8 dereferenceable(97) initializes((96, 97)) %this, i32 noundef %bv) local_unnamed_addr #5 align 2 {
 entry:
   %new_value = alloca i64, align 8
   %m_dscore_mode = getelementptr inbounds i8, ptr %this, i64 96
@@ -6053,7 +6053,7 @@ return:                                           ; preds = %for.inc26, %if.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5arith3sls10on_rescaleEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(97) %this) unnamed_addr #10 align 2 {
+define hidden void @_ZN5arith3sls10on_rescaleEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(97) initializes((96, 97)) %this) unnamed_addr #10 align 2 {
 entry:
   %m_dscore_mode = getelementptr inbounds i8, ptr %this, i64 96
   store i8 1, ptr %m_dscore_mode, align 8

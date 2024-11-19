@@ -855,7 +855,7 @@ _ZSt4copyIPKSt4pairIN5clang14SourceLocationENS1_17PartialDiagnosticEEPS4_ET0_T_S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6interp5State6reportENS_14SourceLocationEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::DiagnosticBuilder") align 8 %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang6interp5State6reportENS_14SourceLocationEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::DiagnosticBuilder") align 8 initializes((0, 26)) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 96
   %7 = load ptr, ptr %6, align 8

@@ -254,7 +254,7 @@ define dso_local void @svc_unreg_xprt_class(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @svc_print_xprts(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @svc_print_xprts(ptr noundef initializes((0, 1)) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [80 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #18
   store i8 0, ptr %0, align 1
@@ -618,7 +618,7 @@ define dso_local void @svc_xprt_put(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @svc_xprt_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local void @svc_xprt_init(ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 520)) %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(520) %5, i8 0, i64 512, i1 false)
   store ptr %1, ptr %2, align 8
@@ -940,7 +940,7 @@ define internal fastcc i32 @_svc_xprt_create(ptr noundef %0, ptr nocapture nound
 declare dso_local i32 @__request_module(i1 noundef zeroext, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @svc_xprt_copy_addrs(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #8 align 16 {
+define dso_local void @svc_xprt_copy_addrs(ptr nocapture noundef writeonly initializes((176, 184), (312, 320)) %0, ptr nocapture noundef readonly %1) #8 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = getelementptr inbounds i8, ptr %1, i64 272
   %5 = getelementptr inbounds i8, ptr %1, i64 400
@@ -2063,7 +2063,7 @@ define dso_local void @svc_drop(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @svc_send(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @svc_send(ptr noundef initializes((728, 732)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 664
@@ -3095,7 +3095,7 @@ declare dso_local i32 @__SCT__tp_func_svc_xprt_dequeue(ptr noundef, ptr noundef)
 declare dso_local void @__module_get(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, -3) i32 @svc_deferred_recv(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, -3) i32 @svc_deferred_recv(ptr noundef initializes((176, 312), (424, 440), (476, 480), (488, 492), (11272, 11276)) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 416
   %3 = load ptr, ptr %2, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_svc_defer_recv, i64 8), i32 2) #18

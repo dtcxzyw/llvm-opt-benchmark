@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManMoFindSimulate(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Gia_ManMoFindSimulate(ptr nocapture noundef initializes((816, 820)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @Gia_ManRandomW(i32 noundef 1) #12
   %4 = getelementptr inbounds i8, ptr %0, i64 816
   store i32 %1, ptr %4, align 8

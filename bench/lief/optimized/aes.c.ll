@@ -52,7 +52,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.10 = private unnamed_addr constant [8 x i8] c"skipped\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_aes_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_aes_init(ptr nocapture noundef writeonly initializes((0, 288)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %0, i8 0, i64 288, i1 false)
   ret void
 }
@@ -76,7 +76,7 @@ define hidden void @mbedtls_aes_free(ptr noundef %0) local_unnamed_addr #2 {
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_aes_xts_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_aes_xts_init(ptr nocapture noundef writeonly initializes((0, 576)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(576) %0, i8 0, i64 576, i1 false)
   ret void
 }

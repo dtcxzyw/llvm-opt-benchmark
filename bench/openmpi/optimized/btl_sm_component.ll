@@ -453,7 +453,7 @@ define internal noundef i32 @mca_btl_sm_component_register() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @mca_btl_sm_component_init(ptr nocapture noundef writeonly %0, i1 zeroext %1, i1 zeroext %2) #0 {
+define internal noundef ptr @mca_btl_sm_component_init(ptr nocapture noundef writeonly initializes((0, 4)) %0, i1 zeroext %1, i1 zeroext %2) #0 {
   %4 = alloca %struct.mca_btl_sm_modex_t, align 8
   %5 = alloca %struct.pmix_value, align 8
   %6 = alloca ptr, align 8

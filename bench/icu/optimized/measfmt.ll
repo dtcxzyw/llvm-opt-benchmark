@@ -637,7 +637,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN6icu_7522MeasureFormatCacheDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this) unnamed_addr #8 align 2 {
+define void @_ZN6icu_7522MeasureFormatCacheDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 24), (64, 80)) %this) unnamed_addr #8 align 2 {
 entry:
   %softRefCount.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %softRefCount.i, i8 0, i64 16, i1 false)
@@ -665,7 +665,7 @@ for.end:                                          ; preds = %for.body
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7522MeasureFormatCacheDataD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7522MeasureFormatCacheDataD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522MeasureFormatCacheDataE, i64 16), ptr %this, align 8
   %currencyFormats = getelementptr inbounds i8, ptr %this, i64 40
@@ -1564,7 +1564,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7513MeasureFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(368) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513MeasureFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(368) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513MeasureFormatE, i64 16), ptr %this, align 8
   %cache = getelementptr inbounds i8, ptr %this, i64 328
@@ -3707,7 +3707,7 @@ declare noundef ptr @_ZNK6icu_757UObject17getDynamicClassIDEv(ptr noundef nonnul
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_756Format6formatERKNS_11FormattableERNS_13UnicodeStringEPNS_21FieldPositionIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(322), ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6icu_75L31loadNumericDateFormatterPatternEPK15UResourceBundlePKcR10UErrorCode(ptr noalias nonnull align 8 %agg.result, ptr noundef %resource, ptr noundef %pattern, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6icu_75L31loadNumericDateFormatterPatternEPK15UResourceBundlePKcR10UErrorCode(ptr noalias nonnull align 8 initializes((0, 10)) %agg.result, ptr noundef %resource, ptr noundef %pattern, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %len.i22 = alloca i32, align 4
   %agg.tmp.i = alloca %"class.icu_75::ConstChar16Ptr", align 8

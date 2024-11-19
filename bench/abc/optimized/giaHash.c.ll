@@ -680,7 +680,7 @@ Gia_ManHashFind.exit:                             ; preds = %105, %Gia_ObjFaninL
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Gia_ManHashStop(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @Gia_ManHashStop(ptr nocapture noundef initializes((80, 88), (96, 104)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
@@ -715,7 +715,7 @@ Vec_IntErase.exit3:                               ; preds = %Vec_IntErase.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManHashResize(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @Gia_ManHashResize(ptr nocapture noundef initializes((96, 100)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %.sroa.2.0..sroa_idx = getelementptr i8, ptr %0, i64 100
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4

@@ -2102,7 +2102,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IiEEE13readValueFromERNS_7IStreamEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 %size, i32 %version) unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IiEEE13readValueFromERNS_7IStreamEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 %size, i32 %version) unnamed_addr #3 align 2 {
 entry:
   %b.i2 = alloca [4 x i8], align 4
   %b.i = alloca [4 x i8], align 4
@@ -2180,7 +2180,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IfEEE13readValueFromERNS_7IStreamEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 %size, i32 %version) unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IfEEE13readValueFromERNS_7IStreamEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 %size, i32 %version) unnamed_addr #3 align 2 {
 entry:
   %b.i2 = alloca [4 x i8], align 4
   %b.i = alloca [4 x i8], align 4
@@ -2290,7 +2290,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IdEEE13readValueFromERNS_7IStreamEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 %size, i32 %version) unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IdEEE13readValueFromERNS_7IStreamEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 24)) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 %size, i32 %version) unnamed_addr #3 align 2 {
 entry:
   %b.i2 = alloca [8 x i8], align 8
   %b.i = alloca [8 x i8], align 8
@@ -2391,7 +2391,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IiEEE13readValueFromERNS_7IStreamEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 %size, i32 %version) unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IiEEE13readValueFromERNS_7IStreamEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((8, 20)) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 %size, i32 %version) unnamed_addr #3 align 2 {
 entry:
   %b.i7 = alloca [4 x i8], align 4
   %b.i3 = alloca [4 x i8], align 4
@@ -2502,7 +2502,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IfEEE13readValueFromERNS_7IStreamEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 %size, i32 %version) unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IfEEE13readValueFromERNS_7IStreamEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((8, 20)) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 %size, i32 %version) unnamed_addr #3 align 2 {
 entry:
   %b.i7 = alloca [4 x i8], align 4
   %b.i3 = alloca [4 x i8], align 4
@@ -2661,7 +2661,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IdEEE13readValueFromERNS_7IStreamEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 %size, i32 %version) unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IdEEE13readValueFromERNS_7IStreamEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((8, 32)) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 %size, i32 %version) unnamed_addr #3 align 2 {
 entry:
   %b.i7 = alloca [8 x i8], align 8
   %b.i3 = alloca [8 x i8], align 8

@@ -2250,7 +2250,7 @@ define internal fastcc void @add_dummy_return(ptr nocapture noundef %0) unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @plpgsql_parser_setup(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @plpgsql_parser_setup(ptr nocapture noundef writeonly initializes((184, 208), (216, 224)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   store ptr @plpgsql_pre_column_ref, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 192
@@ -3195,7 +3195,7 @@ plpgsql_build_datatype.exit:                      ; preds = %13
 declare ptr @makeTypeNameFromNameList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @plpgsql_adddatum(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @plpgsql_adddatum(ptr noundef initializes((4, 8)) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @plpgsql_nDatums, align 4
   %3 = load i32, ptr @datums_alloc, align 4
   %4 = icmp eq i32 %2, %3

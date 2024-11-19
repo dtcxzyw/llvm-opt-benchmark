@@ -2157,7 +2157,7 @@ Vec_PtrPush.exit95:                               ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Intp_ManProcessRoots(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Intp_ManProcessRoots(ptr nocapture noundef initializes((32, 36)) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2663,7 +2663,7 @@ Vec_IntPush.exit39:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Intp_ManUnsatCore(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define noalias noundef ptr @Intp_ManUnsatCore(ptr nocapture noundef initializes((0, 12)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)

@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN3ade16MemoryDescriptorD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3ade16MemoryDescriptorD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ade16MemoryDescriptorC2EmRKNS_4util9DynMdSizeILm6EEE(ptr noundef nonnull align 8 dereferenceable(264) %0, i64 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ade16MemoryDescriptorC2EmRKNS_4util9DynMdSizeILm6EEE(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 112)) %0, i64 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 {
   store i64 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
@@ -87,7 +87,7 @@ define hidden noundef i64 @_ZNK3ade16MemoryDescriptor11elementSizeEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ade16MemoryDescriptor15setExternalViewERKNS_4util9DynMdViewILm6EvEE(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN3ade16MemoryDescriptor15setExternalViewERKNS_4util9DynMdViewILm6EvEE(ptr noundef nonnull align 8 dereferenceable(264) initializes((40, 112)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -98,7 +98,7 @@ define hidden void @_ZN3ade16MemoryDescriptor15setExternalViewERKNS_4util9DynMdV
 declare void @_ZN3ade14MemoryAccessor10setNewViewERKNS_4util9DynMdViewILm6EvEE(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ade16MemoryDescriptor15getExternalViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::DynMdView") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1) local_unnamed_addr #7 align 2 {
+define hidden void @_ZNK3ade16MemoryDescriptor15getExternalViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::DynMdView") align 8 initializes((0, 72)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
   ret void

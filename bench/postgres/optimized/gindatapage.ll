@@ -1323,7 +1323,7 @@ declare ptr @ginFindLeafPage(ptr noundef, i1 noundef zeroext, i1 noundef zeroext
 declare void @ginInsertValue(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ginScanBeginPostingTree(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @ginScanBeginPostingTree(ptr noundef initializes((0, 128)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 56, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 80

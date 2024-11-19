@@ -359,7 +359,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qemu_chr_parse_ringbuf(ptr noundef %opts, ptr nocapture noundef writeonly %backend, ptr nocapture readnone %errp) #0 {
+define internal void @qemu_chr_parse_ringbuf(ptr noundef %opts, ptr nocapture noundef writeonly initializes((0, 4), (8, 16)) %backend, ptr nocapture readnone %errp) #0 {
 entry:
   store i32 17, ptr %backend, align 8
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #10

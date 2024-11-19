@@ -26,7 +26,7 @@ $_ZN6icu_759Collation10ceFromCE32Ej = comdat any
 @_ZN6icu_7525CollationFastLatinBuilderD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7525CollationFastLatinBuilderD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7525CollationFastLatinBuilderC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7525CollationFastLatinBuilderC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) initializes((0, 24)) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525CollationFastLatinBuilderE, i64 16), ptr %this, align 8
   %ce0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -81,7 +81,7 @@ declare void @_ZN6icu_759UVector64D1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7525CollationFastLatinBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(7372) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7525CollationFastLatinBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(7372) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525CollationFastLatinBuilderE, i64 16), ptr %this, align 8
   %miniCEs = getelementptr inbounds i8, ptr %this, i64 7256

@@ -446,7 +446,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN4pbrt26TextureParameterDictionaryC1EPKNS_19ParameterDictionaryEPKNS_13NamedTexturesE = dso_local unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN4pbrt26TextureParameterDictionaryC2EPKNS_19ParameterDictionaryEPKNS_13NamedTexturesE
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt19ParameterDictionaryC2ENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS3_EEEEPKNS_13RGBColorSpaceE(ptr noundef nonnull align 8 dereferenceable(108) %this, ptr nocapture noundef %p, ptr noundef %colorSpace) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt19ParameterDictionaryC2ENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS3_EEEEPKNS_13RGBColorSpaceE(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 16), (80, 96)) %this, ptr nocapture noundef %p, ptr noundef %colorSpace) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %p, align 8
   store i64 %0, ptr %this, align 8
@@ -777,7 +777,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt19ParameterDictionaryC2ENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS3_EEEERKS8_PKNS_13RGBColorSpaceE(ptr noundef nonnull align 8 dereferenceable(108) %this, ptr nocapture noundef %p0, ptr noundef nonnull align 8 dereferenceable(96) %params1, ptr noundef %colorSpace) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt19ParameterDictionaryC2ENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS3_EEEERKS8_PKNS_13RGBColorSpaceE(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 16), (80, 96)) %this, ptr nocapture noundef %p0, ptr noundef nonnull align 8 dereferenceable(96) %params1, ptr noundef %colorSpace) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::reverse_iterator", align 8
   %agg.tmp17 = alloca %"class.std::reverse_iterator", align 8
@@ -6632,7 +6632,7 @@ return:                                           ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4pbrt26TextureParameterDictionaryC2EPKNS_19ParameterDictionaryEPKNS_13NamedTexturesE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %dict, ptr noundef %textures) unnamed_addr #11 align 2 {
+define dso_local void @_ZN4pbrt26TextureParameterDictionaryC2EPKNS_19ParameterDictionaryEPKNS_13NamedTexturesE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %dict, ptr noundef %textures) unnamed_addr #11 align 2 {
 entry:
   store ptr %dict, ptr %this, align 8
   %textures3 = getelementptr inbounds i8, ptr %this, i64 8
@@ -7306,7 +7306,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt26TextureParameterDictionary15GetFloatTextureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::FloatTexture") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, float noundef %defaultValue, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4pbrt26TextureParameterDictionary15GetFloatTextureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::FloatTexture") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, float noundef %defaultValue, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %tex = alloca %"class.pbrt::FloatTexture", align 8
   call void @_ZNK4pbrt26TextureParameterDictionary21GetFloatTextureOrNullERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull sret(%"class.pbrt::FloatTexture") align 8 %tex, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr %alloc.coerce)

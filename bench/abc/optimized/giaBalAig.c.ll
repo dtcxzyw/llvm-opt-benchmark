@@ -1519,7 +1519,7 @@ Gia_ObjIsXor.exit.thread.thread:                  ; preds = %Gia_ObjIsMux.exit.t
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Gia_ManBalanceGate(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @Gia_ManBalanceGate(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %6, align 4
   switch i32 %4, label %73 [
@@ -3469,7 +3469,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Vec_IntPush.exit77,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Dam_ManCollectSets(ptr noundef %0) local_unnamed_addr #0 {
+define void @Dam_ManCollectSets(ptr noundef initializes((8, 16), (24, 32)) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @Gia_ManCreateRefs(ptr noundef %2) #25
   %3 = load ptr, ptr %0, align 8
@@ -3882,7 +3882,7 @@ Dam_ObjHand.exit.thread:                          ; preds = %.critedge64, %.lr.p
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Dam_ManCreatePairs(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Dam_ManCreatePairs(ptr noundef initializes((8, 16), (24, 32)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   tail call void @Dam_ManCollectSets(ptr noundef %0)

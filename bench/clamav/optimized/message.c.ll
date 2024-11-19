@@ -5818,7 +5818,7 @@ define internal noundef zeroext i8 @uudecode(i8 noundef signext %0) #13 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @messageSetCTX(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #17 {
+define void @messageSetCTX(ptr nocapture noundef writeonly initializes((56, 64)) %0, ptr noundef %1) local_unnamed_addr #17 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %1, ptr %3, align 8
   ret void

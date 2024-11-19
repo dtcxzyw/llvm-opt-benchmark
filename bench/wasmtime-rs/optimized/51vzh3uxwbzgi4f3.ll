@@ -716,7 +716,7 @@ define void @"_ZN11shellexpand3env28_$u7b$$u7b$closure$u7d$$u7d$17headb8f7ce6f67
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define void @"_ZN49_$LT$F$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h91c5ea966cf94319E"(ptr nocapture writeonly sret({ { { ptr, i64 }, { { { ptr, ptr, {} } }, i64 }, {} } }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #2 {
+define void @"_ZN49_$LT$F$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h91c5ea966cf94319E"(ptr nocapture writeonly sret({ { { ptr, i64 }, { { { ptr, ptr, {} } }, i64 }, {} } }) align 8 initializes((0, 40)) %0, ptr align 1 %1, i64 %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)

@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.frec7.lookup_table = private unnamed_addr constant [128 x i8] c"\7F}{ywutrpnmkihfdca`^][ZXWUTSQPOMLKJHGFEDBA@?>=<;:9876543210/.-,+*)(('&%$##\22! \1F\1F\1E\1D\1C\1C\1B\1A\19\19\18\17\17\16\15\15\14\13\13\12\11\11\10\0F\0F\0E\0E\0D\0C\0C\0B\0B\0A\09\09\08\08\07\07\06\05\05\04\04\03\03\02\02\01\01\00", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i64 0, 65536) i64 @helper_vsetvl(ptr nocapture noundef %env, i64 noundef %s1, i64 noundef %s2) local_unnamed_addr #0 {
+define dso_local range(i64 0, 65536) i64 @helper_vsetvl(ptr nocapture noundef initializes((4624, 4649)) %env, i64 noundef %s1, i64 noundef %s2) local_unnamed_addr #0 {
 entry:
   %and.i = and i64 %s2, 7
   %0 = trunc i64 %s2 to i32

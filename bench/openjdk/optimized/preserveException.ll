@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN21PreserveExceptionMarkD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN21PreserveExceptionMarkD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21PreserveExceptionMarkC2EP6Thread(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN21PreserveExceptionMarkC2EP6Thread(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 20), (24, 32)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   store ptr %1, ptr %0, align 8
@@ -131,7 +131,7 @@ _ZNK6HandleclEv.exit.thread:                      ; preds = %_ZN12ResourceMarkD2
 declare void @_ZN12ThreadShadow21set_pending_exceptionEP7oopDescPKci(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25WeakPreserveExceptionMark8preserveEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN25WeakPreserveExceptionMark8preserveEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((8, 20), (24, 32)) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8

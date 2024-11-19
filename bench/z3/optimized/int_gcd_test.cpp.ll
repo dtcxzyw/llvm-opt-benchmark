@@ -104,7 +104,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN2lp12int_gcd_testC2ERNS_10int_solverE(ptr nocapture noundef nonnull align 8 dereferenceable(148) %this, ptr noundef nonnull align 8 dereferenceable(504) %lia) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp12int_gcd_testC2ERNS_10int_solverE(ptr nocapture noundef nonnull align 8 dereferenceable(148) initializes((0, 28), (32, 44), (48, 60), (64, 76), (80, 92), (96, 108), (112, 148)) %this, ptr noundef nonnull align 8 dereferenceable(504) %lia) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   store ptr %lia, ptr %this, align 8
   %lra = getelementptr inbounds i8, ptr %this, i64 8

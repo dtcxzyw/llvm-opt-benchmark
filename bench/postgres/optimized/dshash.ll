@@ -765,7 +765,7 @@ define dso_local void @dshash_strcpy(ptr noundef %0, ptr nocapture noundef reado
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @dshash_seq_init(ptr nocapture noundef writeonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #10 {
+define dso_local void @dshash_seq_init(ptr nocapture noundef writeonly initializes((0, 37)) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #10 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8

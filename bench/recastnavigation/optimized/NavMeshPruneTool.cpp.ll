@@ -31,7 +31,7 @@ $__clang_call_terminate = comdat any
 @_ZN16NavMeshPruneToolD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN16NavMeshPruneToolD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16NavMeshPruneToolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN16NavMeshPruneToolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) initializes((0, 24), (36, 37)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16NavMeshPruneTool, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 36
@@ -41,7 +41,7 @@ define dso_local void @_ZN16NavMeshPruneToolC2Ev(ptr nocapture noundef nonnull w
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16NavMeshPruneToolD2Ev(ptr noundef nonnull align 8 dereferenceable(37) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16NavMeshPruneToolD2Ev(ptr noundef nonnull align 8 dereferenceable(37) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16NavMeshPruneTool, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -111,7 +111,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 declare void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16NavMeshPruneToolD0Ev(ptr noundef nonnull align 8 dereferenceable(37) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16NavMeshPruneToolD0Ev(ptr noundef nonnull align 8 dereferenceable(37) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16NavMeshPruneTool, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -176,14 +176,14 @@ _ZN16NavMeshPruneToolD2Ev.exit:                   ; preds = %1, %_ZN12NavmeshFla
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16NavMeshPruneTool4initEP6Sample(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN16NavMeshPruneTool4initEP6Sample(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) initializes((8, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16NavMeshPruneTool5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(37) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16NavMeshPruneTool5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(37) initializes((36, 37)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 36
   store i8 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 16

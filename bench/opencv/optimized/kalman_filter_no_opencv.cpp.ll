@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN3vas20KalmanFilterNoOpencvC1ERKN2cv5Rect_IfEE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN3vas20KalmanFilterNoOpencvC2ERKN2cv5Rect_IfEE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3vas20KalmanFilterNoOpencvC2ERKN2cv5Rect_IfEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(284) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN3vas20KalmanFilterNoOpencvC2ERKN2cv5Rect_IfEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(284) initializes((0, 284)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   store float 0x3FA0E56040000000, ptr %3, align 4
   %4 = load float, ptr %1, align 4
@@ -80,7 +80,7 @@ define hidden void @_ZN3vas20KalmanFilterNoOpencvC2ERKN2cv5Rect_IfEE(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3vas20KalmanFilterNoOpencv22kalmanfilter1d32i_initEPNS0_17kalmanfilter1d32iEPii(ptr nocapture noundef nonnull readnone align 4 dereferenceable(284) %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN3vas20KalmanFilterNoOpencv22kalmanfilter1d32i_initEPNS0_17kalmanfilter1d32iEPii(ptr nocapture noundef nonnull readnone align 4 dereferenceable(284) %0, ptr nocapture noundef writeonly initializes((0, 68)) %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %1, i8 0, i64 68, i1 false)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %5
@@ -99,7 +99,7 @@ define hidden void @_ZN3vas20KalmanFilterNoOpencv22kalmanfilter1d32i_initEPNS0_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden { <2 x float>, <2 x float> } @_ZN3vas20KalmanFilterNoOpencv7PredictEf(ptr noundef nonnull align 4 dereferenceable(284) %0, float noundef %1) local_unnamed_addr #0 align 2 {
+define hidden { <2 x float>, <2 x float> } @_ZN3vas20KalmanFilterNoOpencv7PredictEf(ptr noundef nonnull align 4 dereferenceable(284) initializes((44, 68), (112, 136), (180, 204), (248, 272), (280, 284)) %0, float noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   store float %1, ptr %3, align 4
   %4 = fmul float %1, 8.000000e+00
@@ -410,7 +410,7 @@ define hidden { <2 x float>, <2 x float> } @_ZN3vas20KalmanFilterNoOpencv7Predic
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3vas20KalmanFilterNoOpencv31kalmanfilter1d32i_predict_phaseEPNS0_17kalmanfilter1d32iEf(ptr nocapture noundef nonnull readnone align 4 dereferenceable(284) %0, ptr nocapture noundef %1, float noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN3vas20KalmanFilterNoOpencv31kalmanfilter1d32i_predict_phaseEPNS0_17kalmanfilter1d32iEf(ptr nocapture noundef nonnull readnone align 4 dereferenceable(284) %0, ptr nocapture noundef initializes((44, 68)) %1, float noundef %2) local_unnamed_addr #0 align 2 {
   %4 = fmul float %2, 8.000000e+00
   %5 = getelementptr inbounds i8, ptr %1, i64 60
   %6 = load i32, ptr %1, align 4
@@ -486,7 +486,7 @@ define hidden void @_ZN3vas20KalmanFilterNoOpencv31kalmanfilter1d32i_predict_pha
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden { <2 x float>, <2 x float> } @_ZN3vas20KalmanFilterNoOpencv7CorrectERKN2cv5Rect_IfEE(ptr noundef nonnull align 4 dereferenceable(284) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+define hidden { <2 x float>, <2 x float> } @_ZN3vas20KalmanFilterNoOpencv7CorrectERKN2cv5Rect_IfEE(ptr noundef nonnull align 4 dereferenceable(284) initializes((24, 28), (36, 44), (92, 96), (104, 112), (160, 164), (176, 180), (228, 232), (244, 248)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = load float, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load float, ptr %4, align 4
@@ -1129,7 +1129,7 @@ _ZN3vas20KalmanFilterNoOpencv30kalmanfilter1d32i_update_phaseEPNS0_17kalmanfilte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3vas20KalmanFilterNoOpencv30kalmanfilter1d32i_update_phaseEPNS0_17kalmanfilter1d32iEiPi(ptr nocapture noundef nonnull readnone align 4 dereferenceable(284) %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN3vas20KalmanFilterNoOpencv30kalmanfilter1d32i_update_phaseEPNS0_17kalmanfilter1d32iEiPi(ptr nocapture noundef nonnull readnone align 4 dereferenceable(284) %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 60
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0

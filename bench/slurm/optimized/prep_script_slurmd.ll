@@ -719,7 +719,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_run_subpath_command(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @_run_subpath_command(ptr noundef %0, ptr noundef initializes((32, 40)) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %0, ptr %4, align 8

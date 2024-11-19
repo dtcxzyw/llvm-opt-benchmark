@@ -8329,7 +8329,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7511MeasureUnitC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(19) %this) unnamed_addr #8 align 2 {
+define void @_ZN6icu_7511MeasureUnitC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(19) initializes((0, 19)) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511MeasureUnitE, i64 16), ptr %this, align 8
   %fImpl.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -8342,7 +8342,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7511MeasureUnitC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(19) %this, i32 noundef %typeId, i32 noundef %subTypeId) unnamed_addr #8 align 2 {
+define void @_ZN6icu_7511MeasureUnitC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(19) initializes((0, 19)) %this, i32 noundef %typeId, i32 noundef %subTypeId) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511MeasureUnitE, i64 16), ptr %this, align 8
   %fImpl = getelementptr inbounds i8, ptr %this, i64 8
@@ -8357,7 +8357,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7511MeasureUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(19) %this, ptr noundef nonnull align 8 dereferenceable(19) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7511MeasureUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(19) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(19) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511MeasureUnitE, i64 16), ptr %this, align 8
   %fImpl = getelementptr inbounds i8, ptr %this, i64 8
@@ -8606,7 +8606,7 @@ return:                                           ; preds = %cleanup, %entry, %i
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7511MeasureUnitC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(19) %this, ptr nocapture noundef nonnull align 8 dereferenceable(19) %other) unnamed_addr #10 align 2 {
+define void @_ZN6icu_7511MeasureUnitC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(19) initializes((0, 19)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(19) %other) unnamed_addr #10 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511MeasureUnitE, i64 16), ptr %this, align 8
   %fImpl = getelementptr inbounds i8, ptr %this, i64 8
@@ -8626,7 +8626,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7511MeasureUnitC2EONS_15MeasureUnitImplE(ptr noundef nonnull align 8 dereferenceable(19) %this, ptr noundef nonnull align 8 dereferenceable(160) %impl) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7511MeasureUnitC2EONS_15MeasureUnitImplE(ptr noundef nonnull align 8 dereferenceable(19) initializes((0, 19)) %this, ptr noundef nonnull align 8 dereferenceable(160) %impl) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511MeasureUnitE, i64 16), ptr %this, align 8
   %fImpl = getelementptr inbounds i8, ptr %this, i64 8
@@ -8910,7 +8910,7 @@ _ZN6icu_7516MaybeStackVectorINS_14SingleUnitImplELi8EED2Ev.exit: ; preds = %for.
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7515MeasureUnitImpl4copyER10UErrorCode(ptr noalias sret(%"class.icu_75::MeasureUnitImpl") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7515MeasureUnitImpl4copyER10UErrorCode(ptr noalias sret(%"class.icu_75::MeasureUnitImpl") align 8 initializes((0, 4), (8, 12)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %singleUnits.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -9182,7 +9182,7 @@ lpad:                                             ; preds = %new.notnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7511MeasureUnitD2Ev(ptr noundef nonnull align 8 dereferenceable(19) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7511MeasureUnitD2Ev(ptr noundef nonnull align 8 dereferenceable(19) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511MeasureUnitE, i64 16), ptr %this, align 8
   %fImpl = getelementptr inbounds i8, ptr %this, i64 8
@@ -9648,7 +9648,7 @@ return:                                           ; preds = %for.cond.loopexit, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7511MeasureUnit5setToEii(ptr nocapture noundef nonnull align 8 dereferenceable(19) %this, i32 noundef %typeId, i32 noundef %subTypeId) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7511MeasureUnit5setToEii(ptr nocapture noundef nonnull align 8 dereferenceable(19) initializes((16, 19)) %this, i32 noundef %typeId, i32 noundef %subTypeId) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv = trunc i32 %typeId to i8
   %fTypeId = getelementptr inbounds i8, ptr %this, i64 18

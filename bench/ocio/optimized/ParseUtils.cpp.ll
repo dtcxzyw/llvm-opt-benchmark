@@ -2890,7 +2890,7 @@ entry:
 declare noundef i32 @_ZN19OpenColorIO_v2_4dev8Platform10StrcasecmpEPKcS2_(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev19SplitStringEnvStyleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::vector.4") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %str) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev19SplitStringEnvStyleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::vector.4") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %str) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3567,7 +3567,7 @@ eh.resume:                                        ; preds = %ehcleanup23, %lpad6
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev29IntersectStringVecsCaseIgnoreERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESA_(ptr noalias sret(%"class.std::vector.4") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vec1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vec2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev29IntersectStringVecsCaseIgnoreERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESA_(ptr noalias sret(%"class.std::vector.4") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vec1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vec2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %allvalues = alloca %"class.std::set", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

@@ -12351,7 +12351,7 @@ _ZN10actix_http4date4Date6update17h22a3e60912f0f6b6E.llvm.18201515360013843308.e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN10actix_http4date4Date6update17h22a3e60912f0f6b6E.llvm.18201515360013843308(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @_ZN10actix_http4date4Date6update17h22a3e60912f0f6b6E.llvm.18201515360013843308(ptr noalias noundef align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = alloca { i16, i8, i8, i8, i8, i8, i8 }, align 8
   %4 = alloca [1 x { ptr, ptr }], align 8

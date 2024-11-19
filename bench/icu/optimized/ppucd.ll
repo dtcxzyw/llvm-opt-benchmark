@@ -556,7 +556,7 @@ entry:
 declare void @llvm.trap() #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758UniPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(696) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758UniPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(696) initializes((0, 8), (188, 250), (304, 314), (368, 378), (432, 442)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   store i32 -1, ptr %this, align 8
   %end = getelementptr inbounds i8, ptr %this, i64 4
@@ -630,7 +630,7 @@ entry:
 declare void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512PreparsedUCDC2EPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(14640) %this, ptr noundef %filename, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512PreparsedUCDC2EPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(14640) initializes((0, 36), (40, 56)) %this, ptr noundef %filename, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %file = getelementptr inbounds i8, ptr %this, i64 8
   %defaultLineIndex = getelementptr inbounds i8, ptr %this, i64 16

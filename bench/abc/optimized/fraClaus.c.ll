@@ -1565,7 +1565,7 @@ define range(i32 0, 2) i32 @Fra_ClausSmlNodesAreImpC(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Fra_ClausCollectLatchClauses(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define noundef i32 @Fra_ClausCollectLatchClauses(ptr nocapture noundef %0, ptr nocapture noundef initializes((24, 28)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = shl nsw i32 %4, 5
@@ -4917,7 +4917,7 @@ define range(i32 0, 2) i32 @Fra_ClausSimInfoCheck(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fra_ClausInductiveClauses(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define i32 @Fra_ClausInductiveClauses(ptr nocapture noundef initializes((96, 100)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 72

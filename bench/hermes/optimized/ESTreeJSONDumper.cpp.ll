@@ -461,7 +461,7 @@ _ZN6hermes11JSONEmitterD2Ev.exit:                 ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumperC2ERNS_11JSONEmitterEPNS_18SourceErrorManagerENS_14ESTreeDumpModeENS_16LocationDumpModeENS_13ESTreeRawPropEPKN4llvh8DenseSetINS_6ESTree8NodeKindENSB_12NodeKindInfoEEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %json, ptr noundef %sm, i32 noundef %mode, i32 noundef %locMode, i32 noundef %rawProp, ptr noundef %includeSourceLocs) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6hermes12_GLOBAL__N_116ESTreeJSONDumperC2ERNS_11JSONEmitterEPNS_18SourceErrorManagerENS_14ESTreeDumpModeENS_16LocationDumpModeENS_13ESTreeRawPropEPKN4llvh8DenseSetINS_6ESTree8NodeKindENSB_12NodeKindInfoEEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 28), (32, 56), (64, 72)) %this, ptr noundef nonnull align 8 dereferenceable(72) %json, ptr noundef %sm, i32 noundef %mode, i32 noundef %locMode, i32 noundef %rawProp, ptr noundef %includeSourceLocs) unnamed_addr #0 align 2 {
 entry:
   %agg.tmp1.i353 = alloca %"struct.std::pair.29", align 8
   %agg.tmp1.i347 = alloca %"struct.std::pair.29", align 8

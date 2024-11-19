@@ -2602,7 +2602,7 @@ define dso_local noundef i32 @mipi_dsi_dcs_get_display_brightness_large(ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mipi_dsi_driver_register_full(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local i32 @mipi_dsi_driver_register_full(ptr noundef initializes((8, 24)) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @mipi_dsi_bus_type, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

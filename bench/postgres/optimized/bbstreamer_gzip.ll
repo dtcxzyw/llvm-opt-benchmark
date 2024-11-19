@@ -86,7 +86,7 @@ define internal void @bbstreamer_gzip_writer_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bbstreamer_gzip_decompressor_content(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @bbstreamer_gzip_decompressor_content(ptr noundef initializes((40, 52)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48

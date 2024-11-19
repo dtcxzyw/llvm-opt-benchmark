@@ -273,7 +273,7 @@ define hidden ptr @ir_resolve_sym_name(ptr noundef %0) local_unnamed_addr #1 {
 declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dasm_init(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden void @dasm_init(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #1 {
   store ptr null, ptr %0, align 8
   %3 = add nsw i32 %1, -1
   %4 = sext i32 %3 to i64
@@ -1944,7 +1944,7 @@ define hidden ptr @ir_reg_name(i8 noundef signext %0, i32 noundef %1) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 10243) i32 @ir_get_target_constraints(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 10243) i32 @ir_get_target_constraints(ptr noundef %0, i32 noundef %1, ptr noundef writeonly initializes((0, 1), (2, 3)) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
@@ -3056,7 +3056,7 @@ define internal fastcc signext i8 @ir_get_param_reg(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @ir_fix_stack_frame(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define hidden void @ir_fix_stack_frame(ptr nocapture noundef initializes((184, 188)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 268
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 184
@@ -3481,7 +3481,7 @@ ir_fix_param_spills.exit:                         ; preds = %199, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @ir_emit_code(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define hidden noundef ptr @ir_emit_code(ptr noundef initializes((248, 256)) %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
   %3 = alloca [10 x i8], align 4
   %4 = alloca [10 x i8], align 4
   %5 = alloca [10 x i8], align 4
@@ -42834,7 +42834,7 @@ define hidden void @ir_fix_thunk(ptr nocapture noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ir_match(ptr noundef %0) local_unnamed_addr #1 {
+define hidden noundef i32 @ir_match(ptr noundef initializes((128, 136)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64

@@ -4283,7 +4283,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_08GridBase16getStatsMetadataEv(ptr noalias sret(%"class.std::shared_ptr.26") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7openvdb5v11_08GridBase16getStatsMetadataEv(ptr noalias sret(%"class.std::shared_ptr.26") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m = alloca %"class.std::shared_ptr.17", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

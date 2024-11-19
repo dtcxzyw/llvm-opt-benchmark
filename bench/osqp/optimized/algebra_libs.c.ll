@@ -24,7 +24,7 @@ define void @osqp_algebra_free_libs() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i64 @osqp_algebra_name(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #1 {
+define noundef i64 @osqp_algebra_name(ptr nocapture noundef writeonly initializes((0, 9)) %0, i64 noundef %1) local_unnamed_addr #1 {
   store i8 66, ptr %0, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 117, ptr %3, align 1
@@ -46,7 +46,7 @@ define noundef i64 @osqp_algebra_name(ptr nocapture noundef writeonly %0, i64 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i64 @osqp_algebra_device_name(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #1 {
+define noundef i64 @osqp_algebra_device_name(ptr nocapture noundef writeonly initializes((0, 1)) %0, i64 noundef %1) local_unnamed_addr #1 {
   store i8 0, ptr %0, align 1
   ret i64 0
 }

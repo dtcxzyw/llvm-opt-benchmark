@@ -435,7 +435,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN20ShenandoahHeapRegionC1EPP12HeapWordImplmb = hidden unnamed_addr alias void (ptr, ptr, i64, i1), ptr @_ZN20ShenandoahHeapRegionC2EPP12HeapWordImplmb
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ShenandoahHeapRegionC2EPP12HeapWordImplmb(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ShenandoahHeapRegionC2EPP12HeapWordImplmb(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 44), (48, 72)) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   store i64 %2, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -2040,7 +2040,7 @@ _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit: ; preds = %6, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20ShenandoahHeapRegion20reset_alloc_metadataEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN20ShenandoahHeapRegion20reset_alloc_metadataEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((56, 72)) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
@@ -2511,7 +2511,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit.backedge: ; preds = %8, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ShenandoahHeapRegion7recycleEv(ptr noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20ShenandoahHeapRegion7recycleEv(ptr noundef nonnull align 8 dereferenceable(96) initializes((48, 56)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48

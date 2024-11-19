@@ -165,7 +165,7 @@ declare i64 @llvm.read_register.i64(metadata) #4
 declare void @llvm.write_register.i64(metadata, i64) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dev_set_hwtstamp_phylib(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local i32 @dev_set_hwtstamp_phylib(ptr noundef %0, ptr noundef initializes((28, 32)) %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.kernel_hwtstamp_config, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -536,7 +536,7 @@ declare dso_local zeroext i1 @capable(i32 noundef) local_unnamed_addr #3
 declare dso_local i32 @__request_module(i1 noundef zeroext, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dev_ioctl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @dev_ioctl(ptr noundef %0, i32 noundef %1, ptr noundef initializes((15, 16)) %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 align 16 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %8, label %7
 

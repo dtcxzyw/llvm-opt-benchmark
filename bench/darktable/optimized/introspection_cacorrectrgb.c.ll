@@ -2260,7 +2260,7 @@ declare void @dt_bauhaus_slider_set_default(ptr noundef, float noundef) local_un
 declare void @dt_bauhaus_slider_set_soft_range(ptr noundef, float noundef, float noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dt_alloc_aligned(i64 noundef 40) #19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4

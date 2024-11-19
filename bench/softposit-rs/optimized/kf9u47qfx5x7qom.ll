@@ -291,13 +291,13 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"(ptr noalias nocapture noundef writeonly sret([64 x i8]) align 8 dereferenceable(64) %0) unnamed_addr #1 {
+define void @"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$4init17h225f94d9763b8584E"(ptr noalias nocapture noundef writeonly sret([64 x i8]) align 8 dereferenceable(64) initializes((0, 64)) %0) unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$10from_posit17he000c84e186aee88E"(ptr noalias nocapture noundef writeonly sret([64 x i8]) align 8 dereferenceable(64) %0, i32 noundef %1) unnamed_addr #0 {
+define void @"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$10from_posit17he000c84e186aee88E"(ptr noalias nocapture noundef writeonly sret([64 x i8]) align 8 dereferenceable(64) initializes((0, 64)) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca { i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
@@ -314,7 +314,7 @@ define noundef i32 @"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Q
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$9from_bits17h6d855858745e1a09E"(ptr noalias nocapture noundef writeonly sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define void @"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$9from_bits17h6d855858745e1a09E"(ptr noalias nocapture noundef writeonly sret([64 x i8]) align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = load i64, ptr %1, align 8, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4
@@ -349,7 +349,7 @@ define void @"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$7to_bits17h6a4f18de7ba3c230E"(ptr noalias nocapture noundef writeonly sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define void @"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$7to_bits17h6a4f18de7ba3c230E"(ptr noalias nocapture noundef writeonly sret([64 x i8]) align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = load i64, ptr %1, align 8, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4
@@ -470,7 +470,7 @@ define void @"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$5clear17h9687cd7838e8f4aeE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(64) %0) unnamed_addr #1 {
+define void @"_ZN93_$LT$softposit..quire32..Q32E2$u20$as$u20$softposit..Quire$LT$softposit..p32e2..P32E2$GT$$GT$5clear17h9687cd7838e8f4aeE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(64) initializes((0, 64)) %0) unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   ret void
 }

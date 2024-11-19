@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_request_null = external global %struct.ompi_predefined_request_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_part_persist_precv_request_construct(ptr noundef %0) #0 {
+define internal void @mca_part_persist_precv_request_construct(ptr noundef initializes((100, 101), (112, 136), (192, 200)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr @mca_part_persist_start, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 120

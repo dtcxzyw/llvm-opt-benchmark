@@ -632,7 +632,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @tmp_objdir_reapply_primary_odb(ptr noundef %t, ptr noundef %old_cwd, ptr noundef %new_cwd) local_unnamed_addr #0 {
+define dso_local void @tmp_objdir_reapply_primary_odb(ptr noundef initializes((8, 16)) %t, ptr noundef %old_cwd, ptr noundef %new_cwd) local_unnamed_addr #0 {
 entry:
   %buf = getelementptr inbounds i8, ptr %t, i64 16
   %0 = load ptr, ptr %buf, align 8

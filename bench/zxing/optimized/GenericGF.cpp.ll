@@ -314,7 +314,7 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN5ZXing9GenericGF15Max
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ZXing9GenericGFC2Eiii(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ZXing9GenericGFC2Eiii(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
   store i32 %2, ptr %0, align 8

@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.nghttp2_queue_back = private unnamed_addr constant [42 x i8] c"void *nghttp2_queue_back(nghttp2_queue *)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @nghttp2_queue_init(ptr nocapture noundef writeonly %queue) local_unnamed_addr #0 {
+define hidden void @nghttp2_queue_init(ptr nocapture noundef writeonly initializes((0, 16)) %queue) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %queue, i8 0, i64 16, i1 false)
   ret void

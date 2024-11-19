@@ -2092,7 +2092,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 declare dso_local void @iov_iter_bvec(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @lo_rw_aio_complete(ptr noundef %0, i64 noundef %1) #3 align 16 {
+define internal void @lo_rw_aio_complete(ptr noundef initializes((-8, 0)) %0, i64 noundef %1) #3 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -8
   store i64 %1, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 -12
@@ -3792,7 +3792,7 @@ declare dso_local ptr @alloc_workqueue(ptr noundef, i32 noundef, i32 noundef, ..
 declare dso_local void @set_disk_ro(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @loop_config_discard(ptr %.96.val, ptr %.256.val) unnamed_addr #3 align 16 {
+define internal fastcc void @loop_config_discard(ptr %.96.val, ptr initializes((208, 212)) %.256.val) unnamed_addr #3 align 16 {
   %1 = alloca %struct.kstatfs, align 8
   %2 = getelementptr inbounds i8, ptr %.96.val, i64 216
   %3 = load ptr, ptr %2, align 8

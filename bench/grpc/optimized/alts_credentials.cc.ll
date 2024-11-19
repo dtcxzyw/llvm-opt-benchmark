@@ -104,7 +104,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21grpc_alts_credentialsC2EPK29grpc_alts_credentials_optionsPKc(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %options, ptr noundef %handshaker_service_url) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21grpc_alts_credentialsC2EPK29grpc_alts_credentials_optionsPKc(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %options, ptr noundef %handshaker_service_url) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8
@@ -361,7 +361,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN28grpc_alts_server_credentialsC2EPK29grpc_alts_credentials_optionsPKc(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %options, ptr noundef %handshaker_service_url) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN28grpc_alts_server_credentialsC2EPK29grpc_alts_credentials_optionsPKc(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 40)) %this, ptr noundef %options, ptr noundef %handshaker_service_url) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8

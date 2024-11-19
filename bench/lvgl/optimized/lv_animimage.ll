@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_animimg_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr @lv_image_class, ptr @lv_animimg_constructor, ptr null, ptr null, ptr null, ptr @.str, i32 0, i32 0, i8 -128, i8 16, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_animimg_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_animimg_constructor(ptr nocapture readnone %0, ptr noundef initializes((248, 257)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 256
@@ -37,7 +37,7 @@ declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_add
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_animimg_set_src(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @lv_animimg_set_src(ptr noundef initializes((248, 257)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %1, ptr %4, align 8, !tbaa !3
   %5 = trunc i64 %2 to i8

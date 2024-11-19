@@ -1011,7 +1011,7 @@ define linkonce_odr hidden void @_ZN16GCTraceTimeTimer8at_startE11TimeInstantI30
 declare void @_ZN7GCTimer23register_gc_phase_startEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18G1CMIsAliveClosureC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN18G1CMIsAliveClosureC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18G1CMIsAliveClosure, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
@@ -1019,7 +1019,7 @@ define hidden void @_ZN18G1CMIsAliveClosureC2Ev(ptr nocapture noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18G1CMIsAliveClosureC2EP16G1ConcurrentMark(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN18G1CMIsAliveClosureC2EP16G1ConcurrentMark(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18G1CMIsAliveClosure, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -1027,7 +1027,7 @@ define hidden void @_ZN18G1CMIsAliveClosureC2EP16G1ConcurrentMark(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18G1CMIsAliveClosure10initializeEP16G1ConcurrentMark(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN18G1CMIsAliveClosure10initializeEP16G1ConcurrentMark(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
@@ -1484,7 +1484,7 @@ _ZN8G1CMTask29get_entries_from_global_stackEv.exit11: ; preds = %.preheader.i6, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN13G1CMMarkStackC2Ev(ptr noundef nonnull align 8 dereferenceable(688) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN13G1CMMarkStackC2Ev(ptr noundef nonnull align 8 dereferenceable(688) initializes((0, 32), (40, 48)) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 176
@@ -1845,7 +1845,7 @@ define hidden noundef zeroext i1 @_ZN13G1CMMarkStack14ChunkAllocator13try_expand
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN13G1CMMarkStack14ChunkAllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN13G1CMMarkStack14ChunkAllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 33), (40, 48)) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 176
@@ -2105,7 +2105,7 @@ _ZN13G1CMMarkStack14ChunkAllocator10try_expandEv.exit: ; preds = %7, %9, %10, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN13G1CMMarkStack17add_chunk_to_listEPVPNS_19TaskQueueEntryChunkES1_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(688) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13G1CMMarkStack17add_chunk_to_listEPVPNS_19TaskQueueEntryChunkES1_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(688) %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2) local_unnamed_addr #3 align 2 {
   %4 = load volatile ptr, ptr %1, align 8
   store ptr %4, ptr %2, align 8
   store volatile ptr %2, ptr %1, align 8
@@ -2113,7 +2113,7 @@ define hidden void @_ZN13G1CMMarkStack17add_chunk_to_listEPVPNS_19TaskQueueEntry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13G1CMMarkStack23add_chunk_to_chunk_listEPNS_19TaskQueueEntryChunkE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13G1CMMarkStack23add_chunk_to_chunk_listEPNS_19TaskQueueEntryChunkE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @MarkStackChunkList_lock, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, label %9
@@ -2147,7 +2147,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13G1CMMarkStack22add_chunk_to_free_listEPNS_19TaskQueueEntryChunkE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13G1CMMarkStack22add_chunk_to_free_listEPNS_19TaskQueueEntryChunkE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @MarkStackFreeList_lock, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, label %6
@@ -2399,7 +2399,7 @@ _ZN13G1CMMarkStack22add_chunk_to_free_listEPNS_19TaskQueueEntryChunkE.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18G1CMRootMemRegionsC2Ej(ptr noundef nonnull align 8 dereferenceable(34) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN18G1CMRootMemRegionsC2Ej(ptr noundef nonnull align 8 dereferenceable(34) initializes((0, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = zext i32 %1 to i64
   %4 = tail call noundef ptr @_ZN9MemRegion12create_arrayEm8MEMFLAGS(i64 noundef %3, i8 noundef zeroext 5) #22
   store ptr %4, ptr %0, align 8
@@ -2699,7 +2699,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %13, %._crit_edge, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1ConcurrentMarkC2EP15G1CollectedHeapP21G1RegionToSpaceMapper(ptr noundef nonnull align 8 dereferenceable(1849) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1ConcurrentMarkC2EP15G1CollectedHeapP21G1RegionToSpaceMapper(ptr noundef nonnull align 8 dereferenceable(1849) initializes((8, 16)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3438,7 +3438,7 @@ _ZN8G1CMTask22clear_mark_stats_cacheEj.exit.i.i.i: ; preds = %77, %.lr.ph.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1ConcurrentMark15set_concurrencyEj(ptr noundef nonnull align 8 dereferenceable(1849) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1ConcurrentMark15set_concurrencyEj(ptr noundef nonnull align 8 dereferenceable(1849) initializes((840, 844)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 840
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 864
@@ -3455,7 +3455,7 @@ declare void @_ZN14TaskTerminator15reset_for_reuseEj(ptr noundef nonnull align 8
 declare void @_ZN24WorkerThreadsBarrierSync13set_n_workersEj(ptr noundef nonnull align 8 dereferenceable(114), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1ConcurrentMark25set_concurrency_and_phaseEjb(ptr noundef nonnull align 8 dereferenceable(1849) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1ConcurrentMark25set_concurrency_and_phaseEjb(ptr noundef nonnull align 8 dereferenceable(1849) initializes((840, 844)) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 840
   store i32 %1, ptr %5, align 8
@@ -3734,7 +3734,7 @@ define hidden void @_ZN24G1PreConcurrentStartTask19NoteStartOfMarkTask7do_workEj
 declare void @_ZNK15G1CollectedHeap42heap_region_par_iterate_from_worker_offsetEP19G1HeapRegionClosureP19G1HeapRegionClaimerj(ptr noundef nonnull align 8 dereferenceable(1488), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN24G1PreConcurrentStartTask19NoteStartOfMarkTask15set_max_workersEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN24G1PreConcurrentStartTask19NoteStartOfMarkTask15set_max_workersEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((16, 20)) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   ret void
@@ -5631,7 +5631,7 @@ declare void @_ZN8G1Policy35record_concurrent_mark_remark_startEv(ptr noundef no
 declare noundef double @_ZN2os11elapsedTimeEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1ConcurrentMark16finalize_markingEv(ptr noundef nonnull align 8 dereferenceable(1849) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1ConcurrentMark16finalize_markingEv(ptr noundef nonnull align 8 dereferenceable(1849) initializes((840, 844)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.StrongRootsScope, align 4
   %3 = alloca %class.G1CMRemarkTask, align 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -5775,7 +5775,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %74, %76
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1ConcurrentMark14weak_refs_workEv(ptr noundef nonnull align 8 dereferenceable(1849) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1ConcurrentMark14weak_refs_workEv(ptr noundef nonnull align 8 dereferenceable(1849) initializes((168, 169)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.WeakProcessorTimes, align 8
   %3 = alloca %class.GCTraceTimeWrapper, align 8
   %4 = alloca %class.G1CMRefProcProxyTask, align 8
@@ -6628,7 +6628,7 @@ declare void @_ZN28ReferenceProcessorPhaseTimesD1Ev(ptr noundef nonnull align 8 
 declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1ConcurrentMark8precleanEv(ptr noundef nonnull align 8 dereferenceable(1849) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1ConcurrentMark8precleanEv(ptr noundef nonnull align 8 dereferenceable(1849) initializes((840, 844)) %0) local_unnamed_addr #0 align 2 {
 _ZN26SuspendibleThreadSetJoinerD2Ev.exit:
   %1 = alloca %class.BarrierEnqueueDiscoveredFieldClosure, align 8
   %2 = alloca %class.G1PrecleanYieldClosure, align 8
@@ -7020,7 +7020,7 @@ _ZN16G1ConcurrentMark31root_region_scan_abort_and_waitEv.exit: ; preds = %1, %._
 declare noundef zeroext i1 @_ZNK15G1CollectedHeap30concurrent_mark_is_terminatingEv(ptr noundef nonnull align 8 dereferenceable(1488)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN8G1CMTask19clear_region_fieldsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN8G1CMTask19clear_region_fieldsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) initializes((136, 160)) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   ret void
@@ -7287,7 +7287,7 @@ declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 derefe
 declare void @_ZNK10MarkBitMap14print_on_errorEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN14G1CMOopClosureC2EP15G1CollectedHeapP8G1CMTask(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #13 align 2 {
+define hidden void @_ZN14G1CMOopClosureC2EP15G1CollectedHeapP8G1CMTask(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20), (24, 40)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #13 align 2 {
   %4 = getelementptr i8, ptr %1, i64 1392
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7303,7 +7303,7 @@ define hidden void @_ZN14G1CMOopClosureC2EP15G1CollectedHeapP8G1CMTask(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZN8G1CMTask16setup_for_regionEP12G1HeapRegion(ptr nocapture noundef nonnull align 8 dereferenceable(376) %0, ptr noundef %1) local_unnamed_addr #14 align 2 {
+define hidden void @_ZN8G1CMTask16setup_for_regionEP12G1HeapRegion(ptr nocapture noundef nonnull align 8 dereferenceable(376) initializes((136, 152)) %0, ptr noundef %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   store ptr %1, ptr %3, align 8
   %4 = load ptr, ptr %1, align 8
@@ -7374,14 +7374,14 @@ define hidden void @_ZN8G1CMTask19update_region_limitEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN8G1CMTask21giveup_current_regionEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN8G1CMTask21giveup_current_regionEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) initializes((136, 160)) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN8G1CMTask18set_cm_oop_closureEP14G1CMOopClosure(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN8G1CMTask18set_cm_oop_closureEP14G1CMOopClosure(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) initializes((128, 136)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %1, ptr %3, align 8
   ret void
@@ -7651,7 +7651,7 @@ _ZN8G1CMTask35abort_marking_if_regular_check_failEv.exit: ; preds = %21, %43, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN8G1CMTask18recalculate_limitsEv(ptr nocapture noundef nonnull align 8 dereferenceable(376) %0) local_unnamed_addr #13 align 2 {
+define hidden void @_ZN8G1CMTask18recalculate_limitsEv(ptr nocapture noundef nonnull align 8 dereferenceable(376) initializes((168, 184), (192, 208)) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 12288
@@ -7672,7 +7672,7 @@ define hidden void @_ZN8G1CMTask18recalculate_limitsEv(ptr nocapture noundef non
 declare noundef double @_ZN2os12elapsedVTimeEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN8G1CMTask15decrease_limitsEv(ptr nocapture noundef nonnull align 8 dereferenceable(376) %0) local_unnamed_addr #13 align 2 {
+define hidden void @_ZN8G1CMTask15decrease_limitsEv(ptr nocapture noundef nonnull align 8 dereferenceable(376) initializes((168, 176), (192, 200)) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, -9216
@@ -8014,7 +8014,7 @@ _ZN19GenericTaskQueueSetI16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj1310
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1CMTask15do_marking_stepEdbb(ptr noundef nonnull align 8 dereferenceable(376) %0, double noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8G1CMTask15do_marking_stepEdbb(ptr noundef nonnull align 8 dereferenceable(376) initializes((120, 128)) %0, double noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [1023 x %class.G1TaskQueueEntry], align 16
   %6 = alloca [1023 x %class.G1TaskQueueEntry], align 16
   %7 = alloca [1023 x %class.G1TaskQueueEntry], align 16
@@ -9590,7 +9590,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #15
 declare void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72), double noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1CMTaskC2EjP16G1ConcurrentMarkP16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EEP17G1RegionMarkStats(ptr noundef nonnull align 8 dereferenceable(376) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN8G1CMTaskC2EjP16G1ConcurrentMarkP16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EEP17G1RegionMarkStats(ptr noundef nonnull align 8 dereferenceable(376) initializes((0, 8)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV8G1CMTask, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %0, ptr %6, align 8
@@ -9636,7 +9636,7 @@ declare void @_ZN22G1RegionMarkStatsCacheC1EP17G1RegionMarkStatsj(ptr noundef no
 declare void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, double noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN32G1PrintRegionLivenessInfoClosureC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN32G1PrintRegionLivenessInfoClosureC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 9), (16, 56)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV32G1PrintRegionLivenessInfoClosure, i64 16), ptr %0, align 8
@@ -9836,7 +9836,7 @@ define linkonce_odr hidden void @_ZN12FormatBufferILm16EE6appendEPKcz(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN32G1PrintRegionLivenessInfoClosureD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN32G1PrintRegionLivenessInfoClosureD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV32G1PrintRegionLivenessInfoClosure, i64 16), ptr %0, align 8
   %2 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_73ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %2, null

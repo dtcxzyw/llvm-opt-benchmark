@@ -1587,7 +1587,7 @@ _ZNSt6vectorIN3gmx15ChangeAtomsTypeESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK3gmx31OutputRequirementOptionDirector7processEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.gmx::OutputRequirements") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #7 align 2 {
+define void @_ZNK3gmx31OutputRequirementOptionDirector7processEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.gmx::OutputRequirements") align 4 initializes((0, 72)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #7 align 2 {
   store i32 0, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %3, align 4

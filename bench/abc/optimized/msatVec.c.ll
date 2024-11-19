@@ -126,7 +126,7 @@ define void @Msat_IntVecFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @Msat_IntVecFill(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define void @Msat_IntVecFill(ptr nocapture noundef initializes((8, 12)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %.not.i = icmp slt i32 %5, %1
@@ -207,7 +207,7 @@ define void @Msat_IntVecGrow(ptr nocapture noundef %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @Msat_IntVecReleaseArray(ptr nocapture noundef %0) local_unnamed_addr #8 {
+define ptr @Msat_IntVecReleaseArray(ptr nocapture noundef initializes((8, 16)) %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr %0, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret ptr %2
@@ -260,14 +260,14 @@ define i32 @Msat_IntVecReadEntryLast(ptr nocapture noundef readonly %0) local_un
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Msat_IntVecShrink(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #13 {
+define void @Msat_IntVecShrink(ptr nocapture noundef writeonly initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Msat_IntVecClear(ptr nocapture noundef writeonly %0) local_unnamed_addr #13 {
+define void @Msat_IntVecClear(ptr nocapture noundef writeonly initializes((8, 12)) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   ret void

@@ -108,7 +108,7 @@ $_ZN4llvm25array_pod_sort_comparatorISt4pairIjPKN5clang7CodeGen14CGBitFieldInfoE
 @.str.23 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen14CGBitFieldInfo8MakeInfoERNS0_12CodeGenTypesEPKNS_9FieldDeclEmmmNS_9CharUnitsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.clang::CodeGen::CGBitFieldInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen14CGBitFieldInfo8MakeInfoERNS0_12CodeGenTypesEPKNS_9FieldDeclEmmmNS_9CharUnitsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.clang::CodeGen::CGBitFieldInfo") align 8 initializes((0, 16), (24, 32)) %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::TypeSize", align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.sroa.0.0.copyload.i = load i64, ptr %9, align 8
@@ -180,7 +180,7 @@ declare noundef i64 @_ZNK5clang10ASTContext6toBitsENS_9CharUnitsE(ptr noundef no
 declare noundef zeroext i1 @_ZNK5clang4Type32isSignedIntegerOrEnumerationTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen12CodeGenTypes19ComputeRecordLayoutEPKNS_10RecordDeclEPN4llvm10StructTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.389") align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen12CodeGenTypes19ComputeRecordLayoutEPKNS_10RecordDeclEPN4llvm10StructTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.389") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.(anonymous namespace)::CGRecordLowering", align 8
   %6 = alloca %"struct.(anonymous namespace)::CGRecordLowering", align 8
   store ptr %1, ptr %5, align 8

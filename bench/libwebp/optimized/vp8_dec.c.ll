@@ -664,7 +664,7 @@ declare void @VP8InitBitReader(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare i32 @VP8GetValue(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnull %0, ptr nocapture noundef nonnull initializes((0, 8)) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #3 {
   %4 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
   store i32 %4, ptr %1, align 4
   %.not = icmp eq i32 %4, 0
@@ -765,7 +765,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef nonnull %0, ptr nocapture noundef nonnull initializes((84, 100)) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 84
   %4 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
   store i32 %4, ptr %3, align 4
@@ -1233,7 +1233,7 @@ ParseResiduals.exit:                              ; preds = %146, %152
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8InitScanline(ptr nocapture noundef %0) local_unnamed_addr #7 {
+define hidden void @VP8InitScanline(ptr nocapture noundef initializes((2816, 2820), (2904, 2908)) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2832
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -2

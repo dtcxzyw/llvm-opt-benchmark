@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @c__11 = internal global i32 11, align 4
 
 ; Function Attrs: nounwind uwtable
-define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca double, align 8
   %6 = alloca i32, align 4

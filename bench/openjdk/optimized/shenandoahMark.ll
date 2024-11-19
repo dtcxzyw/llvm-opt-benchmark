@@ -491,7 +491,7 @@ define linkonce_odr hidden void @_ZN38ClaimMetadataVisitingOopIterateClosure6do_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN30ShenandoahMarkRefsSuperClosureC2EP6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP28ShenandoahReferenceProcessor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN30ShenandoahMarkRefsSuperClosureC2EP6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EEP28ShenandoahReferenceProcessor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 20), (24, 41)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -510,7 +510,7 @@ define hidden void @_ZN30ShenandoahMarkRefsSuperClosureC2EP6PaddedI25BufferedOve
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN14ShenandoahMarkC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahMarkC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 2248
   %4 = load ptr, ptr %3, align 8

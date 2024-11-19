@@ -1979,7 +1979,7 @@ define dso_local ptr @uv_strerror(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_ip4_addr(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @uv_ip4_addr(ptr noundef %0, i32 noundef %1, ptr noundef initializes((0, 16)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 12, i1 false)
   store i16 2, ptr %2, align 4
@@ -2001,7 +2001,7 @@ declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #3
 declare i32 @uv_inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_ip6_addr(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @uv_ip6_addr(ptr noundef %0, i32 noundef %1, ptr noundef initializes((0, 28)) %2) local_unnamed_addr #0 {
   %4 = alloca [40 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %2, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, i8 0, i64 24, i1 false)
@@ -2734,7 +2734,7 @@ define dso_local range(i32 0, 2) i32 @uv_has_ref(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @uv_stop(ptr nocapture noundef writeonly %0) local_unnamed_addr #13 {
+define dso_local void @uv_stop(ptr nocapture noundef writeonly initializes((48, 52)) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 1, ptr %2, align 8
   ret void

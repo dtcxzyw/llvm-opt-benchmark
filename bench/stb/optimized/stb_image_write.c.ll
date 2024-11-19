@@ -51,7 +51,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbi__start_write_callbacks(ptr nocapture noundef writeonly %s, ptr noundef %c, ptr noundef %context) local_unnamed_addr #1 {
+define void @stbi__start_write_callbacks(ptr nocapture noundef writeonly initializes((0, 16)) %s, ptr noundef %c, ptr noundef %context) local_unnamed_addr #1 {
 entry:
   store ptr %c, ptr %s, align 8
   %context1 = getelementptr inbounds i8, ptr %s, i64 8
@@ -81,7 +81,7 @@ entry:
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @stbi__start_write_file(ptr nocapture noundef writeonly %s, ptr nocapture noundef readonly %filename) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__start_write_file(ptr nocapture noundef writeonly initializes((0, 16)) %s, ptr nocapture noundef readonly %filename) local_unnamed_addr #2 {
 entry:
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str)
   store ptr @stbi__stdio_write, ptr %s, align 8
@@ -1253,7 +1253,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbiw__linear_to_rgbe(ptr nocapture noundef writeonly %rgbe, ptr nocapture noundef readonly %linear) local_unnamed_addr #7 {
+define void @stbiw__linear_to_rgbe(ptr nocapture noundef writeonly initializes((0, 4)) %rgbe, ptr nocapture noundef readonly %linear) local_unnamed_addr #7 {
 entry:
   %exponent = alloca i32, align 4
   %0 = load float, ptr %linear, align 4
@@ -4691,7 +4691,7 @@ entry:
 declare float @llvm.fmuladd.f32(float, float, float) #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbiw__jpg_calcBits(i32 noundef %val, ptr nocapture noundef writeonly %bits) local_unnamed_addr #1 {
+define void @stbiw__jpg_calcBits(i32 noundef %val, ptr nocapture noundef writeonly initializes((0, 4)) %bits) local_unnamed_addr #1 {
 entry:
   %cond = tail call i32 @llvm.abs.i32(i32 %val, i1 true)
   %tobool.not11 = icmp samesign ult i32 %cond, 2

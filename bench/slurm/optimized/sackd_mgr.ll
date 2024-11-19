@@ -390,7 +390,7 @@ define internal range(i32 0, 2) i32 @_find_sackd_node(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_update_sackd_node(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_update_sackd_node(ptr noundef initializes((16, 26)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %struct.sockaddr_storage, align 8
   %4 = tail call i64 @time(ptr noundef null) #7
   %5 = getelementptr inbounds i8, ptr %0, i64 16

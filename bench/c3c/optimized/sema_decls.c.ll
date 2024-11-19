@@ -4827,7 +4827,7 @@ sema_analyse_func_macro.exit:                     ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_analyse_macro(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_analyse_macro(ptr noundef %0, ptr noundef initializes((128, 136)) %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -11286,7 +11286,7 @@ declare ptr @sema_find_extension_method_in_list(ptr noundef, ptr noundef, ptr no
 declare ptr @sema_resolve_method(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_analyse_operator_common(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef range(i32 1, 4) %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_analyse_operator_common(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2, i32 noundef range(i32 1, 4) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %2, align 8

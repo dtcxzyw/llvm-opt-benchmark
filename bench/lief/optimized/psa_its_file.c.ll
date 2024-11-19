@@ -32,7 +32,7 @@ define hidden range(i32 -152, 1) i32 @psa_its_get_info(i64 noundef %0, ptr nocap
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -152, 1) i32 @psa_its_read_file(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc range(i32 -152, 1) i32 @psa_its_read_file(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef nonnull initializes((0, 8)) %2) unnamed_addr #0 {
   %4 = alloca [25 x i8], align 16
   %5 = alloca %struct.psa_its_file_header_t, align 1
   store ptr null, ptr %2, align 8

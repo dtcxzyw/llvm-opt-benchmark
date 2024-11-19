@@ -749,7 +749,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_12PlugRegistryEE11GetInsta
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN32pxrInternal_v0_24__pxrReserved__12PlugRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN32pxrInternal_v0_24__pxrReserved__12PlugRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8), (40, 48)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticHelper", align 8
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8

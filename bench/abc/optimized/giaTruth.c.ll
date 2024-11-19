@@ -1192,7 +1192,7 @@ tailrecurse:                                      ; preds = %.lr.ph.preheader, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Gia_ObjComputeTruth6Cis(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define i64 @Gia_ObjComputeTruth6Cis(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((4, 8)) %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = ashr i32 %1, 1
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %6, align 4
@@ -1394,7 +1394,7 @@ Vec_WrdPush.exit:                                 ; preds = %.Vec_WrdGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Gia_ObjComputeTruthTable6(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 {
+define i64 @Gia_ObjComputeTruthTable6(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef initializes((4, 8)) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   tail call void @Gia_ManIncrementTravId(ptr noundef %0) #21
@@ -2514,7 +2514,7 @@ Abc_Clock.exit12:                                 ; preds = %.critedge, %28
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Gia_ObjComputeTruthTableStart(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @Gia_ObjComputeTruthTableStart(ptr nocapture noundef initializes((920, 928), (936, 944)) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 920
   store i32 %1, ptr %3, align 8
   %4 = icmp slt i32 %1, 7
@@ -2691,7 +2691,7 @@ Vec_IntFill.exit:                                 ; preds = %69, %Vec_IntGrow.ex
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Gia_ObjComputeTruthTableStop(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define void @Gia_ObjComputeTruthTableStop(ptr nocapture noundef initializes((920, 928)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 920
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 924

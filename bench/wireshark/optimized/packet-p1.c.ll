@@ -2989,7 +2989,7 @@ dissect_p1_Credentials.exit:                      ; preds = %6, %6, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_p1_ORName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define hidden i32 @dissect_p1_ORName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 120
   %8 = getelementptr inbounds i8, ptr %3, i64 136
   %9 = load ptr, ptr %8, align 8
@@ -3341,13 +3341,13 @@ define hidden i32 @dissect_p1_SupplementaryInformation(i1 noundef zeroext %0, pt
 declare i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_p1_ORAddressAndOrDirectoryName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define hidden i32 @dissect_p1_ORAddressAndOrDirectoryName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_p1_ORName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_p1_OriginatorName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define hidden i32 @dissect_p1_OriginatorName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_p1_ORName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   ret i32 %7
 }
@@ -3541,7 +3541,7 @@ define hidden i32 @dissect_p1_RequestedDeliveryMethod(i1 noundef zeroext %0, ptr
 declare i32 @dissect_ber_sequence_of(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_p1_ORAddress(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden i32 @dissect_p1_ORAddress(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 120
   %8 = getelementptr inbounds i8, ptr %3, i64 136
   %9 = load ptr, ptr %8, align 8
@@ -3707,7 +3707,7 @@ define hidden i32 @dissect_p1_MessageSecurityLabel_PDU(ptr noundef %0, ptr nound
 declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @p1_initialize_content_globals(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @p1_initialize_content_globals(ptr nocapture noundef initializes((72, 80), (128, 136)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -6067,7 +6067,7 @@ dissect_p1_SecurityCategoryValue.exit:            ; preds = %22, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p1_BuiltInStandardAttributes(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_p1_BuiltInStandardAttributes(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 120
   store ptr %4, ptr %7, align 8
   %8 = load i32, ptr @ett_p1_BuiltInStandardAttributes, align 4
@@ -6633,7 +6633,7 @@ define internal i32 @dissect_p1_OrganizationalUnitName(i1 noundef zeroext %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p1_BuiltInDomainDefinedAttribute(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_p1_BuiltInDomainDefinedAttribute(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((40, 48)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 408
@@ -7016,7 +7016,7 @@ define internal i32 @dissect_p1_ExtensionValue(i1 zeroext %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p1_StandardExtension(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_p1_StandardExtension(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((61, 63)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 62
   store i8 1, ptr %7, align 2
   %8 = getelementptr inbounds i8, ptr %3, i64 61
@@ -7027,7 +7027,7 @@ define internal i32 @dissect_p1_StandardExtension(i1 noundef zeroext %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p1_T_private_extension(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_p1_T_private_extension(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((62, 63), (72, 80)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 62
   store i8 0, ptr %7, align 2
   %8 = getelementptr inbounds i8, ptr %3, i64 72
@@ -7083,7 +7083,7 @@ define internal i32 @dissect_p1_PerRecipientMessageSubmissionFields(i1 noundef z
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p1_RecipientName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_p1_RecipientName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_p1_ORName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   ret i32 %7
 }
@@ -7109,7 +7109,7 @@ define internal i32 @dissect_p1_MTSIdentifier_U(i1 noundef zeroext %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p1_GlobalDomainIdentifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_p1_GlobalDomainIdentifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 120
   %8 = getelementptr inbounds i8, ptr %3, i64 136
   %9 = load ptr, ptr %8, align 8
@@ -7366,7 +7366,7 @@ define internal i32 @dissect_p1_DeliveredContentType(i1 zeroext %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p1_DeliveredOriginatorName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_p1_DeliveredOriginatorName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_p1_ORName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   ret i32 %7
 }
@@ -7386,13 +7386,13 @@ define internal i32 @dissect_p1_OtherRecipientNames(i1 noundef zeroext %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p1_ThisRecipientName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_p1_ThisRecipientName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_p1_ORName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p1_OriginallyIntendedRecipientName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_p1_OriginallyIntendedRecipientName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_p1_ORName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   ret i32 %7
 }
@@ -7404,13 +7404,13 @@ define internal i32 @dissect_p1_ConvertedEncodedInformationTypes(i1 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p1_ORAddressAndOptionalDirectoryName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_p1_ORAddressAndOptionalDirectoryName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_p1_ORName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p1_OtherRecipientName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_p1_OtherRecipientName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_p1_ORName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   ret i32 %7
 }
@@ -7510,7 +7510,7 @@ define internal i32 @dissect_p1_MessageTransferEnvelope(i1 noundef zeroext %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p1_MessageIdentifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_p1_MessageIdentifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 120
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 136
@@ -7551,7 +7551,7 @@ dissect_p1_MTSIdentifier.exit:                    ; preds = %set_do_address.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p1_MTAOriginatorName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_p1_MTAOriginatorName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_p1_ORName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   ret i32 %7
 }
@@ -7747,7 +7747,7 @@ define internal i32 @dissect_p1_PerRecipientMessageTransferFields(i1 noundef zer
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p1_MTARecipientName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_p1_MTARecipientName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_p1_ORName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   ret i32 %7
 }
@@ -7872,7 +7872,7 @@ dissect_p1_MTSIdentifier.exit:                    ; preds = %set_do_address.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p1_ReportDestinationName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_p1_ReportDestinationName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_p1_ORName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   ret i32 %7
 }
@@ -7956,7 +7956,7 @@ define internal i32 @dissect_p1_PerRecipientReportTransferFields(i1 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p1_MTAActualRecipientName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_p1_MTAActualRecipientName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_p1_ORName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   ret i32 %7
 }
@@ -8328,7 +8328,7 @@ define internal i32 @dissect_p1_TeletexOrganizationalUnitName(i1 noundef zeroext
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p1_TeletexDomainDefinedAttribute(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_p1_TeletexDomainDefinedAttribute(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((40, 48)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 408
@@ -8685,7 +8685,7 @@ define internal i32 @dissect_p1_PerRecipientReportDeliveryFields(i1 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p1_ActualRecipientName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_p1_ActualRecipientName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_p1_ORName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   ret i32 %7
 }
@@ -9184,7 +9184,7 @@ define internal i32 @dissect_p1_RegisterArgument(i1 noundef zeroext %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p1_UserName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_p1_UserName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_p1_ORName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   ret i32 %7
 }
@@ -9357,7 +9357,7 @@ define internal i32 @dissect_p1_SET_SIZE_1_ub_redirection_classes_OF_Redirection
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p1_RecipientAssignedAlternateRecipient(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_p1_RecipientAssignedAlternateRecipient(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_p1_ORName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   ret i32 %7
 }

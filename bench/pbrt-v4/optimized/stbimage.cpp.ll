@@ -3058,7 +3058,7 @@ declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #6
 declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi(ptr noundef nonnull %s, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp, ptr nocapture noundef nonnull %ri, i32 noundef range(i32 8, 17) %bpc) unnamed_addr #5 {
+define internal fastcc noundef ptr @_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi(ptr noundef nonnull %s, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp, ptr nocapture noundef nonnull initializes((0, 12)) %ri, i32 noundef range(i32 8, 17) %bpc) unnamed_addr #5 {
 entry:
   %data.i.i.i.i = alloca [64 x i16], align 16
   %data71.i.i.i.i = alloca [64 x i16], align 16
@@ -9234,7 +9234,7 @@ return:                                           ; preds = %_ZL10stbi__get8P13s
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL14stbi__pnm_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef nonnull %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture noundef nonnull %ri) unnamed_addr #5 {
+define internal fastcc noundef ptr @_ZL14stbi__pnm_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef nonnull %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture noundef nonnull initializes((0, 4)) %ri) unnamed_addr #5 {
 entry:
   %img_y = getelementptr inbounds i8, ptr %s, i64 4
   %img_n = getelementptr inbounds i8, ptr %s, i64 8
@@ -16771,7 +16771,7 @@ return:                                           ; preds = %entry, %for.end204,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL24stbi__decode_jpeg_headerP10stbi__jpegi(ptr nocapture noundef nonnull %z, i32 noundef range(i32 0, 3) %scan) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL24stbi__decode_jpeg_headerP10stbi__jpegi(ptr nocapture noundef nonnull initializes((18472, 18473), (18504, 18512)) %z, i32 noundef range(i32 0, 3) %scan) unnamed_addr #5 {
 entry:
   %jfif = getelementptr inbounds i8, ptr %z, i64 18504
   store i32 0, ptr %jfif, align 8
@@ -16876,7 +16876,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL15stbi__idct_simdPhiPs(ptr nocapture noundef writeonly %out, i32 noundef %out_stride, ptr nocapture noundef readonly %data) #21 {
+define internal void @_ZL15stbi__idct_simdPhiPs(ptr nocapture noundef writeonly initializes((0, 8)) %out, i32 noundef %out_stride, ptr nocapture noundef readonly %data) #21 {
 entry:
   %0 = load <8 x i16>, ptr %data, align 16
   %add.ptr11 = getelementptr inbounds i8, ptr %data, i64 16
@@ -19499,7 +19499,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZL22stbi__resample_row_h_2PhS_S_ii(ptr noundef returned writeonly %out, ptr nocapture noundef readonly %in_near, ptr nocapture readnone %in_far, i32 noundef %w, i32 %hs) #25 {
+define internal noundef ptr @_ZL22stbi__resample_row_h_2PhS_S_ii(ptr noundef returned writeonly initializes((0, 2)) %out, ptr nocapture noundef readonly %in_near, ptr nocapture readnone %in_far, i32 noundef %w, i32 %hs) #25 {
 entry:
   %cmp = icmp eq i32 %w, 1
   %0 = load i8, ptr %in_near, align 1
@@ -20556,7 +20556,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 17) i32 @_ZL14stbi__pnm_infoP13stbi__contextPiS1_S1_(ptr noundef nonnull %s, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 17) i32 @_ZL14stbi__pnm_infoP13stbi__contextPiS1_S1_(ptr noundef nonnull initializes((192, 208)) %s, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) unnamed_addr #5 {
 entry:
   %c = alloca i8, align 1
   %tobool.not = icmp eq ptr %x, null

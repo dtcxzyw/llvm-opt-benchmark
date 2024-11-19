@@ -55,7 +55,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_hdac_cod
 @llvm.compiler.used = appending global [11 x ptr] [ptr @__UNIQUE_ID___addressable_snd_hdac_bus_exec_verb_unlocked433, ptr @__UNIQUE_ID___addressable_snd_hdac_bus_exit432, ptr @__UNIQUE_ID___addressable_snd_hdac_bus_init427, ptr @__UNIQUE_ID___addressable_snd_hdac_codec_link_down437, ptr @__UNIQUE_ID___addressable_snd_hdac_codec_link_up436, ptr @trace_hda_get_response.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace376, ptr @trace_hda_get_response.__UNIQUE_ID___addressable___SCK__tp_func_hda_get_response375, ptr @trace_hda_send_cmd.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace362, ptr @trace_hda_send_cmd.__UNIQUE_ID___addressable___SCK__tp_func_hda_send_cmd361, ptr @trace_hda_unsol_event.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace390, ptr @trace_hda_unsol_event.__UNIQUE_ID___addressable___SCK__tp_func_hda_unsol_event389], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_hdac_bus_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef i32 @snd_hdac_bus_init(ptr noundef initializes((0, 1320)) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(1320) %4, i8 0, i64 1304, i1 false)
   store ptr %1, ptr %0, align 8

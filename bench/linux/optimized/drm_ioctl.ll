@@ -226,7 +226,7 @@ define dso_local noundef i32 @drm_invalid_op(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -14, 1) i32 @drm_version(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @drm_version(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 12)) %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 136
@@ -730,7 +730,7 @@ declare dso_local zeroext i1 @drm_is_current_master(ptr noundef) local_unnamed_a
 declare dso_local i32 @drm_getmagic(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @drm_getstats(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #6 align 16 {
+define internal noundef i32 @drm_getstats(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 248)) %1, ptr nocapture readnone %2) #6 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(248) %1, i8 0, i64 248, i1 false)
   ret i32 0
 }
@@ -887,7 +887,7 @@ declare dso_local i32 @drm_gem_flink_ioctl(ptr noundef, ptr noundef, ptr noundef
 declare dso_local i32 @drm_gem_open_ioctl(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef range(i32 -95, 1) i32 @drm_getcap(ptr noundef readonly %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #7 align 16 {
+define internal noundef range(i32 -95, 1) i32 @drm_getcap(ptr noundef readonly %0, ptr nocapture noundef initializes((8, 16)) %1, ptr nocapture readnone %2) #7 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 0, ptr %4, align 8
   %5 = load i64, ptr %1, align 8

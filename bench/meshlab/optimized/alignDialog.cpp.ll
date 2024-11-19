@@ -5486,7 +5486,7 @@ common.ret:                                       ; preds = %25
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11AlignDialog7setTreeEPN3vcg8MeshTreeI9MeshModelfEE(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
+define void @_ZN11AlignDialog7setTreeEPN3vcg8MeshTreeI9MeshModelfEE(ptr noundef nonnull align 8 dereferenceable(376) initializes((272, 280), (288, 304)) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 288
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 232
@@ -5496,7 +5496,7 @@ define void @_ZN11AlignDialog7setTreeEPN3vcg8MeshTreeI9MeshModelfEE(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11AlignDialog11rebuildTreeEv(ptr noundef nonnull align 8 dereferenceable(376) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11AlignDialog11rebuildTreeEv(ptr noundef nonnull align 8 dereferenceable(376) initializes((272, 280), (296, 304)) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 296

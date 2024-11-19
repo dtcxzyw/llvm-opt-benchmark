@@ -549,7 +549,7 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef initializes((0, 8)) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.mca_sharedfp_individual_record2, align 8
   %6 = alloca %struct.ompi_status_public_t, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 8

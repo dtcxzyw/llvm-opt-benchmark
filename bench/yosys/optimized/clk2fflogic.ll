@@ -18201,7 +18201,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit118:                ; preds = %353, %349, %427, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(128) ptr @_ZN12_GLOBAL__N_110SampledSigaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(128) ptr @_ZN12_GLOBAL__N_110SampledSigaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(128) initializes((0, 16), (32, 40)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 16, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 16

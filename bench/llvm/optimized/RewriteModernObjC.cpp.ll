@@ -956,7 +956,7 @@ $_ZN4llvm15SmallVectorImplIPN5clang14ObjCMethodDeclEE6appendINS1_11DeclContext22
 @.str.600 = private unnamed_addr constant [30 x i8] c"_OBJC_IMAGE_INFO = { 0, 2 };\0A\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang24CreateModernObjCRewriterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteISA_EERNS_17DiagnosticsEngineERKNS_11LangOptionsEbb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef %2, ptr noundef nonnull align 8 dereferenceable(1304) %3, ptr noundef nonnull align 8 dereferenceable(841) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang24CreateModernObjCRewriterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteISA_EERNS_17DiagnosticsEngineERKNS_11LangOptionsEbb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef %2, ptr noundef nonnull align 8 dereferenceable(1304) %3, ptr noundef nonnull align 8 dereferenceable(841) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = zext i1 %5 to i8
@@ -1228,7 +1228,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117RewriteModernObjCD2Ev(ptr noundef nonnull align 8 dereferenceable(4192) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117RewriteModernObjCD2Ev(ptr noundef nonnull align 8 dereferenceable(4192) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_117RewriteModernObjCE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4168
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4184
@@ -1717,14 +1717,14 @@ _ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117RewriteModernObjCD0Ev(ptr noundef nonnull align 8 dereferenceable(4192) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117RewriteModernObjCD0Ev(ptr noundef nonnull align 8 dereferenceable(4192) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_117RewriteModernObjCD2Ev(ptr noundef nonnull align 8 dereferenceable(4192) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 4192) #19
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117RewriteModernObjC10InitializeERN5clang10ASTContextE(ptr noundef nonnull align 8 dereferenceable(4192) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117RewriteModernObjC10InitializeERN5clang10ASTContextE(ptr noundef nonnull align 8 dereferenceable(4192) initializes((16, 32), (96, 124), (128, 160), (232, 256), (264, 268), (272, 292), (296, 416), (4163, 4165)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) unnamed_addr #0 align 2 {
   %3 = alloca i8, align 1
   %4 = alloca %"class.std::optional.660", align 8
   %5 = alloca %"class.llvm::MemoryBufferRef", align 8

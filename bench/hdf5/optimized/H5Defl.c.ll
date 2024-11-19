@@ -265,7 +265,7 @@ define noundef zeroext i1 @H5D__efl_is_space_alloc(ptr nocapture readnone %0) #1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5D__efl_io_init(ptr nocapture noundef %0, ptr nocapture noundef %1) #2 {
+define internal noundef i32 @H5D__efl_io_init(ptr nocapture noundef initializes((168, 172)) %0, ptr nocapture noundef initializes((192, 200)) %1) #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8

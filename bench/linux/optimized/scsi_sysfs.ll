@@ -907,7 +907,7 @@ define dso_local void @scsi_remove_target(ptr noundef readonly %0) #3 align 16 {
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #4 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @scsi_register_driver(ptr noundef %0) #3 align 16 {
+define dso_local i32 @scsi_register_driver(ptr noundef initializes((8, 16)) %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @scsi_bus_type, ptr %2, align 8
   %3 = tail call i32 @driver_register(ptr noundef %0) #15
@@ -918,7 +918,7 @@ define dso_local i32 @scsi_register_driver(ptr noundef %0) #3 align 16 {
 declare dso_local i32 @driver_register(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @scsi_register_interface(ptr noundef %0) #3 align 16 {
+define dso_local i32 @scsi_register_interface(ptr noundef initializes((16, 24)) %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr @sdev_class, ptr %2, align 8
   %3 = tail call i32 @class_interface_register(ptr noundef %0) #15
@@ -1078,7 +1078,7 @@ define dso_local range(i32 0, 2) i32 @scsi_is_sdev_device(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @show_use_blk_mq(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #5 align 16 {
+define internal noundef i64 @show_use_blk_mq(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 3)) %2) #5 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(3) %2, ptr noundef nonnull align 1 dereferenceable(3) @.str.19, i64 3, i1 false)
   ret i64 2
 }

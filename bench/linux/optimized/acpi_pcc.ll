@@ -35,7 +35,7 @@ define dso_local void @acpi_init_pcc() local_unnamed_addr #0 section ".init.text
 declare dso_local i32 @acpi_install_address_space_handler(ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 18) i32 @acpi_pcc_address_space_handler(i32 %0, i64 %1, i32 %2, ptr noundef %3, ptr nocapture readnone %4, ptr noundef %5) #2 align 16 {
+define internal noundef range(i32 0, 18) i32 @acpi_pcc_address_space_handler(i32 %0, i64 %1, i32 %2, ptr noundef %3, ptr nocapture readnone %4, ptr noundef initializes((16, 20)) %5) #2 align 16 {
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8

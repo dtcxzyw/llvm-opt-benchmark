@@ -232,7 +232,7 @@ declare noundef zeroext i1 @_ZN17cmQtAutoGenerator3RunESt17basic_string_viewIcSt
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112cmQtAutoRccTD2Ev(ptr noundef nonnull align 8 dereferenceable(954) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_112cmQtAutoRccTD2Ev(ptr noundef nonnull align 8 dereferenceable(954) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_112cmQtAutoRccTE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 920
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
@@ -400,7 +400,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare void @_ZN17cmQtAutoGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(328)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112cmQtAutoRccTD0Ev(ptr noundef nonnull align 8 dereferenceable(954) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_112cmQtAutoRccTD0Ev(ptr noundef nonnull align 8 dereferenceable(954) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN12_GLOBAL__N_112cmQtAutoRccTD2Ev(ptr noundef nonnull align 8 dereferenceable(954) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void

@@ -64,7 +64,7 @@ define hidden noundef i32 @_cmsAdjustEndianess32(i32 noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_cmsAdjustEndianess64(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden void @_cmsAdjustEndianess64(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = load i8, ptr %1, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 7
   store i8 %3, ptr %4, align 1
@@ -601,7 +601,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 declare double @llvm.floor.f64(double) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_cmsDecodeDateTimeNumber(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @_cmsDecodeDateTimeNumber(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 36)) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 10
   %4 = load i16, ptr %3, align 2
   %.sroa.0.0.insert.insert.i = tail call noundef i16 @llvm.bswap.i16(i16 %4)
@@ -648,7 +648,7 @@ define hidden void @_cmsDecodeDateTimeNumber(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_cmsEncodeDateTimeNumber(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden void @_cmsEncodeDateTimeNumber(ptr nocapture noundef writeonly initializes((0, 12)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %1, align 8
   %4 = trunc i32 %3 to i16
   %.sroa.0.0.insert.insert.i = tail call noundef i16 @llvm.bswap.i16(i16 %4)

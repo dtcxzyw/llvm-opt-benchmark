@@ -110,7 +110,7 @@ $_ZN5faiss14FaissExceptionD2Ev = comdat any
 @_ZN5faiss9NNDescentD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5faiss9NNDescentD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss9nndescent5NhoodC2EiiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEi(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(5000) %3, i32 noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss9nndescent5NhoodC2EiiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEi(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 68), (72, 168)) %0, i32 %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(5000) %3, i32 noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = getelementptr inbounds i8, ptr %0, i64 72
   %8 = getelementptr inbounds i8, ptr %0, i64 96
@@ -420,7 +420,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(168) ptr @_ZN5faiss9nndescent5NhoodaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(168) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(168) ptr @_ZN5faiss9nndescent5NhoodaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(168) initializes((64, 68)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -645,7 +645,7 @@ _ZNSt20back_insert_iteratorISt6vectorIiSaIiEEEaSERKi.exit: ; preds = %14, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss9nndescent5NhoodC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss9nndescent5NhoodC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 68), (72, 168)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -1957,7 +1957,7 @@ define noundef i32 @_ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss9NNDescentC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #11 align 2 {
+define void @_ZN5faiss9NNDescentC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 1), (4, 88)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #11 align 2 {
   store i8 0, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 10, ptr %4, align 4
@@ -7146,7 +7146,7 @@ _ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EED2Ev.exit88: ; preds = %_ZNSt6ve
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5faiss9NNDescent5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss9NNDescent5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 1), (36, 40)) %0) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
   store i8 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %2, align 4

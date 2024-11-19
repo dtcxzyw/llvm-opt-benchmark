@@ -191,7 +191,7 @@ $_ZTVN4llvm3omp10OMPContextE = comdat any
 @_ZN4llvm3omp10OMPContextC1EbNS_6TripleE = unnamed_addr alias void (ptr, i1, ptr), ptr @_ZN4llvm3omp10OMPContextC2EbNS_6TripleE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3omp10OMPContextC2EbNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(128) %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3omp10OMPContextC2EbNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm3omp10OMPContextE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2756,7 +2756,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm3omp31isValidTraitSelectorForTraitSetENS0_13TraitSelectorENS0_8TraitSetERbS3_(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @_ZN4llvm3omp31isValidTraitSelectorForTraitSetENS0_13TraitSelectorENS0_8TraitSetERbS3_(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) local_unnamed_addr #5 {
 switch.lookup:
   %4 = add i32 %1, -3
   %5 = icmp ult i32 %4, -2

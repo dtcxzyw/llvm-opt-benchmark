@@ -14158,7 +14158,7 @@ declare noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr nounde
 declare noundef zeroext i1 @_ZNK4llvm11Instruction16mayWriteToMemoryEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18canScalarizeAccessPN4llvm10VectorTypeEPNS_5ValueEPNS_11InstructionERNS_15AssumptionCacheERKNS_13DominatorTreeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.32.val, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(185) %3, ptr noundef nonnull align 8 dereferenceable(124) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL18canScalarizeAccessPN4llvm10VectorTypeEPNS_5ValueEPNS_11InstructionERNS_15AssumptionCacheERKNS_13DominatorTreeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 4), (8, 16)) %0, i32 %.32.val, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(185) %3, ptr noundef nonnull align 8 dereferenceable(124) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
   %8 = alloca %"class.llvm::ConstantRange", align 8
@@ -15108,7 +15108,7 @@ declare void @_ZNK4llvm13ConstantRange4uremERKS0_(ptr dead_on_unwind writable sr
 declare void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_18ExtractElementInstEN12_GLOBAL__N_119ScalarizationResultENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_18ExtractElementInstEN12_GLOBAL__N_119ScalarizationResultENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8

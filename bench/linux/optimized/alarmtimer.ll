@@ -624,7 +624,7 @@ define dso_local void @alarm_init(ptr noundef %0, i32 noundef %1, ptr noundef %2
 declare dso_local void @hrtimer_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @alarm_start(ptr noundef %0, i64 noundef %1) #1 align 16 {
+define dso_local void @alarm_start(ptr noundef initializes((24, 32)) %0, i64 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -700,7 +700,7 @@ define dso_local void @alarm_start(ptr noundef %0, i64 noundef %1) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @alarm_start_relative(ptr noundef %0, i64 noundef %1) #1 align 16 {
+define dso_local void @alarm_start_relative(ptr noundef initializes((24, 32)) %0, i64 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -716,7 +716,7 @@ define dso_local void @alarm_start_relative(ptr noundef %0, i64 noundef %1) #1 a
 declare dso_local i64 @ktime_add_safe(i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @alarm_restart(ptr noundef %0) #1 align 16 {
+define dso_local void @alarm_restart(ptr noundef initializes((56, 72)) %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
@@ -1286,7 +1286,7 @@ define internal i32 @alarm_timer_try_to_cancel(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @alarm_timer_arm(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) #1 align 16 {
+define internal void @alarm_timer_arm(ptr noundef initializes((144, 152)) %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 120
   br i1 %2, label %14, label %6
 
@@ -1712,7 +1712,7 @@ define internal noundef i32 @alarmtimer_nsleep_wakeup(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @alarmtimer_do_nsleep(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @alarmtimer_do_nsleep(ptr noundef initializes((24, 32), (112, 120)) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.timespec64, align 8
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !33
   %6 = inttoptr i64 %5 to ptr
@@ -1994,7 +1994,7 @@ define internal i64 @ktime_get_boottime() #11 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @get_boottime_timespec(ptr nocapture noundef writeonly %0) #1 align 16 {
+define internal void @get_boottime_timespec(ptr nocapture noundef writeonly initializes((0, 16)) %0) #1 align 16 {
   %2 = alloca %struct.timespec64, align 8
   %3 = tail call i64 @ktime_get_with_offset(i32 noundef 1) #12
   %4 = tail call { i64, i64 } @ns_to_timespec64(i64 noundef %3) #12

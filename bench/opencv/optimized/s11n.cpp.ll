@@ -481,7 +481,7 @@ _ZN2cv4gapi4s11n19ByteMemoryOutStreamD2Ev.exit:   ; preds = %8, %10
 declare void @_ZN2cv4gapi4s11n9serializeERNS1_8IOStreamERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi4bindERSt6vectorINS_7GRunArgESaIS2_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.20") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi4bindERSt6vectorINS_7GRunArgESaIS2_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.20") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

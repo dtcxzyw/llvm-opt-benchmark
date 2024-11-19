@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [21 x i8] c"pthread_mutex_lock()\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pmix_pif_construct(ptr nocapture noundef writeonly %0) #0 {
+define internal void @pmix_pif_construct(ptr nocapture noundef writeonly initializes((144, 401), (404, 420), (424, 566), (568, 572)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(257) %2, i8 0, i64 257, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 404

@@ -805,7 +805,7 @@ define void @_ZN6statrs12distribution11categorical16prob_mass_to_cdf17h5d695172f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution6erlang6Erlang3new17h6627f0e22ae51e87E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, i64 noundef %1, double noundef %2) unnamed_addr #7 {
+define void @_ZN6statrs12distribution6erlang6Erlang3new17h6627f0e22ae51e87E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 24)) %0, i64 noundef %1, double noundef %2) unnamed_addr #7 {
   %4 = uitofp i64 %1 to double
   %or.cond.i = fcmp uno double %2, 0.000000e+00
   br i1 %or.cond.i, label %9, label %5
@@ -1052,7 +1052,7 @@ define noundef double @"_ZN106_$LT$statrs..distribution..erlang..Erlang$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution6pareto6Pareto3new17hc80ff3dc05776f82E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1, double noundef %2) unnamed_addr #7 {
+define void @_ZN6statrs12distribution6pareto6Pareto3new17hc80ff3dc05776f82E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1, double noundef %2) unnamed_addr #7 {
   %4 = fcmp uno double %1, 0.000000e+00
   br i1 %4, label %12, label %5
 
@@ -1318,7 +1318,7 @@ define noundef double @"_ZN106_$LT$statrs..distribution..pareto..Pareto$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution7weibull7Weibull3new17hdd32e6975cbea687E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1, double noundef %2) unnamed_addr #7 {
+define void @_ZN6statrs12distribution7weibull7Weibull3new17hdd32e6975cbea687E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1, double noundef %2) unnamed_addr #7 {
   %or.cond8 = fcmp uno double %1, %2
   br i1 %or.cond8, label %10, label %4
 

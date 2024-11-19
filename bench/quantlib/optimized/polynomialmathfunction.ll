@@ -55,7 +55,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib18PolynomialFunctionC1ERKSt6vectorIdSaIdEE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8QuantLib18PolynomialFunctionC2ERKSt6vectorIdSaIdEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18PolynomialFunctionC2ERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(24) %coeff) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18PolynomialFunctionC2ERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(112) initializes((8, 80), (88, 112)) %this, ptr noundef nonnull align 8 dereferenceable(24) %coeff) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

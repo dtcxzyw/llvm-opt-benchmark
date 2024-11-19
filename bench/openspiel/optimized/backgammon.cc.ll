@@ -7700,7 +7700,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10backgammon15BackgammonState18AugmentWithHitInfoEiRKSt6vectorINS0_11CheckerMoveESaIS3_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.34") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10backgammon15BackgammonState18AugmentWithHitInfoEiRKSt6vectorINS0_11CheckerMoveESaIS3_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.34") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %3, align 8
@@ -9071,7 +9071,7 @@ define noundef range(i32 0, 2) i32 @_ZNK10open_spiel10backgammon15BackgammonStat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10backgammon15BackgammonState17LegalCheckerMovesEi(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10backgammon15BackgammonState17LegalCheckerMovesEi(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.absl::debian2::AlphaNum", align 8
   %6 = alloca %"class.absl::debian2::AlphaNum", align 8
@@ -12933,7 +12933,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit47:                  ; preds = %156, %_ZNSt6vectorI
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10backgammon15BackgammonState8SetStateEibRKSt6vectorIiSaIiEES6_S6_RKS2_IS4_SaIS4_EE(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10backgammon15BackgammonState8SetStateEibRKSt6vectorIiSaIiEES6_S6_RKS2_IS4_SaIS4_EE(ptr noundef nonnull align 8 dereferenceable(216) initializes((68, 72), (88, 89)) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -2289,7 +2289,7 @@ declare void @_ZN9grpc_core19LoadBalancingPolicyD2Ev(ptr noundef nonnull align 8
 declare void @_ZN9grpc_core19LoadBalancingPolicy6OrphanEv(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobinD2Ev(ptr noundef nonnull align 8 dereferenceable(436) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobinD2Ev(ptr noundef nonnull align 8 dereferenceable(436) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobinE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core17grpc_lb_wrr_traceE, i64 16) monotonic, align 8
@@ -2432,7 +2432,7 @@ terminate.lpad:                                   ; preds = %if.then11.invoke, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobinD0Ev(ptr noundef nonnull align 8 dereferenceable(436) %this) unnamed_addr #14 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobinD0Ev(ptr noundef nonnull align 8 dereferenceable(436) initializes((0, 8)) %this) unnamed_addr #14 align 2 {
 entry:
   tail call void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobinD2Ev(ptr noundef nonnull align 8 dereferenceable(436) %this) #32
   tail call void @_ZdlPv(ptr noundef nonnull %this) #34
@@ -4949,7 +4949,7 @@ for.end:                                          ; preds = %_ZN9grpc_core14Subc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelListD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelListD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelListE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -5038,7 +5038,7 @@ _ZN9grpc_core14SubchannelListINS_12_GLOBAL__N_121OldWeightedRoundRobin32Weighted
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelListD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #14 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelListD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #14 align 2 {
 entry:
   tail call void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelListD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #32
   tail call void @_ZdlPv(ptr noundef nonnull %this) #34
@@ -5046,7 +5046,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_ZNK9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelList15work_serializerEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelList15work_serializerEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val = load ptr, ptr %0, align 8
@@ -5082,7 +5082,7 @@ _ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core14SubchannelListINS_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelListENS2_32WeightedRoundRobinSubchannelDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core14SubchannelListINS_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelListENS2_32WeightedRoundRobinSubchannelDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14SubchannelListINS_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelListENS2_32WeightedRoundRobinSubchannelDataEEE, i64 16), ptr %this, align 8
   %tracer_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -6339,7 +6339,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare void @_ZN9grpc_core27MakeOobBackendMetricWatcherENS_8DurationESt10unique_ptrINS_23OobBackendMetricWatcherESt14default_deleteIS2_EE(ptr sret(%"class.std::unique_ptr.221") align 8, i64, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataE, i64 16), ptr %this, align 8
   %weight_ = getelementptr inbounds i8, ptr %this, i64 56
@@ -6366,7 +6366,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121OldWeightedRoundRobin13AddressWe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataE, i64 16), ptr %this, align 8
   %weight_.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -7855,7 +7855,7 @@ lpad.body:                                        ; preds = %lpad.body.i, %ehcle
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core14SubchannelDataINS_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelListENS2_32WeightedRoundRobinSubchannelDataEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core14SubchannelDataINS_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelListENS2_32WeightedRoundRobinSubchannelDataEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14SubchannelDataINS_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelListENS2_32WeightedRoundRobinSubchannelDataEEE, i64 16), ptr %this, align 8
   %subchannel_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -7987,7 +7987,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin13AddressWeightD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin13AddressWeightD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin13AddressWeightE, i64 16), ptr %this, align 8
   %wrr_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -8117,7 +8117,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin13AddressWeightD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #14 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin13AddressWeightD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #14 align 2 {
 entry:
   tail call void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin13AddressWeightD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #32
   tail call void @_ZdlPv(ptr noundef nonnull %this) #34
@@ -8133,7 +8133,7 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 declare void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelData10OobWatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelData10OobWatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelData10OobWatcherE, i64 16), ptr %this, align 8
   %weight_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -8159,7 +8159,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121OldWeightedRoundRobin13AddressWe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelData10OobWatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelData10OobWatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelData10OobWatcherE, i64 16), ptr %this, align 8
   %weight_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -9687,7 +9687,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit3:       ; preds = %_ZNSt8optionalIN17g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin6PickerD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin6PickerD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin6PickerE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core17grpc_lb_wrr_traceE, i64 16) monotonic, align 8
@@ -9911,7 +9911,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin6PickerD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #14 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin6PickerD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #14 align 2 {
 entry:
   tail call void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin6PickerD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #32
   tail call void @_ZdlPv(ptr noundef nonnull %this) #34
@@ -11441,7 +11441,7 @@ _ZNSt12__shared_ptrIN9grpc_core14WorkSerializerELN9__gnu_cxx12_Lock_policyE2EED2
 declare noundef i64 @_ZNK9grpc_core21StaticStrideScheduler4PickEv(ptr noundef nonnull align 16 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin6Picker21SubchannelCallTrackerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin6Picker21SubchannelCallTrackerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin6Picker21SubchannelCallTrackerE, i64 16), ptr %this, align 8
   %weight_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -11467,7 +11467,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121OldWeightedRoundRobin13AddressWe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin6Picker21SubchannelCallTrackerD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin6Picker21SubchannelCallTrackerD0Ev(ptr noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin6Picker21SubchannelCallTrackerE, i64 16), ptr %this, align 8
   %weight_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -11646,7 +11646,7 @@ declare void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef) loca
 declare void @_ZN9grpc_core22MakeHealthCheckWatcherESt10shared_ptrINS_14WorkSerializerEERKNS_11ChannelArgsESt10unique_ptrINS_19SubchannelInterface33ConnectivityStateWatcherInterfaceESt14default_deleteIS8_EE(ptr sret(%"class.std::unique_ptr.221") align 8, ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core14SubchannelDataINS_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelListENS2_32WeightedRoundRobinSubchannelDataEE7WatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core14SubchannelDataINS_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelListENS2_32WeightedRoundRobinSubchannelDataEE7WatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14SubchannelDataINS_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelListENS2_32WeightedRoundRobinSubchannelDataEE7WatcherE, i64 16), ptr %this, align 8
   %subchannel_list_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -11691,7 +11691,7 @@ _ZN9grpc_core17WeakRefCountedPtrINS_12_GLOBAL__N_121OldWeightedRoundRobin32Weigh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core14SubchannelDataINS_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelListENS2_32WeightedRoundRobinSubchannelDataEE7WatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core14SubchannelDataINS_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelListENS2_32WeightedRoundRobinSubchannelDataEE7WatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14SubchannelDataINS_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelListENS2_32WeightedRoundRobinSubchannelDataEE7WatcherE, i64 16), ptr %this, align 8
   %subchannel_list_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -12005,7 +12005,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobinD2Ev(ptr noundef nonnull align 8 dereferenceable(436) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobinD2Ev(ptr noundef nonnull align 8 dereferenceable(436) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_118WeightedRoundRobinE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core17grpc_lb_wrr_traceE, i64 16) monotonic, align 8
@@ -12112,7 +12112,7 @@ terminate.lpad:                                   ; preds = %if.then9.invoke, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobinD0Ev(ptr noundef nonnull align 8 dereferenceable(436) %this) unnamed_addr #14 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobinD0Ev(ptr noundef nonnull align 8 dereferenceable(436) initializes((0, 8)) %this) unnamed_addr #14 align 2 {
 entry:
   tail call void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobinD2Ev(ptr noundef nonnull align 8 dereferenceable(436) %this) #32
   tail call void @_ZdlPv(ptr noundef nonnull %this) #34
@@ -13300,7 +13300,7 @@ _ZN9grpc_core20InternallyRefCountedINS_12EndpointListENS_11UnrefDeleteEE5UnrefEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin15WrrEndpointListD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin15WrrEndpointListD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_118WeightedRoundRobin15WrrEndpointListE, i64 16), ptr %this, align 8
   %last_failure_ = getelementptr inbounds i8, ptr %this, i64 80
@@ -13410,7 +13410,7 @@ _ZN9grpc_core12EndpointListD2Ev.exit:             ; preds = %_ZNSt6vectorISt10un
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin15WrrEndpointListD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #14 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin15WrrEndpointListD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #14 align 2 {
 entry:
   tail call void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin15WrrEndpointListD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #32
   tail call void @_ZdlPv(ptr noundef nonnull %this) #34
@@ -14694,7 +14694,7 @@ _ZN9grpc_core13RefCountedPtrINS_12EndpointListEED2Ev.exit: ; preds = %_ZNSt10uni
 declare void @_ZN9grpc_core12EndpointList8Endpoint6OrphanEv(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin15WrrEndpointList11WrrEndpointD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin15WrrEndpointList11WrrEndpointD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_118WeightedRoundRobin15WrrEndpointList11WrrEndpointE, i64 16), ptr %this, align 8
   %weight_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -14721,7 +14721,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118WeightedRoundRobin14EndpointWeig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin15WrrEndpointList11WrrEndpointD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin15WrrEndpointList11WrrEndpointD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_118WeightedRoundRobin15WrrEndpointList11WrrEndpointE, i64 16), ptr %this, align 8
   %weight_.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -16306,7 +16306,7 @@ unreachable:                                      ; preds = %invoke.cont19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin14EndpointWeightD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin14EndpointWeightD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_118WeightedRoundRobin14EndpointWeightE, i64 16), ptr %this, align 8
   %wrr_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -16453,7 +16453,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin14EndpointWeightD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #14 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin14EndpointWeightD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #14 align 2 {
 entry:
   tail call void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin14EndpointWeightD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #32
   tail call void @_ZdlPv(ptr noundef nonnull %this) #34
@@ -17738,7 +17738,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit3:       ; preds = %invoke.cont15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin6PickerD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin6PickerD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_118WeightedRoundRobin6PickerE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core17grpc_lb_wrr_traceE, i64 16) monotonic, align 8
@@ -17962,7 +17962,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin6PickerD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #14 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin6PickerD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #14 align 2 {
 entry:
   tail call void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin6PickerD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #32
   tail call void @_ZdlPv(ptr noundef nonnull %this) #34
@@ -19062,7 +19062,7 @@ _ZNSt7variantIJN9grpc_core19LoadBalancingPolicy10PickResult8CompleteENS2_5QueueE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin6Picker21SubchannelCallTrackerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin6Picker21SubchannelCallTrackerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_118WeightedRoundRobin6Picker21SubchannelCallTrackerE, i64 16), ptr %this, align 8
   %child_tracker_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -19102,7 +19102,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118WeightedRoundRobin14EndpointWeig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin6Picker21SubchannelCallTrackerD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin6Picker21SubchannelCallTrackerD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_118WeightedRoundRobin6Picker21SubchannelCallTrackerE, i64 16), ptr %this, align 8
   %child_tracker_.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -19484,7 +19484,7 @@ eh.resume:                                        ; preds = %ehcleanup62, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin15WrrEndpointList11WrrEndpoint10OobWatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin15WrrEndpointList11WrrEndpoint10OobWatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_118WeightedRoundRobin15WrrEndpointList11WrrEndpoint10OobWatcherE, i64 16), ptr %this, align 8
   %weight_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -19510,7 +19510,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118WeightedRoundRobin14EndpointWeig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin15WrrEndpointList11WrrEndpoint10OobWatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin15WrrEndpointList11WrrEndpoint10OobWatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_118WeightedRoundRobin15WrrEndpointList11WrrEndpoint10OobWatcherE, i64 16), ptr %this, align 8
   %weight_.i = getelementptr inbounds i8, ptr %this, i64 8

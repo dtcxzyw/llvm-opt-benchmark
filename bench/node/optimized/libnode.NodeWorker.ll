@@ -178,7 +178,7 @@ $_ZTVN4node9inspector8protocol23InternalRawNotificationE = comdat any
 @.str.20 = private unnamed_addr constant [18 x i8] c"NodeWorker.detach\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol10NodeWorker10WorkerInfo9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %value, ptr noundef %errors) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node9inspector8protocol10NodeWorker10WorkerInfo9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef %value, ptr noundef %errors) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator.2", align 1
@@ -374,7 +374,7 @@ declare void @_ZN4node9inspector8protocol12ErrorSupport3popEv(ptr noundef nonnul
 declare noundef zeroext i1 @_ZN4node9inspector8protocol12ErrorSupport9hasErrorsEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node9inspector8protocol10NodeWorker10WorkerInfo7toValueEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.10") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4node9inspector8protocol10NodeWorker10WorkerInfo7toValueEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.10") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.2", align 1
@@ -514,7 +514,7 @@ _ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EED2Ev.e
 declare void @_ZN4node9inspector8protocol15DictionaryValue8setValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_5ValueESt14default_deleteISC_EE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node9inspector8protocol10NodeWorker10WorkerInfo5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4node9inspector8protocol10NodeWorker10WorkerInfo5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #0 align 2 {
 entry:
   %errors = alloca %"class.node::inspector::protocol::ErrorSupport", align 8
   %ref.tmp = alloca %"class.std::unique_ptr.10", align 8
@@ -543,7 +543,7 @@ declare void @_ZN4node9inspector8protocol12ErrorSupportC1Ev(ptr noundef nonnull 
 declare void @_ZN4node9inspector8protocol12ErrorSupportD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol10NodeWorker28AttachedToWorkerNotification9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.26") align 8 %agg.result, ptr noundef %value, ptr noundef %errors) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node9inspector8protocol10NodeWorker28AttachedToWorkerNotification9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.26") align 8 initializes((0, 8)) %agg.result, ptr noundef %value, ptr noundef %errors) local_unnamed_addr #0 align 2 {
 entry:
   %result.i = alloca i8, align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -681,7 +681,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node9inspector8protocol10NodeWorker28AttachedToWorkerNotification7toValueEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.10") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(49) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4node9inspector8protocol10NodeWorker28AttachedToWorkerNotification7toValueEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.10") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(49) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.2", align 1
@@ -783,7 +783,7 @@ _ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node9inspector8protocol10NodeWorker28AttachedToWorkerNotification5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.26") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(49) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4node9inspector8protocol10NodeWorker28AttachedToWorkerNotification5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.26") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(49) %this) local_unnamed_addr #0 align 2 {
 entry:
   %errors = alloca %"class.node::inspector::protocol::ErrorSupport", align 8
   %ref.tmp = alloca %"class.std::unique_ptr.10", align 8
@@ -807,7 +807,7 @@ _ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol10NodeWorker30DetachedFromWorkerNotification9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.34") align 8 %agg.result, ptr noundef %value, ptr noundef %errors) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node9inspector8protocol10NodeWorker30DetachedFromWorkerNotification9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.34") align 8 initializes((0, 8)) %agg.result, ptr noundef %value, ptr noundef %errors) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator.2", align 1
@@ -883,7 +883,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node9inspector8protocol10NodeWorker30DetachedFromWorkerNotification7toValueEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.10") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4node9inspector8protocol10NodeWorker30DetachedFromWorkerNotification7toValueEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.10") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.2", align 1
@@ -925,7 +925,7 @@ _ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node9inspector8protocol10NodeWorker30DetachedFromWorkerNotification5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.34") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4node9inspector8protocol10NodeWorker30DetachedFromWorkerNotification5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.34") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %errors = alloca %"class.node::inspector::protocol::ErrorSupport", align 8
   %ref.tmp = alloca %"class.std::unique_ptr.10", align 8
@@ -949,7 +949,7 @@ _ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol10NodeWorker37ReceivedMessageFromWorkerNotification9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.42") align 8 %agg.result, ptr noundef %value, ptr noundef %errors) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node9inspector8protocol10NodeWorker37ReceivedMessageFromWorkerNotification9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.42") align 8 initializes((0, 8)) %agg.result, ptr noundef %value, ptr noundef %errors) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator.2", align 1
@@ -1056,7 +1056,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node9inspector8protocol10NodeWorker37ReceivedMessageFromWorkerNotification7toValueEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.10") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4node9inspector8protocol10NodeWorker37ReceivedMessageFromWorkerNotification7toValueEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.10") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.2", align 1
@@ -1130,7 +1130,7 @@ _ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node9inspector8protocol10NodeWorker37ReceivedMessageFromWorkerNotification5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.42") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4node9inspector8protocol10NodeWorker37ReceivedMessageFromWorkerNotification5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.42") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
 entry:
   %errors = alloca %"class.node::inspector::protocol::ErrorSupport", align 8
   %ref.tmp = alloca %"class.std::unique_ptr.10", align 8

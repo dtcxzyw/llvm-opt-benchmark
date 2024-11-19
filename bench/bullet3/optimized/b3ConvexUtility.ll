@@ -69,7 +69,7 @@ $_ZN20b3AlignedObjectArrayI8b3MyFaceE7reserveEi = comdat any
 @_ZN15b3ConvexUtilityD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN15b3ConvexUtilityD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15b3ConvexUtilityD2Ev(ptr nocapture noundef nonnull align 16 dereferenceable(184) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15b3ConvexUtilityD2Ev(ptr nocapture noundef nonnull align 16 dereferenceable(184) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV15b3ConvexUtility, i64 16), ptr %this, align 16
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
@@ -334,7 +334,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15b3ConvexUtilityD0Ev(ptr noundef nonnull align 16 dereferenceable(184) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15b3ConvexUtilityD0Ev(ptr noundef nonnull align 16 dereferenceable(184) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN15b3ConvexUtilityD2Ev(ptr noundef nonnull align 16 dereferenceable(184) %this) #12
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %this)
@@ -3065,7 +3065,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15b3ConvexUtility10initializeEv(ptr nocapture noundef nonnull align 16 dereferenceable(184) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15b3ConvexUtility10initializeEv(ptr nocapture noundef nonnull align 16 dereferenceable(184) initializes((16, 32)) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %edges = alloca %class.b3HashMap, align 8
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %edges, i64 24

@@ -381,7 +381,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare void @hwloc_xml_callbacks_register(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @hwloc_topology_components_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #7 {
+define hidden void @hwloc_topology_components_init(ptr nocapture noundef writeonly initializes((816, 824), (832, 840), (904, 908), (912, 920)) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 912
@@ -1611,7 +1611,7 @@ define hidden void @hwloc_backends_is_thissystem(ptr nocapture noundef %0) local
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @hwloc_backends_find_callbacks(ptr nocapture noundef %0) local_unnamed_addr #16 {
+define hidden void @hwloc_backends_find_callbacks(ptr nocapture noundef initializes((824, 832)) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 816
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 824

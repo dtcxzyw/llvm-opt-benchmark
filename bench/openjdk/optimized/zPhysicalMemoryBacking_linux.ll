@@ -117,7 +117,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN22ZPhysicalMemoryBackingC1Em = hidden unnamed_addr alias void (ptr, i64), ptr @_ZN22ZPhysicalMemoryBackingC2Em
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ZPhysicalMemoryBackingC2Em(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN22ZPhysicalMemoryBackingC2Em(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 4), (16, 41)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.GCLogPreciousHandle, align 8
   %4 = alloca %class.ZErrno, align 4
   %5 = alloca %class.GCLogPreciousHandle, align 8

@@ -1670,7 +1670,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5ImGui18TableResetSettingsEP10ImGuiTable(ptr nocapture noundef writeonly %table) local_unnamed_addr #5 {
+define void @_ZN5ImGui18TableResetSettingsEP10ImGuiTable(ptr nocapture noundef writeonly initializes((96, 100), (568, 569), (573, 575), (576, 577)) %table) local_unnamed_addr #5 {
 entry:
   %IsSettingsDirty = getelementptr inbounds i8, ptr %table, i64 574
   store i8 1, ptr %IsSettingsDirty, align 2
@@ -1688,7 +1688,7 @@ entry:
 declare void @_ZN5ImGui7MemFreeEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5ImGui17TableLoadSettingsEP10ImGuiTable(ptr nocapture noundef %table) local_unnamed_addr #6 {
+define void @_ZN5ImGui17TableLoadSettingsEP10ImGuiTable(ptr nocapture noundef initializes((573, 574)) %table) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %IsSettingsRequestLoad = getelementptr inbounds i8, ptr %table, i64 573
@@ -2410,7 +2410,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ImGui17TableUpdateLayoutEP10ImGuiTable(ptr noundef %table) local_unnamed_addr #2 {
+define void @_ZN5ImGui17TableUpdateLayoutEP10ImGuiTable(ptr noundef initializes((184, 188), (514, 516), (540, 542), (575, 576)) %table) local_unnamed_addr #2 {
 entry:
   %mouse_hit_rect = alloca %struct.ImRect, align 4
   %0 = load ptr, ptr @GImGui, align 8
@@ -4446,7 +4446,7 @@ if.end36:                                         ; preds = %if.else, %if.then18
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ImGui22TableSetupDrawChannelsEP10ImGuiTable(ptr nocapture noundef %table) local_unnamed_addr #0 {
+define void @_ZN5ImGui22TableSetupDrawChannelsEP10ImGuiTable(ptr nocapture noundef initializes((560, 566)) %table) local_unnamed_addr #0 {
 entry:
   %FreezeRowsCount = getelementptr inbounds i8, ptr %table, i64 552
   %0 = load i16, ptr %FreezeRowsCount, align 8
@@ -7935,7 +7935,7 @@ declare void @_ZN5ImGui8EndChildEv() local_unnamed_addr #1
 declare void @_ZN5ImGui8ItemSizeERK6ImVec2f(ptr noundef nonnull align 4 dereferenceable(8), float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ImGui17TableSaveSettingsEP10ImGuiTable(ptr nocapture noundef %table) local_unnamed_addr #0 {
+define void @_ZN5ImGui17TableSaveSettingsEP10ImGuiTable(ptr nocapture noundef initializes((574, 575)) %table) local_unnamed_addr #0 {
 entry:
   %IsSettingsDirty = getelementptr inbounds i8, ptr %table, i64 574
   store i8 0, ptr %IsSettingsDirty, align 2
@@ -8869,7 +8869,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ImGui13TableBeginRowEP10ImGuiTable(ptr nocapture noundef %table) local_unnamed_addr #0 {
+define void @_ZN5ImGui13TableBeginRowEP10ImGuiTable(ptr nocapture noundef initializes((116, 120), (124, 128), (140, 148), (156, 164), (558, 560), (567, 568)) %table) local_unnamed_addr #0 {
 entry:
   %InnerWindow = getelementptr inbounds i8, ptr %table, i64 392
   %0 = load ptr, ptr %InnerWindow, align 8
@@ -9062,7 +9062,7 @@ declare void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull
 declare void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(196), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5ImGui33SetWindowClipRectBeforeSetChannelEP11ImGuiWindowRK6ImRect(ptr nocapture noundef %window, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %clip_rect) local_unnamed_addr #14 {
+define void @_ZN5ImGui33SetWindowClipRectBeforeSetChannelEP11ImGuiWindowRK6ImRect(ptr nocapture noundef initializes((584, 600)) %window, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %clip_rect) local_unnamed_addr #14 {
 entry:
   %0 = load <4 x float>, ptr %clip_rect, align 4
   %retval.sroa.3.8.vec.insert.i = shufflevector <4 x float> %0, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
@@ -9219,7 +9219,7 @@ return:                                           ; preds = %entry, %if.end6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ImGui14TableBeginCellEP10ImGuiTablei(ptr nocapture noundef %table, i32 noundef %column_n) local_unnamed_addr #2 {
+define void @_ZN5ImGui14TableBeginCellEP10ImGuiTablei(ptr nocapture noundef initializes((116, 120)) %table, i32 noundef %column_n) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %Columns = getelementptr inbounds i8, ptr %table, i64 24
@@ -13134,7 +13134,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ImGui30TableGcCompactTransientBuffersEP10ImGuiTable(ptr noundef %table) local_unnamed_addr #0 {
+define void @_ZN5ImGui30TableGcCompactTransientBuffersEP10ImGuiTable(ptr noundef initializes((496, 504), (569, 570), (584, 585)) %table) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %SortSpecs = getelementptr inbounds i8, ptr %table, i64 496

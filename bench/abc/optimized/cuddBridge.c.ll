@@ -707,7 +707,7 @@ define internal ptr @addBddDoIthBit(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_BddToAdd(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Cudd_BddToAdd(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   br label %4
 
@@ -843,7 +843,7 @@ define internal ptr @ddBddToAddRecur(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_addBddPattern(ptr noundef %0, ptr noundef %1) #0 {
+define ptr @Cudd_addBddPattern(ptr noundef initializes((448, 452)) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   br label %4
 
@@ -972,7 +972,7 @@ define ptr @cuddAddBddDoPattern(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_bddTransfer(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Cudd_bddTransfer(ptr noundef %0, ptr noundef initializes((448, 452)) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 448
   br label %5
 

@@ -277,7 +277,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat8aig_cutsC2Ev(ptr noundef nonnull align 8 dereferenceable(480) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3sat8aig_cutsC2Ev(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 17), (24, 40)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %this, align 8
   %m_config = getelementptr inbounds i8, ptr %this, i64 4
@@ -1466,7 +1466,7 @@ return:                                           ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3sat8aig_cuts18filter_valid_nodesEv(ptr noalias sret(%class.svector.2) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3sat8aig_cuts18filter_valid_nodesEv(ptr noalias sret(%class.svector.2) align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %m_aig = getelementptr inbounds i8, ptr %this, i64 24
@@ -1689,7 +1689,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef no
 declare void @_Z14verbose_unlockv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat8aig_cuts7augmentEjRKNS0_4nodeE(ptr noundef nonnull align 8 dereferenceable(480) %this, i32 noundef %id, ptr noundef nonnull align 8 dereferenceable(24) %n) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3sat8aig_cuts7augmentEjRKNS0_4nodeE(ptr noundef nonnull align 8 dereferenceable(480) initializes((216, 220)) %this, i32 noundef %id, ptr noundef nonnull align 8 dereferenceable(24) %n) local_unnamed_addr #3 align 2 {
 entry:
   %lut = alloca %"class.sat::aig_cuts::lut", align 8
   %m_size.i = getelementptr inbounds i8, ptr %n, i64 16
@@ -6668,7 +6668,7 @@ sw.epilog:                                        ; preds = %for.body16, %for.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat8aig_cuts8simulateEj(ptr noalias sret(%class.svector.10) align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(480) %this, i32 noundef %num_rounds) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3sat8aig_cuts8simulateEj(ptr noalias sret(%class.svector.10) align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(480) %this, i32 noundef %num_rounds) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %m_cuts = getelementptr inbounds i8, ptr %this, i64 176

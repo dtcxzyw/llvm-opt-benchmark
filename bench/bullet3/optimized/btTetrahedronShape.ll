@@ -372,7 +372,7 @@ sw.epilog52:                                      ; preds = %sw.epilog52.sink.sp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK16btBU_Simplex1to49getVertexEiR9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, i32 noundef %i, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %vtx) unnamed_addr #4 align 2 {
+define dso_local void @_ZNK16btBU_Simplex1to49getVertexEiR9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, i32 noundef %i, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %vtx) unnamed_addr #4 align 2 {
 entry:
   %m_vertices = getelementptr inbounds i8, ptr %this, i64 120
   %idxprom = sext i32 %i to i64

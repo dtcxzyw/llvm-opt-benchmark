@@ -101,7 +101,7 @@ $_ZTV22ZIsUnloadingOopClosure = comdat any
 declare void @_ZN13ZStatSubPhaseC1EPKc13ZGenerationId(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i8 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN7ZUnloadC2EP8ZWorkers(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN7ZUnloadC2EP8ZWorkers(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = load i8, ptr @ClassUnloading, align 1
   %4 = trunc i8 %3 to i1

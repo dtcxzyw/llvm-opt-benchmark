@@ -583,7 +583,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17JumpThreadingPassC2Ei(ptr noundef nonnull align 8 dereferenceable(296) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17JumpThreadingPassC2Ei(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 56), (64, 65), (80, 81), (88, 90)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -742,7 +742,7 @@ _ZNSt10unique_ptrIN4llvm14DomTreeUpdaterESt14default_deleteIS1_EED2Ev.exit: ; pr
 declare noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo19hasBranchDivergenceEPKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm17JumpThreadingPass7runImplERNS_8FunctionEPNS_15AnalysisManagerIS1_JEEEPNS_17TargetLibraryInfoEPNS_19TargetTransformInfoEPNS_13LazyValueInfoEPNS_9AAResultsESt10unique_ptrINS_14DomTreeUpdaterESt14default_deleteISF_EESt8optionalIPNS_18BlockFrequencyInfoEESJ_IPNS_21BranchProbabilityInfoEE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef %7, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %8, ptr nocapture noundef readonly byval(%"class.std::optional.16") align 8 %9) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm17JumpThreadingPass7runImplERNS_8FunctionEPNS_15AnalysisManagerIS1_JEEEPNS_17TargetLibraryInfoEPNS_19TargetTransformInfoEPNS_13LazyValueInfoEPNS_9AAResultsESt10unique_ptrINS_14DomTreeUpdaterESt14default_deleteISF_EESt8optionalIPNS_18BlockFrequencyInfoEESJ_IPNS_21BranchProbabilityInfoEE(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef %7, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %8, ptr nocapture noundef readonly byval(%"class.std::optional.16") align 8 %9) local_unnamed_addr #0 align 2 {
   %11 = alloca %"class.llvm::SmallPtrSet.186", align 8
   %12 = alloca %"class.llvm::AssertingVH", align 8
   store ptr %1, ptr %0, align 8

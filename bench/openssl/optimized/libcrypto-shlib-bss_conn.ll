@@ -748,7 +748,7 @@ sw.epilog246:                                     ; preds = %if.then66, %sw.bb19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @conn_new(ptr nocapture noundef writeonly %bi) #1 {
+define internal range(i32 0, 2) i32 @conn_new(ptr nocapture noundef writeonly initializes((40, 44), (48, 52), (56, 60), (64, 72)) %bi) #1 {
 entry:
   %init = getelementptr inbounds i8, ptr %bi, i64 40
   store i32 0, ptr %init, align 8

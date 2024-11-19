@@ -6417,7 +6417,7 @@ define dso_local void @_ZN4llvm24IRBuilderDefaultInserterD0Ev(ptr noundef nonnul
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm25IRBuilderCallbackInserterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm25IRBuilderCallbackInserterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm25IRBuilderCallbackInserterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -7989,7 +7989,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE18uninitialized_copyIKS2_S2_EEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
 _ZNSt6vectorIPN4llvm5ValueESaIS2_EE9push_backEOS2_.exit17:
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %6, align 8
@@ -8318,7 +8318,7 @@ _ZNSt6vectorIPN4llvm5ValueESaIS2_EE9push_backEOS2_.exit53: ; preds = %129, %_ZNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20getStatepointBundlesIPN4llvm5ValueES2_S2_ESt6vectorINS0_17OperandBundleDefTIS2_EESaIS5_EESt8optionalINS0_8ArrayRefIT_EEES8_INS9_IT0_EEENS9_IT1_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef readonly byval(%"class.std::optional.126") align 8 %1, ptr nocapture noundef readonly byval(%"class.std::optional.126") align 8 %2, ptr %3, i64 %4) unnamed_addr #0 {
+define internal fastcc void @_ZL20getStatepointBundlesIPN4llvm5ValueES2_S2_ESt6vectorINS0_17OperandBundleDefTIS2_EESaIS5_EESt8optionalINS0_8ArrayRefIT_EEES8_INS9_IT0_EEENS9_IT1_EE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%"class.std::optional.126") align 8 %1, ptr nocapture noundef readonly byval(%"class.std::optional.126") align 8 %2, ptr %3, i64 %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::SmallVector.217", align 8
   %7 = alloca %"class.llvm::SmallVector.217", align 8
   %8 = alloca %"class.llvm::SmallVector.217", align 8
@@ -9313,7 +9313,7 @@ _ZN4llvm17OperandBundleDefTIPNS_5ValueEEC2ENSt7__cxx1112basic_stringIcSt11char_t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20getStatepointBundlesIN4llvm3UseES1_PNS0_5ValueEESt6vectorINS0_17OperandBundleDefTIS3_EESaIS6_EESt8optionalINS0_8ArrayRefIT_EEES9_INSA_IT0_EEENSA_IT1_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef readonly byval(%"class.std::optional.134") align 8 %1, ptr nocapture noundef readonly byval(%"class.std::optional.134") align 8 %2, ptr %3, i64 %4) unnamed_addr #0 {
+define internal fastcc void @_ZL20getStatepointBundlesIN4llvm3UseES1_PNS0_5ValueEESt6vectorINS0_17OperandBundleDefTIS3_EESaIS6_EESt8optionalINS0_8ArrayRefIT_EEES9_INSA_IT0_EEENSA_IT1_EE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%"class.std::optional.134") align 8 %1, ptr nocapture noundef readonly byval(%"class.std::optional.134") align 8 %2, ptr %3, i64 %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::SmallVector.217", align 8
   %7 = alloca %"class.llvm::SmallVector.217", align 8
   %8 = alloca %"class.llvm::SmallVector.217", align 8
@@ -9662,7 +9662,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE18uninitialized_copyIPKNS_3Use
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17getStatepointArgsIN4llvm3UseEESt6vectorIPNS0_5ValueESaIS4_EERNS0_13IRBuilderBaseEmjS4_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZL17getStatepointArgsIN4llvm3UseEESt6vectorIPNS0_5ValueESaIS4_EERNS0_13IRBuilderBaseEmjS4_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
 _ZNSt6vectorIPN4llvm5ValueESaIS2_EE9push_backEOS2_.exit17:
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %5, align 8

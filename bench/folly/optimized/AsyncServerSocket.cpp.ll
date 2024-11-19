@@ -2284,7 +2284,7 @@ unreachable:                                      ; preds = %delete.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly17AsyncServerSocket14startAcceptingEv(ptr nocapture noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly17AsyncServerSocket14startAcceptingEv(ptr nocapture noundef nonnull align 8 dereferenceable(296) initializes((80, 81)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %accepting_ = getelementptr inbounds i8, ptr %this, i64 80
   store i8 1, ptr %accepting_, align 8, !tbaa !120
@@ -2762,7 +2762,7 @@ entry:
 declare void @llvm.trap() #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly17AsyncServerSocket14RemoteAcceptor5startEPNS_9EventBaseEj(ptr noundef nonnull align 64 dereferenceable(576) %this, ptr noundef nonnull %eventBase, i32 noundef %maxAtOnce) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly17AsyncServerSocket14RemoteAcceptor5startEPNS_9EventBaseEj(ptr noundef nonnull align 64 dereferenceable(576) initializes((472, 476)) %this, ptr noundef nonnull %eventBase, i32 noundef %maxAtOnce) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Function", align 16
   %maxReadAtOnce_.i.i = getelementptr inbounds i8, ptr %this, i64 472
@@ -7366,7 +7366,7 @@ declare void @_ZNSt15__exception_ptr13exception_ptrC1EPv(ptr noundef nonnull ali
 declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly17AsyncServerSocketC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef %eventBase) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly17AsyncServerSocketC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 13), (16, 81), (84, 92), (96, 132), (136, 206), (208, 212), (216, 241), (244, 249)) %this, ptr noundef %eventBase) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::observer::Observer", align 16
   %guardCount_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -9561,7 +9561,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly17AsyncServerSocketD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly17AsyncServerSocketD2Ev(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 8), (16, 24)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i = alloca i32, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly17AsyncServerSocketE, i64 16), ptr %this, align 8, !tbaa !7
@@ -10229,7 +10229,7 @@ declare noundef i32 @_ZN5folly13shutdownNoIntENS_13NetworkSocketEi(i32, i32 noun
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly17AsyncServerSocket15attachEventBaseEPNS_9EventBaseE(ptr nocapture noundef nonnull align 8 dereferenceable(296) %this, ptr noundef %eventBase) local_unnamed_addr #2 align 2 {
+define void @_ZN5folly17AsyncServerSocket15attachEventBaseEPNS_9EventBaseE(ptr nocapture noundef nonnull align 8 dereferenceable(296) initializes((24, 32)) %this, ptr noundef %eventBase) local_unnamed_addr #2 align 2 {
 entry:
   %eventBase_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %eventBase, ptr %eventBase_, align 8, !tbaa !21
@@ -10254,7 +10254,7 @@ for.body:                                         ; preds = %entry, %for.body
 declare void @_ZN5folly12EventHandler15attachEventBaseEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly17AsyncServerSocket15detachEventBaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(296) %this) local_unnamed_addr #2 align 2 {
+define void @_ZN5folly17AsyncServerSocket15detachEventBaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(296) initializes((24, 32)) %this) local_unnamed_addr #2 align 2 {
 entry:
   %eventBase_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %eventBase_, align 8, !tbaa !21
@@ -12413,7 +12413,7 @@ _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5folly17AsyncServerSocket11setZeroCopyEb(ptr nocapture noundef nonnull align 8 dereferenceable(296) %this, i1 noundef zeroext %enable) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN5folly17AsyncServerSocket11setZeroCopyEb(ptr nocapture noundef nonnull align 8 dereferenceable(296) initializes((248, 249)) %this, i1 noundef zeroext %enable) local_unnamed_addr #2 align 2 {
 entry:
   %val = alloca i32, align 4
   %frombool = zext i1 %enable to i8
@@ -13277,7 +13277,7 @@ lpad:                                             ; preds = %invoke.cont3, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly17AsyncServerSocket18setEnableReuseAddrEb(ptr nocapture noundef nonnull align 8 dereferenceable(296) %this, i1 noundef zeroext %enable) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly17AsyncServerSocket18setEnableReuseAddrEb(ptr nocapture noundef nonnull align 8 dereferenceable(296) initializes((202, 203)) %this, i1 noundef zeroext %enable) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %val = alloca i32, align 4
   %ref.tmp14 = alloca %"class.google::LogMessage", align 8
@@ -14870,7 +14870,7 @@ if.end110:                                        ; preds = %for.body, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly17AsyncServerSocket14pauseAcceptingEv(ptr nocapture noundef nonnull align 8 dereferenceable(296) %this) local_unnamed_addr #2 align 2 {
+define void @_ZN5folly17AsyncServerSocket14pauseAcceptingEv(ptr nocapture noundef nonnull align 8 dereferenceable(296) initializes((80, 81)) %this) local_unnamed_addr #2 align 2 {
 entry:
   %accepting_ = getelementptr inbounds i8, ptr %this, i64 80
   store i8 0, ptr %accepting_, align 8, !tbaa !120

@@ -301,7 +301,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN16OffsetCameraStepC2Ef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this, ptr nocapture noundef readonly %vtt, float noundef %eye_offset) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16OffsetCameraStepC2Ef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 136)) %this, ptr nocapture noundef readonly %vtt, float noundef %eye_offset) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = getelementptr inbounds i8, ptr %vtt, i64 16
@@ -355,7 +355,7 @@ invoke.cont3:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16OffsetCameraStepC1Ef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this, float noundef %eye_offset) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16OffsetCameraStepC1Ef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 136)) %this, float noundef %eye_offset) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16OffsetCameraStep, i64 40), ptr %this, align 8, !tbaa !12
   %base_transform = getelementptr inbounds i8, ptr %this, i64 8
@@ -384,7 +384,7 @@ invoke.cont2:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16OffsetCameraStepC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this, ptr nocapture noundef readonly %vtt, i1 noundef zeroext %right_eye) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16OffsetCameraStepC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 136)) %this, ptr nocapture noundef readonly %vtt, i1 noundef zeroext %right_eye) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -503,7 +503,7 @@ ehcleanup:                                        ; preds = %if.then.i.i32, %_ZN
 declare noundef float @_ZNK8Settings8getFloatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEff(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32), float noundef, float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16OffsetCameraStepC1Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this, i1 noundef zeroext %right_eye) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16OffsetCameraStepC1Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 136)) %this, i1 noundef zeroext %right_eye) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -595,7 +595,7 @@ ehcleanup:                                        ; preds = %if.then.i.i32, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16OffsetCameraStep5resetER15PipelineContext(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(47) %context) unnamed_addr #7 align 2 {
+define dso_local void @_ZN16OffsetCameraStep5resetER15PipelineContext(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((8, 72)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(47) %context) unnamed_addr #7 align 2 {
 entry:
   %ref.tmp = alloca %"class.irr::core::CMatrix4", align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp) #20

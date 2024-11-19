@@ -313,7 +313,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3smt27justification_proof_wrapperC2ERNS_7contextEP3appb(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture nonnull readonly align 8 %ctx, ptr noundef %pr, i1 noundef zeroext %in_region) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt27justification_proof_wrapperC2ERNS_7contextEP3appb(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (16, 24)) %this, ptr nocapture nonnull readonly align 8 %ctx, ptr noundef %pr, i1 noundef zeroext %in_region) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_mark.i = getelementptr inbounds i8, ptr %this, i64 8
   %bf.load.i = load i8, ptr %m_mark.i, align 8
@@ -374,7 +374,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt29unit_resolution_justificationC2ERNS_7contextEPNS_13justificationEjPKN3sat7literalE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(11616) %ctx, ptr noundef %js, i32 noundef %num_lits, ptr nocapture noundef readonly %lits) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt29unit_resolution_justificationC2ERNS_7contextEPNS_13justificationEjPKN3sat7literalE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (16, 28)) %this, ptr noundef nonnull align 8 dereferenceable(11616) %ctx, ptr noundef %js, i32 noundef %num_lits, ptr nocapture noundef readonly %lits) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_mark.i = getelementptr inbounds i8, ptr %this, i64 8
   %bf.load.i = load i8, ptr %m_mark.i, align 8
@@ -415,7 +415,7 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop, %en
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt29unit_resolution_justificationC2EPNS_13justificationEjPKN3sat7literalE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %js, i32 noundef %num_lits, ptr nocapture noundef readonly %lits) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt29unit_resolution_justificationC2EPNS_13justificationEjPKN3sat7literalE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (16, 28)) %this, ptr noundef %js, i32 noundef %num_lits, ptr nocapture noundef readonly %lits) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_mark.i = getelementptr inbounds i8, ptr %this, i64 8
   %bf.load.i = load i8, ptr %m_mark.i, align 8
@@ -449,7 +449,7 @@ invoke.cont:                                      ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt29unit_resolution_justificationD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt29unit_resolution_justificationD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3smt29unit_resolution_justificationE, i64 16), ptr %this, align 8
   %m_in_region.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -505,7 +505,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt29unit_resolution_justificationD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt29unit_resolution_justificationD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3smt29unit_resolution_justificationE, i64 16), ptr %this, align 8
   %m_in_region.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1882,7 +1882,7 @@ declare noundef ptr @_ZN11ast_manager14mk_reflexivityEP4expr(ptr noundef nonnull
 declare noundef ptr @_ZN11ast_manager13mk_congruenceEP3appS1_jPKS1_(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt20simple_justificationC2ERNS_7contextEjPKN3sat7literalE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(11616) %ctx, i32 noundef %num_lits, ptr nocapture noundef readonly %lits) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt20simple_justificationC2ERNS_7contextEjPKN3sat7literalE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (12, 16)) %this, ptr noundef nonnull align 8 dereferenceable(11616) %ctx, i32 noundef %num_lits, ptr nocapture noundef readonly %lits) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_mark.i = getelementptr inbounds i8, ptr %this, i64 8
   %bf.load.i = load i8, ptr %m_mark.i, align 8
@@ -3008,7 +3008,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt24ext_simple_justificationC2ERNS_7contextEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_E(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(11616) %ctx, i32 noundef %num_lits, ptr nocapture noundef readonly %lits, i32 noundef %num_eqs, ptr noundef readonly %eqs) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt24ext_simple_justificationC2ERNS_7contextEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_E(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (12, 16)) %this, ptr noundef nonnull align 8 dereferenceable(11616) %ctx, i32 noundef %num_lits, ptr nocapture noundef readonly %lits, i32 noundef %num_eqs, ptr noundef readonly %eqs) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_mark.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %bf.load.i.i = load i8, ptr %m_mark.i.i, align 8
@@ -3645,7 +3645,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt26theory_lemma_justificationC2EiRNS_7contextEjPKN3sat7literalEjP9parameter(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %fid, ptr nocapture noundef nonnull readonly align 8 dereferenceable(11616) %ctx, i32 noundef %num_lits, ptr nocapture noundef readonly %lits, i32 noundef %num_params, ptr noundef %params) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt26theory_lemma_justificationC2EiRNS_7contextEjPKN3sat7literalEjP9parameter(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (12, 24)) %this, i32 noundef %fid, ptr nocapture noundef nonnull readonly align 8 dereferenceable(11616) %ctx, i32 noundef %num_lits, ptr nocapture noundef readonly %lits, i32 noundef %num_params, ptr noundef %params) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_mark.i = getelementptr inbounds i8, ptr %this, i64 8
   %bf.load.i = load i8, ptr %m_mark.i, align 8
@@ -3813,7 +3813,7 @@ terminate.lpad:                                   ; preds = %_ZN6vectorI9paramet
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt26theory_lemma_justificationD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt26theory_lemma_justificationD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3smt26theory_lemma_justificationE, i64 16), ptr %this, align 8
   %m_literals = getelementptr inbounds i8, ptr %this, i64 32
@@ -3875,7 +3875,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt26theory_lemma_justificationD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt26theory_lemma_justificationD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3smt26theory_lemma_justificationE, i64 16), ptr %this, align 8
   %m_literals.i = getelementptr inbounds i8, ptr %this, i64 32

@@ -2739,7 +2739,7 @@ _ZNSt12_Vector_baseIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26ExtendedBlackVarianceCurveC1ERKNS_4DateERKSt6vectorIS1_SaIS1_EES4_INS_6HandleINS_5QuoteEEESaISB_EENS_10DayCounterEb(ptr noundef nonnull align 8 dereferenceable(201) %this, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dates, ptr nocapture noundef %volatilities, ptr nocapture noundef %dayCounter, i1 noundef zeroext %forceMonotoneVariance) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26ExtendedBlackVarianceCurveC1ERKNS_4DateERKSt6vectorIS1_SaIS1_EES4_INS_6HandleINS_5QuoteEEESaISB_EENS_10DayCounterEb(ptr noundef nonnull align 8 dereferenceable(201) initializes((208, 216), (224, 228), (232, 240)) %this, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dates, ptr nocapture noundef %volatilities, ptr nocapture noundef %dayCounter, i1 noundef zeroext %forceMonotoneVariance) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Calendar", align 8
   %ref.tmp2 = alloca %"class.QuantLib::DayCounter", align 8

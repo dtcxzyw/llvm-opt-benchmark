@@ -150,7 +150,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14FdmHullWhiteOpC2ERKN5boost10shared_ptrINS_9FdmMesherEEERKNS2_INS_9HullWhiteEEEm(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %model, i64 noundef %direction) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14FdmHullWhiteOpC2ERKN5boost10shared_ptrINS_9FdmMesherEEERKNS2_INS_9HullWhiteEEEm(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %model, i64 noundef %direction) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::TripleBandLinearOp", align 8
   %ref.tmp3 = alloca %"class.QuantLib::FirstDerivativeOp", align 8
@@ -1026,7 +1026,7 @@ entry:
 declare void @_ZNK8QuantLib18TripleBandLinearOp5applyERKNS_5ArrayE(ptr dead_on_unwind writable sret(%"class.QuantLib::Array") align 8, ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib14FdmHullWhiteOp11apply_mixedERKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib14FdmHullWhiteOp11apply_mixedERKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %n_.i = getelementptr inbounds nuw i8, ptr %r, i64 8
   %0 = load i64, ptr %n_.i, align 8, !tbaa !32

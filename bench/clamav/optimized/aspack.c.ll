@@ -1320,7 +1320,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @build_decrypt_array(ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @getdec(ptr nocapture noundef nonnull %0, i8 noundef zeroext range(i8 0, 4) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #8 {
+define internal fastcc i32 @getdec(ptr nocapture noundef nonnull %0, i8 noundef zeroext range(i8 0, 4) %1, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %2) unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 360
   %5 = zext nneg i8 %1 to i64
   %6 = getelementptr inbounds [4 x [24 x i32]], ptr %4, i64 0, i64 %5

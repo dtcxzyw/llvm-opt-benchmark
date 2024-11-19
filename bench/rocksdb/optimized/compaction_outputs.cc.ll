@@ -647,7 +647,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb17CompactionOutputs15WriterSyncCloseERKNS_6StatusEPNS_11SystemClockEPNS_10StatisticsEb(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(328) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %input_status, ptr noundef %clock, ptr noundef %statistics, i1 noundef zeroext %use_fsync) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb17CompactionOutputs15WriterSyncCloseERKNS_6StatusEPNS_11SystemClockEPNS_10StatisticsEb(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(328) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %input_status, ptr noundef %clock, ptr noundef %statistics, i1 noundef zeroext %use_fsync) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %sw = alloca %"class.rocksdb::StopWatch", align 8
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8
@@ -1959,7 +1959,7 @@ return:                                           ; preds = %if.end, %land.rhs86
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb17CompactionOutputs11AddToOutputERKNS_18CompactionIteratorERKSt8functionIFNS_6StatusERS0_EERKS4_IFS5_S6_RKS5_RKNS_5SliceEEE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef nonnull align 8 dereferenceable(1097) %c_iter, ptr noundef nonnull align 8 dereferenceable(32) %open_file_func, ptr noundef nonnull align 8 dereferenceable(32) %close_file_func) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb17CompactionOutputs11AddToOutputERKNS_18CompactionIteratorERKSt8functionIFNS_6StatusERS0_EERKS4_IFS5_S6_RKS5_RKNS_5SliceEEE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef nonnull align 8 dereferenceable(1097) %c_iter, ptr noundef nonnull align 8 dereferenceable(32) %open_file_func, ptr noundef nonnull align 8 dereferenceable(32) %close_file_func) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
   %ref.tmp12 = alloca %"class.rocksdb::Status", align 8
@@ -4603,7 +4603,7 @@ return:                                           ; preds = %if.else, %if.end8.s
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb17CompactionOutputsC2EPKNS_10CompactionEb(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef %compaction, i1 noundef zeroext %is_penultimate_level) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb17CompactionOutputsC2EPKNS_10CompactionEb(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 129), (136, 144)) %this, ptr noundef %compaction, i1 noundef zeroext %is_penultimate_level) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.39", align 8
   %frombool = zext i1 %is_penultimate_level to i8

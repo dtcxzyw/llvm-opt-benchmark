@@ -263,7 +263,7 @@ define dso_local ptr @nf_reject_ip_tcphdr_get(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @nf_reject_iphdr_put(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef ptr @nf_reject_iphdr_put(ptr noundef initializes((180, 182)) %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 192
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 180
@@ -309,7 +309,7 @@ define dso_local noundef ptr @nf_reject_iphdr_put(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nf_reject_ip_tcphdr_put(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local void @nf_reject_ip_tcphdr_put(ptr noundef initializes((178, 180)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 180

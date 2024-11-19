@@ -117,7 +117,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.70 = private unnamed_addr constant [29 x i8] c"run_processes_parallel: done\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @child_process_init(ptr nocapture noundef writeonly %child) local_unnamed_addr #0 {
+define dso_local void @child_process_init(ptr nocapture noundef writeonly initializes((0, 120)) %child) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %child, ptr noundef nonnull align 8 dereferenceable(120) @__const.run_auto_maintenance.maint, i64 120, i1 false)
   ret void

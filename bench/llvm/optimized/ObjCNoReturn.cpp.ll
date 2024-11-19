@@ -29,7 +29,7 @@ $_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Star
 @_ZN5clang12ObjCNoReturnC1ERNS_10ASTContextE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5clang12ObjCNoReturnC2ERNS_10ASTContextE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang12ObjCNoReturnC2ERNS_10ASTContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(23096) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang12ObjCNoReturnC2ERNS_10ASTContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(23096) %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.llvm::SmallVector.341", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)

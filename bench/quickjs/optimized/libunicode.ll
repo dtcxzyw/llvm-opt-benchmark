@@ -154,7 +154,7 @@ define dso_local range(i32 1, 4) i32 @lre_case_conv(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: write) uwtable
-define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca [3 x i32], align 4
   %7 = alloca [3 x i32], align 4
   %8 = alloca [3 x i32], align 4
@@ -723,7 +723,7 @@ define dso_local range(i32 0, 2) i32 @lre_is_case_ignorable(i32 noundef %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @cr_init(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define dso_local void @cr_init(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr %1, ptr %4, align 8
@@ -1061,7 +1061,7 @@ cr_add_point.exit:                                ; preds = %54, %cr_compress.ex
 declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @cr_union1(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #6 {
+define dso_local range(i32 -1, 1) i32 @cr_union1(ptr nocapture noundef initializes((4, 8)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #6 {
   %.sroa.0.0.copyload = load i32, ptr %0, align 8
   %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.27.0.copyload = load ptr, ptr %.sroa.27.0..sroa_idx, align 8

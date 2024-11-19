@@ -689,7 +689,7 @@ define linkonce_odr void @_ZN3gmx10EnergyData7Element24trajectoryWriterTeardownE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx10EnergyData7Element35registerTrajectorySignallerCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx10EnergyData7Element35registerTrajectorySignallerCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq i32 %2, 1
   br i1 %4, label %5, label %14
 
@@ -718,7 +718,7 @@ define void @_ZN3gmx10EnergyData7Element35registerTrajectorySignallerCallbackENS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx10EnergyData7Element32registerTrajectoryWriterCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.27") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx10EnergyData7Element32registerTrajectoryWriterCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.27") align 8 initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq i32 %2, 1
   br i1 %4, label %5, label %14
 
@@ -747,7 +747,7 @@ define void @_ZN3gmx10EnergyData7Element32registerTrajectoryWriterCallbackENS_15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx10EnergyData7Element22registerEnergyCallbackENS_20EnergySignallerEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx10EnergyData7Element22registerEnergyCallbackENS_20EnergySignallerEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %16 [
     i32 0, label %4
     i32 2, label %8
@@ -815,7 +815,7 @@ define linkonce_odr void @_ZThn8_N3gmx10EnergyData7Element24trajectoryWriterTear
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZThn8_N3gmx10EnergyData7Element32registerTrajectoryWriterCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.27") align 8 %0, ptr noundef %1, i32 noundef %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn8_N3gmx10EnergyData7Element32registerTrajectoryWriterCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.27") align 8 initializes((32, 33)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 -8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %5 = icmp eq i32 %2, 1
@@ -862,7 +862,7 @@ define linkonce_odr void @_ZThn16_N3gmx10EnergyData7ElementD0Ev(ptr noundef %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZThn16_N3gmx10EnergyData7Element35registerTrajectorySignallerCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 %0, ptr noundef %1, i32 noundef %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn16_N3gmx10EnergyData7Element35registerTrajectorySignallerCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 initializes((32, 33)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %5 = icmp eq i32 %2, 1
@@ -909,7 +909,7 @@ define linkonce_odr void @_ZThn24_N3gmx10EnergyData7ElementD0Ev(ptr noundef %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZThn24_N3gmx10EnergyData7Element22registerEnergyCallbackENS_20EnergySignallerEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 %0, ptr noundef %1, i32 noundef %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn24_N3gmx10EnergyData7Element22registerEnergyCallbackENS_20EnergySignallerEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 initializes((32, 33)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 -24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   switch i32 %2, label %_ZN3gmx10EnergyData7Element22registerEnergyCallbackENS_20EnergySignallerEventE.exit [
@@ -4941,7 +4941,7 @@ define noundef ptr @_ZN3gmx10EnergyData7elementEv(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx10EnergyData7ElementC2EPS0_bi(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx10EnergyData7ElementC2EPS0_bi(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 48)) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::allocator.200", align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16

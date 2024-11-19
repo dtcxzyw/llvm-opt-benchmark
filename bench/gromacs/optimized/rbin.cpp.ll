@@ -36,7 +36,7 @@ define void @_Z11destroy_binP5t_bin(ptr noundef %0) local_unnamed_addr #0 {
 declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z9reset_binP5t_bin(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
+define void @_Z9reset_binP5t_bin(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #2 {
   store i32 0, ptr %0, align 8
   ret void
 }

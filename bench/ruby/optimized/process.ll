@@ -10842,7 +10842,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare ptr @rb_thread_call_without_gvl2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias noundef ptr @open_func(ptr nocapture noundef %0) #1 {
+define internal noalias noundef ptr @open_func(ptr nocapture noundef initializes((16, 24)) %0) #1 {
   %2 = load i64, ptr %0, align 8
   %3 = inttoptr i64 %2 to ptr
   %4 = load i64, ptr %3, align 8, !noalias !141

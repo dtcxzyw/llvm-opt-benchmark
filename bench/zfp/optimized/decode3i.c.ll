@@ -437,7 +437,7 @@ decode_block_int32_3.exit:                        ; preds = %229
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc i32 @decode_ints_uint32(ptr noalias nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef nonnull %3) unnamed_addr #1 {
+define internal fastcc i32 @decode_ints_uint32(ptr noalias nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef nonnull initializes((0, 256)) %3) unnamed_addr #1 {
   %5 = shl i32 %2, 6
   %6 = or disjoint i32 %5, 63
   %.not = icmp ugt i32 %6, %1

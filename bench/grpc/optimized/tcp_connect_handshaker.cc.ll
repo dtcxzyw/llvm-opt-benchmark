@@ -694,7 +694,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.exit6
 declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_120TCPConnectHandshakerD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_120TCPConnectHandshakerD2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_120TCPConnectHandshakerE, i64 16), ptr %this, align 8
   %endpoint_to_destroy_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -741,7 +741,7 @@ terminate.lpad:                                   ; preds = %if.end9, %invoke.co
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_120TCPConnectHandshakerD0Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_120TCPConnectHandshakerD0Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_120TCPConnectHandshakerE, i64 16), ptr %this, align 8
   %endpoint_to_destroy_.i = getelementptr inbounds i8, ptr %this, i64 32

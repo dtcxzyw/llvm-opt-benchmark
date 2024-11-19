@@ -134,7 +134,7 @@ $_ZNK4llvm12MCAsmBackend11isMicroMipsEPKNS_8MCSymbolE = comdat any
 @_ZN4llvm12MCAsmBackendD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm12MCAsmBackendD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm12MCAsmBackendC2ENS_10endiannessEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12MCAsmBackendC2ENS_10endiannessEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN4llvm12MCAsmBackendE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %4, align 8

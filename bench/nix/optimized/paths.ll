@@ -96,7 +96,7 @@ define internal void @__cxx_global_var_init.4() #0 section ".text.startup" comda
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix9EvalState8rootPathENS_9CanonPathE(ptr dead_on_unwind noalias writable sret(%"struct.nix::SourcePath") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1248) %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix9EvalState8rootPathENS_9CanonPathE(ptr dead_on_unwind noalias writable sret(%"struct.nix::SourcePath") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1248) %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.nix::CanonPath", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 384
   %6 = load ptr, ptr %5, align 8

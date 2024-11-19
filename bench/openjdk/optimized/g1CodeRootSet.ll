@@ -145,7 +145,7 @@ define hidden noundef zeroext i1 @_ZN22G1CodeRootSetHashTable15HashTableLookUp6e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef range(i64 0, 4294967296) i64 @_ZN28G1CodeRootSetHashTableConfig8get_hashERKP7nmethodPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZN28G1CodeRootSetHashTableConfig8get_hashERKP7nmethodPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #1 align 2 {
   store i8 0, ptr %1, align 1
   %3 = load ptr, ptr %0, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -236,7 +236,7 @@ define hidden noundef zeroext i1 @_ZN13G1CodeRootSet8containsEP7nmethod(ptr noca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13G1CodeRootSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN13G1CodeRootSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   %2 = alloca %class.anon.25, align 1
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 168, i8 noundef zeroext 5, i32 noundef 0) #13
   %4 = getelementptr inbounds i8, ptr %3, i64 8

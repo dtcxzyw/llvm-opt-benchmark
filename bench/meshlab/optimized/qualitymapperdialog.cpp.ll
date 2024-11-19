@@ -8371,7 +8371,7 @@ _ZN7QStringD2Ev.exit6:                            ; preds = %_ZN7QStringD2Ev.exi
 declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19QualityMapperDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(824) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19QualityMapperDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(824) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV19QualityMapperDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV19QualityMapperDialog, i64 448), ptr %2, align 8
@@ -10308,7 +10308,7 @@ define void @_ZThn16_N19QualityMapperDialogD0Ev(ptr noundef %0) unnamed_addr #14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QualityMapperDialog32ComputePerVertexQualityHistogramER6CMeshO6FrangePN3vcg9HistogramIfEEi(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1196) %1, <2 x float> %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19QualityMapperDialog32ComputePerVertexQualityHistogramER6CMeshO6FrangePN3vcg9HistogramIfEEi(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1196) %1, <2 x float> %2, ptr noundef initializes((48, 80)) %3, i32 noundef %4) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -11673,7 +11673,7 @@ declare void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnam
 declare noundef ptr @_ZN14QGraphicsScene7addLineERK6QLineFRK4QPen(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN19QualityMapperDialog22initEqualizerHistogramEv(ptr noundef nonnull align 8 dereferenceable(824) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN19QualityMapperDialog22initEqualizerHistogramEv(ptr noundef nonnull align 8 dereferenceable(824) initializes((656, 658)) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [3 x ptr], align 16
   %3 = alloca %class.QColor, align 4
   %4 = alloca %"class.QMetaObject::Connection", align 8
@@ -16916,7 +16916,7 @@ define void @_ZN19QualityMapperDialog19on_TfHandle_clickedEP8TFHandle(ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QualityMapperDialog25on_TfHandle_doubleClickedEP8TFHandle(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
+define void @_ZN19QualityMapperDialog25on_TfHandle_doubleClickedEP8TFHandle(ptr noundef nonnull align 8 dereferenceable(824) initializes((752, 760)) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 752
   store ptr %1, ptr %3, align 8
   %4 = tail call noundef ptr @_ZN19QualityMapperDialog14removeTfHandleEP8TFHandle(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef %1)
@@ -17966,7 +17966,7 @@ define void @_ZN19QualityMapperDialog24on_TF_view_doubleClickedE7QPointF(ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QualityMapperDialog22on_clampButton_clickedEv(ptr noundef nonnull align 8 dereferenceable(824) %0) local_unnamed_addr #10 align 2 {
+define void @_ZN19QualityMapperDialog22on_clampButton_clickedEv(ptr noundef nonnull align 8 dereferenceable(824) initializes((656, 658)) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 656
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 657
@@ -18184,7 +18184,7 @@ define void @_ZN19QualityMapperDialog32on_brightessSpinBox_valueChangedEd(ptr no
 declare void @_ZN15QAbstractSlider8setValueEi(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QualityMapperDialog26on_midSpinBox_valueChangedEd(ptr nocapture noundef nonnull align 8 dereferenceable(824) %0, double noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19QualityMapperDialog26on_midSpinBox_valueChangedEd(ptr nocapture noundef nonnull align 8 dereferenceable(824) initializes((672, 676)) %0, double noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 672
   store i32 1, ptr %4, align 8

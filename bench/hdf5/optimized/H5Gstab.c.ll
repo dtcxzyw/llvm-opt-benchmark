@@ -875,7 +875,7 @@ declare i32 @H5G__link_iterate_table(ptr noundef, i64 noundef, ptr noundef, ptr 
 declare i32 @H5G__link_release_table(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5G__stab_count(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5G__stab_count(ptr noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5O_stab_t, align 8
   %4 = alloca i64, align 8
   store i64 -1, ptr %4, align 8

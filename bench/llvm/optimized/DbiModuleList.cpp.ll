@@ -103,7 +103,7 @@ $_ZTVN4llvm3pdb8RawErrorE = comdat any
 @_ZN4llvm3pdb28DbiModuleSourceFilesIteratorC1ERKNS0_13DbiModuleListEjt = unnamed_addr alias void (ptr, ptr, i32, i16), ptr @_ZN4llvm3pdb28DbiModuleSourceFilesIteratorC2ERKNS0_13DbiModuleListEjt
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb28DbiModuleSourceFilesIteratorC2ERKNS0_13DbiModuleListEjt(ptr nocapture noundef nonnull align 8 dereferenceable(30) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2, i16 noundef zeroext %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb28DbiModuleSourceFilesIteratorC2ERKNS0_13DbiModuleListEjt(ptr nocapture noundef nonnull align 8 dereferenceable(30) initializes((0, 30)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2, i16 noundef zeroext %3) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %5, align 8
@@ -664,7 +664,7 @@ define dso_local noundef nonnull align 8 dereferenceable(30) ptr @_ZN4llvm3pdb28
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb13DbiModuleList11getFileNameEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3pdb13DbiModuleList11getFileNameEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %class.anon, align 1
@@ -1015,7 +1015,7 @@ define dso_local noundef range(i32 0, 65536) i32 @_ZNK4llvm3pdb13DbiModuleList14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb13DbiModuleList10initializeENS_15BinaryStreamRefES2_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb13DbiModuleList10initializeENS_15BinaryStreamRefES2_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) initializes((208, 216), (224, 256)) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::BinaryStreamRef", align 8
   %6 = alloca %"class.llvm::BinaryStreamRef", align 8
   %7 = load ptr, ptr %2, align 8
@@ -1235,7 +1235,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %_ZNSt16_Sp_counted_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb13DbiModuleList17initializeModInfoENS_15BinaryStreamRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb13DbiModuleList17initializeModInfoENS_15BinaryStreamRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) initializes((208, 216), (224, 256)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::BinaryStreamReader", align 8
   %5 = alloca %"class.llvm::BinaryStreamRef", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -1596,7 +1596,7 @@ _ZN4llvm18BinaryStreamReaderD2Ev.exit:            ; preds = %_ZNSt16_Sp_counted_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb13DbiModuleList18initializeFileInfoENS_15BinaryStreamRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb13DbiModuleList18initializeFileInfoENS_15BinaryStreamRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) initializes((256, 264), (272, 304)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %class.anon, align 1
@@ -4069,7 +4069,7 @@ _ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb13DbiModuleList19getModuleDescriptorEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::pdb::DbiModuleDescriptor") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3pdb13DbiModuleList19getModuleDescriptorEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::pdb::DbiModuleDescriptor") align 8 initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::VarStreamArrayIterator", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %6 = zext i32 %2 to i64

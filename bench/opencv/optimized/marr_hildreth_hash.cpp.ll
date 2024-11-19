@@ -713,7 +713,7 @@ define void @_ZN2cv8img_hash16marrHildrethHashERKNS_11_InputArrayERKNS_12_Output
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120MarrHildrethHashImplC2Eff(ptr noundef nonnull align 8 dereferenceable(696) %0, float noundef %1, float noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120MarrHildrethHashImplC2Eff(ptr noundef nonnull align 8 dereferenceable(696) initializes((0, 12)) %0, float noundef %1, float noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_120MarrHildrethHashImplE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store float %1, ptr %4, align 8

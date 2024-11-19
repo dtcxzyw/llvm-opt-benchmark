@@ -120,7 +120,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 41), (44, 103), (104, 112), (184, 200)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV6Sample, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -190,7 +190,7 @@ define dso_local void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN6Sample19resetCommonSettingsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %0) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN6Sample19resetCommonSettingsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) initializes((44, 100)) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 44
   store float 0x3FD3333340000000, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -235,7 +235,7 @@ define linkonce_odr dso_local void @_ZN15SampleDebugDrawD2Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV6Sample, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -322,7 +322,7 @@ declare void @_Z13dtFreeNavMeshP9dtNavMesh(ptr noundef) local_unnamed_addr #5
 declare void @_Z11dtFreeCrowdP7dtCrowd(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6SampleD0Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN6SampleD0Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
   tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   ret void
@@ -428,7 +428,7 @@ define dso_local void @_ZN6Sample19handleRenderOverlayEPdS0_Pi(ptr nocapture non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN6Sample17handleMeshChangedEP9InputGeom(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %0, ptr noundef %1) unnamed_addr #10 align 2 {
+define dso_local void @_ZN6Sample17handleMeshChangedEP9InputGeom(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) initializes((8, 16)) %0, ptr noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 124
@@ -500,7 +500,7 @@ define dso_local void @_ZN6Sample17handleMeshChangedEP9InputGeom(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN6Sample15collectSettingsER13BuildSettings(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(84) %1) unnamed_addr #10 align 2 {
+define dso_local void @_ZN6Sample15collectSettingsER13BuildSettings(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(84) initializes((0, 56)) %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   %4 = load float, ptr %3, align 4
   store float %4, ptr %1, align 4

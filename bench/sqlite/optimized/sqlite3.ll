@@ -9991,7 +9991,7 @@ define dso_local ptr @sqlite3_str_value(ptr noundef readonly %0) #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sqlite3_str_reset(ptr nocapture noundef %0) #0 {
+define dso_local void @sqlite3_str_reset(ptr nocapture noundef initializes((16, 20), (24, 28)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 29
   %3 = load i8, ptr %2, align 1
   %4 = and i8 %3, 4
@@ -10980,7 +10980,7 @@ sqlite3MutexAlloc.exit:                           ; preds = %33, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 6411) i32 @unixOpen(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4) #0 {
+define internal range(i32 0, 6411) i32 @unixOpen(ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 120)) %2, i32 noundef %3, ptr noundef writeonly %4) #0 {
   %6 = alloca %struct.unixFileId, align 8
   %7 = alloca %struct.stat, align 8
   %8 = alloca %struct.stat, align 8
@@ -11941,7 +11941,7 @@ robust_close.exit:                                ; preds = %31, %27, %14, %16, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @unixAccess(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef i32 @unixAccess(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) #0 {
   %5 = alloca %struct.stat, align 8
   %6 = icmp eq i32 %2, 0
   br i1 %6, label %7, label %20
@@ -12181,7 +12181,7 @@ define internal noundef i32 @unixSleep(ptr nocapture readnone %0, i32 noundef re
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @unixCurrentTime(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #9 {
+define internal noundef i32 @unixCurrentTime(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #9 {
   %3 = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %4 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #57
@@ -12207,7 +12207,7 @@ define internal i32 @unixGetLastError(ptr nocapture readnone %0, i32 %1, ptr noc
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @unixCurrentTimeInt64(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #9 {
+define internal noundef i32 @unixCurrentTimeInt64(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #9 {
   %3 = alloca %struct.timeval, align 8
   %4 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #57
   %5 = load i64, ptr %3, align 8
@@ -12784,7 +12784,7 @@ sqlite3_malloc64.exit95.thread:                   ; preds = %sqlite3PagerUnref.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sqlite3_prepare_v2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) #0 {
+define dso_local i32 @sqlite3_prepare_v2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr noundef %4) #0 {
   %6 = tail call fastcc i32 @sqlite3LockAndPrepare(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 128, ptr noundef null, ptr noundef %3, ptr noundef %4)
   ret i32 %6
 }
@@ -16916,7 +16916,7 @@ sqlite3_mutex_leave.exit47:                       ; preds = %sqlite3_mutex_leave
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sqlite3ErrorWithMsg(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) unnamed_addr #0 {
+define internal void @sqlite3ErrorWithMsg(ptr noundef initializes((80, 84)) %0, i32 noundef %1, ptr noundef %2, ...) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 %1, ptr %5, align 8
@@ -16992,7 +16992,7 @@ sqlite3ValueSetStr.exit:                          ; preds = %27, %24, %sqlite3Va
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sqlite3Error(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @sqlite3Error(ptr nocapture noundef initializes((80, 84)) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.sqlite3_context, align 8
   %4 = alloca %struct.sqlite3_value, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 80
@@ -24066,7 +24066,7 @@ sqlite3VdbeMemSetDouble.exit:                     ; preds = %sqlite3VdbeMemSetNu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sqlite3_result_error(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define dso_local void @sqlite3_result_error(ptr nocapture noundef initializes((36, 40)) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 1, ptr %4, align 4
   %5 = load ptr, ptr %0, align 8
@@ -24512,7 +24512,7 @@ sqlite3ErrorToParser.exit:                        ; preds = %190, %195, %174, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sqlite3_result_error16(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define dso_local void @sqlite3_result_error16(ptr nocapture noundef initializes((36, 40)) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 1, ptr %4, align 4
   %5 = load ptr, ptr %0, align 8
@@ -25270,7 +25270,7 @@ vdbeMemClearExternAndSetNull.exit:                ; preds = %30, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sqlite3_result_error_toobig(ptr nocapture noundef %0) #0 {
+define dso_local void @sqlite3_result_error_toobig(ptr nocapture noundef initializes((36, 40)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 18, ptr %2, align 4
   %3 = load ptr, ptr %0, align 8
@@ -25411,7 +25411,7 @@ sqlite3VdbeMemRelease.exit:                       ; preds = %6, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sqlite3_result_error_code(ptr nocapture noundef %0, i32 noundef %1) #0 {
+define dso_local void @sqlite3_result_error_code(ptr nocapture noundef initializes((36, 40)) %0, i32 noundef %1) #0 {
   %.not = icmp eq i32 %1, 0
   %3 = select i1 %.not, i32 -1, i32 %1
   %4 = getelementptr inbounds i8, ptr %0, i64 36
@@ -25463,7 +25463,7 @@ sqlite3ErrStr.exit:                               ; preds = %9, %10, %11, %12, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sqlite3_result_error_nomem(ptr nocapture noundef %0) #0 {
+define dso_local void @sqlite3_result_error_nomem(ptr nocapture noundef initializes((36, 40)) %0) #0 {
   %2 = alloca %struct.sqlite3_context, align 8
   %3 = alloca %struct.sqlite3_value, align 8
   %4 = load ptr, ptr %0, align 8
@@ -25993,13 +25993,13 @@ define dso_local range(i32 0, 2) i32 @sqlite3_vtab_nochange(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sqlite3_vtab_in_first(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define dso_local i32 @sqlite3_vtab_in_first(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
   %3 = tail call fastcc i32 @valueFromValueList(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @valueFromValueList(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc i32 @valueFromValueList(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca %struct.sqlite3_context, align 8
   %5 = alloca %struct.sqlite3_value, align 8
   %6 = alloca %struct.sqlite3_value, align 8
@@ -26339,7 +26339,7 @@ sqlite3VdbeMemRelease.exit:                       ; preds = %.thread43.thread, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sqlite3_vtab_in_next(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define dso_local i32 @sqlite3_vtab_in_next(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
   %3 = tail call fastcc i32 @valueFromValueList(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret i32 %3
 }
@@ -29949,7 +29949,7 @@ sqlite3VdbeIntegerAffinity.exit:                  ; preds = %sqlite3RealToI64.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sqlite3_blob_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6) #0 {
+define dso_local i32 @sqlite3_blob_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly initializes((0, 8)) %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca %struct.Parse, align 8
   store ptr null, ptr %8, align 8
@@ -32325,7 +32325,7 @@ vdbeChangeP4Full.exit:                            ; preds = %sqlite3DbStrNDup.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sqlite3VdbeMakeReady(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @sqlite3VdbeMakeReady(ptr nocapture noundef initializes((176, 184)) %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 328
   %5 = load ptr, ptr %4, align 8
@@ -32622,7 +32622,7 @@ initMemArray.exit102:                             ; preds = %.preheader.i99, %in
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @blobSeekToRow(ptr nocapture noundef nonnull %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @blobSeekToRow(ptr nocapture noundef nonnull %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2) unnamed_addr #0 {
   %4 = alloca %struct.sqlite3_context, align 8
   %5 = alloca %struct.sqlite3_value, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -33318,7 +33318,7 @@ sqlite3_mutex_leave.exit:                         ; preds = %25, %sqlite3DbFree.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sqlite3_set_authorizer(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define dso_local noundef i32 @sqlite3_set_authorizer(ptr nocapture noundef initializes((504, 520)) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -35274,13 +35274,13 @@ sqlite3_mutex_leave.exit:                         ; preds = %30, %sqlite3_free.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sqlite3_prepare(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) #0 {
+define dso_local i32 @sqlite3_prepare(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr noundef %4) #0 {
   %6 = tail call fastcc i32 @sqlite3LockAndPrepare(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 0, ptr noundef null, ptr noundef %3, ptr noundef %4)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sqlite3LockAndPrepare(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @sqlite3LockAndPrepare(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5, ptr noundef %6) unnamed_addr #0 {
   store ptr null, ptr %5, align 8
   %8 = icmp eq ptr %0, null
   br i1 %8, label %sqlite3SafetyCheckOk.exit.thread, label %9
@@ -35527,7 +35527,7 @@ sqlite3_mutex_leave.exit:                         ; preds = %106, %sqlite3BtreeL
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sqlite3_prepare_v3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5) #0 {
+define dso_local i32 @sqlite3_prepare_v3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr noundef %5) #0 {
   %7 = and i32 %3, 15
   %8 = or disjoint i32 %7, 128
   %9 = tail call fastcc i32 @sqlite3LockAndPrepare(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %8, ptr noundef null, ptr noundef %4, ptr noundef %5)
@@ -35535,13 +35535,13 @@ define dso_local i32 @sqlite3_prepare_v3(ptr noundef %0, ptr noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sqlite3_prepare16(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) #0 {
+define dso_local i32 @sqlite3_prepare16(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr noundef %4) #0 {
   %6 = tail call fastcc i32 @sqlite3Prepare16(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 0, ptr noundef %3, ptr noundef %4)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sqlite3Prepare16(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 144) %3, ptr nocapture noundef writeonly %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc i32 @sqlite3Prepare16(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 144) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
   store ptr null, ptr %4, align 8
@@ -35738,13 +35738,13 @@ sqlite3_mutex_leave.exit:                         ; preds = %75, %sqlite3DbFree.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sqlite3_prepare16_v2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) #0 {
+define dso_local i32 @sqlite3_prepare16_v2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr noundef %4) #0 {
   %6 = tail call fastcc i32 @sqlite3Prepare16(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 128, ptr noundef %3, ptr noundef %4)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sqlite3_prepare16_v3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5) #0 {
+define dso_local i32 @sqlite3_prepare16_v3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr noundef %5) #0 {
   %7 = and i32 %3, 15
   %8 = or disjoint i32 %7, 128
   %9 = tail call fastcc i32 @sqlite3Prepare16(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %8, ptr noundef %4, ptr noundef %5)
@@ -35752,7 +35752,7 @@ define dso_local i32 @sqlite3_prepare16_v3(ptr noundef %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sqlite3_get_table(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef %5) #0 {
+define dso_local i32 @sqlite3_get_table(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef %5) #0 {
   %7 = alloca %struct.TabResult, align 8
   store ptr null, ptr %2, align 8
   %.not = icmp eq ptr %4, null
@@ -36890,7 +36890,7 @@ sqlite3_mutex_leave.exit68:                       ; preds = %174, %sqlite3Delete
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @sqlite3RunParser(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @sqlite3RunParser(ptr noundef initializes((24, 28), (344, 352)) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.Token, align 8
   %4 = alloca %union.YYMINORTYPE, align 8
   %5 = alloca i32, align 4
@@ -38077,7 +38077,7 @@ define dso_local range(i32 0, 2) i32 @sqlite3_vtab_in(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 22) i32 @sqlite3_vtab_rhs_value(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define dso_local range(i32 0, 22) i32 @sqlite3_vtab_rhs_value(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = icmp slt i32 %1, 0
   br i1 %5, label %8, label %6
@@ -40784,7 +40784,7 @@ define dso_local i64 @sqlite3_last_insert_rowid(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sqlite3_set_last_insert_rowid(ptr nocapture noundef %0, i64 noundef %1) #0 {
+define dso_local void @sqlite3_set_last_insert_rowid(ptr nocapture noundef initializes((56, 64)) %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -41616,7 +41616,7 @@ define dso_local range(i32 0, 22) i32 @sqlite3_close_v2(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sqlite3_busy_handler(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define dso_local noundef i32 @sqlite3_busy_handler(ptr nocapture noundef initializes((640, 660), (740, 744)) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -41658,7 +41658,7 @@ sqlite3_mutex_leave.exit:                         ; preds = %sqlite3_mutex_enter
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sqlite3_progress_handler(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define dso_local void @sqlite3_progress_handler(ptr nocapture noundef initializes((520, 540)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
@@ -41694,7 +41694,7 @@ sqlite3_mutex_leave.exit:                         ; preds = %sqlite3_mutex_enter
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sqlite3_busy_timeout(ptr noundef %0, i32 noundef %1) #0 {
+define dso_local noundef i32 @sqlite3_busy_timeout(ptr noundef initializes((640, 648)) %0, i32 noundef %1) #0 {
   %3 = icmp sgt i32 %1, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -42857,7 +42857,7 @@ sqlite3OomFault.exit:                             ; preds = %.lr.ph.i102, %.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sqlite3InvalidFunction(ptr nocapture noundef %0, i32 %1, ptr nocapture readnone %2) #0 {
+define internal void @sqlite3InvalidFunction(ptr nocapture noundef initializes((36, 40)) %0, i32 %1, ptr nocapture readnone %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -42916,7 +42916,7 @@ sqlite3_free.exit:                                ; preds = %3, %sqlite3_mutex_e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sqlite3_trace(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define dso_local ptr @sqlite3_trace(ptr nocapture noundef initializes((110, 111), (240, 248)) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -42952,7 +42952,7 @@ sqlite3_mutex_leave.exit:                         ; preds = %sqlite3_mutex_enter
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sqlite3_trace_v2(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define dso_local noundef i32 @sqlite3_trace_v2(ptr nocapture noundef initializes((110, 111), (240, 256)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
@@ -42990,7 +42990,7 @@ sqlite3_mutex_leave.exit:                         ; preds = %sqlite3_mutex_enter
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sqlite3_profile(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define dso_local ptr @sqlite3_profile(ptr nocapture noundef initializes((256, 264)) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -43029,7 +43029,7 @@ sqlite3_mutex_leave.exit:                         ; preds = %sqlite3_mutex_enter
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sqlite3_commit_hook(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define dso_local ptr @sqlite3_commit_hook(ptr nocapture noundef initializes((280, 288)) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -43066,7 +43066,7 @@ sqlite3_mutex_leave.exit:                         ; preds = %sqlite3_mutex_enter
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sqlite3_update_hook(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define dso_local ptr @sqlite3_update_hook(ptr nocapture noundef initializes((312, 320)) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -43103,7 +43103,7 @@ sqlite3_mutex_leave.exit:                         ; preds = %sqlite3_mutex_enter
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sqlite3_rollback_hook(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define dso_local ptr @sqlite3_rollback_hook(ptr nocapture noundef initializes((296, 304)) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -43140,7 +43140,7 @@ sqlite3_mutex_leave.exit:                         ; preds = %sqlite3_mutex_enter
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sqlite3_autovacuum_pages(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define dso_local noundef i32 @sqlite3_autovacuum_pages(ptr nocapture noundef initializes((336, 344)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
@@ -43183,7 +43183,7 @@ sqlite3_mutex_leave.exit:                         ; preds = %14, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sqlite3_wal_autocheckpoint(ptr nocapture noundef %0, i32 noundef %1) #0 {
+define dso_local noundef i32 @sqlite3_wal_autocheckpoint(ptr nocapture noundef initializes((352, 368)) %0, i32 noundef %1) #0 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %4, label %16
 
@@ -43248,7 +43248,7 @@ sqlite3_wal_hook.exit:                            ; preds = %22, %sqlite3_mutex_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sqlite3_wal_hook(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define dso_local ptr @sqlite3_wal_hook(ptr nocapture noundef initializes((352, 360)) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -44012,13 +44012,13 @@ define dso_local i32 @sqlite3_limit(ptr nocapture noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sqlite3_open(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define dso_local i32 @sqlite3_open(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
   %3 = tail call fastcc i32 @openDatabase(ptr noundef %0, ptr noundef %1, i32 noundef 6, ptr noundef null)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @openDatabase(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @openDatabase(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -44595,13 +44595,13 @@ sqlite3_free_filename.exit:                       ; preds = %254, %252, %sqlite3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sqlite3_open_v2(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, ptr noundef %3) #0 {
+define dso_local i32 @sqlite3_open_v2(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = tail call fastcc i32 @openDatabase(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sqlite3_open16(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define dso_local i32 @sqlite3_open16(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1) #0 {
   store ptr null, ptr %1, align 8
   %3 = tail call i32 @sqlite3_initialize()
   %.not = icmp eq i32 %3, 0
@@ -45216,7 +45216,7 @@ sqlite3_mutex_leave.exit:                         ; preds = %13, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sqlite3_collation_needed(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define dso_local noundef i32 @sqlite3_collation_needed(ptr nocapture noundef initializes((368, 392)) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -45254,7 +45254,7 @@ sqlite3_mutex_leave.exit:                         ; preds = %sqlite3_mutex_enter
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sqlite3_collation_needed16(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define dso_local noundef i32 @sqlite3_collation_needed16(ptr nocapture noundef initializes((368, 392)) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -47047,7 +47047,7 @@ sqlite3_vfs_find.exit.thread:                     ; preds = %1, %sqlite3_vfs_fin
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sqlite3_extended_result_codes(ptr nocapture noundef %0, i32 noundef %1) #0 {
+define dso_local noundef i32 @sqlite3_extended_result_codes(ptr nocapture noundef initializes((88, 92)) %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -52947,7 +52947,7 @@ posixUnlock.exit:                                 ; preds = %2, %sqlite3_mutex_l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3595) i32 @unixCheckReservedLock(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 0, 3595) i32 @unixCheckReservedLock(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
   %3 = alloca %struct.flock, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -54528,7 +54528,7 @@ unixLeaveMutex.exit:                              ; preds = %60, %58, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 1803) i32 @unixFetch(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 1803) i32 @unixFetch(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   store ptr null, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load i64, ptr %5, align 8
@@ -54689,7 +54689,7 @@ fileHasMoved.exit:                                ; preds = %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @closeUnixFile(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @closeUnixFile(ptr nocapture noundef initializes((0, 24), (28, 48), (64, 88), (96, 104), (112, 120)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -55151,7 +55151,7 @@ sqlite3_free.exit:                                ; preds = %sqlite3_mutex_enter
 declare i32 @fdatasync(i32 noundef) local_unnamed_addr #32
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 6411) i32 @unixGetTempname(i32 noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 6411) i32 @unixGetTempname(i32 noundef %0, ptr noundef nonnull initializes((0, 1)) %1) unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %4 = alloca i64, align 8
   store i8 0, ptr %1, align 1
@@ -55742,7 +55742,7 @@ sqlite3_free.exit33:                              ; preds = %119, %117, %sqlite3
 declare i32 @getpid() local_unnamed_addr #30
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @nolockClose(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @nolockClose(ptr nocapture noundef initializes((0, 24), (28, 48), (64, 88), (96, 104), (112, 120)) %0) #0 {
   tail call fastcc void @closeUnixFile(ptr noundef %0)
   ret i32 0
 }
@@ -55758,7 +55758,7 @@ define internal noundef i32 @nolockUnlock(ptr nocapture readnone %0, i32 %1) #2 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @nolockCheckReservedLock(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #22 {
+define internal noundef i32 @nolockCheckReservedLock(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #22 {
   store i32 0, ptr %1, align 4
   ret i32 0
 }
@@ -55767,7 +55767,7 @@ define internal noundef i32 @nolockCheckReservedLock(ptr nocapture readnone %0, 
 declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dotlockClose(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @dotlockClose(ptr nocapture noundef initializes((0, 24), (29, 40), (64, 88), (96, 104), (112, 120)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 28
@@ -55950,7 +55950,7 @@ define internal range(i32 0, 2059) i32 @dotlockUnlock(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dotlockCheckReservedLock(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal noundef i32 @dotlockCheckReservedLock(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @aSyscall, i64 56), align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -56704,7 +56704,7 @@ define internal noundef i32 @memdbSync(ptr nocapture readnone %0, i32 %1) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @memdbFileSize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal noundef i32 @memdbFileSize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 32
@@ -56974,7 +56974,7 @@ define internal noundef i32 @memdbDeviceCharacteristics(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @memdbFetch(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef i32 @memdbFetch(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 32
@@ -59883,7 +59883,7 @@ sqlite3BtreeLeave.exit:                           ; preds = %sqlite3PagerSetCach
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 8) i32 @memdbOpen(ptr nocapture readnone %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3, ptr noundef writeonly %4) #0 {
+define internal range(i32 0, 8) i32 @memdbOpen(ptr nocapture readnone %0, ptr noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 24)) %2, i32 noundef %3, ptr noundef writeonly %4) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %6 = icmp eq ptr %1, null
   br i1 %6, label %sqlite3Strlen30.exit.thread, label %sqlite3Strlen30.exit
@@ -60133,7 +60133,7 @@ sqlite3_mutex_leave.exit:                         ; preds = %sqlite3_mutex_leave
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @memdbAccess(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture noundef writeonly %3) #22 {
+define internal noundef i32 @memdbAccess(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) #22 {
   store i32 0, ptr %3, align 4
   ret i32 0
 }
@@ -63038,7 +63038,7 @@ define internal noundef i32 @memjrnlSync(ptr nocapture readnone %0, i32 %1) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @memjrnlFileSize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #21 {
+define internal noundef i32 @memjrnlFileSize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #21 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -65435,7 +65435,7 @@ walUnlockShared.exit.thread:                      ; preds = %25, %36, %35, %walL
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @walIndexPage(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @walIndexPage(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %.not = icmp sgt i32 %5, %1
@@ -66283,7 +66283,7 @@ sqlite3_mutex_leave.exit:                         ; preds = %51, %49, %sqlite3_m
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @getPageError(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture noundef writeonly %2, i32 %3) #21 {
+define internal i32 @getPageError(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i32 %3) #21 {
   store ptr null, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load i32, ptr %5, align 8
@@ -71106,7 +71106,7 @@ sqlite3OsFileControlHint.exit:                    ; preds = %33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pagerUnlockDb(ptr nocapture noundef %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #0 {
+define internal fastcc void @pagerUnlockDb(ptr nocapture noundef initializes((23, 24)) %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -71145,7 +71145,7 @@ define internal fastcc void @pagerUnlockDb(ptr nocapture noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @readSuperJournal(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -2147483647, -2147483648) %2) unnamed_addr #0 {
+define internal fastcc i32 @readSuperJournal(ptr noundef %0, ptr noundef initializes((0, 1)) %1, i32 noundef range(i32 -2147483647, -2147483648) %2) unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
   %5 = alloca [4 x i8], align 1
   %6 = alloca i64, align 8
@@ -71320,7 +71320,7 @@ sqlite3BackupRestart.exit:                        ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 12) i32 @btreeInitPage(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 12) i32 @btreeInitPage(ptr noundef initializes((1, 3), (8, 9), (10, 12), (120, 136)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80
@@ -71461,7 +71461,7 @@ btreeCellSizeCheck.exit:                          ; preds = %71, %btreeCellSizeC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 12) i32 @decodeFlags(ptr nocapture noundef %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 12) i32 @decodeFlags(ptr nocapture noundef initializes((1, 3), (8, 9), (10, 12), (120, 136)) %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 37
@@ -72176,7 +72176,7 @@ define internal zeroext range(i16 2, 14) i16 @cellSizePtrNoPayload(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @btreeParseCellPtrNoPayload(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #21 {
+define internal void @btreeParseCellPtrNoPayload(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 24)) %2) #21 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = tail call fastcc zeroext i8 @sqlite3GetVarint(ptr noundef nonnull %4, ptr noundef %2)
   %narrow = add nuw nsw i8 %5, 4
@@ -72193,7 +72193,7 @@ define internal void @btreeParseCellPtrNoPayload(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc zeroext range(i8 1, 10) i8 @sqlite3GetVarint(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #21 {
+define internal fastcc zeroext range(i8 1, 10) i8 @sqlite3GetVarint(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) unnamed_addr #21 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp sgt i8 %3, -1
   br i1 %4, label %5, label %7
@@ -75630,7 +75630,7 @@ pagerFixMaplimit.exit:                            ; preds = %105, %109, %setGett
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zeroPage(ptr nocapture noundef %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #0 {
+define internal fastcc void @zeroPage(ptr nocapture noundef initializes((1, 3), (8, 9), (10, 12), (20, 24), (120, 136)) %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72
@@ -80408,7 +80408,7 @@ btreeGetPage.exit:                                ; preds = %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @btreeGetUnusedPage(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc i32 @btreeGetUnusedPage(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8
@@ -81782,7 +81782,7 @@ sqlite3BtreeLeave.exit:                           ; preds = %unlockBtreeMutex.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sqlite3BtreeClearCursor(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @sqlite3BtreeClearCursor(ptr nocapture noundef initializes((0, 1)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -86966,7 +86966,7 @@ sqlite3DbFree.exit:                               ; preds = %2, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sqlite3OsOpenMalloc(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef range(i32 4126, 16407) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @sqlite3OsOpenMalloc(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i32 noundef range(i32 4126, 16407) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
@@ -88476,7 +88476,7 @@ define internal fastcc range(i32 0, 8) i32 @sqlite3VdbeMemClearAndResize(ptr nou
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @sqlite3AtoF(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #39 {
+define internal fastcc range(i32 -1, -2147483648) i32 @sqlite3AtoF(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #39 {
   %5 = alloca double, align 8
   %6 = alloca double, align 8
   %7 = alloca double, align 8
@@ -110836,7 +110836,7 @@ define internal fastcc i32 @sqlite3VdbeFinishMoveto(ptr nocapture noundef %0) un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc zeroext range(i8 1, 10) i8 @sqlite3GetVarint32(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #21 {
+define internal fastcc zeroext range(i8 1, 10) i8 @sqlite3GetVarint32(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) unnamed_addr #21 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1
@@ -110886,7 +110886,7 @@ define internal fastcc zeroext range(i8 1, 10) i8 @sqlite3GetVarint32(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sqlite3VdbeMemFromBtreeZeroOffset(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @sqlite3VdbeMemFromBtreeZeroOffset(ptr noundef %0, i32 noundef %1, ptr noundef initializes((8, 16), (20, 22)) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 68
   %5 = load i16, ptr %4, align 4
   %6 = zext i16 %5 to i32
@@ -110925,7 +110925,7 @@ define internal fastcc i32 @sqlite3VdbeMemFromBtreeZeroOffset(ptr noundef %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @sqlite3VdbeSerialGet(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #21 {
+define internal fastcc void @sqlite3VdbeSerialGet(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((20, 22)) %2) unnamed_addr #21 {
   switch i32 %1, label %139 [
     i32 10, label %4
     i32 11, label %7
@@ -111887,7 +111887,7 @@ define internal fastcc void @sqlite3ResetOneSchema(ptr nocapture noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sqlite3BtreeGetMeta(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc void @sqlite3BtreeGetMeta(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call fastcc void @sqlite3BtreeEnter(ptr noundef %0)
@@ -114224,7 +114224,7 @@ define internal fastcc i32 @sqlite3BtreeTableMoveto(ptr noundef %0, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sqlite3BtreeIndexMoveto(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @sqlite3BtreeIndexMoveto(ptr noundef %0, ptr noundef nonnull initializes((31, 32)) %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i16, ptr %5, align 8
@@ -114956,7 +114956,7 @@ sqlite3_free.exit:                                ; preds = %246, %275, %273, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sqlite3BtreeNext(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @sqlite3BtreeNext(ptr noundef initializes((70, 72)) %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 70
   %4 = getelementptr inbounds i8, ptr %0, i64 1
@@ -115433,7 +115433,7 @@ moveToLeftmost.exit:                              ; preds = %239, %108, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sqlite3BtreePrevious(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @sqlite3BtreePrevious(ptr noundef initializes((70, 72)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1
   %3 = getelementptr inbounds i8, ptr %0, i64 70
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -115712,7 +115712,7 @@ btreePrevious.exit:                               ; preds = %160, %._crit_edge, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sqlite3VdbeRecordUnpack(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @sqlite3VdbeRecordUnpack(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef initializes((30, 31)) %3) unnamed_addr #0 {
   %5 = alloca %struct.sqlite3_context, align 8
   %6 = alloca %struct.sqlite3_value, align 8
   %7 = alloca i64, align 8
@@ -119470,7 +119470,7 @@ define internal fastcc void @sqlite3RootPageMoved(ptr nocapture readonly %.32.va
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sqlite3SchemaClear(ptr nocapture noundef %0) #0 {
+define internal void @sqlite3SchemaClear(ptr nocapture noundef initializes((32, 36)) %0) #0 {
   %2 = alloca %struct.Hash, align 8
   %3 = alloca %struct.Hash, align 8
   %4 = alloca %struct.sqlite3, align 8
@@ -119563,7 +119563,7 @@ sqlite3DeleteTable.exit:                          ; preds = %16, %22, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @sqlite3InitOne(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @sqlite3InitOne(ptr noundef initializes((197, 198)) %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca [6 x ptr], align 16
   %6 = alloca [5 x i32], align 16
   %7 = alloca %struct.InitData, align 8
@@ -121324,7 +121324,7 @@ rowSetListToTree.exit67:                          ; preds = %.lr.ph.i60, %73
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @sqlite3VdbeFrameMemDel(ptr noundef %0) #18 {
+define internal void @sqlite3VdbeFrameMemDel(ptr noundef initializes((8, 16)) %0) #18 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 272
   %4 = load ptr, ptr %3, align 8
@@ -122689,7 +122689,7 @@ sqlite3VdbeAllocUnpackedRecord.exit.thread:       ; preds = %sqlite3DbMallocRaw.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sqlite3VdbeMemFromBtree(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @sqlite3VdbeMemFromBtree(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef initializes((20, 22)) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 20
   store i16 1, ptr %5, align 4
   %6 = getelementptr i8, ptr %0, i64 32
@@ -123279,7 +123279,7 @@ releasePage.exit:                                 ; preds = %47, %71
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @getAndInitPage(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
+define internal fastcc i32 @getAndInitPage(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr i8, ptr %0, i64 64
   %.val23 = load i32, ptr %6, align 8
@@ -126264,7 +126264,7 @@ allocateTempSpace.exit:                           ; preds = %50, %46, %53, %34, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @invalidateIncrblobCursors(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #16 {
+define internal fastcc void @invalidateIncrblobCursors(ptr nocapture noundef initializes((19, 20)) %0, i32 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 19
   store i8 0, ptr %5, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -133559,7 +133559,7 @@ vdbeSorterMerge.exit54:                           ; preds = %101, %106
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @vdbeSorterFlushPMA(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @vdbeSorterFlushPMA(ptr noundef initializes((88, 89)) %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 91
   %4 = load i8, ptr %3, align 1
@@ -134818,7 +134818,7 @@ vdbePmaWriteBlob.exit:                            ; preds = %43, %78
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #30
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 8) i32 @vdbeIncrMergerNew(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 8) i32 @vdbeIncrMergerNew(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) unnamed_addr #0 {
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @sqlite3Config, i64 400), align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %sqlite3FaultSim.exit.thread, label %sqlite3FaultSim.exit
@@ -136525,7 +136525,7 @@ define internal ptr @vdbePmaReaderBgIncrInit(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sqlite3HashClear(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @sqlite3HashClear(ptr nocapture noundef initializes((0, 4)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   store ptr null, ptr %2, align 8
@@ -136678,7 +136678,7 @@ sqlite3DbFree.exit:                               ; preds = %sqlite3DbStrDup.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @sqlite3SetTextEncoding(ptr nocapture noundef %0, i8 noundef zeroext %1) unnamed_addr #16 {
+define internal fastcc void @sqlite3SetTextEncoding(ptr nocapture noundef initializes((100, 101)) %0, i8 noundef zeroext %1) unnamed_addr #16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 100
   store i8 %1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 616
@@ -144503,7 +144503,7 @@ sqlite3_malloc.exit.thread:                       ; preds = %122, %sqlite3_mallo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @pragmaVtabBestIndex(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #16 {
+define internal noundef i32 @pragmaVtabBestIndex(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((64, 72)) %1) #16 {
   %3 = alloca [2 x i32], align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   store double 1.000000e+00, ptr %4, align 8
@@ -145392,7 +145392,7 @@ sqlite3_result_value.exit:                        ; preds = %58, %sqlite3VdbeMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @pragmaVtabRowid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #21 {
+define internal noundef i32 @pragmaVtabRowid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #21 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -204903,7 +204903,7 @@ sqlite3ExprIdToTrueFalse.exit.thread:             ; preds = %51, %23, %11, %11, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @sqlite3SelectWalkFail(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #22 {
+define internal noundef i32 @sqlite3SelectWalkFail(ptr nocapture noundef writeonly initializes((36, 38)) %0, ptr nocapture readnone %1) #22 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   store i16 0, ptr %3, align 4
   ret i32 2
@@ -225276,7 +225276,7 @@ viewGetColumnNames.exit:                          ; preds = %159, %151, %80, %sq
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sqlite3ColumnsFromExprList(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @sqlite3ColumnsFromExprList(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 2)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.Hash, align 8
   %7 = load ptr, ptr %0, align 8
@@ -253912,7 +253912,7 @@ sqlite3ExprAnalyzeAggregates.exit:                ; preds = %68, %73
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @optimizeAggregateUseOfIndexedExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @optimizeAggregateUseOfIndexedExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef initializes((32, 36)) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 32
@@ -281307,7 +281307,7 @@ define internal fastcc range(i32 0, 8) i32 @whereLoopResize(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @whereLoopAddVirtualOne(ptr nocapture noundef nonnull %0, i64 noundef %1, i64 noundef %2, i16 noundef zeroext range(i16 0, 2) %3, ptr noundef nonnull %4, i16 noundef zeroext %5, ptr nocapture noundef nonnull %6, ptr noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc i32 @whereLoopAddVirtualOne(ptr nocapture noundef nonnull %0, i64 noundef %1, i64 noundef %2, i16 noundef zeroext range(i16 0, 2) %3, ptr noundef nonnull %4, i16 noundef zeroext %5, ptr nocapture noundef nonnull initializes((0, 4)) %6, ptr noundef writeonly %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 32
@@ -300399,7 +300399,7 @@ sqlite3VdbeAddOp3.exit65:                         ; preds = %211, %348, %345, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pushOntoSorter(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @pushOntoSorter(ptr noundef %0, ptr nocapture noundef nonnull initializes((28, 32)) %1, ptr nocapture noundef nonnull readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 36
@@ -335680,7 +335680,7 @@ sqlite3ChangeCookie.exit:                         ; preds = %17, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @renameTestSchema(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @renameTestSchema(ptr noundef initializes((28, 29)) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 1, ptr %6, align 4
   tail call void (ptr, ptr, ...) @sqlite3NestedParse(ptr noundef %0, ptr noundef nonnull @.str.1031, ptr noundef %1, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4)
@@ -351407,7 +351407,7 @@ sqlite3BtreeLeaveAll.exit:                        ; preds = %sqlite3BtreeLeave.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 12) i32 @renameParseSql(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 12) i32 @renameParseSql(ptr noundef nonnull initializes((8, 232), (264, 272), (288, 424)) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(224) %6, i8 0, i64 224, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 288
@@ -353193,7 +353193,7 @@ sqlite3_free.exit:                                ; preds = %sqlite3DbMallocRaw.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @renameColumnParseError(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc void @renameColumnParseError(ptr nocapture noundef initializes((36, 40)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %sqlite3_value_text.exit, label %6
 
@@ -359247,7 +359247,7 @@ define internal void @cdateFunc(ptr nocapture noundef %0, i32 %1, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @isDate(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @isDate(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef nonnull initializes((0, 48)) %3) unnamed_addr #0 {
   %5 = alloca double, align 8
   %6 = alloca %struct.DateTime, align 8
   %7 = alloca i32, align 4
@@ -367453,7 +367453,7 @@ sqlite3DbMallocZero.exit.thread:                  ; preds = %78, %sqlite3_set_au
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 10) i32 @jsonbPayloadSize(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #20 {
+define internal fastcc range(i32 0, 10) i32 @jsonbPayloadSize(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %2) unnamed_addr #20 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp ugt i32 %1, %5
@@ -370460,7 +370460,7 @@ define internal fastcc void @jsonAfterEditSizeAdjust(ptr nocapture noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @jsonCreateEditSubstructure(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @jsonCreateEditSubstructure(ptr nocapture noundef %0, ptr noundef nonnull initializes((0, 72)) %1, ptr noundef %2) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1, i8 0, i64 72, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -381109,7 +381109,7 @@ jsonEachPathLength.exit:                          ; preds = %jsonEachPathLength.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @jsonEachRowid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #21 {
+define internal noundef i32 @jsonEachRowid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #21 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64

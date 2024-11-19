@@ -1503,7 +1503,7 @@ _ZN3irr4core6stringIcED2Ev.exit239:               ; preds = %if.then.i.i.i234, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui11SGUITTGlyph6unloadEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN3irr3gui11SGUITTGlyph6unloadEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 1)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %surface = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %surface, align 8, !tbaa !99
@@ -1606,7 +1606,7 @@ declare i32 @FT_Init_FreeType(ptr noundef) local_unnamed_addr #0
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui10CGUITTFontC1EPNS0_15IGUIEnvironmentE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef %env) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3irr3gui10CGUITTFontC1EPNS0_15IGUIEnvironmentE(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 12), (16, 28), (32, 56), (280, 300)) %this, ptr noundef %env) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 280
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 288
@@ -2913,7 +2913,7 @@ return:                                           ; preds = %cleanup204, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui10CGUITTFontC2EPNS0_15IGUIEnvironmentE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr nocapture noundef readonly %vtt, ptr noundef %env) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3irr3gui10CGUITTFontC2EPNS0_15IGUIEnvironmentE(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 12), (16, 28), (32, 56)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %env) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -3664,7 +3664,7 @@ cleanup:                                          ; preds = %if.end26, %land.lhs
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3irr3gui10CGUITTFontD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3irr3gui10CGUITTFontD2Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !12
@@ -4167,7 +4167,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #13
 declare i32 @FT_Done_FreeType(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3irr3gui10CGUITTFontD1Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN3irr3gui10CGUITTFontD1Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN3irr3gui10CGUITTFontD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef nonnull @_ZTTN3irr3gui10CGUITTFontE) #30
   ret void
@@ -4185,7 +4185,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3irr3gui10CGUITTFontD0Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN3irr3gui10CGUITTFontD0Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN3irr3gui10CGUITTFontD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef nonnull @_ZTTN3irr3gui10CGUITTFontE) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -4602,7 +4602,7 @@ _ZN3irr4core5arrayINS0_8vector2dIiEEED2Ev.exit:   ; preds = %if.then.i.i.i.i19, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui10CGUITTFont15setTransparencyEb(ptr noundef nonnull align 8 dereferenceable(280) %this, i1 noundef zeroext %flag) unnamed_addr #4 align 2 {
+define dso_local void @_ZN3irr3gui10CGUITTFont15setTransparencyEb(ptr noundef nonnull align 8 dereferenceable(280) initializes((9, 10)) %this, i1 noundef zeroext %flag) unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %flag to i8
   %use_transparency = getelementptr inbounds i8, ptr %this, i64 9
@@ -4612,7 +4612,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui10CGUITTFont13setMonochromeEb(ptr noundef nonnull align 8 dereferenceable(280) %this, i1 noundef zeroext %flag) unnamed_addr #4 align 2 {
+define dso_local void @_ZN3irr3gui10CGUITTFont13setMonochromeEb(ptr noundef nonnull align 8 dereferenceable(280) initializes((8, 9)) %this, i1 noundef zeroext %flag) unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %flag to i8
   %use_monochrome = getelementptr inbounds i8, ptr %this, i64 8
@@ -4622,7 +4622,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui10CGUITTFont14setFontHintingEbb(ptr noundef nonnull align 8 dereferenceable(280) %this, i1 noundef zeroext %enable, i1 noundef zeroext %enable_auto_hinting) unnamed_addr #4 align 2 {
+define dso_local void @_ZN3irr3gui10CGUITTFont14setFontHintingEbb(ptr noundef nonnull align 8 dereferenceable(280) initializes((10, 12)) %this, i1 noundef zeroext %enable, i1 noundef zeroext %enable_auto_hinting) unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %enable to i8
   %frombool1 = zext i1 %enable_auto_hinting to i8
@@ -7806,7 +7806,7 @@ cleanup11:                                        ; preds = %cleanup, %_ZNK3irr3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3irr3gui10CGUITTFont15setKerningWidthEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) %this, i32 noundef %kerning) unnamed_addr #15 align 2 {
+define dso_local void @_ZN3irr3gui10CGUITTFont15setKerningWidthEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) initializes((224, 228)) %this, i32 noundef %kerning) unnamed_addr #15 align 2 {
 entry:
   %GlobalKerningWidth = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %kerning, ptr %GlobalKerningWidth, align 8, !tbaa !134
@@ -7814,7 +7814,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3irr3gui10CGUITTFont16setKerningHeightEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) %this, i32 noundef %kerning) unnamed_addr #15 align 2 {
+define dso_local void @_ZN3irr3gui10CGUITTFont16setKerningHeightEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) initializes((228, 232)) %this, i32 noundef %kerning) unnamed_addr #15 align 2 {
 entry:
   %GlobalKerningHeight = getelementptr inbounds i8, ptr %this, i64 228
   store i32 %kerning, ptr %GlobalKerningHeight, align 4, !tbaa !135
@@ -8551,7 +8551,7 @@ _ZN3irr4core6stringIwED2Ev.exit25:                ; preds = %if.then.i.i.i21, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui10CGUITTFont16addTextSceneNodeEPKwPNS_5scene13ISceneManagerEPNS4_10ISceneNodeERKNS_5video6SColorEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.irr::core::array.89") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef %text, ptr noundef %smgr, ptr noundef %parent, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %color, i1 noundef zeroext %center) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3irr3gui10CGUITTFont16addTextSceneNodeEPKwPNS_5scene13ISceneManagerEPNS4_10ISceneNodeERKNS_5video6SColorEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.irr::core::array.89") align 8 initializes((0, 25)) %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef %text, ptr noundef %smgr, ptr noundef %parent, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %color, i1 noundef zeroext %center) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i = alloca [2 x i32], align 4
   %ref.tmp.i = alloca %"class.irr::scene::SVertexPositionScaleManipulator", align 8

@@ -853,7 +853,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx14BoxDeformationC2EdlRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEES9_(ptr noundef nonnull align 8 dereferenceable(128) %0, double noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %4) unnamed_addr #13 align 2 {
+define void @_ZN3gmx14BoxDeformationC2EdlRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEES9_(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 52)) %0, double noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %4) unnamed_addr #13 align 2 {
   store double %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %6, align 8

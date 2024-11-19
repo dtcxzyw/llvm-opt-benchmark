@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN9grpc_core17TimeAveragedStatsC1Eddd = unnamed_addr alias void (ptr, double, double, double), ptr @_ZN9grpc_core17TimeAveragedStatsC2Eddd
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9grpc_core17TimeAveragedStatsC2Eddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, double noundef %init_avg, double noundef %regress_weight, double noundef %persistence_factor) unnamed_addr #0 align 2 {
+define void @_ZN9grpc_core17TimeAveragedStatsC2Eddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %this, double noundef %init_avg, double noundef %regress_weight, double noundef %persistence_factor) unnamed_addr #0 align 2 {
 entry:
   store double %init_avg, ptr %this, align 8
   %regress_weight_ = getelementptr inbounds i8, ptr %this, i64 8

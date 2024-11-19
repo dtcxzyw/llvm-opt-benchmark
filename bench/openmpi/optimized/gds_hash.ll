@@ -403,7 +403,7 @@ pmix_obj_run_destructors.exit51:                  ; preds = %.lr.ph.i48, %._crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hash_assign_module(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define internal noundef i32 @hash_assign_module(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
   store i32 10, ptr %2, align 4
   %.not = icmp ne ptr %0, null
   %4 = icmp ne i64 %1, 0

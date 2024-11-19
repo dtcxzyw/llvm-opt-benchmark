@@ -2713,7 +2713,7 @@ type_base.exit:                                   ; preds = %44
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_get_introspection_for_fault(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @llvm_get_introspection_for_fault(ptr noundef %0, ptr noundef initializes((40, 48)) %1) unnamed_addr #0 {
   %3 = alloca [3 x ptr], align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -2841,7 +2841,7 @@ define internal fastcc ptr @llvm_get_introspection_for_fault(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @llvm_generate_temp_introspection_global(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @llvm_generate_temp_introspection_global(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((40, 48)) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 176

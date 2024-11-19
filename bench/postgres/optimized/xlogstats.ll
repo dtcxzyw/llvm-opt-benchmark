@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.XLogRecStats = type { i64, i64, i64 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @XLogRecGetLen(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local void @XLogRecGetLen(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8

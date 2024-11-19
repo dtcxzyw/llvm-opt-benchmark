@@ -93,7 +93,7 @@ $_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLev
 @_ZN22PathToGcRootsOperationC1EP13ObjectSamplerP9EdgeStorelbb = hidden unnamed_addr alias void (ptr, ptr, ptr, i64, i1, i1), ptr @_ZN22PathToGcRootsOperationC2EP13ObjectSamplerP9EdgeStorelbb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22PathToGcRootsOperationC2EP13ObjectSamplerP9EdgeStorelbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(42) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN22PathToGcRootsOperationC2EP13ObjectSamplerP9EdgeStorelbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(42) initializes((0, 42)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = zext i1 %4 to i8
   %8 = zext i1 %5 to i8
   %9 = getelementptr inbounds i8, ptr %0, i64 8

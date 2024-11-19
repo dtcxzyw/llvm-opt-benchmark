@@ -3204,7 +3204,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_Enca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_28_EncapsulatingSceneIndexBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_28_EncapsulatingSceneIndexBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8), (120, 128)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_28_EncapsulatingSceneIndexBaseEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_28_EncapsulatingSceneIndexBaseEEE, i64 80), ptr %2, align 8
@@ -3269,7 +3269,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_28_EncapsulatingSceneIndexBaseEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_28_EncapsulatingSceneIndexBaseEED0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8), (120, 128)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_28_EncapsulatingSceneIndexBaseEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_28_EncapsulatingSceneIndexBaseEEE, i64 80), ptr %2, align 8
@@ -3399,7 +3399,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase14_SystemMessageERKNS_7TfTokenERKSt10shared_ptrINS_16HdDataSourceBaseEE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_28_EncapsulatingSceneIndexBaseEE21GetEncapsulatedScenesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_28_EncapsulatingSceneIndexBaseEE21GetEncapsulatedScenesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [1 x %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr"], align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %5 = load ptr, ptr %4, align 8
@@ -3523,7 +3523,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit:
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn120_NK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_28_EncapsulatingSceneIndexBaseEE21GetEncapsulatedScenesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 2 {
+define internal void @_ZThn120_NK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_28_EncapsulatingSceneIndexBaseEE21GetEncapsulatedScenesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -120
   tail call void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_28_EncapsulatingSceneIndexBaseEE21GetEncapsulatedScenesEv(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(160) %3)
   ret void
@@ -3769,7 +3769,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_Enca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_37_FilteringEncapsulatingSceneIndexBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_37_FilteringEncapsulatingSceneIndexBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8), (144, 152)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_37_FilteringEncapsulatingSceneIndexBaseEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_37_FilteringEncapsulatingSceneIndexBaseEEE, i64 88), ptr %2, align 8
@@ -3834,7 +3834,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_37_FilteringEncapsulatingSceneIndexBaseEED0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_37_FilteringEncapsulatingSceneIndexBaseEED0Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8), (144, 152)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_37_FilteringEncapsulatingSceneIndexBaseEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_37_FilteringEncapsulatingSceneIndexBaseEEE, i64 88), ptr %2, align 8
@@ -4016,7 +4016,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBase
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_37_FilteringEncapsulatingSceneIndexBaseEE21GetEncapsulatedScenesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_37_FilteringEncapsulatingSceneIndexBaseEE21GetEncapsulatedScenesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [1 x %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr"], align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %5 = load ptr, ptr %4, align 8
@@ -4140,14 +4140,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit:
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn144_NK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_37_FilteringEncapsulatingSceneIndexBaseEE21GetEncapsulatedScenesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 2 {
+define internal void @_ZThn144_NK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_37_FilteringEncapsulatingSceneIndexBaseEE21GetEncapsulatedScenesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -144
   tail call void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_37_FilteringEncapsulatingSceneIndexBaseEE21GetEncapsulatedScenesEv(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_137_FilteringEncapsulatingSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_137_FilteringEncapsulatingSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_137_FilteringEncapsulatingSceneIndexBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8

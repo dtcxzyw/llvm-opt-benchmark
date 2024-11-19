@@ -719,7 +719,7 @@ _ZN12MemAllocator10Allocation32notify_allocation_dtrace_samplerEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK12MemAllocator25mem_allocate_outside_tlabERNS_10AllocationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(41) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK12MemAllocator25mem_allocate_outside_tlabERNS_10AllocationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(41) initializes((25, 26)) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 25
   store i8 1, ptr %3, align 1
   %4 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
@@ -1152,7 +1152,7 @@ _ZN4Copy21fill_to_aligned_wordsEPP12HeapWordImplmj.exit: ; preds = %.lr.ph.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK12MemAllocator6finishEPP12HeapWordImpl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef returned %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK12MemAllocator6finishEPP12HeapWordImpl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef returned initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
   store i64 1, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -1184,7 +1184,7 @@ _ZN7oopDesc17release_set_klassEPP12HeapWordImplP5Klass.exit: ; preds = %8, %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK12ObjAllocator10initializeEPP12HeapWordImpl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef returned %1) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK12ObjAllocator10initializeEPP12HeapWordImpl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef returned initializes((0, 8)) %1) unnamed_addr #0 align 2 {
   %3 = load i8, ptr @UseCompressedClassPointers, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %_ZN7oopDesc13set_klass_gapEPP12HeapWordImpli.exit.i
@@ -1239,7 +1239,7 @@ _ZNK12MemAllocator6finishEPP12HeapWordImpl.exit:  ; preds = %17, %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK17ObjArrayAllocator10initializeEPP12HeapWordImpl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(37) %0, ptr noundef returned %1) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK17ObjArrayAllocator10initializeEPP12HeapWordImpl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(37) %0, ptr noundef returned initializes((0, 8)) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1

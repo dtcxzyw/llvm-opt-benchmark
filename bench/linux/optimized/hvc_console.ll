@@ -500,7 +500,7 @@ define internal fastcc i32 @__hvc_poll(ptr noundef %0, i1 noundef zeroext %1) un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__hvc_resize(ptr noundef %0, i64 %1) #1 align 16 {
+define dso_local void @__hvc_resize(ptr noundef initializes((416, 424)) %0, i64 %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 416
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 424

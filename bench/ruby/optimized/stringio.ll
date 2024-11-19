@@ -3339,7 +3339,7 @@ declare i64 @rb_str_resize(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @rb_enc_get(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set_encoding_by_bom(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc ptr @set_encoding_by_bom(ptr nocapture noundef nonnull initializes((8, 16)) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8
   %3 = inttoptr i64 %2 to ptr
   %4 = load i64, ptr %3, align 8, !noalias !44

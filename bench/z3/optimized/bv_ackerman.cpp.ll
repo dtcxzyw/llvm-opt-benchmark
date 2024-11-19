@@ -61,7 +61,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2bv8ackermanC2ERNS_6solverE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(640) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2bv8ackermanC2ERNS_6solverE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 28), (32, 72)) %this, ptr noundef nonnull align 8 dereferenceable(640) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %s, ptr %this, align 8
   %m_table = getelementptr inbounds i8, ptr %this, i64 8
@@ -123,7 +123,7 @@ lpad4:                                            ; preds = %entry, %invoke.cont
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2bv8ackerman7new_tmpEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2bv8ackerman7new_tmpEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((40, 48)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
   %v1.i = getelementptr inbounds i8, ptr %call, i64 16

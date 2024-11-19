@@ -157,7 +157,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm593988EP7oopDescLNS_11BarrierTypeE2EE10_
 declare void @_ZN13XStatSubPhaseC1EPKc(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28XStrongOopStorageSetIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN28XStrongOopStorageSetIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 288)) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %0, i8 0, i64 288, i1 false)
   %3 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_8StrongIdEEEP10OopStorageT_(i32 noundef 0) #7
@@ -557,7 +557,7 @@ _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN10XStatTimerC2ER
 declare void @_ZN8XNMethod11nmethods_doEP14NMethodClosure(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14XRootsIteratorC2Ei(ptr noundef nonnull align 8 dereferenceable(378) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN14XRootsIteratorC2Ei(ptr noundef nonnull align 8 dereferenceable(378) initializes((0, 288)) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(289) %0, i8 0, i64 288, i1 false)
   %4 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_8StrongIdEEEP10OopStorageT_(i32 noundef 0) #7
@@ -775,7 +775,7 @@ _ZN14XParallelApplyI17XNMethodsIteratorE5applyI14NMethodClosureEEvPT_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN26XWeakOopStorageSetIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(568) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN26XWeakOopStorageSetIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(568) initializes((0, 568)) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(568) %0, i8 0, i64 568, i1 false)
   tail call void @_ZN13ValueObjBlockIN10OopStorage8ParStateILb1ELb0EEELi10EEC2IN13OopStorageSet8IteratorINS5_6WeakIdEEEEET_PPS2_(ptr noundef nonnull align 8 dereferenceable(488) %2, i32 5, ptr noundef nonnull align 8 dereferenceable(568) %0)

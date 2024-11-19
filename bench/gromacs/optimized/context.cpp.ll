@@ -1245,7 +1245,7 @@ _ZNSt10shared_ptrIN6gmxapi11ContextImplEED2Ev.exit12: ; preds = %_ZNSt10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6gmxapi11ContextImpl6createEONS_17MpiContextManagerE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6gmxapi11ContextImpl6createEONS_17MpiContextManagerE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__shared_ptr", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %4 = invoke noalias noundef nonnull dereferenceable(2248) ptr @_Znwm(i64 noundef 2248) #19
@@ -1367,7 +1367,7 @@ _ZNSt12__shared_ptrIN6gmxapi11ContextImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6gmxapi11ContextImplC2EONS_17MpiContextManagerE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6gmxapi11ContextImplC2EONS_17MpiContextManagerE(ptr noundef nonnull align 8 dereferenceable(2248) initializes((0, 56)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.gmx::PhysicalNodeCommunicator", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
@@ -5710,7 +5710,7 @@ define void @_ZN6gmxapi7Context6launchERKNS_8WorkflowE(ptr dead_on_unwind noalia
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6gmxapi7ContextC2ESt10shared_ptrINS_11ContextImplEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6gmxapi7ContextC2ESt10shared_ptrINS_11ContextImplEE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

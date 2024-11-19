@@ -9467,7 +9467,7 @@ declare i32 @agclose(ptr noundef) local_unnamed_addr #1
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QString6appendERKS_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12CFrmSettings15setActiveWindowEP8MdiChild(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN12CFrmSettings15setActiveWindowEP8MdiChild(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %1, ptr %3, align 8
   ret void

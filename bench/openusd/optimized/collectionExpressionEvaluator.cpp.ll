@@ -180,7 +180,7 @@ $_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev = comdat any
 @_ZN32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluatorC1ERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEERKNS_17SdfPathExpressionERKNS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEEE = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluatorC2ERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEERKNS_17SdfPathExpressionERKNS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluatorC2ERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEERKNS_17SdfPathExpressionE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(104) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluatorC2ERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEERKNS_17SdfPathExpressionE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(104) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZN32pxrInternal_v0_24__pxrReserved__31HdGetCollectionPredicateLibraryEv()
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %0, align 8
@@ -231,7 +231,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluatorC2ERKNS_8T
 declare noundef nonnull align 8 dereferenceable(80) ptr @_ZN32pxrInternal_v0_24__pxrReserved__31HdGetCollectionPredicateLibraryEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluatorC2ERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEERKNS_17SdfPathExpressionERKNS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(80) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluatorC2ERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEERKNS_17SdfPathExpressionERKNS_19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(80) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %0, align 8
   %.not.i.i.i = icmp eq ptr %5, null

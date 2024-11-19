@@ -1823,7 +1823,7 @@ declare ptr @CreateDestReceiver(i32 noundef) local_unnamed_addr #1
 declare void @SetTuplestoreDestReceiverParams(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @PortalRunUtility(ptr nocapture noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @PortalRunUtility(ptr nocapture noundef initializes((168, 176)) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = tail call zeroext i1 @PlannedStmtRequiresSnapshot(ptr noundef %1)
   br i1 %7, label %8, label %17
 

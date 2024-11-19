@@ -429,7 +429,7 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_close(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5D__earray_idx_is_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define internal noundef i32 @H5D__earray_idx_is_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1346,7 +1346,7 @@ H5D__earray_idx_close.exit:                       ; preds = %37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5D__earray_idx_reset(ptr nocapture noundef writeonly %0, i1 noundef zeroext %1) #3 {
+define internal noundef i32 @H5D__earray_idx_reset(ptr nocapture noundef writeonly initializes((32, 40)) %0, i1 noundef zeroext %1) #3 {
   br i1 %1, label %3, label %6
 
 3:                                                ; preds = %2
@@ -1971,7 +1971,7 @@ declare i32 @H5EA_get_stats(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare i32 @H5EA_iterate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5D__earray_idx_iterate_cb(i64 %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal i32 @H5D__earray_idx_iterate_cb(i64 %0, ptr nocapture noundef readonly %1, ptr noundef initializes((296, 304)) %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 304
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1

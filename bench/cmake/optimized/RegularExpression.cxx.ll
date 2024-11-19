@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5cmsys17RegularExpressionC1ERKS0_ = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN5cmsys17RegularExpressionC2ERKS0_
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5cmsys17RegularExpressionC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(556) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(556) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5cmsys17RegularExpressionC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(556) initializes((0, 520), (544, 552)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(556) %1) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %0, i8 0, i64 520, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 544
   %4 = load ptr, ptr %3, align 8
@@ -507,7 +507,7 @@ define dso_local void @_ZN5cmsys13RegExpCompile4regcEc(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef ptr @_ZN5cmsys13RegExpCompile3regEiPi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5cmsys13RegExpCompile3regEiPi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr nocapture noundef initializes((0, 4)) %2) local_unnamed_addr #6 align 2 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 1, ptr %2, align 4
@@ -1182,7 +1182,7 @@ define dso_local noundef ptr @_ZN5cmsys13RegExpCompile7regnodeEc(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef ptr @_ZN5cmsys13RegExpCompile9regbranchEPi(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5cmsys13RegExpCompile9regbranchEPi(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #6 align 2 {
   %3 = alloca i32, align 4
   store i32 0, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2355,7 +2355,7 @@ _ZN5cmsys13RegExpCompile9reginsertEcPc.exit:      ; preds = %_ZN5cmsysL7regnextE
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef ptr @_ZN5cmsys13RegExpCompile7regatomEPi(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN5cmsys13RegExpCompile7regatomEPi(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #6 align 2 {
   %3 = alloca i32, align 4
   store i32 0, ptr %1, align 4
   %4 = load ptr, ptr %0, align 8
@@ -2985,7 +2985,7 @@ define dso_local void @_ZN5cmsys13RegExpCompile9reginsertEcPc(ptr nocapture noun
 declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(556) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(520) %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(556) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8), (256, 264), (512, 520)) %2) local_unnamed_addr #6 align 2 {
   %4 = alloca %"class.cmsys::RegExpFind", align 8
   store ptr null, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 256
@@ -3188,7 +3188,7 @@ declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef range(i32 0, 2) i32 @_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #6 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN5cmsys10RegExpFind6regtryEPKcPS2_S3_S2_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8), (16, 32)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #6 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %2, ptr %6, align 8

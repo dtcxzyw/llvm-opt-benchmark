@@ -172,7 +172,7 @@ define dso_local void @unlock_vector_lock() local_unnamed_addr #0 align 16 {
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @init_irq_alloc_info(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local void @init_irq_alloc_info(ptr nocapture noundef writeonly initializes((0, 72)) %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
@@ -183,7 +183,7 @@ define dso_local void @init_irq_alloc_info(ptr nocapture noundef writeonly %0, p
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @copy_irq_alloc_info(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #4 align 16 {
+define dso_local void @copy_irq_alloc_info(ptr nocapture noundef writeonly initializes((0, 72)) %0, ptr noundef readonly %1) local_unnamed_addr #4 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %5, label %4
 

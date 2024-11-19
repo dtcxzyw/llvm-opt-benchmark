@@ -3040,7 +3040,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @O_set(ptr nocapture noundef writeonly %ptr, ptr noundef returned %value, i64 %size) #4 {
+define internal noundef ptr @O_set(ptr nocapture noundef writeonly initializes((0, 8)) %ptr, ptr noundef returned %value, i64 %size) #4 {
 entry:
   store ptr %value, ptr %ptr, align 8
   %0 = load i32, ptr %value, align 8

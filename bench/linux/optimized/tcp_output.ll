@@ -102,7 +102,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_tcp_rtx_syna
 @llvm.compiler.used = appending global [18 x ptr] [ptr @__UNIQUE_ID___addressable___tcp_send_ack1208, ptr @__UNIQUE_ID___addressable_tcp_connect1197, ptr @__UNIQUE_ID___addressable_tcp_make_synack1182, ptr @__UNIQUE_ID___addressable_tcp_mss_to_mtu1101, ptr @__UNIQUE_ID___addressable_tcp_mtu_to_mss1100, ptr @__UNIQUE_ID___addressable_tcp_mtup_init1104, ptr @__UNIQUE_ID___addressable_tcp_release_cb1074, ptr @__UNIQUE_ID___addressable_tcp_rtx_synack1214, ptr @__UNIQUE_ID___addressable_tcp_select_initial_window1057, ptr @__UNIQUE_ID___addressable_tcp_sync_mss1107, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29, ptr @sk_memory_allocated_add.__UNIQUE_ID___addressable___SCK__preempt_schedule601, ptr @trace_tcp_retransmit_skb.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace909, ptr @trace_tcp_retransmit_skb.__UNIQUE_ID___addressable___SCK__tp_func_tcp_retransmit_skb908, ptr @trace_tcp_retransmit_synack.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace979, ptr @trace_tcp_retransmit_synack.__UNIQUE_ID___addressable___SCK__tp_func_tcp_retransmit_synack978, ptr @trace_tcp_send_reset.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace923, ptr @trace_tcp_send_reset.__UNIQUE_ID___addressable___SCK__tp_func_tcp_send_reset922], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_mstamp_refresh(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @tcp_mstamp_refresh(ptr nocapture noundef writeonly initializes((1600, 1616)) %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i64 @ktime_get() #18
   %3 = getelementptr inbounds i8, ptr %0, i64 1600
   store i64 %2, ptr %3, align 64
@@ -200,7 +200,7 @@ define dso_local void @tcp_cwnd_restart(ptr noundef %0, i32 noundef %1) local_un
 declare dso_local i32 @tcp_init_cwnd(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_select_initial_window(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, i32 noundef %7) #0 align 16 {
+define dso_local void @tcp_select_initial_window(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef %4, i32 noundef %5, ptr nocapture noundef writeonly initializes((0, 1)) %6, i32 noundef %7) #0 align 16 {
   %9 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %10 = load i32, ptr %4, align 4
   %11 = icmp eq i32 %10, 0
@@ -1579,7 +1579,7 @@ define dso_local i32 @tcp_mss_to_mtu(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local void @tcp_mtup_init(ptr nocapture noundef %0) #6 align 16 {
+define dso_local void @tcp_mtup_init(ptr nocapture noundef initializes((1240, 1248)) %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1120
@@ -1633,7 +1633,7 @@ define dso_local void @tcp_mtup_init(ptr nocapture noundef %0) #6 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local i32 @tcp_sync_mss(ptr nocapture noundef %0, i32 noundef %1) #6 align 16 {
+define dso_local i32 @tcp_sync_mss(ptr nocapture noundef initializes((1156, 1160), (1416, 1420)) %0, i32 noundef %1) #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1240
   %4 = load i32, ptr %3, align 8
   %5 = icmp ugt i32 %4, %1
@@ -2411,7 +2411,7 @@ define dso_local void @tcp_send_loss_probe(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @tcp_write_xmit(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 3) %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @tcp_write_xmit(ptr noundef initializes((1600, 1616)) %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 3) %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = tail call i64 @ktime_get() #18
   %7 = getelementptr inbounds i8, ptr %0, i64 1600
   store i64 %6, ptr %7, align 64
@@ -10729,7 +10729,7 @@ declare dso_local i64 @__msecs_to_jiffies(i32 noundef) local_unnamed_addr #2
 declare dso_local ptr @skb_clone(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 4, 41) i32 @tcp_syn_options(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef %2, i32 %.24.val) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 4, 41) i32 @tcp_syn_options(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef initializes((2, 4)) %2, i32 %.24.val) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2240
   %5 = load ptr, ptr %4, align 64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @tcp_md5_needed, i32 2) #18

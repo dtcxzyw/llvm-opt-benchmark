@@ -21,7 +21,7 @@ $_ZNSt6vectorIN4Luau7CodeGen4IrOpESaIS2_EE6resizeEm = comdat any
 @_ZN4Luau7CodeGen23IrValueLocationTrackingC1ERNS0_10IrFunctionE = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN4Luau7CodeGen23IrValueLocationTrackingC2ERNS0_10IrFunctionE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Luau7CodeGen23IrValueLocationTrackingC2ERNS0_10IrFunctionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1056) %0, ptr noundef nonnull align 8 dereferenceable(616) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4Luau7CodeGen23IrValueLocationTrackingC2ERNS0_10IrFunctionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1056) initializes((0, 1036), (1040, 1056)) %0, ptr noundef nonnull align 8 dereferenceable(616) %1) unnamed_addr #0 align 2 {
 _ZNSt5arrayIjLm256EE4fillERKj.exit:
   store ptr %1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1032
@@ -34,7 +34,7 @@ _ZNSt5arrayIjLm256EE4fillERKj.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Luau7CodeGen23IrValueLocationTracking17setRestoreCallackEPvPFvS2_RNS0_6IrInstEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1056) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4Luau7CodeGen23IrValueLocationTracking17setRestoreCallackEPvPFvS2_RNS0_6IrInstEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1056) initializes((1040, 1056)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1040
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1048

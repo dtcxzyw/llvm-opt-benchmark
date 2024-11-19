@@ -2044,7 +2044,7 @@ exit:                                             ; preds = %if.end.i41, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @vhdx_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %bdi) #7 {
+define internal noundef i32 @vhdx_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly initializes((0, 4)) %bdi) #7 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -2087,7 +2087,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @vhdx_parse_log(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @vhdx_calc_bat_entries(ptr nocapture noundef %s) unnamed_addr #8 {
+define internal fastcc void @vhdx_calc_bat_entries(ptr nocapture noundef initializes((440, 444)) %s) unnamed_addr #8 {
 entry:
   %virtual_disk_size = getelementptr inbounds i8, ptr %s, i64 408
   %0 = load i64, ptr %virtual_disk_size, align 8

@@ -36,7 +36,7 @@ define noundef i32 @proctrack_p_create(ptr nocapture noundef readnone %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @proctrack_p_add(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define noundef i32 @proctrack_p_add(ptr nocapture noundef initializes((688, 696)) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 668
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64

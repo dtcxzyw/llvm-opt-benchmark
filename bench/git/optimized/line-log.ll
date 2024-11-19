@@ -44,7 +44,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.18 = private unnamed_addr constant [31 x i8] c"unable to generate diff for %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @range_set_init(ptr nocapture noundef writeonly %rs, i64 noundef %prealloc) local_unnamed_addr #0 {
+define dso_local void @range_set_init(ptr nocapture noundef writeonly initializes((0, 16)) %rs, i64 noundef %prealloc) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i64 %prealloc, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rs, i8 0, i64 16, i1 false)
@@ -66,7 +66,7 @@ if.end:                                           ; preds = %range_set_grow.exit
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @range_set_release(ptr nocapture noundef %rs) local_unnamed_addr #1 {
+define dso_local void @range_set_release(ptr nocapture noundef initializes((0, 8)) %rs) local_unnamed_addr #1 {
 entry:
   %ranges = getelementptr inbounds i8, ptr %rs, i64 8
   %0 = load ptr, ptr %ranges, align 8
@@ -2514,7 +2514,7 @@ if.end16:                                         ; preds = %for.cond.i, %land.l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @process_all_files(ptr nocapture noundef %range_out, ptr nocapture noundef readonly %rev, ptr nocapture noundef readonly %queue, ptr nocapture noundef nonnull %range) unnamed_addr #0 {
+define internal fastcc i32 @process_all_files(ptr nocapture noundef initializes((0, 8)) %range_out, ptr nocapture noundef readonly %rev, ptr nocapture noundef readonly %queue, ptr nocapture noundef nonnull %range) unnamed_addr #0 {
 entry:
   %tmp2.i.i = alloca %struct.range_set, align 8
   %cbdata.i.i = alloca %struct.collect_diff_cbdata, align 8

@@ -682,7 +682,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5nblib25createNonBondedParametersERKSt6vectorINS_12ParticleTypeESaIS1_EERKNS_23NonBondedInteractionMapE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.3") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5nblib25createNonBondedParametersERKSt6vectorINS_12ParticleTypeESaIS1_EERKNS_23NonBondedInteractionMapE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.3") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.nblib::StrongType", align 8
   %5 = alloca %"struct.nblib::StrongType", align 8
   %6 = alloca %"struct.nblib::StrongType", align 8
@@ -1022,7 +1022,7 @@ declare float @_ZNK5nblib23NonBondedInteractionMap6getC12ERKNS_10StrongTypeINSt7
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5nblib18createStepWorkloadEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::StepWorkload") align 1 %0) local_unnamed_addr #14 {
+define void @_ZN5nblib18createStepWorkloadEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::StepWorkload") align 1 initializes((0, 20)) %0) local_unnamed_addr #14 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 6
   store i8 1, ptr %2, align 1
@@ -1034,7 +1034,7 @@ define void @_ZN5nblib18createStepWorkloadEv(ptr dead_on_unwind noalias nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5nblib27createSimulationWorkloadGpuEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::SimulationWorkload") align 1 %0) local_unnamed_addr #14 {
+define void @_ZN5nblib27createSimulationWorkloadGpuEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::SimulationWorkload") align 1 initializes((0, 24)) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %2, i8 0, i64 23, i1 false), !alias.scope !10
   store i8 1, ptr %0, align 1, !alias.scope !10
@@ -1044,7 +1044,7 @@ define void @_ZN5nblib27createSimulationWorkloadGpuEv(ptr dead_on_unwind noalias
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5nblib25createDeviceStreamManagerERK17DeviceInformationRKN3gmx18SimulationWorkloadE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 1 %1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(24) %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5nblib25createDeviceStreamManagerERK17DeviceInformationRKN3gmx18SimulationWorkloadE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 1 %1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(24) %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.gmx::SimulationWorkload", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   store ptr null, ptr %0, align 8, !alias.scope !13
@@ -1147,7 +1147,7 @@ define noundef float @_ZN5nblib10ewaldCoeffEff(float noundef %0, float noundef %
 declare noundef float @_Z17calc_ewaldcoeff_qff(float noundef, float noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5nblib22createInteractionConstERKNS_15NBKernelOptionsE(ptr dead_on_unwind noalias writable sret(%struct.interaction_const_t) align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5nblib22createInteractionConstERKNS_15NBKernelOptionsE(ptr dead_on_unwind noalias writable sret(%struct.interaction_const_t) align 8 initializes((0, 61), (64, 124), (128, 152)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -214,7 +214,7 @@ switch.lookup:                                    ; preds = %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16FieldInformation14setParentFieldEP10field_info(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN16FieldInformation14setParentFieldEP10field_info(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   ret void
@@ -245,7 +245,7 @@ define noundef ptr @_ZNK16FieldInformation9fieldInfoEv(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK16FieldInformation10headerInfoEv(ptr dead_on_unwind noalias writable sret(%"struct.FieldInformation::HeaderInfo") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK16FieldInformation10headerInfoEv(ptr dead_on_unwind noalias writable sret(%"struct.FieldInformation::HeaderInfo") align 8 initializes((0, 72)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -574,7 +574,7 @@ define noundef i32 @_ZN16FieldInformation4flagEj(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16FieldInformation10moduleNameEv(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16FieldInformation10moduleNameEv(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -1036,7 +1036,7 @@ _ZN17QArrayDataPointerIcED2Ev.exit:               ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16FieldInformation3urlEv(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16FieldInformation3urlEv(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.FieldInformation::HeaderInfo", align 8
   %4 = alloca %class.QString, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -1257,7 +1257,7 @@ define i64 @_ZNK16FieldInformation8appendixEv(ptr nocapture noundef nonnull read
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16FieldInformation13printableDataEv(ptr dead_on_unwind noalias writable sret(%class.QByteArray) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16FieldInformation13printableDataEv(ptr dead_on_unwind noalias writable sret(%class.QByteArray) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -1349,7 +1349,7 @@ declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) loca
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N16FieldInformation13printableDataEv(ptr dead_on_unwind noalias writable sret(%class.QByteArray) align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #9 align 2 {
+define void @_ZThn16_N16FieldInformation13printableDataEv(ptr dead_on_unwind noalias writable sret(%class.QByteArray) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -16
   tail call void @_ZN16FieldInformation13printableDataEv(ptr dead_on_unwind writable sret(%class.QByteArray) align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %3)
   ret void

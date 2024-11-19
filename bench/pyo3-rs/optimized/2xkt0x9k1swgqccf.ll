@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.eac4dd46dce8207c17df351382d6fed8.15 = private unnamed_addr constant <{ [9 x i8] }> <{ [9 x i8] c"SIGNATURE" }>, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend12deprecations12Deprecations3new17h84af1d2ab74840dbE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden void @_ZN19pyo3_macros_backend12deprecations12Deprecations3new17h84af1d2ab74840dbE(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #0 {
   store i64 0, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.2.0..sroa_idx, align 8

@@ -48,7 +48,7 @@ $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 @_ZN4llvm5RegexD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm5RegexD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm5RegexC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm5RegexC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %2, align 8
@@ -56,7 +56,7 @@ define dso_local void @_ZN4llvm5RegexC2Ev(ptr nocapture noundef nonnull writeonl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm5RegexC2ENS_9StringRefENS0_10RegexFlagsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %0, ptr %1, i64 %2, i32 noundef %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm5RegexC2ENS_9StringRefENS0_10RegexFlagsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, ptr %1, i64 %2, i32 noundef %3) unnamed_addr #1 align 2 {
   %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store ptr %5, ptr %0, align 8
@@ -87,7 +87,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare i32 @llvm_regcomp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm5RegexC2ENS_9StringRefEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %0, ptr %1, i64 %2, i32 noundef %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm5RegexC2ENS_9StringRefEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, ptr %1, i64 %2, i32 noundef %3) unnamed_addr #1 align 2 {
   %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store ptr %5, ptr %0, align 8
@@ -113,7 +113,7 @@ define dso_local void @_ZN4llvm5RegexC2ENS_9StringRefEj(ptr nocapture noundef no
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm5RegexC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %0, ptr nocapture noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm5RegexC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #6 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8

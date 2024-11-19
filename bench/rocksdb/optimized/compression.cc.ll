@@ -105,7 +105,7 @@ return:                                           ; preds = %_ZN7rocksdb23ZSTDSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7rocksdb21ZSTDStreamingCompress8CompressEPKcmPcPm(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %input, i64 noundef %input_size, ptr noundef %output, ptr nocapture noundef writeonly %output_pos) unnamed_addr #0 align 2 {
+define noundef i32 @_ZN7rocksdb21ZSTDStreamingCompress8CompressEPKcmPcPm(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %input, i64 noundef %input_size, ptr noundef %output, ptr nocapture noundef writeonly initializes((0, 8)) %output_pos) unnamed_addr #0 align 2 {
 entry:
   %output_buffer = alloca %struct.ZSTD_outBuffer_s, align 8
   store i64 0, ptr %output_pos, align 8
@@ -168,7 +168,7 @@ declare i64 @ZSTD_compressStream2(ptr noundef, ptr noundef, ptr noundef, i32 nou
 declare i32 @ZSTD_isError(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb21ZSTDStreamingCompress5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #0 align 2 {
+define void @_ZN7rocksdb21ZSTDStreamingCompress5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((96, 120)) %this) unnamed_addr #0 align 2 {
 entry:
   %cctx_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %cctx_, align 8
@@ -184,7 +184,7 @@ declare i64 @ZSTD_CCtx_reset(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7rocksdb23ZSTDStreamingUncompress10UncompressEPKcmPcPm(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %input, i64 noundef %input_size, ptr noundef %output, ptr nocapture noundef writeonly %output_pos) unnamed_addr #0 align 2 {
+define noundef i32 @_ZN7rocksdb23ZSTDStreamingUncompress10UncompressEPKcmPcPm(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %input, i64 noundef %input_size, ptr noundef %output, ptr nocapture noundef writeonly initializes((0, 8)) %output_pos) unnamed_addr #0 align 2 {
 entry:
   %output_buffer = alloca %struct.ZSTD_outBuffer_s, align 8
   store i64 0, ptr %output_pos, align 8
@@ -245,7 +245,7 @@ return:                                           ; preds = %entry, %if.end10, %
 declare i64 @ZSTD_decompressStream(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb23ZSTDStreamingUncompress5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 {
+define void @_ZN7rocksdb23ZSTDStreamingUncompress5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((32, 56)) %this) unnamed_addr #0 align 2 {
 entry:
   %dctx_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %dctx_, align 8

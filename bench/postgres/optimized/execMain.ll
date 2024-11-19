@@ -3813,7 +3813,7 @@ ExecProcNode.exit:                                ; preds = %1, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @EvalPlanQualInit(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local void @EvalPlanQualInit(ptr nocapture noundef writeonly initializes((0, 12), (16, 104)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   %8 = load i32, ptr %7, align 8
   store ptr %1, ptr %0, align 8

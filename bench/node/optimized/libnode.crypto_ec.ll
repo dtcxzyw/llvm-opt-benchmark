@@ -3691,7 +3691,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 declare i32 @EC_KEY_generate_key(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto4ECDH13BufferToPointEPNS_11EnvironmentEPK11ec_group_stN2v85LocalINS7_5ValueEEE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.318") align 8 %agg.result, ptr nocapture noundef readonly %env, ptr noundef %group, ptr %buf.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto4ECDH13BufferToPointEPNS_11EnvironmentEPK11ec_group_stN2v85LocalINS7_5ValueEEE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.318") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef readonly %env, ptr noundef %group, ptr %buf.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %input = alloca %"class.node::crypto::ArrayBufferOrViewContents", align 8
   %call = tail call ptr @EC_POINT_new(ptr noundef %group) #21
@@ -4236,7 +4236,7 @@ _ZN4node13MemoryTracker10TrackFieldINS_6crypto13KeyObjectDataEEEvPKcRKSt10shared
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 1, 258) i16 @_ZN4node6crypto14ECDHBitsTraits12EncodeOutputEPNS_11EnvironmentERKNS0_14ECDHBitsConfigEPNS0_10ByteSourceEPN2v85LocalINS9_5ValueEEE(ptr noundef %env, ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %params, ptr noundef nonnull %out, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
+define dso_local range(i16 1, 258) i16 @_ZN4node6crypto14ECDHBitsTraits12EncodeOutputEPNS_11EnvironmentERKNS0_14ECDHBitsConfigEPNS0_10ByteSourceEPN2v85LocalINS9_5ValueEEE(ptr noundef %env, ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %params, ptr noundef nonnull %out, ptr nocapture noundef writeonly initializes((0, 8)) %result) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call ptr @_ZN4node6crypto10ByteSource13ToArrayBufferEPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef %env) #21
   store ptr %call, ptr %result, align 8
@@ -5322,7 +5322,7 @@ _ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto14EcKeyGenTraits5SetupEPNS0_16KeyPairGenConfigINS0_15EcKeyPairParamsEEE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.376") align 8 %agg.result, ptr nocapture noundef readonly %params) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto14EcKeyGenTraits5SetupEPNS0_16KeyPairGenConfigINS0_15EcKeyPairParamsEEE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.376") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef readonly %params) local_unnamed_addr #3 align 2 {
 entry:
   %raw_params = alloca ptr, align 8
   %curve_nid = getelementptr inbounds i8, ptr %params, i64 120

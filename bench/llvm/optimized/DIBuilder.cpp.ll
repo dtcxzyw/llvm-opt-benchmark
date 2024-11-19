@@ -205,7 +205,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN4llvm9DIBuilderC1ERNS_6ModuleEbPNS_13DICompileUnitE = unnamed_addr alias void (ptr, ptr, i1, ptr), ptr @_ZN4llvm9DIBuilderC2ERNS_6ModuleEbPNS_13DICompileUnitE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9DIBuilderC2ERNS_6ModuleEbPNS_13DICompileUnitE(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9DIBuilderC2ERNS_6ModuleEbPNS_13DICompileUnitE(ptr noundef nonnull align 8 dereferenceable(416) initializes((0, 56)) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca %"struct.std::pair.109", align 8
   %7 = alloca %"class.llvm::SetVector", align 8
@@ -1346,7 +1346,7 @@ define dso_local noundef ptr @_ZN4llvm9DIBuilder21getOrCreateMacroArrayENS_8Arra
 declare void @_ZN4llvm6MDNode13resolveCyclesEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9DIBuilder17createCompileUnitEjPNS_6DIFileENS_9StringRefEbS3_jS3_NS_13DICompileUnit17DebugEmissionKindEmbbNS4_18DebugNameTableKindEbS3_S3_(ptr noundef nonnull align 8 dereferenceable(416) %0, i32 noundef %1, ptr noundef %2, ptr %3, i64 %4, i1 noundef zeroext %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6, i32 noundef %7, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %8, i32 noundef %9, i64 noundef %10, i1 noundef zeroext %11, i1 noundef zeroext %12, i32 noundef %13, i1 noundef zeroext %14, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %15, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %16) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm9DIBuilder17createCompileUnitEjPNS_6DIFileENS_9StringRefEbS3_jS3_NS_13DICompileUnit17DebugEmissionKindEmbbNS4_18DebugNameTableKindEbS3_S3_(ptr noundef nonnull align 8 dereferenceable(416) initializes((16, 24)) %0, i32 noundef %1, ptr noundef %2, ptr %3, i64 %4, i1 noundef zeroext %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6, i32 noundef %7, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %8, i32 noundef %9, i64 noundef %10, i1 noundef zeroext %11, i1 noundef zeroext %12, i32 noundef %13, i1 noundef zeroext %14, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %15, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %16) local_unnamed_addr #0 align 2 {
   %18 = alloca ptr, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8

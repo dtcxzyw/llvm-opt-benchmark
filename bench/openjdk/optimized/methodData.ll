@@ -326,7 +326,7 @@ define hidden noundef zeroext i1 @_ZN10DataLayout15needs_array_lenEh(i8 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN10DataLayout10initializeEhti(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i8 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN10DataLayout10initializeEhti(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0, i8 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   store i64 0, ptr %0, align 8
   store i8 %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 2
@@ -603,7 +603,7 @@ define hidden noundef ptr @_ZN10DataLayout7data_inEv(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11ProfileDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN11ProfileDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV11ProfileData, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
@@ -3725,7 +3725,7 @@ define hidden noundef ptr @_ZN17FailedSpeculationnwEmm(i64 noundef %0, i64 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN17FailedSpeculationC2EPhi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #8 align 2 {
+define hidden void @_ZN17FailedSpeculationC2EPhi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #8 align 2 {
   store i32 %2, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8
@@ -4918,7 +4918,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %71, %73
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10MethodDataC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN10MethodDataC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTV10MethodData, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %1, align 8
@@ -4940,7 +4940,7 @@ define hidden void @_ZN10MethodDataC2ERK12methodHandle(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10MethodData10initializeEv(ptr noundef nonnull align 8 dereferenceable(312) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10MethodData10initializeEv(ptr noundef nonnull align 8 dereferenceable(312) initializes((128, 208)) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca %class.BytecodeStream, align 8
   %3 = alloca %class.methodHandle, align 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -5248,7 +5248,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %165, %167
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10MethodData4initEv(ptr noundef nonnull align 8 dereferenceable(312) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10MethodData4initEv(ptr noundef nonnull align 8 dereferenceable(312) initializes((128, 208)) %0) local_unnamed_addr #2 align 2 {
   %.sroa.4 = alloca [68 x i8], align 4
   %2 = alloca double, align 8
   %3 = alloca %class.methodHandle, align 8

@@ -1756,7 +1756,7 @@ if.end28:                                         ; preds = %entry, %cond.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @do_item_link(ptr noundef %it, i32 noundef %hv) local_unnamed_addr #0 {
+define dso_local noundef i32 @do_item_link(ptr noundef initializes((24, 28)) %it, i32 noundef %hv) local_unnamed_addr #0 {
 entry:
   %it_flags = getelementptr inbounds i8, ptr %it, i64 38
   %0 = load i16, ptr %it_flags, align 2
@@ -1881,7 +1881,7 @@ item_stats_sizes_add.exit:                        ; preds = %if.end, %cond.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @item_link_q(ptr noundef %it) unnamed_addr #0 {
+define internal fastcc void @item_link_q(ptr noundef initializes((0, 16)) %it) unnamed_addr #0 {
 entry:
   %slabs_clsid = getelementptr inbounds i8, ptr %it, i64 40
   %0 = load i8, ptr %slabs_clsid, align 8
@@ -2692,7 +2692,7 @@ if.end40:                                         ; preds = %if.then2, %if.else2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @do_item_replace(ptr noundef %it, ptr noundef %new_it, i32 noundef %hv) local_unnamed_addr #0 {
+define dso_local noundef i32 @do_item_replace(ptr noundef %it, ptr noundef initializes((24, 28)) %new_it, i32 noundef %hv) local_unnamed_addr #0 {
 entry:
   tail call void @do_item_unlink(ptr noundef %it, i32 noundef %hv)
   %call = tail call i32 @do_item_link(ptr noundef %new_it, i32 noundef %hv)
@@ -4757,7 +4757,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @do_item_linktail_q(ptr noundef %it) local_unnamed_addr #8 {
+define dso_local void @do_item_linktail_q(ptr noundef initializes((0, 16)) %it) local_unnamed_addr #8 {
 entry:
   %slabs_clsid = getelementptr inbounds i8, ptr %it, i64 40
   %0 = load i8, ptr %slabs_clsid, align 8

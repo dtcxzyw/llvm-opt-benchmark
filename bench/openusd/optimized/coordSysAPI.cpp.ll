@@ -1171,7 +1171,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPIC2ERKNS_7UsdPrimERKNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI6GetAllERKNS_7UsdPrimE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.73") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI6GetAllERKNS_7UsdPrimE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.73") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.78", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI16_GetStaticTfTypeEvE6tfType acquire, align 8
@@ -2815,7 +2815,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI23GetSchemaAttributeNamesEbRKNS_7TfTokenE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.78") align 8 %0, i1 noundef zeroext %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI23GetSchemaAttributeNamesEbRKNS_7TfTokenE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.78") align 8 initializes((0, 24)) %0, i1 noundef zeroext %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI23GetSchemaAttributeNamesEb(i1 noundef zeroext %1)
   %6 = load ptr, ptr %2, align 8
@@ -4871,7 +4871,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit82: ; preds = %521
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI23GetLocalBindingsForPrimERKNS_7UsdPrimE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.95") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI23GetLocalBindingsForPrimERKNS_7UsdPrimE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.95") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI19_GetBindingsForPrimERKNS_7UsdPrimERSt6vectorINS0_7BindingESaIS5_EEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext false)
           to label %5 unwind label %3
@@ -6239,7 +6239,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI15GetLocalBindingEv(ptr dead_on_unwind noalias writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::UsdShadeCoordSysAPI::Binding") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI15GetLocalBindingEv(ptr dead_on_unwind noalias writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::UsdShadeCoordSysAPI::Binding") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.63", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdRelationship", align 8
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::UsdShadeCoordSysAPI::Binding", align 8
@@ -8313,7 +8313,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit120: ; preds = %72
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI34FindBindingsWithInheritanceForPrimERKNS_7UsdPrimE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.95") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI34FindBindingsWithInheritanceForPrimERKNS_7UsdPrimE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.95") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -8754,7 +8754,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI26FindBindingWithInheritanceEv(ptr dead_on_unwind noalias writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::UsdShadeCoordSysAPI::Binding") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI26FindBindingWithInheritanceEv(ptr dead_on_unwind noalias writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::UsdShadeCoordSysAPI::Binding") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.63", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8

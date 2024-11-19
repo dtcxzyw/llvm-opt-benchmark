@@ -212,7 +212,7 @@ define internal void @finish_output_ppm(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @calc_buffer_dimensions_ppm(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define internal void @calc_buffer_dimensions_ppm(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((88, 100)) %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 1

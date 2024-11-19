@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 3) i32 @psql_yylex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @psql_yylex(ptr noundef %0, ptr noundef initializes((144, 152)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 72
@@ -5967,7 +5967,7 @@ psql_yy_delete_buffer.exit:                       ; preds = %1, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @psqlscan_select_top_buffer(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @psqlscan_select_top_buffer(ptr nocapture noundef initializes((56, 72)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -6909,7 +6909,7 @@ define dso_local ptr @psql_yyget_text(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @psql_yyset_extra(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #13 {
+define dso_local void @psql_yyset_extra(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #13 {
   store ptr %0, ptr %1, align 8
   ret void
 }
@@ -6965,14 +6965,14 @@ define dso_local void @psql_yyset_column(i32 noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @psql_yyset_in(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #13 {
+define dso_local void @psql_yyset_in(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @psql_yyset_out(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #13 {
+define dso_local void @psql_yyset_out(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
@@ -6986,7 +6986,7 @@ define dso_local i32 @psql_yyget_debug(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @psql_yyset_debug(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #13 {
+define dso_local void @psql_yyset_debug(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
@@ -7000,7 +7000,7 @@ define dso_local ptr @psql_yyget_lval(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @psql_yyset_lval(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #13 {
+define dso_local void @psql_yyset_lval(ptr noundef %0, ptr nocapture noundef writeonly initializes((144, 152)) %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   store ptr %0, ptr %3, align 8
   ret void
@@ -7248,7 +7248,7 @@ psql_scan_reset.exit:                             ; preds = %psql_yylex_init.exi
 declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @psql_scan_reset(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define dso_local void @psql_scan_reset(ptr nocapture noundef initializes((72, 76), (80, 88), (96, 100), (104, 108)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 80
@@ -7438,14 +7438,14 @@ psql_yy_delete_buffer.exit:                       ; preds = %.thread.i, %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @psql_scan_set_passthrough(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #13 {
+define dso_local void @psql_scan_set_passthrough(ptr nocapture noundef writeonly initializes((120, 128)) %0, ptr noundef %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @psql_scan_setup(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local void @psql_scan_setup(ptr nocapture noundef initializes((48, 54)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = zext i1 %4 to i8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %3, ptr %7, align 8
@@ -7473,7 +7473,7 @@ define dso_local void @psql_scan_setup(ptr nocapture noundef %0, ptr noundef %1,
 declare i32 @pg_valid_server_encoding_id(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @psqlscan_prepare_buffer(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @psqlscan_prepare_buffer(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = add i32 %2, 2
   %6 = sext i32 %5 to i64
   %7 = tail call ptr @pg_malloc(i64 noundef %6) #27
@@ -7607,7 +7607,7 @@ psql_yy_scan_buffer.exit:                         ; preds = %.loopexit31, %45, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 4) i32 @psql_scan(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @psql_scan(ptr nocapture noundef initializes((8, 16)) %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7697,7 +7697,7 @@ declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @psql_scan_reselect_sql_lexer(ptr nocapture noundef writeonly %0) local_unnamed_addr #13 {
+define dso_local void @psql_scan_reselect_sql_lexer(ptr nocapture noundef writeonly initializes((72, 76)) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %2, align 8
   ret void

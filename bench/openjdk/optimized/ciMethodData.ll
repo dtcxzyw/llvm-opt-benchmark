@@ -247,7 +247,7 @@ $_ZTV21ciVirtualCallTypeData = comdat any
 @_ZN12ciMethodDataC1EP10MethodData = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN12ciMethodDataC2EP10MethodData
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12ciMethodDataC2EP10MethodData(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN12ciMethodDataC2EP10MethodData(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) initializes((0, 12), (16, 54), (56, 92), (96, 108), (112, 176)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1751,7 +1751,7 @@ _ZN12ciMethodData23next_data_layout_helperEP10DataLayoutb.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12ciMethodData17bci_to_extra_dataEiP8ciMethodRb(ptr nocapture noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1, ptr noundef readnone %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN12ciMethodData17bci_to_extra_dataEiP8ciMethodRb(ptr nocapture noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1, ptr noundef readnone %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %3) local_unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32

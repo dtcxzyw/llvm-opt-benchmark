@@ -353,7 +353,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3nla6hornerC2EPNS_4coreE(ptr noundef nonnull align 8 dereferenceable(204) %this, ptr noundef %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3nla6hornerC2EPNS_4coreE(ptr noundef nonnull align 8 dereferenceable(204) initializes((0, 8)) %this, ptr noundef %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr %c, ptr %this, align 8
   %m_nex_creator.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -368,7 +368,7 @@ invoke.cont:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3nla6horner14lemmas_on_exprERNS_12cross_nestedEPNS_7nex_sumE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(204) %this, ptr noundef nonnull align 8 dereferenceable(168) %cn, ptr noundef %e) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3nla6horner14lemmas_on_exprERNS_12cross_nestedEPNS_7nex_sumE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(204) %this, ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %cn, ptr noundef %e) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %front.i = alloca %class.vector.198, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %front.i)

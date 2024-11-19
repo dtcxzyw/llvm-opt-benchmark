@@ -177,7 +177,7 @@ $_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE18growAndEmplaceBackIJPNS_
 @_ZN4llvm16X86LegalizerInfoC1ERKNS_12X86SubtargetERKNS_16X86TargetMachineE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN4llvm16X86LegalizerInfoC2ERKNS_12X86SubtargetERKNS_16X86TargetMachineE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16X86LegalizerInfoC2ERKNS_12X86SubtargetERKNS_16X86TargetMachineE(ptr noundef nonnull align 8 dereferenceable(121048) %0, ptr noundef nonnull align 8 dereferenceable(409248) %1, ptr noundef nonnull align 8 dereferenceable(1272) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16X86LegalizerInfoC2ERKNS_12X86SubtargetERKNS_16X86TargetMachineE(ptr noundef nonnull align 8 dereferenceable(121048) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(409248) %1, ptr noundef nonnull align 8 dereferenceable(1272) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::function", align 8
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca %"class.std::function.404", align 8

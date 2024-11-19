@@ -9276,7 +9276,7 @@ _ZNK5clang10Declarator18isPrototypeContextEv.exit: ; preds = %34, %34, %34, %34,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i64 @_ZL28GetDeclSpecTypeForDeclaratorRN12_GLOBAL__N_119TypeProcessingStateERPN5clang14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(266) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1) unnamed_addr #0 {
+define internal fastcc i64 @_ZL28GetDeclSpecTypeForDeclaratorRN12_GLOBAL__N_119TypeProcessingStateERPN5clang14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(266) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1) unnamed_addr #0 {
   %3 = alloca %"class.clang::ParsedAttributesView", align 8
   %4 = alloca %"struct.clang::DeclaratorChunk", align 8
   %5 = alloca %"class.llvm::ArrayRef.1804", align 8
@@ -21994,7 +21994,7 @@ declare noundef ptr @_ZNK5clang4Type5getAsINS_11TypedefTypeEEEPKT_v(ptr noundef 
 declare noundef zeroext i1 @_ZNK5clang14AttributedType13isCallingConvEv(ptr noundef nonnull align 16 dereferenceable(48)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121FunctionTypeUnwrapperC2ERN5clang4SemaENS1_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_121FunctionTypeUnwrapperC2ERN5clang4SemaENS1_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0, i64 %1) unnamed_addr #0 align 2 {
   store i64 %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -28317,7 +28317,7 @@ define internal void @_ZZL14checkArraySizeRN5clang4SemaERPNS_4ExprERN4llvm6APSIn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZL14checkArraySizeRN5clang4SemaERPNS_4ExprERN4llvm6APSIntEjbEN12VLADiagnoser18diagnoseNotICETypeES1_NS_14SourceLocationENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %4) unnamed_addr #0 align 2 {
+define internal void @_ZZL14checkArraySizeRN5clang4SemaERPNS_4ExprERN4llvm6APSIntEjbEN12VLADiagnoser18diagnoseNotICETypeES1_NS_14SourceLocationENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 initializes((0, 25), (80, 81), (88, 96)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::QualType", align 8
   %7 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   store i64 %4, ptr %6, align 8
@@ -28372,7 +28372,7 @@ _ZN5clang8SemaBase21SemaDiagnosticBuilderC2ERKS1_.exit: ; preds = %5, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZL14checkArraySizeRN5clang4SemaERPNS_4ExprERN4llvm6APSIntEjbEN12VLADiagnoser14diagnoseNotICEES1_NS_14SourceLocationE(ptr dead_on_unwind noalias writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3) unnamed_addr #0 align 2 {
+define internal void @_ZZL14checkArraySizeRN5clang4SemaERPNS_4ExprERN4llvm6APSIntEjbEN12VLADiagnoser14diagnoseNotICEES1_NS_14SourceLocationE(ptr dead_on_unwind noalias writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(18) initializes((17, 18)) %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i8, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 17
@@ -28934,7 +28934,7 @@ declare noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(pt
 declare noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16processTypeAttrsRN12_GLOBAL__N_119TypeProcessingStateERN5clang8QualTypeE16TypeAttrLocationRKNS2_20ParsedAttributesViewENS2_18CUDAFunctionTargetE(ptr noundef nonnull align 8 dereferenceable(266) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef range(i32 0, 3) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL16processTypeAttrsRN12_GLOBAL__N_119TypeProcessingStateERN5clang8QualTypeE16TypeAttrLocationRKNS2_20ParsedAttributesViewENS2_18CUDAFunctionTargetE(ptr noundef nonnull align 8 dereferenceable(266) initializes((264, 265)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef range(i32 0, 3) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %8 = alloca i32, align 4
@@ -48055,7 +48055,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117TypeSpecLocFiller21VisitQualifie
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117TypeSpecLocFiller18VisitAtomicTypeLocEN5clang13AtomicTypeLocE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture readonly %1, ptr %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117TypeSpecLocFiller18VisitAtomicTypeLocEN5clang13AtomicTypeLocE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture readonly %1, ptr initializes((0, 12)) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::TypeLoc", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -48258,7 +48258,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117TypeSpecLocFiller28VisitBTFTagAt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117TypeSpecLocFiller19VisitBuiltinTypeLocEN5clang14BuiltinTypeLocE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture readonly %1, ptr nocapture %2) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117TypeSpecLocFiller19VisitBuiltinTypeLocEN5clang14BuiltinTypeLocE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture readonly %1, ptr nocapture initializes((0, 8)) %2) unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 256
@@ -48437,7 +48437,7 @@ _ZN5clang14BuiltinTypeLoc18expandBuiltinRangeENS_11SourceRangeE.exit28: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117TypeSpecLocFiller16VisitAutoTypeLocEN5clang11AutoTypeLocE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture readonly %1, ptr nocapture writeonly %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117TypeSpecLocFiller16VisitAutoTypeLocEN5clang11AutoTypeLocE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture readonly %1, ptr nocapture writeonly initializes((0, 4)) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::TemplateArgumentListInfo", align 8
   %5 = alloca %"class.llvm::MutableArrayRef.1776", align 8
   %6 = alloca %"struct.clang::DeclarationNameInfo", align 8
@@ -48976,7 +48976,7 @@ _ZN5clang4Sema17GetTypeFromParserENS_9OpaquePtrINS_8QualTypeEEEPPNS_14TypeSource
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117TypeSpecLocFiller16VisitPipeTypeLocEN5clang11PipeTypeLocE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture readonly %1, ptr %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117TypeSpecLocFiller16VisitPipeTypeLocEN5clang11PipeTypeLocE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture readonly %1, ptr initializes((0, 4)) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::TypeLoc", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -49160,7 +49160,7 @@ _ZNK5clang4Type5getAsINS_14ElaboratedTypeEEEPKT_v.exit.thread: ; preds = %24, %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117TypeSpecLocFiller18VisitTypeOfTypeLocEN5clang13TypeOfTypeLocE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture writeonly %1) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117TypeSpecLocFiller18VisitTypeOfTypeLocEN5clang13TypeOfTypeLocE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture writeonly initializes((0, 12), (16, 24)) %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 256
@@ -49207,7 +49207,7 @@ _ZN5clang4Sema17GetTypeFromParserENS_9OpaquePtrINS_8QualTypeEEEPPNS_14TypeSource
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117TypeSpecLocFiller26VisitUnaryTransformTypeLocEN5clang21UnaryTransformTypeLocE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture writeonly %1) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117TypeSpecLocFiller26VisitUnaryTransformTypeLocEN5clang21UnaryTransformTypeLocE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture writeonly initializes((0, 12), (16, 24)) %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 256

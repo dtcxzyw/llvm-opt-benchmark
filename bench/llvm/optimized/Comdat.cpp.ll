@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm6ComdatC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm6ComdatC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm6ComdatC2EOS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6ComdatC2EOS0_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32,7 +32,7 @@ define dso_local void @_ZN4llvm6ComdatC2EOS0_(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm6ComdatC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm6ComdatC2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 12)) %0) unnamed_addr #1 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8

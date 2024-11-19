@@ -90,13 +90,13 @@ declare i64 @H5VL__register_connector(ptr noundef, i1 noundef zeroext, i64 nound
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @H5VL__native_introspect_get_conn_cls(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef writeonly %2) #2 {
+define noundef i32 @H5VL__native_introspect_get_conn_cls(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #2 {
   store ptr @H5VL_native_cls_g, ptr %2, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @H5VL__native_introspect_get_cap_flags(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #2 {
+define noundef i32 @H5VL__native_introspect_get_cap_flags(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #2 {
   store i64 137438928892, ptr %1, align 8
   ret i32 0
 }
@@ -186,7 +186,7 @@ define range(i32 -1, 1) i32 @H5VL__native_get_file_addr_len(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VL_native_get_file_struct(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VL_native_get_file_struct(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   switch i32 %1, label %16 [
     i32 1, label %.thread

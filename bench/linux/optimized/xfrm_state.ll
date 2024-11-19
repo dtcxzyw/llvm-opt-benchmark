@@ -1872,7 +1872,7 @@ define dso_local range(i32 -3, 1) i32 @xfrm_dev_state_flush(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xfrm_sad_getinfo(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local void @xfrm_sad_getinfo(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 3392
   tail call void @_raw_spin_lock_bh(ptr noundef %3) #15
   %4 = getelementptr inbounds i8, ptr %0, i64 2676
@@ -7284,7 +7284,7 @@ define dso_local i32 @xfrm_user_policy(ptr noundef %0, i32 noundef %1, ptr %2, i
 declare dso_local i32 @xfrm_sk_policy_insert(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xfrm_register_km(ptr noundef %0) #0 align 16 {
+define dso_local void @xfrm_register_km(ptr noundef initializes((0, 16)) %0) #0 align 16 {
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @xfrm_km_lock) #15
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @xfrm_km_list, i64 8), align 8
   store ptr @xfrm_km_list, ptr %0, align 8

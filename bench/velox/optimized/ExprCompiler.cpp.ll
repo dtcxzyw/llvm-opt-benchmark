@@ -9714,7 +9714,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN8facebook5velox4exec17getVectorFunctionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt10shared_ptrIKNS0_4TypeEESaISE_EERKSA_ISB_INS0_10BaseVectorEESaISK_EERKNS0_4core11QueryConfigE(ptr sret(%"class.std::shared_ptr.123") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_117getConstantInputsERKSt6vectorISt10shared_ptrINS1_4ExprEESaIS6_EE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %exprs) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_117getConstantInputsERKSt6vectorISt10shared_ptrINS1_4ExprEESaIS6_EE(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %exprs) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %constantExpr = alloca %"class.std::shared_ptr.286", align 8
   %ref.tmp = alloca ptr, align 8

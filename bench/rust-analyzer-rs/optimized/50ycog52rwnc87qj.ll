@@ -174,7 +174,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN4span3map11RealSpanMap9from_file17h0b817007ba69a688E(ptr noalias nocapture noundef writeonly sret({ { { { { ptr, i64 } }, {} }, {} }, i32, i32 }) align 8 dereferenceable(24) %0, i32 noundef %1, ptr noalias noundef nonnull align 4 %2, i64 noundef %3, i32 noundef %4) unnamed_addr #4 {
+define void @_ZN4span3map11RealSpanMap9from_file17h0b817007ba69a688E(ptr noalias nocapture noundef writeonly sret({ { { { { ptr, i64 } }, {} }, {} }, i32, i32 }) align 8 dereferenceable(24) initializes((0, 24)) %0, i32 noundef %1, ptr noalias noundef nonnull align 4 %2, i64 noundef %3, i32 noundef %4) unnamed_addr #4 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %6, align 8
   store ptr %2, ptr %0, align 8

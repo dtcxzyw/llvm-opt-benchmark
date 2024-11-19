@@ -1585,7 +1585,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfaSEf.exit: ; preds = %16, %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__13Hio_AVIFImage15_OpenForReadingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiNS_8HioImage16SourceColorSpaceEb(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 %2, i32 %3, i32 noundef %4, i1 zeroext %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__13Hio_AVIFImage15_OpenForReadingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiNS_8HioImage16SourceColorSpaceEb(ptr noundef nonnull align 8 dereferenceable(88) initializes((56, 64)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 %2, i32 %3, i32 noundef %4, i1 zeroext %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::shared_ptr", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::ArResolvedPath", align 8
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8

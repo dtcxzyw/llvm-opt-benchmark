@@ -279,7 +279,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4pbrt18GeometricPrimitiveC2ENS_5ShapeENS_8MaterialENS_5LightERKNS_15MediumInterfaceENS_12FloatTextureE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %shape, ptr nocapture noundef readonly %material, ptr nocapture noundef readonly %areaLight, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %mediumInterface, ptr nocapture noundef readonly %alpha) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4pbrt18GeometricPrimitiveC2ENS_5ShapeENS_8MaterialENS_5LightERKNS_15MediumInterfaceENS_12FloatTextureE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this, ptr nocapture noundef readonly %shape, ptr nocapture noundef readonly %material, ptr nocapture noundef readonly %areaLight, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %mediumInterface, ptr nocapture noundef readonly %alpha) unnamed_addr #2 align 2 {
 entry:
   store i64 0, ptr %this, align 8
   %0 = load i64, ptr %shape, align 8
@@ -786,7 +786,7 @@ return:                                           ; preds = %if.then, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4pbrt15SimplePrimitiveC2ENS_5ShapeENS_8MaterialE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %shape, ptr nocapture noundef readonly %material) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4pbrt15SimplePrimitiveC2ENS_5ShapeENS_8MaterialE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef readonly %shape, ptr nocapture noundef readonly %material) unnamed_addr #2 align 2 {
 entry:
   store i64 0, ptr %this, align 8
   %0 = load i64, ptr %shape, align 8
@@ -1352,7 +1352,7 @@ _ZNK4pbrt9Transform12ApplyInverseERKNS_3RayEPf.exit: ; preds = %entry, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt17AnimatedPrimitiveC2ENS_9PrimitiveERKNS_17AnimatedTransformE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(704) %this, ptr nocapture noundef readonly %p, ptr nocapture noundef nonnull readonly align 4 dereferenceable(696) %renderFromPrimitive) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4pbrt17AnimatedPrimitiveC2ENS_9PrimitiveERKNS_17AnimatedTransformE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(704) initializes((0, 704)) %this, ptr nocapture noundef readonly %p, ptr nocapture noundef nonnull readonly align 4 dereferenceable(696) %renderFromPrimitive) unnamed_addr #1 align 2 {
 entry:
   store i64 0, ptr %this, align 8
   %0 = load i64, ptr %p, align 8

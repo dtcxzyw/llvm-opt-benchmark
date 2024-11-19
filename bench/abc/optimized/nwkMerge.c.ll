@@ -186,7 +186,7 @@ declare void @Aig_MmFlexStop(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Nwk_ManGraphReportMemoryUsage(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define void @Nwk_ManGraphReportMemoryUsage(ptr nocapture noundef initializes((216, 224)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = shl i32 %3, 3
@@ -298,7 +298,7 @@ define void @Nwk_ManGraphHashEdge(ptr nocapture noundef %0, i32 noundef %1, i32 
 declare ptr @Aig_MmFixedEntryFetch(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Nwk_ManGraphPrepare(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Nwk_ManGraphPrepare(ptr nocapture noundef initializes((200, 216)) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = add nsw i32 %2, 1
   %4 = sext i32 %3 to i64
@@ -2735,7 +2735,7 @@ define ptr @Nwk_ManGraphListFindMin(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Nwk_ManGraphSolve(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Nwk_ManGraphSolve(ptr nocapture noundef initializes((200, 216)) %0) local_unnamed_addr #0 {
   tail call void @Nwk_ManGraphPrepare(ptr noundef %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -3270,7 +3270,7 @@ define void @Nwk_ManMarkFanouts_rec(ptr nocapture noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Nwk_ManCollectCircle(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Nwk_ManCollectCircle(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 8)) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr i8, ptr %0, i64 4
@@ -3516,7 +3516,7 @@ Vec_PtrPush.exit54:                               ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Nwk_ManCollectNonOverlapCands(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define void @Nwk_ManCollectNonOverlapCands(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef initializes((4, 8)) %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %4, i64 4

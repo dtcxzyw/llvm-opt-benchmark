@@ -484,14 +484,14 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl14SymbolsWrapperC2ERKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #1 align 2 {
+define void @_ZN6icu_756number4impl14SymbolsWrapperC2ERKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_756number4impl14SymbolsWrapper10doCopyFromERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %other)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl14SymbolsWrapper10doCopyFromERKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl14SymbolsWrapper10doCopyFromERKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %other, align 8
   store i32 %0, ptr %this, align 8
@@ -559,7 +559,7 @@ eh.resume:                                        ; preds = %lpad18, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_756number4impl14SymbolsWrapperC2EOS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %src) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl14SymbolsWrapperC2EOS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %src) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %src, align 8
   store i32 %0, ptr %this, align 8
@@ -580,7 +580,7 @@ _ZN6icu_756number4impl14SymbolsWrapper10doMoveFromEOS2_.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_756number4impl14SymbolsWrapper10doMoveFromEOS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %src) local_unnamed_addr #7 align 2 {
+define void @_ZN6icu_756number4impl14SymbolsWrapper10doMoveFromEOS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %src) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %src, align 8
   store i32 %0, ptr %this, align 8

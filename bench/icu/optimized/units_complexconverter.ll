@@ -542,7 +542,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_755units21ComplexUnitsConverterC2ERKNS_15MeasureUnitImplERKNS0_15ConversionRatesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(160) %targetUnit, ptr noundef nonnull align 8 dereferenceable(88) %ratesInfo, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_755units21ComplexUnitsConverterC2ERKNS_15MeasureUnitImplERKNS0_15ConversionRatesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(184) initializes((8, 12)) %this, ptr noundef nonnull align 8 dereferenceable(160) %targetUnit, ptr noundef nonnull align 8 dereferenceable(88) %ratesInfo, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %unitsConverters_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %unitsConverters_, align 8
@@ -775,7 +775,7 @@ _ZN6icu_7510MemoryPoolINS_5units14UnitsConverterELi8EED2Ev.exit: ; preds = %for.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_755units21ComplexUnitsConverterC2ENS_11StringPieceES2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr %inputUnitIdentifier.coerce0, i32 %inputUnitIdentifier.coerce1, ptr %outputUnitsIdentifier.coerce0, i32 %outputUnitsIdentifier.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_755units21ComplexUnitsConverterC2ENS_11StringPieceES2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(184) initializes((8, 12)) %this, ptr %inputUnitIdentifier.coerce0, i32 %inputUnitIdentifier.coerce1, ptr %outputUnitsIdentifier.coerce0, i32 %outputUnitsIdentifier.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %inputUnit = alloca %"class.icu_75::MeasureUnitImpl", align 8
   %outputUnits = alloca %"class.icu_75::MeasureUnitImpl", align 8
@@ -1168,7 +1168,7 @@ _ZN6icu_7516MaybeStackVectorINS_14SingleUnitImplELi8EED2Ev.exit: ; preds = %for.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_755units21ComplexUnitsConverterC2ERKNS_15MeasureUnitImplES4_RKNS0_15ConversionRatesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(160) %inputUnit, ptr noundef nonnull align 8 dereferenceable(160) %outputUnits, ptr noundef nonnull align 8 dereferenceable(88) %ratesInfo, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_755units21ComplexUnitsConverterC2ERKNS_15MeasureUnitImplES4_RKNS0_15ConversionRatesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(184) initializes((8, 12)) %this, ptr noundef nonnull align 8 dereferenceable(160) %inputUnit, ptr noundef nonnull align 8 dereferenceable(160) %outputUnits, ptr noundef nonnull align 8 dereferenceable(88) %ratesInfo, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %unitsConverters_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %unitsConverters_, align 8
@@ -1229,7 +1229,7 @@ entry:
 declare noundef double @_ZNK6icu_755units14UnitsConverter7convertEd(ptr noundef nonnull align 8 dereferenceable(376), double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_755units21ComplexUnitsConverter7convertEdPNS_6number4impl12RoundingImplER10UErrorCode(ptr noalias sret(%"class.icu_75::MaybeStackVector.10") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, double noundef %quantity, ptr noundef %rounder, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_755units21ComplexUnitsConverter7convertEdPNS_6number4impl12RoundingImplER10UErrorCode(ptr noalias sret(%"class.icu_75::MaybeStackVector.10") align 8 initializes((0, 4)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, double noundef %quantity, ptr noundef %rounder, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %quantity.addr = alloca double, align 8
   %intValues = alloca %"class.icu_75::MaybeStackArray.13", align 8

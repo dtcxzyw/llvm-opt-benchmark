@@ -413,7 +413,7 @@ _ZN8QuantLib10LazyObject6updateEv.exit:           ; preds = %entry, %if.end9.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17OptionletStripperC2ERKN5boost10shared_ptrINS_22CapFloorTermVolSurfaceEEENS2_INS_9IborIndexEEENS_6HandleINS_18YieldTermStructureEEENS_14VolatilityTypeEd(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %termVolSurface, ptr nocapture noundef %iborIndex, ptr nocapture noundef %discount, i32 noundef %type, double noundef %displacement) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17OptionletStripperC2ERKN5boost10shared_ptrINS_22CapFloorTermVolSurfaceEEENS2_INS_9IborIndexEEENS_6HandleINS_18YieldTermStructureEEENS_14VolatilityTypeEd(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 12), (16, 64)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %termVolSurface, ptr nocapture noundef %iborIndex, ptr nocapture noundef %discount, i32 noundef %type, double noundef %displacement) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3775,7 +3775,7 @@ _ZNK5boost10shared_ptrIN8QuantLib22CapFloorTermVolSurfaceEEptEv.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK8QuantLib17OptionletStripper14termVolSurfaceEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.41") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib17OptionletStripper14termVolSurfaceEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.41") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %termVolSurface_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %termVolSurface_, align 8, !tbaa !28
@@ -3797,7 +3797,7 @@ _ZN5boost10shared_ptrIN8QuantLib22CapFloorTermVolSurfaceEEC2ERKS3_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK8QuantLib17OptionletStripper9iborIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.39") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib17OptionletStripper9iborIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.39") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %iborIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %iborIndex_, align 8, !tbaa !30

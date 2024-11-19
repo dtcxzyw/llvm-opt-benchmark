@@ -137,7 +137,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0ae21663027a5553E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0ae21663027a5553E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = tail call { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01b3d560b542805fE"(ptr align 8 %1)
   %5 = extractvalue { i64, ptr } %4, 1
@@ -160,7 +160,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1aab15275b80e5d2E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1aab15275b80e5d2E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd831ea6c1d94edb9E"(ptr align 8 %1)
   %5 = icmp eq ptr %4, null
@@ -181,7 +181,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2546ae5cdc8618c9E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2546ae5cdc8618c9E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = tail call ptr @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0301081532feef50E"(ptr align 8 %1)
   %5 = icmp eq ptr %4, null
@@ -202,7 +202,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31b50e78cd183ba7E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31b50e78cd183ba7E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = tail call ptr @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9fa6777b278466b6E"(ptr align 8 %1)
   %5 = icmp eq ptr %4, null
@@ -223,7 +223,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b28dc937974db70E"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b28dc937974db70E"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   %4 = tail call align 8 ptr @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h167fc14dedbb2fd7E"(ptr align 8 %1)
   %5 = icmp eq ptr %4, null
@@ -244,7 +244,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h434a9bcf3207ac73E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h434a9bcf3207ac73E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = tail call { ptr, i64 } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea739de7a9f8b68fE"(ptr align 8 %1)
   %5 = extractvalue { ptr, i64 } %4, 0
@@ -267,7 +267,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4b475bb250ec75fdE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4b475bb250ec75fdE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h52ac58b9549c31a1E"(ptr align 8 %1)
   %5 = icmp eq ptr %4, null
@@ -288,7 +288,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h50d1ee91b90bd2b8E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h50d1ee91b90bd2b8E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = tail call { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01b3d560b542805fE"(ptr align 8 %1)
   %5 = extractvalue { i64, ptr } %4, 1
@@ -311,7 +311,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h62c611f324ca50b7E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h62c611f324ca50b7E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = tail call ptr @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9fa6777b278466b6E"(ptr align 8 %1)
   %5 = icmp eq ptr %4, null
@@ -332,7 +332,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h78b6646b6773581bE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h78b6646b6773581bE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = tail call { ptr, i64 } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea739de7a9f8b68fE"(ptr align 8 %1)
   %5 = extractvalue { ptr, i64 } %4, 0
@@ -355,7 +355,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h91697a1fcb106eafE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h91697a1fcb106eafE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = tail call { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01b3d560b542805fE"(ptr align 8 %1)
   %5 = extractvalue { i64, ptr } %4, 1
@@ -378,7 +378,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc44acec8b566ed65E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc44acec8b566ed65E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h71c7ddc288d56ca6E"(ptr align 8 %1)
   %5 = icmp eq ptr %4, null
@@ -399,7 +399,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd10414153105703eE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd10414153105703eE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = tail call { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01b3d560b542805fE"(ptr align 8 %1)
   %5 = extractvalue { i64, ptr } %4, 1
@@ -422,7 +422,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdcd5e15484aca2f8E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdcd5e15484aca2f8E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = tail call align 8 ptr @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h785cc7358bd47876E"(ptr align 8 %1)
   %5 = icmp eq ptr %4, null
@@ -443,7 +443,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd0de18d09309c3dE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd0de18d09309c3dE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = tail call ptr @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc30af044840a52afE"(ptr align 8 %1)
   %5 = icmp eq ptr %4, null
@@ -464,7 +464,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0e445b6a2cb9a74E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0e445b6a2cb9a74E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = tail call { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2104c7b0e97a5343E"(ptr align 8 %1)
   %5 = extractvalue { ptr, ptr } %4, 0
@@ -489,7 +489,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb40df0c0c1485e2E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb40df0c0c1485e2E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { { i64, [3 x i64] }, {} } }, align 8
   %4 = alloca { { i64, [3 x i64] }, {} }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
@@ -514,7 +514,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfbdca54f5084f6caE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfbdca54f5084f6caE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd831ea6c1d94edb9E"(ptr align 8 %1)
   %5 = icmp eq ptr %4, null
@@ -535,7 +535,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfec056040ad68436E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfec056040ad68436E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = tail call { ptr, i64 } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea739de7a9f8b68fE"(ptr align 8 %1)
   %5 = extractvalue { ptr, i64 } %4, 0

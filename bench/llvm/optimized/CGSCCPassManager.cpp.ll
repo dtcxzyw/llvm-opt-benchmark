@@ -6929,7 +6929,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_5ValueENS_14WeakTrackingVHEEE5clearEv.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS2_JRS1_EEES5_RNS_17CGSCCUpdateResultEENK3$_0clES3_RNS_14SmallMapVectorIPNS_5ValueENS_14WeakTrackingVHELj16EEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(792) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS2_JRS1_EEES5_RNS_17CGSCCUpdateResultEENK3$_0clES3_RNS_14SmallMapVectorIPNS_5ValueENS_14WeakTrackingVHELj16EEE"(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(792) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::AlignedCharArrayUnion.357", align 8
   %5 = alloca i64, align 8
   %6 = alloca %"struct.std::pair.315", align 8
@@ -13008,7 +13008,7 @@ _ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13Lazy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS6_JRS5_EEES9_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SE_EEEES3_SE_SG_SJ_E18moveFromOldBucketsEPSJ_SM_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly %1, ptr noundef readnone %2) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS6_JRS5_EEES9_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SE_EEEES3_SE_SG_SJ_E18moveFromOldBucketsEPSJ_SM_(ptr noundef nonnull align 1 dereferenceable(1) initializes((4, 8)) %0, ptr noundef readonly %1, ptr noundef readnone %2) unnamed_addr #8 align 2 {
   %4 = load i32, ptr %0, align 8
   %5 = and i32 %4, 1
   store i32 %5, ptr %0, align 8

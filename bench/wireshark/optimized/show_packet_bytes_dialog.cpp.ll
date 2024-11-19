@@ -3708,7 +3708,7 @@ declare void @_ZN8QSpinBox10setMaximumEi(ptr noundef nonnull align 8 dereference
 declare noundef ptr @_ZN16QDialogButtonBox9addButtonERK7QStringNS_10ButtonRoleE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21ShowPacketBytesDialog14setStartAndEndEii(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN21ShowPacketBytesDialog14setStartAndEndEii(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((228, 236)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 228
   store i32 %1, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 232
@@ -4272,7 +4272,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN5QListIPvED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN21ShowPacketBytesDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #4 align 2 {
+define void @_ZN21ShowPacketBytesDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV21ShowPacketBytesDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV21ShowPacketBytesDialog, i64 528), ptr %2, align 8
@@ -4686,7 +4686,7 @@ declare void @_ZN9QComboBox15insertSeparatorEi(ptr noundef nonnull align 8 deref
 declare noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21ShowPacketBytesDialog12showSelectedEii(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN21ShowPacketBytesDialog12showSelectedEii(ptr noundef nonnull align 8 dereferenceable(264) initializes((232, 236)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = icmp eq i32 %2, -1
   br i1 %4, label %5, label %11
 
@@ -5182,7 +5182,7 @@ _ZN7QStringD2Ev.exit9:                            ; preds = %27, %_ZN17QArrayDat
 declare void @_ZN6QLabel7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21ShowPacketBytesDialog23on_sbStart_valueChangedEi(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN21ShowPacketBytesDialog23on_sbStart_valueChangedEi(ptr noundef nonnull align 8 dereferenceable(264) initializes((228, 232)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 228
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 136
@@ -5196,7 +5196,7 @@ define void @_ZN21ShowPacketBytesDialog23on_sbStart_valueChangedEi(ptr noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21ShowPacketBytesDialog21on_sbEnd_valueChangedEi(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN21ShowPacketBytesDialog21on_sbEnd_valueChangedEi(ptr noundef nonnull align 8 dereferenceable(264) initializes((232, 236)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 136
@@ -7466,7 +7466,7 @@ _ZN10QByteArrayD2Ev.exit174:                      ; preds = %853, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21ShowPacketBytesDialog12useRegexFindEb(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21ShowPacketBytesDialog12useRegexFindEb(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((224, 225)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = zext i1 %1 to i8
@@ -9536,7 +9536,7 @@ _ZN10QByteArrayD2Ev.exit45:                       ; preds = %100, %_ZN17QArrayDa
 declare void @_ZN10QByteArrayC1EPKcx(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21ShowPacketBytesDialog21decodeQuotedPrintableEPKhi(ptr dead_on_unwind noalias writable sret(%class.QByteArray) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21ShowPacketBytesDialog21decodeQuotedPrintableEPKhi(ptr dead_on_unwind noalias writable sret(%class.QByteArray) align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QByteArray, align 8
   %6 = alloca %class.QByteArray, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -10129,7 +10129,7 @@ declare void @_ZNK10QByteArray8toBase64E6QFlagsINS_12Base64OptionEE(ptr dead_on_
 declare void @_ZNK10QByteArray5toHexEc(ptr dead_on_unwind writable sret(%class.QByteArray) align 8, ptr noundef nonnull align 8 dereferenceable(24), i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21ShowPacketBytesDialog18captureFileClosingEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #0 align 2 {
+define void @_ZN21ShowPacketBytesDialog18captureFileClosingEv(ptr noundef nonnull align 8 dereferenceable(264) initializes((144, 152)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr null, ptr %2, align 8
   tail call void @_ZN15WiresharkDialog18captureFileClosingEv(ptr noundef nonnull align 8 dereferenceable(133) %0)

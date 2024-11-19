@@ -507,7 +507,7 @@ return:                                           ; preds = %if.end12.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -9, 1) i32 @print_database_string(ptr nocapture noundef nonnull writeonly %s, i32 noundef %version, i64 noundef %plat, i32 noundef %raw_mode) unnamed_addr #0 {
+define internal fastcc range(i32 -9, 1) i32 @print_database_string(ptr nocapture noundef nonnull writeonly initializes((0, 8)) %s, i32 noundef %version, i64 noundef %plat, i32 noundef %raw_mode) unnamed_addr #0 {
 entry:
   store ptr null, ptr %s, align 8
   %shr = lshr i32 %version, 8

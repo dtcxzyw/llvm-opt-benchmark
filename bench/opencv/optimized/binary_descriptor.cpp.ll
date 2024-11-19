@@ -258,7 +258,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv15line_descriptor16BinaryDescriptor6ParamsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0) unnamed_addr #3 align 2 {
+define void @_ZN2cv15line_descriptor16BinaryDescriptor6ParamsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #3 align 2 {
   store i32 1, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 7, ptr %2, align 4
@@ -277,7 +277,7 @@ define noundef i32 @_ZN2cv15line_descriptor16BinaryDescriptor15getNumOfOctavesEv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv15line_descriptor16BinaryDescriptor15setNumOfOctavesEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN2cv15line_descriptor16BinaryDescriptor15setNumOfOctavesEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) initializes((56, 60)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %1, ptr %3, align 8
   ret void
@@ -291,7 +291,7 @@ define noundef i32 @_ZN2cv15line_descriptor16BinaryDescriptor14getWidthOfBandEv(
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv15line_descriptor16BinaryDescriptor14setWidthOfBandEi(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv15line_descriptor16BinaryDescriptor14setWidthOfBandEi(ptr noundef nonnull align 8 dereferenceable(192) initializes((60, 64)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 %1, ptr %4, align 4
@@ -903,14 +903,14 @@ define noundef i32 @_ZN2cv15line_descriptor16BinaryDescriptor17getReductionRatio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv15line_descriptor16BinaryDescriptor17setReductionRatioEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN2cv15line_descriptor16BinaryDescriptor17setReductionRatioEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv15line_descriptor16BinaryDescriptor6Params4readERKNS_8FileNodeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN2cv15line_descriptor16BinaryDescriptor6Params4readERKNS_8FileNodeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #5 align 2 {
   %3 = alloca %"class.cv::FileNode", align 8
   %4 = alloca %"class.cv::FileNode", align 8
   %5 = alloca %"class.cv::FileNode", align 8
@@ -2313,7 +2313,7 @@ declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) un
 declare void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv15line_descriptor16BinaryDescriptorD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv15line_descriptor16BinaryDescriptorD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN2cv15line_descriptor16BinaryDescriptorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
@@ -2542,7 +2542,7 @@ define void @_ZN2cv15line_descriptor16BinaryDescriptorD0Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv15line_descriptor16BinaryDescriptor4readERKNS_8FileNodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #5 align 2 {
+define void @_ZN2cv15line_descriptor16BinaryDescriptor4readERKNS_8FileNodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) initializes((56, 68)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #5 align 2 {
   %3 = alloca %"class.cv::FileNode", align 8
   %4 = alloca %"class.cv::FileNode", align 8
   %5 = alloca %"class.cv::FileNode", align 8
@@ -7013,7 +7013,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIfSaIfE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv15line_descriptor16BinaryDescriptor14EDLineDetector11InitEDLine_Ev(ptr noundef nonnull align 8 dereferenceable(1440) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv15line_descriptor16BinaryDescriptor14EDLineDetector11InitEDLine_Ev(ptr noundef nonnull align 8 dereferenceable(1440) initializes((492, 493)) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::Mat_.83", align 8
   %3 = alloca %"class.cv::Mat_.83", align 8
   %4 = alloca %"class.cv::Mat_.83", align 8
@@ -7666,7 +7666,7 @@ _ZN2cv15line_descriptor16BinaryDescriptor10LineChainsD2Ev.exit: ; preds = %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 2) i32 @_ZN2cv15line_descriptor16BinaryDescriptor14EDLineDetector11EdgeDrawingERNS_3MatERNS1_10EdgeChainsE(ptr noundef nonnull align 8 dereferenceable(1440) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(76) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 2) i32 @_ZN2cv15line_descriptor16BinaryDescriptor14EDLineDetector11EdgeDrawingERNS_3MatERNS1_10EdgeChainsE(ptr noundef nonnull align 8 dereferenceable(1440) initializes((464, 472)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(76) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::_InputArray", align 8
   %5 = alloca %"class.cv::_OutputArray", align 8
   %6 = alloca %"class.cv::_InputArray", align 8
@@ -9687,7 +9687,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef no
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3Mat5setToERKNS_11_InputArrayES3_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 2) i32 @_ZN2cv15line_descriptor16BinaryDescriptor14EDLineDetector6EDlineERNS_3MatERNS1_10LineChainsE(ptr noundef nonnull align 8 dereferenceable(1440) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(76) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 2) i32 @_ZN2cv15line_descriptor16BinaryDescriptor14EDLineDetector6EDlineERNS_3MatERNS1_10LineChainsE(ptr noundef nonnull align 8 dereferenceable(1440) initializes((464, 472)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(76) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.cv::line_descriptor::BinaryDescriptor::EdgeChains", align 8
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca float, align 4

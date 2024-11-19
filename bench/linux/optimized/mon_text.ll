@@ -822,7 +822,7 @@ define internal void @mon_text_complete(ptr noundef %0, ptr noundef %1, i32 noun
 declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @mon_text_ctor(ptr nocapture noundef writeonly %0) #5 align 16 {
+define internal void @mon_text_ctor(ptr nocapture noundef writeonly initializes((0, 176)) %0) #5 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(176) %0, i8 -27, i64 176, i1 false)
   ret void
 }

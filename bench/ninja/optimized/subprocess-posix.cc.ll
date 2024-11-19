@@ -524,7 +524,7 @@ declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #12
 declare i32 @sigismember(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13SubprocessSetC2Ev(ptr noundef nonnull align 8 dereferenceable(688) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13SubprocessSetC2Ev(ptr noundef nonnull align 8 dereferenceable(688) initializes((0, 104)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.__sigset_t, align 8
   %3 = alloca %struct.sigaction, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24

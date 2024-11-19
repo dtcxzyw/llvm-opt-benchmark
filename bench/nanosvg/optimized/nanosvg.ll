@@ -4416,7 +4416,7 @@ define dso_local void @nsvgDeleteRasterizer(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nsvgRasterize(ptr noundef %0, ptr nocapture noundef readonly %1, float noundef %2, float noundef %3, float noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define dso_local void @nsvgRasterize(ptr noundef initializes((104, 124)) %0, ptr nocapture noundef readonly %1, float noundef %2, float noundef %3, float noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %.sroa.5281.i = alloca { float, float, float, float, float }, align 8
   %.sroa.7283.i = alloca [3 x i8], align 1
   %.sroa.5.i = alloca { float, float, float, float, float }, align 8
@@ -6092,7 +6092,7 @@ define internal range(i32 -1, 2) i32 @nsvg__cmpEdge(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @nsvg__initPaint(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull readonly %1, float noundef %2) unnamed_addr #13 {
+define internal fastcc void @nsvg__initPaint(ptr nocapture noundef nonnull writeonly initializes((0, 1)) %0, ptr nocapture noundef nonnull readonly %1, float noundef %2) unnamed_addr #13 {
   %4 = load i8, ptr %1, align 8
   store i8 %4, ptr %0, align 4
   %5 = icmp eq i8 %4, 1
@@ -8441,7 +8441,7 @@ nsvg__moveTo.exit:                                ; preds = %202, %212
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nsvg__parsePoly(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @nsvg__parsePoly(ptr noundef initializes((39952, 39956)) %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [2 x float], align 4
   %6 = alloca [64 x i8], align 16
@@ -9805,7 +9805,7 @@ nsvg__parseStyle.exit:                            ; preds = %nsvg__parseNameValu
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @nsvg__parseTransform(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #14 {
+define internal fastcc void @nsvg__parseTransform(ptr nocapture noundef nonnull initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #14 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca [64 x i8], align 16
   %5 = alloca [64 x i8], align 16
@@ -12525,7 +12525,7 @@ nsvg__addPoint.exit29:                            ; preds = %70, %62, %7
 declare float @acosf(float noundef) local_unnamed_addr #22
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define internal fastcc void @nsvg__curveBounds(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #24 {
+define internal fastcc void @nsvg__curveBounds(ptr nocapture noundef nonnull initializes((0, 16)) %0, ptr nocapture noundef readonly %1) unnamed_addr #24 {
   %3 = alloca [2 x double], align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16

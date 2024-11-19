@@ -156,7 +156,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog21mk_unbound_compressorC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog21mk_unbound_compressorC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 13), (16, 64), (72, 80)) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   %m_priority.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 500, ptr %m_priority.i, align 8
@@ -2264,7 +2264,7 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog21mk_unbound_compressor21mk_decompression_ruleEPNS_4ruleEjj(ptr noalias sret(%class.obj_ref.174) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this, ptr noundef %r, i32 noundef %tail_index, i32 noundef %arg_index) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog21mk_unbound_compressor21mk_decompression_ruleEPNS_4ruleEjj(ptr noalias sret(%class.obj_ref.174) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this, ptr noundef %r, i32 noundef %tail_index, i32 noundef %arg_index) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dtail_args = alloca %class.ptr_vector.21, align 8
   %dtail = alloca %class.obj_ref.36, align 8

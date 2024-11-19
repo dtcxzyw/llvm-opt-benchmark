@@ -3121,7 +3121,7 @@ define internal noundef i32 @_ZNK2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl12ge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl12setNumLevelsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %0, i32 noundef %1) unnamed_addr #10 align 2 {
+define internal void @_ZN2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl12setNumLevelsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((8, 12)) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
@@ -3135,7 +3135,7 @@ define internal noundef double @_ZNK2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl11setPyrScaleEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %0, double noundef %1) unnamed_addr #10 align 2 {
+define internal void @_ZN2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl11setPyrScaleEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((16, 24)) %0, double noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store double %1, ptr %3, align 8
   ret void
@@ -3150,7 +3150,7 @@ define internal noundef zeroext i1 @_ZNK2cv12_GLOBAL__N_124FarnebackOpticalFlowI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl15setFastPyramidsEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %0, i1 noundef zeroext %1) unnamed_addr #10 align 2 {
+define internal void @_ZN2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl15setFastPyramidsEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((24, 25)) %0, i1 noundef zeroext %1) unnamed_addr #10 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 %3, ptr %4, align 8
@@ -3165,7 +3165,7 @@ define internal noundef i32 @_ZNK2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl10ge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl10setWinSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %0, i32 noundef %1) unnamed_addr #10 align 2 {
+define internal void @_ZN2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl10setWinSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((28, 32)) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %1, ptr %3, align 4
   ret void
@@ -3179,7 +3179,7 @@ define internal noundef i32 @_ZNK2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl11ge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl11setNumItersEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %0, i32 noundef %1) unnamed_addr #10 align 2 {
+define internal void @_ZN2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl11setNumItersEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((32, 36)) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %1, ptr %3, align 8
   ret void
@@ -3193,7 +3193,7 @@ define internal noundef i32 @_ZNK2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl8get
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl8setPolyNEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %0, i32 noundef %1) unnamed_addr #10 align 2 {
+define internal void @_ZN2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl8setPolyNEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((36, 40)) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %1, ptr %3, align 4
   ret void
@@ -3207,7 +3207,7 @@ define internal noundef double @_ZNK2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl12setPolySigmaEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %0, double noundef %1) unnamed_addr #10 align 2 {
+define internal void @_ZN2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl12setPolySigmaEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((40, 48)) %0, double noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store double %1, ptr %3, align 8
   ret void
@@ -3221,7 +3221,7 @@ define internal noundef i32 @_ZNK2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl8get
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl8setFlagsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %0, i32 noundef %1) unnamed_addr #10 align 2 {
+define internal void @_ZN2cv12_GLOBAL__N_124FarnebackOpticalFlowImpl8setFlagsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((48, 52)) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %3, align 8
   ret void

@@ -51,7 +51,7 @@ define hidden noundef zeroext i1 @_ZN17ResolvedIndyEntry30check_no_old_or_obsole
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN17ResolvedIndyEntry23remove_unshareable_infoEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN17ResolvedIndyEntry23remove_unshareable_infoEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8), (12, 16)) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 10

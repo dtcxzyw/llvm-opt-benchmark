@@ -529,7 +529,7 @@ define void @destroy_progress_dlg(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13ProgressFrame4hideEv(ptr noundef nonnull align 8 dereferenceable(152) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN13ProgressFrame4hideEv(ptr noundef nonnull align 8 dereferenceable(152) initializes((128, 132)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   store i32 -1, ptr %2, align 8
   tail call void @_ZN13ProgressFrame9setHiddenEv(ptr noundef nonnull align 8 dereferenceable(152) %0)
@@ -1292,7 +1292,7 @@ declare void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 deref
 declare void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13ProgressFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 align 2 {
+define void @_ZN13ProgressFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8), (16, 24)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV13ProgressFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV13ProgressFrame, i64 456), ptr %2, align 8
@@ -1683,7 +1683,7 @@ define void @_ZN13ProgressFrame21on_stopButton_clickedEv(ptr noundef nonnull ali
 declare void @_ZN13ProgressFrame11stopLoadingEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13ProgressFrame4showEbbPi(ptr noundef nonnull align 8 dereferenceable(152) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define void @_ZN13ProgressFrame4showEbbPi(ptr noundef nonnull align 8 dereferenceable(152) initializes((112, 113), (120, 128)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = zext i1 %2 to i8
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   store i8 %5, ptr %6, align 8

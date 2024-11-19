@@ -294,7 +294,7 @@ define hidden noundef i32 @_ZNK13StubLocations11data_offsetEj(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ForeignGlobals15parse_call_regsEP8_jobject(ptr dead_on_unwind noalias writable sret(%struct.CallRegs) align 8 %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN14ForeignGlobals15parse_call_regsEP8_jobject(ptr dead_on_unwind noalias writable sret(%struct.CallRegs) align 8 initializes((0, 16)) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 3
   switch i64 %4, label %13 [
@@ -847,7 +847,7 @@ declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFail
 declare noundef i32 @_ZN13SharedRuntime23java_calling_conventionEPK9BasicTypeP9VMRegPairi(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ForeignGlobals21replace_place_holdersERK13GrowableArrayI9VMStorageERK13StubLocations(ptr dead_on_unwind noalias writable sret(%class.GrowableArray) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %2) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN14ForeignGlobals21replace_place_holdersERK13GrowableArrayI9VMStorageERK13StubLocations(ptr dead_on_unwind noalias writable sret(%class.GrowableArray) align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %2) local_unnamed_addr #4 align 2 {
   %4 = load i32, ptr %1, align 8
   %5 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %4, i32 noundef 8) #12
   store i32 0, ptr %0, align 8
@@ -939,7 +939,7 @@ _ZN26GrowableArrayWithAllocatorI9VMStorage13GrowableArrayIS0_EE4pushERKS0_.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ForeignGlobals26upcall_filter_receiver_regERK13GrowableArrayI9VMStorageE(ptr dead_on_unwind noalias writable sret(%class.GrowableArray) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN14ForeignGlobals26upcall_filter_receiver_regERK13GrowableArrayI9VMStorageE(ptr dead_on_unwind noalias writable sret(%class.GrowableArray) align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr %1, align 8
   %4 = add nsw i32 %3, -1
   %5 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %4, i32 noundef 8) #12
@@ -1021,7 +1021,7 @@ _ZN26GrowableArrayWithAllocatorI9VMStorage13GrowableArrayIS0_EE4pushERKS0_.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ForeignGlobals27downcall_filter_offset_regsERK13GrowableArrayI9VMStorageEP9BasicTypeiRb(ptr dead_on_unwind noalias writable sret(%class.GrowableArray) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %4) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN14ForeignGlobals27downcall_filter_offset_regsERK13GrowableArrayI9VMStorageEP9BasicTypeiRb(ptr dead_on_unwind noalias writable sret(%class.GrowableArray) align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %4) local_unnamed_addr #4 align 2 {
   %6 = load i32, ptr %1, align 8
   %7 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %6, i32 noundef 8) #12
   store i32 0, ptr %0, align 8
@@ -1122,7 +1122,7 @@ _ZN26GrowableArrayWithAllocatorI9VMStorage13GrowableArrayIS0_EE4pushERKS0_.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ArgumentShuffleC2ERK13GrowableArrayI9VMStorageES4_S1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 %3) unnamed_addr #4 align 2 {
+define hidden void @_ZN15ArgumentShuffleC2ERK13GrowableArrayI9VMStorageES4_S1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 %3) unnamed_addr #4 align 2 {
   %5 = alloca %class.GrowableArray.0, align 8
   %6 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 16) #12
   store i32 0, ptr %0, align 8

@@ -190,7 +190,7 @@ define internal zeroext i1 @heapam_index_fetch_tuple(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @heapam_fetch_row_version(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #2 {
+define internal noundef zeroext i1 @heapam_fetch_row_version(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef initializes((84, 90)) %3) #2 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 80
   %7 = getelementptr inbounds i8, ptr %3, i64 84
@@ -397,7 +397,7 @@ define internal i32 @heapam_tuple_update(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @heapam_tuple_lock(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i8 noundef zeroext %7, ptr noundef %8) #2 {
+define internal i32 @heapam_tuple_lock(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture readnone %2, ptr noundef initializes((84, 90)) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i8 noundef zeroext %7, ptr noundef initializes((16, 17)) %8) #2 {
   %10 = alloca i32, align 4
   %11 = alloca %struct.SnapshotData, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 80
@@ -665,7 +665,7 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %30, %ItemPointerInd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @heapam_relation_set_new_filelocator(ptr nocapture readnone %0, ptr noundef %1, i8 noundef signext %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #2 {
+define internal void @heapam_relation_set_new_filelocator(ptr nocapture readnone %0, ptr noundef %1, i8 noundef signext %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) #2 {
   %6 = load i32, ptr @RecentXmin, align 4
   store i32 %6, ptr %3, align 4
   %7 = tail call i32 @GetOldestMultiXactId() #11
@@ -1243,7 +1243,7 @@ reform_and_rewrite_tuple.exit129:                 ; preds = %211, %199
 declare void @heap_vacuum_rel(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @heapam_scan_analyze_next_block(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #2 {
+define internal noundef zeroext i1 @heapam_scan_analyze_next_block(ptr nocapture noundef initializes((72, 80), (120, 124)) %0, i32 noundef %1, ptr noundef %2) #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 120
@@ -2460,7 +2460,7 @@ define internal void @heapam_estimate_rel_size(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @heapam_scan_bitmap_next_block(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #2 {
+define internal zeroext i1 @heapam_scan_bitmap_next_block(ptr nocapture noundef initializes((120, 128)) %0, ptr nocapture noundef readonly %1) #2 {
   %3 = alloca %struct.ItemPointerData, align 2
   %4 = alloca %struct.HeapTupleData, align 8
   %5 = alloca %struct.HeapTupleData, align 8

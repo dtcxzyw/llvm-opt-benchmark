@@ -789,7 +789,7 @@ land.end:                                         ; preds = %_ZNK6google8protobu
 declare void @_ZN6google8protobuf8compiler6csharp19SourceGeneratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6google8protobuf8compiler6csharp16MessageGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler6csharp16MessageGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler6csharp16MessageGeneratorE, i64 16), ptr %this, align 8
   %fields_by_number_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -807,7 +807,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6google8protobuf8compiler6csharp16MessageGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler6csharp16MessageGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler6csharp16MessageGeneratorE, i64 16), ptr %this, align 8
   %fields_by_number_.i = getelementptr inbounds i8, ptr %this, i64 24

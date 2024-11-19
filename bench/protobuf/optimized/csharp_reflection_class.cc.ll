@@ -284,7 +284,7 @@ declare void @_ZN6google8protobuf8compiler6csharp32GetExtensionClassUnqualifiedN
 declare void @_ZN6google8protobuf8compiler6csharp19SourceGeneratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6google8protobuf8compiler6csharp24ReflectionClassGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN6google8protobuf8compiler6csharp24ReflectionClassGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler6csharp24ReflectionClassGeneratorE, i64 16), ptr %this, align 8
   %extensionClassname_ = getelementptr inbounds i8, ptr %this, i64 88
@@ -298,7 +298,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6google8protobuf8compiler6csharp24ReflectionClassGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN6google8protobuf8compiler6csharp24ReflectionClassGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler6csharp24ReflectionClassGeneratorE, i64 16), ptr %this, align 8
   %extensionClassname_.i = getelementptr inbounds i8, ptr %this, i64 88

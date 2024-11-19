@@ -7,13 +7,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [3 x i8] c"rb\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @File_Construct(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @File_Construct(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @InFile_Open(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define i32 @InFile_Open(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = tail call noalias ptr @fopen(ptr noundef readonly %1, ptr noundef nonnull @.str.1)
   store ptr %3, ptr %0, align 8
   %.not3.i = icmp eq ptr %3, null
@@ -30,7 +30,7 @@ File_Open.exit:                                   ; preds = %2, %4
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @OutFile_Open(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define i32 @OutFile_Open(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = tail call noalias ptr @fopen(ptr noundef readonly %1, ptr noundef nonnull @.str)
   store ptr %3, ptr %0, align 8
   %.not3.i = icmp eq ptr %3, null
@@ -150,7 +150,7 @@ declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) loca
 declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @FileSeqInStream_CreateVTable(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @FileSeqInStream_CreateVTable(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
   store ptr @FileSeqInStream_Read, ptr %0, align 8
   ret void
 }
@@ -184,7 +184,7 @@ File_Read.exit.thread:                            ; preds = %7, %3, %File_Read.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @FileInStream_CreateVTable(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @FileInStream_CreateVTable(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #0 {
   store ptr @FileInStream_Read, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @FileInStream_Seek, ptr %2, align 8
@@ -240,7 +240,7 @@ File_Seek.exit:                                   ; preds = %3, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @FileOutStream_CreateVTable(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @FileOutStream_CreateVTable(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
   store ptr @FileOutStream_Write, ptr %0, align 8
   ret void
 }

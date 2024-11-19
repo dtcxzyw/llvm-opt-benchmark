@@ -111,7 +111,7 @@ declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #4
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5_build_extpath(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5_build_extpath(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   store ptr null, ptr %1, align 8
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, 47
@@ -260,7 +260,7 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5_combine_path(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5_combine_path(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %4
 

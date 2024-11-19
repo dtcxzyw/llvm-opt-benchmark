@@ -73970,7 +73970,7 @@ declare void @_ZN5osgeo4proj11coordinates18CoordinateMetadata6createERKN7dropbox
 declare void @_ZN5osgeo4proj11coordinates18CoordinateMetadata6createERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEE(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.631") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5osgeo4proj2io9WKTParser7Private8buildCRSERKN7dropbox6oxygen2nnISt10unique_ptrINS1_7WKTNodeESt14default_deleteIS8_EEEEENK3$_0clERKNS6_ISt10shared_ptrINS0_3crs3CRSEEEE"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5osgeo4proj2io9WKTParser7Private8buildCRSERKN7dropbox6oxygen2nnISt10unique_ptrINS1_7WKTNodeESt14default_deleteIS8_EEEEENK3$_0clERKNS6_ISt10shared_ptrINS0_3crs3CRSEEEE"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 16)) %0, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.dropbox::oxygen::nn.581", align 8
   %4 = alloca %"class.dropbox::oxygen::nn.581", align 8
   %5 = getelementptr inbounds i8, ptr %.0.val, i64 56
@@ -127989,7 +127989,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj2i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK5osgeo4proj2io19PROJStringFormatter16getUsedGridNamesB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK5osgeo4proj2io19PROJStringFormatter16getUsedGridNamesB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.672", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -128704,7 +128704,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj2i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5osgeo4proj2io16PROJStringParserC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj2io16PROJStringParserC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !703)
   %2 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #41, !noalias !703
   %3 = getelementptr inbounds i8, ptr %2, i64 56
@@ -129565,7 +129565,7 @@ define internal fastcc void @_ZN5osgeo4proj2ioL10_buildUnitEPKNS1_14LinearUnitDe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj2io16PROJStringParser7Private18buildPrimeMeridianERNS1_4StepE(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.176") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(169) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj2io16PROJStringParser7Private18buildPrimeMeridianERNS1_4StepE(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.176") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(169) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.osgeo::proj::util::PropertyMap", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.dropbox::oxygen::nn.176", align 8
@@ -150906,7 +150906,7 @@ define hidden void @_ZN5osgeo4proj2io13JSONFormatter27setOmitTypeInImmediateChil
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5osgeo4proj2io13JSONFormatter13ObjectContextC2ERS2_PKcb(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj2io13JSONFormatter13ObjectContextC2ERS2_PKcb(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

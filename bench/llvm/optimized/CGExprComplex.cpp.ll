@@ -262,7 +262,7 @@ $_ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlign
 @switch.table._ZN12_GLOBAL__N_118ComplexExprEmitter16getPromotionTypeEN5clang17FPOptionsOverrideENS1_8QualTypeEb = private unnamed_addr constant [5 x i64] [i64 18600, i64 18608, i64 18592, i64 18592, i64 18600], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction23emitAddrOfRealComponentENS0_7AddressENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction23emitAddrOfRealComponentENS0_7AddressENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 initializes((0, 24), (32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -329,7 +329,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction23emitAddrOfRealCompone
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction23emitAddrOfImagComponentENS0_7AddressENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction23emitAddrOfImagComponentENS0_7AddressENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 initializes((0, 24), (32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -1217,7 +1217,7 @@ _ZL12getComplexOpN5clang18BinaryOperatorKindE.exit: ; preds = %3, %9, %10, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter24EmitCompoundAssignLValueEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEERNS1_7CodeGen6RValueE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(19) %1, ptr nocapture noundef readonly %2, i64 %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter24EmitCompoundAssignLValueEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEERNS1_7CodeGen6RValueE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(19) initializes((16, 18)) %1, ptr nocapture noundef readonly %2, i64 %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 49)) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   %7 = alloca %"struct.(anonymous namespace)::ComplexExprEmitter::BinOpInfo", align 8
   %8 = alloca %"class.clang::CodeGen::CodeGenFunction::CGFPOptionsRAII", align 8
@@ -2239,7 +2239,7 @@ _ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit22: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(19) %1, ptr nocapture noundef readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinOpsEPKN5clang14BinaryOperatorENS1_8QualTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 44)) %0, ptr noundef nonnull align 8 dereferenceable(19) initializes((16, 18)) %1, ptr nocapture noundef readonly %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 17
@@ -5074,7 +5074,7 @@ _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %_ZN4llvm13IRBui
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter10VisitMinusEPKN5clang13UnaryOperatorENS1_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr nocapture noundef readonly %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter10VisitMinusEPKN5clang13UnaryOperatorENS1_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(19) initializes((16, 18)) %0, ptr nocapture noundef readonly %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -9527,7 +9527,7 @@ _ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_118ComplexExprEmitterESt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter14VisitBinAssignEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter14VisitBinAssignEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(19) initializes((16, 18)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   %4 = alloca %"class.clang::CodeGen::LValue", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10060,7 +10060,7 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter15Visi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter13VisitUnaryNotEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter13VisitUnaryNotEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(19) initializes((16, 18)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -12224,7 +12224,7 @@ _ZN12_GLOBAL__N_118ComplexExprEmitter9VisitExprEPN5clang4ExprE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter17VisitInitListExprEPN5clang12InitListExprE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter17VisitInitListExprEPN5clang12InitListExprE(ptr noundef nonnull align 8 dereferenceable(19) initializes((16, 18)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %4, align 8
@@ -16163,7 +16163,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef zeroext i1 @_ZN5clang17DiagnosticsEngine21EmitCurrentDiagnosticEb(ptr noundef nonnull align 8 dereferenceable(1304), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter18EmitCompoundAssignEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr nocapture noundef readonly %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter18EmitCompoundAssignEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEE(ptr noundef nonnull align 8 dereferenceable(19) initializes((16, 18)) %0, ptr nocapture noundef readonly %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CodeGen::RValue", align 8
   %5 = alloca %"class.clang::CodeGen::LValue", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %4, i8 0, i64 16, i1 false)
@@ -16949,7 +16949,7 @@ declare noundef ptr @_ZN5clang17CXXDefaultArgExpr7getExprEv(ptr noundef nonnull 
 declare void @_ZN5clang7CodeGen15CodeGenFunction14EmitAtomicExprEPNS_10AtomicExprE(ptr dead_on_unwind writable sret(%"class.clang::CodeGen::RValue") align 8, ptr noundef nonnull align 8 dereferenceable(6488), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter32VisitAbstractConditionalOperatorEPKN5clang27AbstractConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter32VisitAbstractConditionalOperatorEPKN5clang27AbstractConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(19) initializes((16, 18)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   %4 = alloca %"class.clang::CodeGen::ApplyDebugLocation", align 8
   %5 = alloca %"class.clang::CodeGen::CodeGenFunction::OpaqueValueMappingData", align 8

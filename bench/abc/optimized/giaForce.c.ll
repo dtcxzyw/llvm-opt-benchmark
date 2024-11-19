@@ -841,7 +841,7 @@ tailrecurse:                                      ; preds = %Vec_IntPush.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Frc_ManCollectSuper(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
+define void @Frc_ManCollectSuper(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 4
@@ -2216,7 +2216,7 @@ define range(i32 0, 2) i32 @Frc_ManCrossCut2_rec(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Frc_ManCrossCut(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
+define i32 @Frc_ManCrossCut(ptr nocapture noundef initializes((48, 56)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 52
@@ -3057,7 +3057,7 @@ define void @Frc_ManPlaceDfs(ptr nocapture noundef readonly %0, ptr nocapture no
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Frc_ManPlaceDfsBoth(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #9 {
+define i32 @Frc_ManPlaceDfsBoth(ptr nocapture noundef initializes((48, 56)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #9 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 48

@@ -81,7 +81,7 @@ $_ZNSt6vectorIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE17_M_realloc_ins
 @_ZN6hermes2vm15IdentifierTableC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6hermes2vm15IdentifierTableC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull %str, i1 noundef zeroext %isNotUniqued) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull %str, i1 noundef zeroext %isNotUniqued) unnamed_addr #0 align 2 {
 entry:
   %storage = alloca %"class.llvh::SmallVector", align 8
   store ptr %str, ptr %this, align 8
@@ -134,7 +134,7 @@ _ZN4llvh11SmallVectorIDsLj32EED2Ev.exit:          ; preds = %_ZN6hermes10hashStr
 declare void @_ZNK6hermes2vm15StringPrimitive17appendUTF16StringERN4llvh15SmallVectorImplIDsEE(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm15IdentifierTableC2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm15IdentifierTableC2Ev(ptr noundef nonnull align 8 dereferenceable(84) initializes((0, 44), (48, 64), (72, 84)) %this) unnamed_addr #0 align 2 {
 entry:
   %hashTable_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %this, i8 0, i64 44, i1 false)
@@ -1531,7 +1531,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 1073741824, 1073741823) i32 @_ZN6hermes2vm15IdentifierTable16allocIDAndInsertEjPNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(84) %this, i32 noundef %hashTableIndex, ptr noundef %strPrim) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 1073741824, 1073741823) i32 @_ZN6hermes2vm15IdentifierTable16allocIDAndInsertEjPNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(84) %this, i32 noundef %hashTableIndex, ptr noundef initializes((8, 12)) %strPrim) local_unnamed_addr #0 align 2 {
 entry:
   %storage.i = alloca %"class.llvh::SmallVector", align 8
   %call = tail call noundef i32 @_ZN6hermes2vm15IdentifierTable11allocNextIDEv(ptr noundef nonnull align 8 dereferenceable(84) %this)

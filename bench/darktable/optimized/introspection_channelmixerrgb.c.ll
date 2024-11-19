@@ -540,7 +540,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nounwind uwtable
-define void @init_presets(ptr noundef %0) local_unnamed_addr #3 {
+define void @init_presets(ptr noundef initializes((556, 560)) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.dt_iop_channelmixer_rgb_params_t, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 556
   store i32 1, ptr %3, align 4, !tbaa !17
@@ -6592,7 +6592,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @find_temperature_from_raw_co
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @convert_any_XYZ_to_LMS(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef %2) unnamed_addr #12 {
+define internal fastcc void @convert_any_XYZ_to_LMS(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1, i32 noundef %2) unnamed_addr #12 {
   switch i32 %2, label %74 [
     i32 2, label %4
     i32 0, label %4
@@ -8327,7 +8327,7 @@ define internal fastcc void @_check_if_close_to_daylight(float noundef %0, float
 declare float @llvm.pow.f32(float, float) #15
 
 ; Function Attrs: nounwind uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
+define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #3 {
   %4 = tail call ptr @dt_alloc_aligned(i64 noundef 192) #28
   %5 = icmp eq ptr %4, null
   br i1 %5, label %7, label %6
@@ -12842,7 +12842,7 @@ dt_XYZ_to_sRGB.exit:                              ; preds = %128, %130
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #3 {
+define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.dt_iop_module_section_t, align 8
   %3 = alloca %struct.dt_iop_module_section_t, align 8
   %4 = alloca %struct.dt_iop_module_section_t, align 8
@@ -14885,7 +14885,7 @@ define internal void @_run_validation_callback(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #3 {
+define void @gui_cleanup(ptr noundef initializes((496, 500)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 496
   store i32 0, ptr %2, align 16, !tbaa !331
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !290
@@ -16846,7 +16846,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 declare i32 @dt_dev_is_D65_chroma(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @matrice_pseudoinverse(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #12 {
+define internal fastcc void @matrice_pseudoinverse(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 36)) %1) unnamed_addr #12 {
   %3 = load float, ptr %0, align 4, !tbaa !12
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load float, ptr %4, align 4, !tbaa !12
@@ -17075,7 +17075,7 @@ declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #15
 declare i32 @get_homography(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, i32 noundef %4) unnamed_addr #23 {
+define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 12)) %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, i32 noundef %4) unnamed_addr #23 {
   %6 = add nsw i32 %4, -1
   %7 = sitofp i32 %6 to float
   %8 = add nsw i32 %4, -2

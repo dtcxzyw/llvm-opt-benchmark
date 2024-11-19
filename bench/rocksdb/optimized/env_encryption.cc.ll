@@ -4479,7 +4479,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15CTRCipherStream12EncryptBlockEmPcS1_(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %blockIndex, ptr nocapture noundef %data, ptr noundef %scratch) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15CTRCipherStream12EncryptBlockEmPcS1_(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %blockIndex, ptr nocapture noundef %data, ptr noundef initializes((0, 8)) %scratch) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %status = alloca %"class.rocksdb::Status", align 8
   %cipher_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -4584,14 +4584,14 @@ _ZN7rocksdb6StatusD2Ev.exit16:                    ; preds = %cleanup, %_ZNKSt14d
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15CTRCipherStream12DecryptBlockEmPcS1_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %blockIndex, ptr nocapture noundef %data, ptr noundef %scratch) unnamed_addr #3 align 2 {
+define void @_ZN7rocksdb15CTRCipherStream12DecryptBlockEmPcS1_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %blockIndex, ptr nocapture noundef %data, ptr noundef initializes((0, 8)) %scratch) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN7rocksdb15CTRCipherStream12EncryptBlockEmPcS1_(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %blockIndex, ptr noundef %data, ptr noundef %scratch)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb21CTREncryptionProviderC2ERKSt10shared_ptrINS_11BlockCipherEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb21CTREncryptionProviderC2ERKSt10shared_ptrINS_11BlockCipherEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.72", align 1
@@ -5198,7 +5198,7 @@ return:                                           ; preds = %_ZN7rocksdb13Config
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116ROT13BlockCipherC2Em(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %blockSize) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116ROT13BlockCipherC2Em(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, i64 noundef %blockSize) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.72", align 1
@@ -8257,7 +8257,7 @@ _ZNSt12__shared_ptrIN7rocksdb18EncryptionProviderELN9__gnu_cxx12_Lock_policyE2EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImplD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImplD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImplE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -8414,7 +8414,7 @@ _ZN7rocksdb19EncryptedFileSystemD2Ev.exit:        ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImplD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #5 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImplD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImplD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
@@ -11286,7 +11286,7 @@ declare void @llvm.trap() #14
 declare void @_ZN7rocksdb10FileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl27CreateWritableEncryptedFileINS_14FSWritableFileEEENS_8IOStatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrIT_St14default_deleteISE_EERKNS_11FileOptionsEPSH_PNS_14IODebugContextE(ptr noalias align 8 %agg.result, ptr %this.48.val, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr nocapture noundef nonnull align 8 dereferenceable(8) %underlying, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr nocapture noundef %result, ptr noundef %dbg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_123EncryptedFileSystemImpl27CreateWritableEncryptedFileINS_14FSWritableFileEEENS_8IOStatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrIT_St14default_deleteISE_EERKNS_11FileOptionsEPSH_PNS_14IODebugContextE(ptr noalias align 8 initializes((0, 6), (8, 16)) %agg.result, ptr %this.48.val, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr nocapture noundef nonnull align 8 dereferenceable(8) %underlying, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr nocapture noundef %result, ptr noundef %dbg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %prefix.i = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp16.i = alloca %"class.rocksdb::Status", align 8
@@ -12098,7 +12098,7 @@ _ZN7rocksdb12CustomizableD2Ev.exit:               ; preds = %invoke.cont.i.i.i, 
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_116ROT13BlockCipherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_116ROT13BlockCipherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %this, align 8
   %options_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -12133,7 +12133,7 @@ _ZN7rocksdb11BlockCipherD2Ev.exit:                ; preds = %invoke.cont.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_116ROT13BlockCipherD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_116ROT13BlockCipherD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %this, align 8
   %options_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8

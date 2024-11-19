@@ -78,7 +78,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN17IOPluginContainerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0) unnamed_addr #3 align 2 {
+define void @_ZN17IOPluginContainerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %0) unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr @_ZN12QMapDataBase11shared_nullE, ptr %2, align 8
@@ -4153,7 +4153,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZNK4QMapI7QStringP
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17IOPluginContainer19inputMeshFormatListEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QStringList) align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK17IOPluginContainer19inputMeshFormatListEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QStringList) align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   call void @_ZNK4QMapI7QStringP8IOPluginE4keysEv(ptr dead_on_unwind nonnull writable sret(%class.QList) align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -4772,7 +4772,7 @@ declare noundef ptr @_ZN9QListData11detach_growEPii(ptr noundef nonnull align 8 
 declare noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17IOPluginContainer20outputMeshFormatListEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QStringList) align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK17IOPluginContainer20outputMeshFormatListEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QStringList) align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   call void @_ZNK4QMapI7QStringP8IOPluginE4keysEv(ptr dead_on_unwind nonnull writable sret(%class.QList) align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -4855,7 +4855,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %2, %_ZN9QtPrivate8R
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17IOPluginContainer20inputImageFormatListEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QStringList) align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK17IOPluginContainer20inputImageFormatListEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QStringList) align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   call void @_ZNK4QMapI7QStringP8IOPluginE4keysEv(ptr dead_on_unwind nonnull writable sret(%class.QList) align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -4938,7 +4938,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %2, %_ZN9QtPrivate8R
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17IOPluginContainer21outputImageFormatListEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QStringList) align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK17IOPluginContainer21outputImageFormatListEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QStringList) align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   call void @_ZNK4QMapI7QStringP8IOPluginE4keysEv(ptr dead_on_unwind nonnull writable sret(%class.QList) align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -5021,7 +5021,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %2, %_ZN9QtPrivate8R
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17IOPluginContainer22inputProjectFormatListEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QStringList) align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK17IOPluginContainer22inputProjectFormatListEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QStringList) align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 56
   call void @_ZNK4QMapI7QStringP8IOPluginE4keysEv(ptr dead_on_unwind nonnull writable sret(%class.QList) align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -5104,7 +5104,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %2, %_ZN9QtPrivate8R
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17IOPluginContainer23outputProjectFormatListEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QStringList) align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK17IOPluginContainer23outputProjectFormatListEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QStringList) align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   call void @_ZNK4QMapI7QStringP8IOPluginE4keysEv(ptr dead_on_unwind nonnull writable sret(%class.QList) align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -5199,7 +5199,7 @@ define { ptr, i8 } @_ZNK17IOPluginContainer16ioPluginIteratorEb(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN17IOPluginContainer21IOPluginRangeIterator5beginEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ConstPluginIterator) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1) local_unnamed_addr #13 align 2 {
+define void @_ZN17IOPluginContainer21IOPluginRangeIterator5beginEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ConstPluginIterator) align 8 initializes((0, 17)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1) local_unnamed_addr #13 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5255,7 +5255,7 @@ _ZN19ConstPluginIteratorI8IOPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN17IOPluginContainer21IOPluginRangeIterator3endEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ConstPluginIterator) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1) local_unnamed_addr #14 align 2 {
+define void @_ZN17IOPluginContainer21IOPluginRangeIterator3endEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ConstPluginIterator) align 8 initializes((0, 17)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1) local_unnamed_addr #14 align 2 {
 _ZN19ConstPluginIteratorI8IOPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEb.exit:
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
@@ -5273,7 +5273,7 @@ _ZN19ConstPluginIteratorI8IOPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN17IOPluginContainer21IOPluginRangeIteratorC2EPKS_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define void @_ZN17IOPluginContainer21IOPluginRangeIteratorC2EPKS_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8

@@ -4009,7 +4009,7 @@ define hidden void @proto_register_smb2() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @seskey_list_id_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @seskey_list_id_set_cb(ptr nocapture noundef initializes((8, 12)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %9, label %6
 
@@ -4029,7 +4029,7 @@ define internal void @seskey_list_id_set_cb(ptr nocapture noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @seskey_list_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @seskey_list_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -4055,7 +4055,7 @@ define internal void @seskey_list_id_tostr_cb(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @seskey_list_seskey_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @seskey_list_seskey_set_cb(ptr nocapture noundef initializes((24, 28)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %9, label %6
 
@@ -4076,7 +4076,7 @@ define internal void @seskey_list_seskey_set_cb(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @seskey_list_seskey_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @seskey_list_seskey_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -4103,7 +4103,7 @@ define internal void @seskey_list_seskey_tostr_cb(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @seskey_list_s2ckey_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @seskey_list_s2ckey_set_cb(ptr nocapture noundef initializes((40, 44)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %9, label %6
 
@@ -4124,7 +4124,7 @@ define internal void @seskey_list_s2ckey_set_cb(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @seskey_list_s2ckey_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @seskey_list_s2ckey_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -4151,7 +4151,7 @@ define internal void @seskey_list_s2ckey_tostr_cb(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @seskey_list_c2skey_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @seskey_list_c2skey_set_cb(ptr nocapture noundef initializes((56, 60)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %9, label %6
 
@@ -4172,7 +4172,7 @@ define internal void @seskey_list_c2skey_set_cb(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @seskey_list_c2skey_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @seskey_list_c2skey_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -4215,7 +4215,7 @@ declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @seskey_list_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @seskey_list_copy_cb(ptr noundef returned writeonly initializes((0, 12), (16, 28), (32, 44), (48, 60)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4290,7 +4290,7 @@ define internal noundef ptr @seskey_list_copy_cb(ptr noundef returned writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @seskey_list_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal noundef zeroext i1 @seskey_list_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -4559,7 +4559,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_file_data_smb2_pipe(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_file_data_smb2_pipe(ptr noundef %0, ptr noundef initializes((328, 330), (332, 340)) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = icmp eq ptr %6, null
@@ -11013,7 +11013,7 @@ declare void @gcry_md_close(ptr noundef) local_unnamed_addr #1
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_smb2_error_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %5) unnamed_addr #0 {
   %7 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %3) #12
   %8 = load i32, ptr @hf_smb2_buffer_code, align 4
   %9 = zext i16 %7 to i32

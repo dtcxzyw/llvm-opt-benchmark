@@ -1444,7 +1444,7 @@ define internal void @output_report(ptr nocapture noundef readonly %0, ...) unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @run_test(i32 noundef range(i32 0, 2) %0, ptr noundef byval(%struct.parameters_) align 8 %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @run_test(i32 noundef range(i32 0, 2) %0, ptr noundef byval(%struct.parameters_) align 8 initializes((0, 4)) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = alloca %struct.results_, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8

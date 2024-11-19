@@ -26,7 +26,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_7518UStringEnumerationD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7518UStringEnumerationD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) initializes((0, 18)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517StringEnumerationE, i64 16), ptr %this, align 8
   %unistr = getelementptr inbounds i8, ptr %this, i64 8
@@ -47,7 +47,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7517StringEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7517StringEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(116) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517StringEnumerationE, i64 16), ptr %this, align 8
   %chars = getelementptr inbounds i8, ptr %this, i64 104
@@ -493,7 +493,7 @@ declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #1
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7518UStringEnumerationC2EP12UEnumeration(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %_uenum) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7518UStringEnumerationC2EP12UEnumeration(ptr noundef nonnull align 8 dereferenceable(128) initializes((8, 18)) %this, ptr noundef %_uenum) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %unistr.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %unistr.i, align 8
@@ -511,7 +511,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7518UStringEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7518UStringEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518UStringEnumerationE, i64 16), ptr %this, align 8
   %uenum = getelementptr inbounds i8, ptr %this, i64 120
@@ -892,7 +892,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL18ucharstrenum_resetP12UEnumerationP10UErrorCode(ptr nocapture noundef writeonly %en, ptr nocapture readnone %0) #0 {
+define internal void @_ZL18ucharstrenum_resetP12UEnumerationP10UErrorCode(ptr nocapture noundef writeonly initializes((56, 60)) %en, ptr nocapture readnone %0) #0 {
 entry:
   %index = getelementptr inbounds i8, ptr %en, i64 56
   store i32 0, ptr %index, align 8

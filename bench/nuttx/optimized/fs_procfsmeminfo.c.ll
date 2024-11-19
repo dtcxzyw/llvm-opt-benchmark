@@ -148,7 +148,7 @@ define internal range(i32 -12, 1) i32 @meminfo_dup(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @meminfo_stat(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #3 {
+define internal noundef i32 @meminfo_stat(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 88)) %1) #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, i8 0, i64 88, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 33060, ptr %3, align 8

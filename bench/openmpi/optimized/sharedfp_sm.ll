@@ -27,7 +27,7 @@ define noundef i32 @mca_sharedfp_sm_component_init_query(i1 noundef zeroext %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @mca_sharedfp_sm_component_file_query(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define noundef ptr @mca_sharedfp_sm_component_file_query(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8

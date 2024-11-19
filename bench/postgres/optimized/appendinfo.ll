@@ -1310,7 +1310,7 @@ define dso_local ptr @adjust_inherited_attnums_multilevel(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @get_translated_update_targetlist(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local void @get_translated_update_targetlist(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 40

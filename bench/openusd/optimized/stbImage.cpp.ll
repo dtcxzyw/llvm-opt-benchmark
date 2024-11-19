@@ -531,7 +531,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12Hio_StbImage23_GetInfoFromStorageSpecERKNS_8HioImage11StorageSpecE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12Hio_StbImage23_GetInfoFromStorageSpecERKNS_8HioImage11StorageSpecE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((40, 48), (52, 64)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %3, ptr %4, align 8
@@ -558,7 +558,7 @@ declare noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__13HioGetHioTypeENS_9Hi
 declare noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__20HioGetComponentCountENS_9HioFormatE(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12Hio_StbImageC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12Hio_StbImageC2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12Hio_StbImageE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #46
@@ -37609,7 +37609,7 @@ _ZL12stbi__at_eofP13stbi__context.exit79.thread:  ; preds = %223, %_ZL12stbi__at
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 17) i32 @_ZL14stbi__pnm_infoP13stbi__contextPiS1_S1_(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 17) i32 @_ZL14stbi__pnm_infoP13stbi__contextPiS1_S1_(ptr noundef nonnull initializes((192, 208)) %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %7 = load ptr, ptr %6, align 8
@@ -38626,7 +38626,7 @@ _ZL18stbi__tga_get_compiiPi.exit.thread:          ; preds = %_ZL18stbi__tga_get_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL24stbi__decode_jpeg_headerP10stbi__jpegi(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL24stbi__decode_jpeg_headerP10stbi__jpegi(ptr nocapture noundef nonnull initializes((18472, 18473), (18504, 18512)) %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 18504
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 18508
@@ -41059,7 +41059,7 @@ _ZL21stbi__mad3sizes_validiiii.exit.thread:       ; preds = %_ZL21stbi__mul2size
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr nocapture noundef nonnull initializes((8, 32), (36, 40)) %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca [3 x i8], align 1
   %5 = alloca [3 x i16], align 2
@@ -44432,7 +44432,7 @@ _ZL17stbi__malloc_mad2iii.exit.thread:            ; preds = %3, %_ZL21stbi__mul2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__zbuild_huffmanP14stbi__zhuffmanPKhi(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #23 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__zbuild_huffmanP14stbi__zhuffmanPKhi(ptr nocapture noundef nonnull initializes((0, 1024)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #23 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca [17 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %5, i8 0, i64 68, i1 false)
@@ -44750,7 +44750,7 @@ _ZL30stbi__zhuffman_decode_slowpathP10stbi__zbufP14stbi__zhuffman.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL26stbi__create_png_image_rawP9stbi__pngPhjijjii(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, 7) %7) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL26stbi__create_png_image_rawP9stbi__pngPhjijjii(ptr nocapture noundef nonnull initializes((24, 32)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, 7) %7) unnamed_addr #5 {
   %9 = icmp eq i32 %6, 16
   %10 = load ptr, ptr %0, align 8
   %11 = mul i32 %4, %3
@@ -57469,7 +57469,7 @@ _ZL21stbi__mad4sizes_validiiiii.exit.thread:      ; preds = %_ZL21stbi__mul2size
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc void @_ZL17stbi__hdr_convertPfPhi(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #29 {
+define internal fastcc void @_ZL17stbi__hdr_convertPfPhi(ptr nocapture noundef nonnull writeonly initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #29 {
   %3 = getelementptr inbounds i8, ptr %1, i64 3
   %4 = load i8, ptr %3, align 1
   %.not = icmp eq i8 %4, 0
@@ -57512,7 +57512,7 @@ define internal fastcc void @_ZL17stbi__hdr_convertPfPhi(ptr nocapture noundef n
 declare float @ldexpf(float noundef, i32 noundef) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL14stbi__pnm_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL14stbi__pnm_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull initializes((0, 4)) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = tail call fastcc noundef i32 @_ZL14stbi__pnm_infoP13stbi__contextPiS1_S1_(ptr noundef %0, ptr noundef %0, ptr noundef %6, ptr noundef %7)
@@ -59868,7 +59868,7 @@ _ZL10stbi__get8P13stbi__context.exit49:           ; preds = %88, %91, %_ZL19stbi
 declare float @llvm.fmuladd.f32(float, float, float) #22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL15stbi__idct_simdPhiPs(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) #32 {
+define internal void @_ZL15stbi__idct_simdPhiPs(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) #32 {
   %4 = load <8 x i16>, ptr %2, align 16
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load <8 x i16>, ptr %5, align 16
@@ -60514,7 +60514,7 @@ define internal noundef ptr @_ZL22stbi__resample_row_v_2PhS_S_ii(ptr noundef ret
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZL22stbi__resample_row_h_2PhS_S_ii(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4) #18 {
+define internal noundef ptr @_ZL22stbi__resample_row_h_2PhS_S_ii(ptr noundef returned writeonly initializes((0, 2)) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4) #18 {
   %6 = icmp eq i32 %3, 1
   %7 = load i8, ptr %1, align 1
   br i1 %6, label %8, label %10

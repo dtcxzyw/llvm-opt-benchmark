@@ -194,7 +194,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_ob
 @llvm.compiler.used = appending global [63 x ptr] [ptr @__UNIQUE_ID___addressable_ieee80211_channel_switch_disconnect3015, ptr @__UNIQUE_ID___addressable_ieee80211_color_change_finish3044, ptr @__UNIQUE_ID___addressable_ieee80211_csa_finish3014, ptr @__UNIQUE_ID___addressable_ieee80211_nan_func_match3041, ptr @__UNIQUE_ID___addressable_ieee80211_nan_func_terminated3036, ptr @__UNIQUE_ID___addressable_ieee80211_obss_color_collision_notify3045, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2, ptr @trace_drv_abort_pmsr.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2094, ptr @trace_drv_abort_pmsr.__UNIQUE_ID___addressable___SCK__tp_func_drv_abort_pmsr2093, ptr @trace_drv_add_nan_func.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2052, ptr @trace_drv_add_nan_func.__UNIQUE_ID___addressable___SCK__tp_func_drv_add_nan_func2051, ptr @trace_drv_channel_switch_beacon.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2122, ptr @trace_drv_channel_switch_beacon.__UNIQUE_ID___addressable___SCK__tp_func_drv_channel_switch_beacon2121, ptr @trace_drv_config_iface_filter.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1100, ptr @trace_drv_config_iface_filter.__UNIQUE_ID___addressable___SCK__tp_func_drv_config_iface_filter1099, ptr @trace_drv_del_nan_func.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2066, ptr @trace_drv_del_nan_func.__UNIQUE_ID___addressable___SCK__tp_func_drv_del_nan_func2065, ptr @trace_drv_get_antenna.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1618, ptr @trace_drv_get_antenna.__UNIQUE_ID___addressable___SCK__tp_func_drv_get_antenna1617, ptr @trace_drv_get_ftm_responder_stats.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2262, ptr @trace_drv_get_ftm_responder_stats.__UNIQUE_ID___addressable___SCK__tp_func_drv_get_ftm_responder_stats2261, ptr @trace_drv_get_key_seq.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1254, ptr @trace_drv_get_key_seq.__UNIQUE_ID___addressable___SCK__tp_func_drv_get_key_seq1253, ptr @trace_drv_get_survey.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1548, ptr @trace_drv_get_survey.__UNIQUE_ID___addressable___SCK__tp_func_drv_get_survey1547, ptr @trace_drv_get_txpower.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2192, ptr @trace_drv_get_txpower.__UNIQUE_ID___addressable___SCK__tp_func_drv_get_txpower2191, ptr @trace_drv_nan_change_conf.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2038, ptr @trace_drv_nan_change_conf.__UNIQUE_ID___addressable___SCK__tp_func_drv_nan_change_conf2037, ptr @trace_drv_post_channel_switch.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2150, ptr @trace_drv_post_channel_switch.__UNIQUE_ID___addressable___SCK__tp_func_drv_post_channel_switch2149, ptr @trace_drv_pre_channel_switch.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2136, ptr @trace_drv_pre_channel_switch.__UNIQUE_ID___addressable___SCK__tp_func_drv_pre_channel_switch2135, ptr @trace_drv_return_int.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace820, ptr @trace_drv_return_int.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_int819, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace806, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_void805, ptr @trace_drv_set_antenna.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1604, ptr @trace_drv_set_antenna.__UNIQUE_ID___addressable___SCK__tp_func_drv_set_antenna1603, ptr @trace_drv_set_bitrate_mask.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1716, ptr @trace_drv_set_bitrate_mask.__UNIQUE_ID___addressable___SCK__tp_func_drv_set_bitrate_mask1715, ptr @trace_drv_set_coverage_class.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1296, ptr @trace_drv_set_coverage_class.__UNIQUE_ID___addressable___SCK__tp_func_drv_set_coverage_class1295, ptr @trace_drv_set_frag_threshold.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1268, ptr @trace_drv_set_frag_threshold.__UNIQUE_ID___addressable___SCK__tp_func_drv_set_frag_threshold1267, ptr @trace_drv_set_rekey_data.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1730, ptr @trace_drv_set_rekey_data.__UNIQUE_ID___addressable___SCK__tp_func_drv_set_rekey_data1729, ptr @trace_drv_set_rts_threshold.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1282, ptr @trace_drv_set_rts_threshold.__UNIQUE_ID___addressable___SCK__tp_func_drv_set_rts_threshold1281, ptr @trace_drv_set_wakeup.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace960, ptr @trace_drv_set_wakeup.__UNIQUE_ID___addressable___SCK__tp_func_drv_set_wakeup959, ptr @trace_drv_sta_set_4addr.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2290, ptr @trace_drv_sta_set_4addr.__UNIQUE_ID___addressable___SCK__tp_func_drv_sta_set_4addr2289, ptr @trace_drv_start_ap.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1912, ptr @trace_drv_start_ap.__UNIQUE_ID___addressable___SCK__tp_func_drv_start_ap1911, ptr @trace_drv_start_nan.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2010, ptr @trace_drv_start_nan.__UNIQUE_ID___addressable___SCK__tp_func_drv_start_nan2009, ptr @trace_drv_start_pmsr.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2080, ptr @trace_drv_start_pmsr.__UNIQUE_ID___addressable___SCK__tp_func_drv_start_pmsr2079, ptr @trace_drv_stop_ap.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1926, ptr @trace_drv_stop_ap.__UNIQUE_ID___addressable___SCK__tp_func_drv_stop_ap1925, ptr @trace_drv_stop_nan.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2024, ptr @trace_drv_stop_nan.__UNIQUE_ID___addressable___SCK__tp_func_drv_stop_nan2023], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sta_set_rate_info_tx(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @sta_set_rate_info_tx(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 2), (6, 7)) %2) local_unnamed_addr #0 align 16 {
   store i16 0, ptr %2, align 2
   %4 = getelementptr inbounds i8, ptr %1, i64 1
   %5 = load i16, ptr %4, align 1
@@ -570,7 +570,7 @@ define dso_local void @ieee80211_csa_finish(ptr noundef %0) #0 align 16 {
 declare dso_local void @wiphy_work_queue(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_channel_switch_disconnect(ptr noundef %0, i1 noundef zeroext %1) #3 align 16 {
+define dso_local void @ieee80211_channel_switch_disconnect(ptr noundef initializes((-720, -719)) %0, i1 noundef zeroext %1) #3 align 16 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr i8, ptr %0, i64 -2800
   %5 = load ptr, ptr %4, align 8
@@ -1495,7 +1495,7 @@ define dso_local void @ieee80211_color_change_finalize_work(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_color_change_finalize(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_color_change_finalize(ptr noundef initializes((4920, 4921)) %0) unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
   store i64 0, ptr %2, align 8
@@ -4870,7 +4870,7 @@ define internal i32 @ieee80211_leave_ibss(ptr nocapture readnone %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ieee80211_set_mcast_rate(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef i32 @ieee80211_set_mcast_rate(ptr nocapture readnone %0, ptr noundef initializes((6528, 6552)) %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 2304
   %5 = getelementptr i8, ptr %1, i64 6528
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %5, ptr noundef align 4 dereferenceable(24) %2, i64 24, i1 false)
@@ -6855,7 +6855,7 @@ define internal noundef range(i32 -67, 1) i32 @ieee80211_probe_client(ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ieee80211_set_noack_map(ptr nocapture readnone %0, ptr noundef %1, i16 noundef zeroext %2) #0 align 16 {
+define internal noundef i32 @ieee80211_set_noack_map(ptr nocapture readnone %0, ptr noundef initializes((3832, 3834)) %1, i16 noundef zeroext %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 2304
   %5 = getelementptr i8, ptr %1, i64 3832
   store i16 %2, ptr %5, align 8
@@ -8038,7 +8038,7 @@ define internal i32 @ieee80211_nan_change_conf(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @ieee80211_set_multicast_to_unicast(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2) #6 align 16 {
+define internal noundef i32 @ieee80211_set_multicast_to_unicast(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((4524, 4525)) %1, i1 noundef zeroext %2) #6 align 16 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr i8, ptr %1, i64 4524
   store i8 %4, ptr %5, align 4
@@ -9952,7 +9952,7 @@ declare dso_local i32 @ieee80211_check_combinations(ptr noundef, ptr noundef, i3
 declare dso_local i32 @ieee80211_link_unreserve_chanctx(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_color_change_abort(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_color_change_abort(ptr nocapture noundef initializes((4920, 4921)) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4920
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 3664
@@ -10629,7 +10629,7 @@ declare dso_local void @_raw_spin_lock_bh(ptr noundef) local_unnamed_addr #2 sec
 declare dso_local void @_raw_spin_unlock_bh(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_color_change_bss_config_notify(ptr noundef %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_color_change_bss_config_notify(ptr noundef initializes((4449, 4451)) %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1256
   %4 = getelementptr inbounds i8, ptr %0, i64 4056
   %5 = getelementptr inbounds i8, ptr %0, i64 4449

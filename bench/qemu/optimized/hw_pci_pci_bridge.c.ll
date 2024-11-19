@@ -759,7 +759,7 @@ if.end11:                                         ; preds = %do.body, %if.then3
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @pci_bridge_map_irq(ptr nocapture noundef writeonly %br, ptr noundef %bus_name, ptr noundef %map_irq) local_unnamed_addr #7 {
+define dso_local void @pci_bridge_map_irq(ptr nocapture noundef writeonly initializes((7104, 7120)) %br, ptr noundef %bus_name, ptr noundef %map_irq) local_unnamed_addr #7 {
 entry:
   %map_irq1 = getelementptr inbounds i8, ptr %br, i64 7104
   store ptr %map_irq, ptr %map_irq1, align 16

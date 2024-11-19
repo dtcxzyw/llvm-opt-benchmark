@@ -275,7 +275,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_rs_get_list_length(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 align 16 {
+define dso_local i32 @acpi_rs_get_list_length(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #2 align 16 {
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #4
   store i64 16, ptr %2, align 8

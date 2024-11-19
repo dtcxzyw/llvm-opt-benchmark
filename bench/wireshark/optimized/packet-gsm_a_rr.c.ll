@@ -11080,7 +11080,7 @@ declare zeroext i16 @elem_tv_short(ptr noundef, ptr noundef, ptr noundef, i8 nou
 declare zeroext i16 @elem_tv(ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden void @get_rr_msg_params(i8 noundef zeroext %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #2 {
+define hidden void @get_rr_msg_params(i8 noundef zeroext %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #2 {
   %6 = alloca i32, align 4
   %7 = zext i8 %0 to i32
   %8 = call ptr @try_val_to_str_idx(i32 noundef %7, ptr noundef nonnull @gsm_a_dtap_msg_rr_strings, ptr noundef nonnull %6) #10

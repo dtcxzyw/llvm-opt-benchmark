@@ -360,7 +360,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys6FfDataC2EPNS_10FfInitValsEPNS_5RTLIL4CellE(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys6FfDataC2EPNS_10FfInitValsEPNS_5RTLIL4CellE(ptr noundef nonnull align 8 dereferenceable(856) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator.35", align 1
   %5 = alloca %"struct.Yosys::RTLIL::Const", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8852,7 +8852,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit28:                 ; preds = %88, %92
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys6FfData13arst_to_aloadEv(ptr noundef nonnull align 8 dereferenceable(856) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys6FfData13arst_to_aloadEv(ptr noundef nonnull align 8 dereferenceable(856) initializes((684, 685)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 685
   %4 = load i8, ptr %3, align 1
@@ -8988,7 +8988,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %_ZSt8_DestroyIPN5Yo
 declare void @_ZN5Yosys5RTLIL7SigSpecC1ERKNS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys6FfData10arst_to_srEv(ptr noundef nonnull align 8 dereferenceable(856) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys6FfData10arst_to_srEv(ptr noundef nonnull align 8 dereferenceable(856) initializes((687, 689)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %3 = alloca %"struct.Yosys::RTLIL::Const", align 8
   %4 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
@@ -9419,7 +9419,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit40:                 ; preds = %_ZN5Yosys5RTLIL5Con
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys6FfData11aload_to_srEv(ptr noundef nonnull align 8 dereferenceable(856) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys6FfData11aload_to_srEv(ptr noundef nonnull align 8 dereferenceable(856) initializes((675, 676), (678, 679), (687, 689)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %3 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

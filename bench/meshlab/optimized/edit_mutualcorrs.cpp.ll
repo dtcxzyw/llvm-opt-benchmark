@@ -1260,7 +1260,7 @@ define void @_ZN21EditMutualCorrsPlugin4infoEv(ptr dead_on_unwind noalias writab
 declare void @_ZNK11QMetaObject2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21EditMutualCorrsPlugin17mouseReleaseEventEP11QMouseEventR9MeshModelP6GLArea(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(536) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1288) %2, ptr noundef nonnull %3) unnamed_addr #10 align 2 {
+define void @_ZN21EditMutualCorrsPlugin17mouseReleaseEventEP11QMouseEventR9MeshModelP6GLArea(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(536) initializes((32, 40)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1288) %2, ptr noundef nonnull %3) unnamed_addr #10 align 2 {
   tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load double, ptr %5, align 8
@@ -1318,7 +1318,7 @@ _ZNK11QMouseEvent3posEv.exit:                     ; preds = %23, %26
 declare void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N21EditMutualCorrsPlugin17mouseReleaseEventEP11QMouseEventR9MeshModelP6GLArea(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1288) %2, ptr noundef nonnull %3) unnamed_addr #13 align 2 {
+define void @_ZThn16_N21EditMutualCorrsPlugin17mouseReleaseEventEP11QMouseEventR9MeshModelP6GLArea(ptr nocapture noundef writeonly initializes((16, 24)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1288) %2, ptr noundef nonnull %3) unnamed_addr #13 align 2 {
   tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load double, ptr %5, align 8
@@ -2874,7 +2874,7 @@ declare void @_ZN8QPainter7restoreEv(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN8QPainter19beginNativePaintingEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN21EditMutualCorrsPlugin9startEditER9MeshModelP6GLAreaP26MLSceneGLSharedDataContext(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2, ptr nocapture readnone %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN21EditMutualCorrsPlugin9startEditER9MeshModelP6GLAreaP26MLSceneGLSharedDataContext(ptr noundef nonnull align 8 dereferenceable(536) initializes((64, 72)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2, ptr nocapture readnone %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
@@ -3224,14 +3224,14 @@ declare void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 deref
 declare void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define noundef zeroext i1 @_ZThn16_N21EditMutualCorrsPlugin9startEditER9MeshModelP6GLAreaP26MLSceneGLSharedDataContext(ptr noundef %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1288) %1, ptr noundef %2, ptr nocapture noundef readnone %3) unnamed_addr #13 align 2 {
+define noundef zeroext i1 @_ZThn16_N21EditMutualCorrsPlugin9startEditER9MeshModelP6GLAreaP26MLSceneGLSharedDataContext(ptr noundef initializes((48, 56)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1288) %1, ptr noundef %2, ptr nocapture noundef readnone %3) unnamed_addr #13 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 -16
   %6 = tail call noundef zeroext i1 @_ZN21EditMutualCorrsPlugin9startEditER9MeshModelP6GLAreaP26MLSceneGLSharedDataContext(ptr noundef nonnull align 8 dereferenceable(536) %5, ptr nonnull align 8 poison, ptr noundef %2, ptr poison)
   ret i1 %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21EditMutualCorrsPlugin7endEditER9MeshModelP6GLAreaP26MLSceneGLSharedDataContext(ptr nocapture noundef nonnull align 8 dereferenceable(536) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture readnone %2, ptr nocapture readnone %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21EditMutualCorrsPlugin7endEditER9MeshModelP6GLAreaP26MLSceneGLSharedDataContext(ptr nocapture noundef nonnull align 8 dereferenceable(536) initializes((88, 100)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture readnone %2, ptr nocapture readnone %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QMessageLogger, align 8
   store i32 2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 4
@@ -3641,7 +3641,7 @@ _ZNSt6vectorIdSaIdEE7reserveEm.exit:              ; preds = %_ZNSt6vectorIN3vcg6
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N21EditMutualCorrsPlugin7endEditER9MeshModelP6GLAreaP26MLSceneGLSharedDataContext(ptr nocapture noundef %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1288) %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) unnamed_addr #13 align 2 {
+define void @_ZThn16_N21EditMutualCorrsPlugin7endEditER9MeshModelP6GLAreaP26MLSceneGLSharedDataContext(ptr nocapture noundef initializes((72, 84)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1288) %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) unnamed_addr #13 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN21EditMutualCorrsPlugin7endEditER9MeshModelP6GLAreaP26MLSceneGLSharedDataContext(ptr noundef nonnull align 8 dereferenceable(536) %5, ptr nonnull align 8 poison, ptr poison, ptr poison)
   ret void

@@ -732,7 +732,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit7:       ; preds = %40, %43
 declare { i64, double } @_ZN10open_spiel12SampleActionERKSt6vectorISt4pairIldESaIS2_EEN4absl7debian29BitGenRefE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef byval(%"class.absl::debian2::BitGenRef") align 8) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10algorithms22TabularQLearningSolverC2ESt10shared_ptrIKNS_4GameEE(ptr noundef nonnull align 8 dereferenceable(5136) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10algorithms22TabularQLearningSolverC2ESt10shared_ptrIKNS_4GameEE(ptr noundef nonnull align 8 dereferenceable(5136) initializes((0, 20), (24, 64)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -1375,7 +1375,7 @@ _ZNSt12__shared_ptrIKN10open_spiel4GameELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10algorithms22TabularQLearningSolverC2ESt10shared_ptrIKNS_4GameEEddddd(ptr noundef nonnull align 8 dereferenceable(5136) %0, ptr nocapture noundef readonly %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10algorithms22TabularQLearningSolverC2ESt10shared_ptrIKNS_4GameEEddddd(ptr noundef nonnull align 8 dereferenceable(5136) initializes((0, 20), (24, 64)) %0, ptr nocapture noundef readonly %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca double, align 8
   %9 = alloca i32, align 4
   %10 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -885,7 +885,7 @@ define internal noundef i32 @p9_fd_show_options(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @parse_opts(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @parse_opts(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 11)) %1) unnamed_addr #2 align 16 {
   %3 = alloca [3 x %struct.substring_t], align 16
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8

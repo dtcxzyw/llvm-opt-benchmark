@@ -184,7 +184,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel2go11Neighbours4C2Et(ptr nocapture noundef nonnull writeonly align 2 dereferenceable(4) %0, i16 noundef zeroext %1) unnamed_addr #3 align 2 {
+define void @_ZN10open_spiel2go11Neighbours4C2Et(ptr nocapture noundef nonnull writeonly align 2 dereferenceable(4) initializes((0, 4)) %0, i16 noundef zeroext %1) unnamed_addr #3 align 2 {
   store i16 0, ptr %0, align 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %1, ptr %3, align 2
@@ -1309,7 +1309,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel2go7GoBoardC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(7970) %0, i32 noundef %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel2go7GoBoardC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(7970) initializes((7960, 7968)) %0, i32 noundef %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.absl::debian2::AlphaNum", align 8
   %5 = alloca %"class.absl::debian2::AlphaNum", align 8
@@ -1360,7 +1360,7 @@ _ZN4absl7debian28AlphaNumC2Ei.exit:               ; preds = %_ZN4absl7debian28Al
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(7970) %0) local_unnamed_addr #7 align 2 {
+define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(7970) initializes((7944, 7952)) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7944
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2648
@@ -1550,7 +1550,7 @@ define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr nocapture noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel2go7GoBoard5Chain12reset_borderEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN10open_spiel2go7GoBoard5Chain12reset_borderEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 10)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %2, align 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1562,7 +1562,7 @@ define void @_ZN10open_spiel2go7GoBoard5Chain12reset_borderEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel2go7GoBoard5Chain5resetEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN10open_spiel2go7GoBoard5Chain5resetEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 10)) %0) local_unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %0, i8 0, i64 10, i1 false)
   ret void
 }
@@ -5116,7 +5116,7 @@ define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel2go12_GLOBAL__N_115MakeBoardPointsEi(ptr dead_on_unwind noalias nocapture writable align 8 %0, i32 noundef %1) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel2go12_GLOBAL__N_115MakeBoardPointsEi(ptr dead_on_unwind noalias nocapture writable align 8 initializes((0, 24)) %0, i32 noundef %1) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = mul nsw i32 %1, %1
   %4 = zext nneg i32 %3 to i64

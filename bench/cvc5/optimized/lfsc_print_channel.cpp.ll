@@ -101,7 +101,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOutC2ERSo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOutC2ERSo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal5proof19LfscPrintChannelOutE, i64 16), ptr %this, align 8
   %d_out = getelementptr inbounds i8, ptr %this, i64 8
@@ -905,7 +905,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4find
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelPreC2ERNS0_10LetBindingE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(472) %lbind) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelPreC2ERNS0_10LetBindingE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(472) %lbind) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal5proof19LfscPrintChannelPreE, i64 16), ptr %this, align 8
   %d_lbind = getelementptr inbounds i8, ptr %this, i64 8

@@ -22,7 +22,7 @@ $_ZTIN6icu_757UMemoryE = comdat any
 @_ZN6icu_756BMPSetD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_756BMPSetD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_756BMPSetC2EPKii(ptr nocapture noundef nonnull align 8 dereferenceable(868) %this, ptr noundef %parentList, i32 noundef %parentListLength) unnamed_addr #0 align 2 {
+define void @_ZN6icu_756BMPSetC2EPKii(ptr nocapture noundef nonnull align 8 dereferenceable(868) initializes((0, 264), (268, 780), (856, 868)) %this, ptr noundef %parentList, i32 noundef %parentListLength) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756BMPSetE, i64 16), ptr %this, align 8
   %list = getelementptr inbounds i8, ptr %this, i64 856
@@ -853,7 +853,7 @@ if.end:                                           ; preds = %for.body13, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_756BMPSetC2ERKS0_PKii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(868) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(868) %otherBMPSet, ptr noundef %newParentList, i32 noundef %newParentListLength) unnamed_addr #5 align 2 {
+define void @_ZN6icu_756BMPSetC2ERKS0_PKii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(868) initializes((0, 265), (268, 852), (856, 868)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(868) %otherBMPSet, ptr noundef %newParentList, i32 noundef %newParentListLength) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756BMPSetE, i64 16), ptr %this, align 8
   %containsFFFD = getelementptr inbounds i8, ptr %this, i64 264

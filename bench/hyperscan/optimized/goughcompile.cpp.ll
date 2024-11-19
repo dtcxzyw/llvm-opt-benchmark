@@ -1062,7 +1062,7 @@ for.end45:                                        ; preds = %for.inc43, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3ue211GoughSSAVarD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211GoughSSAVarD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue211GoughSSAVarE, i64 16), ptr %this, align 8
   %m_capacity.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -12970,7 +12970,7 @@ _ZNSt8_Rb_treeISt6vectorI9gough_insSaIS1_EESt4pairIKS3_jESt10_Select1stIS6_ESt4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ue212_GLOBAL__N_117gough_build_stratD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ue212_GLOBAL__N_117gough_build_stratD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_117gough_build_stratE, i64 16), ptr %this, align 8
   %built_accel = getelementptr inbounds i8, ptr %this, i64 96
@@ -19619,7 +19619,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeIN5bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ue212_GLOBAL__N_117gough_build_stratD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ue212_GLOBAL__N_117gough_build_stratD0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_117gough_build_stratE, i64 16), ptr %this, align 8
   %built_accel.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -20876,7 +20876,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare void @_ZN3ue215dfa_build_stratD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue212_GLOBAL__N_121raw_gough_report_listC2ERKSt6vectorISt4pairIjPNS_11GoughSSAVarEESaIS6_EERKNS_13ReportManagerEb(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %raw_reports, ptr noundef nonnull align 8 dereferenceable(505) %rm, i1 noundef zeroext %do_remap) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue212_GLOBAL__N_121raw_gough_report_listC2ERKSt6vectorISt4pairIjPNS_11GoughSSAVarEESaIS6_EERKNS_13ReportManagerEb(ptr noundef nonnull align 8 dereferenceable(48) initializes((8, 12), (16, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %raw_reports, ptr noundef nonnull align 8 dereferenceable(505) %rm, i1 noundef zeroext %do_remap) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %r = alloca i32, align 4
   %impl_slot = alloca i32, align 4
@@ -22147,7 +22147,7 @@ _ZNSt3setIN3ue210som_reportESt4lessIS1_ESaIS1_EED2Ev.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ue212_GLOBAL__N_126raw_gough_report_info_implD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ue212_GLOBAL__N_126raw_gough_report_info_implD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_126raw_gough_report_info_implE, i64 16), ptr %this, align 8
   %rl = getelementptr inbounds i8, ptr %this, i64 8
@@ -22195,7 +22195,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_121raw_gough_report_listESaIS2_EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ue212_GLOBAL__N_126raw_gough_report_info_implD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ue212_GLOBAL__N_126raw_gough_report_info_implD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_126raw_gough_report_info_implE, i64 16), ptr %this, align 8
   %rl.i = getelementptr inbounds i8, ptr %this, i64 8

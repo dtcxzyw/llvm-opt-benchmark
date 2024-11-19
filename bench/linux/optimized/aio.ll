@@ -2027,7 +2027,7 @@ define internal void @free_ioctx_users(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @free_ioctx_reqs(ptr noundef %0) #1 align 16 {
+define internal void @free_ioctx_reqs(ptr noundef initializes((80, 88)) %0) #1 align 16 {
   %2 = getelementptr i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 32
   %4 = icmp eq ptr %3, null
@@ -3999,7 +3999,7 @@ declare dso_local ptr @fget(i32 noundef) local_unnamed_addr #3
 declare dso_local ptr @eventfd_ctx_fdget(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @aio_read(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #1 align 16 {
+define internal fastcc i32 @aio_read(ptr noundef nonnull initializes((8, 36)) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #1 align 16 {
   %5 = alloca [8 x %struct.iovec], align 16
   %6 = alloca ptr, align 8
   %7 = alloca %struct.iov_iter, align 8
@@ -4098,7 +4098,7 @@ define internal fastcc i32 @aio_read(ptr noundef nonnull %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @aio_write(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #1 align 16 {
+define internal fastcc i32 @aio_write(ptr noundef nonnull initializes((8, 36)) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #1 align 16 {
   %5 = alloca [8 x %struct.iovec], align 16
   %6 = alloca ptr, align 8
   %7 = alloca %struct.iov_iter, align 8
@@ -4250,7 +4250,7 @@ define internal fastcc i32 @aio_write(ptr noundef nonnull %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @aio_prep_rw(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 16 {
+define internal fastcc i32 @aio_prep_rw(ptr nocapture noundef nonnull initializes((8, 36)) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr @aio_complete_rw, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4504,7 +4504,7 @@ declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #3
 declare dso_local ptr @prepare_creds() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @aio_fsync_work(ptr noundef %0) #1 align 16 {
+define internal void @aio_fsync_work(ptr noundef initializes((120, 128)) %0) #1 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -8
   %3 = getelementptr i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -4682,7 +4682,7 @@ define internal void @aio_poll_complete_work(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @aio_poll_queue_proc(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #1 align 16 {
+define internal void @aio_poll_queue_proc(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef initializes((28, 32)) %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 24
   %5 = load i8, ptr %4, align 8, !range !85, !noundef !86
   %6 = icmp eq i8 %5, 0

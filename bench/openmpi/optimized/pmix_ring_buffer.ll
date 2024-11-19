@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_ring_buffer_t_class = local_unnamed_addr global %struct.pmix_class_t { ptr @.str, ptr @pmix_object_t_class, ptr @pmix_ring_buffer_construct, ptr @pmix_ring_buffer_destruct, i32 0, i32 0, ptr null, ptr null, i64 144 }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pmix_ring_buffer_construct(ptr nocapture noundef writeonly %0) #0 {
+define internal void @pmix_ring_buffer_construct(ptr nocapture noundef writeonly initializes((120, 132), (136, 144)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 124
@@ -23,7 +23,7 @@ define internal void @pmix_ring_buffer_construct(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @pmix_ring_buffer_destruct(ptr nocapture noundef %0) #1 {
+define internal void @pmix_ring_buffer_destruct(ptr nocapture noundef initializes((128, 132)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

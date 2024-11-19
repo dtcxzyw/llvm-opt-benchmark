@@ -3744,7 +3744,7 @@ return:                                           ; preds = %if.end392, %for.inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZL19checkExplicitLevelsP5UBiDiP10UErrorCode(ptr nocapture noundef nonnull %pBiDi, ptr nocapture noundef nonnull writeonly %pErrorCode) unnamed_addr #8 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZL19checkExplicitLevelsP5UBiDiP10UErrorCode(ptr nocapture noundef nonnull initializes((324, 328)) %pBiDi, ptr nocapture noundef nonnull writeonly %pErrorCode) unnamed_addr #8 {
 entry:
   %dirProps1 = getelementptr inbounds i8, ptr %pBiDi, i64 112
   %0 = load ptr, ptr %dirProps1, align 8

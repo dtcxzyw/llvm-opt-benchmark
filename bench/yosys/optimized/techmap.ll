@@ -38602,7 +38602,7 @@ _ZNK5Yosys7hashlib4dictIPNS_5RTLIL6ModuleEbNS0_8hash_opsIS4_EEE9do_lookupERKS4_R
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113TechmapWorker26techmap_find_special_wiresEPN5Yosys5RTLIL6ModuleE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113TechmapWorker26techmap_find_special_wiresEPN5Yosys5RTLIL6ModuleE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 48)) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [75 x i32], align 4
   %4 = alloca %"class.std::allocator.5", align 1
   %5 = alloca %"struct.Yosys::RTLIL::IdString", align 4

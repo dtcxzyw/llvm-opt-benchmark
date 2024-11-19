@@ -884,7 +884,7 @@ _ZN3euf9th_solverD2Ev.exit:                       ; preds = %_ZN7svectorIN3sat6e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2dt6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(736) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2dt6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(736) initializes((0, 8), (32, 56)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2dt6solverE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 32
@@ -1257,7 +1257,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn32_N2dt6solverD1Ev(ptr noundef %this) unnamed_addr #7 align 2 {
+define hidden void @_ZThn32_N2dt6solverD1Ev(ptr noundef initializes((-32, -24), (0, 24)) %this) unnamed_addr #7 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   tail call void @_ZN2dt6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(736) %0) #21
@@ -1265,7 +1265,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn40_N2dt6solverD1Ev(ptr noundef %this) unnamed_addr #7 align 2 {
+define hidden void @_ZThn40_N2dt6solverD1Ev(ptr noundef initializes((-40, -32), (-8, 16)) %this) unnamed_addr #7 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
   tail call void @_ZN2dt6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(736) %0) #21
@@ -1273,7 +1273,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn48_N2dt6solverD1Ev(ptr noundef %this) unnamed_addr #7 align 2 {
+define hidden void @_ZThn48_N2dt6solverD1Ev(ptr noundef initializes((-48, -40), (-16, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -48
   tail call void @_ZN2dt6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(736) %0) #21
@@ -1281,7 +1281,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2dt6solverD0Ev(ptr noundef nonnull align 8 dereferenceable(736) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN2dt6solverD0Ev(ptr noundef nonnull align 8 dereferenceable(736) initializes((0, 8), (32, 56)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN2dt6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(736) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -1292,7 +1292,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn32_N2dt6solverD0Ev(ptr noundef %this) unnamed_addr #7 align 2 {
+define hidden void @_ZThn32_N2dt6solverD0Ev(ptr noundef initializes((-32, -24), (0, 24)) %this) unnamed_addr #7 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   tail call void @_ZN2dt6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(736) %0) #21
@@ -1301,7 +1301,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn40_N2dt6solverD0Ev(ptr noundef %this) unnamed_addr #7 align 2 {
+define hidden void @_ZThn40_N2dt6solverD0Ev(ptr noundef initializes((-40, -32), (-8, 16)) %this) unnamed_addr #7 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
   tail call void @_ZN2dt6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(736) %0) #21
@@ -1310,7 +1310,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn48_N2dt6solverD0Ev(ptr noundef %this) unnamed_addr #7 align 2 {
+define hidden void @_ZThn48_N2dt6solverD0Ev(ptr noundef initializes((-48, -40), (-16, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -48
   tail call void @_ZN2dt6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(736) %0) #21
@@ -1508,7 +1508,7 @@ for.end:                                          ; preds = %_ZNK3euf13th_euf_so
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dt6solver14final_check_stC2ERS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(736) %s) unnamed_addr #3 align 2 {
+define hidden void @_ZN2dt6solver14final_check_stC2ERS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(736) %s) unnamed_addr #3 align 2 {
 entry:
   store ptr %s, ptr %this, align 8
   %m_used_eqs = getelementptr inbounds i8, ptr %s, i64 672

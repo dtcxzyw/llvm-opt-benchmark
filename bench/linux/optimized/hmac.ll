@@ -165,7 +165,7 @@ declare dso_local ptr @crypto_attr_alg_name(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @crypto_inst_setname(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hmac_init(ptr noundef %0) #2 align 16 {
+define internal i32 @hmac_init(ptr noundef initializes((8, 16)) %0) #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 40
   %4 = getelementptr inbounds i8, ptr %2, i64 48
@@ -253,7 +253,7 @@ define internal i32 @hmac_export(ptr noundef %0, ptr noundef %1) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hmac_import(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define internal i32 @hmac_import(ptr noundef initializes((8, 16)) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 40

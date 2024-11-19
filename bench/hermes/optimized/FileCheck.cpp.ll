@@ -242,7 +242,7 @@ $_ZSt19piecewise_construct = comdat any
 @switch.table._ZN4llvh9FileCheck13ReadCheckFileERNS_9SourceMgrENS_9StringRefERNS_5RegexERSt6vectorINS_15FileCheckStringESaIS7_EE = private unnamed_addr constant [10 x i64] [i64 0, i64 1, i64 6, i64 6, i64 5, i64 5, i64 7, i64 7, i64 0, i64 0], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN4llvh16FileCheckPattern12ParsePatternENS_9StringRefES1_RNS_9SourceMgrEjRKNS_16FileCheckRequestE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr %PatternStr.coerce0, i64 %PatternStr.coerce1, ptr %Prefix.coerce0, i64 %Prefix.coerce1, ptr noundef nonnull align 8 dereferenceable(120) %SM, i32 noundef %LineNumber, ptr nocapture noundef nonnull readonly align 8 dereferenceable(86) %Req) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN4llvh16FileCheckPattern12ParsePatternENS_9StringRefES1_RNS_9SourceMgrEjRKNS_16FileCheckRequestE(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (132, 136)) %this, ptr %PatternStr.coerce0, i64 %PatternStr.coerce1, ptr %Prefix.coerce0, i64 %Prefix.coerce1, ptr noundef nonnull align 8 dereferenceable(120) %SM, i32 noundef %LineNumber, ptr nocapture noundef nonnull readonly align 8 dereferenceable(86) %Req) local_unnamed_addr #0 align 2 {
 entry:
   %PatternStr = alloca %"class.llvh::StringRef", align 8
   %Prefix = alloca %"class.llvh::StringRef", align 8

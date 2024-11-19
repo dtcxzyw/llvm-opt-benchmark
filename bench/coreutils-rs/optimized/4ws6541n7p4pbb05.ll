@@ -575,7 +575,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN91_$LT$core..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN68_$LT$uu_tail..args..FilterMode$u20$as$u20$core..default..Default$GT$7default17h3090597637b0c0c0E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define void @"_ZN68_$LT$uu_tail..args..FilterMode$u20$as$u20$core..default..Default$GT$7default17h3090597637b0c0c0E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 17)) %0) unnamed_addr #6 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 10, ptr %2, align 8
@@ -585,7 +585,7 @@ define void @"_ZN68_$LT$uu_tail..args..FilterMode$u20$as$u20$core..default..Defa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN66_$LT$uu_tail..args..Settings$u20$as$u20$core..default..Default$GT$7default17h5810db87f3f736f3E"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, { i64, i32, [1 x i32] }, i32, i32, i8, i8, i8, i8, i8, [3 x i8] }) align 8 dereferenceable(80) %0) unnamed_addr #6 {
+define void @"_ZN66_$LT$uu_tail..args..Settings$u20$as$u20$core..default..Default$GT$7default17h5810db87f3f736f3E"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, { i64, i32, [1 x i32] }, i32, i32, i8, i8, i8, i8, i8, [3 x i8] }) align 8 dereferenceable(80) initializes((0, 17), (24, 60), (64, 77)) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 76
   store i8 2, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 64

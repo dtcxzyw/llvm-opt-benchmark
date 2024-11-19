@@ -752,7 +752,7 @@ _ZN8WasmEdge7Runtime12StackManager4pushIjEEvOT_.exit: ; preds = %11, %_ZNSt6vect
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge8Executor8Executor15runMemoryGrowOpERNS_7Runtime12StackManagerERNS2_8Instance14MemoryInstanceE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(28) %3) local_unnamed_addr #0 align 2 {
+define void @_ZN8WasmEdge8Executor8Executor15runMemoryGrowOpERNS_7Runtime12StackManagerERNS2_8Instance14MemoryInstanceE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(28) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1094,7 +1094,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8WasmEdge8Executor8Executor13runDataDropOpERNS_7Runtime8Instance12DataInstanceE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %1, ptr nocapture noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge8Executor8Executor13runDataDropOpERNS_7Runtime8Instance12DataInstanceE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %1, ptr nocapture noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 16

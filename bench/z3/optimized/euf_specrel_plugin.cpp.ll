@@ -78,7 +78,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf14specrel_pluginC2ERNS_6egraphE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(536) %g) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3euf14specrel_pluginC2ERNS_6egraphE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(536) %g) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %g2.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %g, ptr %g2.i, align 8

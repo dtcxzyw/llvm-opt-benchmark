@@ -546,7 +546,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN5clang8SemaCUDA14IdentifyTarget
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8SemaCUDA21CUDATargetContextRAIIC2ERS0_NS0_21CUDATargetContextKindEPNS_4DeclE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(76) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang8SemaCUDA21CUDATargetContextRAIIC2ERS0_NS0_21CUDATargetContextKindEPNS_4DeclE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(76) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 3, ptr %5, align 8

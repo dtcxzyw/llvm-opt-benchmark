@@ -71,7 +71,7 @@ define internal i32 @msdos_fill_super(ptr noundef %0, ptr noundef %1, i32 nounde
 declare dso_local i32 @fat_fill_super(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal void @setup(ptr nocapture noundef %0) #3 align 16 {
+define internal void @setup(ptr nocapture noundef initializes((1016, 1024)) %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 872
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 248

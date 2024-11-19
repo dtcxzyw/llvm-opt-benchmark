@@ -90,7 +90,7 @@ define hidden noundef ptr @pj_deformation(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z40pj_projection_specific_setup_deformationP8PJconsts(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_Z40pj_projection_specific_setup_deformationP8PJconsts(ptr noundef initializes((88, 96), (152, 160)) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.8", align 8
   %3 = alloca %"class.std::vector.13", align 8
   %4 = alloca %"class.std::vector.18", align 8
@@ -774,7 +774,7 @@ define internal void @_ZL25pj_deformation_reverse_4dR8PJ_COORDP8PJconsts(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL25pj_deformation_forward_3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_XYZ) align 8 %0, ptr nocapture noundef readonly byval(%struct.PJ_LPZ) align 8 %1, ptr noundef %2) #0 {
+define internal void @_ZL25pj_deformation_forward_3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_XYZ) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.PJ_LPZ) align 8 %1, ptr noundef %2) #0 {
   %4 = alloca %union.PJ_COORD, align 8
   %5 = alloca %union.PJ_COORD, align 8
   %6 = alloca %struct.PJ_XYZ, align 8
@@ -830,7 +830,7 @@ define internal void @_ZL25pj_deformation_forward_3d6PJ_LPZP8PJconsts(ptr dead_o
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL25pj_deformation_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_LPZ) align 8 %0, ptr nocapture noundef readonly byval(%struct.PJ_XYZ) align 8 %1, ptr noundef %2) #0 {
+define internal void @_ZL25pj_deformation_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_LPZ) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.PJ_XYZ) align 8 %1, ptr noundef %2) #0 {
   %.sroa.0 = alloca [4 x double], align 8
   %4 = alloca %union.PJ_COORD, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 88
@@ -864,7 +864,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 declare noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL29pj_deformation_get_grid_shiftP8PJconstsRK6PJ_XYZ(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL29pj_deformation_get_grid_shiftP8PJconstsRK6PJ_XYZ(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 24)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #0 {
   %4 = alloca %union.PJ_COORD, align 8
   %5 = alloca %struct.PJ_LPZ, align 8
   %6 = alloca double, align 8

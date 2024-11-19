@@ -583,7 +583,7 @@ declare ptr @tb_gen_code(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32
 declare void @mmap_unlock() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @cpu_tb_exec(ptr noundef %cpu, ptr nocapture noundef readonly %itb, ptr nocapture noundef nonnull %tb_exit) unnamed_addr #2 {
+define internal fastcc ptr @cpu_tb_exec(ptr noundef %cpu, ptr nocapture noundef readonly %itb, ptr nocapture noundef nonnull initializes((0, 4)) %tb_exit) unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %add.ptr.i = getelementptr i8, ptr %cpu, i64 10176

@@ -84,7 +84,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 dereferenceable(17), i1 noundef zeroext, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z21grpc_timer_init_unsetP10grpc_timer(ptr nocapture noundef writeonly %timer) local_unnamed_addr #3 {
+define void @_Z21grpc_timer_init_unsetP10grpc_timer(ptr nocapture noundef writeonly initializes((12, 13)) %timer) local_unnamed_addr #3 {
 entry:
   %pending = getelementptr inbounds i8, ptr %timer, i64 12
   store i8 0, ptr %pending, align 4

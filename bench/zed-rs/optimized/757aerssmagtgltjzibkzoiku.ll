@@ -283,7 +283,7 @@ define internal noundef zeroext i1 @"_ZN77_$LT$anyhow..wrapper..MessageError$LT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN83_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$T$GT$$GT$4from17h4c2135c89e9b4c7aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #6 {
+define hidden void @"_ZN83_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$T$GT$$GT$4from17h4c2135c89e9b4c7aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -333,7 +333,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17ha81b6353a72716a1E.exit: ; preds = %"_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8ui_input9TextField10start_icon17h11e87f0574559b3cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([88 x i8]) align 8 dereferenceable(88) %0, ptr noalias nocapture noundef align 8 dereferenceable(88) %1, i8 noundef %2) unnamed_addr #7 {
+define void @_ZN8ui_input9TextField10start_icon17h11e87f0574559b3cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([88 x i8]) align 8 dereferenceable(88) initializes((0, 88)) %0, ptr noalias nocapture noundef align 8 dereferenceable(88) initializes((82, 83)) %1, i8 noundef %2) unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %1, i64 82
   store i8 %2, ptr %4, align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
@@ -341,7 +341,7 @@ define void @_ZN8ui_input9TextField10start_icon17h11e87f0574559b3cE(ptr dead_on_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8ui_input9TextField10with_label17h25cab5d241c74fd7E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([88 x i8]) align 8 dereferenceable(88) %0, ptr noalias nocapture noundef align 8 dereferenceable(88) %1, i8 noundef %2) unnamed_addr #7 {
+define void @_ZN8ui_input9TextField10with_label17h25cab5d241c74fd7E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([88 x i8]) align 8 dereferenceable(88) initializes((0, 88)) %0, ptr noalias nocapture noundef align 8 dereferenceable(88) initializes((81, 82)) %1, i8 noundef %2) unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %1, i64 81
   store i8 %2, ptr %4, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
@@ -349,7 +349,7 @@ define void @_ZN8ui_input9TextField10with_label17h25cab5d241c74fd7E(ptr dead_on_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN8ui_input9TextField12set_disabled17hfda45f08d6ca2866E(ptr noalias noundef align 8 dereferenceable(88) %0, i1 noundef zeroext %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN8ui_input9TextField12set_disabled17hfda45f08d6ca2866E(ptr noalias noundef align 8 dereferenceable(88) initializes((80, 81)) %0, i1 noundef zeroext %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = zext i1 %1 to i8

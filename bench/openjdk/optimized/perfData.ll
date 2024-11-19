@@ -170,7 +170,7 @@ $_ZTV15PerfLongCounter = comdat any
 @_ZN12PerfDataListD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN12PerfDataListD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 25), (28, 32), (40, 48)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %6, align 8
@@ -246,7 +246,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 declare noundef i32 @_ZN2os16snprintf_checkedEPcmPKcz(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8PerfDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN8PerfDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfData, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -278,7 +278,7 @@ define hidden void @_ZN8PerfDataD0Ev(ptr nocapture nonnull readnone align 8 %0) 
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8PerfData12create_entryE9BasicTypemm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i8 noundef zeroext %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8PerfData12create_entryE9BasicTypemm(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((32, 48)) %0, i8 noundef zeroext %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = tail call i64 @llvm.umax.i64(i64 %3, i64 1)
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -399,7 +399,7 @@ define hidden noundef zeroext i1 @_ZNK8PerfData11name_equalsEPKc(ptr nocapture n
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8PerfLongC2E9CounterNSPKcN8PerfData5UnitsENS3_11VariabilityE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN8PerfLongC2E9CounterNSPKcN8PerfData5UnitsENS3_11VariabilityE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 25), (28, 32), (40, 48)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfLong, i64 16), ptr %0, align 8
   tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 noundef zeroext 11, i64 noundef 8, i64 noundef 0)
@@ -407,7 +407,7 @@ define hidden void @_ZN8PerfLongC2E9CounterNSPKcN8PerfData5UnitsENS3_11Variabili
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15PerfLongVariantC2E9CounterNSPKcN8PerfData5UnitsENS3_11VariabilityEP20PerfLongSampleHelper(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN15PerfLongVariantC2E9CounterNSPKcN8PerfData5UnitsENS3_11VariabilityEP20PerfLongSampleHelper(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 25), (28, 32), (40, 48)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
   tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8PerfLong, i64 16), ptr %0, align 8
   tail call void @_ZN8PerfData12create_entryE9BasicTypemm(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 noundef zeroext 11, i64 noundef 8, i64 noundef 0)
@@ -451,7 +451,7 @@ define hidden void @_ZN15PerfLongVariant6sampleEv(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13PerfByteArrayC2E9CounterNSPKcN8PerfData5UnitsENS3_11VariabilityEi(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN13PerfByteArrayC2E9CounterNSPKcN8PerfData5UnitsENS3_11VariabilityEi(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 25), (28, 32), (40, 48)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
   tail call void @_ZN8PerfDataC2E9CounterNSPKcNS_5UnitsENS_11VariabilityE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13PerfByteArray, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
@@ -484,7 +484,7 @@ define hidden void @_ZN10PerfString10set_stringEPKc(ptr nocapture noundef nonnul
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18PerfStringConstantC2E9CounterNSPKcS2_(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN18PerfStringConstantC2E9CounterNSPKcS2_(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 25), (28, 32), (40, 48)) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #0 align 2 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %.split5, label %.split
 
@@ -1364,7 +1364,7 @@ _ZN15PerfLongCounterD0Ev.exit:                    ; preds = %19, %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12PerfDataListC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN12PerfDataListC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 9) #15
   %4 = icmp eq ptr %3, null
   br i1 %4, label %13, label %5
@@ -1399,7 +1399,7 @@ _ZN13GrowableArrayIP8PerfDataEC2Ei8MEMFLAGS.exit: ; preds = %5, %.lr.ph.preheade
 declare noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12PerfDataListC2EPS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN12PerfDataListC2EPS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 9) #15
   %4 = icmp eq ptr %3, null
   br i1 %4, label %15, label %5

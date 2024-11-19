@@ -64979,7 +64979,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN4pbrt7Array2DISt6vectorINS0_17VarianceEstimatorIdEESaIS4_EEEEvEZ5errorS2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEE3$_1E9_M_invokeERKSt9_Any_data"(ptr noalias sret(%"class.pbrt::Array2D") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFN4pbrt7Array2DISt6vectorINS0_17VarianceEstimatorIdEESaIS4_EEEEvEZ5errorS2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEE3$_1E9_M_invokeERKSt9_Any_data"(ptr noalias sret(%"class.pbrt::Array2D") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !333)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !336)

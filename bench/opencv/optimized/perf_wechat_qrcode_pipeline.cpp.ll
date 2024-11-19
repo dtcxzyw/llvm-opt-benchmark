@@ -2474,7 +2474,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_1
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_144Perf_Objdetect_QRCode_detect_and_decode_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #12 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_144Perf_Objdetect_QRCode_detect_and_decode_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #12 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_144Perf_Objdetect_QRCode_detect_and_decode_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2484,7 +2484,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_144Perf_Objdetect_QRCode_detect_and_decode_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #12 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_144Perf_Objdetect_QRCode_detect_and_decode_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #12 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_144Perf_Objdetect_QRCode_detect_and_decode_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2518,7 +2518,7 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11opencv_test12_GLOBAL__N_144Perf_Objdetect_QRCode_detect_and_decode_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11opencv_test12_GLOBAL__N_144Perf_Objdetect_QRCode_detect_and_decode_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(257) initializes((0, 8)) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -2555,7 +2555,7 @@ _ZN4perf17TestBaseWithParamISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traits
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11opencv_test12_GLOBAL__N_144Perf_Objdetect_QRCode_detect_and_decode_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11opencv_test12_GLOBAL__N_144Perf_Objdetect_QRCode_detect_and_decode_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(257) initializes((0, 8)) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -2593,7 +2593,7 @@ _ZN11opencv_test12_GLOBAL__N_144Perf_Objdetect_QRCode_detect_and_decode_TestD2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN11opencv_test12_GLOBAL__N_144Perf_Objdetect_QRCode_detect_and_decode_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(257) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11opencv_test12_GLOBAL__N_144Perf_Objdetect_QRCode_detect_and_decode_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(257) initializes((256, 257)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -3411,7 +3411,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %251, %_ZSt8_Destroy
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn248_N11opencv_test12_GLOBAL__N_144Perf_Objdetect_QRCode_detect_and_decode_TestD1Ev(ptr noundef %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn248_N11opencv_test12_GLOBAL__N_144Perf_Objdetect_QRCode_detect_and_decode_TestD1Ev(ptr noundef initializes((-248, -240)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -248
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 -176
@@ -3449,7 +3449,7 @@ _ZN11opencv_test12_GLOBAL__N_144Perf_Objdetect_QRCode_detect_and_decode_TestD2Ev
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn248_N11opencv_test12_GLOBAL__N_144Perf_Objdetect_QRCode_detect_and_decode_TestD0Ev(ptr noundef %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn248_N11opencv_test12_GLOBAL__N_144Perf_Objdetect_QRCode_detect_and_decode_TestD0Ev(ptr noundef initializes((-248, -240)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -248
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 -176
@@ -4073,7 +4073,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_150Perf_Objdetect_QRCode_Multi_detect_and_decode_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #12 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_150Perf_Objdetect_QRCode_Multi_detect_and_decode_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #12 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_150Perf_Objdetect_QRCode_Multi_detect_and_decode_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -4083,7 +4083,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_150Perf_Objdetect_QRCode_Multi_detect_and_decode_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #12 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_150Perf_Objdetect_QRCode_Multi_detect_and_decode_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #12 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_150Perf_Objdetect_QRCode_Multi_detect_and_decode_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -4117,7 +4117,7 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11opencv_test12_GLOBAL__N_150Perf_Objdetect_QRCode_Multi_detect_and_decode_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11opencv_test12_GLOBAL__N_150Perf_Objdetect_QRCode_Multi_detect_and_decode_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(257) initializes((0, 8)) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -4154,7 +4154,7 @@ _ZN4perf17TestBaseWithParamISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traits
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11opencv_test12_GLOBAL__N_150Perf_Objdetect_QRCode_Multi_detect_and_decode_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11opencv_test12_GLOBAL__N_150Perf_Objdetect_QRCode_Multi_detect_and_decode_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(257) initializes((0, 8)) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -4192,7 +4192,7 @@ _ZN11opencv_test12_GLOBAL__N_150Perf_Objdetect_QRCode_Multi_detect_and_decode_Te
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN11opencv_test12_GLOBAL__N_150Perf_Objdetect_QRCode_Multi_detect_and_decode_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(257) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11opencv_test12_GLOBAL__N_150Perf_Objdetect_QRCode_Multi_detect_and_decode_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(257) initializes((256, 257)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -5161,7 +5161,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %313, %_ZSt8_Destroy
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn248_N11opencv_test12_GLOBAL__N_150Perf_Objdetect_QRCode_Multi_detect_and_decode_TestD1Ev(ptr noundef %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn248_N11opencv_test12_GLOBAL__N_150Perf_Objdetect_QRCode_Multi_detect_and_decode_TestD1Ev(ptr noundef initializes((-248, -240)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -248
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 -176
@@ -5199,7 +5199,7 @@ _ZN11opencv_test12_GLOBAL__N_150Perf_Objdetect_QRCode_Multi_detect_and_decode_Te
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn248_N11opencv_test12_GLOBAL__N_150Perf_Objdetect_QRCode_Multi_detect_and_decode_TestD0Ev(ptr noundef %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn248_N11opencv_test12_GLOBAL__N_150Perf_Objdetect_QRCode_Multi_detect_and_decode_TestD0Ev(ptr noundef initializes((-248, -240)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -248
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 -176
@@ -5840,7 +5840,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_148Perf_Objdetect_Not_QRCode_detect_and_decode_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #12 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_148Perf_Objdetect_Not_QRCode_detect_and_decode_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #12 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_148Perf_Objdetect_Not_QRCode_detect_and_decode_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
@@ -5850,7 +5850,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_148Perf_Objdetect_Not_QRCode_detect_and_decode_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #12 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_148Perf_Objdetect_Not_QRCode_detect_and_decode_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #12 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_148Perf_Objdetect_Not_QRCode_detect_and_decode_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
@@ -5884,7 +5884,7 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11opencv_test12_GLOBAL__N_148Perf_Objdetect_Not_QRCode_detect_and_decode_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11opencv_test12_GLOBAL__N_148Perf_Objdetect_Not_QRCode_detect_and_decode_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(257) initializes((0, 8)) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -5921,7 +5921,7 @@ _ZN4perf17TestBaseWithParamISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traits
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11opencv_test12_GLOBAL__N_148Perf_Objdetect_Not_QRCode_detect_and_decode_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11opencv_test12_GLOBAL__N_148Perf_Objdetect_Not_QRCode_detect_and_decode_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(257) initializes((0, 8)) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -5959,7 +5959,7 @@ _ZN11opencv_test12_GLOBAL__N_148Perf_Objdetect_Not_QRCode_detect_and_decode_Test
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN11opencv_test12_GLOBAL__N_148Perf_Objdetect_Not_QRCode_detect_and_decode_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(257) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11opencv_test12_GLOBAL__N_148Perf_Objdetect_Not_QRCode_detect_and_decode_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(257) initializes((256, 257)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -6670,7 +6670,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn248_N11opencv_test12_GLOBAL__N_148Perf_Objdetect_Not_QRCode_detect_and_decode_TestD1Ev(ptr noundef %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn248_N11opencv_test12_GLOBAL__N_148Perf_Objdetect_Not_QRCode_detect_and_decode_TestD1Ev(ptr noundef initializes((-248, -240)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -248
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 -176
@@ -6708,7 +6708,7 @@ _ZN11opencv_test12_GLOBAL__N_148Perf_Objdetect_Not_QRCode_detect_and_decode_Test
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn248_N11opencv_test12_GLOBAL__N_148Perf_Objdetect_Not_QRCode_detect_and_decode_TestD0Ev(ptr noundef %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn248_N11opencv_test12_GLOBAL__N_148Perf_Objdetect_Not_QRCode_detect_and_decode_TestD0Ev(ptr noundef initializes((-248, -240)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -248
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 -176

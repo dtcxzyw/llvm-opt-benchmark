@@ -417,7 +417,7 @@ strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 -1, 1) i32 @split_ident_line(ptr nocapture noundef writeonly %split, ptr noundef %line, i32 noundef %len) local_unnamed_addr #4 {
+define dso_local range(i32 -1, 1) i32 @split_ident_line(ptr nocapture noundef writeonly initializes((0, 64)) %split, ptr noundef %line, i32 noundef %len) local_unnamed_addr #4 {
 entry:
   %0 = getelementptr inbounds i8, ptr %split, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 56, i1 false)

@@ -607,7 +607,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys10MemLibrary13parse_libraryERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EERKNS_7hashlib4poolIS7_NSC_8hash_opsIS7_EEEE(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::MemLibrary::Library") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(49) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys10MemLibrary13parse_libraryERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EERKNS_7hashlib4poolIS7_NSC_8hash_opsIS7_EEEE(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::MemLibrary::Library") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(49) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.Yosys::hashlib::pool", align 8
   %6 = alloca %"struct.(anonymous namespace)::Parser", align 8
@@ -17923,7 +17923,7 @@ _ZN12_GLOBAL__N_19WidthsDefD2Ev.exit:             ; preds = %252, %_ZN5Yosys7has
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19WidthsDefC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19WidthsDefC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -20204,7 +20204,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_16Parser11peek_string
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(424) ptr @_ZN12_GLOBAL__N_112PortGroupDefaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(424) %0, ptr noundef nonnull align 8 dereferenceable(424) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(424) ptr @_ZN12_GLOBAL__N_112PortGroupDefaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(424) initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(424) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -21243,7 +21243,7 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5R
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112PortGroupDefC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef nonnull align 8 dereferenceable(424) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112PortGroupDefC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(424) initializes((0, 4), (8, 56)) %0, ptr noundef nonnull align 8 dereferenceable(424) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -25383,7 +25383,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.616.val, ptr readnone %.624.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16Parser11get_optionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 48)) %0, ptr %.616.val, ptr readnone %.624.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::pair.142", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 48, i1 false)
   %.not4 = icmp eq ptr %.616.val, %.624.val
@@ -25519,7 +25519,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL5Con
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.640.val, ptr readnone %.648.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16Parser15get_portoptionsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 48)) %0, ptr %.640.val, ptr readnone %.648.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::pair.142", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 48, i1 false)
   %.not4 = icmp eq ptr %.640.val, %.648.val
@@ -25655,7 +25655,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL5Con
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEEJRKS3_EEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(120) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEEJRKS3_EEvPT_DpOT0_(ptr noundef initializes((8, 56)) %0, ptr noundef nonnull align 8 dereferenceable(120) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = getelementptr inbounds i8, ptr %1, i64 32
@@ -31264,7 +31264,7 @@ _ZN12_GLOBAL__N_112PortWidthDefD2Ev.exit:         ; preds = %217, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112PortWidthDefC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112PortWidthDefC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 1), (8, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i8, ptr %1, align 8
   %4 = and i8 %3, 1
   store i8 %4, ptr %0, align 8
@@ -33277,7 +33277,7 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5R
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityINS0_8ClockDefEEEJRKS3_EEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(152) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityINS0_8ClockDefEEEJRKS3_EEvPT_DpOT0_(ptr noundef initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -33344,7 +33344,7 @@ _ZN12_GLOBAL__N_110CapabilityINS_8ClockDefEEC2ERKS2_.exit: ; preds = %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityINS0_12PortWidthDefEEEJRKS3_EEvPT_DpOT0_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityINS0_12PortWidthDefEEEJRKS3_EEvPT_DpOT0_(ptr noundef nonnull initializes((0, 1), (8, 32)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call fastcc void @_ZN12_GLOBAL__N_112PortWidthDefC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(168) %1)
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = getelementptr inbounds i8, ptr %0, i64 80
@@ -33407,7 +33407,7 @@ _ZN12_GLOBAL__N_110CapabilityINS_12PortWidthDefEEC2ERKS2_.exit: ; preds = %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEEEJRKS5_EEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(120) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEEEJRKS5_EEvPT_DpOT0_(ptr noundef initializes((0, 4), (8, 56)) %0, ptr noundef nonnull align 8 dereferenceable(120) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -33470,7 +33470,7 @@ _ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary8RdWrKindEEC2ERKS4_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEEJRKS5_EEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(120) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEEJRKS5_EEvPT_DpOT0_(ptr noundef initializes((0, 4), (8, 56)) %0, ptr noundef nonnull align 8 dereferenceable(120) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -33533,7 +33533,7 @@ _ZN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEC2ERKS4_.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityINS0_7SrstDefEEEJRKS3_EEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityINS0_7SrstDefEEEJRKS3_EEvPT_DpOT0_(ptr noundef initializes((0, 12), (16, 64)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 12, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -33595,7 +33595,7 @@ _ZN12_GLOBAL__N_110CapabilityINS_7SrstDefEEC2ERKS2_.exit: ; preds = %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityINS0_13RawWrTransDefEEEJRKS3_EEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt10_ConstructIN12_GLOBAL__N_110CapabilityINS0_13RawWrTransDefEEEJRKS3_EEvPT_DpOT0_(ptr noundef initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -33666,7 +33666,7 @@ _ZN12_GLOBAL__N_110CapabilityINS_13RawWrTransDefEEC2ERKS2_.exit: ; preds = %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110CapabilityINS0_12PortGroupDefEEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(536) %1) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110CapabilityINS0_12PortGroupDefEEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_(ptr noundef initializes((0, 4), (8, 56), (64, 472), (480, 528)) %0, ptr noundef nonnull align 8 dereferenceable(536) %1) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -34067,7 +34067,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EEC2ERKS5_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EEC2ERKS5_(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.val10 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %.val11 = load ptr, ptr %3, align 8
@@ -34170,7 +34170,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_110CapabilityINS0_5EmptyEEESaIS3_EED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEESaIS5_EEC2ERKS7_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_110CapabilityIN5Yosys10MemLibrary12ResetValKindEEESaIS5_EEC2ERKS7_(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.val10 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %.val11 = load ptr, ptr %3, align 8
@@ -34884,7 +34884,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPN5Yosys7hashlib4dictINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16Parser21make_opt_combinationsERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_4poolINS1_5RTLIL5ConstENS2_8hash_opsISC_EEEENSD_IS9_EEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16Parser21make_opt_combinationsERKN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_4poolINS1_5RTLIL5ConstENS2_8hash_opsISC_EEEENSD_IS9_EEEE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [75 x i32], align 4
   %4 = alloca %"class.std::allocator.2", align 1
   %5 = alloca [75 x i32], align 4

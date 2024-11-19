@@ -312,7 +312,7 @@ declare void @llvm.trap() #5
 declare void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21DiscountingBondEngineC2ENS_6HandleINS_18YieldTermStructureEEERKN5boost8optionalIbEE(ptr noundef nonnull align 8 dereferenceable(274) %this, ptr nocapture noundef %discountCurve, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %includeSettlementDateFlows) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21DiscountingBondEngineC2ENS_6HandleINS_18YieldTermStructureEEERKN5boost8optionalIbEE(ptr noundef nonnull align 8 dereferenceable(274) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %discountCurve, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %includeSettlementDateFlows) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16

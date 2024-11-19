@@ -439,7 +439,7 @@ lpad:                                             ; preds = %if.else.i.i7.i.i21,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12mpbq_managerC2ER11mpz_managerILb0EE(ptr nocapture noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(600) %m) unnamed_addr #5 align 2 {
+define hidden void @_ZN12mpbq_managerC2ER11mpz_managerILb0EE(ptr nocapture noundef nonnull align 8 dereferenceable(208) initializes((0, 12), (16, 28), (32, 44), (48, 60), (64, 68), (72, 84), (88, 100), (104, 116), (120, 132), (136, 140), (144, 156), (160, 164), (168, 180), (184, 196), (200, 208)) %this, ptr noundef nonnull align 8 dereferenceable(600) %m) unnamed_addr #5 align 2 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_tmp = getelementptr inbounds i8, ptr %this, i64 8

@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pfr_phy_font_extra_items = internal constant [5 x %struct.PFR_ExtraItemRec_] [%struct.PFR_ExtraItemRec_ { i32 1, ptr @pfr_extra_item_load_bitmap_info }, %struct.PFR_ExtraItemRec_ { i32 2, ptr @pfr_extra_item_load_font_id }, %struct.PFR_ExtraItemRec_ { i32 3, ptr @pfr_extra_item_load_stem_snaps }, %struct.PFR_ExtraItemRec_ { i32 4, ptr @pfr_extra_item_load_kerning_pairs }, %struct.PFR_ExtraItemRec_ zeroinitializer], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 9) i32 @pfr_cmap_init(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 9) i32 @pfr_cmap_init(ptr nocapture noundef initializes((24, 28), (32, 40)) %0, ptr nocapture readnone %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 584
   %5 = load i32, ptr %4, align 8
@@ -66,7 +66,7 @@ define internal range(i32 0, 9) i32 @pfr_cmap_init(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pfr_cmap_done(ptr nocapture noundef writeonly %0) #1 {
+define internal void @pfr_cmap_done(ptr nocapture noundef writeonly initializes((24, 28), (32, 40)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1032,7 +1032,7 @@ pfr_phy_font_done.exit:                           ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pfr_slot_init(ptr nocapture noundef %0) #3 {
+define internal noundef i32 @pfr_slot_init(ptr nocapture noundef initializes((304, 360)) %0) #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -1045,7 +1045,7 @@ define internal noundef i32 @pfr_slot_init(ptr nocapture noundef %0) #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pfr_slot_done(ptr nocapture noundef %0) #3 {
+define internal void @pfr_slot_done(ptr nocapture noundef initializes((308, 312), (320, 336), (352, 353)) %0) #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -1837,7 +1837,7 @@ pfr_slot_load_bitmap.exit:                        ; preds = %263, %302
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pfr_get_kerning(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) #3 {
+define internal noundef i32 @pfr_get_kerning(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 16)) %3) #3 {
   %5 = tail call i32 @pfr_face_get_kerning(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3)
   %6 = getelementptr inbounds i8, ptr %0, i64 424
   %7 = load i32, ptr %6, align 8
@@ -1947,7 +1947,7 @@ define internal noundef i32 @pfr_get_metrics(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pfr_face_get_kerning(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #3 {
+define internal i32 @pfr_face_get_kerning(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 16)) %3) #3 {
   %5 = add i32 %1, -1
   %6 = add i32 %2, -1
   %7 = getelementptr inbounds i8, ptr %0, i64 584
@@ -2231,7 +2231,7 @@ define internal i32 @pfr_face_get_kerning(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 7) i32 @pfr_get_advance(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define internal range(i32 0, 7) i32 @pfr_get_advance(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #5 {
   store i64 0, ptr %2, align 8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %17, label %4
@@ -2278,7 +2278,7 @@ declare i64 @FT_MulDiv(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr
 declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pfr_phy_font_load(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 {
+define internal fastcc i32 @pfr_phy_font_load(ptr noundef initializes((0, 12), (208, 216)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 56

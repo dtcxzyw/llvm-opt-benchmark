@@ -2758,7 +2758,7 @@ define internal noundef range(i32 0, 2) i32 @ic_rarp_recv(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @ic_dhcp_init_options(ptr noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @ic_dhcp_init_options(ptr noundef initializes((0, 7)) %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = load i32, ptr @ic_servaddr, align 4
   %3 = icmp eq i32 %2, -1
   %4 = select i1 %3, i8 1, i8 3
@@ -2879,7 +2879,7 @@ define internal fastcc void @ic_dhcp_init_options(ptr noundef %0) unnamed_addr #
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(argmem: write)
-define internal fastcc void @ic_bootp_init_ext(ptr nocapture noundef writeonly %0) unnamed_addr #12 section ".init.text" align 16 {
+define internal fastcc void @ic_bootp_init_ext(ptr nocapture noundef writeonly initializes((0, 6), (10, 12), (16, 18), (30, 32), (64, 66), (98, 100), (140, 145)) %0) unnamed_addr #12 section ".init.text" align 16 {
   store i32 1666417251, ptr %0, align 1
   %2 = getelementptr i8, ptr %0, i64 4
   %3 = getelementptr i8, ptr %0, i64 5

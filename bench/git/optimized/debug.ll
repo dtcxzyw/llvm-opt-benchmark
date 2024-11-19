@@ -122,7 +122,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_transaction_prepare(ptr nocapture noundef readonly %refs, ptr noundef %transaction, ptr noundef %err) #0 {
+define internal i32 @debug_transaction_prepare(ptr nocapture noundef readonly %refs, ptr noundef initializes((0, 8)) %transaction, ptr noundef %err) #0 {
 entry:
   %refs1 = getelementptr inbounds i8, ptr %refs, i64 24
   %0 = load ptr, ptr %refs1, align 8
@@ -150,7 +150,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_transaction_finish(ptr nocapture noundef readonly %refs, ptr noundef %transaction, ptr noundef %err) #0 {
+define internal i32 @debug_transaction_finish(ptr nocapture noundef readonly %refs, ptr noundef initializes((0, 8)) %transaction, ptr noundef %err) #0 {
 entry:
   %o.i.i = alloca [65 x i8], align 16
   %n.i.i = alloca [65 x i8], align 16
@@ -267,7 +267,7 @@ do.end:                                           ; preds = %do.body2.i, %print_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_transaction_abort(ptr nocapture noundef readonly %refs, ptr noundef %transaction, ptr noundef %err) #0 {
+define internal i32 @debug_transaction_abort(ptr nocapture noundef readonly %refs, ptr noundef initializes((0, 8)) %transaction, ptr noundef %err) #0 {
 entry:
   %refs1 = getelementptr inbounds i8, ptr %refs, i64 24
   %0 = load ptr, ptr %refs1, align 8
@@ -280,7 +280,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_initial_transaction_commit(ptr nocapture noundef readonly %refs, ptr noundef %transaction, ptr noundef %err) #0 {
+define internal i32 @debug_initial_transaction_commit(ptr nocapture noundef readonly %refs, ptr noundef initializes((0, 8)) %transaction, ptr noundef %err) #0 {
 entry:
   %refs1 = getelementptr inbounds i8, ptr %refs, i64 24
   %0 = load ptr, ptr %refs1, align 8
@@ -422,7 +422,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_read_raw_ref(ptr nocapture noundef readonly %ref_store, ptr noundef %refname, ptr noundef %oid, ptr noundef %referent, ptr noundef %type, ptr noundef %failure_errno) #0 {
+define internal i32 @debug_read_raw_ref(ptr nocapture noundef readonly %ref_store, ptr noundef %refname, ptr noundef initializes((0, 36)) %oid, ptr noundef %referent, ptr noundef %type, ptr noundef %failure_errno) #0 {
 entry:
   %call = tail call ptr @null_oid() #6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid, ptr noundef nonnull readonly align 4 dereferenceable(32) %call, i64 32, i1 false)
@@ -711,7 +711,7 @@ declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare void @base_ref_iterator_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_ref_iterator_advance(ptr nocapture noundef %ref_iterator) #0 {
+define internal i32 @debug_ref_iterator_advance(ptr nocapture noundef initializes((16, 36)) %ref_iterator) #0 {
 entry:
   %iter = getelementptr inbounds i8, ptr %ref_iterator, i64 40
   %0 = load ptr, ptr %iter, align 8

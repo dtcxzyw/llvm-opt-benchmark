@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @PAD = internal unnamed_addr constant <{ i8, [63 x i8] }> <{ i8 -128, [63 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @crypto_hash_sha256_init(ptr nocapture noundef nonnull writeonly %state) local_unnamed_addr #0 {
+define noundef i32 @crypto_hash_sha256_init(ptr nocapture noundef nonnull writeonly initializes((0, 40)) %state) local_unnamed_addr #0 {
 entry:
   %count = getelementptr inbounds i8, ptr %state, i64 32
   store i64 0, ptr %count, align 8

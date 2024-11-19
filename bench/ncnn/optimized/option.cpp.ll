@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4ncnn6OptionC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN4ncnn6OptionC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4ncnn6OptionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN4ncnn6OptionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 1), (4, 61)) %0) unnamed_addr #0 align 2 {
   store i8 1, ptr %0, align 8
   %2 = tail call noundef i32 @_ZN4ncnn26get_physical_big_cpu_countEv()
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4

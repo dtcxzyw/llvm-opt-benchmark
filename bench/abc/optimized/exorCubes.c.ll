@@ -126,7 +126,7 @@ define void @DelocateCover() local_unnamed_addr #2 {
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define void @AddToFreeCubes(ptr noundef %0) local_unnamed_addr #4 {
+define void @AddToFreeCubes(ptr noundef initializes((32, 40)) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr @s_CubesFree, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %2, ptr %3, align 8

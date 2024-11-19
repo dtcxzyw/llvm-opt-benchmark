@@ -5519,7 +5519,7 @@ _ZNK10open_spiel5maedn10MaednState9AllInGoalEi.exit.thread: ; preds = %_ZNK10ope
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel5maedn10MaednState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel5maedn10MaednState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.42") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
@@ -6035,7 +6035,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit24:                  ; preds = %86, %_ZNSt6vectorIi
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel5maedn10MaednState8SetStateEiiiiRKSt6vectorIiSaIiEES6_(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #5 align 2 {
+define void @_ZN10open_spiel5maedn10MaednState8SetStateEiiiiRKSt6vectorIiSaIiEES6_(ptr noundef nonnull align 8 dereferenceable(160) initializes((60, 68), (76, 84)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #5 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %1, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64

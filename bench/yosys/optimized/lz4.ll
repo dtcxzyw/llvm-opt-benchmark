@@ -34,7 +34,7 @@ define noundef i32 @LZ4_sizeofState() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @LZ4_compress_fast_extState(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define noundef i32 @LZ4_compress_fast_extState(ptr nocapture noundef initializes((0, 16416)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %0, i8 0, i64 16416, i1 false)
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
   %7 = icmp ugt i32 %3, 2113929216
@@ -80,7 +80,7 @@ LZ4_compressBound.exit:                           ; preds = %6, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @LZ4_resetStream(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
+define void @LZ4_resetStream(ptr nocapture noundef writeonly initializes((0, 16416)) %0) local_unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %0, i8 0, i64 16416, i1 false)
   ret void
 }
@@ -1007,7 +1007,7 @@ define noundef i32 @LZ4_freeStream(ptr nocapture noundef %0) local_unnamed_addr 
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @LZ4_loadDict(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define i32 @LZ4_loadDict(ptr nocapture noundef initializes((16392, 16400), (16408, 16412)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %1, i64 %4
   %6 = getelementptr inbounds i8, ptr %0, i64 16388
@@ -1715,7 +1715,7 @@ define noundef i32 @LZ4_freeStreamDecode(ptr nocapture noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @LZ4_setStreamDecode(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define noundef i32 @LZ4_setStreamDecode(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %4, ptr %5, align 8
@@ -1924,13 +1924,13 @@ LZ4_compressBound.exit:                           ; preds = %3, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @LZ4_compress_limitedOutput_withState(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define noundef i32 @LZ4_compress_limitedOutput_withState(ptr nocapture noundef initializes((0, 16416)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = tail call i32 @LZ4_compress_fast_extState(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 1)
   ret i32 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @LZ4_compress_withState(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define noundef i32 @LZ4_compress_withState(ptr nocapture noundef initializes((0, 16416)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = icmp ugt i32 %3, 2113929216
   br i1 %5, label %LZ4_compressBound.exit, label %6
 

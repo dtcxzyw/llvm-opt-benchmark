@@ -3119,13 +3119,13 @@ _ZNSt12__shared_ptrIN7xgboost4data15CSRArrayAdapterELN9__gnu_cxx12_Lock_policyE2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7xgboost4data9cuda_impl22CreateDMatrixFromProxyEPKNS_7ContextESt10shared_ptrINS0_12DMatrixProxyEEf(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.41") align 8 %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, float noundef %3) local_unnamed_addr #10 {
+define void @_ZN7xgboost4data9cuda_impl22CreateDMatrixFromProxyEPKNS_7ContextESt10shared_ptrINS0_12DMatrixProxyEEf(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.41") align 8 initializes((0, 16)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, float noundef %3) local_unnamed_addr #10 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost4data22CreateDMatrixFromProxyEPKNS_7ContextESt10shared_ptrINS0_12DMatrixProxyEEf(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.41") align 8 %0, ptr noundef %1, ptr nocapture noundef readonly %2, float noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost4data22CreateDMatrixFromProxyEPKNS_7ContextESt10shared_ptrINS0_12DMatrixProxyEEf(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.41") align 8 initializes((0, 16)) %0, ptr noundef %1, ptr nocapture noundef readonly %2, float noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct._Guard, align 8
   %6 = alloca %struct._Guard, align 8
   %7 = alloca %struct._Guard, align 8

@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [35 x i8] c"could not close compression stream\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dir_open_for_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
+define internal ptr @dir_open_for_write(ptr noundef initializes((24, 36)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
   %5 = alloca [1024 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %6, align 8
@@ -364,7 +364,7 @@ define internal i32 @dir_close(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @dir_existsfile(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal noundef zeroext i1 @dir_existsfile(ptr nocapture noundef initializes((24, 36)) %0, ptr noundef %1) #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %4, align 8
@@ -535,7 +535,7 @@ define internal i32 @dir_sync(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @dir_finish(ptr nocapture noundef %0) #0 {
+define internal noundef zeroext i1 @dir_finish(ptr nocapture noundef initializes((24, 36)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -598,7 +598,7 @@ declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #1
 declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tar_open_for_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
+define internal ptr @tar_open_for_write(ptr noundef initializes((24, 36)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1129,7 +1129,7 @@ tar_write_padding_data.exit:                      ; preds = %44
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @tar_existsfile(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #2 {
+define internal noundef zeroext i1 @tar_existsfile(ptr nocapture noundef writeonly initializes((24, 36)) %0, ptr nocapture readnone %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1138,7 +1138,7 @@ define internal noundef zeroext i1 @tar_existsfile(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i64 @tar_get_file_size(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #2 {
+define internal noundef i64 @tar_get_file_size(ptr nocapture noundef writeonly initializes((24, 36)) %0, ptr nocapture readnone %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1322,7 +1322,7 @@ define internal i32 @tar_sync(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @tar_finish(ptr nocapture noundef %0) #0 {
+define internal noundef zeroext i1 @tar_finish(ptr nocapture noundef initializes((24, 36)) %0) #0 {
   %2 = alloca [1024 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %2, i8 0, i64 1024, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 24

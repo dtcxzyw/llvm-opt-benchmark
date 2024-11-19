@@ -880,7 +880,7 @@ mca_btl_tcp_free.exit:                            ; preds = %opal_free_list_retu
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_btl_tcp_send(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
+define i32 @mca_btl_tcp_send(ptr noundef %0, ptr noundef %1, ptr noundef initializes((136, 152), (248, 256), (268, 272)) %2, i8 noundef zeroext %3) #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 144
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 136
@@ -1068,7 +1068,7 @@ define range(i32 -2147483648, 1) i32 @mca_btl_tcp_put(ptr noundef %0, ptr nounde
 declare void @mca_btl_base_dump(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @mca_btl_tcp_register_error_cb(ptr nocapture noundef writeonly %0, ptr noundef %1) #3 {
+define internal noundef i32 @mca_btl_tcp_register_error_cb(ptr nocapture noundef writeonly initializes((832, 840)) %0, ptr noundef %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 832
   store ptr %1, ptr %3, align 8
   ret i32 0

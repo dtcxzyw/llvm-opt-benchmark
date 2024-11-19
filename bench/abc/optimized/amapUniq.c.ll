@@ -508,7 +508,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @Amap_LibCreateVar(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define noundef i32 @Amap_LibCreateVar(ptr nocapture noundef initializes((88, 96), (100, 104)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 100
   store i32 256, ptr %2, align 4
   %3 = tail call noalias dereferenceable_or_null(6144) ptr @malloc(i64 noundef 6144) #11

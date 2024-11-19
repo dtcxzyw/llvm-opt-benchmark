@@ -979,7 +979,7 @@ return:                                           ; preds = %entry, %_ZSt11max_e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt23PiecewiseLinearSpectrumC2EN4pstd4spanIKfEES4_NS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr readonly %l.coerce0, i64 %l.coerce1, ptr readonly %v.coerce0, i64 %v.coerce1, ptr %alloc.coerce) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt23PiecewiseLinearSpectrumC2EN4pstd4spanIKfEES4_NS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 32)) %this, ptr readonly %l.coerce0, i64 %l.coerce1, ptr readonly %v.coerce0, i64 %v.coerce1, ptr %alloc.coerce) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %va = alloca i64, align 8
   %vb = alloca i64, align 8
@@ -3636,7 +3636,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt17RGBAlbedoSpectrumC2ERKNS_13RGBColorSpaceENS_3RGBE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(152) %cs, <2 x float> %rgb.coerce0, float %rgb.coerce1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4pbrt17RGBAlbedoSpectrumC2ERKNS_13RGBColorSpaceENS_3RGBE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %this, ptr noundef nonnull align 8 dereferenceable(152) %cs, <2 x float> %rgb.coerce0, float %rgb.coerce1) unnamed_addr #1 align 2 {
 entry:
   %call = tail call { <2 x float>, float } @_ZNK4pbrt13RGBColorSpace11ToRGBCoeffsENS_3RGBE(ptr noundef nonnull align 8 dereferenceable(152) %cs, <2 x float> %rgb.coerce0, float %rgb.coerce1)
   %call.fca.0.extract = extractvalue { <2 x float>, float } %call, 0
@@ -3698,7 +3698,7 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %while.body.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt21RGBIlluminantSpectrumC2ERKNS_13RGBColorSpaceENS_3RGBE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(152) %cs, <2 x float> %rgb.coerce0, float %rgb.coerce1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4pbrt21RGBIlluminantSpectrumC2ERKNS_13RGBColorSpaceENS_3RGBE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(152) %cs, <2 x float> %rgb.coerce0, float %rgb.coerce1) unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca [3 x float], align 4
   %illuminant = getelementptr inbounds i8, ptr %this, i64 16

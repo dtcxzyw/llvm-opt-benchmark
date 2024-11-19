@@ -196,7 +196,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb7blob_db8BlobFileC2EPKNS0_10BlobDBImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPNS_6LoggerE(ptr noundef nonnull align 8 dereferenceable(314) %this, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(32) %bdir, i64 noundef %fn, ptr noundef %info_log) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb7blob_db8BlobFileC2EPKNS0_10BlobDBImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPNS_6LoggerE(ptr noundef nonnull align 8 dereferenceable(314) initializes((0, 8)) %this, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(32) %bdir, i64 noundef %fn, ptr noundef %info_log) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   store ptr %p, ptr %this, align 8
   %path_to_dir_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -470,7 +470,7 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb7blob_db8BlobFileC2EPKNS0_10BlobDBImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPNS_6LoggerEjNS_15CompressionTypeEbRKSt4pairImmE(ptr noundef nonnull align 8 dereferenceable(314) %this, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(32) %bdir, i64 noundef %fn, ptr noundef %info_log, i32 noundef %column_family_id, i8 noundef zeroext %compression, i1 noundef zeroext %has_ttl, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %expiration_range) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb7blob_db8BlobFileC2EPKNS0_10BlobDBImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPNS_6LoggerEjNS_15CompressionTypeEbRKSt4pairImmE(ptr noundef nonnull align 8 dereferenceable(314) initializes((0, 8)) %this, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(32) %bdir, i64 noundef %fn, ptr noundef %info_log, i32 noundef %column_family_id, i8 noundef zeroext %compression, i1 noundef zeroext %has_ttl, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %expiration_range) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %has_ttl to i8
   store ptr %p, ptr %this, align 8
@@ -909,7 +909,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb7blob_db8BlobFile12MarkObsoleteEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(314) %this, i64 noundef %sequence) local_unnamed_addr #10 align 2 {
+define void @_ZN7rocksdb7blob_db8BlobFile12MarkObsoleteEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(314) initializes((208, 216)) %this, i64 noundef %sequence) local_unnamed_addr #10 align 2 {
 entry:
   %obsolete_sequence_ = getelementptr inbounds i8, ptr %this, i64 208
   store i64 %sequence, ptr %obsolete_sequence_, align 8
@@ -1623,7 +1623,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit:                   ; preds = %entry, %if.then.i, 
 declare void @_ZN7rocksdb13BlobLogFooter10DecodeFromENS_5SliceE(ptr sret(%"class.rocksdb::Status") align 8, ptr noundef nonnull align 8 dereferenceable(28), ptr, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb7blob_db8BlobFile19SetFromFooterLockedERKNS_13BlobLogFooterE(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(314) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %footer) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb7blob_db8BlobFile19SetFromFooterLockedERKNS_13BlobLogFooterE(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(314) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %footer) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %footer, align 8
   %blob_count_ = getelementptr inbounds i8, ptr %this, i64 136
@@ -1645,7 +1645,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb7blob_db8BlobFile5FsyncEv(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(314) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb7blob_db8BlobFile5FsyncEv(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(314) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
   %state_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1724,7 +1724,7 @@ nrvo.skipdtor:                                    ; preds = %entry, %_ZN7rocksdb
 declare void @_ZN7rocksdb13BlobLogWriter4SyncEv(ptr sret(%"class.rocksdb::Status") align 8, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb7blob_db8BlobFile23CloseRandomAccessLockedEv(ptr nocapture noundef nonnull align 8 dereferenceable(314) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb7blob_db8BlobFile23CloseRandomAccessLockedEv(ptr nocapture noundef nonnull align 8 dereferenceable(314) initializes((232, 240)) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ra_file_reader_ = getelementptr inbounds i8, ptr %this, i64 232
   store ptr null, ptr %ra_file_reader_, align 8
@@ -1809,7 +1809,7 @@ _ZNSt12__shared_ptrIN7rocksdb22RandomAccessFileReaderELN9__gnu_cxx12_Lock_policy
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb7blob_db8BlobFile9GetReaderEPNS_3EnvERKNS_11FileOptionsEPSt10shared_ptrINS_22RandomAccessFileReaderEEPb(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(314) %this, ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(146) %file_options, ptr nocapture noundef %reader, ptr nocapture noundef writeonly %fresh_open) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb7blob_db8BlobFile9GetReaderEPNS_3EnvERKNS_11FileOptionsEPSt10shared_ptrINS_22RandomAccessFileReaderEEPb(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(314) %this, ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(146) %file_options, ptr nocapture noundef %reader, ptr nocapture noundef writeonly initializes((0, 1)) %fresh_open) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %current_time = alloca i64, align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8

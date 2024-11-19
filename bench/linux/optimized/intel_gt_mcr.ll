@@ -56,7 +56,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @intel_gt_mcr_wait_for_reg.__UNIQUE_ID___addressable___SCK__preempt_schedule561, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gt_mcr_init(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_gt_mcr_init(ptr nocapture noundef initializes((4940, 4944)) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4940
   store i32 0, ptr %3, align 4
@@ -1008,7 +1008,7 @@ define dso_local void @intel_gt_mcr_get_nonterminated_steering(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @get_nonterminated_steering(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
+define internal fastcc void @get_nonterminated_steering(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) unnamed_addr #0 align 16 {
   switch i32 %1, label %54 [
     i32 0, label %5
     i32 1, label %11
@@ -1544,7 +1544,7 @@ define internal fastcc void @report_steering_type(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @intel_gt_mcr_get_ss_steering(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 align 16 {
+define dso_local void @intel_gt_mcr_get_ss_steering(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #4 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr i8, ptr %5, i64 7188
   %7 = load i32, ptr %6, align 4

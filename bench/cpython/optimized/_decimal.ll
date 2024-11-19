@@ -18802,7 +18802,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare hidden i32 @mpd_parse_fmt_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @dict_get_item_string(ptr noundef %dict, ptr noundef %key, ptr nocapture noundef nonnull writeonly %valueobj, ptr nocapture noundef nonnull writeonly %valuestr) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dict_get_item_string(ptr noundef %dict, ptr noundef %key, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %valueobj, ptr nocapture noundef nonnull writeonly %valuestr) unnamed_addr #0 {
 entry:
   store ptr null, ptr %valueobj, align 8
   %call = tail call ptr @PyUnicode_FromString(ptr noundef %key) #15
@@ -31980,7 +31980,7 @@ return:                                           ; preds = %convert_op.exit.thr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef nonnull ptr @context_clear_flags(ptr nocapture noundef writeonly %self, ptr nocapture readnone %dummy) #9 {
+define internal noundef nonnull ptr @context_clear_flags(ptr nocapture noundef writeonly initializes((44, 48)) %self, ptr nocapture readnone %dummy) #9 {
 entry:
   %status = getelementptr inbounds i8, ptr %self, i64 44
   store i32 0, ptr %status, align 4
@@ -31988,7 +31988,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef nonnull ptr @context_clear_traps(ptr nocapture noundef writeonly %self, ptr nocapture readnone %dummy) #9 {
+define internal noundef nonnull ptr @context_clear_traps(ptr nocapture noundef writeonly initializes((40, 44)) %self, ptr nocapture readnone %dummy) #9 {
 entry:
   %traps = getelementptr inbounds i8, ptr %self, i64 40
   store i32 0, ptr %traps, align 8
@@ -33355,7 +33355,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @signaldict_init(ptr nocapture noundef writeonly %self, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #9 {
+define internal noundef i32 @signaldict_init(ptr nocapture noundef writeonly initializes((16, 24)) %self, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #9 {
 entry:
   %flags = getelementptr inbounds i8, ptr %self, i64 16
   store ptr null, ptr %flags, align 8

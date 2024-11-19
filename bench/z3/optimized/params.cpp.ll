@@ -2837,7 +2837,7 @@ terminate.lpad:                                   ; preds = %_Z7deallocI6paramsE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10params_refC2ERKS_(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10params_refC2ERKS_(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
   %0 = load ptr, ptr %p, align 8

@@ -240,7 +240,7 @@ $_ZTI13b3OpenCLArrayI9b3Vector3E = comdat any
 @_ZN18b3GpuSapBroadphaseD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN18b3GpuSapBroadphaseD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18b3GpuSapBroadphaseC2EP11_cl_contextP13_cl_device_idP17_cl_command_queueNS_18b3GpuSapKernelTypeE(ptr noundef nonnull align 8 dereferenceable(2040) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %q, i32 noundef %kernelType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18b3GpuSapBroadphaseC2EP11_cl_contextP13_cl_device_idP17_cl_command_queueNS_18b3GpuSapKernelTypeE(ptr noundef nonnull align 8 dereferenceable(2040) initializes((0, 32)) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %q, i32 noundef %kernelType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %errNum = alloca i32, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTV18b3GpuSapBroadphase, i64 16), ptr %this, align 8
@@ -1172,7 +1172,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN18b3GpuSapBroadphaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2040) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18b3GpuSapBroadphaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2040) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV18b3GpuSapBroadphase, i64 16), ptr %this, align 8
   %m_sorter = getelementptr inbounds i8, ptr %this, i64 80
@@ -2161,7 +2161,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN18b3GpuSapBroadphaseD0Ev(ptr noundef nonnull align 8 dereferenceable(2040) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN18b3GpuSapBroadphaseD0Ev(ptr noundef nonnull align 8 dereferenceable(2040) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN18b3GpuSapBroadphaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2040) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
@@ -5547,7 +5547,7 @@ _ZN20b3AlignedObjectArrayI6b3Int4ED2Ev.exit:      ; preds = %if.end184, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18b3GpuSapBroadphase5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(2040) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN18b3GpuSapBroadphase5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(2040) initializes((1440, 1448)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 1440
   store i64 0, ptr %m_size.i.i, align 8

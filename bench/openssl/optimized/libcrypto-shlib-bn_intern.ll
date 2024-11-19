@@ -332,7 +332,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @bn_set_static_words(ptr noundef %a, ptr noundef %words, i32 noundef %size) local_unnamed_addr #0 {
+define void @bn_set_static_words(ptr noundef initializes((0, 20)) %a, ptr noundef %words, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   store ptr %words, ptr %a, align 8
   %top = getelementptr inbounds i8, ptr %a, i64 8

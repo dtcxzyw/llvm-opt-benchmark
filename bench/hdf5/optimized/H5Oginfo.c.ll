@@ -216,7 +216,7 @@ define internal ptr @H5O__ginfo_decode(ptr nocapture readnone %0, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5O__ginfo_encode(ptr nocapture readnone %0, i1 zeroext %1, i64 %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef readonly %4) #1 {
+define internal noundef i32 @H5O__ginfo_encode(ptr nocapture readnone %0, i1 zeroext %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 2)) %3, ptr nocapture noundef readonly %4) #1 {
   %6 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 0, ptr %3, align 1
   %7 = getelementptr inbounds i8, ptr %4, i64 4

@@ -1599,7 +1599,7 @@ _ZN3nix12BufferedSinkclESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3nix6FdSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix6FdSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
@@ -1683,7 +1683,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #9
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3nix6FdSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #3 align 2 {
+define void @_ZN3nix6FdSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN3nix6FdSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @_ZTTN3nix6FdSinkE) #36
   ret void
 }
@@ -1699,7 +1699,7 @@ define void @_ZTv0_n24_N3nix6FdSinkD1Ev(ptr noundef %0) unnamed_addr #10 align 2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3nix6FdSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #3 align 2 {
+define void @_ZN3nix6FdSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN3nix6FdSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull @_ZTTN3nix6FdSinkE) #36
   tail call void @_ZdlPv(ptr noundef nonnull %0) #38
   ret void
@@ -2634,7 +2634,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @"_ZN3nix3$_18__invokeEv"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.34") align 8 %0) #19 align 2 {
+define internal void @"_ZN3nix3$_18__invokeEv"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.34") align 8 initializes((0, 16)) %0) #19 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !13
   ret void
 }
@@ -16204,7 +16204,7 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit40:         ; preds = %24, %21, %_ZNSt11ch
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12SourceToSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12SourceToSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEE12SourceToSink, i64 48), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
@@ -16245,7 +16245,7 @@ _ZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12SourceToSinkD2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12SourceToSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12SourceToSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEE12SourceToSink, i64 48), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
@@ -17643,7 +17643,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %22, %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0_IFvvEEEN12SinkToSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0_IFvvEEEN12SinkToSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0_IFvvEEE12SinkToSource, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
@@ -17728,7 +17728,7 @@ _ZNSt8functionIFvRN3nix4SinkEEED2Ev.exit:         ; preds = %_ZNSt8functionIFvvE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0_IFvvEEEN12SinkToSourceD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0_IFvvEEEN12SinkToSourceD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   tail call void @_ZZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0_IFvvEEEN12SinkToSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #36
   tail call void @_ZdlPv(ptr noundef nonnull %0) #38
   ret void

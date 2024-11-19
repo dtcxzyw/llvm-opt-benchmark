@@ -10221,7 +10221,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122BoolGFlagValueSemanticD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_122BoolGFlagValueSemanticD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -11088,7 +11088,7 @@ lpad:                                             ; preds = %_ZNR5folly8Expected
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -11145,7 +11145,7 @@ _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIbEELN9__gnu_cxx12_Lock_polic
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_130NegativeBoolGFlagValueSemanticD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_130NegativeBoolGFlagValueSemanticD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -11967,7 +11967,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -12024,7 +12024,7 @@ _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIiEELN9__gnu_cxx12_Lock_polic
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_118GFlagValueSemanticIiED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_118GFlagValueSemanticIiED0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -13112,7 +13112,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -13169,7 +13169,7 @@ _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIlEELN9__gnu_cxx12_Lock_polic
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_118GFlagValueSemanticIlED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_118GFlagValueSemanticIlED0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -14148,7 +14148,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -14205,7 +14205,7 @@ _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIjEELN9__gnu_cxx12_Lock_polic
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_118GFlagValueSemanticIjED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_118GFlagValueSemanticIjED0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -15257,7 +15257,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseImED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseImED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseImEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -15314,7 +15314,7 @@ _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoImEELN9__gnu_cxx12_Lock_polic
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_118GFlagValueSemanticImED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_118GFlagValueSemanticImED0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseImEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -16470,7 +16470,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -16527,7 +16527,7 @@ _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIdEELN9__gnu_cxx12_Lock_polic
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_118GFlagValueSemanticIdED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_118GFlagValueSemanticIdED0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -17850,7 +17850,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -17907,7 +17907,7 @@ _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoINSt7__cxx1112basic_stringIcS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_118GFlagValueSemanticINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_118GFlagValueSemanticINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -21189,7 +21189,7 @@ for.end:                                          ; preds = %_ZSt8_DestroyIN6goo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly22parseNestedCommandLineEiPKPKcRKN5boost15program_options19options_descriptionENS5_18command_line_style7style_tE(ptr dead_on_unwind noalias writable sret(%"struct.folly::NestedCommandLineParseResult") align 8 %agg.result, i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull align 8 dereferenceable(128) %desc, i32 noundef %style) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly22parseNestedCommandLineEiPKPKcRKN5boost15program_options19options_descriptionENS5_18command_line_style7style_tE(ptr dead_on_unwind noalias writable sret(%"struct.folly::NestedCommandLineParseResult") align 8 initializes((0, 36), (72, 73), (80, 104)) %agg.result, i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull align 8 dereferenceable(128) %desc, i32 noundef %style) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::program_options::basic_command_line_parser", align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ref.tmp) #32
@@ -21319,7 +21319,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly12_GLOBAL__N_124doParseNestedCommandLineEON5boost15program_options25basic_command_line_parserIcEERKNS2_19options_descriptionENS2_18command_line_style7style_tE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %parser, ptr noundef nonnull align 8 dereferenceable(128) %desc, i32 noundef %style) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly12_GLOBAL__N_124doParseNestedCommandLineEON5boost15program_options25basic_command_line_parserIcEERKNS2_19options_descriptionENS2_18command_line_style7style_tE(ptr dead_on_unwind noalias writable align 8 initializes((0, 36), (72, 73), (80, 104)) %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %parser, ptr noundef nonnull align 8 dereferenceable(128) %desc, i32 noundef %style) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.boost::program_options::basic_parsed_options", align 16

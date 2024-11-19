@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [26 x i8] c"Library is not available.\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Amap_ManSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @Amap_ManSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 36)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 0, ptr %2, align 4
   store i32 1, ptr %0, align 4

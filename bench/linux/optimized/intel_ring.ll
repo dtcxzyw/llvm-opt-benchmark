@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local i32 @intel_ring_update_space(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_ring_update_space(ptr nocapture noundef initializes((40, 44)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 36
@@ -144,7 +144,7 @@ declare dso_local ptr @i915_gem_object_pin_map(ptr noundef, i32 noundef) local_u
 declare dso_local ptr @i915_vma_make_unshrinkable(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @intel_ring_reset(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_ring_reset(ptr nocapture noundef initializes((28, 44)) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, -1
@@ -484,7 +484,7 @@ define dso_local ptr @intel_ring_begin(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @wait_for_space(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @wait_for_space(ptr noundef initializes((40, 44)) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 36

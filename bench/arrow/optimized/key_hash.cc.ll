@@ -3143,7 +3143,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute9Hashing329HashBatchERKNS0_9ExecBatchEPjRSt6vectorINS0_14KeyColumnArrayESaIS7_EElPNS_4util15TempVectorStackEll(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %key_batch, ptr noundef %hashes, ptr noundef nonnull align 8 dereferenceable(24) %column_arrays, i64 noundef %hardware_flags, ptr noundef %temp_stack, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute9Hashing329HashBatchERKNS0_9ExecBatchEPjRSt6vectorINS0_14KeyColumnArrayESaIS7_EElPNS_4util15TempVectorStackEll(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %key_batch, ptr noundef %hashes, ptr noundef nonnull align 8 dereferenceable(24) %column_arrays, i64 noundef %hardware_flags, ptr noundef %temp_stack, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ctx = alloca %"struct.arrow::compute::LightContext", align 8
@@ -6322,7 +6322,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute9Hashing649HashBatchERKNS0_9ExecBatchEPmRSt6vectorINS0_14KeyColumnArrayESaIS7_EElPNS_4util15TempVectorStackEll(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %key_batch, ptr noundef %hashes, ptr noundef nonnull align 8 dereferenceable(24) %column_arrays, i64 noundef %hardware_flags, ptr noundef %temp_stack, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute9Hashing649HashBatchERKNS0_9ExecBatchEPmRSt6vectorINS0_14KeyColumnArrayESaIS7_EElPNS_4util15TempVectorStackEll(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %key_batch, ptr noundef %hashes, ptr noundef nonnull align 8 dereferenceable(24) %column_arrays, i64 noundef %hardware_flags, ptr noundef %temp_stack, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ctx = alloca %"struct.arrow::compute::LightContext", align 8

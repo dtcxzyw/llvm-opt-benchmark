@@ -1072,7 +1072,7 @@ define void @lv_draw_sw_mask_line_angle_init(ptr noundef %0, i32 noundef %1, i32
 declare i32 @lv_trigo_sin(i16 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_draw_sw_mask_angle_init(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @lv_draw_sw_mask_angle_init(ptr noundef initializes((24, 32), (160, 162)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp slt i32 %3, 0
   %7 = tail call i32 @llvm.umin.i32(i32 %3, i32 359)
   %.056 = select i1 %6, i32 0, i32 %7
@@ -1441,7 +1441,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_angle(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_draw_sw_mask_radius_init(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define void @lv_draw_sw_mask_radius_init(ptr nocapture noundef initializes((0, 12), (16, 36)) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [4 x i32], align 16
   %7 = tail call i32 @lv_area_get_width(ptr noundef %1) #7
@@ -2367,7 +2367,7 @@ mask_mix.exit230:                                 ; preds = %185, %190, %192
 declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_draw_sw_mask_fade_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i32 noundef %3, i8 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #3 {
+define void @lv_draw_sw_mask_fade_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 42)) %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i32 noundef %3, i8 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %1, align 4, !tbaa !48
   store i32 %8, ptr %7, align 4, !tbaa !48
@@ -2572,7 +2572,7 @@ mask_mix.exit78:                                  ; preds = %.lr.ph89.split, %ma
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_draw_sw_mask_map_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @lv_draw_sw_mask_map_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 40)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %1, align 4, !tbaa !48
   store i32 %5, ptr %4, align 4, !tbaa !48

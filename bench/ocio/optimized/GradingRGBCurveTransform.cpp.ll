@@ -189,7 +189,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev28GradingRGBCurveTransformImplC2ENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %style) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev28GradingRGBCurveTransformImplC2ENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this, i32 noundef %style) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev28GradingRGBCurveTransformImplE, i64 16), ptr %this, align 8
   %m_data = getelementptr inbounds i8, ptr %this, i64 8
@@ -537,7 +537,7 @@ entry:
 declare void @_ZN19OpenColorIO_v2_4dev21GradingRGBCurveOpData8setStyleENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev28GradingRGBCurveTransformImpl8getValueEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.15") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev28GradingRGBCurveTransformImpl8getValueEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.15") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %m_value.i = getelementptr inbounds i8, ptr %this, i64 184
@@ -627,7 +627,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev28GradingRGBCurveTransformImpl17setBypassLinToLogEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(208) %this, i1 noundef zeroext %bypass) unnamed_addr #12 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev28GradingRGBCurveTransformImpl17setBypassLinToLogEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(208) initializes((200, 201)) %this, i1 noundef zeroext %bypass) unnamed_addr #12 align 2 {
 entry:
   %frombool.i = zext i1 %bypass to i8
   %m_bypassLinToLog.i = getelementptr inbounds i8, ptr %this, i64 200

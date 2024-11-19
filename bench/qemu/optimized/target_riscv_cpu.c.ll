@@ -470,7 +470,7 @@ return:                                           ; preds = %cond.true2, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @riscv_cpu_set_misa(ptr nocapture noundef writeonly %env, i32 noundef %mxl, i32 noundef %ext) local_unnamed_addr #1 {
+define dso_local void @riscv_cpu_set_misa(ptr nocapture noundef writeonly initializes((5008, 5024)) %env, i32 noundef %mxl, i32 noundef %ext) local_unnamed_addr #1 {
 entry:
   %misa_mxl = getelementptr inbounds i8, ptr %env, i64 5008
   store i32 %mxl, ptr %misa_mxl, align 16
@@ -1456,7 +1456,7 @@ declare i32 @riscv_cpu_gdb_read_register(ptr noundef, ptr noundef, i32 noundef) 
 declare i32 @riscv_cpu_gdb_write_register(ptr noundef, ptr noundef, i32 noundef) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_cpu_disas_set_info(ptr noundef %s, ptr nocapture noundef writeonly %info) #3 {
+define internal void @riscv_cpu_disas_set_info(ptr noundef %s, ptr nocapture noundef writeonly initializes((184, 192)) %info) #3 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
   %cfg = getelementptr inbounds i8, ptr %call.i, i64 15312

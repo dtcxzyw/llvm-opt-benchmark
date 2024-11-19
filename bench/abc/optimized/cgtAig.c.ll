@@ -138,7 +138,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cgt_ManDetectCandidates(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define void @Cgt_ManDetectCandidates(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef initializes((4, 8)) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 0, ptr %6, align 4
   %7 = getelementptr i8, ptr %2, i64 24
@@ -315,7 +315,7 @@ Aig_ManObj.exit:                                  ; preds = %62, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cgt_ManDetectFanout(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define void @Cgt_ManDetectFanout(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #13
@@ -541,7 +541,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cgt_ManCollectVisited(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Cgt_ManCollectVisited(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #13

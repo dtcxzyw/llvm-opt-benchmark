@@ -1132,7 +1132,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare { i64, i64 } @_ZNSo5tellpEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp15ColladaExporterC2EPK7aiScenePNS_8IOSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_(ptr noundef nonnull align 8 dereferenceable(1248) %this, ptr noundef %pScene, ptr noundef %pIOSystem, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(32) %file) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp15ColladaExporterC2EPK7aiScenePNS_8IOSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_(ptr noundef nonnull align 8 dereferenceable(1248) initializes((0, 8)) %this, ptr noundef %pScene, ptr noundef %pIOSystem, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(32) %file) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.0", align 1
   %ref.tmp8 = alloca %"class.std::allocator.0", align 1
@@ -1588,7 +1588,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp15ColladaExporterD2Ev(ptr noundef nonnull align 8 dereferenceable(1248) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp15ColladaExporterD2Ev(ptr noundef nonnull align 8 dereferenceable(1248) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp15ColladaExporterE, i64 16), ptr %this, align 8
   %textures = getelementptr inbounds i8, ptr %this, i64 1200
@@ -1713,7 +1713,7 @@ _ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hash
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp15ColladaExporterD0Ev(ptr noundef nonnull align 8 dereferenceable(1248) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp15ColladaExporterD0Ev(ptr noundef nonnull align 8 dereferenceable(1248) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6Assimp15ColladaExporterD2Ev(ptr noundef nonnull align 8 dereferenceable(1248) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
@@ -2191,7 +2191,7 @@ unreachable:                                      ; preds = %invoke.cont63
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp15ColladaExporter11WriteHeaderEv(ptr noundef nonnull align 8 dereferenceable(1248) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp15ColladaExporter11WriteHeaderEv(ptr noundef nonnull align 8 dereferenceable(1248) initializes((1128, 1129)) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i644 = alloca %struct.aiString, align 4
   %ref.tmp.i585 = alloca %struct.aiString, align 4

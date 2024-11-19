@@ -1175,7 +1175,7 @@ declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tulip_reset(ptr nocapture noundef writeonly %s) unnamed_addr #0 {
+define internal fastcc void @tulip_reset(ptr nocapture noundef writeonly initializes((11392, 11404), (11412, 11432), (11436, 11456)) %s) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)

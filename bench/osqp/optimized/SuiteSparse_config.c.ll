@@ -52,7 +52,7 @@ define double @SuiteSparse_hypot(double noundef %0, double noundef %1) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @SuiteSparse_divcomplex(double noundef %0, double noundef %1, double noundef %2, double noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #4 {
+define range(i32 0, 2) i32 @SuiteSparse_divcomplex(double noundef %0, double noundef %1, double noundef %2, double noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #4 {
   %7 = tail call double @llvm.fabs.f64(double %2)
   %8 = tail call double @llvm.fabs.f64(double %3)
   %9 = fcmp ult double %7, %8
@@ -111,7 +111,7 @@ define ptr @SuiteSparse_malloc(i64 noundef %0, i64 noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @SuiteSparse_realloc(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #5 {
+define ptr @SuiteSparse_realloc(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #5 {
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %1, i64 1)
   %spec.store.select2 = tail call i64 @llvm.umax.i64(i64 %0, i64 1)
   %spec.store.select1 = tail call i64 @llvm.umax.i64(i64 %2, i64 1)
@@ -168,7 +168,7 @@ define noundef ptr @SuiteSparse_free(ptr noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SuiteSparse_tic(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
+define void @SuiteSparse_tic(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }

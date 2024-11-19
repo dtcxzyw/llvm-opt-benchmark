@@ -1152,7 +1152,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15model_implicant5resetEv(ptr noundef nonnull align 8 dereferenceable(184) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN15model_implicant5resetEv(ptr noundef nonnull align 8 dereferenceable(184) initializes((120, 124), (144, 148)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %m_data.i.i, align 8
@@ -1878,7 +1878,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15model_implicant17minimize_literalsERK10ptr_vectorI4exprER3refI5modelE(ptr noalias sret(%class.ref_vector) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %formulas, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %mdl) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN15model_implicant17minimize_literalsERK10ptr_vectorI4exprER3refI5modelE(ptr noalias sret(%class.ref_vector) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %formulas, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %mdl) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp = alloca %class.obj_ref, align 8
   %tocollect = alloca %class.ptr_vector, align 8
@@ -4458,7 +4458,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15model_implicant4evalER3refI5modelEP4expr(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %model, ptr noundef %e) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN15model_implicant4evalER3refI5modelEP4expr(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %model, ptr noundef %e) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator", align 1
@@ -12755,7 +12755,7 @@ terminate.lpad:                                   ; preds = %_ZN6vectorI8rationa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15model_implicant4evalER3refI5modelEP9func_decl(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %model, ptr noundef %d) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN15model_implicant4evalER3refI5modelEP9func_decl(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %model, ptr noundef %d) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %e = alloca %class.obj_ref, align 8
   %ref.tmp = alloca %class.obj_ref, align 8

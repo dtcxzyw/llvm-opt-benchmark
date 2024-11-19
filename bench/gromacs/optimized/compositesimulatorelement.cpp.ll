@@ -216,7 +216,7 @@ _ZN3gmx25CompositeSimulatorElementD2Ev.exit:      ; preds = %_ZNSt6vectorISt10un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx25CompositeSimulatorElementC2ESt6vectorINS_6compat8not_nullIPNS_17ISimulatorElementEEESaIS6_EES1_ISt10unique_ptrIS4_St14default_deleteIS4_EESaISC_EEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #2 align 2 {
+define void @_ZN3gmx25CompositeSimulatorElementC2ESt6vectorINS_6compat8not_nullIPNS_17ISimulatorElementEEESaIS6_EES1_ISt10unique_ptrIS4_St14default_deleteIS4_EESaISC_EEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 60)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx25CompositeSimulatorElementE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %1, align 8

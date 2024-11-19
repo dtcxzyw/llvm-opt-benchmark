@@ -19,7 +19,7 @@ define noundef i32 @fini() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @proctrack_p_create(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define noundef i32 @proctrack_p_create(ptr nocapture noundef initializes((688, 696)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 664
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64

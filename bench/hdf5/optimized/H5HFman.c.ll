@@ -349,7 +349,7 @@ declare i32 @H5HF__sect_single_free(ptr noundef) local_unnamed_addr #1
 declare i32 @H5AC_unprotect(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @H5HF__man_get_obj_len(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
+define noundef i32 @H5HF__man_get_obj_len(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 697
   %5 = load i8, ptr %4, align 1
   store i64 0, ptr %2, align 8
@@ -387,7 +387,7 @@ define noundef i32 @H5HF__man_get_obj_len(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @H5HF__man_get_obj_off(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
+define void @H5HF__man_get_obj_off(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #3 {
   store i64 0, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 697
   %5 = load i8, ptr %4, align 1

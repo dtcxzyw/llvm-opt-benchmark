@@ -135,7 +135,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c017c854926a376E"(ptr nocapture writeonly sret([88 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c017c854926a376E"(ptr nocapture writeonly sret([88 x i8]) align 8 initializes((8, 16)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [80 x i8], align 8
   call void @"_ZN105_$LT$logos_codegen..parser..nested..AttributeParser$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5d3ebd9a8d150ebE"(ptr nonnull sret([80 x i8]) align 8 %3, ptr align 8 %1)
   %4 = load i64, ptr %3, align 8
@@ -162,7 +162,7 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h706138a890ce27ccE"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h706138a890ce27ccE"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((16, 24)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   call void @"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90eb41074c80e993E"(ptr nonnull sret([32 x i8]) align 8 %3, ptr align 8 %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 8

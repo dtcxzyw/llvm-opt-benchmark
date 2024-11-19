@@ -6731,7 +6731,7 @@ eh.resume:                                        ; preds = %ehcleanup302, %ehcl
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124DemangleStackConsumptionEPKcPi(ptr noundef %mangled, ptr nocapture noundef nonnull %stack_consumed) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124DemangleStackConsumptionEPKcPi(ptr noundef %mangled, ptr nocapture noundef nonnull initializes((0, 4)) %stack_consumed) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr.i = alloca i32, align 4
   %ref.tmp1 = alloca %"class.absl::log_internal::LogMessage", align 8

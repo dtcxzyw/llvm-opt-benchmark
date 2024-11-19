@@ -232,7 +232,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %scheme, ptr noundef %output, ptr nocapture noundef %out_scheme) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %scheme, ptr noundef %output, ptr nocapture noundef initializes((0, 4)) %out_scheme) local_unnamed_addr #0 {
 entry:
   %ch.i.i = alloca i32, align 4
   %i.i = alloca i32, align 4
@@ -481,7 +481,7 @@ _ZN3url12_GLOBAL__N_18DoSchemeIchEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %scheme, ptr noundef %output, ptr nocapture noundef %out_scheme) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %scheme, ptr noundef %output, ptr nocapture noundef initializes((0, 4)) %out_scheme) local_unnamed_addr #0 {
 entry:
   %char_value.i.i = alloca i32, align 4
   %i.i = alloca i32, align 4
@@ -731,7 +731,7 @@ _ZN3url12_GLOBAL__N_18DoSchemeIttEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url20CanonicalizeUserInfoEPKcRKNS_9ComponentES1_S4_PNS_12CanonOutputTIcEEPS2_S8_(ptr noundef %username_source, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %username, ptr noundef %password_source, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %password, ptr noundef %output, ptr nocapture noundef %out_username, ptr nocapture noundef %out_password) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url20CanonicalizeUserInfoEPKcRKNS_9ComponentES1_S4_PNS_12CanonOutputTIcEEPS2_S8_(ptr noundef %username_source, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %username, ptr noundef %password_source, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %password, ptr noundef %output, ptr nocapture noundef initializes((0, 8)) %out_username, ptr nocapture noundef %out_password) local_unnamed_addr #0 {
 entry:
   %len.i = getelementptr inbounds i8, ptr %username, i64 4
   %0 = load i32, ptr %len.i, align 4
@@ -882,7 +882,7 @@ _ZN3url12_GLOBAL__N_110DoUserInfoIchEEbPKT_RKNS_9ComponentES4_S7_PNS_12CanonOutp
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url20CanonicalizeUserInfoEPKtRKNS_9ComponentES1_S4_PNS_12CanonOutputTIcEEPS2_S8_(ptr noundef %username_source, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %username, ptr noundef %password_source, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %password, ptr noundef %output, ptr nocapture noundef %out_username, ptr nocapture noundef %out_password) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url20CanonicalizeUserInfoEPKtRKNS_9ComponentES1_S4_PNS_12CanonOutputTIcEEPS2_S8_(ptr noundef %username_source, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %username, ptr noundef %password_source, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %password, ptr noundef %output, ptr nocapture noundef initializes((0, 8)) %out_username, ptr nocapture noundef %out_password) local_unnamed_addr #0 {
 entry:
   %len.i = getelementptr inbounds i8, ptr %username, i64 4
   %0 = load i32, ptr %len.i, align 4

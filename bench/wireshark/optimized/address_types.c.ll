@@ -148,7 +148,7 @@ define i32 @address_type_get_by_name(ptr nocapture noundef readonly %0) local_un
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @none_addr_to_str(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i32 %2) #3 {
+define hidden noundef i32 @none_addr_to_str(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, i32 %2) #3 {
   store i8 0, ptr %1, align 1
   ret i32 1
 }

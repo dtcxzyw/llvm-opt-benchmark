@@ -2930,7 +2930,7 @@ define noundef i32 @_ZN7xgboost4tree48__dmlc_registry_file_tag_updater_quantile_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7xgboost4tree9HistBatchEPKNS0_10TrainParamE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.xgboost::BatchParam") align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define void @_ZN7xgboost4tree9HistBatchEPKNS0_10TrainParamE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.xgboost::BatchParam") align 8 initializes((0, 4), (8, 26), (32, 40)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 136

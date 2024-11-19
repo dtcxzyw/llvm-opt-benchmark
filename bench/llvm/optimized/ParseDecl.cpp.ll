@@ -2639,7 +2639,7 @@ declare { i64, i8 } @_ZNK5clang13SourceManager17getExpansionRangeENS_14SourceLoc
 declare { ptr, i64 } @_ZN5clang5Lexer13getSourceTextENS_15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsEPb(i64, i8, ptr noundef nonnull align 8 dereferenceable(696), ptr noundef nonnull align 8 dereferenceable(841), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang6Parser18ParseIdentifierLocEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang6Parser18ParseIdentifierLocEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 256
@@ -12016,7 +12016,7 @@ _ZN5clang16ParsedAttributes6addNewEPNS_14IdentifierInfoENS_11SourceRangeES2_NS_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser36ParseWebAssemblyFuncrefTypeAttributeERNS_16ParsedAttributesE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(144) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser36ParseWebAssemblyFuncrefTypeAttributeERNS_16ParsedAttributesE(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0, ptr noundef nonnull align 8 dereferenceable(144) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
@@ -12410,7 +12410,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang6Parser15isHLSLQualifierERKNS_5To
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser19ParseHLSLQualifiersERNS_16ParsedAttributesE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(144) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser19ParseHLSLQualifiersERNS_16ParsedAttributesE(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0, ptr noundef nonnull align 8 dereferenceable(144) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i16, ptr %3, align 8
   %switch.tableidx = add i16 %4, -1
@@ -12579,7 +12579,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZN5clang19Streamin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i64, i64 } @_ZN5clang6Parser17ParseVersionTupleERNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define dso_local { i64, i64 } @_ZN5clang6Parser17ParseVersionTupleERNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [2 x i16], align 2
   %4 = alloca [2 x i16], align 2
   %5 = alloca [2 x i16], align 2
@@ -30494,7 +30494,7 @@ declare noundef zeroext i1 @_ZN5clang4Sema24ActOnAlignasTypeArgumentEN4llvm9Stri
 declare i64 @_ZN5clang6Parser23ParseConstantExpressionEv(ptr noundef nonnull align 8 dereferenceable(2936)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser23ParseAlignmentSpecifierERNS_16ParsedAttributesEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser23ParseAlignmentSpecifierERNS_16ParsedAttributesEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::Token", align 8
   %5 = alloca %"class.clang::BalancedDelimiterTracker", align 8
   %6 = alloca i8, align 1
@@ -30722,7 +30722,7 @@ declare noundef ptr @_ZN5clang14IntegerLiteral6CreateERKNS_10ASTContextERKN4llvm
 declare i64 @_ZNK5clang10ASTContext11getSizeTypeEv(ptr noundef nonnull align 8 dereferenceable(23096)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang6Parser23ParseExtIntegerArgumentEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang6Parser23ParseExtIntegerArgumentEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::BalancedDelimiterTracker", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
@@ -31620,7 +31620,7 @@ declare noundef zeroext i1 @_ZN5clang8DeclSpec11SetTypePipeEbNS_14SourceLocation
 declare noundef zeroext i1 @_ZN5clang6Parser27TryAnnotateTypeOrScopeTokenENS_23ImplicitTypenameContextE(ptr noundef nonnull align 8 dereferenceable(2936), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser20ParseTypeofSpecifierERNS_8DeclSpecE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(360) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser20ParseTypeofSpecifierERNS_8DeclSpecE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(360) initializes((228, 232)) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %4 = alloca %"class.clang::Token", align 8
   %5 = alloca i8, align 1
@@ -32060,7 +32060,7 @@ declare void @_ZN5clang6Parser31HandlePragmaMSPointersToMembersEv(ptr noundef no
 declare noundef zeroext i1 @_ZN5clang6Parser36MaybeParseTypeTransformTypeSpecifierERNS_8DeclSpecE(ptr noundef nonnull align 8 dereferenceable(2936), ptr noundef nonnull align 8 dereferenceable(360)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser20ParseAtomicSpecifierERNS_8DeclSpecE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(360) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser20ParseAtomicSpecifierERNS_8DeclSpecE(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i16, align 2
   %4 = alloca %"class.clang::BalancedDelimiterTracker", align 8
   %5 = alloca ptr, align 8

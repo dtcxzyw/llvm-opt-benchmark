@@ -26,7 +26,7 @@ define internal noundef i32 @sysv_open() #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal noundef i32 @sysv_query(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) #1 {
+define internal noundef i32 @sysv_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #1 {
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @mca_shmem_sysv_component, i64 272), align 8
   store i32 %3, ptr %1, align 4
   store ptr @opal_shmem_sysv_module, ptr %0, align 8
@@ -41,7 +41,7 @@ define internal noundef i32 @sysv_register() #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sysv_runtime_query(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) #2 {
+define internal noundef i32 @sysv_runtime_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr noundef readonly %2) #2 {
   %4 = alloca %struct.shmid_ds, align 8
   store i32 0, ptr %1, align 4
   store ptr null, ptr %0, align 8

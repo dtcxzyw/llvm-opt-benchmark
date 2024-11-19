@@ -144,7 +144,7 @@ define noundef zeroext i1 @_Z22wallcycle_have_counterv() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z14wallcycle_initP8_IO_FILEiPK9t_commrec(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_Z14wallcycle_initP8_IO_FILEiPK9t_commrec(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %5 = invoke noalias noundef nonnull dereferenceable(2304) ptr @_Znwm(i64 noundef 2304) #23
           to label %.noexc unwind label %6
@@ -387,7 +387,7 @@ define void @_ZN13gmx_wallcycle9checkStopE16WallCycleCounter(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z13wallcycle_getP13gmx_wallcycle16WallCycleCounterPiPd(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #10 {
+define void @_Z13wallcycle_getP13gmx_wallcycle16WallCycleCounterPiPd(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #10 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [52 x %struct.wallcc_t], ptr %0, i64 0, i64 %5
   %7 = load i32, ptr %6, align 8

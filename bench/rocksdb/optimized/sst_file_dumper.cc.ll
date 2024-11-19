@@ -4522,7 +4522,7 @@ _ZNSt10shared_ptrIN7rocksdb14ObjectRegistryEED2Ev.exit: ; preds = %entry, %_ZN9_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13SstFileDumper18SetOldTableOptionsEv(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(3264) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13SstFileDumper18SetOldTableOptionsEv(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(3264) initializes((1544, 1552)) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__a.i = alloca %"class.std::allocator.351", align 1
   %ref.tmp = alloca %"class.std::shared_ptr.219", align 8

@@ -191,7 +191,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN33btConvexConcaveCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN33btConvexConcaveCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(113) initializes((0, 8), (16, 24)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV33btConvexConcaveCollisionAlgorithm, i64 16), ptr %this, align 8
   %m_btConvexTriangleCallback = getelementptr inbounds i8, ptr %this, i64 16
@@ -229,7 +229,7 @@ _ZN24btConvexTriangleCallbackD2Ev.exit:           ; preds = %invoke.cont.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN33btConvexConcaveCollisionAlgorithmD0Ev(ptr noundef nonnull align 8 dereferenceable(113) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN33btConvexConcaveCollisionAlgorithmD0Ev(ptr noundef nonnull align 8 dereferenceable(113) initializes((0, 8), (16, 24)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV33btConvexConcaveCollisionAlgorithm, i64 16), ptr %this, align 8
   %m_btConvexTriangleCallback.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -376,7 +376,7 @@ if.end:                                           ; preds = %_ZN20btAlignedObjec
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24btConvexTriangleCallbackC2EP12btDispatcherPK24btCollisionObjectWrapperS4_b(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %dispatcher, ptr noundef %body0Wrap, ptr noundef %body1Wrap, i1 noundef zeroext %isSwapped) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24btConvexTriangleCallbackC2EP12btDispatcherPK24btCollisionObjectWrapperS4_b(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (40, 56), (64, 80)) %this, ptr noundef %dispatcher, ptr noundef %body0Wrap, ptr noundef %body1Wrap, i1 noundef zeroext %isSwapped) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV24btConvexTriangleCallback, i64 16), ptr %this, align 8
   %m_dispatcher = getelementptr inbounds i8, ptr %this, i64 64
@@ -437,7 +437,7 @@ entry:
 declare void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN24btConvexTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24btConvexTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV24btConvexTriangleCallback, i64 16), ptr %this, align 8
   %m_dispatcher.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -484,7 +484,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN24btConvexTriangleCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24btConvexTriangleCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV24btConvexTriangleCallback, i64 16), ptr %this, align 8
   %m_dispatcher.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -820,7 +820,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24btConvexTriangleCallback22setTimeStepAndCountersEfRK16btDispatcherInfoPK24btCollisionObjectWrapperS5_P16btManifoldResult(ptr noundef nonnull align 8 dereferenceable(96) %this, float noundef %collisionMarginTriangle, ptr noundef nonnull align 8 dereferenceable(49) %dispatchInfo, ptr noundef %convexBodyWrap, ptr noundef %triBodyWrap, ptr noundef %resultOut) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN24btConvexTriangleCallback22setTimeStepAndCountersEfRK16btDispatcherInfoPK24btCollisionObjectWrapperS5_P16btManifoldResult(ptr noundef nonnull align 8 dereferenceable(96) initializes((40, 64), (72, 84)) %this, float noundef %collisionMarginTriangle, ptr noundef nonnull align 8 dereferenceable(49) %dispatchInfo, ptr noundef %convexBodyWrap, ptr noundef %triBodyWrap, ptr noundef %resultOut) local_unnamed_addr #6 align 2 {
 entry:
   %convexInTriangleSpace = alloca %class.btTransform, align 4
   %m_convexBodyWrap = getelementptr inbounds i8, ptr %this, i64 40

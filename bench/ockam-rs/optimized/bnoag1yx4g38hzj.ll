@@ -15241,7 +15241,7 @@ _ZN4core4iter6traits8iterator8Iterator4find17hc5eea43f194f3c2aE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN19ockam_transport_tcp9transport8listener62_$LT$impl$u20$ockam_transport_tcp..transport..TcpTransport$GT$13stop_listener17hc786ea633fcb7be6E"(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, [456 x i8], i8, [7 x i8] }) align 8 dereferenceable(480) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #5 {
+define void @"_ZN19ockam_transport_tcp9transport8listener62_$LT$impl$u20$ockam_transport_tcp..transport..TcpTransport$GT$13stop_listener17hc786ea633fcb7be6E"(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, [456 x i8], i8, [7 x i8] }) align 8 dereferenceable(480) initializes((0, 16), (472, 473)) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -15305,7 +15305,7 @@ define internal fastcc void @"_ZN19ockam_transport_tcp9transport10connection62_$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_transport_tcp..transport..TcpTransport$GT$6create17hb9239b76db492412E"(ptr noalias nocapture noundef writeonly sret({ [5 x i64], ptr, [2 x i8], i8, [77 x i8] }) align 8 dereferenceable(128) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1) unnamed_addr #5 {
+define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_transport_tcp..transport..TcpTransport$GT$6create17hb9239b76db492412E"(ptr noalias nocapture noundef writeonly sret({ [5 x i64], ptr, [2 x i8], i8, [77 x i8] }) align 8 dereferenceable(128) initializes((40, 48), (50, 51)) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 50
@@ -17021,7 +17021,7 @@ common.ret:                                       ; preds = %377, %380
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN19ockam_transport_tcp9transport7portals62_$LT$impl$u20$ockam_transport_tcp..transport..TcpTransport$GT$17create_tcp_outlet17h846dd82c697506c2E"(ptr noalias nocapture noundef writeonly sret({ [16 x i64], { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { { ptr, i64 }, i64 } }, i16, [3 x i16] }, [5 x i64], ptr, { { { ptr, i64 }, i64 }, { ptr, ptr }, { ptr, ptr }, i8, [7 x i8] }, [5 x i8], i8, [2066 x i8] }) align 8 dereferenceable(2376) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %4) unnamed_addr #6 {
+define void @"_ZN19ockam_transport_tcp9transport7portals62_$LT$impl$u20$ockam_transport_tcp..transport..TcpTransport$GT$17create_tcp_outlet17h846dd82c697506c2E"(ptr noalias nocapture noundef writeonly sret({ [16 x i64], { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { { ptr, i64 }, i64 } }, i16, [3 x i16] }, [5 x i64], ptr, { { { ptr, i64 }, i64 }, { ptr, ptr }, { ptr, ptr }, i8, [7 x i8] }, [5 x i8], i8, [2066 x i8] }) align 8 dereferenceable(2376) initializes((128, 192), (232, 304), (309, 310)) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %4) unnamed_addr #6 {
   %6 = getelementptr inbounds i8, ptr %0, i64 232
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 128

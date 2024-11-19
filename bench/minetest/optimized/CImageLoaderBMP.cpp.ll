@@ -53,7 +53,7 @@ $_ZTIN3irr5video12IImageLoaderE = comdat any
 @_ZTIN3irr5video15CImageLoaderBMPE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3irr5video15CImageLoaderBMPE, ptr @_ZTIN3irr5video12IImageLoaderE }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5video15CImageLoaderBMPC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video15CImageLoaderBMPC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -76,7 +76,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5video15CImageLoaderBMPC1Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #1 align 2 {
+define void @_ZN3irr5video15CImageLoaderBMPC1Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 28)) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 16

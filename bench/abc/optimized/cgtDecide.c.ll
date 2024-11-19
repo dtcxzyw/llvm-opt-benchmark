@@ -166,7 +166,7 @@ Aig_ManObj.exit:                                  ; preds = %55, %59
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cgt_ManCollectFanoutPos(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define void @Cgt_ManCollectFanoutPos(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #16

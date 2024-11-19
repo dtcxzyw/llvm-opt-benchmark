@@ -2746,7 +2746,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit:         ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20GaussianLHPLossModelC1ERKNS_6HandleINS_5QuoteEEERKSt6vectorINS1_INS_17RecoveryRateQuoteEEESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef nonnull align 8 dereferenceable(16) %correlQuote, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %quotes) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20GaussianLHPLossModelC1ERKNS_6HandleINS_5QuoteEEERKSt6vectorINS1_INS_17RecoveryRateQuoteEEESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(296) initializes((296, 304), (312, 316), (320, 328)) %this, ptr noundef nonnull align 8 dereferenceable(16) %correlQuote, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %quotes) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca i32, align 4
   %ref.tmp48 = alloca %"class.boost::shared_ptr", align 8
@@ -4238,7 +4238,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20GaussianLHPLossModelC1EdRKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(296) %this, double noundef %correlation, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %recoveries) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20GaussianLHPLossModelC1EdRKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(296) initializes((296, 304), (312, 316), (320, 328)) %this, double noundef %correlation, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %recoveries) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %correlation.addr = alloca double, align 8
   %ref.tmp = alloca i32, align 4
@@ -5117,7 +5117,7 @@ ehcleanup80:                                      ; preds = %ehcleanup79, %lpad9
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20GaussianLHPLossModelC1ERKNS_6HandleINS_5QuoteEEERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef nonnull align 8 dereferenceable(16) %correlQuote, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %recoveries) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20GaussianLHPLossModelC1ERKNS_6HandleINS_5QuoteEEERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(296) initializes((296, 304), (312, 316), (320, 328)) %this, ptr noundef nonnull align 8 dereferenceable(16) %correlQuote, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %recoveries) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca i32, align 4
   %ref.tmp46 = alloca %"class.boost::shared_ptr", align 8

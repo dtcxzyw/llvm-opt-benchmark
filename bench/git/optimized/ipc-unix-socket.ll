@@ -104,7 +104,7 @@ declare noundef i32 @lstat64(ptr nocapture noundef readonly, ptr nocapture nound
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @ipc_client_try_connect(ptr noundef %path, ptr nocapture noundef readonly %options, ptr nocapture noundef writeonly %p_connection) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @ipc_client_try_connect(ptr noundef %path, ptr nocapture noundef readonly %options, ptr nocapture noundef writeonly initializes((0, 8)) %p_connection) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %p_connection, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str, i32 noundef 163, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef null) #12
@@ -210,7 +210,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #4
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @ipc_client_send_command_to_connection(ptr nocapture noundef readonly %connection, ptr noundef %message, i64 noundef %message_len, ptr noundef %answer) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @ipc_client_send_command_to_connection(ptr nocapture noundef readonly %connection, ptr noundef %message, i64 noundef %message_len, ptr noundef initializes((8, 16)) %answer) local_unnamed_addr #0 {
 entry:
   %len2.i = getelementptr inbounds i8, ptr %answer, i64 8
   store i64 0, ptr %len2.i, align 8
@@ -329,7 +329,7 @@ return:                                           ; preds = %if.end3.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ipc_server_run_async(ptr nocapture noundef writeonly %returned_server_data, ptr noundef %path, ptr nocapture noundef readonly %opts, ptr noundef %application_cb, ptr noundef %application_data) local_unnamed_addr #0 {
+define dso_local i32 @ipc_server_run_async(ptr nocapture noundef writeonly initializes((0, 8)) %returned_server_data, ptr noundef %path, ptr nocapture noundef readonly %opts, ptr noundef %application_cb, ptr noundef %application_data) local_unnamed_addr #0 {
 entry:
   %server_socket.i.i = alloca ptr, align 8
   %uslg_opts.i.i = alloca %struct.unix_stream_listen_opts, align 8

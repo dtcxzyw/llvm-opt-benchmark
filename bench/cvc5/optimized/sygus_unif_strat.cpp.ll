@@ -14031,7 +14031,7 @@ declare noundef nonnull align 8 dereferenceable(448) ptr @_ZNK4cvc58internal8Typ
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers8EnumInfo10initializeENS2_8EnumRoleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(45) %this, i32 noundef %role) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers8EnumInfo10initializeENS2_8EnumRoleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(45) initializes((40, 44)) %this, i32 noundef %role) local_unnamed_addr #7 align 2 {
 entry:
   %d_role = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %role, ptr %d_role, align 8

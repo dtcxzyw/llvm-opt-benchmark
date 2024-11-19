@@ -1609,7 +1609,7 @@ default.unreachable:                              ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_spangroup_set_max_lines(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_spangroup_set_max_lines(ptr noundef initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8, !tbaa !13
   tail call void @lv_spangroup_refr_mode(ptr noundef %0)
@@ -2398,7 +2398,7 @@ declare i32 @lv_obj_get_content_width(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @make_span_coords(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i64 %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @make_span_coords(ptr dead_on_unwind noalias writable align 4 initializes((0, 48)) %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i64 %4, i32 noundef %5) unnamed_addr #0 {
   %.sroa.024.0.extract.trunc = trunc i64 %4 to i32
   %.sroa.11.0.extract.shift = lshr i64 %4, 32
   %.sroa.11.0.extract.trunc = trunc nuw i64 %.sroa.11.0.extract.shift to i32

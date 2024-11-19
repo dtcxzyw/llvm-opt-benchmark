@@ -65537,7 +65537,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderEZ35test_submodule_factory_constructorsRNS_7module_EE11pointer_tagZ35test_submodule_factory_constructorsS5_E7TF4_tagiEEC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderEZ35test_submodule_factory_constructorsRNS_7module_EE11pointer_tagZ35test_submodule_factory_constructorsS5_E7TF4_tagiEEC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 4), (8, 64)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"struct.std::type_index", align 8
   store i32 0, ptr %0, align 8
@@ -76099,7 +76099,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderEZ35test_submodule_factory_constructorsRNS_7module_EE9alias_tagZ35test_submodule_factory_constructorsS5_E11pointer_tagiEEC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderEZ35test_submodule_factory_constructorsRNS_7module_EE9alias_tagZ35test_submodule_factory_constructorsS5_E11pointer_tagiEEC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 4), (8, 64)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"struct.std::type_index", align 8
   store i32 0, ptr %0, align 8
@@ -76295,7 +76295,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderEZ35test_submodule_factory_constructorsRNS_7module_EE8base_tagZ35test_submodule_factory_constructorsS5_E11pointer_tagiEEC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderEZ35test_submodule_factory_constructorsRNS_7module_EE8base_tagZ35test_submodule_factory_constructorsS5_E11pointer_tagiEEC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 4), (8, 64)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"struct.std::type_index", align 8
   store i32 0, ptr %0, align 8

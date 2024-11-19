@@ -8270,7 +8270,7 @@ cleanup:                                          ; preds = %_ZNKSt4lessINSt7__c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly20NestedCommandLineApp14setOptionStyleEN5boost15program_options18command_line_style7style_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(440) %this, i32 noundef %style) local_unnamed_addr #25 align 2 {
+define void @_ZN5folly20NestedCommandLineApp14setOptionStyleEN5boost15program_options18command_line_style7style_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(440) initializes((288, 292)) %this, i32 noundef %style) local_unnamed_addr #25 align 2 {
 entry:
   %optionStyle_ = getelementptr inbounds i8, ptr %this, i64 288
   store i32 %style, ptr %optionStyle_, align 8, !tbaa !33

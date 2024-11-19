@@ -39,7 +39,7 @@ $__clang_call_terminate = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btConvexPointCloudShape15setLocalScalingERK9btVector3(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %scaling) unnamed_addr #0 align 2 {
+define dso_local void @_ZN23btConvexPointCloudShape15setLocalScalingERK9btVector3(ptr noundef nonnull align 8 dereferenceable(132) initializes((32, 48)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %scaling) unnamed_addr #0 align 2 {
 entry:
   %m_localScaling = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_localScaling, ptr noundef nonnull align 4 dereferenceable(16) %scaling, i64 16, i1 false)
@@ -325,7 +325,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK23btConvexPointCloudShape9getVertexEiR9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(132) %this, i32 noundef %i, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %vtx) unnamed_addr #8 align 2 {
+define dso_local void @_ZNK23btConvexPointCloudShape9getVertexEiR9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(132) %this, i32 noundef %i, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %vtx) unnamed_addr #8 align 2 {
 entry:
   %m_unscaledPoints = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %m_unscaledPoints, align 8

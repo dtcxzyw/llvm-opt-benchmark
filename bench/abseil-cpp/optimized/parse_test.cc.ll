@@ -2768,7 +2768,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 declare void @llvm.trap() #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_128ParseTest_TestEmptyArgv_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_128ParseTest_TestEmptyArgv_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -2789,7 +2789,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_128ParseTest_TestEmptyArgv_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_128ParseTest_TestEmptyArgv_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -3090,7 +3090,7 @@ declare void @_ZN4absl9FlagSaverC1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19ParseTestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_19ParseTestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -3298,7 +3298,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_130ParseTest_TestValidIntArg_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_130ParseTest_TestValidIntArg_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -3319,7 +3319,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_130ParseTest_TestValidIntArg_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_130ParseTest_TestValidIntArg_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -5281,7 +5281,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133ParseTest_TestValidDoubleArg_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_133ParseTest_TestValidDoubleArg_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -5302,7 +5302,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133ParseTest_TestValidDoubleArg_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_133ParseTest_TestValidDoubleArg_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -5389,7 +5389,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133ParseTest_TestValidStringArg_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_133ParseTest_TestValidStringArg_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -5410,7 +5410,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133ParseTest_TestValidStringArg_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_133ParseTest_TestValidStringArg_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -5500,7 +5500,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131ParseTest_TestValidBoolArg_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_131ParseTest_TestValidBoolArg_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -5521,7 +5521,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131ParseTest_TestValidBoolArg_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_131ParseTest_TestValidBoolArg_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -5608,7 +5608,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_130ParseTest_TestValidUDTArg_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_130ParseTest_TestValidUDTArg_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -5629,7 +5629,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_130ParseTest_TestValidUDTArg_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_130ParseTest_TestValidUDTArg_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -5975,7 +5975,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_135ParseTest_TestValidMultipleArg_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_135ParseTest_TestValidMultipleArg_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -5996,7 +5996,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_135ParseTest_TestValidMultipleArg_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_135ParseTest_TestValidMultipleArg_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -7692,7 +7692,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133ParseTest_TestPositionalArgs_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_133ParseTest_TestPositionalArgs_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -7713,7 +7713,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133ParseTest_TestPositionalArgs_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_133ParseTest_TestPositionalArgs_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -10829,7 +10829,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_136ParseDeathTest_TestUndefinedArg_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_136ParseDeathTest_TestUndefinedArg_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -10850,7 +10850,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_136ParseDeathTest_TestUndefinedArg_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_136ParseDeathTest_TestUndefinedArg_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -13020,7 +13020,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_145ParseDeathTest_TestInvalidBoolFlagFormat_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_145ParseDeathTest_TestInvalidBoolFlagFormat_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -13041,7 +13041,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_145ParseDeathTest_TestInvalidBoolFlagFormat_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_145ParseDeathTest_TestInvalidBoolFlagFormat_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -13721,7 +13721,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_148ParseDeathTest_TestInvalidNonBoolFlagFormat_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_148ParseDeathTest_TestInvalidNonBoolFlagFormat_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -13742,7 +13742,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_148ParseDeathTest_TestInvalidNonBoolFlagFormat_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_148ParseDeathTest_TestInvalidNonBoolFlagFormat_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -14422,7 +14422,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_144ParseDeathTest_TestInvalidUDTFlagFormat_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_144ParseDeathTest_TestInvalidUDTFlagFormat_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -14443,7 +14443,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_144ParseDeathTest_TestInvalidUDTFlagFormat_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_144ParseDeathTest_TestInvalidUDTFlagFormat_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -15123,7 +15123,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_139ParseDeathTest_TestFlagSuggestions_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_139ParseDeathTest_TestFlagSuggestions_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -15144,7 +15144,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_139ParseDeathTest_TestFlagSuggestions_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_139ParseDeathTest_TestFlagSuggestions_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -16126,7 +16126,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123ParseTest_GetHints_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123ParseTest_GetHints_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -16147,7 +16147,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123ParseTest_GetHints_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123ParseTest_GetHints_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -21043,7 +21043,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_130ParseTest_TestLegacyFlags_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_130ParseTest_TestLegacyFlags_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -21064,7 +21064,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_130ParseTest_TestLegacyFlags_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_130ParseTest_TestLegacyFlags_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -21976,7 +21976,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_138ParseTest_TestSimpleValidFlagfile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_138ParseTest_TestSimpleValidFlagfile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -21997,7 +21997,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_138ParseTest_TestSimpleValidFlagfile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_138ParseTest_TestSimpleValidFlagfile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -22541,7 +22541,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_137ParseTest_TestValidMultiFlagfile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_137ParseTest_TestValidMultiFlagfile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -22562,7 +22562,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_137ParseTest_TestValidMultiFlagfile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_137ParseTest_TestValidMultiFlagfile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -22700,7 +22700,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_148ParseTest_TestFlagfileMixedWithRegularFlags_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_148ParseTest_TestFlagfileMixedWithRegularFlags_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -22721,7 +22721,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_148ParseTest_TestFlagfileMixedWithRegularFlags_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_148ParseTest_TestFlagfileMixedWithRegularFlags_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -22855,7 +22855,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_137ParseTest_TestFlagfileInFlagfile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_137ParseTest_TestFlagfileInFlagfile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -22876,7 +22876,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_137ParseTest_TestFlagfileInFlagfile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_137ParseTest_TestFlagfileInFlagfile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -23050,7 +23050,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_140ParseDeathTest_TestInvalidFlagfiles_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_140ParseDeathTest_TestInvalidFlagfiles_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -23071,7 +23071,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_140ParseDeathTest_TestInvalidFlagfiles_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_140ParseDeathTest_TestInvalidFlagfiles_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -24893,7 +24893,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_146ParseTest_TestReadingRequiredFlagsFromEnv_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_146ParseTest_TestReadingRequiredFlagsFromEnv_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -24914,7 +24914,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_146ParseTest_TestReadingRequiredFlagsFromEnv_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_146ParseTest_TestReadingRequiredFlagsFromEnv_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -25041,7 +25041,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_156ParseDeathTest_TestReadingUnsetRequiredFlagsFromEnv_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_156ParseDeathTest_TestReadingUnsetRequiredFlagsFromEnv_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -25062,7 +25062,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_156ParseDeathTest_TestReadingUnsetRequiredFlagsFromEnv_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_156ParseDeathTest_TestReadingUnsetRequiredFlagsFromEnv_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -25440,7 +25440,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_145ParseDeathTest_TestRecursiveFlagsFromEnv_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_145ParseDeathTest_TestRecursiveFlagsFromEnv_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -25461,7 +25461,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_145ParseDeathTest_TestRecursiveFlagsFromEnv_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_145ParseDeathTest_TestRecursiveFlagsFromEnv_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -25871,7 +25871,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_146ParseTest_TestReadingOptionalFlagsFromEnv_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_146ParseTest_TestReadingOptionalFlagsFromEnv_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -25892,7 +25892,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_146ParseTest_TestReadingOptionalFlagsFromEnv_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_146ParseTest_TestReadingOptionalFlagsFromEnv_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -25998,7 +25998,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_159ParseTest_TestReadingFlagsFromEnvMoxedWithRegularFlags_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_159ParseTest_TestReadingFlagsFromEnvMoxedWithRegularFlags_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -26019,7 +26019,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_159ParseTest_TestReadingFlagsFromEnvMoxedWithRegularFlags_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_159ParseTest_TestReadingFlagsFromEnvMoxedWithRegularFlags_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -26125,7 +26125,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_146ParseDeathTest_TestSimpleHelpFlagHandling_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_146ParseDeathTest_TestSimpleHelpFlagHandling_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -26146,7 +26146,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_146ParseDeathTest_TestSimpleHelpFlagHandling_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_146ParseDeathTest_TestSimpleHelpFlagHandling_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -27264,7 +27264,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_144ParseTest_TestSubstringHelpFlagHandling_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_144ParseTest_TestSubstringHelpFlagHandling_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -27285,7 +27285,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_144ParseTest_TestSubstringHelpFlagHandling_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_144ParseTest_TestSubstringHelpFlagHandling_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -27744,7 +27744,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_139ParseDeathTest_TestVersionHandling_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_139ParseDeathTest_TestVersionHandling_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -27765,7 +27765,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_139ParseDeathTest_TestVersionHandling_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_139ParseDeathTest_TestVersionHandling_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -27956,7 +27956,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_136ParseTest_TestCheckArgsHandling_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_136ParseTest_TestCheckArgsHandling_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -27977,7 +27977,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_136ParseTest_TestCheckArgsHandling_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_136ParseTest_TestCheckArgsHandling_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -29559,7 +29559,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_138ParseTest_WasPresentOnCommandLine_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_138ParseTest_WasPresentOnCommandLine_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -29580,7 +29580,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_138ParseTest_WasPresentOnCommandLine_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_138ParseTest_WasPresentOnCommandLine_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -30267,7 +30267,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_142ParseTest_ParseAbseilFlagsOnlySuccess_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_142ParseTest_ParseAbseilFlagsOnlySuccess_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -30288,7 +30288,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_142ParseTest_ParseAbseilFlagsOnlySuccess_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_142ParseTest_ParseAbseilFlagsOnlySuccess_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -36572,7 +36572,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_147ParseDeathTest_ParseAbseilFlagsOnlyFailure_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_147ParseDeathTest_ParseAbseilFlagsOnlyFailure_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -36593,7 +36593,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_147ParseDeathTest_ParseAbseilFlagsOnlyFailure_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_147ParseDeathTest_ParseAbseilFlagsOnlyFailure_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -37026,7 +37026,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_137ParseTest_UndefOkFlagsAreIgnored_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_137ParseTest_UndefOkFlagsAreIgnored_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -37047,7 +37047,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_137ParseTest_UndefOkFlagsAreIgnored_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_137ParseTest_UndefOkFlagsAreIgnored_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -37673,7 +37673,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_140ParseTest_AllUndefOkFlagsAreIgnored_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_140ParseTest_AllUndefOkFlagsAreIgnored_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -37694,7 +37694,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_140ParseTest_AllUndefOkFlagsAreIgnored_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_140ParseTest_AllUndefOkFlagsAreIgnored_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -38497,7 +38497,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_152ParseDeathTest_ExitOnUnrecognizedFlagPrintsHelp_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_152ParseDeathTest_ExitOnUnrecognizedFlagPrintsHelp_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -38518,7 +38518,7 @@ _ZN12_GLOBAL__N_19ParseTestD2Ev.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_152ParseDeathTest_ExitOnUnrecognizedFlagPrintsHelp_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_152ParseDeathTest_ExitOnUnrecognizedFlagPrintsHelp_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ParseTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)

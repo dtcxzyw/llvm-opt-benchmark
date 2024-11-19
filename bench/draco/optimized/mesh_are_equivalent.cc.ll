@@ -119,7 +119,7 @@ declare noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.draco::VectorD") align 4 %0, ptr noundef nonnull align 8 dereferenceable(216) %1, i32 %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
+define void @_ZN5draco17MeshAreEquivalent11GetPositionERKNS_4MeshENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.draco::VectorD") align 4 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1, i32 %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
   %5 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %1, i32 noundef 0)
   %6 = getelementptr inbounds i8, ptr %1, i64 192
   %7 = zext i32 %2 to i64

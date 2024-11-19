@@ -830,7 +830,7 @@ SyncRepWakeQueue.exit46:                          ; preds = %154, %.lr.ph.split.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @SyncRepGetCandidateStandbys(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i32 @SyncRepGetCandidateStandbys(ptr nocapture noundef initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @max_wal_senders, align 4
   %3 = sext i32 %2 to i64
   %4 = mul nsw i64 %3, 48

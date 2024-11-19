@@ -83,7 +83,7 @@ $_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib8SobolRsgEEE = comdat any
 @_ZN8QuantLib18Burley2020SobolRsgC1EmmNS_8SobolRsg17DirectionIntegersEm = unnamed_addr alias void (ptr, i64, i64, i32, i64), ptr @_ZN8QuantLib18Burley2020SobolRsgC2EmmNS_8SobolRsg17DirectionIntegersEm
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18Burley2020SobolRsgC2EmmNS_8SobolRsg17DirectionIntegersEm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %dimensionality, i64 noundef %seed, i32 noundef %directionIntegers, i64 noundef %scrambleSeed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18Burley2020SobolRsgC2EmmNS_8SobolRsg17DirectionIntegersEm(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 20), (24, 40)) %this, i64 noundef %dimensionality, i64 noundef %seed, i32 noundef %directionIntegers, i64 noundef %scrambleSeed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mt = alloca %"class.QuantLib::MersenneTwisterUniformRng", align 8
   store i64 %dimensionality, ptr %this, align 8, !tbaa !3

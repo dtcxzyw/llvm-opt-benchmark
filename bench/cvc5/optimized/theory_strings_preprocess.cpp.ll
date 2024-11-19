@@ -238,7 +238,7 @@ entry:
 declare void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(576)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory7strings17StringsPreprocessD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory7strings17StringsPreprocessD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory7strings17StringsPreprocessE, i64 16), ptr %this, align 8
   %d_visited = getelementptr inbounds i8, ptr %this, i64 32
@@ -259,7 +259,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory7strings17StringsPreprocessD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory7strings17StringsPreprocessD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory7strings17StringsPreprocessE, i64 16), ptr %this, align 8
   %d_visited.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -284,7 +284,7 @@ _ZN4cvc58internal6theory7strings17StringsPreprocessD2Ev.exit: ; preds = %entry
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory7strings17StringsPreprocess6reduceENS0_12NodeTemplateILb1EEERSt6vectorIS5_SaIS5_EEPNS2_11SkolemCacheEm(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef %t, ptr noundef nonnull align 8 dereferenceable(24) %asserts, ptr noundef %sc, i64 noundef %alphaCard) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory7strings17StringsPreprocess6reduceENS0_12NodeTemplateILb1EEERSt6vectorIS5_SaIS5_EEPNS2_11SkolemCacheEm(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr noundef %t, ptr noundef nonnull align 8 dereferenceable(24) %asserts, ptr noundef %sc, i64 noundef %alphaCard) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %agg.tmp.i.i.i = alloca %"class.cvc5::internal::NodeTemplate.357", align 8
   %nb.i5799 = alloca %"class.cvc5::internal::NodeBuilder", align 8

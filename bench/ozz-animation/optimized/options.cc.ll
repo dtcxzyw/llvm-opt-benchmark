@@ -1674,7 +1674,7 @@ define weak_odr dso_local void @_ZN3ozz7options8internal9RegistrerINS0_11TypedOp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3ozz7options6OptionC2EPKcS3_bPFbRKS1_iE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #9 align 2 {
+define dso_local void @_ZN3ozz7options6OptionC2EPKcS3_bPFbRKS1_iE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 26), (32, 40)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #9 align 2 {
   %6 = zext i1 %3 to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ozz7options6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2499,7 +2499,7 @@ _ZN3ozz7options8internal12_GLOBAL__N_115GlobalRegistrer9ConstructEv.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3ozz7options6Parser9set_usageEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN3ozz7options6Parser9set_usageEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) initializes((296, 304)) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
   %.not = icmp eq ptr %1, null
   %3 = select i1 %.not, ptr @.str.27, ptr %1
   %4 = getelementptr inbounds i8, ptr %0, i64 296
@@ -2508,7 +2508,7 @@ define dso_local void @_ZN3ozz7options6Parser9set_usageEPKc(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3ozz7options6Parser11set_versionEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN3ozz7options6Parser11set_versionEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) initializes((288, 296)) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
   %.not = icmp eq ptr %1, null
   %3 = select i1 %.not, ptr @.str.28, ptr %1
   %4 = getelementptr inbounds i8, ptr %0, i64 288
@@ -3054,7 +3054,7 @@ define dso_local noundef zeroext i1 @_ZN3ozz7options6Option5ParseEPKc(ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3ozz7options6Option14RestoreDefaultEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN3ozz7options6Option14RestoreDefaultEv(ptr noundef nonnull align 8 dereferenceable(40) initializes((25, 26)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 25
   store i8 0, ptr %2, align 1
   %3 = load ptr, ptr %0, align 8
@@ -3065,7 +3065,7 @@ define dso_local void @_ZN3ozz7options6Option14RestoreDefaultEv(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3ozz7options6ParserC2Ev(ptr noundef nonnull align 8 dereferenceable(400) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3ozz7options6ParserC2Ev(ptr noundef nonnull align 8 dereferenceable(400) initializes((256, 304)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 260

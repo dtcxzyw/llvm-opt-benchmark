@@ -109,7 +109,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
 declare void @g_ptr_array_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @crs_range_set_init(ptr nocapture noundef writeonly %range_set) local_unnamed_addr #0 {
+define dso_local void @crs_range_set_init(ptr nocapture noundef writeonly initializes((0, 24)) %range_set) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_ptr_array_new_with_free_func(ptr noundef nonnull @crs_range_free) #14
   store ptr %call, ptr %range_set, align 8
@@ -4136,7 +4136,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @acpi_table_begin(ptr nocapture noundef %desc, ptr noundef %array) local_unnamed_addr #0 {
+define dso_local void @acpi_table_begin(ptr nocapture noundef initializes((32, 44)) %desc, ptr noundef %array) local_unnamed_addr #0 {
 entry:
   %val.addr.i.i64 = alloca i8, align 1
   %val.addr.i.i54 = alloca i8, align 1
@@ -4348,7 +4348,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @acpi_build_tables_init(ptr nocapture noundef writeonly %tables) local_unnamed_addr #0 {
+define dso_local void @acpi_build_tables_init(ptr nocapture noundef writeonly initializes((0, 48)) %tables) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   %rsdp = getelementptr inbounds i8, ptr %tables, i64 8

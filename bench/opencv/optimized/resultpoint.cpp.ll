@@ -21,7 +21,7 @@ $_ZTIN5zxing7CountedE = comdat any
 @_ZN5zxing11ResultPointD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5zxing11ResultPointD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5zxing11ResultPointC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN5zxing11ResultPointC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing11ResultPointE, i64 16), ptr %0, align 8
@@ -33,7 +33,7 @@ define hidden void @_ZN5zxing11ResultPointC2Ev(ptr nocapture noundef nonnull wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5zxing11ResultPointC2Eff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, float noundef %1, float noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN5zxing11ResultPointC2Eff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %0, float noundef %1, float noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing11ResultPointE, i64 16), ptr %0, align 8
@@ -45,7 +45,7 @@ define hidden void @_ZN5zxing11ResultPointC2Eff(ptr nocapture noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5zxing11ResultPointC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN5zxing11ResultPointC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing11ResultPointE, i64 16), ptr %0, align 8
@@ -87,14 +87,14 @@ define hidden noundef float @_ZNK5zxing11ResultPoint4getYEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5zxing11ResultPoint4SetXEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, float noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN5zxing11ResultPoint4SetXEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((12, 16)) %0, float noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store float %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5zxing11ResultPoint4SetYEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, float noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN5zxing11ResultPoint4SetYEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((16, 20)) %0, float noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store float %1, ptr %3, align 8
   ret void

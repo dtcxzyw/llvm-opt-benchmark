@@ -155,7 +155,7 @@ define dso_local void @ExecEndSampleScan(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanSampleScan(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanSampleScan(ptr noundef initializes((258, 259), (264, 274)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 258
   store i8 0, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 273

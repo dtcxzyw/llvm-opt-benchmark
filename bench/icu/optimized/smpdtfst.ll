@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6icu_7526SimpleDateFormatStaticSetsD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7526SimpleDateFormatStaticSetsD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7526SimpleDateFormatStaticSetsC2ER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7526SimpleDateFormatStaticSetsC2ER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8

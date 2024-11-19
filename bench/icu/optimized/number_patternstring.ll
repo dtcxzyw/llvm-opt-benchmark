@@ -1359,7 +1359,7 @@ return:                                           ; preds = %entry, %_ZN6icu_756
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl17ParsedPatternInfo12consumeAffixERNS1_9EndpointsER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(433) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %endpoints, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_756number4impl17ParsedPatternInfo12consumeAffixERNS1_9EndpointsER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(433) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 4)) %endpoints, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %state = getelementptr inbounds i8, ptr %this, i64 408
   %offset = getelementptr inbounds i8, ptr %this, i64 416
@@ -2561,7 +2561,7 @@ ehcleanup9:                                       ; preds = %lpad4, %lpad2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl13PatternParser23patternInfoToPropertiesERNS1_23DecimalFormatPropertiesERNS1_17ParsedPatternInfoENS1_14IgnoreRoundingER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(757) %properties, ptr noundef nonnull align 8 dereferenceable(433) %patternInfo, i32 noundef %_ignoreRounding, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl13PatternParser23patternInfoToPropertiesERNS1_23DecimalFormatPropertiesERNS1_17ParsedPatternInfoENS1_14IgnoreRoundingER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(757) initializes((65, 68), (76, 81), (88, 108), (112, 120), (736, 744), (752, 756)) %properties, ptr noundef nonnull align 8 dereferenceable(433) %patternInfo, i32 noundef %_ignoreRounding, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %posPrefix = alloca %"class.icu_75::UnicodeString", align 8
   %posSuffix = alloca %"class.icu_75::UnicodeString", align 8
@@ -3055,7 +3055,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl18PatternStringUtils25propertiesToPatternStringERKNS1_23DecimalFormatPropertiesER10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(757) %properties, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl18PatternStringUtils25propertiesToPatternStringERKNS1_23DecimalFormatPropertiesER10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr noundef nonnull align 8 dereferenceable(757) %properties, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i243 = alloca i16, align 2
   %srcChar.addr.i230 = alloca i16, align 2

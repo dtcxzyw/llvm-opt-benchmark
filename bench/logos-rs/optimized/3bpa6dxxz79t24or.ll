@@ -78,7 +78,7 @@ define void @_ZN4core4hash4Hash10hash_slice17h5d5899bc32d7155eE(ptr align 1 %0, 
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$18split_at_unchecked17hbb5d04e937a4d253E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 1 %1, i64 %2, i64 %3) unnamed_addr #3 {
+define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$18split_at_unchecked17hbb5d04e937a4d253E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr align 1 %1, i64 %2, i64 %3) unnamed_addr #3 {
   %5 = getelementptr inbounds { i8, i8 }, ptr %1, i64 %3
   %6 = sub i64 %2, %3
   store ptr %1, ptr %0, align 8

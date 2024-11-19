@@ -7012,7 +7012,7 @@ define hidden void @"_ZN85_$LT$actix_http..requests..head..RequestHead$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN88_$LT$regex_automata..util..search..Input$u20$as$u20$core..convert..From$LT$$RF$H$GT$$GT$4from17h508efdde7c90b001E"(ptr noalias nocapture noundef writeonly sret({ { i32, [1 x i32] }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }) align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #7 {
+define hidden void @"_ZN88_$LT$regex_automata..util..search..Input$u20$as$u20$core..convert..From$LT$$RF$H$GT$$GT$4from17h508efdde7c90b001E"(ptr noalias nocapture noundef writeonly sret({ { i32, [1 x i32] }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }) align 8 dereferenceable(48) initializes((0, 4), (8, 41)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7111,7 +7111,7 @@ define noundef i16 @_ZN9actix_web4test13test_services15default_service17h30052a7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN87_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$actix_web..response..responder..Responder$GT$10respond_to17h04ac8d5afaf72e65E"(ptr noalias nocapture noundef writeonly sret({ { { { i64, ptr, {} }, i64 }, ptr, { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } } }, { ptr, [1 x i64] } }) align 8 dereferenceable(88) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #1 {
+define void @"_ZN87_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$actix_web..response..responder..Responder$GT$10respond_to17h04ac8d5afaf72e65E"(ptr noalias nocapture noundef writeonly sret({ { { { i64, ptr, {} }, i64 }, ptr, { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } } }, { ptr, [1 x i64] } }) align 8 dereferenceable(88) initializes((0, 80)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #1 {
   %4 = alloca { { { i64, ptr, {} }, i64 }, ptr, { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } } }, align 8
   call void @"_ZN147_$LT$actix_http..responses..response..Response$LT$alloc..vec..Vec$LT$u8$GT$$GT$$u20$as$u20$core..convert..From$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$4from17h3454a757be204c0cE"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 }, ptr, { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } } }) align 8 dereferenceable(72) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
@@ -7121,7 +7121,7 @@ define void @"_ZN87_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$actix_web..response
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN91_$LT$alloc..borrow..Cow$LT$str$GT$$u20$as$u20$actix_web..response..responder..Responder$GT$10respond_to17h4c7a41c2e0f03c81E"(ptr noalias nocapture noundef writeonly sret({ { { { { i64, ptr, {} }, i64 } }, ptr, { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } } }, { ptr, [1 x i64] } }) align 8 dereferenceable(88) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #1 {
+define void @"_ZN91_$LT$alloc..borrow..Cow$LT$str$GT$$u20$as$u20$actix_web..response..responder..Responder$GT$10respond_to17h4c7a41c2e0f03c81E"(ptr noalias nocapture noundef writeonly sret({ { { { { i64, ptr, {} }, i64 } }, ptr, { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } } }, { ptr, [1 x i64] } }) align 8 dereferenceable(88) initializes((0, 80)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #1 {
   %4 = alloca { { { { i64, ptr, {} }, i64 } }, ptr, { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } } }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   call void @"_ZN98_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$4from17ha4fbfe9c665077ecE"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)

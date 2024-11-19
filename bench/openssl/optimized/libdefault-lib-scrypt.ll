@@ -203,7 +203,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @kdf_scrypt_reset(ptr nocapture noundef %vctx) #0 {
+define internal void @kdf_scrypt_reset(ptr nocapture noundef initializes((48, 80)) %vctx) #0 {
 entry:
   %salt = getelementptr inbounds i8, ptr %vctx, i64 32
   %0 = load ptr, ptr %salt, align 8

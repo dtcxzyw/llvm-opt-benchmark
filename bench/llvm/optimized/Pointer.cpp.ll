@@ -241,7 +241,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZN5clang6interp7PointerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang6interp7PointerD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6interp7PointerC2EPNS0_5BlockE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6interp7PointerC2EPNS0_5BlockE(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 36), (48, 52)) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
 _ZN5clang6interp7PointerC2EPNS0_5BlockEjm.exit:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %3 = load ptr, ptr %2, align 8
@@ -262,7 +262,7 @@ _ZN5clang6interp7PointerC2EPNS0_5BlockEjm.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6interp7PointerC2EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6interp7PointerC2EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 36), (48, 52)) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
   store i64 %3, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -284,7 +284,7 @@ define dso_local void @_ZN5clang6interp7PointerC2EPNS0_5BlockEjm(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6interp7PointerC2EPNS0_5BlockEm(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6interp7PointerC2EPNS0_5BlockEm(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 36), (48, 52)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = trunc i64 %2 to i32
   store i64 %2, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -307,7 +307,7 @@ _ZN5clang6interp7PointerC2EPNS0_5BlockEjm.exit:   ; preds = %3, %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6interp7PointerC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6interp7PointerC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 52)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %1) unnamed_addr #0 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -341,7 +341,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN5clang6interp5Block10addPointerEPNS0_7PointerE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6interp7PointerC2EOS1_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(52) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6interp7PointerC2EOS1_(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 52)) %0, ptr noundef nonnull align 8 dereferenceable(52) %1) unnamed_addr #0 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

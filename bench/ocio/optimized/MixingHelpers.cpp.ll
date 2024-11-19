@@ -154,7 +154,7 @@ $_ZTSPFvPN19OpenColorIO_v2_4dev23MixingColorSpaceManagerEE = comdat any
 @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplC1ERSt10shared_ptrIKNS_6ConfigEE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplC2ERSt10shared_ptrIKNS_6ConfigEE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev16MixingSliderImplC2ERNS_23MixingColorSpaceManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %mixing) unnamed_addr #0 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev16MixingSliderImplC2ERNS_23MixingColorSpaceManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %mixing) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev16MixingSliderImplE, i64 16), ptr %this, align 8
   %m_mixing = getelementptr inbounds i8, ptr %this, i64 8
@@ -260,7 +260,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev16MixingSliderImpl16setSliderMinEdgeEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, float noundef %sliderMixingMinEdge) unnamed_addr #0 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev16MixingSliderImpl16setSliderMinEdgeEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 20)) %this, float noundef %sliderMixingMinEdge) unnamed_addr #0 align 2 {
 entry:
   %m_sliderMinEdge = getelementptr inbounds i8, ptr %this, i64 16
   store float %sliderMixingMinEdge, ptr %m_sliderMinEdge, align 8
@@ -327,7 +327,7 @@ terminate.lpad:                                   ; preds = %if.else4.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev16MixingSliderImpl16setSliderMaxEdgeEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, float noundef %sliderMixingMaxEdge) unnamed_addr #0 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev16MixingSliderImpl16setSliderMaxEdgeEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((20, 24)) %this, float noundef %sliderMixingMaxEdge) unnamed_addr #0 align 2 {
 entry:
   %m_sliderMaxEdge = getelementptr inbounds i8, ptr %this, i64 20
   store float %sliderMixingMaxEdge, ptr %m_sliderMaxEdge, align 4
@@ -564,7 +564,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplC2ERSt10shared_ptrIKNS_6ConfigEE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %config) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImplC2ERSt10shared_ptrIKNS_6ConfigEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %config) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [2 x %"class.std::__cxx11::basic_string"], align 8
   %ref.tmp2 = alloca %"class.std::allocator.6", align 1
@@ -712,7 +712,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl7refreshEv(ptr noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl7refreshEv(ptr noundef nonnull align 8 dereferenceable(128) initializes((96, 104)) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.3", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1302,7 +1302,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev6ConfigELN9__gnu_cxx12_Lock_policyE2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl7refreshESt10shared_ptrIKNS_6ConfigEE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef readonly %config) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl7refreshESt10shared_ptrIKNS_6ConfigEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((8, 16), (96, 104)) %this, ptr nocapture noundef readonly %config) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_config = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %config, align 8
@@ -3625,7 +3625,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl9getSliderEff(ptr noundef nonnull writeonly align 8 dereferenceable(128) %this, float noundef %sliderMixingMinEdge, float noundef %sliderMixingMaxEdge) unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl9getSliderEff(ptr noundef nonnull writeonly align 8 dereferenceable(128) initializes((40, 48)) %this, float noundef %sliderMixingMinEdge, float noundef %sliderMixingMaxEdge) unnamed_addr #0 align 2 {
 entry:
   %m_slider = getelementptr inbounds i8, ptr %this, i64 24
   %m_sliderMinEdge.i = getelementptr inbounds i8, ptr %this, i64 40

@@ -2931,7 +2931,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_gem_init_early(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_gem_init_early(ptr noundef initializes((8408, 8412), (8448, 8456)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8408
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8448

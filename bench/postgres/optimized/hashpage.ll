@@ -328,7 +328,7 @@ define dso_local void @_hash_dropbuf(ptr nocapture noundef readnone %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_hash_dropscanbuf(ptr nocapture noundef readnone %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @_hash_dropscanbuf(ptr nocapture noundef readnone %0, ptr nocapture noundef initializes((12, 14)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %.not20 = icmp eq i32 %4, 0

@@ -92,7 +92,7 @@ arraydestroy.done1:                               ; preds = %arraydestroy.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4YAML7Scanner9SimpleKeyC2ERKNS_4MarkEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %mark_, i64 noundef %flowLevel_) unnamed_addr #4 align 2 {
+define void @_ZN4YAML7Scanner9SimpleKeyC2ERKNS_4MarkEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 12), (16, 48)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %mark_, i64 noundef %flowLevel_) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark_, i64 12, i1 false)
   %flowLevel = getelementptr inbounds i8, ptr %this, i64 16

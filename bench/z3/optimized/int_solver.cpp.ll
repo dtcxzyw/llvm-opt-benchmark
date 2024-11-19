@@ -269,7 +269,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN2lp10int_solver7patcherC2ERS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(504) %lia) unnamed_addr #3 align 2 {
+define hidden void @_ZN2lp10int_solver7patcherC2ERS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(504) %lia) unnamed_addr #3 align 2 {
 entry:
   store ptr %lia, ptr %this, align 8
   %lra = getelementptr inbounds i8, ptr %this, i64 8
@@ -3615,7 +3615,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad
 declare void @_ZN2lp10lar_solver27set_value_for_nbasic_columnEjRKNS_12numeric_pairI8rationalEE(ptr noundef nonnull align 8 dereferenceable(1888), i32 noundef, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp10int_solverC2ERNS_10lar_solverE(ptr noundef nonnull align 8 dereferenceable(504) %this, ptr noundef nonnull align 8 dereferenceable(1888) %lar_slv) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp10int_solverC2ERNS_10lar_solverE(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(1888) %lar_slv) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %lar_slv, ptr %this, align 8
   %lrac = getelementptr inbounds i8, ptr %this, i64 8

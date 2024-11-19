@@ -50,7 +50,7 @@ define internal noundef i32 @quit_cb(ptr nocapture readnone %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @left_cb(ptr nocapture noundef %0) #1 {
+define internal noundef i32 @left_cb(ptr nocapture noundef initializes((656, 658)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 656
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 472
@@ -66,7 +66,7 @@ define internal noundef i32 @left_cb(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @right_cb(ptr nocapture noundef %0) #1 {
+define internal noundef i32 @right_cb(ptr nocapture noundef initializes((656, 658)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 656
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 472
@@ -82,7 +82,7 @@ define internal noundef i32 @right_cb(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @up_cb(ptr nocapture noundef %0) #1 {
+define internal noundef i32 @up_cb(ptr nocapture noundef initializes((656, 658)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 656
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 472
@@ -98,7 +98,7 @@ define internal noundef i32 @up_cb(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @down_cb(ptr nocapture noundef %0) #1 {
+define internal noundef i32 @down_cb(ptr nocapture noundef initializes((656, 658)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 656
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 472
@@ -114,7 +114,7 @@ define internal noundef i32 @down_cb(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @zoom_in_cb(ptr nocapture noundef %0) #1 {
+define internal noundef i32 @zoom_in_cb(ptr nocapture noundef initializes((656, 658)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 656
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 472
@@ -127,7 +127,7 @@ define internal noundef i32 @zoom_in_cb(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @zoom_out_cb(ptr nocapture noundef %0) #1 {
+define internal noundef i32 @zoom_out_cb(ptr nocapture noundef initializes((656, 658)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 656
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 472
@@ -666,7 +666,7 @@ gvevent_select_current_obj.exit:                  ; preds = %40, %45, %47, %76, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @gvevent_button_release(ptr nocapture noundef writeonly %0, i32 %1, double %2, double %3) #3 {
+define internal void @gvevent_button_release(ptr nocapture noundef writeonly initializes((658, 659), (661, 662)) %0, i32 %1, double %2, double %3) #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 658
   store i8 0, ptr %5, align 2
   %6 = getelementptr inbounds i8, ptr %0, i64 661

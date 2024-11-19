@@ -39,7 +39,7 @@ declare void @_ZN5cmsys18SystemToolsManagerD1Ev(ptr noundef nonnull align 1 dere
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN32cmCTestResourceGroupsLexerHelperC2ERSt6vectorIS0_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN32cmCTestResourceGroupsLexerHelperC2ERSt6vectorIS0_IN18cmCTestTestHandler30cmCTestTestResourceRequirementESaIS2_EESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %3, align 8
@@ -84,7 +84,7 @@ declare void @_Z38cmCTestResourceGroups_yy_delete_bufferP15yy_buffer_statePv(ptr
 declare noundef i32 @_Z35cmCTestResourceGroups_yylex_destroyPv(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN32cmCTestResourceGroupsLexerHelper15SetProcessCountEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN32cmCTestResourceGroupsLexerHelper15SetProcessCountEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
@@ -100,7 +100,7 @@ define dso_local void @_ZN32cmCTestResourceGroupsLexerHelper15SetResourceTypeERK
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN32cmCTestResourceGroupsLexerHelper14SetNeededSlotsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN32cmCTestResourceGroupsLexerHelper14SetNeededSlotsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %3, align 8
   ret void

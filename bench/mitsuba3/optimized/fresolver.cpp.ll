@@ -117,7 +117,7 @@ $_ZNSt3__116__pad_and_outputB8ne190000IcNS_11char_traitsIcEEEENS_19ostreambuf_it
 @_ZN7mitsuba12FileResolverC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN7mitsuba12FileResolverC2ERKS0_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7mitsuba12FileResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba12FileResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.mitsuba::filesystem::path", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
@@ -311,7 +311,7 @@ _ZNSt3__16vectorIN7mitsuba10filesystem4pathENS_9allocatorIS3_EEE16__destroy_vect
 declare void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7mitsuba12FileResolverC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba12FileResolverC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba12FileResolverE, i64 16), ptr %0, align 8

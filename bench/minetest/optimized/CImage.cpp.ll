@@ -52,7 +52,7 @@ $_ZTIN3irr5video6IImageE = comdat any
 @switch.table._ZN3irr5video6CImage4fillERKNS0_6SColorE = private unnamed_addr constant [17 x i32] [i32 2, i32 2, i32 3, i32 4, i32 2, i32 4, i32 8, i32 4, i32 8, i32 16, i32 1, i32 2, i32 2, i32 4, i32 2, i32 4, i32 4], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video6CImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEPvbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(50) %this, ptr nocapture noundef readonly %vtt, i32 noundef %format, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %size, ptr noundef %data, i1 noundef zeroext %ownForeignMemory, i1 noundef zeroext %deleteMemory) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video6CImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEPvbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(50) initializes((0, 20), (24, 50)) %this, ptr nocapture noundef readonly %vtt, i32 noundef %format, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %size, ptr noundef %data, i1 noundef zeroext %ownForeignMemory, i1 noundef zeroext %deleteMemory) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %frombool.i = zext i1 %deleteMemory to i8
@@ -148,7 +148,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEPvbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(50) %this, i32 noundef %format, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %size, ptr noundef %data, i1 noundef zeroext %ownForeignMemory, i1 noundef zeroext %deleteMemory) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEPvbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(50) initializes((0, 20), (24, 50), (56, 76)) %this, i32 noundef %format, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %size, ptr noundef %data, i1 noundef zeroext %ownForeignMemory, i1 noundef zeroext %deleteMemory) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 56
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -220,7 +220,7 @@ if.end:                                           ; preds = %_ZN3irr5video6IImag
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video6CImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(50) %this, ptr nocapture noundef readonly %vtt, i32 noundef %format, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %size) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video6CImageC2ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(50) initializes((0, 20), (24, 50)) %this, ptr nocapture noundef readonly %vtt, i32 noundef %format, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %size) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -479,7 +479,7 @@ _ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(50) %this, i32 noundef %format, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %size) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(50) initializes((0, 20), (24, 50), (56, 76)) %this, i32 noundef %format, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %size) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 56
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 64

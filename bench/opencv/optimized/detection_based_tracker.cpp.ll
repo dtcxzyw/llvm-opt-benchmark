@@ -157,7 +157,7 @@ $_ZTISt15_Sp_counted_ptrIPN2cv21DetectionBasedTracker21SeparateDetectionWorkELN9
 @_ZN2cv21DetectionBasedTrackerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN2cv21DetectionBasedTrackerD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv21DetectionBasedTracker21SeparateDetectionWorkC2ERS0_NS_3PtrINS0_9IDetectorEEERKNS0_10ParametersE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv21DetectionBasedTracker21SeparateDetectionWorkC2ERS0_NS_3PtrINS0_9IDetectorEEERKNS0_10ParametersE(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 80)) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.14", align 1
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv21DetectionBasedTracker21SeparateDetectionWorkE, i64 16), ptr %0, align 8
@@ -464,7 +464,7 @@ _ZNSt10shared_ptrIN2cv21DetectionBasedTracker9IDetectorEED2Ev.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv21DetectionBasedTracker21SeparateDetectionWorkD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv21DetectionBasedTracker21SeparateDetectionWorkD2Ev(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv21DetectionBasedTracker21SeparateDetectionWorkE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 204
   %3 = load volatile i32, ptr %2, align 4
@@ -1774,7 +1774,7 @@ declare void @_ZN2cv3Mat6createENS_5Size_IiEEi(ptr noundef nonnull align 8 deref
 declare void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv21DetectionBasedTracker10ParametersC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %0) unnamed_addr #12 align 2 {
+define void @_ZN2cv21DetectionBasedTracker10ParametersC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #12 align 2 {
   store i32 5, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -1782,7 +1782,7 @@ define void @_ZN2cv21DetectionBasedTracker10ParametersC2Ev(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv21DetectionBasedTracker15InnerParametersC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) %0) unnamed_addr #12 align 2 {
+define void @_ZN2cv21DetectionBasedTracker15InnerParametersC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) initializes((0, 28)) %0) unnamed_addr #12 align 2 {
   store i32 4, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 6, ptr %2, align 4
@@ -1800,7 +1800,7 @@ define void @_ZN2cv21DetectionBasedTracker15InnerParametersC2Ev(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv21DetectionBasedTrackerC2ENS_3PtrINS0_9IDetectorEEES3_RKNS0_10ParametersE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 4 dereferenceable(8) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv21DetectionBasedTrackerC2ENS_3PtrINS0_9IDetectorEEES3_RKNS0_10ParametersE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 32)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 4 dereferenceable(8) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.14", align 1
   %7 = alloca %"struct.cv::Ptr", align 8
@@ -2556,7 +2556,7 @@ _ZNSt12_Vector_baseIN2cv21DetectionBasedTracker13TrackedObjectESaIS2_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv21DetectionBasedTrackerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv21DetectionBasedTrackerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv21DetectionBasedTrackerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8

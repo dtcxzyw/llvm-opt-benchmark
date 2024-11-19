@@ -132,7 +132,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.124 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @jStdError(ptr noundef returned writeonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @jStdError(ptr noundef returned writeonly initializes((0, 44), (124, 148), (152, 168)) %0) local_unnamed_addr #0 {
   store ptr @error_exit, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @emit_message, ptr %2, align 8

@@ -845,7 +845,7 @@ return:                                           ; preds = %if.end4, %if.then2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_auth_context_find_properties_by_name(ptr noalias nocapture writeonly sret(%struct.grpc_auth_property_iterator) align 8 %agg.result, ptr noundef %ctx, ptr noundef %name) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @grpc_auth_context_find_properties_by_name(ptr noalias nocapture writeonly sret(%struct.grpc_auth_property_iterator) align 8 initializes((0, 24)) %agg.result, ptr noundef %ctx, ptr noundef %name) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_api_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
@@ -995,7 +995,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_auth_context_property_iterator(ptr noalias nocapture writeonly sret(%struct.grpc_auth_property_iterator) align 8 %agg.result, ptr noundef %ctx) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @grpc_auth_context_property_iterator(ptr noalias nocapture writeonly sret(%struct.grpc_auth_property_iterator) align 8 initializes((0, 24)) %agg.result, ptr noundef %ctx) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_api_trace, i64 16) monotonic, align 8
@@ -1028,7 +1028,7 @@ declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_auth_context_peer_identity(ptr noalias nocapture writeonly sret(%struct.grpc_auth_property_iterator) align 8 %agg.result, ptr noundef %ctx) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @grpc_auth_context_peer_identity(ptr noalias nocapture writeonly sret(%struct.grpc_auth_property_iterator) align 8 initializes((0, 24)) %agg.result, ptr noundef %ctx) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_api_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
@@ -1333,7 +1333,7 @@ _ZN17grpc_auth_context20add_cstring_propertyEPKcS1_.exit: ; preds = %entry._ZN17
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z24grpc_auth_property_resetP18grpc_auth_property(ptr nocapture noundef %property) local_unnamed_addr #4 {
+define void @_Z24grpc_auth_property_resetP18grpc_auth_property(ptr nocapture noundef initializes((16, 24)) %property) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %property, align 8
   tail call void @gpr_free(ptr noundef %0)

@@ -1608,7 +1608,7 @@ Ssw_ObjChild1Fra.exit:                            ; preds = %Ssw_ObjChild0Fra.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ssw_ManSweepBmcConstr_old(ptr noundef %0) local_unnamed_addr #0 {
+define i32 @Ssw_ManSweepBmcConstr_old(ptr noundef initializes((24, 32)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -2320,7 +2320,7 @@ declare void @Ssw_CnfNodeAddToSolver(ptr noundef, ptr noundef) local_unnamed_add
 declare void @Bar_ProgressStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ssw_ManSweepBmcConstr(ptr noundef %0) local_unnamed_addr #0 {
+define i32 @Ssw_ManSweepBmcConstr(ptr noundef initializes((24, 32)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)

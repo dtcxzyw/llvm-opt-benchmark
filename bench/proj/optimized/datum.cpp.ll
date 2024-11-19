@@ -843,7 +843,7 @@ declare void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8
 declare void @_ZN5osgeo4proj6common11ObjectUsageD2Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj5datum5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj5datum5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (16, 32), (48, 56)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5datum5DatumE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5datum5DatumE, i64 64), ptr %2, align 8
@@ -6763,7 +6763,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum13PrimeMeridianEEEC2ERKS8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj5datum22GeodeticReferenceFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj5datum22GeodeticReferenceFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (16, 32), (48, 56)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5datum22GeodeticReferenceFrameE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5datum22GeodeticReferenceFrameE, i64 80), ptr %2, align 8
@@ -9182,7 +9182,7 @@ _ZNKSt14default_deleteIN5osgeo4proj5datum29DynamicGeodeticReferenceFrame7Private
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj5datum29DynamicGeodeticReferenceFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj5datum29DynamicGeodeticReferenceFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8), (16, 32), (48, 56)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -12478,7 +12478,7 @@ _ZNKSt14default_deleteIN5osgeo4proj5datum22VerticalReferenceFrame7PrivateEEclEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj5datum22VerticalReferenceFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj5datum22VerticalReferenceFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (16, 32), (48, 56)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5datum22VerticalReferenceFrameE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5datum22VerticalReferenceFrameE, i64 80), ptr %2, align 8
@@ -13653,7 +13653,7 @@ _ZNKSt14default_deleteIN5osgeo4proj5datum29DynamicVerticalReferenceFrame7Private
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj5datum29DynamicVerticalReferenceFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj5datum29DynamicVerticalReferenceFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8), (16, 32), (48, 56)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -14128,7 +14128,7 @@ _ZN5osgeo4proj5datum5DatumC2Ev.exit:              ; preds = %.noexc.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj5datum13TemporalDatumD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj5datum13TemporalDatumD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (16, 32), (48, 56)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -14797,7 +14797,7 @@ _ZN5osgeo4proj5datum5DatumC2Ev.exit:              ; preds = %.noexc.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj5datum16EngineeringDatumD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj5datum16EngineeringDatumD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (16, 32), (48, 56)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -15325,7 +15325,7 @@ _ZN5osgeo4proj5datum5DatumC2Ev.exit:              ; preds = %.noexc.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj5datum15ParametricDatumD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj5datum15ParametricDatumD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (16, 32), (48, 56)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null

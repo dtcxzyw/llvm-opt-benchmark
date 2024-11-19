@@ -2021,7 +2021,7 @@ _ZN6duckdb10unique_ptrINS_7CTENodeESt14default_deleteIS1_ELb1EE13AssertNotNullEb
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb10SelectNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb10SelectNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 9), (16, 40)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb9QueryNodeE, i64 16), ptr %this, align 8, !tbaa !12
   %type2.i = getelementptr inbounds i8, ptr %this, i64 8

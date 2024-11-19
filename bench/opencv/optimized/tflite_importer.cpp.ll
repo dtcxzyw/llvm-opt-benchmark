@@ -1349,7 +1349,7 @@ declare void @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class
 declare void @_ZN2cv3MatC1ERKSt6vectorIiSaIiEEiPvPKm(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3dnn14dnn4_v2024052114TFLiteImporterC2ERNS1_3NetEPKcm(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3dnn14dnn4_v2024052114TFLiteImporterC2ERNS1_3NetEPKcm(ptr noundef nonnull align 8 dereferenceable(192) initializes((24, 28), (32, 40)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::tuple", align 8
   %6 = alloca %"class.std::tuple.114", align 1
   %7 = alloca %"class.flatbuffers::Verifier", align 8

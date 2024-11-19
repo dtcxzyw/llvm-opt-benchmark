@@ -367,7 +367,7 @@ declare void @_ZN5folly14AsyncLogWriterC2Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZN5folly4FileC1EOS0_(ptr noundef nonnull align 4 dereferenceable(5), ptr noundef nonnull align 4 dereferenceable(5)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly15AsyncFileWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly15AsyncFileWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly15AsyncFileWriterE, i64 16), ptr %this, align 8, !tbaa !15
   invoke void @_ZN5folly14AsyncLogWriter7cleanupEv(ptr noundef nonnull align 8 dereferenceable(256) %this)

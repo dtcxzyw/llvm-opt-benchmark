@@ -154,7 +154,7 @@ declare void @qemu_thread_atexit_add(ptr noundef) local_unnamed_addr #1
 declare ptr @qemu_coroutine_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_aio_coroutine_enter(ptr noundef %ctx, ptr noundef %co) local_unnamed_addr #0 {
+define dso_local void @qemu_aio_coroutine_enter(ptr noundef %ctx, ptr noundef initializes((56, 64)) %co) local_unnamed_addr #0 {
 entry:
   %ptr.i7.i = alloca ptr, align 8
   %ptr.i.i = alloca ptr, align 8
@@ -417,7 +417,7 @@ declare i32 @qemu_coroutine_switch(ptr noundef, ptr noundef, i32 noundef) local_
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_coroutine_enter(ptr noundef %co) local_unnamed_addr #0 {
+define dso_local void @qemu_coroutine_enter(ptr noundef initializes((56, 64)) %co) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qemu_get_current_aio_context() #10
   tail call void @qemu_aio_coroutine_enter(ptr noundef %call, ptr noundef %co)

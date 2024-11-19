@@ -462,7 +462,7 @@ do.end23:                                         ; preds = %cond.end, %tb_jmp_u
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @tb_link_page(ptr noundef %tb) local_unnamed_addr #0 {
+define dso_local ptr @tb_link_page(ptr noundef initializes((80, 88)) %tb) local_unnamed_addr #0 {
 entry:
   %existing_tb = alloca ptr, align 8
   store ptr null, ptr %existing_tb, align 8

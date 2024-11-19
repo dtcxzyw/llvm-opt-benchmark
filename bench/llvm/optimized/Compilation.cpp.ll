@@ -90,7 +90,7 @@ $_ZTVN4llvm3opt7ArgListE = comdat any
 @_ZN5clang6driver11CompilationD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang6driver11CompilationD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6driver11CompilationC2ERKNS0_6DriverERKNS0_9ToolChainEPN4llvm3opt12InputArgListEPNS9_14DerivedArgListEb(ptr noundef nonnull align 8 dereferenceable(523) %0, ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef nonnull align 8 dereferenceable(2168) %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6driver11CompilationC2ERKNS0_6DriverERKNS0_9ToolChainEPN4llvm3opt12InputArgListEPNS9_14DerivedArgListEb(ptr noundef nonnull align 8 dereferenceable(523) initializes((0, 20), (32, 36), (40, 48)) %0, ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef nonnull align 8 dereferenceable(2168) %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = zext i1 %5 to i8
   store ptr %1, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1761,7 +1761,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIiPKN5clang6driver7CommandEELb1EE9push_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6driver11Compilation29initCompilationForDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(523) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6driver11Compilation29initCompilationForDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(523) initializes((520, 521)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i8, align 1
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8

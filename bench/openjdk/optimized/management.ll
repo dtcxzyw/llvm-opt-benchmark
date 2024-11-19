@@ -524,7 +524,7 @@ declare void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P10JavaThr
 declare void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN10Management20get_optional_supportEP18jmmOptionalSupport(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN10Management20get_optional_supportEP18jmmOptionalSupport(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #4 align 2 {
   %2 = load i32, ptr @_ZN10Management17_optional_supportE, align 4
   store i32 %2, ptr %0, align 4
   ret void
@@ -8252,7 +8252,7 @@ define linkonce_odr hidden void @_ZN12FormatBufferILm80EEC2EPKcz(ptr noundef non
 declare noundef i32 @_ZN14WriteableFlags8set_flagEPKc6jvalue13JVMFlagOriginR12FormatBufferILm80EE(ptr noundef, i64, i32 noundef, ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ThreadTimesClosureC2E14objArrayHandle15typeArrayHandle(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %0, ptr %1, ptr %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN18ThreadTimesClosureC2E14objArrayHandle15typeArrayHandle(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((0, 44)) %0, ptr %1, ptr %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18ThreadTimesClosure, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -8448,7 +8448,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %15, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ThreadTimesClosureD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN18ThreadTimesClosureD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18ThreadTimesClosure, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8

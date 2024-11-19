@@ -648,7 +648,7 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare void @trace2_data_intmax_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_remote_heads(ptr noundef %reader, ptr noundef %list, i32 noundef %flags, ptr noundef %extra_have, ptr noundef %shallow_points) local_unnamed_addr #0 {
+define dso_local ptr @get_remote_heads(ptr noundef %reader, ptr noundef initializes((0, 8)) %list, i32 noundef %flags, ptr noundef %extra_have, ptr noundef %shallow_points) local_unnamed_addr #0 {
 entry:
   %symref.i = alloca %struct.string_list, align 8
   %old_oid.i30 = alloca %struct.object_id, align 4
@@ -1506,7 +1506,7 @@ declare i32 @bundle_uri_parse_line(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_remote_refs(i32 noundef %fd_out, ptr noundef %reader, ptr noundef writeonly %list, i32 noundef %for_push, ptr noundef %transport_options, ptr noundef readonly %server_options, i32 noundef %stateless_rpc) local_unnamed_addr #0 {
+define dso_local ptr @get_remote_refs(i32 noundef %fd_out, ptr noundef %reader, ptr noundef writeonly initializes((0, 8)) %list, i32 noundef %for_push, ptr noundef %transport_options, ptr noundef readonly %server_options, i32 noundef %stateless_rpc) local_unnamed_addr #0 {
 entry:
   %old_oid.i = alloca %struct.object_id, align 4
   %line_sections.i = alloca %struct.string_list, align 8

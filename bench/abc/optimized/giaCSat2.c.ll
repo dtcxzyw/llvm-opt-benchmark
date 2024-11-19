@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cbs2_SetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @Cbs2_SetDefaultParams(ptr nocapture noundef writeonly initializes((0, 48)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %2, i8 0, i64 20, i1 false)
   store i32 1000, ptr %0, align 4
@@ -50,7 +50,7 @@ define void @Cbs2_SetDefaultParams(ptr nocapture noundef writeonly %0) local_unn
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cbs2_ManSetConflictNum(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Cbs2_ManSetConflictNum(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 %1, ptr %0, align 8
   ret void
 }
@@ -531,7 +531,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Cbs2_ManStop(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @Cbs2_ManStop(ptr nocapture noundef initializes((144, 152), (160, 168), (176, 184), (192, 200), (208, 216), (224, 232), (240, 248), (256, 264), (272, 280), (288, 296)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
@@ -1928,7 +1928,7 @@ Cbs2_ManPropagateUnassigned.exit:                 ; preds = %.sink.split.i, %228
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Cbs2_ManUpdateFrontier(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Cbs2_ManUpdateFrontier(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #2 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -2595,7 +2595,7 @@ Cbs2_QuePush.exit:                                ; preds = %._crit_edge.i, %28
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Cbs2_ManCancelUntil(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #8 {
+define internal fastcc void @Cbs2_ManCancelUntil(ptr nocapture noundef initializes((56, 60)) %0, i32 noundef %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72
@@ -3206,7 +3206,7 @@ define i32 @Cbs2_ManSolve_rec(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Cbs2_ManSolve(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @Cbs2_ManSolve(ptr noundef initializes((8, 20)) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3576,7 +3576,7 @@ Cbs2_ManBumpClean.exit:                           ; preds = %160, %Cbs2_ManClean
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Cbs2_ManSolve2(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @Cbs2_ManSolve2(ptr noundef initializes((8, 20)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 16

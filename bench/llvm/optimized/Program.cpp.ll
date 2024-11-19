@@ -1337,7 +1337,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %52, %50, %20, %19, 
 declare noundef i64 @_ZNK4llvm9StringRef13find_first_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3sys11ProcessInfoC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm3sys11ProcessInfoC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 4), (8, 12)) %0) unnamed_addr #3 align 2 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 4
@@ -1831,7 +1831,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull al
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL28toNullTerminatedCStringArrayN4llvm8ArrayRefINS_9StringRefEEERNS_11StringSaverE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr readonly %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL28toNullTerminatedCStringArrayN4llvm8ArrayRefINS_9StringRefEEERNS_11StringSaverE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr readonly %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds %"class.llvm::StringRef", ptr %1, i64 %2
   %.not24 = icmp eq i64 %2, 0

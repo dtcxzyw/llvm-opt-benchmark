@@ -5000,7 +5000,7 @@ define linkonce_odr void @_ZN3nix15MixFlakeOptionsD2Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix17MixReadOnlyOptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix17MixReadOnlyOptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"struct.nix::Args::Flag", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -5105,7 +5105,7 @@ define void @_ZN3nix17MixReadOnlyOptionC2Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix17MixReadOnlyOptionC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix17MixReadOnlyOptionC1Ev(ptr noundef nonnull align 8 dereferenceable(8) initializes((24, 28), (32, 40)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca %"struct.nix::Args::Flag", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -5886,7 +5886,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3nix17SourceExprCommand22getCompleteInstallableEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.215") align 8 %0, ptr noundef nonnull align 8 dereferenceable(440) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix17SourceExprCommand22getCompleteInstallableEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.215") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(440) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -12709,7 +12709,7 @@ _ZNSt10shared_ptrIN3nix5flake11LockedFlakeEED2Ev.exit: ; preds = %0, %17, %30, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix17SourceExprCommand17parseInstallablesENS_3refINS_5StoreEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.506") align 8 %0, ptr noundef nonnull align 8 dereferenceable(440) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix17SourceExprCommand17parseInstallablesENS_3refINS_5StoreEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.506") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(440) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %7 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -17654,7 +17654,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11Installable5buildENS_3refINS_5StoreEEES3_NS_7RealiseERKSt6vectorINS1_IS0_EESaIS6_EENS_9BuildModeE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.554") align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, i32 noundef %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11Installable5buildENS_3refINS_5StoreEEES3_NS_7RealiseERKSt6vectorINS1_IS0_EESaIS6_EENS_9BuildModeE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.554") align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, i32 noundef %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::vector.559", align 8
   %8 = alloca %"class.nix::ref.52", align 8
   %9 = alloca %"class.nix::ref.52", align 8
@@ -28390,7 +28390,7 @@ _ZNSt12_Vector_baseIN3nix11DerivedPathESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Destr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11Installable12toBuiltPathsENS_3refINS_5StoreEEES3_NS_7RealiseENS_9OperateOnERKSt6vectorINS1_IS0_EESaIS7_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.664") align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11Installable12toBuiltPathsENS_3refINS_5StoreEEES3_NS_7RealiseENS_9OperateOnERKSt6vectorINS1_IS0_EESaIS7_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.664") align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %class.anon.831, align 8
   %8 = alloca %"class.std::vector.554", align 8
   %9 = alloca %"class.nix::ref.52", align 8
@@ -28999,7 +28999,7 @@ _ZNSt12_Vector_baseIN3nix9BuiltPathESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11Installable13toDerivationsENS_3refINS_5StoreEEERKSt6vectorINS1_IS0_EESaIS5_EEb(ptr dead_on_unwind noalias writable sret(%"class.std::set.670") align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11Installable13toDerivationsENS_3refINS_5StoreEEERKSt6vectorINS1_IS0_EESaIS5_EEb(ptr dead_on_unwind noalias writable sret(%"class.std::set.670") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.nix::StorePath", align 8
@@ -30157,7 +30157,7 @@ _ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11Installable14toStorePathSetENS_3refINS_5StoreEEES3_NS_7RealiseENS_9OperateOnERKSt6vectorINS1_IS0_EESaIS7_EE(ptr dead_on_unwind noalias writable sret(%"class.std::set.670") align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11Installable14toStorePathSetENS_3refINS_5StoreEEES3_NS_7RealiseENS_9OperateOnERKSt6vectorINS1_IS0_EESaIS7_EE(ptr dead_on_unwind noalias writable sret(%"class.std::set.670") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %class.anon.847, align 1
   %8 = alloca %"class.std::vector.664", align 8
   %9 = alloca %"class.nix::ref.52", align 8
@@ -30570,7 +30570,7 @@ _ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE22_M_inse
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11Installable12toStorePathsENS_3refINS_5StoreEEES3_NS_7RealiseENS_9OperateOnERKSt6vectorINS1_IS0_EESaIS7_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.679") align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11Installable12toStorePathsENS_3refINS_5StoreEEES3_NS_7RealiseENS_9OperateOnERKSt6vectorINS1_IS0_EESaIS7_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.679") align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %class.anon.847, align 1
   %8 = alloca %"class.std::vector.664", align 8
   %9 = alloca %"class.nix::ref.52", align 8
@@ -32045,7 +32045,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix22RawInstallablesCommand25getFlakeRefsForCompletionEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(472) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix22RawInstallablesCommand25getFlakeRefsForCompletionEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(472) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"struct.std::pair.548", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

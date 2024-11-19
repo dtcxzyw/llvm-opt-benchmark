@@ -26,7 +26,7 @@ define range(i32 0, 3) i32 @text_normalize_init(ptr noundef writeonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @text_normalize_reset(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @text_normalize_reset(ptr nocapture noundef writeonly initializes((16, 28)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24

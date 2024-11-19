@@ -207,7 +207,7 @@ $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_S
 @_ZN4llvm16MCObjectFileInfoD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm16MCObjectFileInfoD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(912) initializes((8, 9), (12, 16), (24, 64), (72, 224), (296, 328), (344, 464), (536, 680)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 904
@@ -798,7 +798,7 @@ _ZN4llvm9StringRefC2EPKc.exit430:                 ; preds = %_ZN4llvm9StringRefC
 declare noundef i32 @_ZNK4llvm9MCContext19emitDwarfUnwindInfoEv(ptr noundef nonnull align 8 dereferenceable(2432)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_6TripleEb(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_6TripleEb(ptr noundef nonnull align 8 dereferenceable(912) initializes((12, 16), (24, 64), (72, 120), (128, 376), (384, 400), (416, 448), (456, 536)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -1714,7 +1714,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MCObjectFileInfo24initGOFFMCObjectFileInfoERKNS_6TripleE(ptr nocapture noundef nonnull align 8 dereferenceable(912) %0, ptr nocapture nonnull readnone align 8 %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16MCObjectFileInfo24initGOFFMCObjectFileInfoERKNS_6TripleE(ptr nocapture noundef nonnull align 8 dereferenceable(912) initializes((24, 32), (40, 48), (744, 784)) %0, ptr nocapture nonnull readnone align 8 %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %4, ptr nonnull @.str.89, i64 5, i32 2, ptr noundef null, i32 noundef 0) #11
@@ -1752,7 +1752,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initGOFFMCObjectFileInfoERKNS
 declare noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432), ptr, i64, i32, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MCObjectFileInfo24initCOFFMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16MCObjectFileInfo24initCOFFMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(912) initializes((24, 64), (72, 120), (128, 328), (344, 376), (384, 408), (416, 424), (432, 440), (456, 464), (680, 744)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %4, ptr nonnull @.str.139, i64 9, i32 noundef 1073741888) #11
@@ -1993,7 +1993,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initCOFFMCObjectFileInfoERKNS
 declare noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432), ptr, i64, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MCObjectFileInfo25initSPIRVMCObjectFileInfoERKNS_6TripleE(ptr nocapture noundef nonnull align 8 dereferenceable(912) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16MCObjectFileInfo25initSPIRVMCObjectFileInfoERKNS_6TripleE(ptr nocapture noundef nonnull align 8 dereferenceable(912) initializes((24, 32)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr @_ZN4llvm9MCContext15getSPIRVSectionEv(ptr noundef nonnull align 8 dereferenceable(2432) %4) #11
@@ -2005,7 +2005,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initSPIRVMCObjectFileInfoERKN
 declare noundef ptr @_ZN4llvm9MCContext15getSPIRVSectionEv(ptr noundef nonnull align 8 dereferenceable(2432)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr nocapture nonnull readnone align 8 %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(912) initializes((24, 40), (56, 64), (72, 120), (128, 192), (224, 376)) %0, ptr nocapture nonnull readnone align 8 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -2579,7 +2579,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKNS_6TripleE(ptr nocapture noundef nonnull align 8 dereferenceable(912) %0, ptr nocapture nonnull readnone align 8 %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKNS_6TripleE(ptr nocapture noundef nonnull align 8 dereferenceable(912) initializes((24, 40), (48, 96), (104, 120), (128, 168), (176, 184), (416, 424), (784, 808)) %0, ptr nocapture nonnull readnone align 8 %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %4, ptr nonnull @.str.163, i64 8, i32 2, i24 65792, i1 noundef zeroext true, i64 0) #11
@@ -2687,7 +2687,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
 declare noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432), ptr, i64, i32, i24, i1 noundef zeroext, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MCObjectFileInfo29initDXContainerObjectFileInfoERKNS_6TripleE(ptr nocapture noundef nonnull align 8 dereferenceable(912) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16MCObjectFileInfo29initDXContainerObjectFileInfoERKNS_6TripleE(ptr nocapture noundef nonnull align 8 dereferenceable(912) initializes((24, 32)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr @_ZN4llvm9MCContext21getDXContainerSectionENS_9StringRefENS_11SectionKindE(ptr noundef nonnull align 8 dereferenceable(2432) %4, ptr nonnull @.str.180, i64 4, i32 2) #11
@@ -2714,7 +2714,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfoD0Ev(ptr noundef nonnull align 
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MCObjectFileInfo20initMCObjectFileInfoERNS_9MCContextEbb(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull align 8 dereferenceable(2432) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16MCObjectFileInfo20initMCObjectFileInfoERNS_9MCContextEbb(ptr noundef nonnull align 8 dereferenceable(912) initializes((8, 11), (12, 20), (64, 72), (192, 224), (456, 464), (896, 897), (904, 912)) %0, ptr noundef nonnull align 8 dereferenceable(2432) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = zext i1 %2 to i8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 896
   store i8 %5, ptr %6, align 8

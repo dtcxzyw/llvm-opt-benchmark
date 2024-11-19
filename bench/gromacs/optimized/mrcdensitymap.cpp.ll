@@ -141,7 +141,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 @_ZN3gmx26MrcDensityMapOfFloatWriterD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3gmx26MrcDensityMapOfFloatWriterD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx26MrcDensityMapOfFloatReader4ImplC2EPNS_11ISerializerE(ptr noundef nonnull align 8 dereferenceable(1064) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx26MrcDensityMapOfFloatReader4ImplC2EPNS_11ISerializerE(ptr noundef nonnull align 8 dereferenceable(1064) initializes((0, 965), (968, 1064)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.gmx::InternalError", align 8
   %4 = alloca %"class.gmx::ExceptionInitializer", align 8
   %5 = alloca %"class.gmx::ExceptionInfo", align 8
@@ -1983,7 +1983,7 @@ define void @_ZNK3gmx34MrcDensityMapOfFloatFromFileReader30transformationToDensi
 declare void @_ZN3gmx36getCoordinateTransformationToLatticeERKNS_19MrcDensityMapHeaderE(ptr dead_on_unwind writable sret(%"class.gmx::TranslateAndScale") align 8, ptr noundef nonnull align 8 dereferenceable(1040)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3gmx34MrcDensityMapOfFloatFromFileReader15densityDataCopyEv(ptr dead_on_unwind noalias writable sret(%"class.gmx::MultiDimArray") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3gmx34MrcDensityMapOfFloatFromFileReader15densityDataCopyEv(ptr dead_on_unwind noalias writable sret(%"class.gmx::MultiDimArray") align 8 initializes((0, 24), (32, 72)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.gmx::extents", align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -2085,7 +2085,7 @@ _ZSt4copyIN3gmx12ArrayRefIterIKfEEPfET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx26MrcDensityMapOfFloatWriter4ImplC2ERKNS_19MrcDensityMapHeaderENS_8ArrayRefIKfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1056) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1040) %1, ptr %2, ptr %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx26MrcDensityMapOfFloatWriter4ImplC2ERKNS_19MrcDensityMapHeaderENS_8ArrayRefIKfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1056) initializes((0, 1040)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1040) %1, ptr %2, ptr %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr noundef nonnull align 8 dereferenceable(1040) %1, i64 1016, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 1016
   %6 = getelementptr inbounds i8, ptr %1, i64 1016

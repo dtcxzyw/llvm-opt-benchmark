@@ -1329,7 +1329,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ec_key_set0_libctx(ptr nocapture noundef writeonly %key, ptr noundef %libctx) local_unnamed_addr #4 {
+define void @ossl_ec_key_set0_libctx(ptr nocapture noundef writeonly initializes((80, 88)) %key, ptr noundef %libctx) local_unnamed_addr #4 {
 entry:
   %libctx1 = getelementptr inbounds i8, ptr %key, i64 80
   store ptr %libctx, ptr %libctx1, align 8
@@ -1545,7 +1545,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EC_KEY_set_enc_flags(ptr nocapture noundef writeonly %key, i32 noundef %flags) local_unnamed_addr #4 {
+define void @EC_KEY_set_enc_flags(ptr nocapture noundef writeonly initializes((48, 52)) %key, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %enc_flag = getelementptr inbounds i8, ptr %key, i64 48
   store i32 %flags, ptr %enc_flag, align 8
@@ -1561,7 +1561,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @EC_KEY_set_conv_form(ptr nocapture noundef %key, i32 noundef %cform) local_unnamed_addr #0 {
+define void @EC_KEY_set_conv_form(ptr nocapture noundef initializes((52, 56)) %key, i32 noundef %cform) local_unnamed_addr #0 {
 entry:
   %conv_form = getelementptr inbounds i8, ptr %key, i64 52
   store i32 %cform, ptr %conv_form, align 4

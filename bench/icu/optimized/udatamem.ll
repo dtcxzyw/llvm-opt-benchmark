@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @UDataMemory_init_75(ptr nocapture noundef writeonly %This) local_unnamed_addr #0 {
+define void @UDataMemory_init_75(ptr nocapture noundef writeonly initializes((0, 56)) %This) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %This, i8 0, i64 56, i1 false)
   %length = getelementptr inbounds i8, ptr %This, i64 48
@@ -16,7 +16,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @UDatamemory_assign_75(ptr nocapture noundef %dest, ptr nocapture noundef readonly %source) local_unnamed_addr #2 {
+define void @UDatamemory_assign_75(ptr nocapture noundef initializes((0, 24), (25, 56)) %dest, ptr nocapture noundef readonly %source) local_unnamed_addr #2 {
 entry:
   %heapAllocated = getelementptr inbounds i8, ptr %dest, i64 24
   %0 = load i8, ptr %heapAllocated, align 8
@@ -88,7 +88,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @UDataMemory_setData_75(ptr nocapture noundef writeonly %This, ptr noundef %dataAddr) local_unnamed_addr #2 {
+define void @UDataMemory_setData_75(ptr nocapture noundef writeonly initializes((8, 16)) %This, ptr noundef %dataAddr) local_unnamed_addr #2 {
 entry:
   %cmp.i = icmp eq ptr %dataAddr, null
   br i1 %cmp.i, label %UDataMemory_normalizeDataPointer_75.exit, label %lor.lhs.false.i

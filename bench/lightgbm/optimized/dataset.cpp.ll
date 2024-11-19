@@ -18175,7 +18175,7 @@ _ZNSt6vectorISt10unique_ptrIN8LightGBM12FeatureGroupESt14default_deleteIS2_EESaI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM18OneFeaturePerGroupERKSt6vectorIiSaIiEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.120") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM18OneFeaturePerGroupERKSt6vectorIiSaIiEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.120") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -18526,7 +18526,7 @@ define void @_ZN8LightGBM8MarkUsedEPSt6vectorIbSaIbEEPKii(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM16FixSampleIndicesEPKNS_9BinMapperEiiPKiPKd(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.3") align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM16FixSampleIndicesEPKNS_9BinMapperEiiPKiPKd(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.3") align 8 initializes((0, 24)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds i8, ptr %1, i64 152
   %8 = load i32, ptr %7, align 8
@@ -18955,7 +18955,7 @@ _ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE5countERS5_.exi
 declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM10FindGroupsERKSt6vectorISt10unique_ptrINS_9BinMapperESt14default_deleteIS2_EESaIS5_EERKS0_IiSaIiEEPPiPKiiiibbPS0_IaSaIaEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.120") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8, i1 noundef zeroext %9, ptr noundef %10) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM10FindGroupsERKSt6vectorISt10unique_ptrINS_9BinMapperESt14default_deleteIS2_EESaIS5_EERKS0_IiSaIiEEPPiPKiiiibbPS0_IaSaIaEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.120") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8, i1 noundef zeroext %9, ptr noundef %10) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %12 = alloca i32, align 4
   %13 = alloca %"class.LightGBM::Random", align 4
   %14 = alloca %"class.std::vector.126", align 8
@@ -26074,7 +26074,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM7Dataset9ConstructEPSt6vectorISt10unique_ptrINS_9BinMapperESt14default_deleteIS3_EESaIS6_EEiRKS1_IS1_IdSaIdEESaISB_EEPPiPPdPKiimRKNS_6ConfigE(ptr noundef nonnull align 8 dereferenceable(864) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, i32 noundef %7, i64 noundef %8, ptr noundef nonnull align 8 dereferenceable(1616) %9) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM7Dataset9ConstructEPSt6vectorISt10unique_ptrINS_9BinMapperESt14default_deleteIS3_EESaIS6_EEiRKS1_IS1_IdSaIdEESaISB_EEPPiPPdPKiimRKNS_6ConfigE(ptr noundef nonnull align 8 dereferenceable(864) initializes((84, 88)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, i32 noundef %7, i64 noundef %8, ptr noundef nonnull align 8 dereferenceable(1616) %9) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.std::vector.3", align 8
   %12 = alloca %"class.std::vector.120", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8

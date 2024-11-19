@@ -603,7 +603,7 @@ declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) 
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ipx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_ipx(ptr noundef %0, ptr noundef initializes((160, 256), (280, 292)) %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = load i32, ptr @dissect_ipx.ipx_current, align 4
   %6 = add i32 %5, 1
   %7 = icmp eq i32 %6, 4
@@ -1579,7 +1579,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #0
 declare void @register_conversation_table(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ipx_conversation_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal noundef i32 @ipx_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1595,7 +1595,7 @@ define internal noundef i32 @ipx_conversation_packet(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ipx_endpoint_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal noundef i32 @ipx_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 8

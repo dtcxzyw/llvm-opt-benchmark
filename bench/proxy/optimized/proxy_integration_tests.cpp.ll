@@ -3361,7 +3361,7 @@ declare noundef nonnull ptr @_ZNSt3pmr20get_default_resourceEv() local_unnamed_a
 declare void @_ZNSt3pmr28unsynchronized_pool_resourceC2ERKNS_12pool_optionsEPNS_15memory_resourceE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3pro7details21relocation_dispatcherINS0_13allocated_ptrIN12_GLOBAL__N_19RectangleENSt3pmr21polymorphic_allocatorISt4byteEEEEEEvPS7_PKS7_(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #6 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3pro7details21relocation_dispatcherINS0_13allocated_ptrIN12_GLOBAL__N_19RectangleENSt3pmr21polymorphic_allocatorISt4byteEEEEEEvPS7_PKS7_(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef %1) #6 personality ptr @__gxx_personality_v0 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

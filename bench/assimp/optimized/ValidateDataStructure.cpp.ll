@@ -428,7 +428,7 @@ lpad4:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17ValidateDSProcess7ExecuteEP7aiScene(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %pScene) unnamed_addr #7 align 2 {
+define hidden void @_ZN6Assimp17ValidateDSProcess7ExecuteEP7aiScene(ptr noundef nonnull align 8 dereferenceable(32) initializes((24, 32)) %this, ptr noundef %pScene) unnamed_addr #7 align 2 {
 entry:
   %mScene = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %pScene, ptr %mScene, align 8

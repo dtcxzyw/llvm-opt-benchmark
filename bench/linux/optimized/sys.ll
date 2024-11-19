@@ -4230,7 +4230,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_setrlimit(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @getrusage(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @getrusage(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((0, 144)) %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -6402,7 +6402,7 @@ declare dso_local void @__mmap_lock_do_trace_released(ptr noundef, i1 noundef ze
 declare dso_local i32 @down_write_killable(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @do_sysinfo(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @do_sysinfo(ptr noundef initializes((0, 112)) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.timespec64, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   %3 = tail call i64 @ktime_get_with_offset(i32 noundef 1) #13

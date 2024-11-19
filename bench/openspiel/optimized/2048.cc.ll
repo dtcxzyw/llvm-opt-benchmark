@@ -1052,7 +1052,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %_ZNSt6vectorIN10ope
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState14SetCustomBoardERKSt6vectorIiSaIiEE(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState14SetCustomBoardERKSt6vectorIiSaIiEE(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((72, 76)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3380,7 +3380,7 @@ define noundef zeroext i1 @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEigh
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState7RewardsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.38") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState7RewardsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.38") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = load i32, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -3397,7 +3397,7 @@ define void @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState7Rewards
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.38") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.38") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %4 = load i32, ptr %3, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)

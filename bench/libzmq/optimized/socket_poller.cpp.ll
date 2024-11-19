@@ -25,7 +25,7 @@ $__clang_call_terminate = comdat any
 @_ZN3zmq15socket_poller_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq15socket_poller_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq15socket_poller_tC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq15socket_poller_tC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 4), (8, 42), (44, 56)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 -889275714, ptr %this, align 8
   %_signaler = getelementptr inbounds i8, ptr %this, i64 8
@@ -55,7 +55,7 @@ _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EED2Ev.exit: ; preds = %lpad, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((40, 42), (44, 48)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %fd_size = alloca i64, align 8
   %_use_signaler = getelementptr inbounds i8, ptr %this, i64 41
@@ -239,7 +239,7 @@ return:                                           ; preds = %for.inc123, %if.end
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq15socket_poller_tD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq15socket_poller_tD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 4)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 -559038737, ptr %this, align 8
   %_items = getelementptr inbounds i8, ptr %this, i64 16

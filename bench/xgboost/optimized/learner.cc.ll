@@ -1532,7 +1532,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7xgboost7LearnerD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost7LearnerD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTVN7xgboost7LearnerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7xgboost7LearnerE, i64 280), ptr %2, align 8
@@ -2593,7 +2593,7 @@ define void @_ZNK7xgboost17LearnerModelParam9BaseScoreEPKNS_7ContextE(ptr dead_o
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost17LearnerModelParam4CopyERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost17LearnerModelParam4CopyERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7xgboost6linalg6TensorIfLi1EE7ReshapeILm1EEEvNS_6common4SpanIKmXT_EEE.exit:
   %2 = alloca %"class.xgboost::common::Span", align 8
   %3 = alloca %"class.std::unique_ptr.14", align 8

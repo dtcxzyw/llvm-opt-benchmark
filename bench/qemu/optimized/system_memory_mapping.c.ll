@@ -290,7 +290,7 @@ for.end:                                          ; preds = %if.end, %entry
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @memory_mapping_list_init(ptr noundef %list) local_unnamed_addr #2 {
+define dso_local void @memory_mapping_list_init(ptr noundef initializes((0, 4), (8, 24)) %list) local_unnamed_addr #2 {
 entry:
   store i32 0, ptr %list, align 8
   %last_mapping = getelementptr inbounds i8, ptr %list, i64 8
@@ -349,7 +349,7 @@ for.end:                                          ; preds = %if.end, %entry
 declare void @memory_region_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @guest_phys_blocks_init(ptr noundef %list) local_unnamed_addr #2 {
+define dso_local void @guest_phys_blocks_init(ptr noundef initializes((0, 4), (8, 16)) %list) local_unnamed_addr #2 {
 entry:
   store i32 0, ptr %list, align 8
   %head = getelementptr inbounds i8, ptr %list, i64 8

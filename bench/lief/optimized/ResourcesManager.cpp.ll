@@ -1024,7 +1024,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE12ResourceNodeESt14defaul
 declare void @_ZN4LIEF2PE12ResourceNode6childsEv(ptr dead_on_unwind writable sret(%"class.LIEF::ref_iterator") align 8, ptr noundef nonnull align 8 dereferenceable(76)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4LIEF2PE16ResourcesManager9get_typesEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.49") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4LIEF2PE16ResourcesManager9get_typesEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.49") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.LIEF::ref_iterator", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 8

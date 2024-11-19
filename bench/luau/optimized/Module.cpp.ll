@@ -2948,7 +2948,7 @@ _ZN4Luau10CloneStateD2Ev.exit:                    ; preds = %_ZNSt10_HashtableIP
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local void @_ZNK4Luau6Module14getModuleScopeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.142") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(952) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4Luau6Module14getModuleScopeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.142") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(952) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 272
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16

@@ -3415,7 +3415,7 @@ _ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau11TypeCheckerC2ERKSt10shared_ptrINS_5ScopeEEPNS_14ModuleResolverENS_7NotNullINS_12BuiltinTypesEEEPNS_21InternalErrorReporterE(ptr noundef nonnull align 8 dereferenceable(2016) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr %3, ptr noundef %4) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau11TypeCheckerC2ERKSt10shared_ptrINS_5ScopeEEPNS_14ModuleResolverENS_7NotNullINS_12BuiltinTypesEEEPNS_21InternalErrorReporterE(ptr noundef nonnull align 8 dereferenceable(2016) initializes((0, 120), (128, 168), (176, 216), (224, 256), (264, 296), (304, 320)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr %3, ptr noundef %4) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.std::pair", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %1, ptr %0, align 8
@@ -21186,7 +21186,7 @@ define dso_local void @_ZN4Luau11TypeChecker3iceERKNSt7__cxx1112basic_stringIcSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau11TypeChecker10childScopeERKSt10shared_ptrINS_5ScopeEERKNS_8LocationE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.139") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2016) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau11TypeChecker10childScopeERKSt10shared_ptrINS_5ScopeEERKNS_8LocationE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.139") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2016) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::pair.401", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !148)
   store ptr null, ptr %0, align 8, !alias.scope !148
@@ -40597,7 +40597,7 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau11TypeChecker18childFunctionScopeERKSt10shared_ptrINS_5ScopeEERKNS_8LocationEi(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.139") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2016) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %3, i32 noundef %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau11TypeChecker18childFunctionScopeERKSt10shared_ptrINS_5ScopeEERKNS_8LocationEi(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.139") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2016) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %3, i32 noundef %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.std::pair.401", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !248)
   store ptr null, ptr %0, align 8, !alias.scope !248
@@ -62733,7 +62733,7 @@ _ZNSt6vectorIN4Luau9TypeErrorESaIS1_EE6insertIN9__gnu_cxx17__normal_iteratorIPS1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau11TypeChecker23getExpectedTypesForCallERKSt6vectorIPKNS_4TypeESaIS4_EEmb(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.505") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2016) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau11TypeChecker23getExpectedTypesForCallERKSt6vectorIPKNS_4TypeESaIS4_EEmb(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.505") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(2016) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.std::pair.558", align 8
   %7 = alloca %"struct.Luau::Demoter", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -68825,7 +68825,7 @@ declare noundef ptr @_ZNK4Luau12BuiltinTypes21errorRecoveryTypePackEv(ptr nounde
 declare noundef ptr @_ZNK4Luau12BuiltinTypes21errorRecoveryTypePackEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau11TypeChecker17mkTruthyPredicateEbPKNS_4TypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.755") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2016) %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau11TypeChecker17mkTruthyPredicateEbPKNS_4TypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.755") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(2016) %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = zext i1 %2 to i8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -80698,7 +80698,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EEC2ERKS5_.exit: ; preds = %.thread, %111, %116
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4Luau11TypeChecker9getScopesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.204") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2016) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4Luau11TypeChecker9getScopesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.204") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2016) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 272

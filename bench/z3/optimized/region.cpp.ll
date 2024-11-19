@@ -25,7 +25,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6regionC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN6regionC2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this) unnamed_addr #3 align 2 {
 entry:
   %m_curr_ptr = getelementptr inbounds i8, ptr %this, i64 8
   %m_curr_end_ptr = getelementptr inbounds i8, ptr %this, i64 16
@@ -223,7 +223,7 @@ _ZnwmR6region.exit:                               ; preds = %entry, %if.else.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6region9pop_scopeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN6region9pop_scopeEv(ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_mark = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_mark, align 8

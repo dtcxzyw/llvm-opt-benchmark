@@ -871,7 +871,7 @@ declare void @UpdateChangedParamSet(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @ExecReScan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecAppendEstimate(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @ExecAppendEstimate(ptr nocapture noundef initializes((304, 312)) %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
@@ -894,7 +894,7 @@ define dso_local void @ExecAppendEstimate(ptr nocapture noundef %0, ptr nocaptur
 declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecAppendInitializeDSM(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecAppendInitializeDSM(ptr nocapture noundef initializes((296, 304), (344, 352)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 304
@@ -1054,7 +1054,7 @@ define dso_local void @ExecAppendReInitializeDSM(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecAppendInitializeWorker(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecAppendInitializeWorker(ptr nocapture noundef initializes((296, 304), (344, 352)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1279,7 +1279,7 @@ define dso_local void @ExecAsyncAppendResponse(ptr nocapture noundef readonly %0
 declare void @ProcessInterrupts() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecAppendAsyncEventWait(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @ExecAppendAsyncEventWait(ptr nocapture noundef initializes((280, 288)) %0) unnamed_addr #0 {
   %2 = alloca [16 x %struct.WaitEvent], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   %4 = load i32, ptr %3, align 8

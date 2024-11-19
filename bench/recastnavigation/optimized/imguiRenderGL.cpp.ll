@@ -201,7 +201,7 @@ _ZL13stbtt__isfontPKh.exit.thread18:              ; preds = %16, %23, %19, %62, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @stbtt_InitFont(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @stbtt_InitFont(ptr nocapture noundef writeonly initializes((8, 20)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1281,14 +1281,14 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @stbtt_GetCodepointShape(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @stbtt_GetCodepointShape(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #3 {
   %4 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %1)
   %5 = tail call i32 @stbtt_GetGlyphShape(ptr noundef %0, i32 noundef %4, ptr noundef %2)
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @stbtt_GetGlyphShape(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @stbtt_GetGlyphShape(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -3094,7 +3094,7 @@ define dso_local void @stbtt_GetFontVMetrics(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @stbtt_GetFontBoundingBox(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #4 {
+define dso_local void @stbtt_GetFontBoundingBox(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 28
@@ -6351,7 +6351,7 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %stbtt_GetGlyphHMetr
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @stbtt_GetBakedQuad(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6, i32 noundef %7) local_unnamed_addr #10 {
+define dso_local void @stbtt_GetBakedQuad(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 32)) %6, i32 noundef %7) local_unnamed_addr #10 {
   %.not = icmp eq i32 %7, 0
   %9 = select i1 %.not, float -5.000000e-01, float 0.000000e+00
   %10 = sitofp i32 %1 to float
@@ -8143,7 +8143,7 @@ define dso_local range(i32 0, 2) i32 @stbtt_PackFontRange(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @stbtt_GetPackedQuad(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6, i32 noundef %7) local_unnamed_addr #10 {
+define dso_local void @stbtt_GetPackedQuad(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 32)) %6, i32 noundef %7) local_unnamed_addr #10 {
   %9 = sext i32 %3 to i64
   %10 = getelementptr inbounds %struct.stbtt_packedchar, ptr %0, i64 %9
   %.not = icmp eq i32 %7, 0

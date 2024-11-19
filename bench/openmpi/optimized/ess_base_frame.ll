@@ -617,7 +617,7 @@ declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #3
 declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @scon(ptr nocapture noundef writeonly %0) #7 {
+define internal void @scon(ptr nocapture noundef writeonly initializes((144, 152)) %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr null, ptr %2, align 8
   ret void

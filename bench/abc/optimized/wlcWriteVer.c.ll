@@ -363,7 +363,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2.thread, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_WriteAddPos(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @Wlc_WriteAddPos(ptr nocapture noundef initializes((36, 40)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %3, align 4

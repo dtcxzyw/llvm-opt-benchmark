@@ -465,7 +465,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @_ZN40cmInstallGetRuntimeDependenciesGenerator7ComputeEP16cmLocalGenerator(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(472) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZN40cmInstallGetRuntimeDependenciesGenerator7ComputeEP16cmLocalGenerator(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(472) initializes((464, 472)) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 464
   store ptr %1, ptr %3, align 8
   ret i1 true

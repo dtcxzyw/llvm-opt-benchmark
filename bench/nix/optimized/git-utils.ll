@@ -2800,7 +2800,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix12lookupObjectEP14git_repositoryRK7git_oid(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(20) %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix12lookupObjectEP14git_repositoryRK7git_oid(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(20) %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.nix::Setter", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1

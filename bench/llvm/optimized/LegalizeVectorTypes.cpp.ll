@@ -7751,7 +7751,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %151, %153
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer24SplitVecRes_BUILD_VECTOREPNS_6SDNodeERNS_7SDValueES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer24SplitVecRes_BUILD_VECTOREPNS_6SDNodeERNS_7SDValueES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::ArrayRef.45", align 8
   %6 = alloca %"class.llvm::ArrayRef.45", align 8
   %7 = alloca %"struct.llvm::EVT", align 8
@@ -7919,7 +7919,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer26SplitVecRes_CONCAT_VECTORSEPNS_6SDNodeERNS_7SDValueES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer26SplitVecRes_CONCAT_VECTORSEPNS_6SDNodeERNS_7SDValueES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDLoc", align 8
   %6 = alloca %"struct.std::pair.99", align 8
   %7 = alloca %"struct.llvm::EVT", align 8
@@ -8048,7 +8048,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer29SplitVecRes_EXTRACT_SUBVECTOREPNS_6SDNodeERNS_7SDValueES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer29SplitVecRes_EXTRACT_SUBVECTOREPNS_6SDNodeERNS_7SDValueES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDValue", align 8
   %6 = alloca %"class.llvm::SDLoc", align 8
   %7 = alloca %"struct.llvm::EVT", align 8
@@ -8550,7 +8550,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %167, %169
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer26SplitVecRes_FPOp_MultiTypeEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer26SplitVecRes_FPOp_MultiTypeEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::EVT", align 8
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca %"struct.std::pair.99", align 8
@@ -8779,7 +8779,7 @@ _ZN4llvm5SDLocD2Ev.exit73:                        ; preds = %110, %112
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer22SplitVecRes_IS_FPCLASSEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer22SplitVecRes_IS_FPCLASSEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::EVT", align 8
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca %"struct.std::pair.99", align 8
@@ -9605,7 +9605,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZNK4llvm3EVTneES0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer20SplitVecRes_VP_SPLATEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer20SplitVecRes_VP_SPLATEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDLoc", align 8
   %6 = alloca %"class.llvm::SDLoc", align 8
   %7 = alloca %"struct.std::pair.99", align 8
@@ -9723,7 +9723,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm16DAGTypeLe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer20SplitVecRes_ScalarOpEPNS_6SDNodeERNS_7SDValueES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer20SplitVecRes_ScalarOpEPNS_6SDNodeERNS_7SDValueES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDLoc", align 8
   %6 = alloca %"class.llvm::SDLoc", align 8
   %7 = alloca %"struct.std::pair.99", align 8
@@ -9816,7 +9816,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %36, %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer23SplitVecRes_STEP_VECTOREPNS_6SDNodeERNS_7SDValueES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer23SplitVecRes_STEP_VECTOREPNS_6SDNodeERNS_7SDValueES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::EVT", align 8
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca %"class.llvm::SDLoc", align 8
@@ -10076,7 +10076,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5APIntD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer19SplitVecRes_InregOpEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer19SplitVecRes_InregOpEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDValue", align 8
   %6 = alloca %"class.llvm::SDValue", align 8
   %7 = alloca %"class.llvm::SDLoc", align 8
@@ -10195,7 +10195,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2EPK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer16SplitVecRes_LOADEPNS_10LoadSDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer16SplitVecRes_LOADEPNS_10LoadSDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::EVT", align 8
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca %"struct.std::pair.99", align 8
@@ -10472,7 +10472,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %118, %120
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer19SplitVecRes_VP_LOADEPNS_12VPLoadSDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer19SplitVecRes_VP_LOADEPNS_12VPLoadSDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::EVT", align 8
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca %"struct.std::pair.99", align 8
@@ -10902,7 +10902,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %195, %201
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer27SplitVecRes_VP_STRIDED_LOADEPNS_19VPStridedLoadSDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer27SplitVecRes_VP_STRIDED_LOADEPNS_19VPStridedLoadSDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::EVT", align 8
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca %"struct.std::pair.99", align 8
@@ -11267,7 +11267,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %176, %182
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer17SplitVecRes_MLOADEPNS_16MaskedLoadSDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer17SplitVecRes_MLOADEPNS_16MaskedLoadSDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::EVT", align 8
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca %"struct.std::pair.99", align 8
@@ -11728,7 +11728,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %220, %226
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer18SplitVecRes_GatherEPNS_9MemSDNodeERNS_7SDValueES4_b(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer18SplitVecRes_GatherEPNS_9MemSDNodeERNS_7SDValueES4_b(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca %"struct.llvm::EVT", align 8
   %8 = alloca %"struct.std::pair.99", align 8
@@ -12653,7 +12653,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %167, %169
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer17SplitVecRes_SETCCEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer17SplitVecRes_SETCCEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDLoc", align 8
   %6 = alloca %"struct.std::pair.349", align 8
   %7 = alloca %"struct.std::pair.349", align 8
@@ -12927,7 +12927,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %124, %126
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_REVERSEEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_REVERSEEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDValue", align 8
   %6 = alloca %"class.llvm::SDValue", align 8
   %7 = alloca %"class.llvm::SDLoc", align 8
@@ -13354,7 +13354,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer25SplitVecRes_VECTOR_SPLICEEPNS_6SDNodeERNS_7SDValueES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer25SplitVecRes_VECTOR_SPLICEEPNS_6SDNodeERNS_7SDValueES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::EVT", align 8
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca %"struct.std::pair.99", align 8
@@ -13606,7 +13606,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2EPK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer17SplitVecRes_VAARGEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer17SplitVecRes_VAARGEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::EVT", align 8
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca %"class.llvm::SDValue", align 8
@@ -14930,7 +14930,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %169, %171
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer17SplitVecRes_BinOpEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer17SplitVecRes_BinOpEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDLoc", align 8
   %6 = alloca %"class.llvm::SDValue", align 8
   %7 = alloca %"class.llvm::SDValue", align 8
@@ -15159,7 +15159,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %100, %102
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer21SplitVecRes_TernaryOpEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer21SplitVecRes_TernaryOpEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDLoc", align 8
   %6 = alloca %"class.llvm::SDValue", align 8
   %7 = alloca %"class.llvm::SDValue", align 8
@@ -15406,7 +15406,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %108, %110
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer15SplitVecRes_CMPEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer15SplitVecRes_CMPEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::EVT", align 8
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca %"struct.std::pair.99", align 8
@@ -15854,7 +15854,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer26SplitVecRes_FP_TO_XINT_SATEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer26SplitVecRes_FP_TO_XINT_SATEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::pair.349", align 8
   %6 = alloca %"struct.std::pair.99", align 8
   %7 = alloca %"struct.llvm::EVT", align 8
@@ -15975,7 +15975,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %47, %60
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer22SplitVecRes_OverflowOpEPNS_6SDNodeEjRNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer22SplitVecRes_OverflowOpEPNS_6SDNodeEjRNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::pair.349", align 8
   %7 = alloca %"struct.std::pair.349", align 8
   %8 = alloca %"class.llvm::SDLoc", align 8
@@ -16176,7 +16176,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %94, %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer15SplitVecRes_FIXEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer15SplitVecRes_FIXEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDValue", align 8
   %6 = alloca %"class.llvm::SDValue", align 8
   %7 = alloca %"class.llvm::SDValue", align 8
@@ -16276,7 +16276,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2EPK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer22SplitVecRes_VP_REVERSEEPNS_6SDNodeERNS_7SDValueES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer22SplitVecRes_VP_REVERSEEPNS_6SDNodeERNS_7SDValueES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::EVT", align 8
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca %"struct.std::pair.99", align 8
@@ -16694,7 +16694,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm12Selection
 declare hidden void @_ZN4llvm16DAGTypeLegalizer14SetSplitVectorENS_7SDValueES1_S1_(ptr noundef nonnull align 8 dereferenceable(2512), ptr, i32, ptr, i32, ptr noundef byval(%"class.llvm::SDValue") align 8) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer16IncrementPointerEPNS_9MemSDNodeENS_3EVTERNS_18MachinePointerInfoERNS_7SDValueEPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, i16 %2, ptr %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) %4, ptr nocapture noundef nonnull align 8 dereferenceable(12) %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer16IncrementPointerEPNS_9MemSDNodeENS_3EVTERNS_18MachinePointerInfoERNS_7SDValueEPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, i16 %2, ptr %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) initializes((0, 21)) %4, ptr nocapture noundef nonnull align 8 dereferenceable(12) %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"struct.llvm::EVT", align 8
   %9 = alloca %"struct.llvm::EVT", align 8
   %10 = alloca %"class.llvm::SDLoc", align 8
@@ -16959,7 +16959,7 @@ declare { ptr, i32 } @_ZN4llvm12SelectionDAG9getVScaleERKNS_5SDLocENS_3EVTENS_5A
 declare noundef i32 @_ZNK4llvm18MachinePointerInfo12getAddrSpaceEv(ptr noundef nonnull align 8 dereferenceable(21)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer9SplitMaskENS_7SDValueE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2512) %1, ptr %2, i32 %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer9SplitMaskENS_7SDValueE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(2512) %1, ptr %2, i32 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDLoc", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %7 = load ptr, ptr %6, align 8
@@ -16990,7 +16990,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2ENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer9SplitMaskENS_7SDValueERKNS_5SDLocE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2512) %1, ptr %2, i32 %3, ptr noundef nonnull align 8 dereferenceable(12) %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer9SplitMaskENS_7SDValueERKNS_5SDLocE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(2512) %1, ptr %2, i32 %3, ptr noundef nonnull align 8 dereferenceable(12) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca %"struct.llvm::EVT", align 8
   %8 = alloca %"struct.std::pair.99", align 8

@@ -4267,7 +4267,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVerte
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 -1, 3) i32 @_Z19ComputeIntersectionN3vcg6Point3IfEES1_RP6CFaceOS4_RS1_(<2 x float> %0, float %1, <2 x float> %2, float %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %6) local_unnamed_addr #12 {
+define noundef range(i32 -1, 3) i32 @_Z19ComputeIntersectionN3vcg6Point3IfEES1_RP6CFaceOS4_RS1_(<2 x float> %0, float %1, <2 x float> %2, float %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %6) local_unnamed_addr #12 {
   %8 = alloca [3 x %"class.vcg::Point3"], align 16
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8

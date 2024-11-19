@@ -395,7 +395,7 @@ declare void @cmsPipelineFree(ptr noundef) local_unnamed_addr #1
 declare i32 @cmsStageSampleCLut16bit(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @GamutSampler(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal noundef i32 @GamutSampler(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 2)) %1, ptr nocapture noundef readonly %2) #0 {
   %4 = alloca %struct.cmsCIELab, align 8
   %5 = alloca %struct.cmsCIELab, align 8
   %6 = alloca %struct.cmsCIELab, align 8

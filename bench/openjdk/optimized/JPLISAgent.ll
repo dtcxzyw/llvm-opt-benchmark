@@ -112,7 +112,7 @@ define hidden ptr @getJPLISEnvironment(ptr noundef %0) local_unnamed_addr #0 {
 declare void @JPLISAssertCondition(i8 noundef zeroext, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 4) i32 @createNewJPLISAgent(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 4) i32 @createNewJPLISAgent(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   store ptr null, ptr %1, align 8
@@ -168,7 +168,7 @@ define hidden ptr @allocateJPLISAgent(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @initializeJPLISAgent(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @initializeJPLISAgent(ptr noundef initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct.jvmtiCapabilities, align 8
   %7 = alloca i32, align 4
   %8 = alloca %struct.jvmtiEventCallbacks, align 8

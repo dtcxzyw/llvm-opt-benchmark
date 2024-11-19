@@ -568,7 +568,7 @@ define dso_local void @ext4_io_submit(ptr nocapture noundef %0) local_unnamed_ad
 declare dso_local void @submit_bio(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @ext4_io_submit_init(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 align 16 {
+define dso_local void @ext4_io_submit_init(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr noundef %1) local_unnamed_addr #4 align 16 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)

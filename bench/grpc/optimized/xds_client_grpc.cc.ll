@@ -1841,7 +1841,7 @@ lpad:                                             ; preds = %if.then.i.i
 declare void @_ZN9grpc_core9XdsClientD2Ev(ptr noundef nonnull align 8 dereferenceable(433)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core13GrpcXdsClientD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core13GrpcXdsClientD2Ev(ptr noundef nonnull align 8 dereferenceable(448) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13GrpcXdsClientE, i64 16), ptr %this, align 8
   %0 = load ptr, ptr @_ZN9grpc_core12_GLOBAL__N_14g_muE, align 8

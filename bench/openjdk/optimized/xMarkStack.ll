@@ -37,7 +37,7 @@ define hidden void @_ZN11XMarkStripeC2Ev(ptr noundef nonnull align 64 dereferenc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN14XMarkStripeSetC2Ev(ptr noundef nonnull align 64 dereferenceable(2112) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN14XMarkStripeSetC2Ev(ptr noundef nonnull align 64 dereferenceable(2112) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %2
 
@@ -56,7 +56,7 @@ define hidden void @_ZN14XMarkStripeSetC2Ev(ptr noundef nonnull align 64 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14XMarkStripeSet12set_nstripesEm(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(2112) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14XMarkStripeSet12set_nstripesEm(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(2112) initializes((0, 16)) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   store i64 %1, ptr %0, align 64
   %3 = add i64 %1, -1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -160,7 +160,7 @@ define hidden noundef nonnull ptr @_ZN14XMarkStripeSet17stripe_for_workerEjj(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22XMarkThreadLocalStacksC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN22XMarkThreadLocalStacksC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 136)) %0) unnamed_addr #4 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false)
   ret void
 }

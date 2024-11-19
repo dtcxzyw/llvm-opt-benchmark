@@ -292,7 +292,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @nvme_file_open(ptr noundef %bs, ptr noundef %options, i32 noundef %flags, ptr noundef %errp) #0 {
+define internal i32 @nvme_file_open(ptr noundef initializes((16588, 16592)) %bs, ptr noundef %options, i32 noundef %flags, ptr noundef %errp) #0 {
 entry:
   %cmd.i = alloca %struct.NvmeCmd, align 1
   %_now.i.i173.i = alloca %struct.timeval, align 8
@@ -906,7 +906,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @nvme_refresh_limits(ptr nocapture noundef %bs, ptr nocapture readnone %errp) #4 {
+define internal void @nvme_refresh_limits(ptr nocapture noundef initializes((16464, 16468), (16472, 16484), (16488, 16500), (16504, 16508), (16536, 16544)) %bs, ptr nocapture readnone %errp) #4 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -3169,7 +3169,7 @@ nvme_trace_command.exit:                          ; preds = %trace_nvme_submit_c
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nvme_admin_cmd_sync_cb(ptr nocapture noundef writeonly %opaque, i32 noundef %ret) #0 {
+define internal void @nvme_admin_cmd_sync_cb(ptr nocapture noundef writeonly initializes((0, 4)) %opaque, i32 noundef %ret) #0 {
 entry:
   store i32 %ret, ptr %opaque, align 4
   tail call void @aio_wait_kick() #17
@@ -4260,7 +4260,7 @@ return:                                           ; preds = %trace_nvme_cmd_map_
 declare void @qemu_co_mutex_unlock(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nvme_rw_cb(ptr noundef %opaque, i32 noundef %ret) #0 {
+define internal void @nvme_rw_cb(ptr noundef initializes((8, 12)) %opaque, i32 noundef %ret) #0 {
 entry:
   %ret1 = getelementptr inbounds i8, ptr %opaque, i64 8
   store i32 %ret, ptr %ret1, align 8

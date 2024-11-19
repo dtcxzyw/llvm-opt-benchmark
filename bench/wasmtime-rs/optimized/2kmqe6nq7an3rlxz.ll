@@ -29,7 +29,7 @@ define nonnull align 8 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h8a10b082d2c3e466E"(ptr nocapture writeonly sret({ [3 x i64], i64, [2 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define void @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h8a10b082d2c3e466E"(ptr nocapture writeonly sret({ [3 x i64], i64, [2 x i64] }) align 8 initializes((0, 48)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   ret void
 }
@@ -45,7 +45,7 @@ define noalias noundef align 8 ptr @"_ZN95_$LT$core..ops..control_flow..ControlF
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h7379a8345950900fE"(ptr nocapture writeonly sret({ [3 x i64], i64, [2 x i64] }) align 8 %0) unnamed_addr #3 {
+define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h7379a8345950900fE"(ptr nocapture writeonly sret({ [3 x i64], i64, [2 x i64] }) align 8 initializes((24, 32)) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 -9223372036854775808, ptr %2, align 8
   ret void
@@ -76,7 +76,7 @@ define { ptr, ptr } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hda7f615ef8ced4bdE"(ptr nocapture writeonly sret({ [3 x i64], i64, [2 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hda7f615ef8ced4bdE"(ptr nocapture writeonly sret({ [3 x i64], i64, [2 x i64] }) align 8 initializes((24, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8, !range !3, !noundef !4
   %5 = icmp eq i64 %4, -9223372036854775808

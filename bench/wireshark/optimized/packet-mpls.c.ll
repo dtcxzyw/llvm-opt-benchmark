@@ -172,7 +172,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.107 = private unnamed_addr constant [29 x i8] c"PW Associated Channel Header\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @decode_mpls_label(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define hidden void @decode_mpls_label(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, ptr nocapture noundef writeonly initializes((0, 1)) %4, ptr nocapture noundef writeonly initializes((0, 1)) %5) local_unnamed_addr #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #3
   %8 = add i32 %1, 1
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %8) #3

@@ -212,7 +212,7 @@ mock_scram_secret.exit:                           ; preds = %62
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr noundef writeonly %5) #0 {
+define internal range(i32 0, 3) i32 @scram_exchange(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 8)) %3, ptr nocapture noundef writeonly %4, ptr noundef writeonly %5) #0 {
   %7 = alloca [32 x i8], align 16
   %8 = alloca [32 x i8], align 16
   %9 = alloca [32 x i8], align 16
@@ -1098,7 +1098,7 @@ define dso_local zeroext i1 @scram_verify_plain_password(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @parse_scram_secret(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @parse_scram_secret(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = tail call ptr @pstrdup(ptr noundef %0) #12
   %10 = tail call ptr @strtok(ptr noundef %9, ptr noundef nonnull @.str.4) #12

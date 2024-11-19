@@ -1136,7 +1136,7 @@ if.end17:                                         ; preds = %if.then11, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog12sparse_table13column_layoutC2ERKNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %sig) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog12sparse_table13column_layoutC2ERKNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(20) initializes((0, 8), (16, 20)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %sig) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
   %m_functional_col_cnt = getelementptr inbounds i8, ptr %this, i64 16
@@ -1581,7 +1581,7 @@ _ZN6vectorIN7datalog12sparse_table11column_infoELb0EjED2Ev.exit: ; preds = %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog12sparse_tableC2ERNS_19sparse_table_pluginERKNS_15table_signatureEj(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(56) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %sig, i32 noundef %init_capacity) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog12sparse_tableC2ERNS_19sparse_table_pluginERKNS_15table_signatureEj(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 28), (32, 36), (40, 48), (56, 60)) %this, ptr noundef nonnull align 8 dereferenceable(56) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %sig, i32 noundef %init_capacity) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
   %m_plugin.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1918,7 +1918,7 @@ _ZN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorD2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog12sparse_tableC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(184) %t) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog12sparse_tableC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 28), (32, 36), (40, 48)) %this, ptr noundef nonnull align 8 dereferenceable(184) %t) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_plugin.i.i = getelementptr inbounds i8, ptr %t, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
@@ -2261,7 +2261,7 @@ _ZN7datalog19sparse_table_plugin3getEPNS_10table_baseE.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog12sparse_tableD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog12sparse_tableD2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog12sparse_tableE, i64 16), ptr %this, align 8
   %m_key_indexes.i = getelementptr inbounds i8, ptr %this, i64 160
@@ -2553,7 +2553,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog12sparse_tableD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN7datalog12sparse_tableD0Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN7datalog12sparse_tableD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -2776,7 +2776,7 @@ _ZN14core_hashtableI18default_hash_entryImEN7datalog13entry_storage16offset_hash
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK7datalog12sparse_table5beginEv(ptr noalias nocapture writeonly sret(%"class.datalog::table_base::iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK7datalog12sparse_table5beginEv(ptr noalias nocapture writeonly sret(%"class.datalog::table_base::iterator") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7datalog10table_base11mk_iteratorEPNS0_13iterator_coreE.exit:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 72)
   %m_ref_cnt.i.i = getelementptr inbounds i8, ptr %call, i64 8
@@ -2816,7 +2816,7 @@ _ZN7datalog10table_base11mk_iteratorEPNS0_13iterator_coreE.exit:
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK7datalog12sparse_table3endEv(ptr noalias nocapture writeonly sret(%"class.datalog::table_base::iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK7datalog12sparse_table3endEv(ptr noalias nocapture writeonly sret(%"class.datalog::table_base::iterator") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7datalog10table_base11mk_iteratorEPNS0_13iterator_coreE.exit:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 72)
   %m_ref_cnt.i.i = getelementptr inbounds i8, ptr %call, i64 8
@@ -5737,7 +5737,7 @@ _ZN6vectorImLb0EjED2Ev.exit:                      ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog19sparse_table_pluginC2ERNS_16relation_managerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 1 %manager) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog19sparse_table_pluginC2ERNS_16relation_managerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 12), (16, 52)) %this, ptr noundef nonnull align 1 %manager) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.symbol, align 8
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull @.str.10)
@@ -5765,7 +5765,7 @@ entry:
 declare void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog19sparse_table_pluginD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog19sparse_table_pluginD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog19sparse_table_pluginE, i64 16), ptr %this, align 8
   invoke void @_ZN7datalog19sparse_table_plugin5resetEv(ptr noundef nonnull align 8 dereferenceable(56) %this)
@@ -5935,7 +5935,7 @@ for.end12:                                        ; preds = %while.body.i.i.i.i,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog19sparse_table_pluginD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN7datalog19sparse_table_pluginD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN7datalog19sparse_table_pluginD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31

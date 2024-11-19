@@ -731,7 +731,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fold_kfold_intarith(ptr nocapture noundef %J) #0 {
+define internal noundef i32 @fold_kfold_intarith(ptr nocapture noundef initializes((184, 188)) %J) #0 {
 entry:
   %left = getelementptr inbounds i8, ptr %J, i64 192
   %0 = load i32, ptr %left, align 8
@@ -857,7 +857,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_kfold_bnot(ptr nocapture noundef %J) #4 {
+define internal noundef i32 @fold_kfold_bnot(ptr nocapture noundef initializes((184, 188)) %J) #4 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %left = getelementptr inbounds i8, ptr %J, i64 192
@@ -868,7 +868,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_kfold_bswap(ptr nocapture noundef %J) #4 {
+define internal noundef i32 @fold_kfold_bswap(ptr nocapture noundef initializes((184, 188)) %J) #4 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %left = getelementptr inbounds i8, ptr %J, i64 192
@@ -2250,7 +2250,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_kfold_tobit(ptr nocapture noundef %J) #4 {
+define internal noundef i32 @fold_kfold_tobit(ptr nocapture noundef initializes((184, 188)) %J) #4 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
@@ -2285,7 +2285,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_kfold_conv_kint_ext(ptr nocapture noundef %J) #4 {
+define internal noundef i32 @fold_kfold_conv_kint_ext(ptr nocapture noundef initializes((184, 186)) %J) #4 {
 entry:
   %left = getelementptr inbounds i8, ptr %J, i64 192
   %0 = load i32, ptr %left, align 8
@@ -2362,7 +2362,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_kfold_conv_kint64_int_i64(ptr nocapture noundef %J) #4 {
+define internal noundef i32 @fold_kfold_conv_kint64_int_i64(ptr nocapture noundef initializes((184, 188)) %J) #4 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
@@ -2397,7 +2397,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fold_kfold_conv_knum_u32_num(ptr nocapture noundef %J) #4 {
+define internal noundef i32 @fold_kfold_conv_knum_u32_num(ptr nocapture noundef initializes((184, 188)) %J) #4 {
 entry:
   %fold = getelementptr inbounds i8, ptr %J, i64 184
   %arrayidx = getelementptr inbounds i8, ptr %J, i64 200

@@ -376,7 +376,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6icu_7522UCharCharacterIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7523StringCharacterIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 align 2 {
+define void @_ZN6icu_7523StringCharacterIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523StringCharacterIteratorE, i64 16), ptr %this, align 8
   %text = getelementptr inbounds i8, ptr %this, i64 32

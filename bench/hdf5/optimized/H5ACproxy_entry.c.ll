@@ -59,7 +59,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.24 = private unnamed_addr constant [42 x i8] c"unknown notify action from metadata cache\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5AC__proxy_entry_image_len(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #0 {
+define internal noundef i32 @H5AC__proxy_entry_image_len(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
   store i64 1, ptr %1, align 8
   ret i32 0
 }

@@ -775,7 +775,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory6TheoryD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory6TheoryD2Ev(ptr noundef nonnull align 8 dereferenceable(408) initializes((0, 8), (344, 352)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory6TheoryE, i64 16), ptr %this, align 8
   %d_sharedTermsIndex = getelementptr inbounds i8, ptr %this, i64 344
@@ -897,7 +897,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory6Theory17setEqualityEngineEPNS1_2eq14EqualityEngineE(ptr nocapture noundef nonnull align 8 dereferenceable(408) %this, ptr noundef %ee) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory6Theory17setEqualityEngineEPNS1_2eq14EqualityEngineE(ptr nocapture noundef nonnull align 8 dereferenceable(408) initializes((160, 168)) %this, ptr noundef %ee) local_unnamed_addr #3 align 2 {
 entry:
   %d_equalityEngine = getelementptr inbounds i8, ptr %this, i64 160
   store ptr %ee, ptr %d_equalityEngine, align 8
@@ -929,7 +929,7 @@ declare void @_ZN4cvc58internal6theory11TheoryState17setEqualityEngineEPNS1_2eq1
 declare void @_ZN4cvc58internal6theory22TheoryInferenceManager17setEqualityEngineEPNS1_2eq14EqualityEngineE(ptr noundef nonnull align 8 dereferenceable(256), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory6Theory20setQuantifiersEngineEPNS1_17QuantifiersEngineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(408) %this, ptr noundef %qe) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN4cvc58internal6theory6Theory20setQuantifiersEngineEPNS1_17QuantifiersEngineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(408) initializes((192, 200)) %this, ptr noundef %qe) local_unnamed_addr #10 align 2 {
 entry:
   %d_quantEngine = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %qe, ptr %d_quantEngine, align 8
@@ -3692,7 +3692,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory6Theory15entailmentCheckENS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"struct.std::pair.592") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %lit) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory6Theory15entailmentCheckENS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"struct.std::pair.592") align 8 initializes((0, 1), (8, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %lit) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.cvc5::internal::NodeTemplate.355", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
@@ -4407,7 +4407,7 @@ ehcleanup225:                                     ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory6Theory3getEv(ptr noalias sret(%"struct.cvc5::internal::theory::Assertion") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(408) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory6Theory3getEv(ptr noalias sret(%"struct.cvc5::internal::theory::Assertion") align 8 initializes((0, 9)) %agg.result, ptr noundef nonnull align 8 dereferenceable(408) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_factsHead = getelementptr inbounds i8, ptr %this, i64 296
   %d_data.i.i = getelementptr inbounds i8, ptr %this, i64 336

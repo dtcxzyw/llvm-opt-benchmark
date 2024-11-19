@@ -206,7 +206,7 @@ declare void @_ZN2cv12GaussianBlurERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Si
 declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8ximgproc12segmentation21GraphSegmentationImpl10buildGraphEPPNS1_4EdgeERiRKNS_3MatE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv8ximgproc12segmentation21GraphSegmentationImpl10buildGraphEPPNS1_4EdgeERiRKNS_3MatE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 12
@@ -1214,7 +1214,7 @@ declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3Mat5setToERKNS_1
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv8ximgproc12segmentation23createGraphSegmentationEdfi(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr") align 8 %0, double noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv8ximgproc12segmentation23createGraphSegmentationEdfi(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr") align 8 initializes((0, 16)) %0, double noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_8ximgproc12segmentation21GraphSegmentationImplEED2Ev.exit:
   %4 = alloca %"class.std::allocator.8", align 1
   %5 = alloca %"class.std::shared_ptr.1", align 8
@@ -1340,7 +1340,7 @@ _ZNSt10shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8ximgproc12segmentation8PointSetC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8ximgproc12segmentation8PointSetC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .loopexit:
   store i32 %1, ptr %0, align 8
   %2 = zext nneg i32 %1 to i64

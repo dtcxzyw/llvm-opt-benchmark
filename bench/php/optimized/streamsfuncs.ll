@@ -716,7 +716,7 @@ declare void @_efree(ptr noundef) local_unnamed_addr #1
 declare i32 @zend_try_assign_typed_ref_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_stream_socket_server(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_stream_socket_server(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8

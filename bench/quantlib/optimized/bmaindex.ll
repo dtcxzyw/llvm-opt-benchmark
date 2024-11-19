@@ -2408,7 +2408,7 @@ unreachable:                                      ; preds = %invoke.cont14
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib4DateppEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK8QuantLib8BMAIndex23forwardingTermStructureEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Handle") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib8BMAIndex23forwardingTermStructureEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Handle") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %termStructure_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   %0 = load ptr, ptr %termStructure_, align 8, !tbaa !65

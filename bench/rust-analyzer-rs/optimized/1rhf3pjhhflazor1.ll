@@ -441,7 +441,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h47d8e1296ff1f34fE.exit.i.i.i: 
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0f139428704cd076E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0f139428704cd076E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !15, !noundef !15
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -459,7 +459,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2a3b052d5887dbf3E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2a3b052d5887dbf3E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !15, !noundef !15
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -477,7 +477,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h48f3c82489903c85E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h48f3c82489903c85E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !15, !noundef !15
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -495,7 +495,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h546e15f4530d6cb2E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h546e15f4530d6cb2E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !15, !noundef !15
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -513,7 +513,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8f9e2e8afb5adc5bE.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8f9e2e8afb5adc5bE.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !15, !noundef !15
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -531,7 +531,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h99f05c9a82f9ac72E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h99f05c9a82f9ac72E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !15, !noundef !15
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -549,7 +549,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha24f08f45d59ab92E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha24f08f45d59ab92E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !15, !noundef !15
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -567,7 +567,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha256e930756bbca2E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha256e930756bbca2E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !15, !noundef !15
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -585,7 +585,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3dc0670dd1c02d4E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3dc0670dd1c02d4E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !15, !noundef !15
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -603,7 +603,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hae2f2048c509686eE.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hae2f2048c509686eE.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !15, !noundef !15
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -621,7 +621,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb00b3f1712302962E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb00b3f1712302962E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !15, !noundef !15
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -639,7 +639,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb2ffcf9d9d3a873bE.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb2ffcf9d9d3a873bE.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !15, !noundef !15
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -657,7 +657,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd006fd985e8265b8E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd006fd985e8265b8E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !15, !noundef !15
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -675,7 +675,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd0b8fa64f2893cd3E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd0b8fa64f2893cd3E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !15, !noundef !15
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -693,7 +693,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd997083119425ff4E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd997083119425ff4E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !15, !noundef !15
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -711,7 +711,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdadd72485c8c6b86E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdadd72485c8c6b86E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !15, !noundef !15
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -729,7 +729,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdb248581faccb5daE.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdb248581faccb5daE.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !15, !noundef !15
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -747,7 +747,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf03e2c77fb997382E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf03e2c77fb997382E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !15, !noundef !15
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -765,7 +765,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf81113c20454ad26E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf81113c20454ad26E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !15, !noundef !15
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -783,7 +783,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfbb27a1910496ce1E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfbb27a1910496ce1E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !15, !noundef !15
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1399,7 +1399,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd9a5ce612b52ebffE.exit.thread.i: ; pred
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2cc1c38eb5d44284E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(168) %1) unnamed_addr #1 {
+define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2cc1c38eb5d44284E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(168) %1) unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8, !range !264, !noundef !15
   %4 = icmp eq i64 %3, 2
   %5 = getelementptr inbounds i8, ptr %1, i64 128
@@ -19630,19 +19630,19 @@ define hidden void @_ZN3std9panicking3try8do_catch17hfeeb1028f0ce8078E.llvm.1421
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN47_$LT$S$u20$as$u20$fst..stream..IntoStreamer$GT$11into_stream17h0e116621c592a021E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ { { { { i64, [1 x i64] }, { i64, [3 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, { ptr, i64 } }, ptr } } } }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(128) %1) unnamed_addr #7 {
+define hidden void @"_ZN47_$LT$S$u20$as$u20$fst..stream..IntoStreamer$GT$11into_stream17h0e116621c592a021E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ { { { { i64, [1 x i64] }, { i64, [3 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, { ptr, i64 } }, ptr } } } }) align 8 dereferenceable(128) initializes((0, 128)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(128) %1) unnamed_addr #7 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN47_$LT$S$u20$as$u20$fst..stream..IntoStreamer$GT$11into_stream17h9ca80c8fc70f704bE.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ { { { { i64, [1 x i64] }, { i64, [3 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, { ptr, i64 } }, ptr } } } }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(128) %1) unnamed_addr #7 {
+define hidden void @"_ZN47_$LT$S$u20$as$u20$fst..stream..IntoStreamer$GT$11into_stream17h9ca80c8fc70f704bE.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ { { { { i64, [1 x i64] }, { i64, [3 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, { ptr, i64 } }, ptr } } } }) align 8 dereferenceable(128) initializes((0, 128)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(128) %1) unnamed_addr #7 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN47_$LT$S$u20$as$u20$fst..stream..IntoStreamer$GT$11into_stream17hae39f7a820f90e9fE.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ { { { { i64, [1 x i64] }, { i64, [3 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, { ptr, i64 } }, ptr } } } }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(128) %1) unnamed_addr #7 {
+define hidden void @"_ZN47_$LT$S$u20$as$u20$fst..stream..IntoStreamer$GT$11into_stream17hae39f7a820f90e9fE.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ { { { { i64, [1 x i64] }, { i64, [3 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, { ptr, i64 } }, ptr } } } }) align 8 dereferenceable(128) initializes((0, 128)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(128) %1) unnamed_addr #7 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
   ret void
 }
@@ -23793,7 +23793,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hd3eee82c966a75d7E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 4 %1, i64 noundef %2) unnamed_addr #0 {
+define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hd3eee82c966a75d7E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef nonnull readonly align 4 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h6a055945ce5d5522E"(i64 noundef %2, i1 noundef zeroext false)
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
@@ -24460,7 +24460,7 @@ default.unreachable1.i.i.i.i:                     ; preds = %103
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN53_$LT$T$u20$as$u20$alloc..alloc..WriteCloneIntoRaw$GT$20write_clone_into_raw17hef6955dc64a5a6c5E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc void @"_ZN53_$LT$T$u20$as$u20$alloc..alloc..WriteCloneIntoRaw$GT$20write_clone_into_raw17hef6955dc64a5a6c5E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull writeonly initializes((0, 48)) %1) unnamed_addr #0 {
   %3 = alloca { [24 x i8], i8, [23 x i8] }, align 8
   call fastcc void @"_ZN61_$LT$cfg..cfg_expr..CfgExpr$u20$as$u20$core..clone..Clone$GT$5clone17h67645bf403a59871E"(ptr noalias nocapture noundef align 8 dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(48) %0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
@@ -31530,7 +31530,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h49665c62d6f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h385f9ce99db57b14E"(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, {} }, ptr, i64, i64 }) align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h385f9ce99db57b14E"(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, {} }, ptr, i64, i64 }) align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !15
   %5 = tail call { i64, i64 } @_ZN4core5slice5index5range17hbf85d82d83484297E(i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c5ce2d394dbec0c3d0dd66ce480f513c.36.llvm.14212318151792154407)
@@ -35763,7 +35763,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec14handle_reserve28_$u7b$$u7b$closu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h058893ebe4963776E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h058893ebe4963776E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -35779,7 +35779,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h058893ebe4963776E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h0a1e934ca7a11beaE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h0a1e934ca7a11beaE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -35795,7 +35795,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h0a1e934ca7a11beaE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h0e50b71e081b32b7E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h0e50b71e081b32b7E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -35811,7 +35811,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h0e50b71e081b32b7E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h113fe19f20fbd74cE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h113fe19f20fbd74cE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -35827,7 +35827,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h113fe19f20fbd74cE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h11ea0b129f16b103E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h11ea0b129f16b103E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -35843,7 +35843,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h11ea0b129f16b103E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h1261a242158bcf91E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h1261a242158bcf91E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -35859,7 +35859,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h1261a242158bcf91E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h13c94ecc2655776eE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h13c94ecc2655776eE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -35875,7 +35875,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h13c94ecc2655776eE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h1452f25078d202d9E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h1452f25078d202d9E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -35891,7 +35891,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h1452f25078d202d9E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h14896d8ff4452dc4E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h14896d8ff4452dc4E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -35907,7 +35907,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h14896d8ff4452dc4E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h16c55ea30a41e7ecE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h16c55ea30a41e7ecE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -35923,7 +35923,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h16c55ea30a41e7ecE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h18750ef20e88cf1dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h18750ef20e88cf1dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -35939,7 +35939,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h18750ef20e88cf1dE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h1aedaa682c1f5d5bE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h1aedaa682c1f5d5bE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -35955,7 +35955,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h1aedaa682c1f5d5bE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h1c5d53cb0d9c42bfE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h1c5d53cb0d9c42bfE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -35971,7 +35971,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h1c5d53cb0d9c42bfE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h228bd3d038300f5dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h228bd3d038300f5dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -35987,7 +35987,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h228bd3d038300f5dE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h23eddc32d9ea8cbeE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h23eddc32d9ea8cbeE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36003,7 +36003,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h23eddc32d9ea8cbeE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h23f35c215b7ccb37E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h23f35c215b7ccb37E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36019,7 +36019,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h23f35c215b7ccb37E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h25bc7aca05ac0d72E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h25bc7aca05ac0d72E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36035,7 +36035,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h25bc7aca05ac0d72E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h2cfac59f5f746a33E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h2cfac59f5f746a33E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36050,7 +36050,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h2cfac59f5f746a33E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h3278b579a0b89ddfE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h3278b579a0b89ddfE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36066,7 +36066,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h3278b579a0b89ddfE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h34a2af6dea4fdefeE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h34a2af6dea4fdefeE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36082,7 +36082,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h34a2af6dea4fdefeE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h34cef0ca225e51efE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h34cef0ca225e51efE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36098,7 +36098,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h34cef0ca225e51efE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h3a30632920ead5d7E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h3a30632920ead5d7E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36114,7 +36114,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h3a30632920ead5d7E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h3e3c3a191c677c1dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h3e3c3a191c677c1dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36130,7 +36130,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h3e3c3a191c677c1dE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h42269fc99059f298E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h42269fc99059f298E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36146,7 +36146,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h42269fc99059f298E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h43e30e4c0db651a8E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h43e30e4c0db651a8E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36162,7 +36162,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h43e30e4c0db651a8E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h47444f8ae3c71c0dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h47444f8ae3c71c0dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36178,7 +36178,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h47444f8ae3c71c0dE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h47814aeb6fb64798E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h47814aeb6fb64798E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36194,7 +36194,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h47814aeb6fb64798E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h4c24b9da68a53453E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h4c24b9da68a53453E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36210,7 +36210,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h4c24b9da68a53453E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h4d4b3016f85fdd49E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h4d4b3016f85fdd49E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36226,7 +36226,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h4d4b3016f85fdd49E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h4f5135e28d6a6398E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h4f5135e28d6a6398E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36242,7 +36242,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h4f5135e28d6a6398E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h50568219094ea592E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h50568219094ea592E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36258,7 +36258,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h50568219094ea592E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h54e2064ca31b6e3cE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h54e2064ca31b6e3cE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36274,7 +36274,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h54e2064ca31b6e3cE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h5539d430a981e81dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h5539d430a981e81dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36290,7 +36290,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h5539d430a981e81dE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h57a44f26e736e97cE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h57a44f26e736e97cE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36306,7 +36306,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h57a44f26e736e97cE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h588819e065b8ea0aE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h588819e065b8ea0aE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36322,7 +36322,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h588819e065b8ea0aE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h58d15e6ef94b57e5E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h58d15e6ef94b57e5E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36338,7 +36338,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h58d15e6ef94b57e5E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h59cab619b15bc68dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h59cab619b15bc68dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36354,7 +36354,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h59cab619b15bc68dE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h618638b2f6b3b6edE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h618638b2f6b3b6edE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36370,7 +36370,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h618638b2f6b3b6edE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h6451bd10a9d2e585E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h6451bd10a9d2e585E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36386,7 +36386,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h6451bd10a9d2e585E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h6ef7b04e188a1d6dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h6ef7b04e188a1d6dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36402,7 +36402,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h6ef7b04e188a1d6dE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h72f612b0f097167fE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h72f612b0f097167fE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36418,7 +36418,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h72f612b0f097167fE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h74676b77a86ec446E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h74676b77a86ec446E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36434,7 +36434,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h74676b77a86ec446E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h7676a0d3c6d39dacE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h7676a0d3c6d39dacE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36450,7 +36450,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h7676a0d3c6d39dacE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h7b216e0f740feb5bE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h7b216e0f740feb5bE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36466,7 +36466,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h7b216e0f740feb5bE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h7fbdf04577b1abccE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h7fbdf04577b1abccE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36482,7 +36482,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h7fbdf04577b1abccE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h8b6c9ec8a612e0beE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h8b6c9ec8a612e0beE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36498,7 +36498,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h8b6c9ec8a612e0beE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h8d471f086a8a81c7E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h8d471f086a8a81c7E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36514,7 +36514,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h8d471f086a8a81c7E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h8e260c92b26790a0E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h8e260c92b26790a0E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36530,7 +36530,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h8e260c92b26790a0E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h90896eea8047e68fE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h90896eea8047e68fE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36546,7 +36546,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h90896eea8047e68fE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h9795ae45dde19282E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h9795ae45dde19282E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36562,7 +36562,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h9795ae45dde19282E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h9ff71acecca4a1f6E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h9ff71acecca4a1f6E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36578,7 +36578,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h9ff71acecca4a1f6E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17ha54d1fb84d21fc16E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17ha54d1fb84d21fc16E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36594,7 +36594,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17ha54d1fb84d21fc16E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17ha5fcac842346de9fE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17ha5fcac842346de9fE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36610,7 +36610,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17ha5fcac842346de9fE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17ha780c502f287d6cfE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17ha780c502f287d6cfE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36626,7 +36626,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17ha780c502f287d6cfE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17ha802a09b916cbe7bE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17ha802a09b916cbe7bE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36642,7 +36642,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17ha802a09b916cbe7bE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17ha816c18fb509f453E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17ha816c18fb509f453E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36658,7 +36658,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17ha816c18fb509f453E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17ha90d121d336634dbE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17ha90d121d336634dbE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36674,7 +36674,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17ha90d121d336634dbE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17had042e4b2c599d74E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17had042e4b2c599d74E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36690,7 +36690,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17had042e4b2c599d74E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17hadd5f08a4c4babf8E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17hadd5f08a4c4babf8E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36706,7 +36706,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17hadd5f08a4c4babf8E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17haef77e3ccc9225d8E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17haef77e3ccc9225d8E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36722,7 +36722,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17haef77e3ccc9225d8E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17hb44306c220d008ccE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17hb44306c220d008ccE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36738,7 +36738,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17hb44306c220d008ccE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17hb601f08a7354b3e1E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17hb601f08a7354b3e1E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36754,7 +36754,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17hb601f08a7354b3e1E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17hb9d17bd74b6b42d6E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17hb9d17bd74b6b42d6E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36770,7 +36770,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17hb9d17bd74b6b42d6E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17hbc9075a7d3786725E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17hbc9075a7d3786725E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36786,7 +36786,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17hbc9075a7d3786725E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17hc1b2e0483602629bE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17hc1b2e0483602629bE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36802,7 +36802,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17hc1b2e0483602629bE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17hc38a4a7b8e8476d7E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17hc38a4a7b8e8476d7E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36818,7 +36818,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17hc38a4a7b8e8476d7E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17hc44054696dd20f63E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17hc44054696dd20f63E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36834,7 +36834,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17hc44054696dd20f63E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17hc4d6e357d0c503baE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17hc4d6e357d0c503baE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36850,7 +36850,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17hc4d6e357d0c503baE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17hcb5e08602cd46605E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17hcb5e08602cd46605E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36866,7 +36866,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17hcb5e08602cd46605E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17hcba3cbe90b7cf5cfE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17hcba3cbe90b7cf5cfE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36882,7 +36882,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17hcba3cbe90b7cf5cfE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17hcddb393873ec999eE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17hcddb393873ec999eE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36898,7 +36898,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17hcddb393873ec999eE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17he3e9311755bccdf5E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17he3e9311755bccdf5E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36913,7 +36913,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17he3e9311755bccdf5E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17hea1845fb30078675E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17hea1845fb30078675E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36929,7 +36929,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17hea1845fb30078675E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17hec849e2d18593846E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17hec849e2d18593846E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36945,7 +36945,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17hec849e2d18593846E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17hf2dbb81ed4abd2dfE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17hf2dbb81ed4abd2dfE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36961,7 +36961,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17hf2dbb81ed4abd2dfE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17hf64d62b7a1346ed3E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17hf64d62b7a1346ed3E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36977,7 +36977,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17hf64d62b7a1346ed3E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17hfd2cdfc9a8bbc1bfE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17hfd2cdfc9a8bbc1bfE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(304) ptr %5(ptr noundef nonnull align 1 %1)
@@ -36993,7 +36993,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17hfd2cdfc9a8bbc1bfE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17hfe1b1cc98d8f4791E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17hfe1b1cc98d8f4791E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !15, !nonnull !15
   %6 = tail call noundef align 8 dereferenceable(320) ptr %5(ptr noundef nonnull align 1 %1)
@@ -38586,7 +38586,7 @@ default.unreachable:                              ; preds = %"_ZN53_$LT$smol_str
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h4feb303dd3885326E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ { { ptr, ptr, i64, ptr, {}, { {} } }, i64 } }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #1 {
+define hidden void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h4feb303dd3885326E.llvm.14212318151792154407"(ptr noalias nocapture noundef writeonly sret({ { { ptr, ptr, i64, ptr, {}, { {} } }, i64 } }) align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   ret void
 }
@@ -38666,7 +38666,7 @@ define hidden noundef zeroext i1 @"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h152e8e3804f007e2E"(ptr noalias nocapture noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h152e8e3804f007e2E"(ptr noalias nocapture noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !15, !noundef !15

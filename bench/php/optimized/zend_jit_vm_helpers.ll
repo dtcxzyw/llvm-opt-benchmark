@@ -1140,7 +1140,7 @@ define hidden i32 @zend_jit_loop_trace_helper(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 128) i32 @zend_jit_trace_execute(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 128) i32 @zend_jit_trace_execute(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef initializes((0, 2), (3, 4), (8, 20), (24, 32)) %2, i8 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca [14 x ptr], align 16
   %8 = load ptr, ptr %0, align 8

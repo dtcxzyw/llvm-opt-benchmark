@@ -3840,13 +3840,13 @@ define void @"_ZN83_$LT$uu_expr..syntax_tree..NumOrStr$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN104_$LT$uu_expr..syntax_tree..NumOrStr$u20$as$u20$core..convert..From$LT$num_bigint..bigint..BigInt$GT$$GT$4from17h2cc10a8850ced62dE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #3 {
+define void @"_ZN104_$LT$uu_expr..syntax_tree..NumOrStr$u20$as$u20$core..convert..From$LT$num_bigint..bigint..BigInt$GT$$GT$4from17h2cc10a8850ced62dE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN99_$LT$uu_expr..syntax_tree..NumOrStr$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17h34d56b2d94150f75E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #3 {
+define void @"_ZN99_$LT$uu_expr..syntax_tree..NumOrStr$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17h34d56b2d94150f75E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8

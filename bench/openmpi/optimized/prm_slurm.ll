@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [2 x i8] c"r\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1366, 1) i32 @get_remaining_time(ptr nocapture noundef writeonly %0) #0 {
+define internal range(i32 -1366, 1) i32 @get_remaining_time(ptr nocapture noundef writeonly initializes((0, 4)) %0) #0 {
   %2 = alloca [256 x i8], align 16
   %3 = alloca ptr, align 8
   store i32 -1, ptr %0, align 4

@@ -9166,7 +9166,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPN3glw6ObjectESt4pairIKS2_PNS0_6detail1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN24DecorateRasterProjPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN24DecorateRasterProjPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((440, 449)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca %"class.QtPrivate::QForeachContainer", align 8
@@ -9766,7 +9766,7 @@ declare noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef, i32 noundef
 declare void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN24DecorateRasterProjPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN24DecorateRasterProjPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8), (16, 24)) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
@@ -10002,7 +10002,7 @@ _ZN14DecoratePluginD2Ev.exit:                     ; preds = %_ZN5QListIiED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN24DecorateRasterProjPluginD1Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) unnamed_addr #4 align 2 {
+define void @_ZN24DecorateRasterProjPluginD1Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN24DecorateRasterProjPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @_ZTT24DecorateRasterProjPlugin) #24
   %2 = getelementptr inbounds i8, ptr %0, i64 440
   store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %2, align 8
@@ -10012,7 +10012,7 @@ define void @_ZN24DecorateRasterProjPluginD1Ev(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn16_N24DecorateRasterProjPluginD1Ev(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZThn16_N24DecorateRasterProjPluginD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN24DecorateRasterProjPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %2, ptr noundef nonnull @_ZTT24DecorateRasterProjPlugin) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 424
@@ -10037,7 +10037,7 @@ define void @_ZTv0_n24_N24DecorateRasterProjPluginD1Ev(ptr noundef %0) unnamed_a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN24DecorateRasterProjPluginD0Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) unnamed_addr #4 align 2 {
+define void @_ZN24DecorateRasterProjPluginD0Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN24DecorateRasterProjPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @_ZTT24DecorateRasterProjPlugin) #24
   %2 = getelementptr inbounds i8, ptr %0, i64 440
   store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %2, align 8
@@ -10048,7 +10048,7 @@ define void @_ZN24DecorateRasterProjPluginD0Ev(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn16_N24DecorateRasterProjPluginD0Ev(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZThn16_N24DecorateRasterProjPluginD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN24DecorateRasterProjPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %2, ptr noundef nonnull @_ZTT24DecorateRasterProjPlugin) #24
   %3 = getelementptr inbounds i8, ptr %0, i64 424
@@ -10075,14 +10075,14 @@ define void @_ZTv0_n24_N24DecorateRasterProjPluginD0Ev(ptr noundef %0) unnamed_a
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK24DecorateRasterProjPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(440) %1) unnamed_addr #10 align 2 {
+define void @_ZNK24DecorateRasterProjPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(440) %1) unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.11, i32 noundef 18)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n40_NK24DecorateRasterProjPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
+define void @_ZTv0_n40_NK24DecorateRasterProjPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.11, i32 noundef 18), !noalias !71
   store ptr %3, ptr %0, align 8, !alias.scope !71

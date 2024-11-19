@@ -1057,7 +1057,7 @@ if.end27:                                         ; preds = %if.end22, %if.end8,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16veloxtpFlexLexer20yy_load_buffer_stateEv(ptr noundef nonnull align 8 dereferenceable(732) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN16veloxtpFlexLexer20yy_load_buffer_stateEv(ptr noundef nonnull align 8 dereferenceable(732) initializes((8, 16), (604, 616)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %yy_buffer_stack = getelementptr inbounds i8, ptr %this, i64 648
   %0 = load ptr, ptr %yy_buffer_stack, align 8
@@ -1576,7 +1576,7 @@ return:                                           ; preds = %if.then11, %if.end1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16veloxtpFlexLexerC2EPSiPSo(ptr noundef nonnull align 8 dereferenceable(732) %this, ptr noundef %arg_yyin, ptr noundef %arg_yyout) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16veloxtpFlexLexerC2EPSiPSo(ptr noundef nonnull align 8 dereferenceable(732) initializes((0, 8)) %this, ptr noundef %arg_yyin, ptr noundef %arg_yyout) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16veloxtpFlexLexer, i64 16), ptr %this, align 8
   %yyin = getelementptr inbounds i8, ptr %this, i64 48
@@ -1637,7 +1637,7 @@ declare void @_ZNSiC1EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonn
 declare void @_ZNSoC1EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16veloxtpFlexLexer11ctor_commonEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(732) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN16veloxtpFlexLexer11ctor_commonEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(732) initializes((20, 36), (40, 48), (608, 628), (632, 656), (672, 680), (712, 732)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %yy_c_buf_p = getelementptr inbounds i8, ptr %this, i64 608
   %yy_flex_debug = getelementptr inbounds i8, ptr %this, i64 24
@@ -1669,7 +1669,7 @@ declare void @_ZNSoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_
 declare void @_ZNSiD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16veloxtpFlexLexerC2ERSiRSo(ptr noundef nonnull align 8 dereferenceable(732) %this, ptr noundef nonnull align 8 dereferenceable(16) %arg_yyin, ptr noundef nonnull align 8 dereferenceable(8) %arg_yyout) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16veloxtpFlexLexerC2ERSiRSo(ptr noundef nonnull align 8 dereferenceable(732) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(16) %arg_yyin, ptr noundef nonnull align 8 dereferenceable(8) %arg_yyout) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16veloxtpFlexLexer, i64 16), ptr %this, align 8
   %yyin = getelementptr inbounds i8, ptr %this, i64 48
@@ -1722,7 +1722,7 @@ lpad7:                                            ; preds = %invoke.cont8, %entr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN16veloxtpFlexLexerD2Ev(ptr noundef nonnull align 8 dereferenceable(732) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16veloxtpFlexLexerD2Ev(ptr noundef nonnull align 8 dereferenceable(732) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16veloxtpFlexLexer, i64 16), ptr %this, align 8
   %yy_state_buf = getelementptr inbounds i8, ptr %this, i64 672
@@ -3111,7 +3111,7 @@ declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9parseTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %typeText) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9parseTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %typeText) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %is = alloca %"class.std::__cxx11::basic_istringstream", align 8
   %scanner = alloca %"class.facebook::velox::type::Scanner", align 8

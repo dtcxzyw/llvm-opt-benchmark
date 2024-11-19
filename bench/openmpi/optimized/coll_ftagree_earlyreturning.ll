@@ -113,7 +113,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.send_msg = private unnamed_addr constant [3 x ptr] [ptr @.str.9, ptr @.str.10, ptr @.str.11], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @era_value_constructor(ptr nocapture noundef writeonly %0) #0 {
+define internal void @era_value_constructor(ptr nocapture noundef writeonly initializes((16, 56)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -153,7 +153,7 @@ define internal void @era_value_destructor(ptr nocapture noundef readonly %0) #1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @era_agreement_comm_specific_constructor(ptr nocapture noundef writeonly %0) #0 {
+define internal void @era_agreement_comm_specific_constructor(ptr nocapture noundef writeonly initializes((16, 28), (32, 60)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -201,7 +201,7 @@ define internal void @era_agreement_comm_specific_destructor(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @era_agreement_info_constructor(ptr noundef %0) #2 {
+define internal void @era_agreement_info_constructor(ptr noundef initializes((16, 36), (40, 56), (64, 68), (72, 88), (272, 276)) %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32

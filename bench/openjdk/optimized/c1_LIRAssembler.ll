@@ -311,7 +311,7 @@ _ZN8ciMethod15raw_code_at_bciEi.exit:             ; preds = %_ZN8ciMethod4codeEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13LIR_AssemblerC2EP11Compilation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN13LIR_AssemblerC2EP11Compilation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 60), (76, 89)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -347,7 +347,7 @@ define hidden void @_ZN13LIR_AssemblerC2EP11Compilation(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13LIR_AssemblerD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN13LIR_AssemblerD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((56, 60), (76, 89)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 76

@@ -2826,7 +2826,7 @@ unreachable:                                      ; preds = %invoke.cont31
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22InflationTermStructure14setSeasonalityERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %seasonality) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22InflationTermStructure14setSeasonalityERKN5boost10shared_ptrINS_11SeasonalityEEE(ptr noundef nonnull align 8 dereferenceable(113) initializes((64, 72)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %seasonality) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

@@ -985,7 +985,7 @@ if.end13:                                         ; preds = %if.else, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3nla7emonics11do_canonizeERNS_5monicE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(34) %m) local_unnamed_addr #4 align 2 {
+define hidden void @_ZNK3nla7emonics11do_canonizeERNS_5monicE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(34) initializes((24, 25)) %m) local_unnamed_addr #4 align 2 {
 entry:
   %m_rsign.i = getelementptr inbounds i8, ptr %m, i64 24
   store i8 0, ptr %m_rsign.i, align 8
@@ -2089,7 +2089,7 @@ do.end:                                           ; preds = %do.cond, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3nla7emonics13insert_cg_monERNS_5monicE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(34) %m) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3nla7emonics13insert_cg_monERNS_5monicE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(34) initializes((24, 25)) %m) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca i32, align 4
   %ref.tmp = alloca %class.svector, align 8
@@ -3853,7 +3853,7 @@ return:                                           ; preds = %if.end29, %if.else,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3nla7emonics11pf_iteratorC2ERKS0_RNS_5monicEb(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(216) %m, ptr noundef nonnull align 8 dereferenceable(34) %mon, i1 noundef zeroext %at_end) unnamed_addr #4 align 2 {
+define hidden void @_ZN3nla7emonics11pf_iteratorC2ERKS0_RNS_5monicEb(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(216) %m, ptr noundef nonnull align 8 dereferenceable(34) %mon, i1 noundef zeroext %at_end) unnamed_addr #4 align 2 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_mon = getelementptr inbounds i8, ptr %this, i64 8
@@ -4242,7 +4242,7 @@ for.end:                                          ; preds = %_ZNK3nla7emonics8it
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3nla7emonics11pf_iteratorC2ERKS0_jb(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(216) %m, i32 noundef %v, i1 noundef zeroext %at_end) unnamed_addr #4 align 2 {
+define hidden void @_ZN3nla7emonics11pf_iteratorC2ERKS0_jb(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(216) %m, i32 noundef %v, i1 noundef zeroext %at_end) unnamed_addr #4 align 2 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_mon = getelementptr inbounds i8, ptr %this, i64 8

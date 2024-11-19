@@ -4214,7 +4214,7 @@ sw.epilog:                                        ; preds = %half_to_float.exit2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @half_to_float4(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %src) unnamed_addr #5 {
+define internal fastcc void @half_to_float4(ptr nocapture noundef writeonly initializes((0, 16)) %out, ptr nocapture noundef readonly %src) unnamed_addr #5 {
 entry:
   %0 = load i16, ptr %src, align 2
   %conv.i.i = zext i16 %0 to i32

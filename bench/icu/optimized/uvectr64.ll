@@ -29,7 +29,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_759UVector64C2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_759UVector64C2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 20), (24, 32)) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759UVector64E, i64 16), ptr %this, align 8
   %count = getelementptr inbounds i8, ptr %this, i64 8
@@ -67,7 +67,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_759UVector645_initEiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %initialCapacity, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_759UVector645_initEiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((24, 32)) %this, i32 noundef %initialCapacity, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp slt i32 %initialCapacity, 1
   %spec.store.select = select i1 %cmp, i32 8, i32 %initialCapacity
@@ -112,7 +112,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_759UVector64C2EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %initialCapacity, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_759UVector64C2EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 20), (24, 32)) %this, i32 noundef %initialCapacity, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759UVector64E, i64 16), ptr %this, align 8
   %count = getelementptr inbounds i8, ptr %this, i64 8
@@ -168,7 +168,7 @@ declare i32 @uprv_min_75(i32 noundef, i32 noundef) local_unnamed_addr #3
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_759UVector64D2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_759UVector64D2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759UVector64E, i64 16), ptr %this, align 8
   %elements = getelementptr inbounds i8, ptr %this, i64 24
@@ -628,7 +628,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_759UVector6417removeAllElementsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) local_unnamed_addr #10 align 2 {
+define void @_ZN6icu_759UVector6417removeAllElementsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((8, 12)) %this) local_unnamed_addr #10 align 2 {
 entry:
   %count = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %count, align 8

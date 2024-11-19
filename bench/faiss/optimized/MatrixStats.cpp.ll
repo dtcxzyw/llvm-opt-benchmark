@@ -125,7 +125,7 @@ define void @_ZN5faiss11MatrixStats11PerDimStats3addEf(ptr nocapture noundef non
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5faiss11MatrixStats11PerDimStats16compute_mean_stdEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN5faiss11MatrixStats11PerDimStats16compute_mean_stdEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((56, 80)) %0) local_unnamed_addr #0 align 2 {
   %2 = load i64, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8

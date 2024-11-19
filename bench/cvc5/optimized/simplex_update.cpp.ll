@@ -107,7 +107,7 @@ _ZN4cvc58internallsIiEERSoS2_RKSt8optionalIT_E.exit: ; preds = %if.then.i, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(204) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(204) initializes((0, 8), (72, 73), (80, 81), (88, 89), (96, 97), (168, 169), (184, 185), (192, 204)) %this) unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr @_ZN4cvc58internal6theory5arith6linear17ARITHVAR_SENTINELE, align 4
   store i32 %0, ptr %this, align 8
@@ -133,7 +133,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfoC2Eji(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(204) %this, i32 noundef %nb, i32 noundef %dir) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfoC2Eji(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(204) initializes((0, 8), (72, 73), (80, 81), (88, 89), (96, 97), (168, 169), (184, 185), (192, 204)) %this, i32 noundef %nb, i32 noundef %dir) unnamed_addr #4 align 2 {
 entry:
   store i32 %nb, ptr %this, align 8
   %d_nonbasicDirection = getelementptr inbounds i8, ptr %this, i64 4
@@ -158,7 +158,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfoC2EbjRKNS0_13DeltaRationalERKNS0_8RationalEPNS3_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(204) %this, i1 zeroext %conflict, i32 noundef %nb, ptr noundef nonnull align 8 dereferenceable(64) %delta, ptr noundef nonnull align 8 dereferenceable(32) %r, ptr noundef %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfoC2EbjRKNS0_13DeltaRationalERKNS0_8RationalEPNS3_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(204) initializes((0, 8)) %this, i1 zeroext %conflict, i32 noundef %nb, ptr noundef nonnull align 8 dereferenceable(64) %delta, ptr noundef nonnull align 8 dereferenceable(32) %r, ptr noundef %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %nb, ptr %this, align 8
   %_mp_size.i.i = getelementptr inbounds i8, ptr %delta, i64 4
@@ -207,7 +207,7 @@ _ZNK4cvc58internal13DeltaRational3sgnEv.exit:     ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfo8conflictEjRKNS0_13DeltaRationalERKNS0_8RationalEPNS3_10ConstraintE(ptr noalias sret(%"class.cvc5::internal::theory::arith::linear::UpdateInfo") align 8 %agg.result, i32 noundef %nb, ptr noundef nonnull align 8 dereferenceable(64) %delta, ptr noundef nonnull align 8 dereferenceable(32) %r, ptr noundef %lim) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfo8conflictEjRKNS0_13DeltaRationalERKNS0_8RationalEPNS3_10ConstraintE(ptr noalias sret(%"class.cvc5::internal::theory::arith::linear::UpdateInfo") align 8 initializes((0, 8)) %agg.result, i32 noundef %nb, ptr noundef nonnull align 8 dereferenceable(64) %delta, ptr noundef nonnull align 8 dereferenceable(32) %r, ptr noundef %lim) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %nb, ptr %agg.result, align 8
   %_mp_size.i.i.i = getelementptr inbounds i8, ptr %delta, i64 4
@@ -256,7 +256,7 @@ _ZN4cvc58internal6theory5arith6linear10UpdateInfoC2EbjRKNS0_13DeltaRationalERKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfo15updateUnboundedERKNS0_13DeltaRationalEii(ptr noundef nonnull align 8 dereferenceable(204) %this, ptr noundef nonnull align 8 dereferenceable(64) %delta, i32 noundef %ec, i32 noundef %f) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfo15updateUnboundedERKNS0_13DeltaRationalEii(ptr noundef nonnull align 8 dereferenceable(204) initializes((192, 200)) %this, ptr noundef nonnull align 8 dereferenceable(64) %delta, i32 noundef %ec, i32 noundef %f) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_limiting = getelementptr inbounds i8, ptr %this, i64 192
   store ptr null, ptr %d_limiting, align 8
@@ -333,7 +333,7 @@ _ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfo15updatePureFocusERKNS0_13DeltaRationalEPNS3_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(204) %this, ptr noundef nonnull align 8 dereferenceable(64) %delta, ptr noundef %c) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfo15updatePureFocusERKNS0_13DeltaRationalEPNS3_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(204) initializes((192, 200)) %this, ptr noundef nonnull align 8 dereferenceable(64) %delta, ptr noundef %c) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_limiting = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %c, ptr %d_limiting, align 8
@@ -411,7 +411,7 @@ _ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfo11updatePivotERKNS0_13DeltaRationalERKNS0_8RationalEPNS3_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(204) %this, ptr noundef nonnull align 8 dereferenceable(64) %delta, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %r, ptr noundef %c) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfo11updatePivotERKNS0_13DeltaRationalERKNS0_8RationalEPNS3_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(204) initializes((192, 200)) %this, ptr noundef nonnull align 8 dereferenceable(64) %delta, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %r, ptr noundef %c) local_unnamed_addr #3 align 2 {
 entry:
   %d_limiting = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %c, ptr %d_limiting, align 8
@@ -504,7 +504,7 @@ _ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfo11updatePivotERKNS0_13DeltaRationalERKNS0_8RationalEPNS3_10ConstraintEi(ptr noundef nonnull align 8 dereferenceable(204) %this, ptr noundef nonnull align 8 dereferenceable(64) %delta, ptr noundef nonnull align 8 dereferenceable(32) %r, ptr noundef %c, i32 noundef %ec) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfo11updatePivotERKNS0_13DeltaRationalERKNS0_8RationalEPNS3_10ConstraintEi(ptr noundef nonnull align 8 dereferenceable(204) initializes((192, 200)) %this, ptr noundef nonnull align 8 dereferenceable(64) %delta, ptr noundef nonnull align 8 dereferenceable(32) %r, ptr noundef %c, i32 noundef %ec) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_limiting = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %c, ptr %d_limiting, align 8
@@ -588,7 +588,7 @@ _ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfo15witnessedUpdateERKNS0_13DeltaRationalEPNS3_10ConstraintEii(ptr noundef nonnull align 8 dereferenceable(204) %this, ptr noundef nonnull align 8 dereferenceable(64) %delta, ptr noundef %c, i32 noundef %ec, i32 noundef %fd) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfo15witnessedUpdateERKNS0_13DeltaRationalEPNS3_10ConstraintEii(ptr noundef nonnull align 8 dereferenceable(204) initializes((192, 200)) %this, ptr noundef nonnull align 8 dereferenceable(64) %delta, ptr noundef %c, i32 noundef %ec, i32 noundef %fd) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_limiting = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %c, ptr %d_limiting, align 8
@@ -665,7 +665,7 @@ _ZN4cvc58internal6theory5arith6linear10UpdateInfo13updateWitnessEv.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfo6updateERKNS0_13DeltaRationalERKNS0_8RationalEPNS3_10ConstraintEii(ptr noundef nonnull align 8 dereferenceable(204) %this, ptr noundef nonnull align 8 dereferenceable(64) %delta, ptr noundef nonnull align 8 dereferenceable(32) %r, ptr noundef %c, i32 noundef %ec, i32 noundef %fd) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfo6updateERKNS0_13DeltaRationalERKNS0_8RationalEPNS3_10ConstraintEii(ptr noundef nonnull align 8 dereferenceable(204) initializes((192, 200)) %this, ptr noundef nonnull align 8 dereferenceable(64) %delta, ptr noundef nonnull align 8 dereferenceable(32) %r, ptr noundef %c, i32 noundef %ec, i32 noundef %fd) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_limiting = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %c, ptr %d_limiting, align 8

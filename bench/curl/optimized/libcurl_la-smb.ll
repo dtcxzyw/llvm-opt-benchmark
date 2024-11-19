@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.11 = private unnamed_addr constant [6 x i8] c"?????\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @smb_setup_connection(ptr noundef %data, ptr nocapture noundef %conn) #0 {
+define internal i32 @smb_setup_connection(ptr noundef initializes((392, 400)) %data, ptr nocapture noundef %conn) #0 {
 entry:
   %path.i = alloca ptr, align 8
   %0 = load ptr, ptr @Curl_ccalloc, align 8
@@ -125,7 +125,7 @@ return:                                           ; preds = %entry, %smb_parse_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 4) i32 @smb_do(ptr nocapture noundef readonly %data, ptr nocapture noundef writeonly %done) #1 {
+define internal range(i32 0, 4) i32 @smb_do(ptr nocapture noundef readonly %data, ptr nocapture noundef writeonly initializes((0, 1)) %done) #1 {
 entry:
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
@@ -887,7 +887,7 @@ return:                                           ; preds = %if.end16, %if.end16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @smb_getsock(ptr nocapture readnone %data, ptr nocapture noundef readonly %conn, ptr nocapture noundef writeonly %socks) #2 {
+define internal noundef i32 @smb_getsock(ptr nocapture readnone %data, ptr nocapture noundef readonly %conn, ptr nocapture noundef writeonly initializes((0, 4)) %socks) #2 {
 entry:
   %sock = getelementptr inbounds i8, ptr %conn, i64 392
   %0 = load i32, ptr %sock, align 8
@@ -928,7 +928,7 @@ declare void @Curl_conncontrol(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @Curl_conn_connect(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @smb_send_and_recv(ptr noundef %data, ptr nocapture noundef nonnull writeonly %msg) unnamed_addr #0 {
+define internal fastcc i32 @smb_send_and_recv(ptr noundef %data, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %msg) unnamed_addr #0 {
 entry:
   %bytes_read.i = alloca i64, align 8
   %bytes_written.i = alloca i64, align 8

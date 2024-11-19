@@ -191,7 +191,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_
 @_ZN14FinalizerEntryD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN14FinalizerEntryD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14FinalizerEntryC2EPK13InstanceKlass(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN14FinalizerEntryC2EPK13InstanceKlass(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr i8, ptr %1, i64 112
   %.val = load ptr, ptr %3, align 8

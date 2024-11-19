@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.34 = private unnamed_addr constant [13 x i8] c"%08X%08X%08X\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XLogReaderSetDecodeBuffer(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @XLogReaderSetDecodeBuffer(ptr nocapture noundef writeonly initializes((112, 128), (136, 152)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1405,7 +1405,7 @@ define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @report_invalid_record(ptr nocapture noundef %0, ptr noundef %1, ...) unnamed_addr #1 {
+define internal void @report_invalid_record(ptr nocapture noundef initializes((1312, 1313)) %0, ptr noundef %1, ...) unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 1304
@@ -1418,7 +1418,7 @@ define internal void @report_invalid_record(ptr nocapture noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @XLogReaderResetError(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define dso_local void @XLogReaderResetError(ptr nocapture noundef initializes((1312, 1313)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1304
   %3 = load ptr, ptr %2, align 8
   store i8 0, ptr %3, align 1
@@ -1428,7 +1428,7 @@ define dso_local void @XLogReaderResetError(ptr nocapture noundef %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @XLogFindNextRecord(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
+define dso_local i64 @XLogFindNextRecord(ptr noundef initializes((1313, 1314)) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1313
   store i8 0, ptr %4, align 1
@@ -1837,7 +1837,7 @@ define dso_local noundef i64 @DecodeXLogRecordRequiredSpace(i64 noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, ptr noundef initializes((16, 32), (40, 66), (68, 88)) %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %7 = getelementptr inbounds i8, ptr %1, i64 24

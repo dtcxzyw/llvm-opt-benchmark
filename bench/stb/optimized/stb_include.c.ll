@@ -358,7 +358,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @stb_include_itoa(ptr nocapture noundef writeonly %str, i32 noundef %n) local_unnamed_addr #10 {
+define void @stb_include_itoa(ptr nocapture noundef writeonly initializes((0, 9)) %str, i32 noundef %n) local_unnamed_addr #10 {
 entry:
   store i64 2314885530818453536, ptr %str, align 1
   %arrayidx2 = getelementptr inbounds i8, ptr %str, i64 8

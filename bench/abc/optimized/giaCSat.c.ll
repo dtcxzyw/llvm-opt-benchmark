@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cbs_SetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @Cbs_SetDefaultParams(ptr nocapture noundef writeonly initializes((0, 44)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %2, i8 0, i64 20, i1 false)
   store i32 1000, ptr %0, align 4
@@ -45,7 +45,7 @@ define void @Cbs_SetDefaultParams(ptr nocapture noundef writeonly %0) local_unna
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cbs_ManSetConflictNum(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Cbs_ManSetConflictNum(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 %1, ptr %0, align 8
   ret void
 }
@@ -1197,7 +1197,7 @@ Vec_IntPush.exit34:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Cbs_ManCancelUntil(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #10 {
+define internal fastcc void @Cbs_ManCancelUntil(ptr nocapture noundef initializes((56, 60)) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72
@@ -1544,7 +1544,7 @@ Cbs_QueFinish.exit:                               ; preds = %._crit_edge.i.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Cbs_ManSolve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #8 {
+define range(i32 -1, 2) i32 @Cbs_ManSolve(ptr noundef initializes((8, 20)) %0, ptr noundef %1) local_unnamed_addr #8 {
   store i32 0, ptr @s_Counter, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %3, align 4
@@ -1755,7 +1755,7 @@ Cbs_ManCheckLimits.exit26.thread:                 ; preds = %Cbs_ManCheckLimits.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Cbs_ManSolve2(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
+define range(i32 -1, 2) i32 @Cbs_ManSolve2(ptr noundef initializes((8, 20)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
   store i32 0, ptr @s_Counter, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %4, align 4

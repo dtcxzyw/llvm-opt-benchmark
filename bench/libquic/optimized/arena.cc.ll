@@ -23,7 +23,7 @@ $_ZNSt6vectorIN3net11UnsafeArena5BlockESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__g
 @_ZN3net11UnsafeArena5BlockC1EOS1_ = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN3net11UnsafeArena5BlockC2EOS1_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net11UnsafeArenaC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i64 noundef %block_size) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net11UnsafeArenaC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, i64 noundef %block_size) unnamed_addr #0 align 2 {
 entry:
   store i64 %block_size, ptr %this, align 8
   %blocks_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -75,7 +75,7 @@ _ZNSt6vectorIN3net11UnsafeArena5BlockESaIS2_EED2Ev.exit: ; preds = %invoke.cont.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net11UnsafeArenaC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #2 align 2 {
+define dso_local void @_ZN3net11UnsafeArenaC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #2 align 2 {
 entry:
   %0 = load i64, ptr %other, align 8
   store i64 %0, ptr %this, align 8
@@ -96,7 +96,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3net11UnsafeArenaaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3net11UnsafeArenaaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(32) initializes((0, 8), (24, 32)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %other, align 8
   store i64 %0, ptr %this, align 8
@@ -499,7 +499,7 @@ _ZN3net11UnsafeArena5BlockD2Ev.exit4:             ; preds = %lpad, %_ZNKSt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net11UnsafeArena5BlockC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i64 noundef %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net11UnsafeArena5BlockC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, i64 noundef %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %s) #13
   store ptr %call, ptr %this, align 8
@@ -530,7 +530,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %entry, %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net11UnsafeArena5BlockC2EOS1_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net11UnsafeArena5BlockC2EOS1_(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
   %size = getelementptr inbounds i8, ptr %this, i64 8
@@ -557,7 +557,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EEaSEOS3_.exit: ; preds = %entry, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net11UnsafeArena5BlockaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net11UnsafeArena5BlockaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(24) initializes((8, 24)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %size = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i64, ptr %size, align 8

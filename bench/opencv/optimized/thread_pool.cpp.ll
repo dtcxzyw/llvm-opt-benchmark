@@ -75,7 +75,7 @@ $_ZTINSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvRN2cv4gapi3own24concurren
 @_ZN2cv4gapi3own10ThreadPoolD1Ev = unnamed_addr alias void (ptr), ptr @_ZN2cv4gapi3own10ThreadPoolD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv4gapi3own5LatchC2Em(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN2cv4gapi3own5LatchC2Em(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 48)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   store i64 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
@@ -188,7 +188,7 @@ declare void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noun
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi3own10ThreadPoolC2Ej(ptr noundef nonnull align 8 dereferenceable(248) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi3own10ThreadPoolC2Ej(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 104)) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"class.std::reference_wrapper", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24

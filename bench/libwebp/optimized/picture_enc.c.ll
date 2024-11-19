@@ -75,7 +75,7 @@ define hidden i32 @WebPValidatePicture(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @WebPPictureResetBuffers(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
+define hidden void @WebPPictureResetBuffers(ptr nocapture noundef writeonly initializes((16, 60), (72, 84), (224, 240)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 80
@@ -316,7 +316,7 @@ define void @WebPPictureFree(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @WebPMemoryWriterInit(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
+define void @WebPMemoryWriterInit(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }

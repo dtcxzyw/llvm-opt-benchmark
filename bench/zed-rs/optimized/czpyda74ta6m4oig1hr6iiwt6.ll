@@ -1655,7 +1655,7 @@ define hidden noundef zeroext i1 @_ZN7slotmap3Key7is_null17h6f1d216ef4643132E(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN7session7Session3new17h5f578f3128fd447eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([128 x i8]) align 8 dereferenceable(128) %0) unnamed_addr #5 {
+define void @_ZN7session7Session3new17h5f578f3128fd447eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([128 x i8]) align 8 dereferenceable(128) initializes((120, 121)) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   store i8 0, ptr %2, align 8
   ret void
@@ -1995,7 +1995,7 @@ define void @_ZN7session10AppSession25last_session_window_stack17h439c295c789bbd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN7session18store_window_stack17h77135cf99f378227E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([152 x i8]) align 8 dereferenceable(152) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #6 {
+define hidden void @_ZN7session18store_window_stack17h77135cf99f378227E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([152 x i8]) align 8 dereferenceable(152) initializes((0, 24), (144, 145)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   store i8 0, ptr %3, align 8

@@ -382,7 +382,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14FdmHestonFwdOpC2ERKN5boost10shared_ptrINS_9FdmMesherEEERKNS2_INS_13HestonProcessEEENS_18FdmSquareRootFwdOp18TransformationTypeENS2_INS_21LocalVolTermStructureEEEd(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, i32 noundef %type, ptr nocapture noundef %leverageFct, double noundef %mixingFactor) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14FdmHestonFwdOpC2ERKN5boost10shared_ptrINS_9FdmMesherEEERKNS2_INS_13HestonProcessEEENS_18FdmSquareRootFwdOp18TransformationTypeENS2_INS_21LocalVolTermStructureEEEd(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 12), (16, 80)) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, i32 noundef %type, ptr nocapture noundef %leverageFct, double noundef %mixingFactor) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %type.addr = alloca i32, align 4
   %ref.tmp = alloca %"class.QuantLib::Array", align 8
@@ -5358,7 +5358,7 @@ ehcleanup373:                                     ; preds = %_ZN8QuantLib5ArrayD
 declare void @_ZNK8QuantLib18YieldTermStructure11forwardRateEddNS_11CompoundingENS_9FrequencyEb(ptr dead_on_unwind writable sret(%"class.QuantLib::InterestRate") align 8, ptr noundef nonnull align 8 dereferenceable(152), double noundef, double noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib14FdmHestonFwdOp19getLeverageFctSliceEdd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this, double noundef %t1, double noundef %t2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib14FdmHestonFwdOp19getLeverageFctSliceEdd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this, double noundef %t1, double noundef %t2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__begin1 = alloca %"class.QuantLib::FdmLinearOpIterator", align 8
   %__end1 = alloca %"class.QuantLib::FdmLinearOpIterator", align 8
@@ -7334,7 +7334,7 @@ entry:
 declare noundef double @_ZNK8QuantLib21LocalVolTermStructure8localVolEddb(ptr noundef nonnull align 8 dereferenceable(68), double noundef, double noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib14FdmHestonFwdOp14toMatrixDecompEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.54") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib14FdmHestonFwdOp14toMatrixDecompEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.54") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.boost::numeric::ublas::compressed_matrix", align 8
   %ref.tmp10 = alloca %"class.boost::numeric::ublas::compressed_matrix", align 8

@@ -208,7 +208,7 @@ $_ZTV2If = comdat any
 @_ZN9OptimizerC1EP2IR = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN9OptimizerC2EP2IR
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN9OptimizerC2EP2IR(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN9OptimizerC2EP2IR(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -2269,7 +2269,7 @@ define hidden void @_ZN16NullCheckVisitor13do_StoreFieldEP10StoreField(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16NullCheckVisitor14do_ArrayLengthEP11ArrayLength(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN16NullCheckVisitor14do_ArrayLengthEP11ArrayLength(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef initializes((104, 112)) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 96
@@ -2351,7 +2351,7 @@ _ZN19NullCheckEliminator18handle_ArrayLengthEP11ArrayLength.exit: ; preds = %27,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19NullCheckEliminator18handle_ArrayLengthEP11ArrayLength(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN19NullCheckEliminator18handle_ArrayLengthEP11ArrayLength(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef initializes((104, 112)) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2431,7 +2431,7 @@ _ZN19NullCheckEliminator28last_explicit_null_check_objEv.exit: ; preds = %17, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16NullCheckVisitor14do_LoadIndexedEP11LoadIndexed(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN16NullCheckVisitor14do_LoadIndexedEP11LoadIndexed(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef initializes((128, 136)) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 96
@@ -2513,7 +2513,7 @@ _ZN19NullCheckEliminator18handle_LoadIndexedEP11LoadIndexed.exit: ; preds = %27,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19NullCheckEliminator18handle_LoadIndexedEP11LoadIndexed(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN19NullCheckEliminator18handle_LoadIndexedEP11LoadIndexed(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef initializes((128, 136)) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2636,7 +2636,7 @@ _ZN19NullCheckEliminator19handle_StoreIndexedEP12StoreIndexed.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19NullCheckEliminator19handle_StoreIndexedEP12StoreIndexed(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN19NullCheckEliminator19handle_StoreIndexedEP12StoreIndexed(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((80, 88)) %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2992,7 +2992,7 @@ _ZN19NullCheckEliminator13handle_InvokeEP6Invoke.exit: ; preds = %2, %7, %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19NullCheckEliminator13handle_InvokeEP6Invoke(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN19NullCheckEliminator13handle_InvokeEP6Invoke(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((80, 88)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 112
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3199,7 +3199,7 @@ _ZN19NullCheckEliminator20handle_AccessMonitorEP13AccessMonitor.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19NullCheckEliminator20handle_AccessMonitorEP13AccessMonitor(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN19NullCheckEliminator20handle_AccessMonitorEP13AccessMonitor(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((80, 88)) %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3969,7 +3969,7 @@ define hidden void @_ZN19NullCheckEliminator11iterate_allEv(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19NullCheckEliminator11iterate_oneEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN19NullCheckEliminator11iterate_oneEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(88) initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8

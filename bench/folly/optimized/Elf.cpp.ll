@@ -124,7 +124,7 @@ $_ZZNK5folly10symbolizer7ElfFile2atI9Elf64_SymEERKT_mE30__folly_detail_safe_asse
 @_ZN5folly10symbolizer7ElfFileC1EOS1_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN5folly10symbolizer7ElfFileC2EOS1_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly10symbolizer7ElfFileC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(576) %this) unnamed_addr #0 align 2 {
+define void @_ZN5folly10symbolizer7ElfFileC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(576) initializes((0, 516), (520, 576)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %this, i8 0, i64 512, i1 false), !tbaa !7
   %arrayinit.end = getelementptr inbounds i8, ptr %this, i64 512
@@ -140,7 +140,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10symbolizer7ElfFileC2EPKcRKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef %name, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %options) unnamed_addr #2 align 2 {
+define void @_ZN5folly10symbolizer7ElfFileC2EPKcRKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(576) initializes((0, 516), (520, 576)) %this, ptr noundef %name, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %options) unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %this, i8 0, i64 512, i1 false), !tbaa !7
   %arrayinit.end = getelementptr inbounds i8, ptr %this, i64 512
@@ -931,7 +931,7 @@ terminate.lpad:                                   ; preds = %if.end17, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly10symbolizer7ElfFile5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(576) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10symbolizer7ElfFile5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(576) initializes((0, 1)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %this, align 8, !tbaa !7
   %file_ = getelementptr inbounds i8, ptr %this, i64 520
@@ -1178,7 +1178,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly10symbolizer7ElfFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(576) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10symbolizer7ElfFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(576) initializes((0, 1)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %this, align 8, !tbaa !7
   %file_.i = getelementptr inbounds i8, ptr %this, i64 520
@@ -1221,7 +1221,7 @@ _ZN5folly10symbolizer7ElfFile5resetEv.exit:       ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly10symbolizer7ElfFileC2EOS1_(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef nonnull align 8 dereferenceable(576) %other) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10symbolizer7ElfFileC2EOS1_(ptr noundef nonnull align 8 dereferenceable(576) initializes((0, 516), (520, 576)) %this, ptr noundef nonnull align 8 dereferenceable(576) %other) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %this, i8 0, i64 512, i1 false), !tbaa !7
   %arrayinit.end = getelementptr inbounds i8, ptr %this, i64 512
@@ -1262,7 +1262,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(576) ptr @_ZN5folly10symbolizer7ElfFileaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(576) %this, ptr noundef nonnull align 8 dereferenceable(576) %other) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(576) ptr @_ZN5folly10symbolizer7ElfFileaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(576) initializes((0, 1)) %this, ptr noundef nonnull align 8 dereferenceable(576) %other) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %this, align 8, !tbaa !7
   %file_.i = getelementptr inbounds i8, ptr %this, i64 520

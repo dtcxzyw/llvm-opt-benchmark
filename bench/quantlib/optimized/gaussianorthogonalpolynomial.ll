@@ -184,7 +184,7 @@ entry:
 declare double @sqrt(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23GaussLaguerrePolynomialC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, double noundef %s) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23GaussLaguerrePolynomialC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, double noundef %s) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -546,7 +546,7 @@ entry:
 declare double @pow(double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22GaussHermitePolynomialC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, double noundef %mu) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22GaussHermitePolynomialC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, double noundef %mu) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -776,7 +776,7 @@ entry:
 declare double @llvm.fabs.f64(double) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21GaussJacobiPolynomialC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, double noundef %alpha, double noundef %beta) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21GaussJacobiPolynomialC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, double noundef %alpha, double noundef %beta) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2143,7 +2143,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib23GaussLegendrePolynomialC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23GaussLegendrePolynomialC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %alpha_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alpha_.i, i8 0, i64 16, i1 false)
@@ -2152,7 +2152,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib27GaussChebyshev2ndPolynomialC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib27GaussChebyshev2ndPolynomialC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %alpha_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store double 5.000000e-01, ptr %alpha_.i, align 8, !tbaa !26
@@ -2163,7 +2163,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib24GaussChebyshevPolynomialC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24GaussChebyshevPolynomialC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %alpha_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store double -5.000000e-01, ptr %alpha_.i, align 8, !tbaa !26
@@ -2174,7 +2174,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25GaussGegenbauerPolynomialC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, double noundef %lambda) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib25GaussGegenbauerPolynomialC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, double noundef %lambda) unnamed_addr #0 align 2 {
 entry:
   %sub = fadd double %lambda, -5.000000e-01
   tail call void @_ZN8QuantLib21GaussJacobiPolynomialC2Edd(ptr noundef nonnull align 8 dereferenceable(24) %this, double noundef %sub, double noundef %sub)

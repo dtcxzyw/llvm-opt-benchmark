@@ -471,7 +471,7 @@ declare void @_ZN18ZStatCriticalPhaseC1EPKcb(ptr noundef nonnull align 8 derefer
 declare void @_ZN13ZStatSubPhaseC1EPKc13ZGenerationId(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i8 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ZRelocateQueueC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ZRelocateQueueC2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 88)) %0) unnamed_addr #1 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 88, i1 false)
   tail call void @_ZN15PlatformMonitorC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #15
   %2 = getelementptr inbounds i8, ptr %0, i64 88
@@ -527,7 +527,7 @@ _ZN14ZRelocateQueue4joinEj.exit:                  ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ZRelocateQueue4joinEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ZRelocateQueue4joinEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((104, 108)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -1262,7 +1262,7 @@ _ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9ZRelocateC2EP11ZGeneration(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN9ZRelocateC2EP11ZGeneration(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 96)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, i8 0, i64 88, i1 false)

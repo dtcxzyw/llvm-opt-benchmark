@@ -17673,7 +17673,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h008e8fef23a30a91E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h008e8fef23a30a91E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -18116,7 +18116,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h0160ae8593a8dad6E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h0160ae8593a8dad6E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -18559,7 +18559,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h06cf9ce358fe9e85E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h06cf9ce358fe9e85E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -19002,7 +19002,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h099c0879647d4538E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h099c0879647d4538E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -19445,7 +19445,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h0a1c8659af7e9df9E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h0a1c8659af7e9df9E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -19888,7 +19888,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h0c3332c9283166afE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h0c3332c9283166afE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -20331,7 +20331,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h0f6f16419a8987b7E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h0f6f16419a8987b7E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -20774,7 +20774,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h15677b0122942db6E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h15677b0122942db6E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -21217,7 +21217,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h164150f5431b6601E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h164150f5431b6601E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -21660,7 +21660,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h1808d90eb14227ecE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h1808d90eb14227ecE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -22103,7 +22103,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h1859acc0579cfc42E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h1859acc0579cfc42E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -22546,7 +22546,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h281a17f0de34bc92E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h281a17f0de34bc92E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -22989,7 +22989,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h288c899bbc73119fE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h288c899bbc73119fE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -23432,7 +23432,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h291711a4a732baf4E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h291711a4a732baf4E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -23875,7 +23875,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h29c8677579c12584E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h29c8677579c12584E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -24318,7 +24318,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h2f7d40df68bf3105E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h2f7d40df68bf3105E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -24761,7 +24761,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h333fc3d2d7ab85e5E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h333fc3d2d7ab85e5E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -25204,7 +25204,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h36e96c59ea1ffeb0E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h36e96c59ea1ffeb0E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -25647,7 +25647,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h395831565707b385E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h395831565707b385E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -26090,7 +26090,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h39f15c3b0dce4920E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h39f15c3b0dce4920E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -26533,7 +26533,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h3cb63c3452201b21E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h3cb63c3452201b21E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -26976,7 +26976,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h3cc64a3780955c1cE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h3cc64a3780955c1cE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -27419,7 +27419,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h3f432150d895fba6E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h3f432150d895fba6E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -27862,7 +27862,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h414bd4e740f9a1cfE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h414bd4e740f9a1cfE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -28305,7 +28305,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h44dadfb8b73d455eE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h44dadfb8b73d455eE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -28748,7 +28748,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h4d94b010c1013ae7E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h4d94b010c1013ae7E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -29191,7 +29191,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h506bc926d559522aE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h506bc926d559522aE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -29634,7 +29634,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h50b5e5066fbda747E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h50b5e5066fbda747E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -30077,7 +30077,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h63204b1cee5fd401E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h63204b1cee5fd401E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -30520,7 +30520,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h7105b7eaebf2c40dE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h7105b7eaebf2c40dE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -30963,7 +30963,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h72d514c08545acaaE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h72d514c08545acaaE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -31406,7 +31406,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h78f5b811623e6d52E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h78f5b811623e6d52E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -31849,7 +31849,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h7fd771fa487df0ccE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h7fd771fa487df0ccE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -32292,7 +32292,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h800eeb99f790a08bE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h800eeb99f790a08bE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -32735,7 +32735,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h82731e72e9ad9693E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h82731e72e9ad9693E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -33178,7 +33178,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h844ecd017cff1586E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h844ecd017cff1586E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -33621,7 +33621,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h852d549273dffc44E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h852d549273dffc44E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -34064,7 +34064,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h8b0d8ae253333d1cE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h8b0d8ae253333d1cE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -34507,7 +34507,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h8b6b612f0491ccf7E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h8b6b612f0491ccf7E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -34950,7 +34950,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h9346c87064cb39edE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h9346c87064cb39edE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -35393,7 +35393,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h93ef875ba816086dE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h93ef875ba816086dE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -35836,7 +35836,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h956a310bed4f6d20E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h956a310bed4f6d20E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -36279,7 +36279,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h9ab42fdbbd7509ceE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h9ab42fdbbd7509ceE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -36722,7 +36722,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h9ef48991e231944fE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17h9ef48991e231944fE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -37165,7 +37165,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17ha2e523bd2a602806E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17ha2e523bd2a602806E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -37608,7 +37608,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17ha63503dbcec0de1bE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17ha63503dbcec0de1bE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -38051,7 +38051,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17ha927362f98b69272E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17ha927362f98b69272E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -38494,7 +38494,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17ha9f40f78a3d39c6dE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17ha9f40f78a3d39c6dE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -38937,7 +38937,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hac670988492b56c8E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hac670988492b56c8E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -39380,7 +39380,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17had4ef10715f4662bE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17had4ef10715f4662bE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -39823,7 +39823,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17haf53428dc8175c7fE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17haf53428dc8175c7fE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -40266,7 +40266,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17haf8bcca2ced5c211E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17haf8bcca2ced5c211E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -40709,7 +40709,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hb2267df2bdca7a1eE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hb2267df2bdca7a1eE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -41152,7 +41152,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hb80fc085c8a4e8b0E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hb80fc085c8a4e8b0E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -41595,7 +41595,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hbaabd49560b46e71E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hbaabd49560b46e71E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -42038,7 +42038,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hbd8179227c094949E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hbd8179227c094949E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -42481,7 +42481,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hbe374be676a91dddE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hbe374be676a91dddE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -42924,7 +42924,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hbf43dc7ac2a56981E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hbf43dc7ac2a56981E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -43367,7 +43367,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hc08651b6dcec65f8E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hc08651b6dcec65f8E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -43810,7 +43810,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hc1f16e46e9fcfb93E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hc1f16e46e9fcfb93E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -44253,7 +44253,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hc3996a8cdd24b960E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hc3996a8cdd24b960E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -44696,7 +44696,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hc79a8d0583881b57E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hc79a8d0583881b57E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -45139,7 +45139,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hc8c48d6a5e8dc162E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hc8c48d6a5e8dc162E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -45582,7 +45582,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hc9fb67a6c5c50d78E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hc9fb67a6c5c50d78E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -46025,7 +46025,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hcb409904037c05afE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hcb409904037c05afE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -46468,7 +46468,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hcc62cfd4789796ddE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hcc62cfd4789796ddE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -46911,7 +46911,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hcfb2f28fdef43f6dE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hcfb2f28fdef43f6dE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -47354,7 +47354,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hcfc55e9c1ab82662E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hcfc55e9c1ab82662E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -47797,7 +47797,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hdfaf2f135ebda352E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hdfaf2f135ebda352E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -48240,7 +48240,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17he24d6370d0afdcdaE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17he24d6370d0afdcdaE.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -48683,7 +48683,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17he82e4b12de8312d6E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17he82e4b12de8312d6E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -49126,7 +49126,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hea493c2259188058E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hea493c2259188058E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -49569,7 +49569,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hef1ae9ff54ee9c50E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hef1ae9ff54ee9c50E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -50012,7 +50012,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hef26e311ef91f248E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hef26e311ef91f248E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8
@@ -50455,7 +50455,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hf37bc2a5d22f0ff8E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa3lru19LruData$LT$Node$GT$6resize17hf37bc2a5d22f0ff8E.llvm.4092553151331331223"(ptr noalias nocapture noundef align 16 dereferenceable(80) initializes((32, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca { { ptr, i64 }, ptr }, align 8
   %7 = alloca { { ptr, i64 }, ptr }, align 8

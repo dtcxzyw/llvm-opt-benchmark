@@ -598,7 +598,7 @@ _ZNSt7__cxx1110_List_baseIPN3irr3gui11IGUIElementESaIS4_EED2Ev.exit: ; preds = %
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12GUIScrollBar15refreshControlsEv(ptr noundef nonnull align 8 dereferenceable(408) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN12GUIScrollBar15refreshControlsEv(ptr noundef nonnull align 8 dereferenceable(408) initializes((396, 400)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %up_button_rect = alloca %"class.irr::core::rect", align 4
   %down_button_rect = alloca %"class.irr::core::rect", align 4
@@ -1549,7 +1549,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12GUIScrollBarC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiNS0_4core4rectIiEEbbP20ISimpleTextureSource(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i64 %rectangle.coerce0, i64 %rectangle.coerce1, i1 noundef zeroext %horizontal, i1 noundef zeroext %auto_scale, ptr noundef %tsrc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12GUIScrollBarC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiNS0_4core4rectIiEEbbP20ISimpleTextureSource(ptr noundef nonnull align 8 dereferenceable(408) initializes((408, 428)) %this, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i64 %rectangle.coerce0, i64 %rectangle.coerce1, i1 noundef zeroext %horizontal, i1 noundef zeroext %auto_scale, ptr noundef %tsrc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %first.i = alloca ptr, align 8
   %closest.i = alloca ptr, align 8
@@ -2854,7 +2854,7 @@ for.body:                                         ; preds = %entry, %for.body
 declare float @llvm.fmuladd.f32(float, float, float) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN12GUIScrollBar12setSmallStepERKi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(408) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %step) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN12GUIScrollBar12setSmallStepERKi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(408) initializes((360, 364)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %step) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr %step, align 4, !tbaa !43
   %cmp = icmp sgt i32 %0, 0
@@ -2865,7 +2865,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN12GUIScrollBar12setLargeStepERKi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(408) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %step) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN12GUIScrollBar12setLargeStepERKi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(408) initializes((364, 368)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %step) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr %step, align 4, !tbaa !43
   %cmp = icmp sgt i32 %0, 0
@@ -2876,7 +2876,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12GUIScrollBar6setMaxERKi(ptr nocapture noundef nonnull align 8 dereferenceable(408) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %max) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN12GUIScrollBar6setMaxERKi(ptr nocapture noundef nonnull align 8 dereferenceable(408) initializes((356, 360)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %max) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %max, align 4, !tbaa !43
   %max_pos = getelementptr inbounds i8, ptr %this, i64 356
@@ -3002,7 +3002,7 @@ _ZN12GUIScrollBar6setPosERKi.exit:                ; preds = %if.then12.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12GUIScrollBar6setMinERKi(ptr nocapture noundef nonnull align 8 dereferenceable(408) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %min) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN12GUIScrollBar6setMinERKi(ptr nocapture noundef nonnull align 8 dereferenceable(408) initializes((352, 356)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %min) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %min, align 4, !tbaa !43
   %min_pos = getelementptr inbounds i8, ptr %this, i64 352
@@ -3128,7 +3128,7 @@ _ZN12GUIScrollBar6setPosERKi.exit:                ; preds = %if.then12.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN12GUIScrollBar11setPageSizeERKi(ptr nocapture noundef nonnull align 8 dereferenceable(408) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %size) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN12GUIScrollBar11setPageSizeERKi(ptr nocapture noundef nonnull align 8 dereferenceable(408) initializes((372, 376)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %size) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr %size, align 4, !tbaa !43
   %page_size = getelementptr inbounds i8, ptr %this, i64 372
@@ -3227,7 +3227,7 @@ _ZN12GUIScrollBar6setPosERKi.exit:                ; preds = %if.then12.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12GUIScrollBar16setArrowsVisibleENS_15ArrowVisibilityE(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %visible) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN12GUIScrollBar16setArrowsVisibleENS_15ArrowVisibilityE(ptr noundef nonnull align 8 dereferenceable(408) initializes((328, 332), (396, 400)) %this, i32 noundef %visible) local_unnamed_addr #3 align 2 {
 entry:
   %arrow_visibility = getelementptr inbounds i8, ptr %this, i64 328
   store i32 %visible, ptr %arrow_visibility, align 8, !tbaa !7

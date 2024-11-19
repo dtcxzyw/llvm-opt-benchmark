@@ -269,7 +269,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.21 = private unnamed_addr constant [50 x i8] c"--onlyPskDheKe Must use DHE key exchange with PSK\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @client_test(ptr nocapture noundef %args) local_unnamed_addr #0 {
+define dso_local noundef ptr @client_test(ptr nocapture noundef initializes((16, 20)) %args) local_unnamed_addr #0 {
 entry:
   %groups.i398 = alloca [4 x i32], align 16
   %fds.i.i = alloca %struct.fd_set, align 8
@@ -3647,7 +3647,7 @@ declare i32 @wolfSSL_SetEnableDhKeyTest(ptr noundef, i32 noundef) local_unnamed_
 declare i32 @wolfSSL_AllowEncryptThenMac(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tcp_connect(ptr nocapture noundef nonnull %sockfd, ptr noundef %ip, i16 noundef zeroext %port, i32 noundef %udp, ptr noundef nonnull %ssl) unnamed_addr #0 {
+define internal fastcc void @tcp_connect(ptr nocapture noundef nonnull initializes((0, 4)) %sockfd, ptr noundef %ip, i16 noundef zeroext %port, i32 noundef %udp, ptr noundef nonnull %ssl) unnamed_addr #0 {
 entry:
   %on.i = alloca i32, align 4
   %addr = alloca %struct.sockaddr_in, align 4
@@ -4376,7 +4376,7 @@ declare i32 @wolfSSL_UseKeyShare(ptr noundef, i16 noundef zeroext) local_unnamed
 declare i32 @wolfSSL_set_groups(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @build_addr(ptr nocapture noundef nonnull writeonly %addr, ptr noundef %peer, i16 noundef zeroext %port) unnamed_addr #0 {
+define internal fastcc void @build_addr(ptr nocapture noundef nonnull writeonly initializes((0, 16)) %addr, ptr noundef %peer, i16 noundef zeroext %port) unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr, i8 0, i64 16, i1 false)
   %cmp1.not = icmp eq ptr %peer, null

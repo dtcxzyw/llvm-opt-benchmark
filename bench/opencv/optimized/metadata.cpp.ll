@@ -96,7 +96,7 @@ define hidden noundef i64 @_ZNK3ade7details8Metadata6IdHashclERKNS0_10MetadataId
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3ade7details10MetadataIdC2EPv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN3ade7details10MetadataIdC2EPv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }

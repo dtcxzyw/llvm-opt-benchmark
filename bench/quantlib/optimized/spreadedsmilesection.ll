@@ -416,7 +416,7 @@ _ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit: ; preds = %entry, %c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20SpreadedSmileSectionC2EN5boost10shared_ptrINS_12SmileSectionEEENS_6HandleINS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %vtt, ptr nocapture noundef %underlyingSection, ptr nocapture noundef %spread) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20SpreadedSmileSectionC2EN5boost10shared_ptrINS_12SmileSectionEEENS_6HandleINS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this, ptr noundef %vtt, ptr nocapture noundef %underlyingSection, ptr nocapture noundef %spread) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp16 = alloca %"class.boost::shared_ptr", align 8
@@ -1110,7 +1110,7 @@ _ZN8QuantLib10DayCounterD2Ev.exit:                ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20SpreadedSmileSectionC1EN5boost10shared_ptrINS_12SmileSectionEEENS_6HandleINS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef %underlyingSection, ptr nocapture noundef %spread) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20SpreadedSmileSectionC1EN5boost10shared_ptrINS_12SmileSectionEEENS_6HandleINS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(104) initializes((120, 124), (128, 136)) %this, ptr nocapture noundef %underlyingSection, ptr nocapture noundef %spread) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp11 = alloca %"class.boost::shared_ptr", align 8

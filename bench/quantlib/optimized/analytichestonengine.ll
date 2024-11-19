@@ -1292,7 +1292,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define void @_ZN8QuantLib20AnalyticHestonEngine9Fj_HelperC2EddddddPKS0_NS0_17ComplexLogFormulaEdddm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %this, double noundef %kappa, double noundef %theta, double noundef %sigma, double noundef %v0, double noundef %s0, double noundef %rho, ptr noundef %engine, i32 noundef %cpxLog, double noundef %term, double noundef %strike, double noundef %ratio, i64 noundef %j) unnamed_addr #11 align 2 {
+define void @_ZN8QuantLib20AnalyticHestonEngine9Fj_HelperC2EddddddPKS0_NS0_17ComplexLogFormulaEdddm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 44), (48, 108), (112, 128)) %this, double noundef %kappa, double noundef %theta, double noundef %sigma, double noundef %v0, double noundef %s0, double noundef %rho, ptr noundef %engine, i32 noundef %cpxLog, double noundef %term, double noundef %strike, double noundef %ratio, i64 noundef %j) unnamed_addr #11 align 2 {
 entry:
   store i64 %j, ptr %this, align 8, !tbaa !39
   %kappa_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2147,7 +2147,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare double @fmod(double noundef, double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20AnalyticHestonEngine12OptimalAlphaC2EdPKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, double noundef %t, ptr noundef %enginePtr) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20AnalyticHestonEngine12OptimalAlphaC2EdPKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this, double noundef %t, ptr noundef %enginePtr) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.29", align 8
   %ref.tmp12 = alloca %"class.boost::shared_ptr.29", align 8
@@ -7680,7 +7680,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #12
 declare double @atan(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20AnalyticHestonEngine9AP_HelperC2EdddNS0_17ComplexLogFormulaEPKS0_d(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, double noundef %term, double noundef %fwd, double noundef %strike, i32 noundef %cpxLog, ptr noundef %enginePtr, double noundef %alpha) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20AnalyticHestonEngine9AP_HelperC2EdddNS0_17ComplexLogFormulaEPKS0_d(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 36), (40, 64), (80, 112)) %this, double noundef %term, double noundef %fwd, double noundef %strike, i32 noundef %cpxLog, ptr noundef %enginePtr, double noundef %alpha) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16018,7 +16018,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib20AnalyticHestonEngine11IntegrationC2ENS1_9AlgorithmEN5boost10shared_ptrINS_10IntegratorEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, i32 noundef %intAlgo, ptr nocapture noundef %integrator) unnamed_addr #21 align 2 {
+define void @_ZN8QuantLib20AnalyticHestonEngine11IntegrationC2ENS1_9AlgorithmEN5boost10shared_ptrINS_10IntegratorEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 4), (8, 40)) %this, i32 noundef %intAlgo, ptr nocapture noundef %integrator) unnamed_addr #21 align 2 {
 entry:
   store i32 %intAlgo, ptr %this, align 8, !tbaa !181
   %integrator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -16035,7 +16035,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib20AnalyticHestonEngine11IntegrationC2ENS1_9AlgorithmEN5boost10shared_ptrINS_18GaussianQuadratureEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, i32 noundef %intAlgo, ptr nocapture noundef %gaussianQuadrature) unnamed_addr #21 align 2 {
+define void @_ZN8QuantLib20AnalyticHestonEngine11IntegrationC2ENS1_9AlgorithmEN5boost10shared_ptrINS_18GaussianQuadratureEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 4), (8, 40)) %this, i32 noundef %intAlgo, ptr nocapture noundef %gaussianQuadrature) unnamed_addr #21 align 2 {
 entry:
   store i32 %intAlgo, ptr %this, align 8, !tbaa !181
   %integrator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19161,7 +19161,7 @@ cleanup:                                          ; preds = %catch, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20AnalyticHestonEngine13doCalculationEddddddddddRKNS_10TypePayoffERKNS0_11IntegrationENS0_17ComplexLogFormulaEPKS0_RdRm(double noundef %riskFreeDiscount, double noundef %dividendDiscount, double noundef %spotPrice, double noundef %strikePrice, double noundef %term, double noundef %kappa, double noundef %theta, double noundef %sigma, double noundef %v0, double noundef %rho, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %integration, i32 noundef %cpxLog, ptr noundef %enginePtr, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %value, ptr nocapture noundef nonnull align 8 dereferenceable(8) %evaluations) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20AnalyticHestonEngine13doCalculationEddddddddddRKNS_10TypePayoffERKNS0_11IntegrationENS0_17ComplexLogFormulaEPKS0_RdRm(double noundef %riskFreeDiscount, double noundef %dividendDiscount, double noundef %spotPrice, double noundef %strikePrice, double noundef %term, double noundef %kappa, double noundef %theta, double noundef %sigma, double noundef %v0, double noundef %rho, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %integration, i32 noundef %cpxLog, ptr noundef %enginePtr, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %value, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %evaluations) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %term.addr = alloca double, align 8
   %v0.addr = alloca double, align 8

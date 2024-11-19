@@ -5382,7 +5382,7 @@ return:                                           ; preds = %if.then.i.i.i117, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18WritePreparedTxnDB4InitERKNS_20TransactionDBOptionsE(ptr nocapture noundef nonnull align 8 dereferenceable(1352) %this, ptr noundef nonnull align 8 dereferenceable(145) %txn_db_opts) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18WritePreparedTxnDB4InitERKNS_20TransactionDBOptionsE(ptr nocapture noundef nonnull align 8 dereferenceable(1352) initializes((856, 864), (1288, 1296)) %this, ptr noundef nonnull align 8 dereferenceable(145) %txn_db_opts) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function", align 8
@@ -6288,7 +6288,7 @@ eh.resume:                                        ; preds = %lpad.body, %lpad48
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK7rocksdb18WritePreparedTxnDB14GetCommitEntryEmPNS0_14CommitEntry64bEPNS0_11CommitEntryE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1352) %this, i64 noundef %indexed_seq, ptr nocapture noundef writeonly %entry_64b, ptr nocapture noundef writeonly %entry1) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK7rocksdb18WritePreparedTxnDB14GetCommitEntryEmPNS0_14CommitEntry64bEPNS0_11CommitEntryE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1352) %this, i64 noundef %indexed_seq, ptr nocapture noundef writeonly initializes((0, 8)) %entry_64b, ptr nocapture noundef writeonly %entry1) local_unnamed_addr #9 align 2 {
 entry:
   %commit_cache_ = getelementptr inbounds i8, ptr %this, i64 832
   %0 = load ptr, ptr %commit_cache_, align 8
@@ -8557,7 +8557,7 @@ if.end38:                                         ; preds = %if.then9, %invoke.c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb18WritePreparedTxnDBD2Ev(ptr noundef nonnull align 8 dereferenceable(1352) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18WritePreparedTxnDBD2Ev(ptr noundef nonnull align 8 dereferenceable(1352) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18WritePreparedTxnDBE, i64 16), ptr %this, align 8
   %db_impl_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -13304,7 +13304,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZZN7rocksdb18WritePreparedTxnDB10InitializeERKSt6vectorImSaImEERKS1_IPNS_18ColumnFamilyHandleESaIS7_EEEN32CommitSubBatchPreReleaseCallback8CallbackEmbmmm(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %commit_seq, i1 zeroext %is_mem_disabled, i64 %0, i64 %1, i64 %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN7rocksdb18WritePreparedTxnDB10InitializeERKSt6vectorImSaImEERKS1_IPNS_18ColumnFamilyHandleESaIS7_EEEN32CommitSubBatchPreReleaseCallback8CallbackEmbmmm(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %commit_seq, i1 zeroext %is_mem_disabled, i64 %0, i64 %1, i64 %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %db_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %db_, align 8

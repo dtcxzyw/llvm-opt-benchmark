@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ec_GF2m_simple_ladder_post = private unnamed_addr constant [27 x i8] c"ec_GF2m_simple_ladder_post\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ec_GF2m_simple_group_init(ptr nocapture noundef %group) #0 {
+define range(i32 0, 2) i32 @ossl_ec_GF2m_simple_group_init(ptr nocapture noundef initializes((64, 72), (96, 112)) %group) #0 {
 entry:
   %call = tail call ptr @BN_new() #4
   %field = getelementptr inbounds i8, ptr %group, i64 64
@@ -72,7 +72,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_ec_GF2m_simple_group_clear_finish(ptr nocapture noundef %group) #0 {
+define void @ossl_ec_GF2m_simple_group_clear_finish(ptr nocapture noundef initializes((72, 96)) %group) #0 {
 entry:
   %field = getelementptr inbounds i8, ptr %group, i64 64
   %0 = load ptr, ptr %field, align 8
@@ -374,7 +374,7 @@ declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ec_GF2m_simple_point_init(ptr nocapture noundef %point) #0 {
+define range(i32 0, 2) i32 @ossl_ec_GF2m_simple_point_init(ptr nocapture noundef initializes((16, 40)) %point) #0 {
 entry:
   %call = tail call ptr @BN_new() #4
   %X = getelementptr inbounds i8, ptr %point, i64 16
@@ -425,7 +425,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_ec_GF2m_simple_point_clear_finish(ptr nocapture noundef %point) #0 {
+define void @ossl_ec_GF2m_simple_point_clear_finish(ptr nocapture noundef initializes((40, 44)) %point) #0 {
 entry:
   %X = getelementptr inbounds i8, ptr %point, i64 16
   %0 = load ptr, ptr %X, align 8
@@ -487,7 +487,7 @@ return:                                           ; preds = %if.end6, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_GF2m_simple_point_set_to_infinity(ptr nocapture readnone %group, ptr nocapture noundef %point) #0 {
+define noundef i32 @ossl_ec_GF2m_simple_point_set_to_infinity(ptr nocapture readnone %group, ptr nocapture noundef initializes((40, 44)) %point) #0 {
 entry:
   %Z_is_one = getelementptr inbounds i8, ptr %point, i64 40
   store i32 0, ptr %Z_is_one, align 8

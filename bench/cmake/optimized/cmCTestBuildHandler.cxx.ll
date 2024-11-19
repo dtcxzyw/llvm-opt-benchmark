@@ -7609,7 +7609,7 @@ declare void @_ZN11cmXMLWriter10EndElementEv(ptr noundef nonnull align 8 derefer
 declare void @_ZN7cmCTest6EndXMLER11cmXMLWriter(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(83)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19cmCTestBuildHandler12LaunchHelperC2EPS_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19cmCTestBuildHandler12LaunchHelperC2EPS_(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [2 x %"struct.std::pair.284"], align 8
   %4 = alloca [4 x %"struct.std::pair.284"], align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8046,7 +8046,7 @@ declare noundef nonnull align 8 dereferenceable(848) ptr @_ZN16cmUVProcessChain7
 declare noundef i32 @_ZN2cm12uv_timer_ptr5startEPFvP10uv_timer_sEmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN19cmCTestBuildHandler14RunMakeCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiPKciRSoN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiRSt5dequeIcS4_ERbi"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, i32 noundef range(i32 1, 3) %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN19cmCTestBuildHandler14RunMakeCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiPKciRSoN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiRSt5dequeIcS4_ERbi"(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, i32 noundef range(i32 1, 3) %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -11087,7 +11087,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN19cmCTestBu
 declare noundef zeroext i1 @_ZN15cmProcessOutput10DecodeTextENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_m(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZ14cmUVStreamReadIZZN19cmCTestBuildHandler14RunMakeCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiPKciRSoN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiRSt5dequeIcS5_ERbiEUlSt6vectorIcS5_EE_ZZNS0_14RunMakeCommandES8_S9_SB_iSC_SE_ENKSF_clESI_iSL_SM_iEUlvE_ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISS_EEP11uv_stream_sT_T0_ENUlP11uv_handle_smP8uv_buf_tE_8__invokeES11_mS13_"(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #3 align 2 {
+define internal void @"_ZZ14cmUVStreamReadIZZN19cmCTestBuildHandler14RunMakeCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiPKciRSoN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiRSt5dequeIcS5_ERbiEUlSt6vectorIcS5_EE_ZZNS0_14RunMakeCommandES8_S9_SB_iSC_SE_ENKSF_clESI_iSL_SM_iEUlvE_ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISS_EEP11uv_stream_sT_T0_ENUlP11uv_handle_smP8uv_buf_tE_8__invokeES11_mS13_"(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) #3 align 2 {
   %.val = load ptr, ptr %0, align 8
   tail call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %.val, i64 noundef %1)
   %4 = load ptr, ptr %.val, align 8

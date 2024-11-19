@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [18 x i8] c"checksum mismatch\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5FD__onion_ingest_history(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5FD__onion_ingest_history(ptr nocapture noundef initializes((16, 24)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %5, align 8
   %6 = tail call i64 @H5FD_get_eof(ptr noundef %1, i32 noundef 3) #5
@@ -407,7 +407,7 @@ define i64 @H5FD__onion_write_history(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5FD__onion_history_encode(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define i64 @H5FD__onion_history_encode(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 8)) %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = load i8, ptr %0, align 8
   store i32 1397249871, ptr %1, align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 4

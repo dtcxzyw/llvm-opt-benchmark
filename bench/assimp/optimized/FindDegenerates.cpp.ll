@@ -103,7 +103,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp22FindDegeneratesProcess15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(26) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 {
+define void @_ZN6Assimp22FindDegeneratesProcess15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(26) initializes((24, 26)) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str, i32 noundef 0)
   %cmp = icmp ne i32 %call, 0
@@ -342,7 +342,7 @@ declare void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenc
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6Assimp22FindDegeneratesProcess13ExecuteOnMeshEP6aiMesh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %this, ptr noundef %mesh) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6Assimp22FindDegeneratesProcess13ExecuteOnMeshEP6aiMesh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %this, ptr noundef initializes((0, 4)) %mesh) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %remove_me = alloca %"class.std::vector", align 8
   %deg = alloca i32, align 4

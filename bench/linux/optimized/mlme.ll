@@ -5129,7 +5129,7 @@ define internal fastcc void @ieee80211_report_disconnect(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_mgd_conn_tx_status(ptr noundef %0, i16 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
+define dso_local void @ieee80211_mgd_conn_tx_status(ptr noundef initializes((2144, 2148)) %0, i16 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 1256
   %6 = load ptr, ptr %5, align 8
@@ -7539,7 +7539,7 @@ define internal void @ieee80211_tid_to_link_map_work(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_mgd_setup_link(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ieee80211_mgd_setup_link(ptr noundef initializes((472, 478)) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 1256
   %4 = load ptr, ptr %3, align 8
@@ -12573,7 +12573,7 @@ define internal fastcc zeroext i1 @ieee80211_check_tim(ptr noundef readonly %0, 
 declare dso_local i32 @cfg80211_get_p2p_attr(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_chswitch_post_beacon(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_chswitch_post_beacon(ptr noundef initializes((483, 484), (608, 609)) %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 1256
   %4 = load ptr, ptr %3, align 8
@@ -14757,7 +14757,7 @@ declare dso_local i32 @__SCT__tp_func_drv_return_int(ptr noundef, ptr noundef, i
 declare dso_local void @ieee80211_regulatory_limit_wmm_params(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ieee80211_determine_chantype(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, i1 noundef zeroext %12) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ieee80211_determine_chantype(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef initializes((0, 32)) %11, i1 noundef zeroext %12) unnamed_addr #0 align 16 {
   %14 = alloca %struct.cfg80211_chan_def, align 8
   %15 = alloca %struct.ieee80211_sta_ht_cap, align 2
   %16 = alloca %struct.ieee80211_vht_operation, align 1
@@ -17523,7 +17523,7 @@ define internal fastcc void @ieee80211_get_dtim(ptr noundef nonnull %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @ieee80211_mgd_setup_link_sta(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @ieee80211_mgd_setup_link_sta(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull initializes((0, 6)) %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1256
   %7 = load ptr, ptr %6, align 8

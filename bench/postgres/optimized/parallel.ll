@@ -508,7 +508,7 @@ declare i32 @getpid() local_unnamed_addr #4
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RunWorker(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #1 {
+define internal fastcc void @RunWorker(ptr noundef %0, ptr nocapture noundef initializes((24, 32)) %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca [256 x i8], align 16

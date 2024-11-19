@@ -169,7 +169,7 @@ define void @Abc_NtkMarkFanouts_rec(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkCollectCircle(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Abc_NtkCollectCircle(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 8)) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr i8, ptr %0, i64 4
@@ -822,7 +822,7 @@ Vec_PtrPush.exit61:                               ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkCollectNonOverlapCands(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define void @Abc_NtkCollectNonOverlapCands(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef initializes((4, 8)) %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %4, i64 4

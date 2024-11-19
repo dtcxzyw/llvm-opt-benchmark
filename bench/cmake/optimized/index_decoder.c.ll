@@ -471,7 +471,7 @@ define internal void @index_decoder_end(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 7) i32 @index_decoder_memconfig(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) #0 {
+define internal range(i32 0, 7) i32 @index_decoder_memconfig(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i64 noundef %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = tail call i64 @lzma_index_memusage(i64 noundef 1, i64 noundef %6) #5

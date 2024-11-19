@@ -145,14 +145,14 @@ declare void @_ZN30btGeneric6DofSpring2ConstraintC2ER11btRigidBodyS1_RK11btTrans
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN17btFixedConstraintD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1484) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN17btFixedConstraintD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1484) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17btTypedConstraint, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN17btFixedConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(1484) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17btFixedConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(1484) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17btTypedConstraint, i64 16), ptr %this, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)

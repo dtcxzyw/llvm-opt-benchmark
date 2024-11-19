@@ -840,7 +840,7 @@ _ZNO5vcpkg9ExpectedTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15Lo
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg9url_headsENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_S8_(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"struct.vcpkg::Span") align 8 %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg9url_headsENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_S8_(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"struct.vcpkg::Span") align 8 %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.vcpkg::LineInfo", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.sroa.018.0.copyload = load ptr, ptr %5, align 8
@@ -1300,7 +1300,7 @@ _ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit52: ; preds = %107, %104, %136, 
 declare void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEb(ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg14download_filesERKNS_10FilesystemENS_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4PathEEEENS3_IKSA_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %1, ptr %2, i64 %3, ptr %4, i64 %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg14download_filesERKNS_10FilesystemENS_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4PathEEEENS3_IKSA_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %1, ptr %2, i64 %3, ptr %4, i64 %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.vcpkg::LocalizedString", align 8
   %8 = alloca %"struct.vcpkg::LineInfo", align 8
   %9 = alloca i64, align 8
@@ -5042,7 +5042,7 @@ define dso_local void @_ZN5vcpkg24try_parse_curl_max5_sizeENS_10StringViewE(ptr 
 declare void @_ZN5vcpkg7Strings5strtoIyEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind writable sret(%"struct.vcpkg::Optional.62") align 8, ptr, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg28try_parse_curl_progress_dataENS_10StringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.65") align 8 %0, ptr %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @_ZN5vcpkg28try_parse_curl_progress_dataENS_10StringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.65") align 8 initializes((0, 1), (8, 9)) %0, ptr %1, i64 %2) local_unnamed_addr #0 {
   %4 = alloca %"struct.vcpkg::CurlProgressData", align 8
   %5 = alloca ptr, align 8
   store ptr %1, ptr %5, align 8

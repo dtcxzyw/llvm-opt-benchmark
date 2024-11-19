@@ -37,7 +37,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFuncti
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfLineSeg16FindClosestPointERKNS_7GfVec3dEPd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfLineSeg16FindClosestPointERKNS_7GfVec3dEPd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
   %5 = alloca double, align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48

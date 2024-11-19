@@ -108,7 +108,7 @@ define void @gres_p_job_set_env(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_env(ptr noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @_set_env(ptr noundef nonnull initializes((20, 24), (40, 44), (48, 56), (72, 80)) %0) unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 -1, ptr %3, align 4

@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [36 x i8] c"because the refinment is very slow.\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Ssw_ManSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @Ssw_ManSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 176)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 0, i64 176, i1 false)
   store i32 1, ptr %2, align 4
@@ -81,7 +81,7 @@ define void @Ssw_ManSetDefaultParams(ptr nocapture noundef writeonly %0) local_u
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Ssw_ManSetDefaultParamsLcorr(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @Ssw_ManSetDefaultParamsLcorr(ptr nocapture noundef writeonly initializes((0, 176)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 0, i64 176, i1 false)
   store i32 1, ptr %2, align 4
@@ -115,7 +115,7 @@ define void @Ssw_ManSetDefaultParamsLcorr(ptr nocapture noundef writeonly %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ssw_ReportConeReductions(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define void @Ssw_ReportConeReductions(ptr nocapture noundef writeonly initializes((328, 344)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = tail call ptr @Aig_ManDupOneOutput(ptr noundef %1, i32 noundef 0, i32 noundef 1) #13
   %5 = tail call ptr @Aig_ManScl(ptr noundef %4, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef -1, i32 noundef -1, i32 noundef 0, i32 noundef 0) #13
   tail call void @Aig_ManStop(ptr noundef %4) #13
@@ -389,7 +389,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %65
 declare ptr @Aig_ManDfsNodes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Ssw_SignalCorrespondenceRefine(ptr noundef %0) local_unnamed_addr #2 {
+define ptr @Ssw_SignalCorrespondenceRefine(ptr noundef initializes((288, 292), (296, 300), (304, 308)) %0) local_unnamed_addr #2 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8

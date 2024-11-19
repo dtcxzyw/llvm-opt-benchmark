@@ -5837,7 +5837,7 @@ declare i32 @blake2sp_update(ptr noundef, ptr noundef, i64 noundef) local_unname
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @create_decode_tables(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef %1, i32 noundef range(i32 16, 307) %2) unnamed_addr #9 {
+define internal fastcc void @create_decode_tables(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef initializes((0, 4), (132, 136), (3208, 3820)) %1, i32 noundef range(i32 16, 307) %2) unnamed_addr #9 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca [16 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false)

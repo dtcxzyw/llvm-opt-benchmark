@@ -449,7 +449,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @all_vm_events(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @all_vm_events(ptr nocapture noundef initializes((0, 592)) %0) #0 align 16 {
   tail call void @cpus_read_lock() #17
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(592) %0, i8 0, i64 592, i1 false)
   br label %2

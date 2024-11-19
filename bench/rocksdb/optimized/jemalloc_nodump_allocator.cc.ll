@@ -427,7 +427,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #3
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb23JemallocNodumpAllocatorC2ERKNS_24JemallocAllocatorOptionsE(ptr noundef nonnull align 8 dereferenceable(121) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %options) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23JemallocNodumpAllocatorC2ERKNS_24JemallocAllocatorOptionsE(ptr noundef nonnull align 8 dereferenceable(121) initializes((0, 88)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %options) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %options_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i.i, i8 0, i64 24, i1 false)
@@ -591,7 +591,7 @@ _ZNSt12_Vector_baseISt10unique_ptrI14extent_hooks_sSt14default_deleteIS1_EESaIS4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb23JemallocNodumpAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(121) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23JemallocNodumpAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(121) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tcache_list = alloca %"class.rocksdb::autovector", align 8
   %s = alloca %"class.rocksdb::Status", align 8
@@ -1133,7 +1133,7 @@ declare extern_weak void @dallocx(ptr noundef, i32 noundef) #0
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb23JemallocNodumpAllocator16InitializeArenasEv(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(121) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23JemallocNodumpAllocator16InitializeArenasEv(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(121) initializes((120, 121)) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arena_index = alloca i32, align 4
   %arena_index_size = alloca i64, align 8

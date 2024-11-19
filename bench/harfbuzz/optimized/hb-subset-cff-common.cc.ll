@@ -58,7 +58,7 @@ $_ZNK12hb_bit_set_t4nextEPj = comdat any
 @_hb_CrapPool = external hidden local_unnamed_addr global [80 x i64], align 16
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_Z27hb_plan_subset_cff_fdselectPK16hb_subset_plan_tjRKN3CFF8FDSelectERjS6_S6_R11hb_vector_tINS2_11code_pair_tELb0EER14hb_inc_bimap_t(ptr nocapture noundef readonly %plan, i32 noundef %fdCount, ptr noundef nonnull align 1 dereferenceable(6) %src, ptr nocapture noundef nonnull align 4 dereferenceable(4) %subset_fd_count, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %subset_fdselect_size, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %subset_fdselect_format, ptr nocapture noundef nonnull align 8 dereferenceable(16) %fdselect_ranges, ptr noundef nonnull align 8 dereferenceable(64) %fdmap) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_Z27hb_plan_subset_cff_fdselectPK16hb_subset_plan_tjRKN3CFF8FDSelectERjS6_S6_R11hb_vector_tINS2_11code_pair_tELb0EER14hb_inc_bimap_t(ptr nocapture noundef readonly %plan, i32 noundef %fdCount, ptr noundef nonnull align 1 dereferenceable(6) %src, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %subset_fd_count, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %subset_fdselect_size, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %subset_fdselect_format, ptr nocapture noundef nonnull align 8 dereferenceable(16) %fdselect_ranges, ptr noundef nonnull align 8 dereferenceable(64) %fdmap) local_unnamed_addr #0 {
 entry:
   %set = alloca %struct.hb_set_t, align 8
   %fd35 = alloca i32, align 4

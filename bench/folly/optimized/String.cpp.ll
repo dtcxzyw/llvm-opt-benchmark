@@ -695,7 +695,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12stringPrintfEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull %output, ptr noundef %format, ...) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly12stringPrintfEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull initializes((8, 16)) %output, ptr noundef %format, ...) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ap) #25
@@ -721,7 +721,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13stringVPrintfEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcP13__va_list_tag(ptr noundef nonnull %output, ptr noundef %format, ptr noundef %ap) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13stringVPrintfEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcP13__va_list_tag(ptr noundef nonnull initializes((8, 16)) %output, ptr noundef %format, ptr noundef %ap) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %output, i64 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8, !tbaa !20
@@ -1555,7 +1555,7 @@ declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216
 declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, 17) i64 @_ZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef readonly %ptr, i64 noundef %offset, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(32) %line) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 17) i64 @_ZN5folly6detail11hexDumpLineEPKvmmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef readonly %ptr, i64 noundef %offset, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(32) initializes((8, 16)) %line) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %line, i64 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8, !tbaa !20

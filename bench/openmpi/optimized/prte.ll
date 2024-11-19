@@ -4095,7 +4095,7 @@ define internal void @parent_died_fn(i64 %0, i32 %1, ptr nocapture readnone %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @evhandler_reg_callbk(i32 noundef %0, i64 %1, ptr noundef %2) #0 {
+define internal void @evhandler_reg_callbk(i32 noundef %0, i64 %1, ptr noundef initializes((224, 228)) %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 224
   store i32 %0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 120
@@ -4263,7 +4263,7 @@ declare i32 @getegid() local_unnamed_addr #5
 declare i32 @PMIx_server_setup_application(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @setupcbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 {
+define internal void @setupcbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef initializes((232, 248)) %3, ptr noundef readonly %4, ptr noundef %5) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %16, label %7
 
@@ -4326,7 +4326,7 @@ declare ptr @PMIx_Argv_copy(ptr noundef) local_unnamed_addr #1
 declare i32 @PMIx_Spawn_nb(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @spcbfunc(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal void @spcbfunc(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef initializes((212, 216)) %2) #0 {
   fence acquire
   %4 = getelementptr inbounds i8, ptr %2, i64 212
   store i32 %0, ptr %4, align 4

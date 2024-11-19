@@ -524,7 +524,7 @@ define void @_ZN19WiresharkPreference12setModelDataEP7QWidgetP18QAbstractItemMod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19WiresharkPreference12setPrefsItemEP9PrefsItem(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN19WiresharkPreference12setPrefsItemEP9PrefsItem(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   ret void

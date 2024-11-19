@@ -336,7 +336,7 @@ $_ZTISt15_Sp_counted_ptrIPN8facebook5velox8DateTypeELN9__gnu_cxx12_Lock_policyE2
 @_ZN8facebook5velox4type6fbhive14HiveTypeParserC1Ev = unnamed_addr alias void (ptr), ptr @_ZN8facebook5velox4type6fbhive14HiveTypeParserC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox4type6fbhive14HiveTypeParserC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox4type6fbhive14HiveTypeParserC2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.0", align 8
   %ref.tmp7 = alloca [2 x %"class.std::__cxx11::basic_string"], align 8
@@ -5135,7 +5135,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox4type6fbhive13TokenMetadataES
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox4type6fbhive14HiveTypeParser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %ser) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox4type6fbhive14HiveTypeParser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((32, 48)) %this, ptr noundef nonnull align 8 dereferenceable(32) %ser) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.facebook::velox::type::fbhive::TokenAndRemaining", align 8
   %result = alloca %"struct.facebook::velox::type::fbhive::Result", align 8
@@ -6223,7 +6223,7 @@ _ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit: ; preds = %entry, %_ZN9__gn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEb(ptr noalias nocapture writeonly sret(%"struct.facebook::velox::type::fbhive::Token") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i1 noundef zeroext %ignorePredefined) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEb(ptr noalias nocapture writeonly sret(%"struct.facebook::velox::type::fbhive::Token") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i1 noundef zeroext %ignorePredefined) local_unnamed_addr #0 align 2 {
 entry:
   %token = alloca %"struct.facebook::velox::type::fbhive::TokenAndRemaining", align 8
   %remaining_ = getelementptr inbounds i8, ptr %this, i64 32

@@ -156,7 +156,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ZSTD_XXH32_copyState(ptr nocapture noundef writeonly %dstState, ptr nocapture noundef readonly %srcState) local_unnamed_addr #4 {
+define void @ZSTD_XXH32_copyState(ptr nocapture noundef writeonly initializes((0, 48)) %dstState, ptr nocapture noundef readonly %srcState) local_unnamed_addr #4 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %dstState, ptr noundef nonnull readonly align 1 dereferenceable(48) %srcState, i64 48, i1 false)
   ret void
@@ -451,7 +451,7 @@ XXH32_finalize.exit:                              ; preds = %do.body7.i, %while.
 declare i32 @llvm.fshl.i32(i32, i32, i32) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ZSTD_XXH32_canonicalFromHash(ptr nocapture noundef writeonly %dst, i32 noundef %hash) local_unnamed_addr #10 {
+define void @ZSTD_XXH32_canonicalFromHash(ptr nocapture noundef writeonly initializes((0, 4)) %dst, i32 noundef %hash) local_unnamed_addr #10 {
 entry:
   %or7.i = tail call noundef i32 @llvm.bswap.i32(i32 %hash)
   store i32 %or7.i, ptr %dst, align 1
@@ -655,7 +655,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ZSTD_XXH64_copyState(ptr nocapture noundef writeonly %dstState, ptr nocapture noundef readonly %srcState) local_unnamed_addr #4 {
+define void @ZSTD_XXH64_copyState(ptr nocapture noundef writeonly initializes((0, 88)) %dstState, ptr nocapture noundef readonly %srcState) local_unnamed_addr #4 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(88) %dstState, ptr noundef nonnull readonly align 1 dereferenceable(88) %srcState, i64 88, i1 false)
   ret void
@@ -978,7 +978,7 @@ XXH64_finalize.exit:                              ; preds = %while.body17.i, %if
 declare i64 @llvm.fshl.i64(i64, i64, i64) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ZSTD_XXH64_canonicalFromHash(ptr nocapture noundef writeonly %dst, i64 noundef %hash) local_unnamed_addr #10 {
+define void @ZSTD_XXH64_canonicalFromHash(ptr nocapture noundef writeonly initializes((0, 8)) %dst, i64 noundef %hash) local_unnamed_addr #10 {
 entry:
   %or19.i = tail call noundef i64 @llvm.bswap.i64(i64 %hash)
   store i64 %or19.i, ptr %dst, align 1

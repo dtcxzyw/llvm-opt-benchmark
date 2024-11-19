@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @put_be24(ptr nocapture noundef writeonly %out, i32 noundef %i) local_unnamed_addr #0 {
+define dso_local void @put_be24(ptr nocapture noundef writeonly initializes((0, 3)) %out, i32 noundef %i) local_unnamed_addr #0 {
 entry:
   %shr = lshr i32 %i, 16
   %conv = trunc i32 %shr to i8
@@ -38,7 +38,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @put_be16(ptr nocapture noundef writeonly %out, i16 noundef zeroext %i) local_unnamed_addr #0 {
+define dso_local void @put_be16(ptr nocapture noundef writeonly initializes((0, 2)) %out, i16 noundef zeroext %i) local_unnamed_addr #0 {
 entry:
   %shr = lshr i16 %i, 8
   %conv1 = trunc nuw i16 %shr to i8

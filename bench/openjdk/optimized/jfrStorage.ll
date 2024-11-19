@@ -188,7 +188,7 @@ define hidden void @_ZN10JfrStorage7destroyEv() local_unnamed_addr #1 align 2 {
 declare void @_ZN11JfrCHeapObjdlEPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10JfrStorageC2ER14JfrChunkWriterR10JfrPostBox(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(21) %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN10JfrStorageC2ER14JfrChunkWriterR10JfrPostBox(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 24), (32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(21) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store ptr %1, ptr %4, align 8
@@ -599,7 +599,7 @@ _ZN18JfrConcurrentQueueI12JfrValueNodeIP9JfrBufferE11JfrCHeapObjED2Ev.exit10: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10JfrStorage10initializeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN10JfrStorage10initializeEv(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef i64 @_ZN12JfrOptionSet18num_global_buffersEv() #16
   %3 = tail call noundef i64 @_ZN12JfrOptionSet18global_buffer_sizeEv() #16
   %4 = tail call noundef i64 @_ZN12JfrOptionSet18thread_buffer_sizeEv() #16

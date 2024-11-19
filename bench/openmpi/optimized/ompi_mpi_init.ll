@@ -149,7 +149,7 @@ target triple = "x86_64-pc-linux-gnu"
 @mpi_fortran_weights_empty_ = local_unnamed_addr global i32 0, align 4
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_mpi_thread_level(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define void @ompi_mpi_thread_level(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
   store i32 %0, ptr @ompi_mpi_thread_requested, align 4
   store i32 %0, ptr %1, align 4
   store i32 %0, ptr @ompi_mpi_thread_provided, align 4

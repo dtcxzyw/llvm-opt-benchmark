@@ -29,7 +29,7 @@ $_ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE15_M_range_insertIN9__g
 @_ZN4base14OffsetAdjuster10AdjustmentC1Emmm = dso_local unnamed_addr alias void (ptr, i64, i64, i64), ptr @_ZN4base14OffsetAdjuster10AdjustmentC2Emmm
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base14OffsetAdjuster10AdjustmentC2Emmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i64 noundef %original_offset, i64 noundef %original_length, i64 noundef %output_length) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base14OffsetAdjuster10AdjustmentC2Emmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, i64 noundef %original_offset, i64 noundef %original_length, i64 noundef %output_length) unnamed_addr #0 align 2 {
 entry:
   store i64 %original_offset, ptr %this, align 8
   %original_length3 = getelementptr inbounds i8, ptr %this, i64 8

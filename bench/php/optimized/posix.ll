@@ -278,7 +278,7 @@ define internal void @zm_info_posix(ptr nocapture readnone %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @zm_globals_ctor_posix(ptr nocapture noundef writeonly %0) #1 {
+define internal void @zm_globals_ctor_posix(ptr nocapture noundef writeonly initializes((0, 4)) %0) #1 {
   store i32 0, ptr %0, align 4
   ret void
 }

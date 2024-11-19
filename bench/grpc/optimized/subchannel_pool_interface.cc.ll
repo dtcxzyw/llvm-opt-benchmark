@@ -53,7 +53,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 dereferenceable(17), i1 noundef zeroext, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core13SubchannelKeyC2ERK21grpc_resolved_addressRKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(132) %address, ptr noundef nonnull align 8 dereferenceable(8) %args) unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core13SubchannelKeyC2ERK21grpc_resolved_addressRKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 132)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(132) %address, ptr noundef nonnull align 8 dereferenceable(8) %args) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 4 dereferenceable(132) %address, i64 132, i1 false)
   %args_ = getelementptr inbounds i8, ptr %this, i64 136

@@ -13685,7 +13685,7 @@ _ZN4llvm18ValueMapCallbackVHIPNS_5ValueEN12_GLOBAL__N_112_GLOBAL__N_19ShapeInfoE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_18ValueMapCallbackVHIPNS_5ValueEN12_GLOBAL__N_112_GLOBAL__N_19ShapeInfoENS_14ValueMapConfigIS4_NS_3sys10SmartMutexILb0EEEEEEES7_NS_12DenseMapInfoISD_vEENS_6detail12DenseMapPairISD_S7_EEEESD_S7_SF_SI_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_18ValueMapCallbackVHIPNS_5ValueEN12_GLOBAL__N_112_GLOBAL__N_19ShapeInfoENS_14ValueMapConfigIS4_NS_3sys10SmartMutexILb0EEEEEEES7_NS_12DenseMapInfoISD_vEENS_6detail12DenseMapPairISD_S7_EEEESD_S7_SF_SI_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -17503,7 +17503,7 @@ _ZN12_GLOBAL__N_121LowerMatrixIntrinsics8MatrixTy9addVectorEPN4llvm5ValueE.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics18emitMatrixMultiplyERNS0_8MatrixTyERKS1_S4_RN4llvm9IRBuilderINS5_14ConstantFolderENS5_24IRBuilderDefaultInserterEEEbbNS5_13FastMathFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(161) %1, ptr noundef nonnull align 8 dereferenceable(161) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(161) %3, ptr noundef nonnull align 8 dereferenceable(144) %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 %7) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_121LowerMatrixIntrinsics18emitMatrixMultiplyERNS0_8MatrixTyERKS1_S4_RN4llvm9IRBuilderINS5_14ConstantFolderENS5_24IRBuilderDefaultInserterEEEbbNS5_13FastMathFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(161) %1, ptr noundef nonnull align 8 dereferenceable(161) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(161) %3, ptr noundef nonnull align 8 dereferenceable(144) initializes((104, 108)) %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::Twine", align 8
   %11 = alloca %"class.llvm::InsertPosition", align 8

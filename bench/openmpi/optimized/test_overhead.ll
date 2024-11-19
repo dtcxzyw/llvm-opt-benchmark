@@ -252,7 +252,7 @@ declare i32 @MPI_Comm_rank(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @MPI_Comm_size(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_send(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal void @op_send(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
@@ -299,7 +299,7 @@ define internal void @op_send(ptr nocapture noundef writeonly %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_coll(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) unnamed_addr #0 {
+define internal void @op_coll(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = tail call i32 @MPI_Barrier(ptr noundef nonnull @ompi_mpi_comm_world) #12
@@ -323,7 +323,7 @@ define internal void @op_coll(ptr nocapture noundef writeonly %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_a2a(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr noundef %4) unnamed_addr #0 {
+define internal void @op_a2a(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = tail call i32 @MPI_Barrier(ptr noundef nonnull @ompi_mpi_comm_world) #12
@@ -347,7 +347,7 @@ define internal void @op_a2a(ptr nocapture noundef writeonly %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_send_pingpong(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal void @op_send_pingpong(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = tail call i32 @MPI_Barrier(ptr noundef nonnull @ompi_mpi_comm_world) #12
@@ -403,7 +403,7 @@ define internal void @op_send_pingpong(ptr nocapture noundef writeonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_put(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) unnamed_addr #0 {
+define internal void @op_put(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = load i32, ptr @to, align 4
@@ -434,7 +434,7 @@ define internal void @op_put(ptr nocapture noundef writeonly %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_get(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) unnamed_addr #0 {
+define internal void @op_get(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = load i32, ptr @to, align 4

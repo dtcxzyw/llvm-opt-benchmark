@@ -3528,7 +3528,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf11MessageLite15SerializeAsCordEv(ptr noalias sret(%"class.absl::lts_20230802::Cord") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf11MessageLite15SerializeAsCordEv(ptr noalias sret(%"class.absl::lts_20230802::Cord") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %call.i1 = invoke noundef zeroext i1 @_ZNK6google8protobuf11MessageLite19AppendPartialToCordEPN4absl12lts_202308024CordE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.result)
@@ -3552,7 +3552,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf11MessageLite22SerializePartialAsCordEv(ptr noalias sret(%"class.absl::lts_20230802::Cord") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf11MessageLite22SerializePartialAsCordEv(ptr noalias sret(%"class.absl::lts_20230802::Cord") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %call = invoke noundef zeroext i1 @_ZNK6google8protobuf11MessageLite19AppendPartialToCordEPN4absl12lts_202308024CordE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.result)

@@ -601,7 +601,7 @@ declare dso_local i32 @register_inetaddr_notifier(ptr noundef) local_unnamed_add
 declare dso_local i32 @register_inet6addr_notifier(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @lockd_authenticate(ptr noundef %0) #0 align 16 {
+define internal i32 @lockd_authenticate(ptr noundef initializes((11328, 11332), (11368, 11376)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 11368
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 344

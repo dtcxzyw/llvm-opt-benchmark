@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.3 = type { [2 x i64] }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @CRYPTO_ccm128_init(ptr nocapture noundef writeonly %ctx, i32 noundef %M, i32 noundef %L, ptr noundef %key, ptr noundef %block) local_unnamed_addr #0 {
+define void @CRYPTO_ccm128_init(ptr nocapture noundef writeonly initializes((0, 16), (32, 56)) %ctx, i32 noundef %M, i32 noundef %L, ptr noundef %key, ptr noundef %block) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ctx, i8 0, i64 16, i1 false)
   %conv = add i32 %L, 7

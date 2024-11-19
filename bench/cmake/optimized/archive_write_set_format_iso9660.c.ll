@@ -4775,7 +4775,7 @@ declare i32 @archive_entry_filetype(ptr noundef) local_unnamed_addr #1
 declare i64 @archive_entry_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @isofile_gen_utility_names(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @isofile_gen_utility_names(ptr noundef %0, ptr noundef nonnull initializes((48, 56), (72, 80), (96, 104), (120, 128)) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 248
@@ -7228,7 +7228,7 @@ declare void @archive_entry_set_size(ptr noundef, i64 noundef) local_unnamed_add
 declare i64 @time(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @isoent_setup_directory_location(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @isoent_setup_directory_location(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((44, 48)) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 44
   store i32 0, ptr %4, align 4
   %5 = load ptr, ptr %2, align 8

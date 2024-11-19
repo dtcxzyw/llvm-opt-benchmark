@@ -168,7 +168,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilderC2ERKNS1_15TopologyRefinerENS1_17PatchTableFactory7OptionsENS0_3Vtr10ConstArrayIiEE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 %2, ptr %3, ptr %4, i32 %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilderC2ERKNS1_15TopologyRefinerENS1_17PatchTableFactory7OptionsENS0_3Vtr10ConstArrayIiEE(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 36), (48, 64)) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 %2, ptr %3, ptr %4, i32 %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.OpenSubdiv::v3_6_0::Far::PatchBuilder::Options", align 4
   store ptr %1, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -930,7 +930,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder21identifyPatchTopologyERKNS2_10PatchTupleERNS2_9PatchInfoEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(224) %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder21identifyPatchTopologyERKNS2_10PatchTupleERNS2_9PatchInfoEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 1)) %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = alloca %"struct.OpenSubdiv::v3_6_0::Far::PatchBuilder::SingleCreaseInfo", align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
@@ -8851,7 +8851,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder16LocalPointHelperC2ERKNS1_15TopologyRefinerERKNS3_7OptionsEii(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(1) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder16LocalPointHelperC2ERKNS1_15TopologyRefinerERKNS3_7OptionsEii(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 20), (24, 88)) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(1) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %2, align 4
@@ -9857,7 +9857,7 @@ _ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder12BuildPatchesEv.exit: ; preds = %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableFactory12PatchFaceTag5clearEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0) local_unnamed_addr #10 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableFactory12PatchFaceTag5clearEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0) local_unnamed_addr #10 align 2 {
   store i32 0, ptr %0, align 4
   ret void
 }

@@ -100,7 +100,7 @@ $_ZGVZZN5folly13usingTCMallocEvENK11InitializerclEvE3ptr = comdat any
 @_ZN8proxygen7huffman8HuffTreeC1ERKS1_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN8proxygen7huffman8HuffTreeC2ERKS1_
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8proxygen7huffman8HuffTreeC2EPKjPKh(ptr nocapture noundef nonnull align 8 dereferenceable(23576) %this, ptr noundef %codes, ptr noundef %bits) unnamed_addr #0 align 2 {
+define void @_ZN8proxygen7huffman8HuffTreeC2EPKjPKh(ptr nocapture noundef nonnull align 8 dereferenceable(23576) initializes((0, 4), (8, 24)) %this, ptr noundef %codes, ptr noundef %bits) unnamed_addr #0 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %codes_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -280,7 +280,7 @@ for.end:                                          ; preds = %_ZN8proxygen7huffma
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8proxygen7huffman8HuffTreeC2ERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(23576) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(23576) %tree) unnamed_addr #0 align 2 {
+define void @_ZN8proxygen7huffman8HuffTreeC2ERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(23576) initializes((0, 4), (8, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(23576) %tree) unnamed_addr #0 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %codes_ = getelementptr inbounds i8, ptr %this, i64 8

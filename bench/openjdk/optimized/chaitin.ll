@@ -160,7 +160,7 @@ define hidden noundef i32 @_ZN12LiveRangeMap13find_compressEj(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LiveRangeMap12reset_uf_mapEj(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN12LiveRangeMap12reset_uf_mapEj(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -1114,7 +1114,7 @@ _ZN12LiveRangeMap12reset_uf_mapEj.exit:           ; preds = %.lr.ph.i, %_ZN26Gro
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12PhaseChaitin17Register_AllocateEv(ptr noundef nonnull align 8 dereferenceable(364) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN12PhaseChaitin17Register_AllocateEv(ptr noundef nonnull align 8 dereferenceable(364) initializes((96, 104)) %0) unnamed_addr #2 align 2 {
   %2 = alloca %class.ResourceArea, align 8
   %3 = alloca %class.ResourceArea, align 8
   %4 = alloca %class.PhaseLive, align 8
@@ -4260,7 +4260,7 @@ _ZNK3LRG5scoreEv.exit111:                         ; preds = %197, %206, %211, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN12PhaseChaitin6SelectEv(ptr nocapture noundef nonnull align 8 dereferenceable(364) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN12PhaseChaitin6SelectEv(ptr nocapture noundef nonnull align 8 dereferenceable(364) initializes((84, 88)) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca %"class.Compile::TracePhase", align 8
   %3 = alloca %class.IndexSetIterator, align 8
   call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1008)) #14

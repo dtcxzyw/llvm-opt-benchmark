@@ -23670,7 +23670,7 @@ declare void @_ZN4cvc58internal7options7ioutils14applyDagThreshERSt8ios_basel(pt
 declare void @_ZN4cvc58internal11NodeManager11mkRawSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8TypeNodeE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(3360), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal5proof17LfscNodeConverter14preConvertTypeENS0_8TypeNodeE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(760) %this, ptr noundef %tn) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal5proof17LfscNodeConverter14preConvertTypeENS0_8TypeNodeE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(760) %this, ptr noundef %tn) unnamed_addr #3 align 2 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode.361", align 8
   %0 = load ptr, ptr %tn, align 8
@@ -23722,7 +23722,7 @@ _ZN4cvc58internal8TypeNodeC2ERKS1_.exit:          ; preds = %if.then.i.i, %if.el
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal5proof17LfscNodeConverter15postConvertTypeENS0_8TypeNodeE(ptr noalias sret(%"class.cvc5::internal::TypeNode") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(760) %this, ptr noundef %tn) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal5proof17LfscNodeConverter15postConvertTypeENS0_8TypeNodeE(ptr noalias sret(%"class.cvc5::internal::TypeNode") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(760) %this, ptr noundef %tn) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i2434 = alloca %"class.std::tuple.345", align 8
   %ref.tmp10.i2435 = alloca %"class.std::tuple.348", align 1

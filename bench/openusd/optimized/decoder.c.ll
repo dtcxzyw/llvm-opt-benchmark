@@ -379,7 +379,7 @@ define internal void @initialize_dec() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dec_free_mi(ptr nocapture noundef %0) #0 {
+define internal void @dec_free_mi(ptr nocapture noundef initializes((32, 36)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @aom_free(ptr noundef %3) #10
@@ -415,7 +415,7 @@ define internal void @dec_setup_mi(ptr nocapture noundef readonly %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @dec_set_mb_mi(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) #5 {
+define internal void @dec_set_mb_mi(ptr nocapture noundef writeonly initializes((0, 20), (36, 41), (60, 64)) %0, i32 noundef %1, i32 noundef %2) #5 {
   %4 = add nsw i32 %1, 7
   %5 = add nsw i32 %2, 7
   %6 = ashr i32 %4, 2
@@ -488,7 +488,7 @@ declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #6
 declare void @aom_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_dec_free_cb_buf(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @av1_dec_free_cb_buf(ptr nocapture noundef initializes((458808, 458812)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 458800
   %3 = load ptr, ptr %2, align 16
   tail call void @aom_free(ptr noundef %3) #10

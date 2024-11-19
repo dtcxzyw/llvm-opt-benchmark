@@ -2743,7 +2743,7 @@ declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @SerializeSnapshot(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
+define dso_local void @SerializeSnapshot(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 18), (20, 40)) %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 8

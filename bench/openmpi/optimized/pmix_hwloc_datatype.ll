@@ -416,7 +416,7 @@ pmix_hwloc_release_cpuset.exit:                   ; preds = %2, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_hwloc_get_cpuset_size(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noundef i32 @pmix_hwloc_get_cpuset_size(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = tail call noalias ptr @hwloc_bitmap_alloc() #6
   tail call void @hwloc_bitmap_fill(ptr noundef %3) #6
   %4 = tail call i32 @hwloc_bitmap_weight(ptr noundef %3) #7

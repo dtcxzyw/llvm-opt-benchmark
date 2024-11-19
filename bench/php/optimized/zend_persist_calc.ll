@@ -2689,7 +2689,7 @@ define hidden void @zend_persist_warnings_calc(i32 noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @zend_accel_script_persist_calc(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden i32 @zend_accel_script_persist_calc(ptr noundef initializes((384, 385), (416, 432)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 416
   %4 = getelementptr inbounds i8, ptr %0, i64 424
   %5 = getelementptr inbounds i8, ptr %0, i64 384

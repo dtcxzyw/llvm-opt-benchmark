@@ -901,7 +901,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %1, %_ZN9QtPrivate8R
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN25PickedPointTreeWidgetItem17setPointAndNormalERN3vcg6Point3IfEES3_(ptr noundef nonnull align 8 dereferenceable(85) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN25PickedPointTreeWidgetItem17setPointAndNormalERN3vcg6Point3IfEES3_(ptr noundef nonnull align 8 dereferenceable(85) initializes((60, 84)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QVariant, align 8
   %5 = alloca %class.QVariant, align 8
   %6 = alloca %class.QVariant, align 8
@@ -1127,7 +1127,7 @@ define { <2 x float>, float } @_ZN25PickedPointTreeWidgetItem9getNormalEv(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN25PickedPointTreeWidgetItem10clearPointEv(ptr noundef nonnull align 8 dereferenceable(85) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN25PickedPointTreeWidgetItem10clearPointEv(ptr noundef nonnull align 8 dereferenceable(85) initializes((60, 72)) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QVariant, align 8
   %3 = alloca %class.QVariant, align 8
   %4 = alloca %class.QVariant, align 8
@@ -1304,7 +1304,7 @@ _ZN7QStringD2Ev.exit23:                           ; preds = %39, %_ZN9QtPrivate8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN25PickedPointTreeWidgetItem9setActiveEb(ptr noundef nonnull align 8 dereferenceable(85) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
+define void @_ZN25PickedPointTreeWidgetItem9setActiveEb(ptr noundef nonnull align 8 dereferenceable(85) initializes((84, 85)) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 84
   store i8 %3, ptr %4, align 4
@@ -1336,7 +1336,7 @@ declare void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 der
 declare noundef ptr @_ZNK11QMetaObject4castEP7QObject(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN25PickedPointTreeWidgetItem12toggleActiveEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(85) %0, i1 noundef zeroext %1) local_unnamed_addr #14 align 2 {
+define void @_ZN25PickedPointTreeWidgetItem12toggleActiveEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(85) initializes((84, 85)) %0, i1 noundef zeroext %1) local_unnamed_addr #14 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 84
   store i8 %3, ptr %4, align 4
@@ -5592,7 +5592,7 @@ declare noundef ptr @_ZN9QListData11detach_growEPii(ptr noundef nonnull align 8 
 declare void @_ZN9QListData7disposeEPNS_4DataE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN16PickPointsDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16PickPointsDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16PickPointsDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV16PickPointsDialog, i64 448), ptr %2, align 8
@@ -6112,7 +6112,7 @@ _ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE9push_backERKS1_.exit: ; preds 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QString6setNumExi(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16PickPointsDialog22recordNextPointForUndoEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(464) %0) local_unnamed_addr #14 align 2 {
+define void @_ZN16PickPointsDialog22recordNextPointForUndoEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(464) initializes((448, 449)) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 448
   store i8 1, ptr %2, align 8
   ret void
@@ -8517,7 +8517,7 @@ define noundef i32 @_ZN16PickPointsDialog7getModeEv(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16PickPointsDialog19setCurrentMeshModelEP9MeshModelP9QGLWidget(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16PickPointsDialog19setCurrentMeshModelEP9MeshModelP9QGLWidget(ptr noundef nonnull align 8 dereferenceable(464) initializes((384, 400), (416, 424)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.vcg::PointerToAttribute", align 8
   %5 = alloca %"class.__gnu_cxx::__normal_iterator.193", align 8
   %6 = alloca %"class.__gnu_cxx::__normal_iterator.193", align 8

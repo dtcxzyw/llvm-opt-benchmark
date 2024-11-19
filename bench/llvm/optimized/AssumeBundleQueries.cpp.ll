@@ -865,7 +865,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10AssumeInstENS_6MinMaxENS_12DenseMapInf
 declare noundef i32 @_ZN4llvm9Attribute19getAttrKindFromNameENS_9StringRefE(ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::RetainedKnowledge") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8CallBase12BundleOpInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::RetainedKnowledge") align 8 initializes((0, 4), (8, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = load ptr, ptr %2, align 8
@@ -959,7 +959,7 @@ define dso_local void @_ZN4llvm22getKnowledgeFromBundleERNS_10AssumeInstERKNS_8C
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm31getKnowledgeFromOperandInAssumeERNS_10AssumeInstEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::RetainedKnowledge") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm31getKnowledgeFromOperandInAssumeERNS_10AssumeInstEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::RetainedKnowledge") align 8 initializes((0, 4), (8, 24)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm8CallBase25getBundleOpInfoForOperandEj(ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2) #16
   %.sroa.0.0.copyload = load ptr, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8

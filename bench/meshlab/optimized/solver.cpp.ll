@@ -448,7 +448,7 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(1000) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(1000) initializes((0, 16), (128, 130), (132, 288), (304, 305), (312, 332), (336, 344)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i8 1, ptr %2, align 8
@@ -1047,7 +1047,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6Solver8optimizeEP8AlignSetP10MutualInfoRN3vcg4ShotIfNS4_8Matrix44IfEEEE(ptr noundef nonnull align 8 dereferenceable(1000) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(132) %3) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZN6Solver8optimizeEP8AlignSetP10MutualInfoRN3vcg4ShotIfNS4_8Matrix44IfEEEE(ptr noundef nonnull align 8 dereferenceable(1000) initializes((0, 304), (344, 364)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(132) %3) local_unnamed_addr #10 align 2 {
   %5 = alloca %class.Parameters, align 8
   %6 = alloca %"class.vcg::Shot", align 4
   store ptr %1, ptr %0, align 8
@@ -5369,7 +5369,7 @@ declare double @cos(double noundef) local_unnamed_addr #17
 declare double @sin(double noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6Solver9iterativeEP8AlignSetP10MutualInfoRN3vcg4ShotIfNS4_8Matrix44IfEEEE(ptr noundef nonnull align 8 dereferenceable(1000) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(132) %3) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZN6Solver9iterativeEP8AlignSetP10MutualInfoRN3vcg4ShotIfNS4_8Matrix44IfEEEE(ptr noundef nonnull align 8 dereferenceable(1000) initializes((360, 368)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(132) %3) local_unnamed_addr #10 align 2 {
   %5 = alloca %class.Parameters, align 8
   %6 = alloca %"class.vcg::Shot", align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 360
@@ -5680,7 +5680,7 @@ define void @_ZN6Solver5valueEPdS0_iiPv(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6Solver6levmarEP8AlignSetP10MutualInfoRN3vcg4ShotIfNS4_8Matrix44IfEEEE(ptr noundef nonnull align 8 dereferenceable(1000) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(132) %3) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZN6Solver6levmarEP8AlignSetP10MutualInfoRN3vcg4ShotIfNS4_8Matrix44IfEEEE(ptr noundef nonnull align 8 dereferenceable(1000) initializes((0, 304), (344, 364)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(132) %3) local_unnamed_addr #10 align 2 {
   %5 = alloca %class.Parameters, align 8
   %6 = alloca %"class.vcg::Shot", align 4
   store ptr %1, ptr %0, align 8
@@ -5937,7 +5937,7 @@ declare float @sinf(float noundef) local_unnamed_addr #17
 declare float @cosf(float noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6Solver6levmarEP8AlignSetRN3vcg4ShotIfNS2_8Matrix44IfEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1000) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(132) %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6Solver6levmarEP8AlignSetRN3vcg4ShotIfNS2_8Matrix44IfEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1000) initializes((0, 8)) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(132) %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.PointOnLayer, align 8
   %5 = alloca %class.PointOnLayer, align 8
   %6 = alloca %class.QMessageLogger, align 8

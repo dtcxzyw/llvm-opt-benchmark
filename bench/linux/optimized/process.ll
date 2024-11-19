@@ -115,7 +115,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_arch_cpu_idl
 @llvm.compiler.used = appending global [11 x ptr] [ptr @__UNIQUE_ID___addressable___tss_limit_invalid1013, ptr @__UNIQUE_ID___addressable_arch_cpu_idle1025, ptr @__UNIQUE_ID___addressable_boot_option_idle_override1022, ptr @__UNIQUE_ID___addressable_cpu_tss_rw1012, ptr @__setup_idle_setup, ptr @arch_cpu_idle.__UNIQUE_ID___addressable___SCK__x86_idle1024, ptr @disable_TSC.__UNIQUE_ID___addressable___SCK__preempt_schedule1015, ptr @disable_cpuid.__UNIQUE_ID___addressable___SCK__preempt_schedule1017, ptr @enable_TSC.__UNIQUE_ID___addressable___SCK__preempt_schedule1016, ptr @enable_cpuid.__UNIQUE_ID___addressable___SCK__preempt_schedule1018, ptr @speculation_ctrl_update_current.__UNIQUE_ID___addressable___SCK__preempt_schedule1021], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @arch_dup_task_struct(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @arch_dup_task_struct(ptr nocapture noundef writeonly initializes((3024, 3032)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = load i32, ptr @arch_task_struct_size, align 4
   %4 = sext i32 %3 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 64 %0, ptr align 64 %1, i64 %4, i1 false)
@@ -199,7 +199,7 @@ declare dso_local void @schedule_tail(ptr noundef) local_unnamed_addr #3
 declare dso_local void @syscall_exit_to_user_mode(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @copy_thread(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
+define dso_local i32 @copy_thread(ptr noundef initializes((2840, 2904), (2944, 2952)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load i64, ptr %4, align 8

@@ -2340,7 +2340,7 @@ define noundef double @_ZNK6colvar17linearCombination31getPolynomialFactorOfCVGr
 declare double @pow(double noundef, double noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6colvar17linearCombinationD2Ev(ptr noundef nonnull align 8 dereferenceable(1673) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6colvar17linearCombinationD2Ev(ptr noundef nonnull align 8 dereferenceable(1673) initializes((0, 8), (320, 328)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar17linearCombinationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar17linearCombinationE, i64 248), ptr %2, align 8
@@ -3300,7 +3300,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6colvar12customColvarD2Ev(ptr noundef nonnull align 8 dereferenceable(1674) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6colvar12customColvarD2Ev(ptr noundef nonnull align 8 dereferenceable(1674) initializes((0, 8), (320, 328)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar17linearCombinationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar17linearCombinationE, i64 248), ptr %2, align 8

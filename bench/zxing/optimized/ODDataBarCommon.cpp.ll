@@ -361,7 +361,7 @@ _ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit62: ; preds = %.l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5ZXing4OneD7DataBar16EstimatePositionERKNS1_4PairES4_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.ZXing::Quadrilateral") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %2) local_unnamed_addr #2 {
+define void @_ZN5ZXing4OneD7DataBar16EstimatePositionERKNS1_4PairES4_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.ZXing::Quadrilateral") align 4 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 20
   %.val = load i32, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 28

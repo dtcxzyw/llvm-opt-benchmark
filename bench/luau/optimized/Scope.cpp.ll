@@ -1316,7 +1316,7 @@ define internal void @__cxx_global_var_init.51() #0 section ".text.startup" comd
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau5ScopeC2EPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(848) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau5ScopeC2EPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(848) initializes((0, 40)) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.66", align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1781,7 +1781,7 @@ _ZNSt12__shared_ptrIN4Luau5ScopeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau5ScopeC2ERKSt10shared_ptrIS0_Ei(ptr noundef nonnull align 8 dereferenceable(848) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau5ScopeC2ERKSt10shared_ptrIS0_Ei(ptr noundef nonnull align 8 dereferenceable(848) initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.66", align 1
   %6 = load ptr, ptr %1, align 8

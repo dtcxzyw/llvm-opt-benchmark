@@ -70,7 +70,7 @@ define hidden noundef ptr @pj_horner(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z35pj_projection_specific_setup_hornerP8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
+define hidden noundef ptr @_Z35pj_projection_specific_setup_hornerP8PJconsts(ptr noundef initializes((104, 136), (152, 160), (380, 388)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = getelementptr inbounds i8, ptr %0, i64 384
   store i32 0, ptr %3, align 8

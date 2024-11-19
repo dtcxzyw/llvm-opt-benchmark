@@ -2023,7 +2023,7 @@ declare dso_local void @rand_initialize_disk(ptr noundef) local_unnamed_addr #1
 declare dso_local void @device_initialize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @inc_diskseq(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @inc_diskseq(ptr nocapture noundef writeonly initializes((544, 552)) %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @diskseq, i64 1, ptr nonnull elementtype(i64) @diskseq) #17, !srcloc !50
   %3 = add i64 %2, 1
   %4 = getelementptr inbounds i8, ptr %0, i64 544
@@ -2373,7 +2373,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @disk_discard_ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @disk_capability_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef i64 @disk_capability_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 3)) %2) #0 align 16 {
   %4 = load i1, ptr @disk_capability_show.__print_once, align 1
   br i1 %4, label %6, label %5
 

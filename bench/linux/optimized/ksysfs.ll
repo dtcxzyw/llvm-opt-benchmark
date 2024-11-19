@@ -212,7 +212,7 @@ define internal noundef i64 @boot_params_data_read(ptr nocapture readnone %0, pt
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -12, 1) i32 @get_setup_data_total_num(i64 noundef range(i64 1, 0) %0, ptr nocapture noundef %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @get_setup_data_total_num(i64 noundef range(i64 1, 0) %0, ptr nocapture noundef initializes((0, 4)) %1) unnamed_addr #0 section ".init.text" align 16 {
   store i32 0, ptr %1, align 4
   br label %3
 

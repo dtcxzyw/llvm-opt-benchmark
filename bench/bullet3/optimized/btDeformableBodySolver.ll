@@ -3053,7 +3053,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22btDeformableBodySolverC2Ev(ptr noundef nonnull align 8 dereferenceable(609) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22btDeformableBodySolverC2Ev(ptr noundef nonnull align 8 dereferenceable(609) initializes((0, 24), (28, 36), (40, 49), (60, 68), (72, 81), (92, 100), (104, 113), (124, 132), (136, 145), (156, 164), (168, 177), (188, 196), (200, 209), (224, 240), (244, 252), (256, 265), (276, 284), (288, 297), (308, 316), (320, 329), (340, 348), (352, 361), (368, 384), (388, 396), (400, 409), (420, 428), (432, 441), (452, 460), (464, 473), (484, 492), (496, 505), (516, 524), (528, 537), (548, 556), (560, 569), (588, 597), (608, 609)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont15:
   %m_numberOfPositionIterations.i = getelementptr inbounds i8, ptr %this, i64 8
   %m_timeScale.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -3651,7 +3651,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN22btDeformableBodySolverD2Ev(ptr noundef nonnull align 8 dereferenceable(609) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22btDeformableBodySolverD2Ev(ptr noundef nonnull align 8 dereferenceable(609) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV22btDeformableBodySolver, i64 16), ptr %this, align 8
   %m_objective = getelementptr inbounds i8, ptr %this, i64 600
@@ -3855,7 +3855,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit54: ; preds = %_ZN20btAlignedObjec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN22btDeformableBodySolverD0Ev(ptr noundef nonnull align 8 dereferenceable(609) %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZN22btDeformableBodySolverD0Ev(ptr noundef nonnull align 8 dereferenceable(609) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN22btDeformableBodySolverD2Ev(ptr noundef nonnull align 8 dereferenceable(609) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
@@ -9844,7 +9844,7 @@ for.end:                                          ; preds = %for.inc, %entry
 declare void @_ZN10btSoftBody13updateNormalsEv(ptr noundef nonnull align 8 dereferenceable(2064)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN22btDeformableBodySolver11setImplicitEb(ptr nocapture noundef nonnull align 8 dereferenceable(609) %this, i1 noundef zeroext %implicit) local_unnamed_addr #16 align 2 {
+define dso_local void @_ZN22btDeformableBodySolver11setImplicitEb(ptr nocapture noundef nonnull align 8 dereferenceable(609) initializes((584, 585)) %this, i1 noundef zeroext %implicit) local_unnamed_addr #16 align 2 {
 entry:
   %frombool = zext i1 %implicit to i8
   %m_implicit = getelementptr inbounds i8, ptr %this, i64 584
@@ -9857,7 +9857,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22btDeformableBodySolver13setLineSearchEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(609) %this, i1 noundef zeroext %lineSearch) local_unnamed_addr #17 align 2 {
+define dso_local void @_ZN22btDeformableBodySolver13setLineSearchEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(609) initializes((596, 597)) %this, i1 noundef zeroext %lineSearch) local_unnamed_addr #17 align 2 {
 entry:
   %frombool = zext i1 %lineSearch to i8
   %m_lineSearch = getelementptr inbounds i8, ptr %this, i64 596

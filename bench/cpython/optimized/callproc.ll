@@ -1724,7 +1724,7 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @PyObject_CallOneArg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ConvParam(ptr noundef %obj, i64 noundef range(i64 -9223372036854775807, 1025) %index, ptr nocapture noundef %pa) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ConvParam(ptr noundef %obj, i64 noundef range(i64 -9223372036854775807, 1025) %index, ptr nocapture noundef initializes((8, 16)) %pa) unnamed_addr #0 {
 entry:
   %arg = alloca ptr, align 8
   %keep = getelementptr inbounds i8, ptr %pa, i64 8
@@ -3335,7 +3335,7 @@ declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare ptr @dlerror() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_parse_voidp(ptr noundef %obj, ptr nocapture noundef writeonly %address) #0 {
+define internal range(i32 0, 2) i32 @_parse_voidp(ptr noundef %obj, ptr nocapture noundef writeonly initializes((0, 8)) %address) #0 {
 entry:
   %call = tail call ptr @PyLong_AsVoidPtr(ptr noundef %obj) #10
   store ptr %call, ptr %address, align 8
@@ -3359,7 +3359,7 @@ declare i32 @PyArg_UnpackTuple(ptr noundef, ptr noundef, i64 noundef, i64 nounde
 declare i64 @PyNumber_AsSsize_t(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @converter(ptr noundef %obj, ptr nocapture noundef writeonly %address) #0 {
+define internal range(i32 0, 2) i32 @converter(ptr noundef %obj, ptr nocapture noundef writeonly initializes((0, 8)) %address) #0 {
 entry:
   %call = tail call ptr @PyLong_AsVoidPtr(ptr noundef %obj) #10
   store ptr %call, ptr %address, align 8

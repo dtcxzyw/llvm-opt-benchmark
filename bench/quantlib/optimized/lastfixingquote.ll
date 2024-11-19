@@ -468,7 +468,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15LastFixingQuoteC2EN5boost10shared_ptrINS_5IndexEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %index) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15LastFixingQuoteC2EN5boost10shared_ptrINS_5IndexEEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 16), (24, 28), (32, 40)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %index) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
@@ -806,7 +806,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15LastFixingQuoteC1EN5boost10shared_ptrINS_5IndexEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef %index) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15LastFixingQuoteC1EN5boost10shared_ptrINS_5IndexEEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((96, 100), (104, 112)) %this, ptr nocapture noundef %index) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 80

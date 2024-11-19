@@ -150,7 +150,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ODDLParser13OpenDDLParserC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN10ODDLParser13OpenDDLParserC2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 56)) %this) unnamed_addr #4 align 2 {
 entry:
   %m_buffer = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 0, i64 56, i1 false)
@@ -163,7 +163,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10ODDLParser13OpenDDLParserC2EPKcm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef readonly %buffer, i64 noundef %len) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10ODDLParser13OpenDDLParserC2EPKcm(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 56)) %this, ptr nocapture noundef readonly %buffer, i64 noundef %len) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_buffer = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 0, i64 56, i1 false)
@@ -414,7 +414,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10ODDLParser13OpenDDLParser14StdLogCallbackB5cxx11EP8_IO_FILE(ptr noalias nocapture writeonly sret(%"class.std::function") align 8 %agg.result, ptr noundef %destination) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10ODDLParser13OpenDDLParser14StdLogCallbackB5cxx11EP8_IO_FILE(ptr noalias nocapture writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %agg.result, ptr noundef %destination) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %destination, null
   %.sroa.speculate.load.true = load ptr, ptr @stderr, align 8, !noalias !4
@@ -514,7 +514,7 @@ _ZNSt8functionIFvN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stringIcSt11cha
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK10ODDLParser13OpenDDLParser14getLogCallbackB5cxx11Ev(ptr noalias sret(%"class.std::function") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK10ODDLParser13OpenDDLParser14getLogCallbackB5cxx11Ev(ptr noalias sret(%"class.std::function") align 8 initializes((0, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.result, i64 24
@@ -2345,7 +2345,7 @@ return:                                           ; preds = %do.body, %_ZN10ODDL
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser15parseIdentifierEPcS1_PPNS_4TextE(ptr noundef %in, ptr noundef %end, ptr nocapture noundef writeonly %id) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser15parseIdentifierEPcS1_PPNS_4TextE(ptr noundef %in, ptr noundef %end, ptr nocapture noundef writeonly initializes((0, 8)) %id) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %end60 = ptrtoint ptr %end to i64
   store ptr null, ptr %id, align 8
@@ -2455,7 +2455,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 declare void @_ZN10ODDLParser4TextD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser9parseNameEPcS1_PPNS_4NameE(ptr noundef %in, ptr noundef %end, ptr nocapture noundef writeonly %name) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser9parseNameEPcS1_PPNS_4NameE(ptr noundef %in, ptr noundef %end, ptr nocapture noundef writeonly initializes((0, 8)) %name) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %id = alloca ptr, align 8
   store ptr null, ptr %name, align 8
@@ -2534,7 +2534,7 @@ declare void @_ZN10ODDLParser7DDLNode7setNameERKNSt7__cxx1112basic_stringIcSt11c
 declare void @_ZN10ODDLParser4NameD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser13parsePropertyEPcS1_PPNS_8PropertyE(ptr noundef %in, ptr noundef %end, ptr nocapture noundef writeonly %prop) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser13parsePropertyEPcS1_PPNS_8PropertyE(ptr noundef %in, ptr noundef %end, ptr nocapture noundef writeonly initializes((0, 8)) %prop) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %id = alloca ptr, align 8
   %primData = alloca ptr, align 8
@@ -3572,7 +3572,7 @@ return:                                           ; preds = %entry, %_ZN10ODDLPa
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser22parsePrimitiveDataTypeEPcS1_RNS_5Value9ValueTypeERm(ptr noundef %in, ptr noundef %end, ptr nocapture noundef nonnull align 4 dereferenceable(4) %type, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %len) local_unnamed_addr #16 align 2 {
+define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser22parsePrimitiveDataTypeEPcS1_RNS_5Value9ValueTypeERm(ptr noundef %in, ptr noundef %end, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %type, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %len) local_unnamed_addr #16 align 2 {
 entry:
   %in41 = ptrtoint ptr %in to i64
   %end40 = ptrtoint ptr %end to i64
@@ -3672,7 +3672,7 @@ return:                                           ; preds = %while.body.i, %land
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser13parseDataListEPcS1_NS_5Value9ValueTypeEPPS2_RmPPNS_9ReferenceES6_(ptr noundef %in, ptr noundef %end, i32 noundef %type, ptr nocapture noundef %data, ptr nocapture noundef nonnull align 8 dereferenceable(8) %numValues, ptr nocapture noundef writeonly %refs, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %numRefs) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser13parseDataListEPcS1_NS_5Value9ValueTypeEPPS2_RmPPNS_9ReferenceES6_(ptr noundef %in, ptr noundef %end, i32 noundef %type, ptr nocapture noundef initializes((0, 8)) %data, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %numValues, ptr nocapture noundef writeonly %refs, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %numRefs) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %current = alloca ptr, align 8
   %names = alloca %"class.std::vector.11", align 8
@@ -4846,7 +4846,7 @@ return:                                           ; preds = %_ZN10ODDLParserL16g
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser19parseBooleanLiteralEPcS1_PPNS_5ValueE(ptr noundef %in, ptr noundef %end, ptr nocapture noundef writeonly %boolean) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser19parseBooleanLiteralEPcS1_PPNS_5ValueE(ptr noundef %in, ptr noundef %end, ptr nocapture noundef writeonly initializes((0, 8)) %boolean) local_unnamed_addr #6 align 2 {
 entry:
   %end48 = ptrtoint ptr %end to i64
   store ptr null, ptr %boolean, align 8
@@ -4937,7 +4937,7 @@ declare noundef ptr @_ZN10ODDLParser14ValueAllocator13allocPrimDataENS_5Value9Va
 declare void @_ZN10ODDLParser5Value7setBoolEb(ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser19parseIntegerLiteralEPcS1_PPNS_5ValueENS2_9ValueTypeE(ptr noundef %in, ptr noundef %end, ptr nocapture noundef writeonly %integer, i32 noundef %integerType) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser19parseIntegerLiteralEPcS1_PPNS_5ValueENS2_9ValueTypeE(ptr noundef %in, ptr noundef %end, ptr nocapture noundef writeonly initializes((0, 8)) %integer, i32 noundef %integerType) local_unnamed_addr #6 align 2 {
 entry:
   %end56 = ptrtoint ptr %end to i64
   store ptr null, ptr %integer, align 8
@@ -5096,7 +5096,7 @@ declare void @_ZN10ODDLParser5Value16setUnsignedInt32Ej(ptr noundef nonnull alig
 declare void @_ZN10ODDLParser5Value16setUnsignedInt64Em(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser20parseFloatingLiteralEPcS1_PPNS_5ValueENS2_9ValueTypeE(ptr noundef %in, ptr noundef %end, ptr nocapture noundef writeonly %floating, i32 noundef %floatType) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser20parseFloatingLiteralEPcS1_PPNS_5ValueENS2_9ValueTypeE(ptr noundef %in, ptr noundef %end, ptr nocapture noundef writeonly initializes((0, 8)) %floating, i32 noundef %floatType) local_unnamed_addr #6 align 2 {
 entry:
   %end59 = ptrtoint ptr %end to i64
   store ptr null, ptr %floating, align 8
@@ -5231,7 +5231,7 @@ return:                                           ; preds = %if.then11, %if.end7
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser16parseHexaLiteralEPcS1_PPNS_5ValueE(ptr noundef %in, ptr noundef %end, ptr nocapture noundef writeonly %data) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser16parseHexaLiteralEPcS1_PPNS_5ValueE(ptr noundef %in, ptr noundef %end, ptr nocapture noundef writeonly initializes((0, 8)) %data) local_unnamed_addr #6 align 2 {
 entry:
   store ptr null, ptr %data, align 8
   %cmp = icmp eq ptr %in, null
@@ -5398,7 +5398,7 @@ declare void @_ZN10ODDLParser5Value9setDoubleEd(ptr noundef nonnull align 8 dere
 declare void @_ZN10ODDLParser5Value8setFloatEf(ptr noundef nonnull align 8 dereferenceable(32), float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser18parseStringLiteralEPcS1_PPNS_5ValueE(ptr noundef %in, ptr noundef %end, ptr nocapture noundef %stringData) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN10ODDLParser13OpenDDLParser18parseStringLiteralEPcS1_PPNS_5ValueE(ptr noundef %in, ptr noundef %end, ptr nocapture noundef initializes((0, 8)) %stringData) local_unnamed_addr #6 align 2 {
 entry:
   store ptr null, ptr %stringData, align 8
   %cmp = icmp eq ptr %in, null

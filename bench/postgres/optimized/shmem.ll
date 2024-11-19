@@ -245,7 +245,7 @@ define dso_local void @InitShmemIndex() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ShmemInitHash(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define dso_local ptr @ShmemInitHash(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef initializes((16, 32), (72, 80)) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i8, align 1
   %7 = tail call i64 @hash_select_dirsize(i64 noundef %2) #9
   %8 = getelementptr inbounds i8, ptr %3, i64 24

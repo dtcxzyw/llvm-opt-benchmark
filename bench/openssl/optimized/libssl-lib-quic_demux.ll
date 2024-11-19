@@ -276,7 +276,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_quic_demux_set_bio(ptr nocapture noundef writeonly %demux, ptr noundef %net_bio) local_unnamed_addr #0 {
+define void @ossl_quic_demux_set_bio(ptr nocapture noundef writeonly initializes((0, 8)) %demux, ptr noundef %net_bio) local_unnamed_addr #0 {
 entry:
   store ptr %net_bio, ptr %demux, align 8
   %cmp.not = icmp eq ptr %net_bio, null
@@ -460,7 +460,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_quic_demux_set_default_handler(ptr nocapture noundef writeonly %demux, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #4 {
+define void @ossl_quic_demux_set_default_handler(ptr nocapture noundef writeonly initializes((48, 64)) %demux, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #4 {
 entry:
   %default_cb = getelementptr inbounds i8, ptr %demux, i64 48
   store ptr %cb, ptr %default_cb, align 8
@@ -470,7 +470,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_quic_demux_set_stateless_reset_handler(ptr nocapture noundef writeonly %demux, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #4 {
+define void @ossl_quic_demux_set_stateless_reset_handler(ptr nocapture noundef writeonly initializes((64, 80)) %demux, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #4 {
 entry:
   %reset_token_cb = getelementptr inbounds i8, ptr %demux, i64 64
   store ptr %cb, ptr %reset_token_cb, align 8

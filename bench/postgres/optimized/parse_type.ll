@@ -615,7 +615,7 @@ define dso_local i32 @typenameTypeId(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @typenameTypeIdAndMod(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local void @typenameTypeIdAndMod(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @typenameType(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8

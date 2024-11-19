@@ -3018,7 +3018,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host12WasiFdAdvise4bodyERKNS_7Runtime12CallingFrameEimmj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host12WasiFdAdvise4bodyERKNS_7Runtime12CallingFrameEimmj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %8 = trunc i32 %6 to i8
   %switch.i = icmp ugt i8 %8, 5
   br i1 %switch.i, label %14, label %9
@@ -3161,7 +3161,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %18, %37, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host14WasiFdAllocate4bodyERKNS_7Runtime12CallingFrameEimm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host14WasiFdAllocate4bodyERKNS_7Runtime12CallingFrameEimm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 160
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @_ZNK8WasmEdge4Host4WASI7Environ10fdAllocateEimm(ptr noundef nonnull align 8 dereferenceable(344) %8, i32 noundef %3, i64 noundef %4, i64 noundef %5) #19
@@ -3295,7 +3295,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %17, %36, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host11WasiFdClose4bodyERKNS_7Runtime12CallingFrameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host11WasiFdClose4bodyERKNS_7Runtime12CallingFrameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 160
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @_ZN8WasmEdge4Host4WASI7Environ7fdCloseEi(ptr noundef nonnull align 8 dereferenceable(344) %6, i32 noundef %3) #19
@@ -3520,7 +3520,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %34, %.lr.ph.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host14WasiFdDatasync4bodyERKNS_7Runtime12CallingFrameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host14WasiFdDatasync4bodyERKNS_7Runtime12CallingFrameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 160
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @_ZNK8WasmEdge4Host4WASI7Environ10fdDatasyncEi(ptr noundef nonnull align 8 dereferenceable(344) %6, i32 noundef %3) #19
@@ -3853,7 +3853,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %18, %37, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host20WasiFdFdstatSetFlags4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host20WasiFdFdstatSetFlags4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = and i32 %4, 65504
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %13
@@ -4008,7 +4008,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %25, %44, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host21WasiFdFdstatSetRights4bodyERKNS_7Runtime12CallingFrameEimm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host21WasiFdFdstatSetRights4bodyERKNS_7Runtime12CallingFrameEimm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = or i64 %4, %5
   %or.cond.not = icmp ult i64 %7, 68719476736
   br i1 %or.cond.not, label %8, label %13
@@ -4367,7 +4367,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %16, %35, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host21WasiFdFilestatSetSize4bodyERKNS_7Runtime12CallingFrameEim(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host21WasiFdFilestatSetSize4bodyERKNS_7Runtime12CallingFrameEim(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 160
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @_ZNK8WasmEdge4Host4WASI7Environ17fdFilestatSetSizeEim(ptr noundef nonnull align 8 dereferenceable(344) %7, i32 noundef %3, i64 noundef %4) #19
@@ -4501,7 +4501,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %16, %35, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host22WasiFdFilestatSetTimes4bodyERKNS_7Runtime12CallingFrameEimmj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host22WasiFdFilestatSetTimes4bodyERKNS_7Runtime12CallingFrameEimmj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %8 = and i32 %6, 65520
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit
@@ -6082,7 +6082,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %19, %38, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host14WasiFdRenumber4bodyERKNS_7Runtime12CallingFrameEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host14WasiFdRenumber4bodyERKNS_7Runtime12CallingFrameEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 160
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @_ZN8WasmEdge4Host4WASI7Environ10fdRenumberEii(ptr noundef nonnull align 8 dereferenceable(344) %7, i32 noundef %3, i32 noundef %4) #19
@@ -6755,7 +6755,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %18, %37, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host10WasiFdSync4bodyERKNS_7Runtime12CallingFrameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host10WasiFdSync4bodyERKNS_7Runtime12CallingFrameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 160
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @_ZNK8WasmEdge4Host4WASI7Environ6fdSyncEi(ptr noundef nonnull align 8 dereferenceable(344) %6, i32 noundef %3) #19
@@ -11099,7 +11099,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit13: ; preds = %_ZNSt11ch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8WasmEdge4Host12WasiProcExit4bodyERKNS_7Runtime12CallingFrameEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.358") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host12WasiProcExit4bodyERKNS_7Runtime12CallingFrameEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.358") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 160
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 144
@@ -11111,7 +11111,7 @@ define void @_ZN8WasmEdge4Host12WasiProcExit4bodyERKNS_7Runtime12CallingFrameEj(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host13WasiProcRaise4bodyERKNS_7Runtime12CallingFrameEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host13WasiProcRaise4bodyERKNS_7Runtime12CallingFrameEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = trunc i32 %3 to i8
   %switch.i = icmp ugt i8 %5, 30
   br i1 %switch.i, label %11, label %6
@@ -11137,7 +11137,7 @@ define void @_ZN8WasmEdge4Host13WasiProcRaise4bodyERKNS_7Runtime12CallingFrameEj
 declare i32 @_ZNK8WasmEdge4Host4WASI7Environ9procRaiseE15__wasi_signal_t(ptr noundef nonnull align 8 dereferenceable(344), i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host14WasiSchedYield4bodyERKNS_7Runtime12CallingFrameE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host14WasiSchedYield4bodyERKNS_7Runtime12CallingFrameE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @_ZNK8WasmEdge4Host4WASI7Environ10schedYieldEv(ptr noundef nonnull align 8 dereferenceable(344) %5) #19
@@ -11964,7 +11964,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %15, %34, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host16WasiSockListenV14bodyERKNS_7Runtime12CallingFrameEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host16WasiSockListenV14bodyERKNS_7Runtime12CallingFrameEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 160
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @_ZN8WasmEdge4Host4WASI7Environ10sockListenEii(ptr noundef nonnull align 8 dereferenceable(344) %7, i32 noundef %3, i32 noundef %4) #19
@@ -14029,7 +14029,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %23, %42, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host16WasiSockShutdown4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host16WasiSockShutdown4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = and i32 %4, 252
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %13
@@ -15827,7 +15827,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4Host16WasiSockListenV24bodyERKNS_7Runtime12CallingFrameEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge4Host16WasiSockListenV24bodyERKNS_7Runtime12CallingFrameEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 160
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @_ZN8WasmEdge4Host4WASI7Environ10sockListenEii(ptr noundef nonnull align 8 dereferenceable(344) %7, i32 noundef %3, i32 noundef %4) #19

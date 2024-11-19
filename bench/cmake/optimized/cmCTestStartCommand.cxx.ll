@@ -112,7 +112,7 @@ declare void @_ZN5cmsys18SystemToolsManagerD1Ev(ptr noundef nonnull align 1 dere
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN19cmCTestStartCommandC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(42) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN19cmCTestStartCommandC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(42) initializes((0, 42)) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTV19cmCTestStartCommand, i64 16), ptr %0, align 8

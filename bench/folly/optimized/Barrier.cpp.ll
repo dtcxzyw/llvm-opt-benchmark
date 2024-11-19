@@ -247,7 +247,7 @@ $_ZTVN5folly16FutureNoExecutorE = comdat any
 @_ZN5folly7futures7BarrierD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5folly7futures7BarrierD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7futures7BarrierC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i32 noundef %n) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7futures7BarrierC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4)) %this, i32 noundef %n) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p.i = alloca ptr, align 8
   %i.i = alloca i32, align 4

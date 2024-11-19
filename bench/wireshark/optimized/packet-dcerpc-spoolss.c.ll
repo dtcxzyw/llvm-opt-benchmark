@@ -3135,7 +3135,7 @@ define internal i32 @SpoolssEnumPrinters_q(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @SpoolssEnumPrinters_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @SpoolssEnumPrinters_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((88, 96)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.BUFFER, align 8
   %9 = alloca ptr, align 8
@@ -3309,7 +3309,7 @@ define internal i32 @SpoolssGetJob_q(ptr noundef %0, i32 noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @SpoolssGetJob_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @SpoolssGetJob_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((88, 96)) %4, ptr noundef %5) #0 {
   %7 = alloca %struct.BUFFER, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 72
   %9 = load ptr, ptr %8, align 8
@@ -3389,7 +3389,7 @@ define internal i32 @SpoolssEnumJobs_q(ptr noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @SpoolssEnumJobs_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @SpoolssEnumJobs_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((88, 96)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -3613,7 +3613,7 @@ define internal i32 @SpoolssGetPrinter_q(ptr noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @SpoolssGetPrinter_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @SpoolssGetPrinter_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((88, 96)) %4, ptr noundef %5) #0 {
   %7 = alloca %struct.BUFFER, align 8
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 72
@@ -3752,7 +3752,7 @@ define internal i32 @SpoolssEnumPrinterDrivers_q(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @SpoolssEnumPrinterDrivers_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @SpoolssEnumPrinterDrivers_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((88, 96)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.BUFFER, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 72
@@ -4533,7 +4533,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %13, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @SpoolssGetForm_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @SpoolssGetForm_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((88, 96)) %4, ptr noundef %5) #0 {
   %7 = alloca %struct.BUFFER, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 72
   %9 = load ptr, ptr %8, align 8
@@ -4725,7 +4725,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %12, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @SpoolssEnumForms_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @SpoolssEnumForms_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((88, 96)) %4, ptr noundef %5) #0 {
   %7 = alloca %struct.BUFFER, align 8
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds i8, ptr %4, i64 72
@@ -4841,7 +4841,7 @@ define internal i32 @SpoolssGetPrinterDriver2_q(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @SpoolssGetPrinterDriver2_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @SpoolssGetPrinterDriver2_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((88, 96)) %4, ptr noundef %5) #0 {
   %7 = alloca %struct.BUFFER, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 72
   %9 = load ptr, ptr %8, align 8

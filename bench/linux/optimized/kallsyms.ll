@@ -1127,13 +1127,13 @@ define internal fastcc i64 @get_symbol_pos(i64 noundef %0, ptr noundef writeonly
 declare dso_local ptr @module_address_lookup(i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @kallsyms_lookup(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local ptr @kallsyms_lookup(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((0, 1), (511, 512)) %4) local_unnamed_addr #1 align 16 {
   %6 = tail call fastcc ptr @kallsyms_lookup_buildid(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null, ptr noundef %4)
   ret ptr %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @kallsyms_lookup_buildid(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #1 align 16 {
+define internal fastcc ptr @kallsyms_lookup_buildid(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef initializes((0, 1), (511, 512)) %5) unnamed_addr #1 align 16 {
   %7 = getelementptr i8, ptr %5, i64 511
   store i8 0, ptr %7, align 1
   store i8 0, ptr %5, align 1
@@ -1312,7 +1312,7 @@ define internal fastcc ptr @kallsyms_lookup_buildid(i64 noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @lookup_symbol_name(i64 noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local i32 @lookup_symbol_name(i64 noundef %0, ptr noundef initializes((0, 1), (511, 512)) %1) local_unnamed_addr #1 align 16 {
   store i8 0, ptr %1, align 1
   %3 = getelementptr i8, ptr %1, i64 511
   store i8 0, ptr %3, align 1
@@ -1482,13 +1482,13 @@ define dso_local i32 @lookup_symbol_name(i64 noundef %0, ptr noundef %1) local_u
 declare dso_local i32 @lookup_module_symbol_name(i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sprint_symbol(ptr noundef %0, i64 noundef %1) #1 align 16 {
+define dso_local i32 @sprint_symbol(ptr noundef initializes((0, 1), (511, 512)) %0, i64 noundef %1) #1 align 16 {
   %3 = tail call fastcc i32 @__sprint_symbol(ptr noundef %0, i64 noundef %1, i32 noundef 0, i32 noundef 1)
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__sprint_symbol(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 -1, 1) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 align 16 {
+define internal fastcc i32 @__sprint_symbol(ptr noundef initializes((0, 1), (511, 512)) %0, i64 noundef %1, i32 noundef range(i32 -1, 1) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -1564,25 +1564,25 @@ define internal fastcc i32 @__sprint_symbol(ptr noundef %0, i64 noundef %1, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sprint_symbol_build_id(ptr noundef %0, i64 noundef %1) #1 align 16 {
+define dso_local i32 @sprint_symbol_build_id(ptr noundef initializes((0, 1), (511, 512)) %0, i64 noundef %1) #1 align 16 {
   %3 = tail call fastcc i32 @__sprint_symbol(ptr noundef %0, i64 noundef %1, i32 noundef 0, i32 noundef 1)
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sprint_symbol_no_offset(ptr noundef %0, i64 noundef %1) #1 align 16 {
+define dso_local i32 @sprint_symbol_no_offset(ptr noundef initializes((0, 1), (511, 512)) %0, i64 noundef %1) #1 align 16 {
   %3 = tail call fastcc i32 @__sprint_symbol(ptr noundef %0, i64 noundef %1, i32 noundef 0, i32 noundef 0)
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sprint_backtrace(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local i32 @sprint_backtrace(ptr noundef initializes((0, 1), (511, 512)) %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = tail call fastcc i32 @__sprint_symbol(ptr noundef %0, i64 noundef %1, i32 noundef -1, i32 noundef 1)
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sprint_backtrace_build_id(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local i32 @sprint_backtrace_build_id(ptr noundef initializes((0, 1), (511, 512)) %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = tail call fastcc i32 @__sprint_symbol(ptr noundef %0, i64 noundef %1, i32 noundef -1, i32 noundef 1)
   ret i32 %3
 }

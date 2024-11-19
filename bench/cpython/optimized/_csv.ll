@@ -1231,7 +1231,7 @@ declare ptr @PyObject_GetAttrString(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @PyErr_Clear() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_set_char_or_none(ptr noundef %name, ptr nocapture noundef nonnull writeonly %target, ptr noundef %src, i32 noundef range(i32 -1, 35) %dflt) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_set_char_or_none(ptr noundef %name, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %target, ptr noundef %src, i32 noundef range(i32 -1, 35) %dflt) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %src, null
   br i1 %cmp, label %if.then, label %if.else

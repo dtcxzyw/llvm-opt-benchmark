@@ -30,7 +30,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable_serial_base_init354, ptr @__UNIQUE_ID_author355, ptr @__UNIQUE_ID_description356, ptr @__UNIQUE_ID_file357, ptr @__UNIQUE_ID_license358, ptr @__exitcall_serial_base_exit], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @serial_base_driver_register(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @serial_base_driver_register(ptr noundef initializes((8, 16)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @serial_base_bus_type, ptr %2, align 8
   %3 = tail call i32 @driver_register(ptr noundef %0) #5

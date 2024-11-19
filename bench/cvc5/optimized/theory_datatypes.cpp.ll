@@ -2183,7 +2183,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %entry
 declare void @_ZN4cvc58internal6theory6TheoryD2Ev(ptr noundef nonnull align 8 dereferenceable(408)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory9datatypes15TheoryDatatypesD2Ev(ptr noundef nonnull align 8 dereferenceable(2008) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory9datatypes15TheoryDatatypesD2Ev(ptr noundef nonnull align 8 dereferenceable(2008) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory9datatypes15TheoryDatatypesE, i64 16), ptr %this, align 8
   %d_eqc_info = getelementptr inbounds i8, ptr %this, i64 520
@@ -2577,7 +2577,7 @@ _ZN4cvc57context3CDOIbED2Ev.exit4:                ; preds = %_ZN4cvc57context3CD
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory9datatypes15TheoryDatatypesD0Ev(ptr noundef nonnull align 8 dereferenceable(2008) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN4cvc58internal6theory9datatypes15TheoryDatatypesD0Ev(ptr noundef nonnull align 8 dereferenceable(2008) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory9datatypes15TheoryDatatypesD2Ev(ptr noundef nonnull align 8 dereferenceable(2008) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
@@ -2599,7 +2599,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory9datatypes15TheoryDatatypes19needsEqualityEngineERNS1_11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(2008) %this, ptr noundef nonnull align 8 dereferenceable(45) %esi) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory9datatypes15TheoryDatatypes19needsEqualityEngineERNS1_11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(2008) %this, ptr noundef nonnull align 8 dereferenceable(45) initializes((0, 8)) %esi) unnamed_addr #3 align 2 {
 entry:
   %d_notify = getelementptr inbounds i8, ptr %this, i64 1952
   store ptr %d_notify, ptr %esi, align 8

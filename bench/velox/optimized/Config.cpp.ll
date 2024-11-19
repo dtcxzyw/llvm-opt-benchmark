@@ -63,7 +63,7 @@ $_ZTIN8facebook5velox6ConfigE = comdat any
 @_ZTIN8facebook5velox4core16MemConfigMutableE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN8facebook5velox4core16MemConfigMutableE, ptr @_ZTIN8facebook5velox6ConfigE }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox4core9MemConfig3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %key) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox4core9MemConfig3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.folly::Optional") align 8 initializes((32, 33)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %key) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %hasValue.i.i, align 8
@@ -115,7 +115,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox4core16MemConfigMutable3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %key) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox4core16MemConfigMutable3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.folly::Optional") align 8 initializes((32, 33)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %key) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lockedValues = alloca %"class.folly::LockedPtr", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)

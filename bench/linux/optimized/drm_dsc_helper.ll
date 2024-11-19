@@ -38,7 +38,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_dsc_flat
 @llvm.compiler.used = appending global [10 x ptr] [ptr @__UNIQUE_ID___addressable_drm_dsc_compute_rc_parameters441, ptr @__UNIQUE_ID___addressable_drm_dsc_dp_pps_header_init430, ptr @__UNIQUE_ID___addressable_drm_dsc_dp_rc_buffer_size431, ptr @__UNIQUE_ID___addressable_drm_dsc_flatness_det_thresh446, ptr @__UNIQUE_ID___addressable_drm_dsc_get_bpp_int444, ptr @__UNIQUE_ID___addressable_drm_dsc_initial_scale_value445, ptr @__UNIQUE_ID___addressable_drm_dsc_pps_payload_pack433, ptr @__UNIQUE_ID___addressable_drm_dsc_set_const_params434, ptr @__UNIQUE_ID___addressable_drm_dsc_set_rc_buf_thresh437, ptr @__UNIQUE_ID___addressable_drm_dsc_setup_rc_params440], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @drm_dsc_dp_pps_header_init(ptr nocapture noundef writeonly %0) #0 align 16 {
+define dso_local void @drm_dsc_dp_pps_header_init(ptr nocapture noundef writeonly initializes((0, 4)) %0) #0 align 16 {
   store i32 8327168, ptr %0, align 1
   ret void
 }
@@ -79,7 +79,7 @@ define dso_local range(i32 0, 16777217) i32 @drm_dsc_dp_rc_buffer_size(i8 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @drm_dsc_pps_payload_pack(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #3 align 16 {
+define dso_local void @drm_dsc_pps_payload_pack(ptr nocapture noundef writeonly initializes((0, 128)) %0, ptr nocapture noundef readonly %1) #3 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(128) %0, i8 0, i64 128, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 126
   %4 = load i8, ptr %3, align 2
@@ -304,7 +304,7 @@ define dso_local void @drm_dsc_pps_payload_pack(ptr nocapture noundef writeonly 
 declare i16 @llvm.bswap.i16(i16) #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @drm_dsc_set_const_params(ptr nocapture noundef %0) #5 align 16 {
+define dso_local void @drm_dsc_set_const_params(ptr nocapture noundef initializes((14, 16), (18, 19), (121, 122)) %0) #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load i16, ptr %2, align 2
   %4 = icmp eq i16 %3, 0
@@ -489,7 +489,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_dsc_setup_rc_params(ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -34, 1) i32 @drm_dsc_compute_rc_parameters(ptr nocapture noundef %0) #6 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @drm_dsc_compute_rc_parameters(ptr nocapture noundef initializes((122, 124)) %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 129
   %3 = load i8, ptr %2, align 1, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 0

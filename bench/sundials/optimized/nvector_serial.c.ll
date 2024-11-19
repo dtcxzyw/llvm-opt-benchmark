@@ -258,7 +258,7 @@ define void @N_VDestroy_Serial(ptr noundef %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @N_VSpace_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #4 {
+define void @N_VSpace_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #4 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %1, align 8
@@ -1510,7 +1510,7 @@ N_VDotProd_Serial.exit:                           ; preds = %.lr.ph.i, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @N_VBufSize_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 {
+define noundef i32 @N_VBufSize_Serial(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i64, ptr %3, align 8
   %5 = shl nsw i64 %4, 3

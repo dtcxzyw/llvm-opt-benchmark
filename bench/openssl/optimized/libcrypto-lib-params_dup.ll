@@ -19,7 +19,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_param_set_secure_block(ptr nocapture noundef writeonly %last, ptr noundef %secure_buffer, i64 noundef %secure_buffer_sz) local_unnamed_addr #1 {
+define void @ossl_param_set_secure_block(ptr nocapture noundef writeonly initializes((0, 12), (16, 32)) %last, ptr noundef %secure_buffer, i64 noundef %secure_buffer_sz) local_unnamed_addr #1 {
 entry:
   store ptr null, ptr %last, align 8
   %data_size = getelementptr inbounds i8, ptr %last, i64 24

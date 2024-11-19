@@ -434,7 +434,7 @@ ssl_ctx_srp_ctx_init_intern.exit:                 ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ssl_srp_server_param_with_username_intern(ptr noundef %s, ptr noundef %ad) local_unnamed_addr #0 {
+define i32 @ssl_srp_server_param_with_username_intern(ptr noundef %s, ptr noundef initializes((0, 4)) %ad) local_unnamed_addr #0 {
 entry:
   %b = alloca [48 x i8], align 16
   %ctx = getelementptr inbounds i8, ptr %s, i64 8

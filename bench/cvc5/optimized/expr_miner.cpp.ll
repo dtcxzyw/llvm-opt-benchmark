@@ -150,7 +150,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers9ExprMiner10initializeERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EEPNS2_12SygusSamplerE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vars, ptr noundef %ss) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers9ExprMiner10initializeERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EEPNS2_12SygusSamplerE(ptr noundef nonnull align 8 dereferenceable(120) initializes((64, 72)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vars, ptr noundef %ss) unnamed_addr #3 align 2 {
 entry:
   %d_sampler = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %ss, ptr %d_sampler, align 8

@@ -123,7 +123,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i64 @Curl_timediff(i64, i32, i64, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @Curl_persistconninfo(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #3 {
+define dso_local void @Curl_persistconninfo(ptr nocapture noundef writeonly initializes((5036, 5082), (5084, 5093), (5140, 5156)) %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 5036
   %6 = getelementptr inbounds i8, ptr %1, i64 256
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(46) %5, ptr noundef nonnull align 8 dereferenceable(46) %6, i64 46, i1 false)
@@ -171,7 +171,7 @@ define dso_local void @Curl_persistconninfo(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @Curl_addr2string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @Curl_addr2string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = load i16, ptr %0, align 2
   switch i16 %5, label %29 [
     i16 2, label %6
@@ -474,7 +474,7 @@ cf_he_ctx_clear.exit:                             ; preds = %27, %baller_close.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cf_he_connect(ptr noundef %0, ptr noundef %1, i1 zeroext %2, ptr noundef %3) #0 {
+define internal i32 @cf_he_connect(ptr noundef %0, ptr noundef %1, i1 zeroext %2, ptr noundef initializes((0, 1)) %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 36
@@ -2627,7 +2627,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 declare void @Curl_expire(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @baller_start(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i64 noundef range(i64 -9223372036854775806, -9223372036854775808) %3) unnamed_addr #0 {
+define internal fastcc void @baller_start(ptr noundef %0, ptr noundef %1, ptr noundef nonnull initializes((96, 100)) %2, i64 noundef range(i64 -9223372036854775806, -9223372036854775808) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 96
   store i32 0, ptr %6, align 8

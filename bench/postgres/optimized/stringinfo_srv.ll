@@ -29,7 +29,7 @@ define dso_local ptr @makeStringInfo() local_unnamed_addr #0 {
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @initStringInfo(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local void @initStringInfo(ptr nocapture noundef writeonly initializes((0, 20)) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @palloc(i64 noundef 1024) #11
   store ptr %2, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 12
@@ -43,7 +43,7 @@ define dso_local void @initStringInfo(ptr nocapture noundef writeonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @resetStringInfo(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define dso_local void @resetStringInfo(ptr nocapture noundef initializes((8, 12), (16, 20)) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   store i8 0, ptr %2, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 8

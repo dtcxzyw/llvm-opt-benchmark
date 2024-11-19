@@ -69,7 +69,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.31 = private unnamed_addr constant [39 x i8] c"can't free fixed array data block page\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5FA__cache_hdr_get_initial_load_size(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal noundef i32 @H5FA__cache_hdr_get_initial_load_size(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %3) #6
   %5 = zext i8 %4 to i64
@@ -331,7 +331,7 @@ define internal ptr @H5FA__cache_hdr_deserialize(ptr noundef %0, i64 %1, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5FA__cache_hdr_image_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define internal noundef i32 @H5FA__cache_hdr_image_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 320
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -339,7 +339,7 @@ define internal noundef i32 @H5FA__cache_hdr_image_len(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5FA__cache_hdr_serialize(ptr noundef %0, ptr noundef %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @H5FA__cache_hdr_serialize(ptr noundef %0, ptr noundef initializes((0, 7)) %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
   %5 = alloca ptr, align 8
   store i32 1145585990, ptr %1, align 1
   %6 = getelementptr inbounds i8, ptr %1, i64 4
@@ -546,7 +546,7 @@ define internal range(i32 -1, 1) i32 @H5FA__cache_hdr_free_icr(ptr noundef %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5FA__cache_dblock_get_initial_load_size(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
+define internal noundef i32 @H5FA__cache_dblock_get_initial_load_size(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 257
   %5 = load i8, ptr %4, align 1
@@ -793,7 +793,7 @@ define internal ptr @H5FA__cache_dblock_deserialize(ptr noundef %0, i64 %1, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5FA__cache_dblock_image_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
+define internal noundef i32 @H5FA__cache_dblock_image_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 296
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
@@ -822,7 +822,7 @@ define internal noundef i32 @H5FA__cache_dblock_image_len(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FA__cache_dblock_serialize(ptr noundef %0, ptr noundef %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 -1, 1) i32 @H5FA__cache_dblock_serialize(ptr noundef %0, ptr noundef initializes((0, 5)) %1, i64 %2, ptr nocapture noundef readonly %3) #0 {
   %5 = alloca ptr, align 8
   store i32 1111769414, ptr %1, align 1
   %6 = getelementptr inbounds i8, ptr %1, i64 4
@@ -1027,7 +1027,7 @@ define internal range(i32 -1, 1) i32 @H5FA__cache_dblock_free_icr(ptr noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5FA__cache_dblock_fsf_size(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define internal noundef i32 @H5FA__cache_dblock_fsf_size(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 288
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -1035,7 +1035,7 @@ define internal noundef i32 @H5FA__cache_dblock_fsf_size(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5FA__cache_dblk_page_get_initial_load_size(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
+define internal noundef i32 @H5FA__cache_dblk_page_get_initial_load_size(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -1133,7 +1133,7 @@ define internal ptr @H5FA__cache_dblk_page_deserialize(ptr noundef %0, i64 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5FA__cache_dblk_page_image_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define internal noundef i32 @H5FA__cache_dblk_page_image_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8

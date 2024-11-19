@@ -161,7 +161,7 @@ der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @der2key_decode(ptr noundef %vctx, ptr noundef %cin, i32 noundef %selection, ptr nocapture noundef readonly %data_cb, ptr noundef %data_cbarg, ptr nocapture readnone %pw_cb, ptr nocapture readnone %pw_cbarg) #0 {
+define internal i32 @der2key_decode(ptr noundef initializes((272, 276)) %vctx, ptr noundef %cin, i32 noundef %selection, ptr nocapture noundef readonly %data_cb, ptr noundef %data_cbarg, ptr nocapture readnone %pw_cb, ptr nocapture readnone %pw_cbarg) #0 {
 entry:
   %der = alloca ptr, align 8
   %derp = alloca ptr, align 8

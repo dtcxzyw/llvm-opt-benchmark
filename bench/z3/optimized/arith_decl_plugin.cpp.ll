@@ -1997,7 +1997,7 @@ _ZN17arith_decl_plugin25algebraic_numbers_wrapper5mk_idERKN17algebraic_numbers4a
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17arith_decl_plugin11set_managerEP11ast_manageri(ptr noundef nonnull align 8 dereferenceable(441) %this, ptr noundef %m, i32 noundef %id) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17arith_decl_plugin11set_managerEP11ast_manageri(ptr noundef nonnull align 8 dereferenceable(441) initializes((8, 20)) %this, ptr noundef %m, i32 noundef %id) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %domain.addr.i1838 = alloca ptr, align 8
   %domain.addr.i1804 = alloca ptr, align 8
@@ -6351,7 +6351,7 @@ _ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_RK14func_decl_info.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17arith_decl_pluginC2Ev(ptr noundef nonnull align 8 dereferenceable(441) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17arith_decl_pluginC2Ev(ptr noundef nonnull align 8 dereferenceable(441) initializes((0, 20), (24, 32)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %m_manager.i, align 8
@@ -6372,7 +6372,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17arith_decl_pluginD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(441) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17arith_decl_pluginD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(441) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17arith_decl_plugin, i64 16), ptr %this, align 8
   %m_aw = getelementptr inbounds i8, ptr %this, i64 24
@@ -6445,7 +6445,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17arith_decl_pluginD0Ev(ptr noundef nonnull align 8 dereferenceable(441) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN17arith_decl_pluginD0Ev(ptr noundef nonnull align 8 dereferenceable(441) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN17arith_decl_pluginD2Ev(ptr noundef nonnull align 8 dereferenceable(441) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -12035,7 +12035,7 @@ _ZN6bufferIPK4exprLb0ELj16EED2Ev.exit:            ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10arith_utilC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #11 align 2 {
+define hidden void @_ZN10arith_utilC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #11 align 2 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_plugin = getelementptr inbounds i8, ptr %this, i64 8
@@ -12044,7 +12044,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10arith_util11init_pluginEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN10arith_util11init_pluginEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((8, 16)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef ptr @_ZNK11ast_manager10get_pluginEi(ptr noundef nonnull align 8 dereferenceable(976) %0, i32 noundef 5)
@@ -12117,7 +12117,7 @@ _ZN17arith_decl_plugin25algebraic_numbers_wrapper7to_anumEP9func_decl.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10arith_util15mk_mul_simplifyERK10ref_vectorI4expr11ast_managerE(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN10arith_util15mk_mul_simplifyERK10ref_vectorI4expr11ast_managerE(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args) local_unnamed_addr #3 align 2 {
 entry:
   %m_nodes.i = getelementptr inbounds i8, ptr %args, i64 8
   %0 = load ptr, ptr %m_nodes.i, align 8
@@ -12136,7 +12136,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10arith_util15mk_mul_simplifyEjPKP4expr(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %sz, ptr noundef %args) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10arith_util15mk_mul_simplifyEjPKP4expr(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %sz, ptr noundef %args) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.rational, align 8
   %0 = load ptr, ptr %this, align 8
@@ -12292,7 +12292,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10arith_util15mk_add_simplifyERK10ref_vectorI4expr11ast_managerE(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN10arith_util15mk_add_simplifyERK10ref_vectorI4expr11ast_managerE(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args) local_unnamed_addr #3 align 2 {
 entry:
   %m_nodes.i = getelementptr inbounds i8, ptr %args, i64 8
   %0 = load ptr, ptr %m_nodes.i, align 8
@@ -12311,7 +12311,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10arith_util15mk_add_simplifyEjPKP4expr(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %sz, ptr noundef %args) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10arith_util15mk_add_simplifyEjPKP4expr(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %sz, ptr noundef %args) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.rational, align 8
   %0 = load ptr, ptr %this, align 8

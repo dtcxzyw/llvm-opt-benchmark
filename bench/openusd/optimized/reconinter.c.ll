@@ -138,7 +138,7 @@ av1_is_scaled.exit.thread22:                      ; preds = %av1_is_scaled.exit.
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @av1_init_inter_params(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, ptr nocapture noundef readonly %11, i32 %12) local_unnamed_addr #2 {
+define hidden void @av1_init_inter_params(ptr nocapture noundef writeonly initializes((0, 8), (104, 192), (212, 216)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, ptr nocapture noundef readonly %11, i32 %12) local_unnamed_addr #2 {
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -199,7 +199,7 @@ define hidden void @av1_init_inter_params(ptr nocapture noundef writeonly %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @av1_init_comp_mode(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 {
+define hidden void @av1_init_comp_mode(ptr nocapture noundef writeonly initializes((4, 8)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %2, align 4
   ret void
@@ -1425,7 +1425,7 @@ make_masked_inter_predictor.exit:                 ; preds = %77, %80
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @av1_dist_wtd_comp_weight_assign(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, i32 noundef %6) local_unnamed_addr #8 {
+define hidden void @av1_dist_wtd_comp_weight_assign(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, i32 noundef %6) local_unnamed_addr #8 {
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %12, label %8
 
@@ -3072,7 +3072,7 @@ define hidden range(i32 0, 2) i32 @av1_skip_u4x4_pred_in_obmc(i8 noundef zeroext
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @av1_modify_neighbor_predictor_for_obmc(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 {
+define hidden void @av1_modify_neighbor_predictor_for_obmc(ptr nocapture noundef writeonly initializes((17, 18), (91, 92)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 17
   store i8 -1, ptr %2, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 91
@@ -3505,7 +3505,7 @@ foreach_overlappable_nb_left.exit:                ; preds = %build_obmc_inter_pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @av1_setup_obmc_dst_bufs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #13 {
+define hidden void @av1_setup_obmc_dst_bufs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 24)) %1, ptr nocapture noundef writeonly initializes((0, 24)) %2) local_unnamed_addr #13 {
   %4 = getelementptr i8, ptr %0, i64 7960
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 192
@@ -3582,7 +3582,7 @@ define hidden void @av1_setup_obmc_dst_bufs(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_setup_build_prediction_by_above_pred(ptr nocapture noundef %0, i32 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #4 {
+define hidden void @av1_setup_build_prediction_by_above_pred(ptr nocapture noundef %0, i32 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef initializes((17, 18), (91, 92)) %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = load i8, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
@@ -3786,7 +3786,7 @@ av1_is_valid_scale.exit.thread:                   ; preds = %get_ref_scale_facto
 declare void @aom_internal_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_setup_build_prediction_by_left_pred(ptr nocapture noundef %0, i32 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #4 {
+define hidden void @av1_setup_build_prediction_by_left_pred(ptr nocapture noundef %0, i32 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef initializes((17, 18), (91, 92)) %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = load i8, ptr %3, align 8
   %8 = load i32, ptr %0, align 16
   %9 = add nsw i32 %8, %1

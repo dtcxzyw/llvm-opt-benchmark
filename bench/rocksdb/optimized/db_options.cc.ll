@@ -9260,7 +9260,7 @@ lpad:                                             ; preds = %_ZN7rocksdb7Options
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18ImmutableDBOptionsC2ERKNS_9DBOptionsE(ptr noundef nonnull align 8 dereferenceable(569) %this, ptr noundef nonnull align 8 dereferenceable(688) %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18ImmutableDBOptionsC2ERKNS_9DBOptionsE(ptr noundef nonnull align 8 dereferenceable(569) initializes((0, 65), (68, 89)) %this, ptr noundef nonnull align 8 dereferenceable(688) %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %options, align 8
   %frombool = and i8 %0, 1
@@ -11502,7 +11502,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb16MutableDBOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb16MutableDBOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 13), (16, 68), (72, 89), (96, 108)) %this) unnamed_addr #4 align 2 {
 entry:
   store i32 2, ptr %this, align 8
   %max_background_compactions = getelementptr inbounds i8, ptr %this, i64 4
@@ -11542,7 +11542,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb16MutableDBOptionsC2ERKNS_9DBOptionsE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(688) %options) unnamed_addr #3 align 2 {
+define void @_ZN7rocksdb16MutableDBOptionsC2ERKNS_9DBOptionsE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 13), (16, 68), (72, 89), (96, 108)) %this, ptr noundef nonnull align 8 dereferenceable(688) %options) unnamed_addr #3 align 2 {
 entry:
   %max_background_jobs2 = getelementptr inbounds i8, ptr %options, i64 208
   %0 = load i32, ptr %max_background_jobs2, align 8
@@ -11683,7 +11683,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb30GetMutableDBOptionsFromStringsERKNS_16MutableDBOptionsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_S9_EEEPS0_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %base_options, ptr noundef nonnull align 8 dereferenceable(56) %options_map, ptr noundef %new_options) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb30GetMutableDBOptionsFromStringsERKNS_16MutableDBOptionsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_S9_EEEPS0_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %base_options, ptr noundef nonnull align 8 dereferenceable(56) %options_map, ptr noundef initializes((0, 108)) %new_options) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %config_options = alloca %"struct.rocksdb::ConfigOptions", align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %new_options, ptr noundef nonnull align 8 dereferenceable(144) %base_options, i64 108, i1 false)
@@ -22441,7 +22441,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_3EE9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_"(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readnone align 8 %__args, ptr nocapture nonnull readnone align 8 %__args1, ptr noundef nonnull align 8 dereferenceable(32) %__args3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args5) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_3EE9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_"(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readnone align 8 %__args, ptr nocapture nonnull readnone align 8 %__args1, ptr noundef nonnull align 8 dereferenceable(32) %__args3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args5) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args5.val = load ptr, ptr %__args5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !186)
@@ -22657,7 +22657,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_4EE9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_"(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %__functor, ptr noundef nonnull align 8 dereferenceable(80) %__args, ptr nocapture nonnull readnone align 8 %__args1, ptr noundef nonnull align 8 dereferenceable(32) %__args3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args5) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_4EE9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_"(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %__functor, ptr noundef nonnull align 8 dereferenceable(80) %__args, ptr nocapture nonnull readnone align 8 %__args1, ptr noundef nonnull align 8 dereferenceable(32) %__args3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args5) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %embedded.i.i.i = alloca %"struct.rocksdb::ConfigOptions", align 8
   %listeners.i.i.i = alloca %"class.std::vector.131", align 8

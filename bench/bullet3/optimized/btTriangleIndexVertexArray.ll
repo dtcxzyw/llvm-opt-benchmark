@@ -32,7 +32,7 @@ $__clang_call_terminate = comdat any
 @_ZN26btTriangleIndexVertexArrayD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN26btTriangleIndexVertexArrayD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN26btTriangleIndexVertexArrayC2EiPiiiPfi(ptr noundef nonnull align 8 dereferenceable(100) %this, i32 noundef %numTriangles, ptr noundef %triangleIndexBase, i32 noundef %triangleIndexStride, i32 noundef %numVertices, ptr noundef %vertexBase, i32 noundef %vertexStride) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN26btTriangleIndexVertexArrayC2EiPiiiPfi(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 24), (28, 36), (40, 49), (64, 68)) %this, i32 noundef %numTriangles, ptr noundef %triangleIndexBase, i32 noundef %triangleIndexStride, i32 noundef %numVertices, ptr noundef %vertexBase, i32 noundef %vertexStride) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %m_scaling.i = getelementptr inbounds i8, ptr %this, i64 8
   store float 1.000000e+00, ptr %m_scaling.i, align 8
@@ -171,7 +171,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 declare void @_ZN23btStridingMeshInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN26btTriangleIndexVertexArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN26btTriangleIndexVertexArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV26btTriangleIndexVertexArray, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -209,7 +209,7 @@ _ZN20btAlignedObjectArrayI13btIndexedMeshED2Ev.exit: ; preds = %entry, %if.then.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN26btTriangleIndexVertexArrayD0Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN26btTriangleIndexVertexArrayD0Ev(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV26btTriangleIndexVertexArray, i64 16), ptr %this, align 8
   %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -258,7 +258,7 @@ _ZN26btTriangleIndexVertexArraydlEPv.exit:        ; preds = %_ZN26btTriangleInde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN26btTriangleIndexVertexArray24getLockedVertexIndexBaseEPPhRiR14PHY_ScalarTypeS2_S1_S2_S2_S4_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %this, ptr nocapture noundef writeonly %vertexbase, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %numverts, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %type, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %vertexStride, ptr nocapture noundef writeonly %indexbase, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %indexstride, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %numfaces, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %indicestype, i32 noundef %subpart) unnamed_addr #3 align 2 {
+define dso_local void @_ZN26btTriangleIndexVertexArray24getLockedVertexIndexBaseEPPhRiR14PHY_ScalarTypeS2_S1_S2_S2_S4_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %this, ptr nocapture noundef writeonly initializes((0, 8)) %vertexbase, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %numverts, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %type, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %vertexStride, ptr nocapture noundef writeonly initializes((0, 8)) %indexbase, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %indexstride, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %numfaces, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %indicestype, i32 noundef %subpart) unnamed_addr #3 align 2 {
 entry:
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_data.i, align 8
@@ -291,7 +291,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK26btTriangleIndexVertexArray32getLockedReadOnlyVertexIndexBaseEPPKhRiR14PHY_ScalarTypeS3_S2_S3_S3_S5_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %this, ptr nocapture noundef writeonly %vertexbase, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %numverts, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %type, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %vertexStride, ptr nocapture noundef writeonly %indexbase, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %indexstride, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %numfaces, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %indicestype, i32 noundef %subpart) unnamed_addr #3 align 2 {
+define dso_local void @_ZNK26btTriangleIndexVertexArray32getLockedReadOnlyVertexIndexBaseEPPKhRiR14PHY_ScalarTypeS3_S2_S3_S3_S5_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %this, ptr nocapture noundef writeonly initializes((0, 8)) %vertexbase, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %numverts, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %type, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %vertexStride, ptr nocapture noundef writeonly initializes((0, 8)) %indexbase, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %indexstride, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %numfaces, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %indicestype, i32 noundef %subpart) unnamed_addr #3 align 2 {
 entry:
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_data.i, align 8
@@ -333,7 +333,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK26btTriangleIndexVertexArray14setPremadeAabbERK9btVector3S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %aabbMin, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %aabbMax) unnamed_addr #5 align 2 {
+define dso_local void @_ZNK26btTriangleIndexVertexArray14setPremadeAabbERK9btVector3S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) initializes((64, 100)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %aabbMin, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %aabbMax) unnamed_addr #5 align 2 {
 entry:
   %m_aabbMin = getelementptr inbounds i8, ptr %this, i64 68
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, i64 16, i1 false)
@@ -348,7 +348,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK26btTriangleIndexVertexArray14getPremadeAabbEP9btVector3S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %this, ptr nocapture noundef writeonly %aabbMin, ptr nocapture noundef writeonly %aabbMax) unnamed_addr #5 align 2 {
+define dso_local void @_ZNK26btTriangleIndexVertexArray14getPremadeAabbEP9btVector3S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %this, ptr nocapture noundef writeonly initializes((0, 16)) %aabbMin, ptr nocapture noundef writeonly initializes((0, 16)) %aabbMax) unnamed_addr #5 align 2 {
 entry:
   %m_aabbMin = getelementptr inbounds i8, ptr %this, i64 68
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %m_aabbMin, i64 16, i1 false)

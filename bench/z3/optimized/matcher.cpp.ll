@@ -47,7 +47,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN7matcherclEP4exprS1_R12substitution(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %e1, ptr noundef %e2, ptr noundef nonnull align 8 dereferenceable(124) %s) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN7matcherclEP4exprS1_R12substitution(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this, ptr noundef %e1, ptr noundef %e2, ptr noundef nonnull align 8 dereferenceable(124) %s) local_unnamed_addr #3 align 2 {
 entry:
   %m_todo.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_todo.i, align 8

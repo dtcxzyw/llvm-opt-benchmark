@@ -139,7 +139,7 @@ declare dso_local ptr @pci_match_id(ptr noundef, ptr noundef) local_unnamed_addr
 declare dso_local i32 @ohci_setup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ohci_quirk_amd756(ptr nocapture noundef %0) #2 align 16 {
+define internal noundef i32 @ohci_quirk_amd756(ptr nocapture noundef initializes((1664, 1672)) %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1664
   store i64 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 96
@@ -209,7 +209,7 @@ define internal noundef i32 @ohci_quirk_toshiba_scc(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal noundef i32 @ohci_quirk_nec(ptr noundef %0) #6 align 16 {
+define internal noundef i32 @ohci_quirk_nec(ptr noundef initializes((1728, 1736)) %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1664
   %3 = load i64, ptr %2, align 8
   %4 = or i64 %3, 64

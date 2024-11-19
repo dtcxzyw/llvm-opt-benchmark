@@ -12449,7 +12449,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @prepare_rsa_params(ptr noundef %rsa, i32 %nid, i32 %save, ptr nocapture noundef writeonly %pstr, ptr nocapture noundef writeonly %pstrtype) #0 {
+define internal range(i32 0, 2) i32 @prepare_rsa_params(ptr noundef %rsa, i32 %nid, i32 %save, ptr nocapture noundef writeonly initializes((0, 8)) %pstr, ptr nocapture noundef writeonly %pstrtype) #0 {
 entry:
   %pkt = alloca %struct.wpacket_st, align 8
   %str_sz = alloca i64, align 8

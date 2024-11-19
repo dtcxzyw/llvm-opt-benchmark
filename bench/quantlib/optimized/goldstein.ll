@@ -54,7 +54,7 @@ $_ZTVN8QuantLib10LineSearchE = comdat any
 @_ZTVN8QuantLib10LineSearchE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN8QuantLib10LineSearchE, ptr @_ZN8QuantLib10LineSearchD2Ev, ptr @_ZN8QuantLib10LineSearchD0Ev, ptr @__cxa_pure_virtual] }, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib19GoldsteinLineSearchclERNS_7ProblemERNS_11EndCriteria4TypeERKS3_d(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull align 8 dereferenceable(56) %P, ptr noundef nonnull align 4 dereferenceable(4) %ecType, ptr noundef nonnull align 8 dereferenceable(40) %endCriteria, double noundef %t_ini) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN8QuantLib19GoldsteinLineSearchclERNS_7ProblemERNS_11EndCriteria4TypeERKS3_d(ptr noundef nonnull align 8 dereferenceable(104) initializes((56, 64), (72, 73)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(56) %P, ptr noundef nonnull align 4 dereferenceable(4) %ecType, ptr noundef nonnull align 8 dereferenceable(40) %endCriteria, double noundef %t_ini) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %constraint_.i = getelementptr inbounds nuw i8, ptr %P, i64 8
   %0 = load ptr, ptr %constraint_.i, align 8, !tbaa !3

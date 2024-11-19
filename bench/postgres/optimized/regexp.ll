@@ -877,7 +877,7 @@ declare i32 @pg_mblen(ptr noundef) local_unnamed_addr #2
 declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_re_flags(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @parse_re_flags(ptr nocapture noundef nonnull writeonly initializes((0, 5)) %0, ptr noundef %1) unnamed_addr #0 {
   store i32 3, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 0, ptr %3, align 4
@@ -3056,7 +3056,7 @@ define dso_local i64 @regexp_substr_no_subexpr(ptr nocapture noundef %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @regexp_fixed_prefix(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @regexp_fixed_prefix(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca [100 x i8], align 16

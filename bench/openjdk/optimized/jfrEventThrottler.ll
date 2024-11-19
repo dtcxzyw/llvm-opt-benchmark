@@ -175,7 +175,7 @@ define hidden noundef zeroext i1 @_ZN17JfrEventThrottler6acceptE10JfrEventIdl(i3
 declare noundef zeroext i1 @_ZN18JfrAdaptiveSampler6sampleEl(ptr noundef nonnull align 8 dereferenceable(76), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN17JfrEventThrottler13update_paramsEPK16JfrSamplerWindow(ptr noundef nonnull align 8 dereferenceable(142) %0, ptr nocapture readnone %1) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN17JfrEventThrottler13update_paramsEPK16JfrSamplerWindow(ptr noundef nonnull align 8 dereferenceable(142) initializes((140, 141)) %0, ptr nocapture readnone %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, -2

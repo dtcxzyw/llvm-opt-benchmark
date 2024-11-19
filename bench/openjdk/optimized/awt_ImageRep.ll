@@ -709,7 +709,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @compareLUTs(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 257) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3, i32 noundef range(i32 0, 257) %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @compareLUTs(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 257) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3, i32 noundef range(i32 0, 257) %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %8) unnamed_addr #2 {
   %10 = tail call i32 @llvm.umax.i32(i32 %1, i32 %4)
   store i32 2, ptr %8, align 4
   %.not86 = icmp eq i32 %10, 0

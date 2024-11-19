@@ -582,7 +582,7 @@ declare ptr @Gia_ManSimPatSim(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Gia_ManDualNot(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
+define void @Gia_ManDualNot(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %1, align 4
   %5 = xor i32 %4, 1
   store i32 %5, ptr %2, align 4
@@ -596,7 +596,7 @@ define void @Gia_ManDualNot(ptr nocapture noundef readnone %0, ptr nocapture nou
 declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManDualXor2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define void @Gia_ManDualXor2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %1, align 4
   %6 = load i32, ptr %2, align 4
   %7 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %5, i32 noundef %6) #18
@@ -616,7 +616,7 @@ declare i32 @Gia_ManHashXor(ptr noundef, i32 noundef, i32 noundef) local_unnamed
 declare i32 @Gia_ManHashOr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManDualXorN(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define void @Gia_ManDualXorN(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
   store i32 0, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
@@ -650,7 +650,7 @@ define void @Gia_ManDualXorN(ptr noundef %0, ptr nocapture noundef readonly %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManDualAnd2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define void @Gia_ManDualAnd2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %1, align 4
   %6 = xor i32 %5, 1
   %7 = getelementptr inbounds i8, ptr %1, i64 4
@@ -679,7 +679,7 @@ define void @Gia_ManDualAnd2(ptr noundef %0, ptr nocapture noundef readonly %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManDualAndN(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define void @Gia_ManDualAndN(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef initializes((0, 4)) %3) local_unnamed_addr #0 {
   store i32 1, ptr %3, align 4
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -726,7 +726,7 @@ define void @Gia_ManDualAndN(ptr noundef %0, ptr nocapture noundef readonly %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManDualDc(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define void @Gia_ManDualDc(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %1, align 4
   store i32 %5, ptr %3, align 4
   %6 = load i32, ptr %2, align 4
@@ -742,7 +742,7 @@ define void @Gia_ManDualDc(ptr noundef %0, ptr nocapture noundef readonly %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManDualMux(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define void @Gia_ManDualMux(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr %2, align 4
   %7 = xor i32 %6, 1
   %8 = load i32, ptr %3, align 4
@@ -791,7 +791,7 @@ define i32 @Gia_ManDualCompare(ptr noundef %0, ptr nocapture noundef readonly %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Acb_ObjToGiaDual(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define void @Acb_ObjToGiaDual(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef initializes((4, 8)) %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %7, align 4
   %8 = getelementptr i8, ptr %1, i64 136

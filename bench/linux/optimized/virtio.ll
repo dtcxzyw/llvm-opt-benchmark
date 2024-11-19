@@ -250,7 +250,7 @@ define dso_local void @unregister_virtio_driver(ptr noundef %0) #0 align 16 {
 declare dso_local void @driver_unregister(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @register_virtio_device(ptr noundef %0) #0 align 16 {
+define dso_local i32 @register_virtio_device(ptr noundef initializes((112, 120)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr @virtio_bus, ptr %3, align 8

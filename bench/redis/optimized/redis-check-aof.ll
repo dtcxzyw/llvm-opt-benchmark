@@ -205,7 +205,7 @@ return:                                           ; preds = %entry, %if.then
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @readString(ptr nocapture noundef %fp, ptr nocapture noundef %target) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @readString(ptr nocapture noundef %fp, ptr nocapture noundef initializes((0, 8)) %target) local_unnamed_addr #3 {
 entry:
   %__buf.i10 = alloca [1024 x i8], align 16
   %__buf.i = alloca [1024 x i8], align 16

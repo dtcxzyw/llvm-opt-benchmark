@@ -474,7 +474,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121FunctionArgEnumeratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121FunctionArgEnumeratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_121FunctionArgEnumeratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -525,7 +525,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm3pdb13PDBSymbolDataESt14default_deleteIS3_EESa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121FunctionArgEnumeratorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121FunctionArgEnumeratorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_121FunctionArgEnumeratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -591,7 +591,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_121FunctionArgEnumerator13getChild
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_121FunctionArgEnumerator15getChildAtIndexEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.51") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_121FunctionArgEnumerator15getChildAtIndexEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.51") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::unique_ptr.68", align 8
   %5 = zext i32 %2 to i64
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -659,7 +659,7 @@ _ZNK4llvm3pdb11IPDBSession21getConcreteSymbolByIdINS0_13PDBSymbolDataEEESt10uniq
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121FunctionArgEnumerator7getNextEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.51") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121FunctionArgEnumerator7getNextEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.51") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::unique_ptr.68", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -723,7 +723,7 @@ _ZNK4llvm3pdb11IPDBSession21getConcreteSymbolByIdINS0_13PDBSymbolDataEEESt10uniq
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN12_GLOBAL__N_121FunctionArgEnumerator5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_121FunctionArgEnumerator5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((48, 56)) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48

@@ -537,7 +537,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN76_$LT$palette..alpha..alpha..Alpha$LT$C$C$T$GT$$u20$as$u20$palette..Clamp$GT$5clamp17h7dc4bfb5eb57489bE.llvm.12664348367457638102"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN76_$LT$palette..alpha..alpha..Alpha$LT$C$C$T$GT$$u20$as$u20$palette..Clamp$GT$5clamp17h7dc4bfb5eb57489bE.llvm.12664348367457638102"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.05.0.copyload = load i32, ptr %1, align 4
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 4
   %.sroa.46.0.copyload = load float, ptr %.sroa.46.0..sroa_idx, align 4
@@ -574,7 +574,7 @@ define hidden void @"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN96_$LT$palette..alpha..alpha..Alpha$LT$C$C$A$GT$$u20$as$u20$palette..alpha..WithAlpha$LT$A$GT$$GT$5split17h4be2fd01e2733f32E.llvm.12664348367457638102"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #3 {
+define hidden void @"_ZN96_$LT$palette..alpha..alpha..Alpha$LT$C$C$A$GT$$u20$as$u20$palette..alpha..WithAlpha$LT$A$GT$$GT$5split17h4be2fd01e2733f32E.llvm.12664348367457638102"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load float, ptr %3, align 4, !noundef !4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
@@ -668,7 +668,7 @@ define void @_ZN5theme6schema17ThemeStyleContent16syntax_overrides17hd9daf79ba21
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h2096b9770f3af2ccE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1860 x i8]) align 4 dereferenceable(1860) %0, ptr noalias noundef readonly align 8 dereferenceable(2256) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h2096b9770f3af2ccE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1860 x i8]) align 4 dereferenceable(1860) initializes((0, 1860)) %0, ptr noalias noundef readonly align 8 dereferenceable(2256) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -4516,7 +4516,7 @@ define void @_ZN5theme6schema18ThemeColorsContent23theme_colors_refinement17h209
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2d2e8ee725e99f66E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([840 x i8]) align 4 dereferenceable(840) %0, ptr noalias noundef readonly align 8 dereferenceable(1008) %1) unnamed_addr #0 {
+define void @_ZN5theme6schema19StatusColorsContent24status_colors_refinement17h2d2e8ee725e99f66E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([840 x i8]) align 4 dereferenceable(840) initializes((0, 840)) %0, ptr noalias noundef readonly align 8 dereferenceable(1008) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -6438,7 +6438,7 @@ define void @"_ZN5theme6schema1_83_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN5theme6schema1_83_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..AppearanceContent$GT$9schema_id17hae191f98afd6f18cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define void @"_ZN5theme6schema1_83_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..AppearanceContent$GT$9schema_id17hae191f98afd6f18cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.20.llvm.12664348367457638102, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6586,7 +6586,7 @@ define void @"_ZN5theme6schema1_89_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN5theme6schema1_89_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..WindowBackgroundContent$GT$9schema_id17hf163154ae0c66ba0E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define void @"_ZN5theme6schema1_89_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..WindowBackgroundContent$GT$9schema_id17hf163154ae0c66ba0E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.25.llvm.12664348367457638102, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6802,7 +6802,7 @@ define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..ThemeFamilyContent$GT$9schema_id17h0a1ce26a00932fbfE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..ThemeFamilyContent$GT$9schema_id17h0a1ce26a00932fbfE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.33, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6960,7 +6960,7 @@ define void @"_ZN5theme6schema1_78_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN5theme6schema1_78_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..ThemeContent$GT$9schema_id17h87391f13d7592d6eE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define void @"_ZN5theme6schema1_78_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..ThemeContent$GT$9schema_id17h87391f13d7592d6eE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.40.llvm.12664348367457638102, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7106,7 +7106,7 @@ define void @"_ZN5theme6schema1_83_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN5theme6schema1_83_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..ThemeStyleContent$GT$9schema_id17h6316316928debef5E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define void @"_ZN5theme6schema1_83_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..ThemeStyleContent$GT$9schema_id17h6316316928debef5E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.50.llvm.12664348367457638102, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7974,7 +7974,7 @@ define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..ThemeColorsContent$GT$9schema_id17hc54061ed678f153cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..ThemeColorsContent$GT$9schema_id17hc54061ed678f153cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.58, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -13665,7 +13665,7 @@ define void @"_ZN5theme6schema1_85_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN5theme6schema1_85_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..StatusColorsContent$GT$9schema_id17h0d1113d8e1a6caf4E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define void @"_ZN5theme6schema1_85_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..StatusColorsContent$GT$9schema_id17h0d1113d8e1a6caf4E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.223, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -16198,7 +16198,7 @@ define void @"_ZN5theme6schema1_79_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN5theme6schema1_79_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..AccentContent$GT$9schema_id17h2f4d60b23f59ed5fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define void @"_ZN5theme6schema1_79_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..AccentContent$GT$9schema_id17h2f4d60b23f59ed5fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.282.llvm.12664348367457638102, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -16267,7 +16267,7 @@ define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..PlayerColorContent$GT$9schema_id17h362c08c570743d01E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define void @"_ZN5theme6schema1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..PlayerColorContent$GT$9schema_id17h362c08c570743d01E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.285.llvm.12664348367457638102, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -16409,7 +16409,7 @@ define void @"_ZN5theme6schema1_82_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN5theme6schema1_82_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..FontStyleContent$GT$9schema_id17h87d9fa3f869b314fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define void @"_ZN5theme6schema1_82_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..FontStyleContent$GT$9schema_id17h87d9fa3f869b314fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.290.llvm.12664348367457638102, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -16588,7 +16588,7 @@ define void @"_ZN5theme6schema1_87_$LT$impl$u20$schemars..JsonSchema$u20$for$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN5theme6schema1_87_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..HighlightStyleContent$GT$9schema_id17h8a82665464e69f9aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #6 {
+define void @"_ZN5theme6schema1_87_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$theme..schema..HighlightStyleContent$GT$9schema_id17h8a82665464e69f9aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.8864566ca2df49740c222121536a8dcf.296.llvm.12664348367457638102, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16

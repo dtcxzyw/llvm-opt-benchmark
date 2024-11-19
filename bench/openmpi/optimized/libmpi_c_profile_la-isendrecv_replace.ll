@@ -53,7 +53,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Isendrecv_replace = weak alias i32 (ptr, i32, ptr, i32, i32, i32, i32, ptr, ptr), ptr @PMPI_Isendrecv_replace
 
 ; Function Attrs: nounwind uwtable
-define internal void @ompi_isendrecv_context_constructor(ptr noundef %0) #0 {
+define internal void @ompi_isendrecv_context_constructor(ptr noundef initializes((16, 24), (296, 304)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 296
   store i64 0, ptr %2, align 8
   %3 = load i32, ptr @opal_class_init_epoch, align 4
@@ -907,7 +907,7 @@ declare i32 @opal_convertor_pack(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @ompi_comm_request_schedule_append_w_flags(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ompi_isendrecv_replace_complete_func(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @ompi_isendrecv_replace_complete_func(ptr nocapture noundef initializes((64, 72), (76, 88)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 2372

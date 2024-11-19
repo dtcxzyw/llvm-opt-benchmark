@@ -884,7 +884,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib9CmsMarketC2ESt6vectorINS_6PeriodESaIS2_EES1_IN5boost10shared_ptrINS_9SwapIndexEEESaIS8_EENS6_INS_9IborIndexEEERKS1_IS1_INS_6HandleINS_5QuoteEEESaISF_EESaISH_EERKS1_INS6_INS_15CmsCouponPricerEEESaISN_EENSD_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(544) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %swapLengths, ptr nocapture noundef %swapIndexes, ptr nocapture noundef %iborIndex, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %bidAskSpreads, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pricers, ptr nocapture noundef %discountingTS) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib9CmsMarketC2ESt6vectorINS_6PeriodESaIS2_EES1_IN5boost10shared_ptrINS_9SwapIndexEEESaIS8_EENS6_INS_9IborIndexEEERKS1_IS1_INS_6HandleINS_5QuoteEEESaISF_EESaISH_EERKS1_INS6_INS_15CmsCouponPricerEEESaISN_EENSD_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(544) initializes((0, 12), (16, 104)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %swapLengths, ptr nocapture noundef %swapIndexes, ptr nocapture noundef %iborIndex, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %bidAskSpreads, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pricers, ptr nocapture noundef %discountingTS) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp68 = alloca %"class.std::vector.66", align 8
   %ref.tmp79 = alloca %"class.std::vector.66", align 8
@@ -5151,7 +5151,7 @@ _ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib9SwapIndexEEESaIS4_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib9CmsMarketC1ESt6vectorINS_6PeriodESaIS2_EES1_IN5boost10shared_ptrINS_9SwapIndexEEESaIS8_EENS6_INS_9IborIndexEEERKS1_IS1_INS_6HandleINS_5QuoteEEESaISF_EESaISH_EERKS1_INS6_INS_15CmsCouponPricerEEESaISN_EENSD_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(544) %this, ptr nocapture noundef %swapLengths, ptr nocapture noundef %swapIndexes, ptr nocapture noundef %iborIndex, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %bidAskSpreads, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pricers, ptr nocapture noundef %discountingTS) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib9CmsMarketC1ESt6vectorINS_6PeriodESaIS2_EES1_IN5boost10shared_ptrINS_9SwapIndexEEESaIS8_EENS6_INS_9IborIndexEEERKS1_IS1_INS_6HandleINS_5QuoteEEESaISF_EESaISH_EERKS1_INS6_INS_15CmsCouponPricerEEESaISN_EENSD_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(544) initializes((560, 564), (568, 576)) %this, ptr nocapture noundef %swapLengths, ptr nocapture noundef %swapIndexes, ptr nocapture noundef %iborIndex, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %bidAskSpreads, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pricers, ptr nocapture noundef %discountingTS) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp66 = alloca %"class.std::vector.66", align 8
   %ref.tmp77 = alloca %"class.std::vector.66", align 8
@@ -10788,7 +10788,7 @@ _ZNK8QuantLib9CmsMarket12weightedMeanERKNS_6MatrixES3_.exit: ; preds = %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib9CmsMarket20weightedFwdNpvErrorsERKNS_6MatrixE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(544) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %w) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib9CmsMarket20weightedFwdNpvErrorsERKNS_6MatrixE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(544) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %w) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !33
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
@@ -10863,7 +10863,7 @@ _ZNK8QuantLib9CmsMarket13weightedMeansERKNS_6MatrixES3_.exit: ; preds = %for.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib9CmsMarket13weightedMeansERKNS_6MatrixES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(544) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %var, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %w) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib9CmsMarket13weightedMeansERKNS_6MatrixES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(544) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %var, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %w) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nExercise_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load i64, ptr %nExercise_, align 8, !tbaa !75
@@ -10932,7 +10932,7 @@ nrvo.skipdtor:                                    ; preds = %for.cond3.for.cond.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib9CmsMarket21weightedSpotNpvErrorsERKNS_6MatrixE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(544) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %w) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib9CmsMarket21weightedSpotNpvErrorsERKNS_6MatrixE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(544) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %w) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !33
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
@@ -11007,7 +11007,7 @@ _ZNK8QuantLib9CmsMarket13weightedMeansERKNS_6MatrixES3_.exit: ; preds = %for.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib9CmsMarket20weightedSpreadErrorsERKNS_6MatrixE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(544) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %w) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib9CmsMarket20weightedSpreadErrorsERKNS_6MatrixE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(544) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %w) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !33
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
@@ -11088,7 +11088,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #15
 declare double @sqrt(double noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib9CmsMarket6browseEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(544) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib9CmsMarket6browseEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(544) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !33
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24

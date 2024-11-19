@@ -84,7 +84,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN15ciReturnAddressC1Ei = hidden unnamed_addr alias void (ptr, i32), ptr @_ZN15ciReturnAddressC2Ei
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6ciTypeC2E9BasicType(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %0, i8 noundef zeroext %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN6ciTypeC2E9BasicType(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 12), (16, 25)) %0, i8 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -96,7 +96,7 @@ define hidden void @_ZN6ciTypeC2E9BasicType(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6ciTypeC2EP5Klass(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN6ciTypeC2EP5Klass(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 12), (16, 25)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -342,7 +342,7 @@ define hidden noundef ptr @_ZN6ciType4makeE9BasicType(i8 noundef zeroext %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15ciReturnAddressC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN15ciReturnAddressC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 12), (16, 25), (28, 32)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

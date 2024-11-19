@@ -327,7 +327,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv16CvCaptureCAM_V4LC2Ev(ptr noundef nonnull align 8 dereferenceable(8784) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv16CvCaptureCAM_V4LC2Ev(ptr noundef nonnull align 8 dereferenceable(8784) initializes((0, 14), (16, 21)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv16CvCaptureCAM_V4LE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
@@ -800,7 +800,7 @@ define hidden noundef zeroext i1 @_ZN2cv16CvCaptureCAM_V4L9streamingEb(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv16CvCaptureCAM_V4L14releaseBuffersEv(ptr noundef nonnull align 8 dereferenceable(8784) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv16CvCaptureCAM_V4L14releaseBuffersEv(ptr noundef nonnull align 8 dereferenceable(8784) initializes((16, 21)) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 229
@@ -1004,7 +1004,7 @@ define hidden noundef zeroext i1 @_ZNK2cv16CvCaptureCAM_V4L8isOpenedEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv16CvCaptureCAM_V4L16try_palette_v4l2Ev(ptr noundef nonnull align 8 dereferenceable(8784) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN2cv16CvCaptureCAM_V4L16try_palette_v4l2Ev(ptr noundef nonnull align 8 dereferenceable(8784) initializes((8520, 8728)) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8520
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %2, i8 0, i64 208, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 8748
@@ -2035,7 +2035,7 @@ _ZN2cv16CvCaptureCAM_V4L20setVideoInputChannelEv.exit: ; preds = %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv16CvCaptureCAM_V4L27autosetup_capture_mode_v4l2Ev(ptr noundef nonnull align 8 dereferenceable(8784) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2cv16CvCaptureCAM_V4L27autosetup_capture_mode_v4l2Ev(ptr noundef nonnull align 8 dereferenceable(8784) initializes((8520, 8728)) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -7867,7 +7867,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #17
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN2cv16CvCaptureCAM_V4L13retrieveFrameEi(ptr noundef nonnull align 8 dereferenceable(8784) %0, i32 %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN2cv16CvCaptureCAM_V4L13retrieveFrameEi(ptr noundef nonnull align 8 dereferenceable(8784) initializes((8776, 8777)) %0, i32 %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_stringstream", align 8

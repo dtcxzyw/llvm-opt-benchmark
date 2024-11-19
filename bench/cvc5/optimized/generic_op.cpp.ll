@@ -150,14 +150,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal9GenericOpC2ENS0_4kind6Kind_tE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, i32 noundef %k) unnamed_addr #5 align 2 {
+define hidden void @_ZN4cvc58internal9GenericOpC2ENS0_4kind6Kind_tE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, i32 noundef %k) unnamed_addr #5 align 2 {
 entry:
   store i32 %k, ptr %this, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN4cvc58internal9GenericOpC2ERKS1_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %op) unnamed_addr #6 align 2 {
+define hidden void @_ZN4cvc58internal9GenericOpC2ERKS1_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %op) unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %op, align 4
   store i32 %0, ptr %this, align 4
@@ -224,7 +224,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal9GenericOp21getIndicesForOperatorENS0_4kind6Kind_tENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.std::vector") align 8 %agg.result, i32 noundef %k, ptr nocapture noundef readonly %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal9GenericOp21getIndicesForOperatorENS0_4kind6Kind_tENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, i32 noundef %k, ptr nocapture noundef readonly %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp2 = alloca %"class.cvc5::internal::Rational", align 8

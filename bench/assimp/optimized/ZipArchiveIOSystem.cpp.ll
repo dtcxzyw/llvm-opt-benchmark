@@ -294,7 +294,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp14IOSystem2Unzip3getEPNS_8IOSystemE(ptr noalias nocapture writeonly sret(%struct.zlib_filefunc_def_s) align 8 %agg.result, ptr noundef %pIOHandler) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN6Assimp14IOSystem2Unzip3getEPNS_8IOSystemE(ptr noalias nocapture writeonly sret(%struct.zlib_filefunc_def_s) align 8 initializes((0, 64)) %agg.result, ptr noundef %pIOHandler) local_unnamed_addr #9 align 2 {
 entry:
   store ptr @_ZN6Assimp14IOSystem2Unzip4openEPvPKci, ptr %agg.result, align 8
   %zread_file = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -315,7 +315,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11ZipFileInfoC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %zip_handle, i64 noundef %size) unnamed_addr #2 align 2 {
+define hidden void @_ZN6Assimp11ZipFileInfoC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %zip_handle, i64 noundef %size) unnamed_addr #2 align 2 {
 entry:
   store i64 %size, ptr %this, align 8
   %m_ZipFilePos2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -449,7 +449,7 @@ declare i32 @unzReadCurrentFile(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7ZipFileC2ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, i64 noundef %size) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7ZipFileC2ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, i64 noundef %size) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7ZipFileE, i64 16), ptr %this, align 8
   %m_Filename = getelementptr inbounds i8, ptr %this, i64 8
@@ -480,7 +480,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp7ZipFileD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define hidden void @_ZN6Assimp7ZipFileD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7ZipFileE, i64 16), ptr %this, align 8
   %m_Buffer = getelementptr inbounds i8, ptr %this, i64 56
@@ -500,7 +500,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %entry, %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp7ZipFileD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define hidden void @_ZN6Assimp7ZipFileD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7ZipFileE, i64 16), ptr %this, align 8
   %m_Buffer.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -623,7 +623,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp18ZipArchiveIOSystem9ImplementC2EPNS_8IOSystemEPKcS5_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %pIOHandler, ptr noundef %pFilename, ptr noundef readnone %pMode) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp18ZipArchiveIOSystem9ImplementC2EPNS_8IOSystemEPKcS5_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 20), (24, 32)) %this, ptr noundef %pIOHandler, ptr noundef %pFilename, ptr noundef readnone %pMode) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mapping = alloca %struct.zlib_filefunc_def_s, align 8
   store ptr null, ptr %this, align 8
@@ -1340,7 +1340,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4find
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp18ZipArchiveIOSystemC2EPNS_8IOSystemEPKcS4_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %pIOHandler, ptr noundef %pFilename, ptr noundef readnone %pMode) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp18ZipArchiveIOSystemC2EPNS_8IOSystemEPKcS4_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 32)) %this, ptr noundef %pIOHandler, ptr noundef %pFilename, ptr noundef readnone %pMode) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mapping.i = alloca %struct.zlib_filefunc_def_s, align 8
   %m_pathStack.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1423,7 +1423,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp18ZipArchiveIOSystemC2EPNS_8IOSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %pIOHandler, ptr noundef nonnull align 8 dereferenceable(32) %rFilename, ptr noundef readnone %pMode) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp18ZipArchiveIOSystemC2EPNS_8IOSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 32)) %this, ptr noundef %pIOHandler, ptr noundef nonnull align 8 dereferenceable(32) %rFilename, ptr noundef readnone %pMode) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mapping.i = alloca %struct.zlib_filefunc_def_s, align 8
   %m_pathStack.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1501,7 +1501,7 @@ ehcleanup:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp18ZipArchiveIOSystemD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp18ZipArchiveIOSystemD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp18ZipArchiveIOSystemE, i64 16), ptr %this, align 8
   %pImpl = getelementptr inbounds i8, ptr %this, i64 32
@@ -1577,7 +1577,7 @@ _ZN6Assimp8IOSystemD2Ev.exit:                     ; preds = %invoke.cont.i.i, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp18ZipArchiveIOSystemD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 {
+define hidden void @_ZN6Assimp18ZipArchiveIOSystemD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6Assimp18ZipArchiveIOSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #29
   tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef nonnull %this) #29

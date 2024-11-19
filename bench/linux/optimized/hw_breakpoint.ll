@@ -61,7 +61,7 @@ define dso_local i64 @encode_dr7(i32 noundef %0, i32 noundef %1, i32 noundef %2)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local range(i32 0, 4) i32 @decode_dr7(i64 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 4) i32 @decode_dr7(i64 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #1 align 16 {
   %5 = shl i32 %1, 2
   %6 = add i32 %5, 16
   %7 = zext nneg i32 %6 to i64

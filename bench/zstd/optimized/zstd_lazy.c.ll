@@ -669,7 +669,7 @@ ZSTD_row_update_internalImpl.exit87:              ; preds = %cond.false.i60.us20
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_greedy(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_greedy(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %src, i64 %srcSize
@@ -1333,7 +1333,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_greedy_dictMatchState(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_greedy_dictMatchState(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %src, i64 %srcSize
@@ -1994,7 +1994,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_greedy_dedicatedDictSearch(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_greedy_dedicatedDictSearch(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %src, i64 %srcSize
@@ -2655,7 +2655,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_greedy_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_greedy_row(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %src, i64 %srcSize
@@ -3628,7 +3628,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_greedy_dictMatchState_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_greedy_dictMatchState_row(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %src, i64 %srcSize
@@ -4641,7 +4641,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_greedy_dedicatedDictSearch_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_greedy_dedicatedDictSearch_row(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %src, i64 %srcSize
@@ -5654,7 +5654,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_lazy(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -6474,7 +6474,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy_dictMatchState(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_lazy_dictMatchState(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -7253,7 +7253,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy_dedicatedDictSearch(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_lazy_dedicatedDictSearch(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -8032,7 +8032,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_lazy_row(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -9258,7 +9258,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy_dictMatchState_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_lazy_dictMatchState_row(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -10443,7 +10443,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy_dedicatedDictSearch_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_lazy_dedicatedDictSearch_row(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -11628,7 +11628,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy2(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_lazy2(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -12624,7 +12624,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy2_dictMatchState(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_lazy2_dictMatchState(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -13502,7 +13502,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -14380,7 +14380,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy2_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_lazy2_row(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -15827,7 +15827,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy2_dictMatchState_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_lazy2_dictMatchState_row(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -17156,7 +17156,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch_row(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -18485,7 +18485,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_btlazy2(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_btlazy2(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -19908,7 +19908,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_btlazy2_dictMatchState(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_btlazy2_dictMatchState(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %offbaseFound.i = alloca i64, align 8
   %ofbCandidate.i = alloca i64, align 8
@@ -21202,7 +21202,7 @@ while.end679.i:                                   ; preds = %if.then214.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_greedy_extDict(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_greedy_extDict(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %ofbCandidate.i = alloca i64, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %src, i64 %srcSize
@@ -21868,7 +21868,7 @@ ZSTD_compressBlock_lazy_extDict_generic.exit:     ; preds = %while.end431.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_greedy_extDict_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_greedy_extDict_row(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %ofbCandidate.i = alloca i64, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %src, i64 %srcSize
@@ -22886,7 +22886,7 @@ ZSTD_compressBlock_lazy_extDict_generic.exit:     ; preds = %while.end431.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy_extDict(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_lazy_extDict(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %ofbCandidate.i = alloca i64, align 8
   %ofbCandidate194.i = alloca i64, align 8
@@ -23680,7 +23680,7 @@ ZSTD_compressBlock_lazy_extDict_generic.exit:     ; preds = %while.end431.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy_extDict_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_lazy_extDict_row(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %ofbCandidate.i = alloca i64, align 8
   %ofbCandidate194.i = alloca i64, align 8
@@ -24880,7 +24880,7 @@ ZSTD_compressBlock_lazy_extDict_generic.exit:     ; preds = %while.end431.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy2_extDict(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_lazy2_extDict(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %ofbCandidate.i = alloca i64, align 8
   %ofbCandidate194.i = alloca i64, align 8
@@ -25783,7 +25783,7 @@ ZSTD_compressBlock_lazy_extDict_generic.exit:     ; preds = %while.end431.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_lazy2_extDict_row(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_lazy2_extDict_row(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %ofbCandidate.i = alloca i64, align 8
   %ofbCandidate194.i = alloca i64, align 8
@@ -27137,7 +27137,7 @@ ZSTD_compressBlock_lazy_extDict_generic.exit:     ; preds = %while.end431.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_btlazy2_extDict(ptr nocapture noundef %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_btlazy2_extDict(ptr nocapture noundef initializes((300, 304)) %ms, ptr nocapture noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %ofbCandidate.i = alloca i64, align 8
   %ofbCandidate194.i = alloca i64, align 8

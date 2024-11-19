@@ -1906,7 +1906,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp4Ogre17OgreXmlSerializerC2EPNS_10TXmlParserIN4pugi8xml_nodeEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef %parser) unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp4Ogre17OgreXmlSerializerC2EPNS_10TXmlParserIN4pugi8xml_nodeEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %parser) unnamed_addr #6 align 2 {
 entry:
   store ptr %parser, ptr %this, align 8
   ret void
@@ -2444,7 +2444,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN6Assimp4Ogre13VertexDataXmlC1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre17OgreXmlSerializer12ReadGeometryERN4pugi8xml_nodeEPNS0_13VertexDataXmlE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef %dest) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4Ogre17OgreXmlSerializer12ReadGeometryERN4pugi8xml_nodeEPNS0_13VertexDataXmlE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef initializes((0, 4)) %dest) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %currentNode = alloca %"class.pugi::xml_node", align 8
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8

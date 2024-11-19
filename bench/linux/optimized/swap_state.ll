@@ -1136,7 +1136,7 @@ declare dso_local ptr @filemap_get_entry(ptr noundef, i64 noundef) local_unnamed
 declare dso_local ptr @get_swap_device(i64) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__read_swap_cache_async(i64 %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4, i1 noundef zeroext %5) local_unnamed_addr #2 align 16 {
+define dso_local ptr @__read_swap_cache_async(i64 %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly initializes((0, 1)) %4, i1 noundef zeroext %5) local_unnamed_addr #2 align 16 {
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
   store ptr null, ptr %7, align 8

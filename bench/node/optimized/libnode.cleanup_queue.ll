@@ -14,7 +14,7 @@ $_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__det
 @.str = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node12CleanupQueue10GetOrderedEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4node12CleanupQueue10GetOrderedEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
 entry:
   %__val.sroa.0.i.i16.i.i.i = alloca { ptr, ptr }, align 8
   %__val.i17.i.i.i = alloca %"class.node::CleanupQueue::CleanupHookCallback", align 8

@@ -2917,7 +2917,7 @@ _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 declare void @_ZN6wangle17ManagedConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen15HTTPSessionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(1582) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPSessionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(1582) initializes((0, 8), (64, 72)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen15HTTPSessionBaseE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 64

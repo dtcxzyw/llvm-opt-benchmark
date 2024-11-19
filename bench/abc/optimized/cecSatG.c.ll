@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [65 x i8] c"Hard limit on the number of nodes (2^29) is reached. Quitting...\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cec3_SetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @Cec3_SetDefaultParams(ptr nocapture noundef writeonly initializes((0, 32)) %0) local_unnamed_addr #0 {
   store i32 12, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 4, ptr %2, align 4
@@ -481,7 +481,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cec3_CollectSuper(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define void @Cec3_CollectSuper(ptr noundef %0, i32 noundef %1, ptr noundef initializes((4, 8)) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   tail call void @Cec3_CollectSuper_rec(ptr noundef %0, ptr noundef %2, i32 noundef 1, i32 noundef %1)
@@ -2135,7 +2135,7 @@ Cec3_ObjSimEqual.exit.thread74:                   ; preds = %.loopexit79.us, %.l
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Cec3_ManSimAlloc(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @Cec3_ManSimAlloc(ptr nocapture noundef initializes((816, 820)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 832
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

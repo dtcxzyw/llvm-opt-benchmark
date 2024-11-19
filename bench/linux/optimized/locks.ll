@@ -1960,7 +1960,7 @@ define dso_local void @locks_free_lock(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @locks_init_lock(ptr noundef %0) #1 align 16 {
+define dso_local void @locks_init_lock(ptr noundef initializes((0, 216)) %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(216) %0, i8 0, i64 216, i1 false)
   store volatile ptr %2, ptr %2, align 8
@@ -1983,7 +1983,7 @@ define dso_local void @locks_init_lock(ptr noundef %0) #1 align 16 {
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @locks_copy_conflock(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define dso_local void @locks_copy_conflock(ptr nocapture noundef writeonly initializes((72, 85), (88, 92), (120, 144), (168, 184)) %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72
@@ -2036,7 +2036,7 @@ define dso_local void @locks_copy_conflock(ptr nocapture noundef writeonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @locks_copy_lock(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local void @locks_copy_lock(ptr noundef initializes((72, 85), (88, 92), (120, 144), (176, 184)) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

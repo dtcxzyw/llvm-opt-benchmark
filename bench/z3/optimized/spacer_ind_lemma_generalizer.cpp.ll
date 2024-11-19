@@ -430,7 +430,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_127lemma_inductive_generalizerD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_127lemma_inductive_generalizerD2Ev(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_127lemma_inductive_generalizerE, i64 16), ptr %this, align 8
   %m_core = getelementptr inbounds i8, ptr %this, i64 304
@@ -612,7 +612,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN10ref_vectorI4ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_127lemma_inductive_generalizerD0Ev(ptr noundef nonnull align 8 dereferenceable(320) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_127lemma_inductive_generalizerD0Ev(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_127lemma_inductive_generalizerD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %this) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
@@ -1166,7 +1166,7 @@ _ZNK9stopwatch11get_secondsEv.exit:               ; preds = %entry, %_ZN9stopwat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_127lemma_inductive_generalizer16reset_statisticsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(320) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_127lemma_inductive_generalizer16reset_statisticsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(320) initializes((40, 52), (64, 72)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_st = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %m_st, align 8

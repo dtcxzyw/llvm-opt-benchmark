@@ -201,7 +201,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11CSMImporter15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(73) %this, ptr noundef nonnull %pImp) unnamed_addr #2 align 2 {
+define hidden void @_ZN6Assimp11CSMImporter15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(73) initializes((72, 73)) %this, ptr noundef nonnull %pImp) unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.1, i32 noundef 0)
   %cmp = icmp ne i32 %call, 0

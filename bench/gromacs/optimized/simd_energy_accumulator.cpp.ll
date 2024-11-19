@@ -264,7 +264,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 declare void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK3gmx17EnergyAccumulatorILb0ELb1EE11getEnergiesENS_8ArrayRefIfEES3_(ptr nocapture noundef nonnull readonly align 32 dereferenceable(72) %0, ptr nocapture writeonly %1, ptr nocapture readnone %2, ptr nocapture writeonly %3, ptr nocapture readnone %4) local_unnamed_addr #8 align 2 {
+define void @_ZNK3gmx17EnergyAccumulatorILb0ELb1EE11getEnergiesENS_8ArrayRefIfEES3_(ptr nocapture noundef nonnull readonly align 32 dereferenceable(72) %0, ptr nocapture writeonly initializes((0, 4)) %1, ptr nocapture readnone %2, ptr nocapture writeonly initializes((0, 4)) %3, ptr nocapture readnone %4) local_unnamed_addr #8 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load float, ptr %6, align 32
   store float %7, ptr %1, align 4
@@ -275,7 +275,7 @@ define void @_ZNK3gmx17EnergyAccumulatorILb0ELb1EE11getEnergiesENS_8ArrayRefIfEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx17EnergyAccumulatorILb1ELb1EEC2Eiii(ptr noundef nonnull align 8 dereferenceable(148) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx17EnergyAccumulatorILb1ELb1EEC2Eiii(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store i32 %1, ptr %0, align 8
   br label %5
 
@@ -699,7 +699,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3gmx17EnergyAccumulatorILb1ELb1EE43clearEnergiesAndSetEnergyGroupsForJClustersERKNS_22EnergyGroupsPerClusterE(ptr nocapture noundef nonnull align 8 dereferenceable(148) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #13 align 2 {
+define void @_ZN3gmx17EnergyAccumulatorILb1ELb1EE43clearEnergiesAndSetEnergyGroupsForJClustersERKNS_22EnergyGroupsPerClusterE(ptr nocapture noundef nonnull align 8 dereferenceable(148) initializes((32, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72

@@ -157,7 +157,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11HeaderTable4initEj(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %capacityVal) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11HeaderTable4initEj(ptr noundef nonnull align 8 dereferenceable(80) initializes((8, 16), (40, 48)) %this, i32 noundef %capacityVal) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i = alloca %"class.std::allocator.12", align 1
   %bytes_ = getelementptr inbounds i8, ptr %this, i64 12

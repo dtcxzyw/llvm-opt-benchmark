@@ -948,7 +948,7 @@ define internal i32 @atsvc_dissect_element_enum_ctr_first_entry__(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @atsvc_dissect_JobAdd_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @atsvc_dissect_JobAdd_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.224, ptr %7, align 8
   %8 = load i32, ptr @hf_atsvc_servername, align 4
@@ -961,7 +961,7 @@ define internal i32 @atsvc_dissect_JobAdd_request(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @atsvc_dissect_JobAdd_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @atsvc_dissect_JobAdd_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.224, ptr %8, align 8
@@ -986,7 +986,7 @@ define internal i32 @atsvc_dissect_JobAdd_response(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @atsvc_dissect_JobDel_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @atsvc_dissect_JobDel_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.225, ptr %7, align 8
   %8 = load i32, ptr @hf_atsvc_servername, align 4
@@ -1002,7 +1002,7 @@ define internal i32 @atsvc_dissect_JobDel_request(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @atsvc_dissect_JobDel_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @atsvc_dissect_JobDel_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.225, ptr %8, align 8
@@ -1024,7 +1024,7 @@ define internal i32 @atsvc_dissect_JobDel_response(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @atsvc_dissect_JobEnum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @atsvc_dissect_JobEnum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.226, ptr %7, align 8
   %8 = load i32, ptr @hf_atsvc_servername, align 4
@@ -1043,7 +1043,7 @@ define internal i32 @atsvc_dissect_JobEnum_request(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @atsvc_dissect_JobEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @atsvc_dissect_JobEnum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.226, ptr %8, align 8
@@ -1074,7 +1074,7 @@ define internal i32 @atsvc_dissect_JobEnum_response(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @atsvc_dissect_JobGetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @atsvc_dissect_JobGetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.227, ptr %7, align 8
   %8 = load i32, ptr @hf_atsvc_servername, align 4
@@ -1087,7 +1087,7 @@ define internal i32 @atsvc_dissect_JobGetInfo_request(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @atsvc_dissect_JobGetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @atsvc_dissect_JobGetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.227, ptr %8, align 8

@@ -271,7 +271,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16UpperBoundEngineC2EN5boost10shared_ptrINS_18MarketModelEvolverEEESt6vectorIS4_SaIS4_EERKNS_23MarketModelMultiProductERKNS_24MarketModelExerciseValueESA_SD_RKNS_16ExerciseStrategyINS_10CurveStateEEEd(ptr noundef nonnull align 8 dereferenceable(512) %this, ptr nocapture noundef %evolver, ptr nocapture noundef %innerEvolvers, ptr noundef nonnull align 8 dereferenceable(8) %underlying, ptr noundef nonnull align 8 dereferenceable(8) %rebate, ptr noundef nonnull align 8 dereferenceable(8) %hedge, ptr noundef nonnull align 8 dereferenceable(8) %hedgeRebate, ptr noundef nonnull align 8 dereferenceable(8) %hedgeStrategy, double noundef %initialNumeraireValue) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16UpperBoundEngineC2EN5boost10shared_ptrINS_18MarketModelEvolverEEESt6vectorIS4_SaIS4_EERKNS_23MarketModelMultiProductERKNS_24MarketModelExerciseValueESA_SD_RKNS_16ExerciseStrategyINS_10CurveStateEEEd(ptr noundef nonnull align 8 dereferenceable(512) initializes((0, 344), (424, 512)) %this, ptr nocapture noundef %evolver, ptr nocapture noundef %innerEvolvers, ptr noundef nonnull align 8 dereferenceable(8) %underlying, ptr noundef nonnull align 8 dereferenceable(8) %rebate, ptr noundef nonnull align 8 dereferenceable(8) %hedge, ptr noundef nonnull align 8 dereferenceable(8) %hedgeRebate, ptr noundef nonnull align 8 dereferenceable(8) %hedgeStrategy, double noundef %initialNumeraireValue) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i110 = alloca %"class.std::unique_ptr.43", align 8
   %ref.tmp.i103 = alloca %"class.std::unique_ptr.43", align 8
@@ -2313,7 +2313,7 @@ _ZN8QuantLib5CloneINS_24MarketModelExerciseValueEED2Ev.exit: ; preds = %entry, %
 declare void @_ZN8QuantLib25CallSpecifiedMultiProductC1ERKNS_5CloneINS_23MarketModelMultiProductEEERKNS1_INS_16ExerciseStrategyINS_10CurveStateEEEEES3_(ptr noundef nonnull align 8 dereferenceable(281), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_114DecoratedHedgeD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_114DecoratedHedgeD2Ev(ptr noundef nonnull align 8 dereferenceable(376) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_114DecoratedHedgeE, i64 16), ptr %this, align 8, !tbaa !7
   %cashFlowsGenerated_ = getelementptr inbounds nuw i8, ptr %this, i64 352
@@ -5157,7 +5157,7 @@ _ZNSt12_Vector_baseIN8QuantLib5CloneINS0_10CurveStateEEESaIS3_EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_114DecoratedHedgeD0Ev(ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #5 align 2 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_114DecoratedHedgeD0Ev(ptr noundef nonnull align 8 dereferenceable(376) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN8QuantLib12_GLOBAL__N_114DecoratedHedgeD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %this) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 376) #22

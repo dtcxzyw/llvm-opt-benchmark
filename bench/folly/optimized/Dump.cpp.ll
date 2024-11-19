@@ -125,7 +125,7 @@ $_ZTVN5folly9TypeErrorE = comdat any
 @_ZN5folly4bser18serialization_optsC1Ev = unnamed_addr alias void (ptr), ptr @_ZN5folly4bser18serialization_optsC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly4bser18serialization_optsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly4bser18serialization_optsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 1), (8, 16), (72, 73)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %this, align 8, !tbaa !7
   %growth_increment = getelementptr inbounds i8, ptr %this, i64 8

@@ -262,7 +262,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv18SimpleBlobDetector6ParamsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(77) %0) unnamed_addr #5 align 2 {
+define void @_ZN2cv18SimpleBlobDetector6ParamsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(77) initializes((0, 12), (16, 31), (32, 41), (44, 53), (56, 65), (68, 77)) %0) unnamed_addr #5 align 2 {
   store float 1.000000e+01, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store float 5.000000e+01, ptr %2, align 4
@@ -306,7 +306,7 @@ define void @_ZN2cv18SimpleBlobDetector6ParamsC2Ev(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv18SimpleBlobDetector6Params4readERKNS_8FileNodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(77) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv18SimpleBlobDetector6Params4readERKNS_8FileNodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(77) initializes((0, 12), (16, 31), (32, 41), (44, 53), (56, 65), (68, 77)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #6 align 2 {
   %3 = alloca %"class.cv::FileNode", align 8
   %4 = alloca %"class.cv::FileNode", align 8
   %5 = alloca %"class.cv::FileNode", align 8
@@ -1183,7 +1183,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvls
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN2cv22SimpleBlobDetectorImplC2ERKNS_18SimpleBlobDetector6ParamsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(77) %2) unnamed_addr #7 align 2 {
+define void @_ZN2cv22SimpleBlobDetectorImplC2ERKNS_18SimpleBlobDetector6ParamsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 112)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(77) %2) unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -1237,7 +1237,7 @@ declare void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8
 declare void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv22SimpleBlobDetectorImpl4readERKNS_8FileNodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #6 align 2 {
+define void @_ZN2cv22SimpleBlobDetectorImpl4readERKNS_8FileNodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((8, 85)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #6 align 2 {
   %3 = alloca %"struct.cv::SimpleBlobDetector::Params", align 8
   call void @_ZN2cv18SimpleBlobDetector6ParamsC1Ev(ptr noundef nonnull align 8 dereferenceable(77) %3)
   call void @_ZN2cv18SimpleBlobDetector6Params4readERKNS_8FileNodeE(ptr noundef nonnull align 8 dereferenceable(77) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)

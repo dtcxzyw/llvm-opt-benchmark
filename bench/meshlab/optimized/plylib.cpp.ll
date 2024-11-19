@@ -627,7 +627,7 @@ _ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread: ; preds = %17, %10, %.thread, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3vcg3ply7PlyFileC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3vcg3ply7PlyFileC2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
@@ -797,7 +797,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPN3vcg3ply11PlyPropertyEEEvT_S6_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3vcg3ply7PlyFileD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3vcg3ply7PlyFileD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((112, 120)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -846,7 +846,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN3vcg3ply7PlyFile7DestroyEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0) local_unnamed_addr #12 align 2 {
+define void @_ZN3vcg3ply7PlyFile7DestroyEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((112, 120)) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -889,7 +889,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3vcg3ply7PlyFile4OpenEPKci(ptr noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3vcg3ply7PlyFile8OpenReadEPKc(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3vcg3ply7PlyFile8OpenReadEPKc(ptr noundef nonnull align 8 dereferenceable(120) initializes((112, 120)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [512 x i8], align 16
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2454,7 +2454,7 @@ define noundef i32 @_ZNK3vcg3ply7PlyFile10ElemNumberEi(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noundef %1) local_unnamed_addr #19 align 2 {
+define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noundef initializes((152, 156)) %1) local_unnamed_addr #19 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 152
@@ -12427,7 +12427,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3vcg3ply7PlyFile4ReadEPv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #12 {
+define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef initializes((0, 1)) %2, i64 noundef %3) local_unnamed_addr #12 {
   %5 = alloca [255 x i8], align 16
   store i8 0, ptr %2, align 1
   br label %.backedge

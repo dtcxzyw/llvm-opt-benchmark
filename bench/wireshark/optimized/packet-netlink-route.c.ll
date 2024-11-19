@@ -548,7 +548,7 @@ define hidden void @proto_register_netlink_route() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @hf_netlink_route_ifi_flags_label(ptr noundef %0, i32 noundef %1) #0 {
+define internal void @hf_netlink_route_ifi_flags_label(ptr noundef initializes((0, 1)) %0, i32 noundef %1) #0 {
   %3 = alloca [16 x i8], align 16
   tail call fastcc void @_fill_label_value_string_bitmask(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @hf_netlink_route_ifi_flags_label.iff_vals)
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 16, ptr noundef nonnull @.str.178, i32 noundef %1) #4
@@ -557,7 +557,7 @@ define internal void @hf_netlink_route_ifi_flags_label(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @netlink_route_ifa_flags_label(ptr noundef %0, i32 noundef %1) #0 {
+define internal void @netlink_route_ifa_flags_label(ptr noundef initializes((0, 1)) %0, i32 noundef %1) #0 {
   %3 = alloca [16 x i8], align 16
   tail call fastcc void @_fill_label_value_string_bitmask(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @netlink_route_ifa_flags_label.iff_vals)
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 16, ptr noundef nonnull @.str.178, i32 noundef %1) #4
@@ -566,7 +566,7 @@ define internal void @netlink_route_ifa_flags_label(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @netlink_route_nd_states_label(ptr noundef %0, i32 noundef %1) #0 {
+define internal void @netlink_route_nd_states_label(ptr noundef initializes((0, 1)) %0, i32 noundef %1) #0 {
   %3 = alloca [16 x i8], align 16
   tail call fastcc void @_fill_label_value_string_bitmask(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @netlink_route_nd_states_label.flags_vals)
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 16, ptr noundef nonnull @.str.335, i32 noundef %1) #4
@@ -810,7 +810,7 @@ define hidden void @proto_reg_handoff_netlink_route() local_unnamed_addr #0 {
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_fill_label_value_string_bitmask(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @_fill_label_value_string_bitmask(ptr noundef initializes((0, 1)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   store i8 0, ptr %0, align 1
   %5 = getelementptr inbounds i8, ptr %2, i64 8

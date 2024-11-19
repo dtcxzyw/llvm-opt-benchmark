@@ -562,7 +562,7 @@ _ZN5boost10shared_ptrIN8QuantLib10DayCounter4ImplEED2Ev.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib28AndreasenHugeLocalVolAdapterC1EN5boost10shared_ptrINS_30AndreasenHugeVolatilityInterplEEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef %localVol) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib28AndreasenHugeLocalVolAdapterC1EN5boost10shared_ptrINS_30AndreasenHugeVolatilityInterplEEE(ptr noundef nonnull align 8 dereferenceable(88) initializes((88, 96), (104, 108), (112, 120)) %this, ptr nocapture noundef %localVol) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::DayCounter", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 88

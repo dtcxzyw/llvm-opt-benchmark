@@ -8749,7 +8749,7 @@ define dso_local noundef ptr @_ZNK4llvm12AttributeSet3endEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16AttributeSetNodeC2ENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture readonly %1, i64 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16AttributeSetNodeC2ENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 28), (32, 52)) %0, ptr nocapture readonly %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.std::pair.433", align 8
   store ptr null, ptr %0, align 8
@@ -8972,7 +8972,7 @@ _ZSt7advanceIPKN4llvm9AttributeElEvRT_T0_.exit.i.i: ; preds = %12, %"_ZN9__gnu_c
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm17AttributeListImplC2ENS_8ArrayRefINS_12AttributeSetEEE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr readonly %1, i64 %2) unnamed_addr #11 align 2 {
+define dso_local void @_ZN4llvm17AttributeListImplC2ENS_8ArrayRefINS_12AttributeSetEEE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 44)) %0, ptr readonly %1, i64 %2) unnamed_addr #11 align 2 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = trunc i64 %2 to i32
@@ -14119,7 +14119,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %122, %124
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11AttrBuilderC2ERNS_11LLVMContextENS_12AttributeSetE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11AttrBuilderC2ERNS_11LLVMContextENS_12AttributeSetE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -15744,7 +15744,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit:          ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm14AttributeFuncs16typeIncompatibleEPNS_4TypeENS0_19AttributeSafetyKindE(ptr dead_on_unwind noalias writable sret(%"class.llvm::AttributeMask") align 8 %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2) local_unnamed_addr #11 {
+define dso_local void @_ZN4llvm14AttributeFuncs16typeIncompatibleEPNS_4TypeENS0_19AttributeSafetyKindE(ptr dead_on_unwind noalias writable sret(%"class.llvm::AttributeMask") align 8 initializes((0, 16), (24, 28), (32, 40)) %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2) local_unnamed_addr #11 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %4, align 8
@@ -15966,7 +15966,7 @@ _ZN4llvm14AttributeFuncs25isNoFPClassCompatibleTypeEPNS_4TypeE.exit.thread: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm14AttributeFuncs23getUBImplyingAttributesEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::AttributeMask") align 8 %0) local_unnamed_addr #12 {
+define dso_local void @_ZN4llvm14AttributeFuncs23getUBImplyingAttributesEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::AttributeMask") align 8 initializes((24, 28), (32, 40)) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32

@@ -1522,7 +1522,7 @@ define internal void @parent_died_fn(i64 %0, i32 %1, ptr nocapture readnone %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @evhandler_reg_callbk(i32 noundef %0, i64 %1, ptr noundef %2) #0 {
+define internal void @evhandler_reg_callbk(i32 noundef %0, i64 %1, ptr noundef initializes((224, 228)) %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 224
   store i32 %0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 120

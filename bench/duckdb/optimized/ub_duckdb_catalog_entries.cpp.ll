@@ -2013,7 +2013,7 @@ eh.resume:                                        ; preds = %ehcleanup16, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb14DuckIndexEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb14DuckIndexEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb14DuckIndexEntryE, i64 16), ptr %this, align 8, !tbaa !14
   %info = getelementptr inbounds i8, ptr %this, i64 312
@@ -29581,7 +29581,7 @@ entry:
 declare void @_ZN6duckdb9DataTable20GetColumnSegmentInfoEv(ptr dead_on_unwind writable sret(%"class.duckdb::vector.848") align 8, ptr noundef nonnull align 8 dereferenceable(105)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb14DuckTableEntry14GetStorageInfoERNS_13ClientContextE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::TableStorageInfo") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %this, ptr nocapture nonnull readnone align 8 %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb14DuckTableEntry14GetStorageInfoERNS_13ClientContextE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::TableStorageInfo") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %this, ptr nocapture nonnull readnone align 8 %context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %info.i.i = alloca %"struct.duckdb::IndexInfo", align 8
   store i64 -1, ptr %agg.result, align 8, !tbaa !735
@@ -33434,7 +33434,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZNK6duckdb10ColumnList9GetColumnERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(105), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb17TableCatalogEntry8GetTypesEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(248) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb17TableCatalogEntry8GetTypesEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(248) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %columns = getelementptr inbounds i8, ptr %this, i64 112
@@ -35963,7 +35963,7 @@ unreachable:                                      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb17TableCatalogEntry20GetColumnSegmentInfoEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.848") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define void @_ZN6duckdb17TableCatalogEntry20GetColumnSegmentInfoEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::vector.848") align 8 initializes((0, 24)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   ret void
@@ -41324,7 +41324,7 @@ if.end69:                                         ; preds = %lor.lhs.false.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb23ColumnDependencyManager12GetBindOrderERKNS_10ColumnListE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::stack") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(105) %columns) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb23ColumnDependencyManager12GetBindOrderERKNS_10ColumnListE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::stack") align 8 initializes((0, 80)) %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(105) %columns) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i272 = alloca %"struct.std::__detail::_AllocNode.1238", align 8
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode.1238", align 8

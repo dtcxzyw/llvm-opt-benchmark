@@ -471,7 +471,7 @@ declare void @_ZN7cmState14SetGhsMultiIDEEb(ptr noundef nonnull align 8 derefere
 declare void @_ZN17cmGlobalGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1778)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN25cmGlobalGhsMultiGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1840) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN25cmGlobalGhsMultiGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1840) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV25cmGlobalGhsMultiGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1816
   %3 = load ptr, ptr %2, align 8
@@ -490,7 +490,7 @@ _ZNSt6vectorIPK17cmGeneratorTargetSaIS2_EED2Ev.exit: ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN25cmGlobalGhsMultiGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(1840) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN25cmGlobalGhsMultiGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(1840) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV25cmGlobalGhsMultiGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1816
   %3 = load ptr, ptr %2, align 8

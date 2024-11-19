@@ -12,7 +12,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_mcode_free(ptr nocapture noundef %J) local_unnamed_addr #1 {
+define hidden void @lj_mcode_free(ptr nocapture noundef initializes((3080, 3088)) %J) local_unnamed_addr #1 {
 entry:
   %mcarea = getelementptr inbounds i8, ptr %J, i64 3048
   %0 = load ptr, ptr %mcarea, align 8
@@ -177,7 +177,7 @@ mcode_alloc.exit:                                 ; preds = %land.lhs.true.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_mcode_commit(ptr nocapture noundef %J, ptr noundef %top) local_unnamed_addr #1 {
+define hidden void @lj_mcode_commit(ptr nocapture noundef initializes((3056, 3064)) %J, ptr noundef %top) local_unnamed_addr #1 {
 entry:
   %mctop = getelementptr inbounds i8, ptr %J, i64 3056
   store ptr %top, ptr %mctop, align 8

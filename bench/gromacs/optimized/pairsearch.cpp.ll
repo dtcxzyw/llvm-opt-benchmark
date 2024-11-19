@@ -139,7 +139,7 @@ _ZNK13nbnxn_cycle_t14averageMCyclesEv.exit20:     ; preds = %.lr.ph, %47
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14PairsearchWorkC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14PairsearchWorkC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((0, 116), (120, 132), (136, 216)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(116) %0, i8 0, i64 116, i1 false)
   %2 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #16

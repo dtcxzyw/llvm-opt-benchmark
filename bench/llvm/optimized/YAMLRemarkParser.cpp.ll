@@ -225,7 +225,7 @@ $_ZTVN4llvm7remarks14EndOfFileErrorE = comdat any
 @_ZN4llvm7remarks16YAMLRemarkParserC1ENS_9StringRefESt8optionalINS0_17ParsedStringTableEE = unnamed_addr alias void (ptr, ptr, i64, ptr), ptr @_ZN4llvm7remarks16YAMLRemarkParserC2ENS_9StringRefESt8optionalINS0_17ParsedStringTableEE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks14YAMLParseErrorC2ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(72) %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks14YAMLParseErrorC2ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(72) %5) unnamed_addr #0 align 2 {
 _ZN4llvmplERKNS_5TwineES2_.exit:
   %6 = alloca %"class.llvm::Twine", align 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm7remarks14YAMLParseErrorE, i64 16), ptr %0, align 8
@@ -818,7 +818,7 @@ _ZN4llvm8ExpectedIbED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11parseStrTabRN4llvm9StringRefEm(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL11parseStrTabRN4llvm9StringRefEm(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.llvm::Error", align 8
@@ -1040,7 +1040,7 @@ _ZN4llvm11SmallVectorIcLj80EED2Ev.exit:           ; preds = %1, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks16YAMLRemarkParserC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks16YAMLRemarkParserC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 12)) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
 _ZNSt8optionalIN4llvm7remarks17ParsedStringTableEED2Ev.exit:
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm7remarks12RemarkParserE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1069,7 +1069,7 @@ _ZNSt8optionalIN4llvm7remarks17ParsedStringTableEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks16YAMLRemarkParserC2ENS_9StringRefESt8optionalINS0_17ParsedStringTableEE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr %1, i64 %2, ptr nocapture noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks16YAMLRemarkParserC2ENS_9StringRefESt8optionalINS0_17ParsedStringTableEE(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 12)) %0, ptr %1, i64 %2, ptr nocapture noundef %3) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm7remarks12RemarkParserE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %5, align 8
@@ -1126,7 +1126,7 @@ declare void @_ZN4llvm4yaml6StreamC1ENS_9StringRefERNS_9SourceMgrEbPSt10error_co
 declare ptr @_ZN4llvm4yaml6Stream5beginEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(72) %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERNS_4yaml4NodeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(72) %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 192
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
@@ -1137,7 +1137,7 @@ define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser5errorENS_9StringRefERN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser5errorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser5errorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(224) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -1717,7 +1717,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser9parseTypeERNS_4yaml11MappingNodeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.128") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser9parseTypeERNS_4yaml11MappingNodeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.128") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 64
@@ -1786,7 +1786,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3, %_ZN4llvmeqENS_9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser8parseKeyERNS_4yaml12KeyValueNodeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.132") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser8parseKeyERNS_4yaml12KeyValueNodeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.132") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZN4llvm4yaml12KeyValueNode6getKeyEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8
@@ -1825,7 +1825,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser13parseUnsignedERNS_4yaml12KeyValueNodeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.136") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser13parseUnsignedERNS_4yaml12KeyValueNodeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.136") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.llvm::SmallVector.157", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
@@ -2372,7 +2372,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7remarks8ArgumentELb1EE28reserveForParamAnd
 declare noundef ptr @_ZN4llvm4yaml12KeyValueNode6getKeyEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser8parseStrERNS_4yaml12KeyValueNodeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.132") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser8parseStrERNS_4yaml12KeyValueNodeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.132") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZN4llvm4yaml12KeyValueNode8getValueEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8
@@ -2452,7 +2452,7 @@ _ZN4llvm9StringRef12consume_backES0_.exit:        ; preds = %19, %_ZNK4llvm9Stri
 declare { ptr, i64 } @_ZNK4llvm4yaml10ScalarNode8getValueERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser4nextEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.80") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser4nextEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.80") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(224) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Expected.80", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 192
@@ -2575,7 +2575,7 @@ _ZNSt10unique_ptrIN4llvm4yaml8DocumentESt14default_deleteIS2_EE5resetEPS2_.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks22YAMLStrTabRemarkParser8parseStrERNS_4yaml12KeyValueNodeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.132") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks22YAMLStrTabRemarkParser8parseStrERNS_4yaml12KeyValueNodeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.132") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Expected.136", align 8
   %5 = alloca %"class.llvm::Expected.132", align 8
   %6 = tail call noundef ptr @_ZN4llvm4yaml12KeyValueNode8getValueEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #18

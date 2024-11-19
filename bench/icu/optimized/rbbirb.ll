@@ -29,7 +29,7 @@ $_ZTIN6icu_757UMemoryE = comdat any
 @_ZN6icu_7515RBBIRuleBuilderD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7515RBBIRuleBuilderD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515RBBIRuleBuilderC2ERKNS_13UnicodeStringEP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(64) %rules, ptr noundef %parseErr, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7515RBBIRuleBuilderC2ERKNS_13UnicodeStringEP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8), (32, 40)) %this, ptr noundef nonnull align 8 dereferenceable(64) %rules, ptr noundef %parseErr, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515RBBIRuleBuilderE, i64 16), ptr %this, align 8
   %fRules = getelementptr inbounds i8, ptr %this, i64 32
@@ -183,7 +183,7 @@ declare void @_ZN6icu_7514RBBISetBuilderC1EPNS_15RBBIRuleBuilderE(ptr noundef no
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7515RBBIRuleBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7515RBBIRuleBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515RBBIRuleBuilderE, i64 16), ptr %this, align 8
   %fUSetNodes = getelementptr inbounds i8, ptr %this, i64 168

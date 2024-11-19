@@ -76,7 +76,7 @@ define internal noundef zeroext i1 @wmem_map_destroy_cb(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @wmem_map_reset_cb(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal noundef zeroext i1 @wmem_map_reset_cb(ptr nocapture readnone %0, i32 noundef %1, ptr noundef initializes((0, 4), (16, 24)) %2) #0 {
   store i32 0, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr null, ptr %4, align 8

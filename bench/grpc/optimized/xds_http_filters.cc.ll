@@ -308,7 +308,7 @@ declare void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core19XdsHttpRouterFilter28GenerateFilterConfigOverrideERKNS_15XdsResourceType13DecodeContextENS_12XdsExtensionEPNS_16ValidationErrorsE(ptr noalias nocapture writeonly sret(%"class.std::optional") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, ptr noundef nonnull %errors) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core19XdsHttpRouterFilter28GenerateFilterConfigOverrideERKNS_15XdsResourceType13DecodeContextENS_12XdsExtensionEPNS_16ValidationErrorsE(ptr noalias nocapture writeonly sret(%"class.std::optional") align 8 initializes((72, 73)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, ptr noundef nonnull %errors) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 46, ptr nonnull @.str.3)
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 72
@@ -317,7 +317,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core21XdsHttpFilterRegistryC2Eb(ptr noundef nonnull align 8 dereferenceable(72) %this, i1 noundef zeroext %register_builtins) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core21XdsHttpFilterRegistryC2Eb(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24), (32, 36), (40, 48)) %this, i1 noundef zeroext %register_builtins) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %agg.tmp4 = alloca %"class.std::unique_ptr", align 8

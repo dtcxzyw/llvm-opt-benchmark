@@ -806,7 +806,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare void @_ZN4llvm20GIMatchTableExecutor12MatcherStateC1Ej(ptr noundef nonnull align 8 dereferenceable(168), i32 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124RISCVInstructionSelectorD2Ev(ptr noundef nonnull align 8 dereferenceable(1392) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_124RISCVInstructionSelectorD2Ev(ptr noundef nonnull align 8 dereferenceable(1392) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_124RISCVInstructionSelectorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %3 = load i32, ptr %2, align 8
@@ -832,7 +832,7 @@ _ZN4llvm20GIMatchTableExecutor10ExecInfoTyINS_6BitsetILj89EEEMN12_GLOBAL__N_124R
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124RISCVInstructionSelectorD0Ev(ptr noundef nonnull align 8 dereferenceable(1392) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_124RISCVInstructionSelectorD0Ev(ptr noundef nonnull align 8 dereferenceable(1392) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_124RISCVInstructionSelectorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %3 = load i32, ptr %2, align 8
@@ -859,7 +859,7 @@ _ZN12_GLOBAL__N_124RISCVInstructionSelectorD2Ev.exit: ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_124RISCVInstructionSelector30setupGeneratedPerFunctionStateERN4llvm15MachineFunctionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1392) %0, ptr nocapture nonnull readonly align 8 %1) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_124RISCVInstructionSelector30setupGeneratedPerFunctionStateERN4llvm15MachineFunctionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1392) initializes((144, 160)) %0, ptr nocapture nonnull readonly align 8 %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   ret void
@@ -9871,7 +9871,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit71:            ; preds = %182, %186, %189, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20getOperandsForBranchN4llvm8RegisterERNS_19MachineRegisterInfoERNS_7RISCVCC8CondCodeERS0_S6_(i32 %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL20getOperandsForBranchN4llvm8RegisterERNS_19MachineRegisterInfoERNS_7RISCVCC8CondCodeERS0_S6_(i32 %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %4) unnamed_addr #0 {
   %6 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512) %1, i32 %0) #24
   %.not.i.i.i.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.not.i.i, label %10, label %7

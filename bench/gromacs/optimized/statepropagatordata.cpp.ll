@@ -1188,7 +1188,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN3gmx19StatePropagator
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx19StatePropagatorData7Element35registerTrajectorySignallerCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(272) %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx19StatePropagatorData7Element35registerTrajectorySignallerCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(272) %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %10
 
@@ -1211,7 +1211,7 @@ define void @_ZN3gmx19StatePropagatorData7Element35registerTrajectorySignallerCa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx19StatePropagatorData7Element32registerTrajectoryWriterCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.27") align 8 %0, ptr noundef nonnull align 8 dereferenceable(272) %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx19StatePropagatorData7Element32registerTrajectoryWriterCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.27") align 8 initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(272) %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %10
 
@@ -1234,7 +1234,7 @@ define void @_ZN3gmx19StatePropagatorData7Element32registerTrajectoryWriterCallb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx19StatePropagatorData7Element24registerLastStepCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(272) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx19StatePropagatorData7Element24registerLastStepCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 initializes((0, 33)) %0, ptr noundef nonnull align 8 dereferenceable(272) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1678,7 +1678,7 @@ define void @_ZThn8_N3gmx19StatePropagatorData7Element24trajectoryWriterTeardown
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZThn8_N3gmx19StatePropagatorData7Element32registerTrajectoryWriterCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.27") align 8 %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn8_N3gmx19StatePropagatorData7Element32registerTrajectoryWriterCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.27") align 8 initializes((32, 33)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %_ZN3gmx19StatePropagatorData7Element32registerTrajectoryWriterCallbackENS_15TrajectoryEventE.exit
 
@@ -1752,7 +1752,7 @@ define linkonce_odr void @_ZThn16_N3gmx19StatePropagatorData7ElementD0Ev(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZThn16_N3gmx19StatePropagatorData7Element35registerTrajectorySignallerCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn16_N3gmx19StatePropagatorData7Element35registerTrajectorySignallerCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 initializes((32, 33)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %_ZN3gmx19StatePropagatorData7Element35registerTrajectorySignallerCallbackENS_15TrajectoryEventE.exit
 
@@ -1896,7 +1896,7 @@ define linkonce_odr void @_ZThn32_N3gmx19StatePropagatorData7ElementD0Ev(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZThn32_N3gmx19StatePropagatorData7Element24registerLastStepCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn32_N3gmx19StatePropagatorData7Element24registerLastStepCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 initializes((0, 33)) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -32
   %4 = ptrtoint ptr %3 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1912,7 +1912,7 @@ define void @_ZThn32_N3gmx19StatePropagatorData7Element24registerLastStepCallbac
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx19StatePropagatorDataC2EiP8_IO_FILEPK9t_commrecP7t_stateS7_bbbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK10t_inputrecPK9t_mdatomsRK10gmx_mtop_t(ptr noundef nonnull align 8 dereferenceable(632) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(768) %12) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx19StatePropagatorDataC2EiP8_IO_FILEPK9t_commrecP7t_stateS7_bbbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK10t_inputrecPK9t_mdatomsRK10gmx_mtop_t(ptr noundef nonnull align 8 dereferenceable(632) initializes((0, 40)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(768) %12) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %14 = alloca i32, align 4
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   store i32 %1, ptr %0, align 8
@@ -2522,7 +2522,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 declare void @_Z19dd_init_local_stateRK12gmx_domdec_tPK7t_statePS2_(ptr noundef nonnull align 1, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx19StatePropagatorData13setLocalStateEP7t_state(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN3gmx19StatePropagatorData13setLocalStateEP7t_state(ptr noundef nonnull align 8 dereferenceable(632) initializes((4, 8), (624, 632)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 624
   store ptr %1, ptr %4, align 8
@@ -2907,7 +2907,7 @@ _ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::ArrayRefWithPadding") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %1) local_unnamed_addr #7 align 2 {
+define void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::ArrayRefWithPadding") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %1) local_unnamed_addr #7 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %3 = getelementptr inbounds i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8, !noalias !29
@@ -3897,7 +3897,7 @@ _ZN3gmx19StatePropagatorData7Element12elementSetupEv.exit: ; preds = %10, %4, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::ArrayRefWithPadding") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %1) local_unnamed_addr #7 align 2 {
+define void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::ArrayRefWithPadding") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %1) local_unnamed_addr #7 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8, !noalias !46
@@ -3921,7 +3921,7 @@ define void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::ArrayRefWithPadding.227") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %1) local_unnamed_addr #7 align 2 {
+define void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::ArrayRefWithPadding.227") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %1) local_unnamed_addr #7 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8, !noalias !49
@@ -3945,7 +3945,7 @@ define void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN3gmx19StatePropagatorData21previousPositionsViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::ArrayRefWithPadding") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %1) local_unnamed_addr #7 align 2 {
+define void @_ZN3gmx19StatePropagatorData21previousPositionsViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::ArrayRefWithPadding") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %1) local_unnamed_addr #7 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8, !noalias !52
@@ -3969,7 +3969,7 @@ define void @_ZN3gmx19StatePropagatorData21previousPositionsViewEv(ptr dead_on_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK3gmx19StatePropagatorData26constPreviousPositionsViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::ArrayRefWithPadding.227") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %1) local_unnamed_addr #7 align 2 {
+define void @_ZNK3gmx19StatePropagatorData26constPreviousPositionsViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::ArrayRefWithPadding.227") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %1) local_unnamed_addr #7 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8, !noalias !55
@@ -3993,7 +3993,7 @@ define void @_ZNK3gmx19StatePropagatorData26constPreviousPositionsViewEv(ptr dea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK3gmx19StatePropagatorData19constVelocitiesViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::ArrayRefWithPadding.227") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %1) local_unnamed_addr #7 align 2 {
+define void @_ZNK3gmx19StatePropagatorData19constVelocitiesViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::ArrayRefWithPadding.227") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %1) local_unnamed_addr #7 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %3 = getelementptr inbounds i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8, !noalias !58
@@ -4381,7 +4381,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx19StatePropagatorData14copyLocalStateESt10unique_ptrI7t_stateSt14default_deleteIS2_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.206") align 8 %0, ptr noundef nonnull align 8 dereferenceable(632) %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN3gmx19StatePropagatorData14copyLocalStateESt10unique_ptrI7t_stateSt14default_deleteIS2_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.206") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(632) %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %2, align 8
   tail call void @_ZN7t_state8setFlagsEi(ptr noundef nonnull align 8 dereferenceable(832) %4, i32 noundef 386)
   %5 = load ptr, ptr %2, align 8
@@ -11508,7 +11508,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvldEZN3gmx19State
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx19StatePropagatorData7ElementC2EPS0_P8_IO_FILEPK9t_commreciiiibbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK10t_inputrecRK10gmx_mtop_t(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8, i1 noundef zeroext %9, ptr noundef %10, ptr nocapture noundef readonly %11, ptr noundef nonnull align 8 dereferenceable(768) %12) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx19StatePropagatorData7ElementC2EPS0_P8_IO_FILEPK9t_commreciiiibbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK10t_inputrecRK10gmx_mtop_t(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 64)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8, i1 noundef zeroext %9, ptr noundef %10, ptr nocapture noundef readonly %11, ptr noundef nonnull align 8 dereferenceable(768) %12) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = getelementptr inbounds i8, ptr %0, i64 16
@@ -11599,7 +11599,7 @@ define void @_ZN3gmx19StatePropagatorData7ElementC2EPS0_P8_IO_FILEPK9t_commrecii
 declare void @_ZN7t_stateC1Ev(ptr noundef nonnull align 8 dereferenceable(832)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx19StatePropagatorData7Element29setFreeEnergyPerturbationDataEPNS_26FreeEnergyPerturbationDataE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN3gmx19StatePropagatorData7Element29setFreeEnergyPerturbationDataEPNS_26FreeEnergyPerturbationDataE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) initializes((88, 96)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %1, ptr %3, align 8
   ret void

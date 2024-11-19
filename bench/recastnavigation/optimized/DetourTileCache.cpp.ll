@@ -60,7 +60,7 @@ define void @_Z15dtFreeTileCacheP11dtTileCache(ptr noundef %0) local_unnamed_add
 declare void @_Z6dtFreePv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11dtTileCacheC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(912) %0) unnamed_addr #2 align 2 {
+define void @_ZN11dtTileCacheC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(912) initializes((0, 92), (96, 652), (908, 912)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = getelementptr inbounds i8, ptr %0, i64 908
   store i32 0, ptr %3, align 4
@@ -211,7 +211,7 @@ define noundef ptr @_ZNK11dtTileCache12getTileByRefEj(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache4initEPK17dtTileCacheParamsP16dtTileCacheAllocP21dtTileCacheCompressorP22dtTileCacheMeshProcess(ptr nocapture noundef nonnull align 8 dereferenceable(912) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache4initEPK17dtTileCacheParamsP16dtTileCacheAllocP21dtTileCacheCompressorP22dtTileCacheMeshProcess(ptr nocapture noundef nonnull align 8 dereferenceable(912) initializes((40, 92), (96, 128), (648, 652)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1408,7 +1408,7 @@ _Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread:      ; preds = %139, %143, %148
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK11dtTileCache19calcTightTileBoundsEPK22dtTileCacheLayerHeaderPfS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #19 align 2 {
+define void @_ZNK11dtTileCache19calcTightTileBoundsEPK22dtTileCacheLayerHeaderPfS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 12)) %2, ptr nocapture noundef writeonly initializes((0, 12)) %3) local_unnamed_addr #19 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 52
   %6 = load float, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 20

@@ -47,7 +47,7 @@ entry:
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7520FieldPositionHandler8setShiftEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, i32 noundef %delta) local_unnamed_addr #3 align 2 {
+define void @_ZN6icu_7520FieldPositionHandler8setShiftEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((8, 12)) %this, i32 noundef %delta) local_unnamed_addr #3 align 2 {
 entry:
   %fShift = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %delta, ptr %fShift, align 8
@@ -55,7 +55,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524FieldPositionOnlyHandlerC2ERNS_13FieldPositionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(26) %this, ptr noundef nonnull align 8 dereferenceable(20) %_pos) unnamed_addr #3 align 2 {
+define void @_ZN6icu_7524FieldPositionOnlyHandlerC2ERNS_13FieldPositionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(26) initializes((0, 12), (16, 26)) %this, ptr noundef nonnull align 8 dereferenceable(20) %_pos) unnamed_addr #3 align 2 {
 entry:
   %fShift.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %fShift.i, align 8
@@ -171,7 +171,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524FieldPositionOnlyHandler18setAcceptFirstOnlyEa(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(26) %this, i8 noundef signext %acceptFirstOnly) local_unnamed_addr #3 align 2 {
+define void @_ZN6icu_7524FieldPositionOnlyHandler18setAcceptFirstOnlyEa(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(26) initializes((24, 25)) %this, i8 noundef signext %acceptFirstOnly) local_unnamed_addr #3 align 2 {
 entry:
   %acceptFirstOnly2 = getelementptr inbounds i8, ptr %this, i64 24
   store i8 %acceptFirstOnly, ptr %acceptFirstOnly2, align 8
@@ -179,7 +179,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7528FieldPositionIteratorHandlerC2EPNS_21FieldPositionIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %posIter, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %_status) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7528FieldPositionIteratorHandlerC2EPNS_21FieldPositionIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %this, ptr noundef %posIter, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %_status) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fShift.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %fShift.i, align 8
@@ -229,7 +229,7 @@ declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #5
 declare void @_ZN6icu_759UVector32C1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7528FieldPositionIteratorHandlerC2EPNS_9UVector32ER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef %vec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %status) unnamed_addr #10 align 2 {
+define void @_ZN6icu_7528FieldPositionIteratorHandlerC2EPNS_9UVector32ER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %this, ptr noundef %vec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %status) unnamed_addr #10 align 2 {
 entry:
   %fShift.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %fShift.i, align 8
@@ -247,7 +247,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7528FieldPositionIteratorHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7528FieldPositionIteratorHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7528FieldPositionIteratorHandlerE, i64 16), ptr %this, align 8
   %iter = getelementptr inbounds i8, ptr %this, i64 16

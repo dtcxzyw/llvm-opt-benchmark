@@ -431,7 +431,7 @@ declare noundef zeroext i1 @_ZN5folly8Executor16keepAliveAcquireEv(ptr noundef n
 declare void @_ZN5folly8Executor16keepAliveReleaseEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly21TimedDrivableExecutorD1Ev(ptr noundef nonnull align 128 dereferenceable(448) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21TimedDrivableExecutorD1Ev(ptr noundef nonnull align 128 dereferenceable(448) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly21TimedDrivableExecutorE, i64 72), ptr %this, align 128, !tbaa !7
   br label %while.cond.i.i
@@ -459,7 +459,7 @@ _ZN5folly21TimedDrivableExecutorD2Ev.exit:        ; preds = %if.end.i.i.i, %_ZN5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly21TimedDrivableExecutorD0Ev(ptr noundef nonnull align 128 dereferenceable(448) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21TimedDrivableExecutorD0Ev(ptr noundef nonnull align 128 dereferenceable(448) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly21TimedDrivableExecutorE, i64 72), ptr %this, align 128, !tbaa !7
   br label %while.cond.i.i.i
@@ -985,7 +985,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly21TimedDrivableExecutorC2Ev(ptr noundef nonnull align 128 dereferenceable(448) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21TimedDrivableExecutorC2Ev(ptr noundef nonnull align 128 dereferenceable(448) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -3920,7 +3920,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly21TimedDrivableExecutorC1Ev(ptr noundef nonnull align 128 dereferenceable(448) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21TimedDrivableExecutorC1Ev(ptr noundef nonnull align 128 dereferenceable(448) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly21TimedDrivableExecutorE, i64 72), ptr %this, align 128, !tbaa !7
   %call.i3 = tail call noalias noundef nonnull align 128 dereferenceable(20608) ptr @_ZnwmSt11align_val_t(i64 noundef 20608, i64 noundef 128) #34
@@ -3989,7 +3989,7 @@ invoke.cont:                                      ; preds = %arrayctor.loop.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly21TimedDrivableExecutorD2Ev(ptr noundef nonnull align 128 dereferenceable(448) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21TimedDrivableExecutorD2Ev(ptr noundef nonnull align 128 dereferenceable(448) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 128, !tbaa !7

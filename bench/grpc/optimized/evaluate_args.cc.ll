@@ -171,7 +171,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core12EvaluateArgs14PerChannelArgsC2EP17grpc_auth_contextP13grpc_endpoint(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef %auth_context, ptr noundef %endpoint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core12EvaluateArgs14PerChannelArgsC2EP17grpc_auth_contextP13grpc_endpoint(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 112)) %this, ptr noundef %auth_context, ptr noundef %endpoint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp7 = alloca %"class.std::vector", align 8
   %ref.tmp11 = alloca %"class.std::vector", align 8
@@ -838,7 +838,7 @@ return:                                           ; preds = %if.end12, %_ZNK9grp
 declare noundef zeroext i1 @_ZN4absl12lts_2023080216EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES4_(i64, ptr, i64, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK9grpc_core12EvaluateArgs15GetLocalAddressEv(ptr noalias nocapture writeonly sret(%struct.grpc_resolved_address) align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define void @_ZNK9grpc_core12EvaluateArgs15GetLocalAddressEv(ptr noalias nocapture writeonly sret(%struct.grpc_resolved_address) align 4 initializes((0, 132)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %channel_args_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %channel_args_, align 8
@@ -906,7 +906,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK9grpc_core12EvaluateArgs14GetPeerAddressEv(ptr noalias nocapture writeonly sret(%struct.grpc_resolved_address) align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define void @_ZNK9grpc_core12EvaluateArgs14GetPeerAddressEv(ptr noalias nocapture writeonly sret(%struct.grpc_resolved_address) align 4 initializes((0, 132)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %channel_args_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %channel_args_, align 8
@@ -1013,7 +1013,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core12EvaluateArgs10GetUriSansEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core12EvaluateArgs10GetUriSansEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %channel_args_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %channel_args_, align 8
@@ -1079,7 +1079,7 @@ return:                                           ; preds = %_ZNSt6vectorISt17ba
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core12EvaluateArgs10GetDnsSansEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core12EvaluateArgs10GetDnsSansEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %channel_args_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %channel_args_, align 8

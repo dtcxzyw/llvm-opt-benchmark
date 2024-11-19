@@ -20,7 +20,7 @@ $_ZTIN2cv8KeyPointE = comdat any
 @_ZN2cv11xfeatures2d17Elliptic_KeyPointD1Ev = unnamed_addr alias void (ptr), ptr @_ZN2cv11xfeatures2d17Elliptic_KeyPointD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv11xfeatures2d17Elliptic_KeyPointC2ENS_6Point_IfEEfNS_5Size_IiEEff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, <2 x float> %1, float noundef %2, i64 %3, float noundef %4, float noundef %5) unnamed_addr #0 align 2 {
+define void @_ZN2cv11xfeatures2d17Elliptic_KeyPointC2ENS_6Point_IfEEfNS_5Size_IiEEff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %0, <2 x float> %1, float noundef %2, i64 %3, float noundef %4, float noundef %5) unnamed_addr #0 align 2 {
   %.sroa.0.0.extract.trunc = trunc i64 %3 to i32
   %.sroa.2.0.extract.shift = lshr i64 %3, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
@@ -51,7 +51,7 @@ define void @_ZN2cv11xfeatures2d17Elliptic_KeyPointC2ENS_6Point_IfEEfNS_5Size_Ii
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv11xfeatures2d17Elliptic_KeyPointC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0) unnamed_addr #1 align 2 {
+define void @_ZN2cv11xfeatures2d17Elliptic_KeyPointC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 44), (48, 72)) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store float 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 12

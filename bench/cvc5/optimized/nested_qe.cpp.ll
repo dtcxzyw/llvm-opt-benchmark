@@ -178,7 +178,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers8NestedQeC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(576) %env) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers8NestedQeC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(576) %env) unnamed_addr #3 align 2 {
 entry:
   store ptr %env, ptr %this, align 8
   %d_qnqe = getelementptr inbounds i8, ptr %this, i64 8

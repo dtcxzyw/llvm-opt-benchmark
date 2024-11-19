@@ -75,7 +75,7 @@ _Z7deallocISt5mutexEvPT_.exit:                    ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN8reslimitC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8reslimitC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 5), (8, 40)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %this, align 8
   %m_suspend = getelementptr inbounds i8, ptr %this, i64 4

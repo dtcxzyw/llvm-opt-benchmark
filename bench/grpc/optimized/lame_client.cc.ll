@@ -539,7 +539,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core16LameClientFilterC2EN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef %error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core16LameClientFilterC2EN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this, ptr nocapture noundef %error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %event_engine_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -581,7 +581,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9grpc_core16LameClientFilter5StateC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core16LameClientFilter5StateC2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 20), (24, 32), (40, 44), (48, 56)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 _ZN4absl12lts_202308026StatusD2Ev.exit:
   store i64 0, ptr %this, align 8
   %state_tracker = getelementptr inbounds i8, ptr %this, i64 8

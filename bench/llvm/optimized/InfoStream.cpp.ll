@@ -78,7 +78,7 @@ $_ZTVN4llvm3pdb8RawErrorE = comdat any
 @_ZN4llvm3pdb10InfoStreamC1ESt10unique_ptrINS_12BinaryStreamESt14default_deleteIS3_EE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm3pdb10InfoStreamC2ESt10unique_ptrINS_12BinaryStreamESt14default_deleteIS3_EE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb10InfoStreamC2ESt10unique_ptrINS_12BinaryStreamESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb10InfoStreamC2ESt10unique_ptrINS_12BinaryStreamESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 56), (64, 65), (72, 104)) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8
@@ -567,7 +567,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb10InfoStream13getStreamSizeEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb10InfoStream19getNamedStreamIndexENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3pdb10InfoStream19getNamedStreamIndexENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -706,7 +706,7 @@ define dso_local noundef nonnull align 8 dereferenceable(120) ptr @_ZNK4llvm3pdb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local void @_ZNK4llvm3pdb10InfoStream21getNamedStreamsBufferEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::BinarySubstreamRef") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZNK4llvm3pdb10InfoStream21getNamedStreamsBufferEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::BinarySubstreamRef") align 8 initializes((0, 56)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %0, align 8

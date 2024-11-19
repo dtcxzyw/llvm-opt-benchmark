@@ -1769,7 +1769,7 @@ _ZNSt12_Vector_baseISt6vectorIN6hermes9SourceMap7SegmentESaIS3_EESaIS5_EED2Ev.ex
 declare noundef i64 @_ZNK4llvh9StringRef13find_first_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes15SourceMapParser12parseSegmentERKNS0_5StateERPKcS5_(ptr noalias nocapture writeonly sret(%"class.llvh::Optional.85") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %state, ptr noundef nonnull align 8 dereferenceable(8) %pCur, ptr noundef %pSegEnd) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes15SourceMapParser12parseSegmentERKNS0_5StateERPKcS5_(ptr noalias nocapture writeonly sret(%"class.llvh::Optional.85") align 4 initializes((28, 29)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %state, ptr noundef nonnull align 8 dereferenceable(8) %pCur, ptr noundef %pSegEnd) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call i64 @_ZN6hermes9base64vlq6decodeERPKcS2_(ptr noundef nonnull align 8 dereferenceable(8) %pCur, ptr noundef %pSegEnd) #15
   %0 = and i64 %call, 4294967296

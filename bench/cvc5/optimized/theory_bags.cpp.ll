@@ -1100,7 +1100,7 @@ _ZN4cvc58internal6theory11TheoryStateD2Ev.exit:   ; preds = %_ZN4cvc58internal12
 declare void @_ZN4cvc58internal6theory6TheoryD2Ev(ptr noundef nonnull align 8 dereferenceable(408)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory4bags10TheoryBagsD2Ev(ptr noundef nonnull align 8 dereferenceable(2192) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory4bags10TheoryBagsD2Ev(ptr noundef nonnull align 8 dereferenceable(2192) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory4bags10TheoryBagsE, i64 16), ptr %this, align 8
   %d_strat = getelementptr inbounds i8, ptr %this, i64 2112
@@ -1215,7 +1215,7 @@ _ZN4cvc58internal6theory4bags12BagsRewriterD2Ev.exit: ; preds = %_ZN4cvc58intern
 declare void @_ZN4cvc58internal6theory4bags8StrategyD1Ev(ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory4bags10TheoryBagsD0Ev(ptr noundef nonnull align 8 dereferenceable(2192) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN4cvc58internal6theory4bags10TheoryBagsD0Ev(ptr noundef nonnull align 8 dereferenceable(2192) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory4bags10TheoryBagsD2Ev(ptr noundef nonnull align 8 dereferenceable(2192) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -1239,7 +1239,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory4bags10TheoryBags19needsEqualityEngineERNS1_11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(2192) %this, ptr noundef nonnull align 8 dereferenceable(45) %esi) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory4bags10TheoryBags19needsEqualityEngineERNS1_11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(2192) %this, ptr noundef nonnull align 8 dereferenceable(45) initializes((0, 8)) %esi) unnamed_addr #3 align 2 {
 entry:
   %d_notify = getelementptr inbounds i8, ptr %this, i64 1256
   store ptr %d_notify, ptr %esi, align 8
@@ -8842,7 +8842,7 @@ entry:
 declare void @_ZN4cvc58internal6theory22TheoryInferenceManager10explainLitENS0_12NodeTemplateILb0EEE(ptr sret(%"class.cvc5::internal::TrustNode") align 8, ptr noundef nonnull align 8 dereferenceable(256), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory4bags10TheoryBags22getCandidateModelValueENS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %node) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory4bags10TheoryBags22getCandidateModelValueENS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %node) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %0 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !59

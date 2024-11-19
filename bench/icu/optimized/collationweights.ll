@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6icu_7516CollationWeightsC1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7516CollationWeightsC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN6icu_7516CollationWeightsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(164) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7516CollationWeightsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(164) initializes((0, 24), (156, 164)) %this) unnamed_addr #0 align 2 {
 entry:
   %rangeIndex = getelementptr inbounds i8, ptr %this, i64 156
   store i32 0, ptr %rangeIndex, align 4
@@ -31,7 +31,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7516CollationWeights14initForPrimaryEa(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(164) %this, i8 noundef signext %compressible) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7516CollationWeights14initForPrimaryEa(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(164) initializes((0, 4), (8, 24), (28, 44)) %this, i8 noundef signext %compressible) local_unnamed_addr #1 align 2 {
 entry:
   store i32 1, ptr %this, align 4
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
@@ -57,7 +57,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7516CollationWeights16initForSecondaryEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(164) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7516CollationWeights16initForSecondaryEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(164) initializes((0, 4), (8, 24), (28, 44)) %this) local_unnamed_addr #1 align 2 {
 entry:
   store i32 3, ptr %this, align 4
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
@@ -80,7 +80,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7516CollationWeights15initForTertiaryEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(164) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7516CollationWeights15initForTertiaryEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(164) initializes((0, 4), (8, 24), (28, 44)) %this) local_unnamed_addr #1 align 2 {
 entry:
   store i32 3, ptr %this, align 4
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 8

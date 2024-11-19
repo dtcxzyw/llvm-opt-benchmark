@@ -324,7 +324,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN22G1RegionMarkStatsCacheD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN22G1RegionMarkStatsCacheD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22G1RegionMarkStatsCacheC2EP17G1RegionMarkStatsj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN22G1RegionMarkStatsCacheC2EP17G1RegionMarkStatsj(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 20), (40, 48)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %2, ptr %4, align 8
@@ -378,7 +378,7 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN22G1RegionMarkStatsCache5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN22G1RegionMarkStatsCache5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((24, 40)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)

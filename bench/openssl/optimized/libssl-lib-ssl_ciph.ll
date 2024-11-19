@@ -158,7 +158,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.137 = private unnamed_addr constant [10 x i8] c"SECLEVEL=\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ssl_load_ciphers(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ssl_load_ciphers(ptr nocapture noundef initializes((1648, 1652)) %ctx) local_unnamed_addr #0 {
 entry:
   %tmpeng.i116 = alloca ptr, align 8
   %pkey_id.i117 = alloca i32, align 4

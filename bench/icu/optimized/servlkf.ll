@@ -499,7 +499,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7516LocaleKeyFactoryC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) %this, i32 noundef %coverage) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516LocaleKeyFactoryC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) initializes((0, 18), (72, 76)) %this, i32 noundef %coverage) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516LocaleKeyFactoryE, i64 16), ptr %this, align 8
   %_name = getelementptr inbounds i8, ptr %this, i64 8
@@ -515,7 +515,7 @@ invoke.cont:
 declare void @_ZN6icu_7517ICUServiceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516LocaleKeyFactoryC2EiRKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(76) %this, i32 noundef %coverage, ptr noundef nonnull align 8 dereferenceable(64) %name) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516LocaleKeyFactoryC2EiRKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(76) initializes((0, 8)) %this, i32 noundef %coverage, ptr noundef nonnull align 8 dereferenceable(64) %name) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516LocaleKeyFactoryE, i64 16), ptr %this, align 8
   %_name = getelementptr inbounds i8, ptr %this, i64 8
@@ -537,7 +537,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7516LocaleKeyFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7516LocaleKeyFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(76) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516LocaleKeyFactoryE, i64 16), ptr %this, align 8
   %_name = getelementptr inbounds i8, ptr %this, i64 8

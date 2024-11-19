@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @kInitBinEsc = internal unnamed_addr constant [8 x i16] [i16 15581, i16 7999, i16 22975, i16 18675, i16 25761, i16 23228, i16 26162, i16 24657], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @Ppmd7_Construct(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @Ppmd7_Construct(ptr nocapture noundef writeonly initializes((64, 72)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 146
@@ -98,7 +98,7 @@ define void @Ppmd7_Construct(ptr nocapture noundef writeonly %0) local_unnamed_a
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define void @Ppmd7_Free(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @Ppmd7_Free(ptr nocapture noundef initializes((52, 56)) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -153,7 +153,7 @@ define range(i32 0, 2) i32 @Ppmd7_Alloc(ptr nocapture noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Ppmd7_Init(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define void @Ppmd7_Init(ptr nocapture noundef initializes((0, 28), (32, 40), (44, 52), (56, 60), (72, 104), (276, 428)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %1, ptr %3, align 4
   tail call fastcc void @RestartModel(ptr noundef %0)
@@ -167,7 +167,7 @@ define void @Ppmd7_Init(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @RestartModel(ptr nocapture noundef %0) unnamed_addr #3 {
+define internal fastcc void @RestartModel(ptr nocapture noundef initializes((0, 28), (32, 36), (44, 52), (56, 60), (72, 104), (276, 428)) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 276
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(152) %2, i8 0, i64 152, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 64
@@ -322,7 +322,7 @@ define internal fastcc void @RestartModel(ptr nocapture noundef %0) unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define nonnull ptr @Ppmd7_MakeEscFreq(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define nonnull ptr @Ppmd7_MakeEscFreq(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #4 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i16, ptr %4, align 4
   %.not = icmp eq i16 %5, 256
@@ -810,7 +810,7 @@ ShrinkUnits.exit:                                 ; preds = %.ShrinkUnits.exit_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Ppmd7_Update1_0(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @Ppmd7_Update1_0(ptr nocapture noundef initializes((32, 36)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1
@@ -878,7 +878,7 @@ NextContext.exit:                                 ; preds = %41, %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Ppmd7_UpdateBin(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @Ppmd7_UpdateBin(ptr nocapture noundef initializes((32, 36)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1

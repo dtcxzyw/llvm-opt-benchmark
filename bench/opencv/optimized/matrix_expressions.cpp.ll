@@ -378,7 +378,7 @@ define linkonce_odr hidden void @_ZN2cv11MatOp_SolveD2Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv5MatOpC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #4 align 2 {
+define void @_ZN2cv5MatOpC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN2cv5MatOpE, i64 16), ptr %0, align 8
   ret void
 }
@@ -3554,7 +3554,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %12, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv7MatExprC2ERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv7MatExprC2ERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr @_ZN2cvL16g_MatOp_IdentityE, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
@@ -3574,7 +3574,7 @@ define void @_ZN2cv7MatExprC2ERKNS_3MatE(ptr noundef nonnull align 8 dereference
 declare void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv7MatExpr3rowEi(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv7MatExpr3rowEi(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Range", align 4
   %5 = alloca %"class.cv::Range", align 8
   store ptr null, ptr %0, align 8
@@ -3611,7 +3611,7 @@ define void @_ZNK2cv7MatExpr3rowEi(ptr dead_on_unwind noalias writable sret(%"cl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv7MatExpr3colEi(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv7MatExpr3colEi(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Range", align 8
   %5 = alloca %"class.cv::Range", align 4
   store ptr null, ptr %0, align 8
@@ -3648,7 +3648,7 @@ define void @_ZNK2cv7MatExpr3colEi(ptr dead_on_unwind noalias writable sret(%"cl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv7MatExpr4diagEi(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv7MatExpr4diagEi(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -3678,7 +3678,7 @@ define void @_ZNK2cv7MatExpr4diagEi(ptr dead_on_unwind noalias writable sret(%"c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv7MatExprclERKNS_5RangeES3_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv7MatExprclERKNS_5RangeES3_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
@@ -3708,7 +3708,7 @@ define void @_ZNK2cv7MatExprclERKNS_5RangeES3_(ptr dead_on_unwind noalias writab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv7MatExprclERKNS_5Rect_IiEE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv7MatExprclERKNS_5Rect_IiEE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Range", align 4
   %5 = alloca %"class.cv::Range", align 4
   store ptr null, ptr %0, align 8
@@ -3845,7 +3845,7 @@ common.resume:                                    ; preds = %17, %9
 declare noundef double @_ZNK2cv3Mat3dotERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv7MatExpr1tEv(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv7MatExpr1tEv(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
@@ -3875,7 +3875,7 @@ define void @_ZNK2cv7MatExpr1tEv(ptr dead_on_unwind noalias writable sret(%"clas
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv7MatExpr3invEi(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv7MatExpr3invEi(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -3905,7 +3905,7 @@ define void @_ZNK2cv7MatExpr3invEi(ptr dead_on_unwind noalias writable sret(%"cl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv7MatExpr3mulERKS0_d(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(352) %2, double noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv7MatExpr3mulERKS0_d(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(352) %2, double noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
@@ -3935,7 +3935,7 @@ define void @_ZNK2cv7MatExpr3mulERKS0_d(ptr dead_on_unwind noalias writable sret
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv7MatExpr3mulERKNS_3MatEd(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, double noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv7MatExpr3mulERKNS_3MatEd(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, double noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::MatExpr", align 8
   store ptr null, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3986,7 +3986,7 @@ define void @_ZNK2cv7MatExpr3mulERKNS_3MatEd(ptr dead_on_unwind noalias writable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvplERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvplERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Scalar_", align 8
   tail call fastcc void @_ZN2cvL18checkOperandsExistERKNS_3MatES2_(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2)
   store ptr null, ptr %0, align 8
@@ -4202,7 +4202,7 @@ _ZN2cvL18checkOperandsExistERKNS_3MatE.exit:      ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvplERKNS_7MatExprERKNS_3MatE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvplERKNS_7MatExprERKNS_3MatE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::MatExpr", align 8
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4346,7 +4346,7 @@ _ZN2cvL18checkOperandsExistERKNS_3MatE.exit:      ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvplERKNS_7MatExprERKNS_7Scalar_IdEE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvplERKNS_7MatExprERKNS_7Scalar_IdEE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -4376,7 +4376,7 @@ define void @_ZN2cvplERKNS_7MatExprERKNS_7Scalar_IdEE(ptr dead_on_unwind noalias
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvplERKNS_7Scalar_IdEERKNS_7MatExprE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(352) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvplERKNS_7Scalar_IdEERKNS_7MatExprE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(352) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -4406,7 +4406,7 @@ define void @_ZN2cvplERKNS_7Scalar_IdEERKNS_7MatExprE(ptr dead_on_unwind noalias
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvplERKNS_7MatExprES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(352) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvplERKNS_7MatExprES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(352) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -4436,7 +4436,7 @@ define void @_ZN2cvplERKNS_7MatExprES2_(ptr dead_on_unwind noalias writable sret
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvmiERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvmiERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Scalar_", align 8
   tail call fastcc void @_ZN2cvL18checkOperandsExistERKNS_3MatES2_(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2)
   store ptr null, ptr %0, align 8
@@ -4815,7 +4815,7 @@ _ZN2cvL18checkOperandsExistERKNS_3MatE.exit:      ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvmiERKNS_7MatExprERKNS_7Scalar_IdEE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvmiERKNS_7MatExprERKNS_7Scalar_IdEE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Scalar_", align 8
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4865,7 +4865,7 @@ define void @_ZN2cvmiERKNS_7MatExprERKNS_7Scalar_IdEE(ptr dead_on_unwind noalias
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvmiERKNS_7Scalar_IdEERKNS_7MatExprE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(352) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvmiERKNS_7Scalar_IdEERKNS_7MatExprE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(352) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -4895,7 +4895,7 @@ define void @_ZN2cvmiERKNS_7Scalar_IdEERKNS_7MatExprE(ptr dead_on_unwind noalias
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvmiERKNS_7MatExprES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(352) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvmiERKNS_7MatExprES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(352) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -4999,7 +4999,7 @@ common.resume:                                    ; preds = %23, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvngERKNS_7MatExprE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvngERKNS_7MatExprE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::Scalar_", align 8
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5031,7 +5031,7 @@ define void @_ZN2cvngERKNS_7MatExprE(ptr dead_on_unwind noalias writable sret(%"
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvmlERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvmlERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Mat", align 8
   tail call fastcc void @_ZN2cvL18checkOperandsExistERKNS_3MatES2_(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2)
   store ptr null, ptr %0, align 8
@@ -5210,7 +5210,7 @@ common.resume:                                    ; preds = %24, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvmlERKNS_7MatExprERKNS_3MatE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvmlERKNS_7MatExprERKNS_3MatE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::MatExpr", align 8
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5354,7 +5354,7 @@ _ZN2cvL18checkOperandsExistERKNS_3MatE.exit:      ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvmlERKNS_7MatExprEd(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, double noundef %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvmlERKNS_7MatExprEd(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, double noundef %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -5384,7 +5384,7 @@ define void @_ZN2cvmlERKNS_7MatExprEd(ptr dead_on_unwind noalias writable sret(%
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvmlEdRKNS_7MatExprE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(352) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvmlEdRKNS_7MatExprE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(352) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -5414,7 +5414,7 @@ define void @_ZN2cvmlEdRKNS_7MatExprE(ptr dead_on_unwind noalias writable sret(%
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvmlERKNS_7MatExprES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(352) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvmlERKNS_7MatExprES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(352) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -5444,7 +5444,7 @@ define void @_ZN2cvmlERKNS_7MatExprES2_(ptr dead_on_unwind noalias writable sret
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvdvERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvdvERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   tail call fastcc void @_ZN2cvL18checkOperandsExistERKNS_3MatES2_(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2)
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5618,7 +5618,7 @@ _ZN2cvL18checkOperandsExistERKNS_3MatE.exit:      ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvdvERKNS_7MatExprERKNS_3MatE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvdvERKNS_7MatExprERKNS_3MatE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::MatExpr", align 8
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5762,7 +5762,7 @@ _ZN2cvL18checkOperandsExistERKNS_3MatE.exit:      ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvdvERKNS_7MatExprEd(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, double noundef %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvdvERKNS_7MatExprEd(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, double noundef %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -5793,7 +5793,7 @@ define void @_ZN2cvdvERKNS_7MatExprEd(ptr dead_on_unwind noalias writable sret(%
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvdvEdRKNS_7MatExprE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(352) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvdvEdRKNS_7MatExprE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(352) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -5823,7 +5823,7 @@ define void @_ZN2cvdvEdRKNS_7MatExprE(ptr dead_on_unwind noalias writable sret(%
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvdvERKNS_7MatExprES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(352) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvdvERKNS_7MatExprES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(352) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -5853,7 +5853,7 @@ define void @_ZN2cvdvERKNS_7MatExprES2_(ptr dead_on_unwind noalias writable sret
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvltERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvltERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   tail call fastcc void @_ZN2cvL18checkOperandsExistERKNS_3MatES2_(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2)
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6222,7 +6222,7 @@ _ZN2cvL18checkOperandsExistERKNS_3MatE.exit:      ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvleERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvleERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   tail call fastcc void @_ZN2cvL18checkOperandsExistERKNS_3MatES2_(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2)
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6385,7 +6385,7 @@ _ZN2cvL18checkOperandsExistERKNS_3MatE.exit:      ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cveqERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cveqERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   tail call fastcc void @_ZN2cvL18checkOperandsExistERKNS_3MatES2_(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2)
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6548,7 +6548,7 @@ _ZN2cvL18checkOperandsExistERKNS_3MatE.exit:      ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvneERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvneERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   tail call fastcc void @_ZN2cvL18checkOperandsExistERKNS_3MatES2_(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2)
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6711,7 +6711,7 @@ _ZN2cvL18checkOperandsExistERKNS_3MatE.exit:      ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvgeERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvgeERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   tail call fastcc void @_ZN2cvL18checkOperandsExistERKNS_3MatES2_(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2)
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6874,7 +6874,7 @@ _ZN2cvL18checkOperandsExistERKNS_3MatE.exit:      ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvgtERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvgtERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   tail call fastcc void @_ZN2cvL18checkOperandsExistERKNS_3MatES2_(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2)
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7661,7 +7661,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %28, %31
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvanERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvanERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   tail call fastcc void @_ZN2cvL18checkOperandsExistERKNS_3MatES2_(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2)
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7824,7 +7824,7 @@ _ZN2cvL18checkOperandsExistERKNS_3MatE.exit:      ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cvorERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cvorERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   tail call fastcc void @_ZN2cvL18checkOperandsExistERKNS_3MatES2_(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2)
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7987,7 +7987,7 @@ _ZN2cvL18checkOperandsExistERKNS_3MatE.exit:      ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cveoERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cveoERKNS_3MatES2_(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   tail call fastcc void @_ZN2cvL18checkOperandsExistERKNS_3MatES2_(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2)
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8318,7 +8318,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %26, %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3absERKNS_7MatExprE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3absERKNS_7MatExprE(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3absERKNS_7MatExprEE26__cv_trace_location_fn1241)
   store ptr null, ptr %0, align 8
@@ -9390,7 +9390,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 declare double @llvm.fabs.f64(double) #11
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv11MatOp_AddEx3addERKNS_7MatExprERKNS_7Scalar_IdEERS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(352) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv11MatOp_AddEx3addERKNS_7MatExprERKNS_7Scalar_IdEERS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 12)) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv11MatOp_AddEx3addERKNS_7MatExprERKNS_7Scalar_IdEERS1_E26__cv_trace_location_fn1355)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %3, ptr noundef nonnull align 8 dereferenceable(352) %1, i64 12, i1 false)
@@ -9473,7 +9473,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %15, %43
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv11MatOp_AddEx8subtractERKNS_7Scalar_IdEERKNS_7MatExprERS5_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(352) %2, ptr noundef nonnull align 8 dereferenceable(352) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv11MatOp_AddEx8subtractERKNS_7Scalar_IdEERKNS_7MatExprERS5_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(352) %2, ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 12)) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv11MatOp_AddEx8subtractERKNS_7Scalar_IdEERKNS_7MatExprERS5_E26__cv_trace_location_fn1364)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %3, ptr noundef nonnull align 8 dereferenceable(352) %2, i64 12, i1 false)
@@ -9563,7 +9563,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %15, %48
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv11MatOp_AddEx8multiplyERKNS_7MatExprEdRS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(352) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv11MatOp_AddEx8multiplyERKNS_7MatExprEdRS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 12)) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv11MatOp_AddEx8multiplyERKNS_7MatExprEdRS1_E26__cv_trace_location_fn1374)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %3, ptr noundef nonnull align 8 dereferenceable(352) %1, i64 12, i1 false)
@@ -10911,7 +10911,7 @@ define hidden void @_ZNK2cv7MatOp_T6assignERKNS_7MatExprERNS_3MatEi(ptr nocaptur
 declare void @_ZN2cv9transposeERKNS_11_InputArrayERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv7MatOp_T8multiplyERKNS_7MatExprEdRS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(352) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv7MatOp_T8multiplyERKNS_7MatExprEdRS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 12)) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv7MatOp_T8multiplyERKNS_7MatExprEdRS1_E26__cv_trace_location_fn1537)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %3, ptr noundef nonnull align 8 dereferenceable(352) %1, i64 12, i1 false)
@@ -11625,7 +11625,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %103, %106
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv10MatOp_GEMM8multiplyERKNS_7MatExprEdRS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(352) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv10MatOp_GEMM8multiplyERKNS_7MatExprEdRS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 12)) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv10MatOp_GEMM8multiplyERKNS_7MatExprEdRS1_E26__cv_trace_location_fn1609)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %3, ptr noundef nonnull align 8 dereferenceable(352) %1, i64 12, i1 false)
@@ -11700,7 +11700,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %15, %37
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv10MatOp_GEMM9transposeERKNS_7MatExprERS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(352) %2) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv10MatOp_GEMM9transposeERKNS_7MatExprERS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 12)) %2) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv10MatOp_GEMM9transposeERKNS_7MatExprERS1_E26__cv_trace_location_fn1618)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %2, ptr noundef nonnull align 8 dereferenceable(352) %1, i64 12, i1 false)
@@ -12209,7 +12209,7 @@ declare void @_ZN2cv11setIdentityERKNS_17_InputOutputArrayERKNS_7Scalar_IdEE(ptr
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv17MatOp_Initializer8multiplyERKNS_7MatExprEdRS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(352) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv17MatOp_Initializer8multiplyERKNS_7MatExprEdRS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 12)) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv17MatOp_Initializer8multiplyERKNS_7MatExprEdRS1_E26__cv_trace_location_fn1699)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %3, ptr noundef nonnull align 8 dereferenceable(352) %1, i64 12, i1 false)
@@ -12376,7 +12376,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %25, %28
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv3Mat3invEi(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv3Mat3invEi(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv3Mat3invEiE26__cv_trace_location_fn1729)
   store ptr null, ptr %0, align 8
@@ -12422,7 +12422,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %12, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv3Mat3mulERKNS_11_InputArrayEd(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, double noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv3Mat3mulERKNS_11_InputArrayEd(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, double noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   %6 = alloca %"class.cv::Mat", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv3Mat3mulERKNS_11_InputArrayEdE26__cv_trace_location_fn1739)
@@ -12498,7 +12498,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3Mat5zerosEiiiE26__cv_trace_location_fn1748)
   store ptr null, ptr %0, align 8
@@ -12687,7 +12687,7 @@ _ZN2cv7MatExprC2EPKNS_5MatOpEiRKNS_3MatES6_S6_ddRKNS_7Scalar_IdEE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3Mat5zerosENS_5Size_IiEEi(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, i64 %1, i32 noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3Mat5zerosENS_5Size_IiEEi(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, i64 %1, i32 noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3Mat5zerosENS_5Size_IiEEiE26__cv_trace_location_fn1757)
   store ptr null, ptr %0, align 8
@@ -12733,7 +12733,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %12, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3Mat5zerosEiPKii(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3Mat5zerosEiPKii(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3Mat5zerosEiPKiiE26__cv_trace_location_fn1766)
   store ptr null, ptr %0, align 8
@@ -12918,7 +12918,7 @@ _ZN2cv7MatExprC2EPKNS_5MatOpEiRKNS_3MatES6_S6_ddRKNS_7Scalar_IdEE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3Mat4onesEiii(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3Mat4onesEiii(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3Mat4onesEiiiE26__cv_trace_location_fn1775)
   store ptr null, ptr %0, align 8
@@ -12968,7 +12968,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %13, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3Mat4onesENS_5Size_IiEEi(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, i64 %1, i32 noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3Mat4onesENS_5Size_IiEEi(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, i64 %1, i32 noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3Mat4onesENS_5Size_IiEEiE26__cv_trace_location_fn1784)
   store ptr null, ptr %0, align 8
@@ -13014,7 +13014,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %12, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3Mat4onesEiPKii(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3Mat4onesEiPKii(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3Mat4onesEiPKiiE26__cv_trace_location_fn1793)
   store ptr null, ptr %0, align 8
@@ -13060,7 +13060,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %13, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3Mat3eyeEiii(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3Mat3eyeEiii(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3Mat3eyeEiiiE26__cv_trace_location_fn1802)
   store ptr null, ptr %0, align 8
@@ -13110,7 +13110,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %13, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3Mat3eyeENS_5Size_IiEEi(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 %0, i64 %1, i32 noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3Mat3eyeENS_5Size_IiEEi(ptr dead_on_unwind noalias writable sret(%"class.cv::MatExpr") align 8 initializes((0, 12)) %0, i64 %1, i32 noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3Mat3eyeENS_5Size_IiEEiE26__cv_trace_location_fn1811)
   store ptr null, ptr %0, align 8
@@ -13216,7 +13216,7 @@ define void @_ZN2cv7MatExpr4swapERS0_(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv11_InputArrayC2ERKNS_7MatExprE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(352) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv11_InputArrayC2ERKNS_7MatExprE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::Mat", align 8
   %4 = alloca %"class.cv::MatExpr", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

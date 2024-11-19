@@ -47,7 +47,7 @@ $_ZN4llvm15SmallVectorImplINS_8RegisterEEaSERKS2_ = comdat any
 @_ZN4llvm4yaml24RISCVMachineFunctionInfoC1ERKNS_24RISCVMachineFunctionInfoE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm4yaml24RISCVMachineFunctionInfoC2ERKNS_24RISCVMachineFunctionInfoE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm4yaml24RISCVMachineFunctionInfoC2ERKNS_24RISCVMachineFunctionInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(124) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm4yaml24RISCVMachineFunctionInfoC2ERKNS_24RISCVMachineFunctionInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(124) %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm4yaml24RISCVMachineFunctionInfoE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -187,7 +187,7 @@ _ZN4llvm4yaml2IO11mapOptionalIiEEvPKcRT_.exit4:   ; preds = %_ZN4llvm4yaml2IO11m
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm24RISCVMachineFunctionInfo24initializeBaseYamlFieldsERKNS_4yaml24RISCVMachineFunctionInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(124) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm24RISCVMachineFunctionInfo24initializeBaseYamlFieldsERKNS_4yaml24RISCVMachineFunctionInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(124) initializes((8, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

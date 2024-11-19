@@ -539,7 +539,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNK6symbol3strB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK19smt2_pp_environment13pp_fdecl_nameERK6symbolRjb(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %s, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %len, i1 zeroext %is_skolem) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK19smt2_pp_environment13pp_fdecl_nameERK6symbolRjb(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %s, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %len, i1 zeroext %is_skolem) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %str9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -613,7 +613,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare noundef ptr @_ZN9format_ns9mk_stringER11ast_managerPKc(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK19smt2_pp_environment13pp_fdecl_nameEP9func_declRj(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %f, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %len) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK19smt2_pp_environment13pp_fdecl_nameEP9func_declRj(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %f, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %len) local_unnamed_addr #3 align 2 {
 entry:
   %s = alloca %class.symbol, align 8
   %vtable = load ptr, ptr %this, align 8
@@ -1401,7 +1401,7 @@ _ZN6bufferIP3appLb0ELj16EED2Ev.exit:              ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN19smt2_pp_environment8pp_fdeclEP9func_declRj(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %f, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %len) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN19smt2_pp_environment8pp_fdeclEP9func_declRj(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %f, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %len) unnamed_addr #3 align 2 {
 entry:
   %buf.i = alloca [2 x ptr], align 16
   %ref.tmp.i = alloca ptr, align 8
@@ -11952,7 +11952,7 @@ _ZN10ref_vectorI3app11ast_managerED2Ev.exit159:   ; preds = %_ZN10ref_vectorI3ap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11mk_ismt2_ppC2EP3astR11ast_managerRK10params_refjjPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %t, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %p, i32 noundef %indent, i32 noundef %num_vars, ptr noundef %var_prefix) unnamed_addr #8 align 2 {
+define hidden void @_ZN11mk_ismt2_ppC2EP3astR11ast_managerRK10params_refjjPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this, ptr noundef %t, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %p, i32 noundef %indent, i32 noundef %num_vars, ptr noundef %var_prefix) unnamed_addr #8 align 2 {
 entry:
   store ptr %t, ptr %this, align 8
   %m_manager = getelementptr inbounds i8, ptr %this, i64 8
@@ -11971,7 +11971,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11mk_ismt2_ppC2EP3astR11ast_managerjjPKc(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %t, ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %indent, i32 noundef %num_vars, ptr noundef %var_prefix) unnamed_addr #8 align 2 {
+define hidden void @_ZN11mk_ismt2_ppC2EP3astR11ast_managerjjPKc(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %this, ptr noundef %t, ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %indent, i32 noundef %num_vars, ptr noundef %var_prefix) unnamed_addr #8 align 2 {
 entry:
   store ptr %t, ptr %this, align 8
   %m_manager = getelementptr inbounds i8, ptr %this, i64 8

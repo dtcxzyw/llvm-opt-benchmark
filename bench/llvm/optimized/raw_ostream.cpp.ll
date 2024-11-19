@@ -214,7 +214,7 @@ $_ZTVN4llvm13format_objectIJhEEE = comdat any
 @_ZN4llvm16raw_null_ostreamD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm16raw_null_ostreamD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11raw_ostreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11raw_ostreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm11raw_ostreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
@@ -344,7 +344,7 @@ _ZN4llvm11raw_ostream13SetUnbufferedEv.exit:      ; preds = %_ZN4llvm11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((24, 40)) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 1
@@ -3540,7 +3540,7 @@ define dso_local void @_ZN4llvm18format_object_base4homeEv(ptr nocapture nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14raw_fd_ostreamC2ENS_9StringRefERSt10error_code(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14raw_fd_ostreamC2ENS_9StringRefERSt10error_code(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 12), (16, 41), (44, 55), (56, 57), (64, 76), (80, 96)) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %3) unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca %"class.llvm::Twine", align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -3589,14 +3589,14 @@ _ZL5getFDN4llvm9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS4_10F
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS5_10FileAccessENS5_9OpenFlagsE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS5_10FileAccessENS5_9OpenFlagsE(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 12), (16, 41), (44, 55), (56, 57), (64, 76), (80, 96)) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 align 2 {
   %8 = tail call fastcc noundef i32 @_ZL5getFDN4llvm9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS4_10FileAccessENS4_9OpenFlagsE(ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6)
   tail call void @_ZN4llvm14raw_fd_ostreamC2EibbNS_11raw_ostream11OStreamKindE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %8, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionE(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 12), (16, 41), (44, 55), (56, 57), (64, 76), (80, 96)) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca i32, align 4
   %7 = alloca %"class.llvm::Twine", align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -3645,14 +3645,14 @@ _ZL5getFDN4llvm9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS4_10F
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs10FileAccessE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs10FileAccessE(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 12), (16, 41), (44, 55), (56, 57), (64, 76), (80, 96)) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = tail call fastcc noundef i32 @_ZL5getFDN4llvm9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS4_10FileAccessENS4_9OpenFlagsE(ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0, i32 noundef %4, i32 noundef 0)
   tail call void @_ZN4llvm14raw_fd_ostreamC2EibbNS_11raw_ostream11OStreamKindE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %6, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs9OpenFlagsE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14raw_fd_ostreamC2ENS_9StringRefERSt10error_codeNS_3sys2fs9OpenFlagsE(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 12), (16, 41), (44, 55), (56, 57), (64, 76), (80, 96)) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca i32, align 4
   %7 = alloca %"class.llvm::Twine", align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -3701,7 +3701,7 @@ _ZL5getFDN4llvm9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS4_10F
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL5getFDN4llvm9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS4_10FileAccessENS4_9OpenFlagsE(ptr %0, i64 %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL5getFDN4llvm9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS4_10FileAccessENS4_9OpenFlagsE(ptr %0, i64 %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
@@ -3766,7 +3766,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread24:       ; preds = %6, %_ZN4llvmeqENS_9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14raw_fd_ostreamC2EibbNS_11raw_ostream11OStreamKindE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14raw_fd_ostreamC2EibbNS_11raw_ostream11OStreamKindE(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 12), (16, 41), (44, 55), (56, 57), (64, 76), (80, 96)) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::sys::fs::file_status", align 8
   %7 = zext i1 %2 to i8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3855,7 +3855,7 @@ declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #9
 declare { i32, ptr } @_ZN4llvm3sys2fs6statusEiRNS1_11file_statusE(i32 noundef, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14raw_fd_ostreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14raw_fd_ostreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::Twine", align 8
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
@@ -4187,7 +4187,7 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 declare ptr @__errno_location() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14raw_fd_ostream5closeEv(ptr noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14raw_fd_ostream5closeEv(ptr noundef nonnull align 8 dereferenceable(96) initializes((52, 53)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i8 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4432,7 +4432,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14raw_fd_ostream10has_colorsEv(ptr
 declare noundef zeroext i1 @_ZN4llvm3sys7Process23FileDescriptorHasColorsEi(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14raw_fd_ostream4lockEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14raw_fd_ostream4lockEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Error", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load i32, ptr %4, align 8
@@ -4471,7 +4471,7 @@ declare { i32, ptr } @_ZN4llvm3sys2fs8lockFileEi(i32 noundef) local_unnamed_addr
 declare void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8, i32, ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14raw_fd_ostream10tryLockForERKNS_8DurationE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14raw_fd_ostream10tryLockForERKNS_8DurationE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8
@@ -4595,7 +4595,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm5nulls
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13raw_fd_streamC2ENS_9StringRefERSt10error_code(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13raw_fd_streamC2ENS_9StringRefERSt10error_code(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 12), (16, 41), (44, 55), (56, 57), (64, 76), (80, 96)) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %3) unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca %"class.llvm::Twine", align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -4663,7 +4663,7 @@ _ZL5getFDN4llvm9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS4_10F
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13raw_fd_streamC2Eib(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13raw_fd_streamC2Eib(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 12), (16, 41), (44, 55), (56, 57), (64, 76), (80, 96)) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm14raw_fd_ostreamC2EibbNS_11raw_ostream11OStreamKindE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext false, i32 noundef 1)
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm13raw_fd_streamE, i64 16), ptr %0, align 8
   ret void
@@ -4797,7 +4797,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19raw_svector_ostream7classofEPKNS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16raw_null_ostreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16raw_null_ostreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm11raw_ostreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4

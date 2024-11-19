@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @php_hash_joaat_ops = hidden local_unnamed_addr constant %struct._php_hash_ops { ptr @.str, ptr @PHP_JOAATInit, ptr @PHP_JOAATUpdate, ptr @PHP_JOAATFinal, ptr @php_hash_copy, ptr @php_hash_serialize, ptr @php_hash_unserialize, ptr @.str.1, i64 4, i64 4, i64 4, i8 0 }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_JOAATInit(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define void @PHP_JOAATInit(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture readnone %1) #0 {
   store i32 0, ptr %0, align 4
   ret void
 }

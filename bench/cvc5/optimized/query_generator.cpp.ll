@@ -150,7 +150,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers14QueryGenerator10initializeERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EEPNS2_12SygusSamplerE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(24) %vars, ptr noundef %ss) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers14QueryGenerator10initializeERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EEPNS2_12SygusSamplerE(ptr noundef nonnull align 8 dereferenceable(128) initializes((120, 128)) %this, ptr noundef nonnull align 8 dereferenceable(24) %vars, ptr noundef %ss) unnamed_addr #3 align 2 {
 entry:
   %d_queryCount = getelementptr inbounds i8, ptr %this, i64 120
   store i64 0, ptr %d_queryCount, align 8

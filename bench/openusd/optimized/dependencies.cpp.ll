@@ -319,7 +319,7 @@ $_ZTSN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_13PcpLayerStackEEE = comda
 @_ZN32pxrInternal_v0_24__pxrReserved__16Pcp_DependenciesD1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__16Pcp_DependenciesD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies27ConcurrentPopulationContextC2ERS0_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(408) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies27ConcurrentPopulationContextC2ERS0_(ptr noundef nonnull align 8 dereferenceable(9) initializes((0, 9)) %0, ptr noundef nonnull align 8 dereferenceable(408) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3839,7 +3839,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_13PcpLaye
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__11PcpLifeboat6RetainERKNS_8TfRefPtrINS_13PcpLayerStackEEE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies13GetUsedLayersEv(ptr dead_on_unwind noalias writable sret(%"class.std::set.231") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies13GetUsedLayersEv(ptr dead_on_unwind noalias writable sret(%"class.std::set.231") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -3952,7 +3952,7 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEES3_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies17GetUsedRootLayersEv(ptr dead_on_unwind noalias writable sret(%"class.std::set.231") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__16Pcp_Dependencies17GetUsedRootLayersEv(ptr dead_on_unwind noalias writable sret(%"class.std::set.231") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8

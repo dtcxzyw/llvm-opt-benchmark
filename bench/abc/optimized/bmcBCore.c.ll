@@ -486,7 +486,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %14
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Bmc_ManBCoreAssignVar(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #3 {
+define internal fastcc void @Bmc_ManBCoreAssignVar(ptr nocapture noundef readonly %0, ptr noundef initializes((8, 12)) %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #3 {
   %5 = getelementptr i8, ptr %3, i64 4
   %.val = load i32, ptr %5, align 4
   %6 = ashr i32 %.val, 1

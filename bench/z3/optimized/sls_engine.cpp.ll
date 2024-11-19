@@ -359,7 +359,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10sls_engineC2ER11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(1512) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10sls_engineC2ER11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(1512) initializes((0, 12), (16, 33), (40, 68)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_stats = getelementptr inbounds i8, ptr %this, i64 8

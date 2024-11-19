@@ -571,7 +571,7 @@ define hidden noundef i64 @_ZNK14ZCollectedHeap21unsafe_max_tlab_allocEP6Thread(
 declare noundef i64 @_ZNK5ZHeap21unsafe_max_tlab_allocEv(ptr noundef nonnull align 64 dereferenceable(15937)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ZCollectedHeap12memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 %0, ptr nocapture nonnull readnone align 64 %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ZCollectedHeap12memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 initializes((0, 32)) %0, ptr nocapture nonnull readnone align 64 %1) unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
   %4 = tail call noundef i64 @_ZNK5ZHeap16initial_capacityEv(ptr noundef nonnull align 64 dereferenceable(15937) %3) #12
   %5 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
@@ -594,7 +594,7 @@ define hidden void @_ZN14ZCollectedHeap12memory_usageEv(ptr dead_on_unwind noali
 declare noundef i64 @_ZNK5ZHeap16initial_capacityEv(ptr noundef nonnull align 64 dereferenceable(15937)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ZCollectedHeap15memory_managersEv(ptr dead_on_unwind noalias writable sret(%class.GrowableArray) align 8 %0, ptr noundef nonnull align 64 dereferenceable(16344) %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ZCollectedHeap15memory_managersEv(ptr dead_on_unwind noalias writable sret(%class.GrowableArray) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 64 dereferenceable(16344) %1) unnamed_addr #1 align 2 {
 _ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit:
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 4, i32 noundef 8) #12
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -700,7 +700,7 @@ declare noundef ptr @_ZN5ZHeap35serviceability_cycle_memory_managerEb(ptr nounde
 declare noundef ptr @_ZN5ZHeap35serviceability_pause_memory_managerEb(ptr noundef nonnull align 64 dereferenceable(15937), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ZCollectedHeap12memory_poolsEv(ptr dead_on_unwind noalias writable sret(%class.GrowableArray.25) align 8 %0, ptr noundef nonnull align 64 dereferenceable(16344) %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ZCollectedHeap12memory_poolsEv(ptr dead_on_unwind noalias writable sret(%class.GrowableArray.25) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 64 dereferenceable(16344) %1) unnamed_addr #1 align 2 {
 _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit:
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #12
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -854,7 +854,7 @@ declare void @_ZNK5ZHeap10threads_doEP13ThreadClosure(ptr noundef nonnull align 
 declare void @_ZNK15ZRuntimeWorkers10threads_doEP13ThreadClosure(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ZCollectedHeap25create_heap_space_summaryEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.VirtualSpaceSummary) align 8 %0, ptr noundef nonnull align 64 dereferenceable(16344) %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ZCollectedHeap25create_heap_space_summaryEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.VirtualSpaceSummary) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 64 dereferenceable(16344) %1) unnamed_addr #1 align 2 {
   %3 = load i64, ptr @ZAddressHeapBase, align 8
   %4 = load ptr, ptr %1, align 64
   %5 = getelementptr inbounds i8, ptr %4, i64 88

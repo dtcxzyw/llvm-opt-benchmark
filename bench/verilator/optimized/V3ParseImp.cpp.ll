@@ -2269,7 +2269,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK8FileLine6parentEv(ptr noundef no
 declare void @_ZN8FileLine12applyIgnoresEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10V3ParseImp17lexTimescaleParseEP8FileLinePKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(496) %0, ptr noundef %1, ptr noundef %2) #7 align 2 {
+define dso_local void @_ZN10V3ParseImp17lexTimescaleParseEP8FileLinePKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(496) initializes((488, 489)) %0, ptr noundef %1, ptr noundef %2) #7 align 2 {
   %4 = alloca %class.VTimescale, align 1
   %5 = alloca %class.VTimescale, align 1
   store i8 18, ptr %4, align 1

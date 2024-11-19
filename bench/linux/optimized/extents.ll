@@ -937,7 +937,7 @@ define internal fastcc ptr @__read_extent_tree_block(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ext4_ext_tree_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @ext4_ext_tree_init(ptr noundef %0, ptr noundef initializes((-296, -284)) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 -296
   %4 = getelementptr i8, ptr %1, i64 -290
   store i16 0, ptr %4, align 2
@@ -7808,7 +7808,7 @@ define internal fastcc void @ext4_update_inode_fsync_trans(ptr noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ext4_ext_truncate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @ext4_ext_truncate(ptr noundef %0, ptr noundef initializes((-48, -40)) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 80

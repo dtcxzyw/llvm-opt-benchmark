@@ -1595,7 +1595,7 @@ declare void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 de
 declare void @_ZN6hermes11JSONEmitter8endJSONLEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112UsageCounterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_112UsageCounterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_112UsageCounterE, i64 16), ptr %this, align 8
   %stringKindEnds_ = getelementptr inbounds i8, ptr %this, i64 128
@@ -2427,7 +2427,7 @@ return:                                           ; preds = %for.body.i, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112UsageCounter11beforeStartEjPKh(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %funcId, ptr noundef %bytecodeStart) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_112UsageCounter11beforeStartEjPKh(ptr noundef nonnull align 8 dereferenceable(152) initializes((72, 76)) %this, i32 noundef %funcId, ptr noundef %bytecodeStart) unnamed_addr #3 align 2 {
 entry:
   %pos.i = alloca %"class.hermes::OptValue", align 4
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3420,7 +3420,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112UsageCounterD0Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_112UsageCounterD0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_112UsageCounterD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #28

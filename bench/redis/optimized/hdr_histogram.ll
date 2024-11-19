@@ -408,7 +408,7 @@ declare double @log(double noundef) local_unnamed_addr #3
 declare double @llvm.ceil.f64(double) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @hdr_init_preallocated(ptr nocapture noundef writeonly %h, ptr nocapture noundef readonly %cfg) local_unnamed_addr #5 {
+define dso_local void @hdr_init_preallocated(ptr nocapture noundef writeonly initializes((0, 68), (72, 84), (88, 96)) %h, ptr nocapture noundef readonly %cfg) local_unnamed_addr #5 {
 entry:
   %0 = load i64, ptr %cfg, align 8
   store i64 %0, ptr %h, align 8
@@ -576,7 +576,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @hdr_reset(ptr nocapture noundef %h) local_unnamed_addr #8 {
+define dso_local void @hdr_reset(ptr nocapture noundef initializes((48, 64), (88, 96)) %h) local_unnamed_addr #8 {
 entry:
   %total_count = getelementptr inbounds i8, ptr %h, i64 88
   store i64 0, ptr %total_count, align 8
@@ -1453,7 +1453,7 @@ while.end:                                        ; preds = %while.cond, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @hdr_iter_recorded_init(ptr nocapture noundef writeonly %iter, ptr noundef %h) local_unnamed_addr #5 {
+define dso_local void @hdr_iter_recorded_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 56), (72, 96), (120, 128)) %iter, ptr noundef %h) local_unnamed_addr #5 {
 entry:
   store ptr %h, ptr %iter, align 8
   %counts_index.i = getelementptr inbounds i8, ptr %iter, i64 8
@@ -1864,7 +1864,7 @@ return:                                           ; preds = %while.end, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @hdr_iter_init(ptr nocapture noundef writeonly %iter, ptr noundef %h) local_unnamed_addr #5 {
+define dso_local void @hdr_iter_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 56), (72, 88), (120, 128)) %iter, ptr noundef %h) local_unnamed_addr #5 {
 entry:
   store ptr %h, ptr %iter, align 8
   %counts_index = getelementptr inbounds i8, ptr %iter, i64 8
@@ -2290,7 +2290,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @hdr_iter_percentile_init(ptr nocapture noundef writeonly %iter, ptr noundef %h, i32 noundef %ticks_per_half_distance) local_unnamed_addr #5 {
+define dso_local void @hdr_iter_percentile_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 56), (72, 89), (92, 112), (120, 128)) %iter, ptr noundef %h, i32 noundef %ticks_per_half_distance) local_unnamed_addr #5 {
 entry:
   store ptr %h, ptr %iter, align 8
   %counts_index.i = getelementptr inbounds i8, ptr %iter, i64 8
@@ -2498,7 +2498,7 @@ return:                                           ; preds = %while.cond, %lor.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @hdr_iter_linear_init(ptr nocapture noundef writeonly %iter, ptr noundef %h, i64 noundef %value_units_per_bucket) local_unnamed_addr #5 {
+define dso_local void @hdr_iter_linear_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 56), (72, 128)) %iter, ptr noundef %h, i64 noundef %value_units_per_bucket) local_unnamed_addr #5 {
 entry:
   store ptr %h, ptr %iter, align 8
   %counts_index.i = getelementptr inbounds i8, ptr %iter, i64 8
@@ -2540,7 +2540,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @iter_linear_next(ptr nocapture noundef %iter) #1 {
+define internal noundef zeroext i1 @iter_linear_next(ptr nocapture noundef initializes((96, 104)) %iter) #1 {
 entry:
   %specifics = getelementptr inbounds i8, ptr %iter, i64 88
   %count_added_in_this_iteration_step = getelementptr inbounds i8, ptr %iter, i64 96
@@ -2652,7 +2652,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @hdr_iter_linear_set_value_units_per_bucket(ptr nocapture noundef writeonly %iter, i64 noundef %value_units_per_bucket) local_unnamed_addr #16 {
+define dso_local void @hdr_iter_linear_set_value_units_per_bucket(ptr nocapture noundef writeonly initializes((88, 96)) %iter, i64 noundef %value_units_per_bucket) local_unnamed_addr #16 {
 entry:
   %specifics = getelementptr inbounds i8, ptr %iter, i64 88
   store i64 %value_units_per_bucket, ptr %specifics, align 8
@@ -2660,7 +2660,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @hdr_iter_log_init(ptr nocapture noundef writeonly %iter, ptr noundef %h, i64 noundef %value_units_first_bucket, double noundef %log_base) local_unnamed_addr #5 {
+define dso_local void @hdr_iter_log_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 56), (72, 128)) %iter, ptr noundef %h, i64 noundef %value_units_first_bucket, double noundef %log_base) local_unnamed_addr #5 {
 entry:
   store ptr %h, ptr %iter, align 8
   %counts_index.i = getelementptr inbounds i8, ptr %iter, i64 8
@@ -2702,7 +2702,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @log_iter_next(ptr nocapture noundef %iter) #1 {
+define internal noundef zeroext i1 @log_iter_next(ptr nocapture noundef initializes((96, 104)) %iter) #1 {
 entry:
   %specifics = getelementptr inbounds i8, ptr %iter, i64 88
   %count_added_in_this_iteration_step = getelementptr inbounds i8, ptr %iter, i64 96

@@ -1165,7 +1165,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN26MLSceneGLSharedDataContextD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN26MLSceneGLSharedDataContextD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV26MLSceneGLSharedDataContext, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV26MLSceneGLSharedDataContext, i64 528), ptr %2, align 8
@@ -1620,7 +1620,7 @@ define void @_ZThn16_N26MLSceneGLSharedDataContextD0Ev(ptr noundef %0) unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN26MLSceneGLSharedDataContext29setMinFacesForSmoothRenderingEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) %0, i64 noundef %1) local_unnamed_addr #13 align 2 {
+define void @_ZN26MLSceneGLSharedDataContext29setMinFacesForSmoothRenderingEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) initializes((120, 128)) %0, i64 noundef %1) local_unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store i64 %1, ptr %3, align 8
   ret void

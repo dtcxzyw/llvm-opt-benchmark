@@ -89,7 +89,7 @@ $_ZNSt6vectorItSaItEE17_M_default_appendEm = comdat any
 @_ZN3gmx7MDAtomsC1Ev = unnamed_addr alias void (ptr), ptr @_ZN3gmx7MDAtomsC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx7MDAtomsC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx7MDAtomsC2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 40)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   invoke void @_ZN3gmx20HostAllocationPolicyC2ENS_13PinningPolicyE(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef 0)

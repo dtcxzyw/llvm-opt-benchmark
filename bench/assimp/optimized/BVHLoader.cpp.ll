@@ -400,7 +400,7 @@ declare void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp9BVHLoaderD2Ev(ptr noundef nonnull align 8 dereferenceable(177) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp9BVHLoaderD2Ev(ptr noundef nonnull align 8 dereferenceable(177) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp9BVHLoaderE, i64 16), ptr %this, align 8
   %mNodes = getelementptr inbounds i8, ptr %this, i64 144
@@ -474,7 +474,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN6Assimp12BaseImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp9BVHLoaderD0Ev(ptr noundef nonnull align 8 dereferenceable(177) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp9BVHLoaderD0Ev(ptr noundef nonnull align 8 dereferenceable(177) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6Assimp9BVHLoaderD2Ev(ptr noundef nonnull align 8 dereferenceable(177) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -494,7 +494,7 @@ entry:
 declare noundef zeroext i1 @_ZN6Assimp12BaseImporter24SearchFileHeaderForTokenEPNS_8IOSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKcmjbb(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp9BVHLoader15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(177) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 {
+define hidden void @_ZN6Assimp9BVHLoader15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(177) initializes((176, 177)) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.1, i32 noundef 0)
   %cmp = icmp ne i32 %call, 0
@@ -975,7 +975,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 declare void @_ZN6Assimp19SkeletonMeshBuilderC1EP7aiSceneP6aiNodeb(ptr noundef nonnull align 8 dereferenceable(73), ptr noundef, ptr noundef, i1 noundef zeroext) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp9BVHLoader15CreateAnimationEP7aiScene(ptr nocapture noundef nonnull readonly align 8 dereferenceable(177) %this, ptr nocapture noundef writeonly %pScene) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp9BVHLoader15CreateAnimationEP7aiScene(ptr nocapture noundef nonnull readonly align 8 dereferenceable(177) %this, ptr nocapture noundef writeonly initializes((48, 52), (56, 64)) %pScene) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nodeName = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator.0", align 1
@@ -2940,7 +2940,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 declare void @_ZN6aiNodeC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1144), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp9BVHLoader14ReadNodeOffsetEP6aiNode(ptr noundef nonnull align 8 dereferenceable(177) %this, ptr nocapture noundef writeonly %pNode) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN6Assimp9BVHLoader14ReadNodeOffsetEP6aiNode(ptr noundef nonnull align 8 dereferenceable(177) %this, ptr nocapture noundef writeonly initializes((1028, 1092)) %pNode) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef float @_ZN6Assimp9BVHLoader19GetNextTokenAsFloatEv(ptr noundef nonnull align 8 dereferenceable(177) %this)
   %call2 = tail call noundef float @_ZN6Assimp9BVHLoader19GetNextTokenAsFloatEv(ptr noundef nonnull align 8 dereferenceable(177) %this)

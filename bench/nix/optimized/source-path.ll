@@ -536,7 +536,7 @@ _ZNOSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE8value_orIRA7_KcEES3_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3nix10SourcePath6parentEv(ptr dead_on_unwind noalias writable sret(%"struct.nix::SourcePath") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3nix10SourcePath6parentEv(ptr dead_on_unwind noalias writable sret(%"struct.nix::SourcePath") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::optional.0", align 8
   %4 = alloca %"class.nix::CanonPath", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16

@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @base64url = internal constant [65 x i8] c"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_\00", align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 62) i32 @Curl_base64_decode(ptr nocapture noundef readonly %src, ptr nocapture noundef writeonly %outptr, ptr nocapture noundef writeonly %outlen) local_unnamed_addr #0 {
+define hidden range(i32 0, 62) i32 @Curl_base64_decode(ptr nocapture noundef readonly %src, ptr nocapture noundef writeonly initializes((0, 8)) %outptr, ptr nocapture noundef writeonly initializes((0, 8)) %outlen) local_unnamed_addr #0 {
 entry:
   %lookup = alloca [256 x i8], align 16
   store ptr null, ptr %outptr, align 8
@@ -189,14 +189,14 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_base64_encode(ptr nocapture noundef readonly %inputbuff, i64 noundef %insize, ptr nocapture noundef writeonly %outptr, ptr nocapture noundef writeonly %outlen) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_base64_encode(ptr nocapture noundef readonly %inputbuff, i64 noundef %insize, ptr nocapture noundef writeonly initializes((0, 8)) %outptr, ptr nocapture noundef writeonly initializes((0, 8)) %outlen) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @base64_encode(ptr noundef nonnull @base64encdec, ptr noundef %inputbuff, i64 noundef %insize, ptr noundef %outptr, ptr noundef %outlen)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 28) i32 @base64_encode(ptr nocapture noundef readonly %table64, ptr nocapture noundef readonly %inputbuff, i64 noundef %insize, ptr nocapture noundef writeonly %outptr, ptr nocapture noundef writeonly %outlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @base64_encode(ptr nocapture noundef readonly %table64, ptr nocapture noundef readonly %inputbuff, i64 noundef %insize, ptr nocapture noundef writeonly initializes((0, 8)) %outptr, ptr nocapture noundef writeonly initializes((0, 8)) %outlen) unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %table64, i64 64
   store ptr null, ptr %outptr, align 8
@@ -352,7 +352,7 @@ return:                                           ; preds = %if.end, %if.end81
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_base64url_encode(ptr nocapture noundef readonly %inputbuff, i64 noundef %insize, ptr nocapture noundef writeonly %outptr, ptr nocapture noundef writeonly %outlen) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_base64url_encode(ptr nocapture noundef readonly %inputbuff, i64 noundef %insize, ptr nocapture noundef writeonly initializes((0, 8)) %outptr, ptr nocapture noundef writeonly initializes((0, 8)) %outlen) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @base64_encode(ptr noundef nonnull @base64url, ptr noundef %inputbuff, i64 noundef %insize, ptr noundef %outptr, ptr noundef %outlen)
   ret i32 %call

@@ -3860,7 +3860,7 @@ _ZN8GraphKit7stoppedEv.exit.thread:               ; preds = %_ZN8GraphKit7stoppe
 declare noundef zeroext i1 @_ZN7Compile14too_many_trapsEN14Deoptimization11DeoptReasonEP12ciMethodData(ptr noundef nonnull align 8 dereferenceable(2316), i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16PreserveJVMStateC2EP8GraphKitb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN16PreserveJVMStateC2EP8GraphKitb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -3897,7 +3897,7 @@ define hidden void @_ZN16PreserveJVMStateD2Ev(ptr nocapture noundef nonnull read
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11BuildCutoutC2EP8GraphKitP4Nodeff(ptr nocapture noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull %1, ptr noundef %2, float noundef %3, float noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN11BuildCutoutC2EP8GraphKitP4Nodeff(ptr nocapture noundef nonnull align 8 dereferenceable(20) initializes((0, 20)) %0, ptr noundef nonnull %1, ptr noundef %2, float noundef %3, float noundef %4) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 40
   %7 = load ptr, ptr %6, align 8
@@ -4303,7 +4303,7 @@ define hidden void @_ZN11BuildCutoutD2Ev(ptr nocapture noundef nonnull readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN22PreserveReexecuteStateC2EP8GraphKit(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define hidden void @_ZN22PreserveReexecuteStateC2EP8GraphKit(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 80
   %4 = load i32, ptr %3, align 8
@@ -4440,7 +4440,7 @@ _ZN11PhaseValues10clear_typeEPK4Node.exit16:      ; preds = %31, %_ZN10Type_Arra
 declare void @_ZN4Node8destructEP11PhaseValues(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8GraphKit13set_map_cloneEP13SafePointNode(ptr nocapture noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8GraphKit13set_map_cloneEP13SafePointNode(ptr nocapture noundef nonnull align 8 dereferenceable(84) initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   %4 = tail call noundef ptr @_ZN8GraphKit9clone_mapEv(ptr noundef nonnull align 8 dereferenceable(84) %0)
@@ -4547,7 +4547,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %52, %50, %1, %6
 declare void @_ZN8ciMethod15liveness_at_bciEi(ptr dead_on_unwind writable sret(%class.MethodLivenessResult) align 8, ptr noundef nonnull align 8 dereferenceable(160), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8GraphKit19add_safepoint_edgesEP13SafePointNodeb(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8GraphKit19add_safepoint_edgesEP13SafePointNodeb(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef initializes((56, 64)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -14176,7 +14176,7 @@ define hidden noundef ptr @_ZN8GraphKit19dprecision_roundingEP4Node(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8GraphKit14null_check_oopEP4NodePS1_bbb(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN8GraphKit14null_check_oopEP4NodePS1_bbb(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 744
@@ -17858,7 +17858,7 @@ _ZN8GraphKit7stoppedEv.exit.thread:               ; preds = %4, %30, %85, %25, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN8GraphKit16seems_never_nullEP4NodeP11ProfileDataRb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(84) %0, ptr noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN8GraphKit16seems_never_nullEP4NodeP11ProfileDataRb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(84) %0, ptr noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 40
@@ -22755,7 +22755,7 @@ declare void @_ZN13SafePointNode11pop_monitorEv(ptr noundef nonnull align 8 dere
 declare noundef ptr @_ZN11OptoRuntime26complete_monitor_exit_TypeEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8GraphKit17get_layout_helperEP4NodeRi(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN8GraphKit17get_layout_helperEP4NodeRi(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 40

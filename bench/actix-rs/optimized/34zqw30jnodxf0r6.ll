@@ -818,7 +818,7 @@ define internal void @_ZN5bytes5bytes11static_drop17h7b0cc40933e82eb8E(ptr noali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5bytes5bytes12static_clone17h5d85fa132ab860c5E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, i64, { ptr } }) align 8 dereferenceable(32) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2, i64 noundef %3) unnamed_addr #5 {
+define internal void @_ZN5bytes5bytes12static_clone17h5d85fa132ab860c5E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, i64, { ptr } }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2, i64 noundef %3) unnamed_addr #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2748,7 +2748,7 @@ define hidden noundef nonnull align 8 dereferenceable(176) ptr @"_ZN9hashbrown11
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10actix_http4body5boxed7BoxBody3new17h4780e685c20cd1a0E.llvm.131133111252985069(ptr noalias nocapture noundef writeonly sret({ { i64, [4 x i64] } }) align 8 dereferenceable(40) %0) unnamed_addr #9 personality ptr @rust_eh_personality {
+define hidden void @_ZN10actix_http4body5boxed7BoxBody3new17h4780e685c20cd1a0E.llvm.131133111252985069(ptr noalias nocapture noundef writeonly sret({ { i64, [4 x i64] } }) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #9 personality ptr @rust_eh_personality {
   store i64 1, ptr %0, align 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.dd74362bd857f4caec9bddebb7ee75d1.33, ptr %.sroa.44.0..sroa_idx, align 8
@@ -10506,7 +10506,7 @@ define noundef zeroext i1 @"_ZN87_$LT$actix_http..h1..dispatcher.._..InternalBit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN109_$LT$actix_http..h1..dispatcher.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h53de8fcd0ddbcb72E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #5 {
+define void @"_ZN109_$LT$actix_http..h1..dispatcher.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h53de8fcd0ddbcb72E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 26), (32, 33)) %0, i8 noundef %1) unnamed_addr #5 {
   store ptr @anon.dd74362bd857f4caec9bddebb7ee75d1.57, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 6, ptr %.sroa.4.0..sroa_idx, align 8
@@ -10566,7 +10566,7 @@ define noundef zeroext i1 @"_ZN10actix_http2h110dispatcher1_83_$LT$impl$u20$core
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN10actix_http2h110dispatcher1_105_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$actix_http..h1..dispatcher..Flags$GT$9into_iter17hdfea2a32feb595a4E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #5 {
+define void @"_ZN10actix_http2h110dispatcher1_105_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$actix_http..h1..dispatcher..Flags$GT$9into_iter17hdfea2a32feb595a4E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 26), (32, 33)) %0, i8 noundef %1) unnamed_addr #5 {
   store ptr @anon.dd74362bd857f4caec9bddebb7ee75d1.57, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 6, ptr %.sroa.4.0..sroa_idx, align 8

@@ -1310,7 +1310,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_timer_settim
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @common_timer_del(ptr noundef %0) #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @common_timer_del(ptr noundef initializes((88, 96)) %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -3902,7 +3902,7 @@ declare dso_local i32 @put_old_timex32(ptr noundef, ptr noundef) local_unnamed_a
 declare dso_local i64 @do_no_restart_syscall(ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: write, inaccessiblemem: none)
-define internal noundef i32 @posix_get_hrtimer_res(i32 %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal noundef i32 @posix_get_hrtimer_res(i32 %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #5 align 16 {
   store i64 0, ptr %1, align 8
   %3 = load i32, ptr @hrtimer_resolution, align 4
   %4 = zext i32 %3 to i64
@@ -4277,7 +4277,7 @@ define internal noundef i32 @posix_get_monotonic_raw(i32 %0, ptr noundef %1) #1 
 declare dso_local void @ktime_get_raw_ts64(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @posix_get_coarse_res(i32 %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define internal noundef i32 @posix_get_coarse_res(i32 %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #1 align 16 {
   %3 = tail call { i64, i64 } @ns_to_timespec64(i64 noundef 1000000) #8
   %4 = extractvalue { i64, i64 } %3, 0
   %5 = extractvalue { i64, i64 } %3, 1
@@ -4331,7 +4331,7 @@ define internal noundef i32 @posix_get_monotonic_coarse(i32 %0, ptr noundef %1) 
 declare dso_local void @ktime_get_coarse_ts64(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @posix_get_boottime_timespec(i32 %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define internal noundef i32 @posix_get_boottime_timespec(i32 %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #1 align 16 {
   %3 = alloca %struct.timespec64, align 8
   %4 = tail call i64 @ktime_get_with_offset(i32 noundef 1) #8
   %5 = tail call { i64, i64 } @ns_to_timespec64(i64 noundef %4) #8
@@ -4371,7 +4371,7 @@ define internal i64 @posix_get_boottime_ktime(i32 %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @posix_get_tai_timespec(i32 %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define internal noundef i32 @posix_get_tai_timespec(i32 %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #1 align 16 {
   %3 = tail call i64 @ktime_get_with_offset(i32 noundef 2) #8
   %4 = tail call { i64, i64 } @ns_to_timespec64(i64 noundef %3) #8
   %5 = extractvalue { i64, i64 } %4, 0

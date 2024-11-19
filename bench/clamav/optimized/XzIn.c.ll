@@ -37,7 +37,7 @@ declare i32 @SeqInStream_Read2(ptr noundef, ptr noundef, i64 noundef, i32 nounde
 declare i32 @Xz_ParseHeader(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @XzBlock_ReadHeader(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define i32 @XzBlock_ReadHeader(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   store i32 0, ptr %3, align 4
   %6 = call i32 @SeqInStream_ReadByte(ptr noundef %1, ptr noundef nonnull %5) #9
@@ -138,7 +138,7 @@ define i64 @Xz_GetPackSize(ptr nocapture noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Xzs_Construct(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 {
+define void @Xzs_Construct(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }

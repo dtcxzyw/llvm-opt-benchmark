@@ -1149,7 +1149,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Ssc_GiaClassesInit(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @Ssc_GiaClassesInit(ptr nocapture noundef initializes((192, 208)) %0) local_unnamed_addr #4 {
   %2 = getelementptr i8, ptr %0, i64 24
   %.val18 = load i32, ptr %2, align 8
   %3 = sext i32 %.val18 to i64

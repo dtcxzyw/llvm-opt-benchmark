@@ -334,7 +334,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @init_task_state(ptr nocapture noundef writeonly %ts) local_unnamed_addr #0 {
+define dso_local void @init_task_state(ptr nocapture noundef writeonly initializes((40, 44), (9168, 9192)) %ts) local_unnamed_addr #0 {
 entry:
   %bt = alloca %struct.timespec, align 8
   %used = getelementptr inbounds i8, ptr %ts, i64 40

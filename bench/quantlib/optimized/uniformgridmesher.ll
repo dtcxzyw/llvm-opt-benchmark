@@ -78,7 +78,7 @@ $_ZTVN8QuantLib9FdmMesherE = comdat any
 @_ZN8QuantLib17UniformGridMesherC1ERKN5boost10shared_ptrINS_17FdmLinearOpLayoutEEERKSt6vectorISt4pairIddESaIS9_EE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN8QuantLib17UniformGridMesherC2ERKN5boost10shared_ptrINS_17FdmLinearOpLayoutEEERKSt6vectorISt4pairIddESaIS9_EE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17UniformGridMesherC2ERKN5boost10shared_ptrINS_17FdmLinearOpLayoutEEERKSt6vectorISt4pairIddESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %layout, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %boundaries) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17UniformGridMesherC2ERKN5boost10shared_ptrINS_17FdmLinearOpLayoutEEERKSt6vectorISt4pairIddESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %layout, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %boundaries) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp29 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -822,7 +822,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EED2Ev.exit: ; preds = %invoke.cont, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib17UniformGridMesher9locationsEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i64 noundef %d) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib17UniformGridMesher9locationsEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i64 noundef %d) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %layout_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %layout_, align 8, !tbaa !3

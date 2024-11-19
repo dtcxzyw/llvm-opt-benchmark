@@ -260,7 +260,7 @@ _ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit134: ; preds = %33
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc6b9735a7d342710E.llvm.14225396269139012787"(ptr noalias nocapture noundef writeonly sret({ i64, [9 x i64] }) align 8 dereferenceable(80) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #3 {
+define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc6b9735a7d342710E.llvm.14225396269139012787"(ptr noalias nocapture noundef writeonly sret({ i64, [9 x i64] }) align 8 dereferenceable(80) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
@@ -865,7 +865,7 @@ define hidden noundef zeroext i1 @"_ZN5salsa7runtime11local_state10LocalState17q
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN5salsa7runtime11local_state10LocalState12active_query28_$u7b$$u7b$closure$u7d$$u7d$17h1b4659131e3d5ecdE.llvm.14225396269139012787"(ptr noalias nocapture noundef writeonly sret({ i32, [2 x i32] }) align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #6 {
+define hidden void @"_ZN5salsa7runtime11local_state10LocalState12active_query28_$u7b$$u7b$closure$u7d$$u7d$17h1b4659131e3d5ecdE.llvm.14225396269139012787"(ptr noalias nocapture noundef writeonly sret({ i32, [2 x i32] }) align 4 dereferenceable(12) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %.not = icmp eq i64 %4, 0

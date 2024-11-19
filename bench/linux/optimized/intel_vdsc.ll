@@ -66,7 +66,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_dsc_compute_params(ptr noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 4768), (4772, 4774)) %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4762

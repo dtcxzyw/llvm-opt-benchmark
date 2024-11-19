@@ -165,7 +165,7 @@ define hidden noundef ptr @_ZN22ShenandoahBarrierSetC24bsc2Ev() local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27ShenandoahBarrierSetC2StateC2EP5Arena(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN27ShenandoahBarrierSetC2StateC2EP5Arena(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = tail call noundef ptr @_ZN6AnyObjnwEmP5Arena(i64 noundef 24, ptr noundef %1) #15
   %4 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 8, i32 noundef 8, ptr noundef %1) #15
   store i32 0, ptr %3, align 4

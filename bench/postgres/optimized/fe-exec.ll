@@ -1402,7 +1402,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @pqClearAsyncResult(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @pqClearAsyncResult(ptr nocapture noundef initializes((960, 961)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 952
   %3 = load ptr, ptr %2, align 8
   tail call void @PQclear(ptr noundef %3)
@@ -1417,7 +1417,7 @@ define void @pqClearAsyncResult(ptr nocapture noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @pqSaveErrorResult(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @pqSaveErrorResult(ptr nocapture noundef initializes((960, 961)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 952
   %3 = load ptr, ptr %2, align 8
   tail call void @PQclear(ptr noundef %3)
@@ -4256,7 +4256,7 @@ define range(i32 -1, 2) i32 @PQputCopyEnd(ptr noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PQgetCopyData(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @PQgetCopyData(ptr noundef %0, ptr noundef initializes((0, 8)) %1, i32 noundef %2) local_unnamed_addr #0 {
   store ptr null, ptr %1, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %4
@@ -4359,7 +4359,7 @@ define i32 @PQendcopy(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @pqEndcopy3(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define ptr @PQfn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define ptr @PQfn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef initializes((0, 4)) %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   store i32 0, ptr %3, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %36, label %8

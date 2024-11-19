@@ -751,7 +751,7 @@ define hidden noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr noundef %1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @jAttributeToCKAttribute(ptr dead_on_unwind noalias writable sret(%struct.CK_ATTRIBUTE) align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @jAttributeToCKAttribute(ptr dead_on_unwind noalias writable sret(%struct.CK_ATTRIBUTE) align 8 initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 248

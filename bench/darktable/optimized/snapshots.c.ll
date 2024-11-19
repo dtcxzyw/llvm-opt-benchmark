@@ -549,7 +549,7 @@ declare i32 @g_source_remove(i32 noundef) local_unnamed_addr #4
 declare i32 @g_timeout_add(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_snap_expose_again(ptr nocapture noundef writeonly %0) #1 {
+define internal noundef i32 @_snap_expose_again(ptr nocapture noundef writeonly initializes((12, 20)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8, !tbaa !33
   %3 = getelementptr inbounds i8, ptr %0, i64 12
@@ -818,7 +818,7 @@ define void @gui_reset(ptr nocapture noundef readonly %0) local_unnamed_addr #1 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_clear_snapshots(ptr nocapture %0) unnamed_addr #1 {
+define internal fastcc void @_clear_snapshots(ptr nocapture initializes((8, 16)) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8, !tbaa !23
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 72), align 8, !tbaa !101
@@ -863,7 +863,7 @@ define internal fastcc void @_clear_snapshots(ptr nocapture %0) unnamed_addr #1 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
   %2 = alloca [4096 x i8], align 16
   %3 = tail call noalias dereferenceable_or_null(1464) ptr @g_malloc0(i64 noundef 1464) #16
   %4 = getelementptr inbounds i8, ptr %0, i64 280
@@ -1199,7 +1199,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 declare void @dt_loc_get_tmp_dir(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_clear_snapshot_entry(ptr nocapture noundef %0) unnamed_addr #1 {
+define internal fastcc void @_clear_snapshot_entry(ptr nocapture noundef initializes((72, 80), (84, 88)) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8, !tbaa !30
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -1248,7 +1248,7 @@ define internal fastcc void @_clear_snapshot_entry(ptr nocapture noundef %0) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_init_snapshot_entry(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #1 {
+define internal fastcc void @_init_snapshot_entry(ptr noundef %0, ptr nocapture noundef initializes((0, 48)) %1) unnamed_addr #1 {
   %3 = tail call ptr @gtk_toggle_button_new() #14
   store ptr %3, ptr %1, align 8, !tbaa !109
   tail call void @gtk_widget_set_name(ptr noundef %3, ptr noundef nonnull @.str.15) #14

@@ -619,7 +619,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringCon
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_(double noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #4 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_(double noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 1)) %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #4 align 2 {
   %9 = bitcast double %0 to i64
   %.lobit = lshr i64 %9, 63
   %.sink = trunc nuw nsw i64 %.lobit to i8

@@ -3022,7 +3022,7 @@ define internal fastcc void @bind_tz(ptr noundef nonnull %0) unnamed_addr #1 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @thermal_zone_device_init(ptr noundef nonnull %0) unnamed_addr #1 align 16 {
+define internal fastcc void @thermal_zone_device_init(ptr noundef nonnull initializes((1040, 1048)) %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1040
   store i64 68719476704, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1048

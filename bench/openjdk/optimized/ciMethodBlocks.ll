@@ -174,7 +174,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE6appendERKS1_.exit
 declare noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN7ciBlock19set_exception_rangeEii(ptr nocapture noundef nonnull align 4 dereferenceable(28) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7ciBlock19set_exception_rangeEii(ptr nocapture noundef nonnull align 4 dereferenceable(28) initializes((20, 28)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %1, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -879,7 +879,7 @@ _ZN16ciBytecodeStream4nextEv.exit.thread:         ; preds = %_ZN16ciBytecodeStre
 declare noundef i32 @_ZNK20Bytecode_tableswitch14dest_offset_atEi(ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ciMethodBlocksC2EP5ArenaP8ciMethod(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ciMethodBlocksC2EP5ArenaP8ciMethod(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = alloca %class.ciExceptionHandlerStream, align 8
   %5 = alloca %class.ciExceptionHandlerStream, align 8
   store ptr %2, ptr %0, align 8
@@ -1335,7 +1335,7 @@ define hidden void @_ZN14ciMethodBlocks15clear_processedEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7ciBlockC2EP8ciMethodii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 align 2 {
+define hidden void @_ZN7ciBlockC2EP8ciMethodii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) initializes((0, 28)) %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 align 2 {
   store i32 %2, ptr %0, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %3, ptr %5, align 4

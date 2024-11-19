@@ -232,7 +232,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_759PCEBuffer5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_759PCEBuffer5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) initializes((264, 268)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %bufferIndex = getelementptr inbounds i8, ptr %this, i64 264
   store i32 0, ptr %bufferIndex, align 8
@@ -405,7 +405,7 @@ lpad:                                             ; preds = %call4.i.i.i.noexc, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513UCollationPCE4initEP18UCollationElements(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(292) %this, ptr noundef %elems) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_7513UCollationPCE4initEP18UCollationElements(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(292) initializes((272, 286), (288, 292)) %this, ptr noundef %elems) local_unnamed_addr #6 align 2 {
 entry:
   %status.i.i = alloca i32, align 4
   %cei.i = getelementptr inbounds i8, ptr %this, i64 272
@@ -493,7 +493,7 @@ lpad:                                             ; preds = %call4.i.i.noexc, %c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513UCollationPCE4initEPNS_24CollationElementIteratorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(292) %this, ptr noundef %iter) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_7513UCollationPCE4initEPNS_24CollationElementIteratorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(292) initializes((272, 286), (288, 292)) %this, ptr noundef %iter) local_unnamed_addr #6 align 2 {
 entry:
   %status.i = alloca i32, align 4
   %cei = getelementptr inbounds i8, ptr %this, i64 272
@@ -529,7 +529,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513UCollationPCE4initERKNS_8CollatorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(292) %this, ptr noundef nonnull align 8 dereferenceable(8) %coll) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_7513UCollationPCE4initERKNS_8CollatorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(292) initializes((280, 286), (288, 292)) %this, ptr noundef nonnull align 8 dereferenceable(8) %coll) local_unnamed_addr #6 align 2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4

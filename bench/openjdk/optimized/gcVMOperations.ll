@@ -405,7 +405,7 @@ define hidden void @_ZN9VM_Verify4doitEv(ptr nocapture nonnull readnone align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN15VM_GC_OperationD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN15VM_GC_OperationD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV15VM_GC_Operation, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 33
@@ -712,7 +712,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0
 declare void @_ZN14HeapInspection15heap_inspectionEP12outputStreamP13WorkerThreads(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN31VM_CollectForMetadataAllocationC2EP15ClassLoaderDatamN9Metaspace12MetadataTypeEjjN7GCCause5CauseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 align 2 {
+define hidden void @_ZN31VM_CollectForMetadataAllocationC2EP15ClassLoaderDatamN9Metaspace12MetadataTypeEjjN7GCCause5CauseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 26), (28, 33), (40, 60), (64, 72)) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 align 2 {
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24
@@ -747,7 +747,7 @@ declare void @_ZN11AllocTracer34send_allocation_requiring_gc_eventEmj(i64 nounde
 declare noundef i32 @_ZN4GCId4peekEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN31VM_CollectForMetadataAllocation4doitEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN31VM_CollectForMetadataAllocation4doitEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((40, 48)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.SvcGCMarker, align 1
   %3 = getelementptr inbounds i8, ptr %2, i64 1
   call void @_ZN13JvmtiGCMarkerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
@@ -893,7 +893,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23VM_CollectForAllocationC2EmjN7GCCause5CauseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN23VM_CollectForAllocationC2EmjN7GCCause5CauseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 26), (28, 33), (40, 56)) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24

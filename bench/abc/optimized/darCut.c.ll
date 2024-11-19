@@ -286,7 +286,7 @@ define void @Dar_ManCutsFree(ptr nocapture noundef %0) local_unnamed_addr #3 {
 declare void @Aig_MmFixedStop(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Dar_ObjPrepareCuts(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define ptr @Dar_ObjPrepareCuts(ptr nocapture noundef %0, ptr noundef initializes((40, 48)) %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -533,7 +533,7 @@ define void @Dar_ManCutsRestart(ptr nocapture noundef %0, ptr nocapture noundef 
 declare void @Aig_MmFixedRestart(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Dar_ObjComputeCuts(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define ptr @Dar_ObjComputeCuts(ptr nocapture noundef %0, ptr noundef initializes((40, 48)) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val67 = load ptr, ptr %4, align 8
   %5 = tail call ptr @Aig_ObjReal_rec(ptr noundef %.val67) #12

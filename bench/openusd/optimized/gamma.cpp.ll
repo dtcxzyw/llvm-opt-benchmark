@@ -39,7 +39,7 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGam
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec3dEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, double noundef %2) local_unnamed_addr #1 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec3dEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, double noundef %2) local_unnamed_addr #1 {
   %4 = load double, ptr %1, align 8
   %5 = tail call double @pow(double noundef %4, double noundef %2) #8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -224,7 +224,7 @@ define { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__12GfAp
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec4dEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec4d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, double noundef %2) local_unnamed_addr #1 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12GfApplyGammaERKNS_7GfVec4dEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec4d") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, double noundef %2) local_unnamed_addr #1 {
   %4 = load double, ptr %1, align 8
   %5 = tail call double @pow(double noundef %4, double noundef %2) #8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -431,7 +431,7 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertL
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKNS_7GfVec3dE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #5 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKNS_7GfVec3dE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %3 = load double, ptr %1, align 8, !noalias !10
@@ -484,7 +484,7 @@ define { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__24GfCo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKNS_7GfVec4dE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec4d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #5 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertLinearToDisplayERKNS_7GfVec4dE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec4d") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %3 = load double, ptr %1, align 8, !noalias !17
@@ -557,7 +557,7 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertD
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKNS_7GfVec3dE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #5 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKNS_7GfVec3dE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %3 = load double, ptr %1, align 8, !noalias !24
@@ -610,7 +610,7 @@ define { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__24GfCo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKNS_7GfVec4dE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec4d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #5 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__24GfConvertDisplayToLinearERKNS_7GfVec4dE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec4d") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %3 = load double, ptr %1, align 8, !noalias !31

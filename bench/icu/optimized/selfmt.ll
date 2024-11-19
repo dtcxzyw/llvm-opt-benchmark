@@ -615,7 +615,7 @@ declare void @_ZN6icu_756FormatC2ERKS0_(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN6icu_7514MessagePatternC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(127), ptr noundef nonnull align 8 dereferenceable(127)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7512SelectFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(456) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7512SelectFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(456) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512SelectFormatE, i64 16), ptr %this, align 8
   %msgPattern = getelementptr inbounds i8, ptr %this, i64 328
@@ -1050,7 +1050,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK6icu_7512SelectFormat11parseObjectERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos) unnamed_addr #9 align 2 {
+define void @_ZNK6icu_7512SelectFormat11parseObjectERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((12, 16)) %pos) unnamed_addr #9 align 2 {
 entry:
   %index.i = getelementptr inbounds i8, ptr %pos, i64 8
   %2 = load i32, ptr %index.i, align 8

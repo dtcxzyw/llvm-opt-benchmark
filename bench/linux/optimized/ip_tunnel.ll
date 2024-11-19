@@ -1438,7 +1438,7 @@ define dso_local range(i32 -34, 1) i32 @ip_tunnel_encap_del_ops(ptr noundef %0, 
 declare dso_local void @synchronize_net() local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @ip_tunnel_encap_setup(ptr nocapture noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @ip_tunnel_encap_setup(ptr nocapture noundef initializes((152, 160)) %0, ptr noundef %1) #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   store i64 0, ptr %3, align 8
   %4 = load i16, ptr %1, align 2
@@ -4480,7 +4480,7 @@ define internal fastcc ptr @__ip_tunnel_create(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 68, -2147483648) i32 @ip_tunnel_bind_dev(ptr nocapture noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 68, -2147483648) i32 @ip_tunnel_bind_dev(ptr nocapture noundef initializes((60, 62)) %0) unnamed_addr #3 align 16 {
   %2 = alloca %struct.flowi4, align 8
   %3 = getelementptr i8, ptr %0, i64 2452
   %4 = load i32, ptr %3, align 4
@@ -5195,7 +5195,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_tunnel_changelink(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ip_tunnel_init(ptr noundef %0) #3 align 16 {
+define dso_local i32 @ip_tunnel_init(ptr noundef initializes((1308, 1309), (1312, 1320)) %0) #3 align 16 {
   %2 = getelementptr i8, ptr %0, i64 2392
   %3 = getelementptr i8, ptr %0, i64 2424
   %4 = getelementptr inbounds i8, ptr %0, i64 1308
@@ -5377,7 +5377,7 @@ define dso_local void @ip_tunnel_uninit(ptr noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @ip_tunnel_setup(ptr nocapture noundef writeonly %0, i32 noundef %1) #14 align 16 {
+define dso_local void @ip_tunnel_setup(ptr nocapture noundef writeonly initializes((2476, 2480)) %0, i32 noundef %1) #14 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2476
   store i32 %1, ptr %3, align 4
   ret void

@@ -240,14 +240,14 @@ define dso_local void @_ZN4llvm19RISCVTargetStreamer20emitIntTextAttributeEjjNS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm19RISCVTargetStreamer12setTargetABIENS_8RISCVABI3ABIE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(22) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm19RISCVTargetStreamer12setTargetABIENS_8RISCVABI3ABIE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(22) initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm19RISCVTargetStreamer20setFlagsFromFeaturesERKNS_15MCSubtargetInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(22) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm19RISCVTargetStreamer20setFlagsFromFeaturesERKNS_15MCSubtargetInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(22) initializes((20, 22)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 17592186044416

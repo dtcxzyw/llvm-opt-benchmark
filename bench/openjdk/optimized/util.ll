@@ -2999,7 +2999,7 @@ isInterface.exit:                                 ; preds = %8, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @fieldModifiers(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden i32 @fieldModifiers(ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 4)) %2) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 4
   %4 = load ptr, ptr @gdata, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 528
@@ -3025,7 +3025,7 @@ define hidden i32 @fieldModifiers(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @methodModifiers(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden i32 @methodModifiers(ptr noundef %0, ptr noundef initializes((0, 4)) %1) local_unnamed_addr #0 {
   store i32 0, ptr %1, align 4
   %3 = load ptr, ptr @gdata, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 528
@@ -3051,7 +3051,7 @@ define hidden i32 @methodModifiers(ptr noundef %0, ptr noundef %1) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @methodClass(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden i32 @methodClass(ptr noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
   store ptr null, ptr %1, align 8
   %3 = load ptr, ptr @gdata, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 528
@@ -3272,7 +3272,7 @@ methodSignature.exit:                             ; preds = %20, %23
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @classLoader(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden i32 @classLoader(ptr noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
   store ptr null, ptr %1, align 8
   %3 = load ptr, ptr @gdata, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 528
@@ -4132,7 +4132,7 @@ ignore_vm_death.exit.thread:                      ; preds = %7, %19, %14, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @allThreads(ptr noundef %0) local_unnamed_addr #0 {
+define hidden ptr @allThreads(ptr noundef initializes((0, 4)) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store i32 0, ptr %0, align 4
   store ptr null, ptr %2, align 8
@@ -4518,7 +4518,7 @@ define hidden i32 @objectHashCode(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @allInterfaces(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden i32 @allInterfaces(ptr noundef %0, ptr noundef initializes((0, 8)) %1, ptr noundef initializes((0, 4)) %2) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 4
   store ptr null, ptr %1, align 8
   %4 = load ptr, ptr @gdata, align 8
@@ -4545,7 +4545,7 @@ define hidden i32 @allInterfaces(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @allLoadedClasses(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden i32 @allLoadedClasses(ptr noundef initializes((0, 8)) %0, ptr noundef initializes((0, 4)) %1) local_unnamed_addr #0 {
   store i32 0, ptr %1, align 4
   store ptr null, ptr %0, align 8
   %3 = load ptr, ptr @gdata, align 8
@@ -4572,7 +4572,7 @@ define hidden i32 @allLoadedClasses(ptr noundef %0, ptr noundef %1) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @allClassLoaderClasses(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden i32 @allClassLoaderClasses(ptr noundef %0, ptr noundef initializes((0, 8)) %1, ptr noundef initializes((0, 4)) %2) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 4
   store ptr null, ptr %1, align 8
   %4 = load ptr, ptr @gdata, align 8
@@ -4599,7 +4599,7 @@ define hidden i32 @allClassLoaderClasses(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @allNestedClasses(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden i32 @allNestedClasses(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

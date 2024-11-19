@@ -395,7 +395,7 @@ _ZNSt12__shared_ptrIN8facebook5velox9functions6detail17SIMDJsonExtractorELN9__gn
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringE(ptr noalias nocapture writeonly sret(%"struct.simdjson::simdjson_result") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %json) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringE(ptr noalias nocapture writeonly sret(%"struct.simdjson::simdjson_result") align 8 initializes((0, 49), (56, 60)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %json) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %.b = load i1, ptr @_ZGVZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, align 1
   br i1 %.b, label %if.end.i, label %init.check, !prof !4

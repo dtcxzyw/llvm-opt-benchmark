@@ -86,7 +86,7 @@ define noundef zeroext i8 @_ZNK2cv4gapi3wip6onevpl6Device8get_typeEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv4gapi3wip6onevpl7ContextC2EPvNS2_9AccelTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #6 align 2 {
+define void @_ZN2cv4gapi3wip6onevpl7ContextC2EPvNS2_9AccelTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #6 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %2, ptr %4, align 8
@@ -112,7 +112,7 @@ define noundef zeroext i8 @_ZNK2cv4gapi3wip6onevpl7Context8get_typeEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv4gapi3wip6onevpl15IDeviceSelector5ScoreC2Es(ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %0, i16 noundef signext %1) unnamed_addr #6 align 2 {
+define void @_ZN2cv4gapi3wip6onevpl15IDeviceSelector5ScoreC2Es(ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %0, i16 noundef signext %1) unnamed_addr #6 align 2 {
   store i16 %1, ptr %0, align 2
   ret void
 }

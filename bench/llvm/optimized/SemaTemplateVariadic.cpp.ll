@@ -3408,7 +3408,7 @@ declare i64 @_ZN5clang4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7VarDeclEbN
 declare noundef ptr @_ZN5clang4StmtnwEmRKNS_10ASTContextEj(i64 noundef, ptr noundef nonnull align 8 dereferenceable(23096), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema31CheckParameterPacksForExpansionENS_14SourceLocationENS_11SourceRangeEN4llvm8ArrayRefISt4pairINS3_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEEEES1_EEERKNS_30MultiLevelTemplateArgumentListERbSI_RSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %1, i64 %2, ptr readonly %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(117) %5, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %6, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(8) %8) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema31CheckParameterPacksForExpansionENS_14SourceLocationENS_11SourceRangeEN4llvm8ArrayRefISt4pairINS3_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEEEES1_EEERKNS_30MultiLevelTemplateArgumentListERbSI_RSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %1, i64 %2, ptr readonly %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(117) %5, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %6, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %7, ptr noundef nonnull align 4 dereferenceable(8) %8) local_unnamed_addr #0 align 2 {
   %10 = alloca %"struct.std::pair.1136", align 8
   %11 = alloca %"class.std::optional.748", align 8
   %12 = alloca ptr, align 8
@@ -64487,7 +64487,7 @@ _ZN5clang27CorrectionCandidateCallback11MatchesTypoERKNS_14TypoCorrectionE.exit.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_125ParameterPackValidatorCCC5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.2325") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_125ParameterPackValidatorCCC5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.2325") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_125ParameterPackValidatorCCCESt14default_deleteIS1_EED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21, !noalias !133
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8

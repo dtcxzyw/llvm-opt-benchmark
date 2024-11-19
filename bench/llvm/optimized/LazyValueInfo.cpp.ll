@@ -304,7 +304,7 @@ $_ZN4llvm12PatternMatch15LogicalOp_matchINS0_7bind_tyINS_5ValueEEES4_Lj29ELb0EE5
 @_ZN4llvm13LazyValueInfoD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm13LazyValueInfoD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm24LazyValueInfoWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm24LazyValueInfoWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 28), (32, 56)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.362, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4030,7 +4030,7 @@ declare noundef zeroext i1 @_ZN4llvm14isKnownNonZeroEPKNS_5ValueERKNS_13Simplify
 declare noundef ptr @_ZN4llvm19ConstantPointerNull3getEPNS_11PointerTypeE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17LazyValueInfoImpl19solveBlockValueCastEPNS_8CastInstEPNS_10BasicBlockE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17LazyValueInfoImpl19solveBlockValueCastEPNS_8CastInstEPNS_10BasicBlockE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 initializes((40, 41)) %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::optional.64", align 8
   %6 = alloca %"class.llvm::ValueLatticeElement", align 8
   %7 = alloca %"class.llvm::ConstantRange", align 8
@@ -5742,7 +5742,7 @@ _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit: ; preds = %1, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17LazyValueInfoImpl12getEdgeValueEPNS_5ValueEPNS_10BasicBlockES4_PNS_11InstructionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17LazyValueInfoImpl12getEdgeValueEPNS_5ValueEPNS_10BasicBlockES4_PNS_11InstructionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 initializes((40, 41)) %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::ValueLatticeElement", align 8
   %8 = alloca %"class.std::optional", align 8
   %9 = alloca %"class.std::optional", align 8
@@ -6989,7 +6989,7 @@ declare void @_ZNK4llvm13ConstantRange3subERKS0_(ptr dead_on_unwind writable sre
 declare noundef zeroext i1 @_ZN4llvm24isGuaranteedNotToBeUndefEPKNS_5ValueEPNS_15AssumptionCacheEPKNS_11InstructionEPKNS_13DominatorTreeEj(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17LazyValueInfoImpl11getRangeForEPNS_5ValueEPNS_11InstructionEPNS_10BasicBlockE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.64") align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17LazyValueInfoImpl11getRangeForEPNS_5ValueEPNS_11InstructionEPNS_10BasicBlockE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.64") align 8 initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::optional", align 8
   %7 = alloca %"class.llvm::ConstantRange", align 8
   call void @_ZN4llvm17LazyValueInfoImpl13getBlockValueEPNS_5ValueEPNS_10BasicBlockEPNS_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %6, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef %2, ptr noundef %4, ptr noundef %3)
@@ -10977,7 +10977,7 @@ declare void @_ZNK4llvm13ConstantRange10differenceERKS0_(ptr dead_on_unwind writ
 declare void @_ZNK4llvm13ConstantRange9unionWithERKS0_NS0_18PreferredRangeTypeE(ptr dead_on_unwind writable sret(%"class.llvm::ConstantRange") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17LazyValueInfoImpl15getValueInBlockEPNS_5ValueEPNS_10BasicBlockEPNS_11InstructionE(ptr dead_on_unwind noalias writable sret(%"class.llvm::ValueLatticeElement") align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17LazyValueInfoImpl15getValueInBlockEPNS_5ValueEPNS_10BasicBlockEPNS_11InstructionE(ptr dead_on_unwind noalias writable sret(%"class.llvm::ValueLatticeElement") align 8 initializes((0, 2)) %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::optional", align 8
   %7 = alloca %"class.std::optional", align 8
   call void @_ZN4llvm17LazyValueInfoImpl13getBlockValueEPNS_5ValueEPNS_10BasicBlockEPNS_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %6, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
@@ -11149,7 +11149,7 @@ _ZNSt8optionalIN4llvm19ValueLatticeElementEED2Ev.exit10: ; preds = %_ZN4llvm19Va
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17LazyValueInfoImpl10getValueAtEPNS_5ValueEPNS_11InstructionE(ptr dead_on_unwind noalias writable sret(%"class.llvm::ValueLatticeElement") align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17LazyValueInfoImpl10getValueAtEPNS_5ValueEPNS_11InstructionE(ptr dead_on_unwind noalias writable sret(%"class.llvm::ValueLatticeElement") align 8 initializes((0, 2)) %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::ValueLatticeElement", align 8
   %6 = load i8, ptr %2, align 8
   %7 = icmp ugt i8 %6, 21
@@ -11441,7 +11441,7 @@ _ZNSt8optionalIN4llvm19ValueLatticeElementEED2Ev.exit11: ; preds = %_ZN4llvm19Va
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17LazyValueInfoImpl13getValueAtUseERKNS_3UseE(ptr dead_on_unwind noalias writable sret(%"class.llvm::ValueLatticeElement") align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17LazyValueInfoImpl13getValueAtUseERKNS_3UseE(ptr dead_on_unwind noalias writable sret(%"class.llvm::ValueLatticeElement") align 8 initializes((0, 2)) %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::optional", align 8
   %5 = alloca %"class.std::optional", align 8
   %6 = alloca %"class.std::optional", align 8
@@ -12805,7 +12805,7 @@ _ZN12_GLOBAL__N_118LazyValueInfoCache5clearEv.exit: ; preds = %_ZN12_GLOBAL__N_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm24LazyValueInfoWrapperPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(161) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm24LazyValueInfoWrapperPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i8 1, ptr %3, align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(161) ptr @_ZN4llvm13AnalysisUsage13addRequiredIDERc(ptr noundef nonnull align 8 dereferenceable(161) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZN4llvm22AssumptionCacheTracker2IDE) #19
@@ -13381,7 +13381,7 @@ _ZN4llvm13LazyValueInfo13releaseMemoryEv.exit:    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17LazyValueAnalysis3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::LazyValueInfo") align 8 %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17LazyValueAnalysis3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::LazyValueInfo") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm18AssumptionAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %2) #19
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = tail call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %2) #19
@@ -15701,7 +15701,7 @@ _ZN12_GLOBAL__N_114LVIValueHandleD2Ev.exit:       ; preds = %154, %_ZN4llvm6deta
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_11PoisoningVHINS_10BasicBlockEEESt10unique_ptrIN12_GLOBAL__N_118LazyValueInfoCache15BlockCacheEntryESt14default_deleteIS8_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SB_EEEES4_SB_SD_SG_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_11PoisoningVHINS_10BasicBlockEEESt10unique_ptrIN12_GLOBAL__N_118LazyValueInfoCache15BlockCacheEntryESt14default_deleteIS8_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SB_EEEES4_SB_SD_SG_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -17037,7 +17037,7 @@ _ZN4llvm19ValueLatticeElementD2Ev.exit:           ; preds = %.lr.ph, %.lr.ph, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114LVIValueHandleENS_6detail13DenseSetEmptyENS_12DenseMapInfoIPNS_5ValueEvEENS4_12DenseSetPairIS3_EEEES3_S5_S9_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114LVIValueHandleENS_6detail13DenseSetEmptyENS_12DenseMapInfoIPNS_5ValueEvEENS4_12DenseSetPairIS3_EEEES3_S5_S9_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -21475,7 +21475,7 @@ declare noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noun
 declare void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4llvm12function_refIFSt8optionalINS_13ConstantRangeEERKNS_5APIntEEE11callback_fnIZNS_17LazyValueInfoImpl25getValueFromICmpConditionEPNS_5ValueEPNS_8ICmpInstEbbE3$_0EES3_lS6_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.64") align 8 %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %2) #0 align 2 {
+define internal void @"_ZN4llvm12function_refIFSt8optionalINS_13ConstantRangeEERKNS_5APIntEEE11callback_fnIZNS_17LazyValueInfoImpl25getValueFromICmpConditionEPNS_5ValueEPNS_8ICmpInstEbbE3$_0EES3_lS6_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.64") align 8 initializes((32, 33)) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %2) #0 align 2 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::ConstantRange", align 8

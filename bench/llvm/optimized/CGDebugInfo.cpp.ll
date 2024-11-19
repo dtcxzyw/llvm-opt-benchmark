@@ -688,7 +688,7 @@ $_ZGVZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEvE7NoneLoc = comdat
 @_ZN5clang7CodeGen24ApplyInlineDebugLocationD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang7CodeGen24ApplyInlineDebugLocationD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen11CGDebugInfoC2ERNS0_13CodeGenModuleE(ptr noundef nonnull align 8 dereferenceable(2472) %0, ptr noundef nonnull align 8 dereferenceable(3600) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen11CGDebugInfoC2ERNS0_13CodeGenModuleE(ptr noundef nonnull align 8 dereferenceable(2472) initializes((0, 13)) %0, ptr noundef nonnull align 8 dereferenceable(3600) %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 184
@@ -2481,7 +2481,7 @@ _ZN4llvm11SmallVectorINS_18TypedTrackingMDRefINS_6MDNodeEEELj4EED2Ev.exit27: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen18ApplyDebugLocationC2ERNS0_15CodeGenFunctionENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i32 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen18ApplyDebugLocationC2ERNS0_15CodeGenFunctionENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i32 %2) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -2653,7 +2653,7 @@ _ZN4llvm8DebugLocD2Ev.exit9:                      ; preds = %_ZN4llvm13IRBuilder
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen18ApplyDebugLocationC2ERNS0_15CodeGenFunctionEbNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i1 noundef zeroext %2, i32 %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen18ApplyDebugLocationC2ERNS0_15CodeGenFunctionEbNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i1 noundef zeroext %2, i32 %3) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -2796,7 +2796,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare void @_ZN4llvm8DebugLocC1EPKNS_10DILocationE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen18ApplyDebugLocationC2ERNS0_15CodeGenFunctionEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen18ApplyDebugLocationC2ERNS0_15CodeGenFunctionEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -2809,7 +2809,7 @@ define dso_local void @_ZN5clang7CodeGen18ApplyDebugLocationC2ERNS0_15CodeGenFun
 declare i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen18ApplyDebugLocationC2ERNS0_15CodeGenFunctionEN4llvm8DebugLocE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen18ApplyDebugLocationC2ERNS0_15CodeGenFunctionEN4llvm8DebugLocE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::DebugLoc", align 8
@@ -3017,7 +3017,7 @@ _ZN4llvm8DebugLocD2Ev.exit3:                      ; preds = %_ZN4llvm8DebugLocD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen24ApplyInlineDebugLocationC2ERNS0_15CodeGenFunctionENS_10GlobalDeclE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %2, i32 %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen24ApplyInlineDebugLocationC2ERNS0_15CodeGenFunctionENS_10GlobalDeclE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %2, i32 %3) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -6467,7 +6467,7 @@ declare void @_ZN4llvm4SHA14hashENS_8ArrayRefIhEE(ptr dead_on_unwind writable sr
 declare void @_ZN4llvm6SHA2564hashENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"struct.std::array.1267") align 1, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen11CGDebugInfo9getSourceERKNS_13SourceManagerENS_6FileIDE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.1268") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2472) %1, ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen11CGDebugInfo9getSourceERKNS_13SourceManagerENS_6FileIDE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.1268") align 8 initializes((16, 17)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2472) %1, ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i8, align 1
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 184
@@ -16414,7 +16414,7 @@ declare i64 @_ZNK5clang10ASTContext22getLValueReferenceTypeENS_8QualTypeEb(ptr n
 declare noundef ptr @_ZN5clang7CodeGen15ConstantEmitter12emitAbstractEPKNS_4ExprENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang7CodeGen11CGDebugInfo15GetTemplateArgsEPKNS_12FunctionDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.1428") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(2472) %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang7CodeGen11CGDebugInfo15GetTemplateArgsEPKNS_12FunctionDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.1428") align 8 initializes((24, 25)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(2472) %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef i32 @_ZNK5clang12FunctionDecl16getTemplatedKindEv(ptr noundef nonnull align 8 dereferenceable(168) %2) #24
   %5 = icmp eq i32 %4, 3
   br i1 %5, label %6, label %17
@@ -16452,7 +16452,7 @@ declare noundef ptr @_ZNK5clang12FunctionDecl29getTemplateSpecializationInfoEv(p
 declare noundef ptr @_ZNK5clang12FunctionDecl29getTemplateSpecializationArgsEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang7CodeGen11CGDebugInfo15GetTemplateArgsEPKNS_7VarDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.1428") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(2472) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang7CodeGen11CGDebugInfo15GetTemplateArgsEPKNS_7VarDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.1428") align 8 initializes((24, 25)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(2472) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 126
@@ -16487,7 +16487,7 @@ define dso_local void @_ZNK5clang7CodeGen11CGDebugInfo15GetTemplateArgsEPKNS_7Va
 declare noundef ptr @_ZNK5clang29VarTemplateSpecializationDecl22getSpecializedTemplateEv(ptr noundef nonnull align 8 dereferenceable(141)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang7CodeGen11CGDebugInfo15GetTemplateArgsEPKNS_10RecordDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.1428") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(2472) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang7CodeGen11CGDebugInfo15GetTemplateArgsEPKNS_10RecordDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.1428") align 8 initializes((24, 25)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(2472) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 127
@@ -24415,7 +24415,7 @@ declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseImE5emptyEv(ptr noundef no
 declare void @_ZN4llvm9DIBuilder19replaceVTableHolderERPNS_15DICompositeTypeEPNS_6DITypeE(ptr noundef nonnull align 8 dereferenceable(416), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen11CGDebugInfo24collectFunctionDeclPropsENS_10GlobalDeclEPN4llvm6DIFileERNS3_9StringRefES7_RPNS3_7DIScopeERNS3_24MDTupleTypedArrayWrapperINS3_6DINodeEEERNSC_7DIFlagsE(ptr noundef nonnull align 8 dereferenceable(2472) %0, i64 %1, i32 %2, ptr noundef %3, ptr nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull align 4 dereferenceable(4) %8) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen11CGDebugInfo24collectFunctionDeclPropsENS_10GlobalDeclEPN4llvm6DIFileERNS3_9StringRefES7_RPNS3_7DIScopeERNS3_24MDTupleTypedArrayWrapperINS3_6DINodeEEERNSC_7DIFlagsE(ptr noundef nonnull align 8 dereferenceable(2472) %0, i64 %1, i32 %2, ptr noundef %3, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %4, ptr nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull align 4 dereferenceable(4) %8) local_unnamed_addr #0 align 2 {
   %10 = alloca %"class.std::optional.1428", align 8
   %11 = and i64 %1, -8
   %12 = inttoptr i64 %11 to ptr
@@ -24686,7 +24686,7 @@ _ZN5clang7CodeGen11CGDebugInfo29CollectFunctionTemplateParamsEPKNS_12FunctionDec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen11CGDebugInfo19collectVarDeclPropsEPKNS_7VarDeclERPN4llvm6DIFileERjRNS_8QualTypeERNS5_9StringRefESD_RPNS5_7MDTupleERPNS5_7DIScopeE(ptr noundef nonnull align 8 dereferenceable(2472) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %8) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen11CGDebugInfo19collectVarDeclPropsEPKNS_7VarDeclERPN4llvm6DIFileERjRNS_8QualTypeERNS5_9StringRefESD_RPNS5_7MDTupleERPNS5_7DIScopeE(ptr noundef nonnull align 8 dereferenceable(2472) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %4, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %5, ptr nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %7, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %8) local_unnamed_addr #0 align 2 {
   %10 = alloca %"class.std::optional.1428", align 8
   %11 = alloca %"class.clang::PresumedLoc", align 8
   %12 = alloca %"class.llvm::APInt", align 8
@@ -28874,7 +28874,7 @@ _ZNSt6vectorIN4llvm18TypedTrackingMDRefINS0_7DIScopeEEESaIS3_EE8pop_backEv.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, ptr } @_ZN5clang7CodeGen11CGDebugInfo28EmitTypeForVarWithBlocksAttrEPKNS_7VarDeclEPm(ptr noundef nonnull align 8 dereferenceable(2472) %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, ptr } @_ZN5clang7CodeGen11CGDebugInfo28EmitTypeForVarWithBlocksAttrEPKNS_7VarDeclEPm(ptr noundef nonnull align 8 dereferenceable(2472) %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.1828", align 8
   %5 = alloca i8, align 1
   %6 = alloca i32, align 4

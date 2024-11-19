@@ -121,7 +121,7 @@ declare void @_ZN10JavaThreadC2EPFvPS_S0_Em8MEMFLAGS(ptr noundef nonnull align 8
 declare void @_ZN16ArenaStatCounterC1Ev(ptr noundef nonnull align 8 dereferenceable(76)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14CompilerThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1880) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN14CompilerThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1880) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV14CompilerThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1800
   %3 = load ptr, ptr %2, align 8
@@ -151,7 +151,7 @@ define hidden void @_ZN14CompilerThreadD2Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZN10JavaThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1800)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14CompilerThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(1880) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN14CompilerThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(1880) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV14CompilerThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1800
   %3 = load ptr, ptr %2, align 8
@@ -179,7 +179,7 @@ _ZN14CompilerThreadD2Ev.exit:                     ; preds = %6, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN14CompilerThread12set_compilerEP16AbstractCompiler(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1880) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN14CompilerThread12set_compilerEP16AbstractCompiler(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1880) initializes((1848, 1849), (1856, 1864)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %3
 

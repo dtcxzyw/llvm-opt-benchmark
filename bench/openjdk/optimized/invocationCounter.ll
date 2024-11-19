@@ -11,13 +11,13 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17InvocationCounter4initEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17InvocationCounter4initEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0) local_unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17InvocationCounter3setEjj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17InvocationCounter3setEjj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = shl i32 %1, 1
   %5 = and i32 %2, 1
   %6 = or disjoint i32 %5, %4

@@ -8682,7 +8682,7 @@ define internal fastcc i32 @generate_ue_id_for_heur(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @copy_address_wmem(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @copy_address_wmem(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 24)) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 4
   %6 = load i32, ptr %5, align 4
@@ -8721,7 +8721,7 @@ declare noalias ptr @wmem_tree_new_autoreset(ptr noundef, ptr noundef) local_unn
 declare ptr @wmem_epan_scope() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_pch_conversation_info_for_heur(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @fill_pch_conversation_info_for_heur(ptr nocapture noundef writeonly initializes((0, 50), (56, 60), (64, 76), (1104, 1108), (1368, 1372), (132684, 132685)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 1, ptr %3, align 4

@@ -359,7 +359,7 @@ _ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts.exit: ; preds = %16, %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL24pj_molodensky_forward_3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_XYZ) align 8 %0, ptr nocapture noundef byval(%struct.PJ_LPZ) align 8 %1, ptr noundef %2) #0 {
+define internal void @_ZL24pj_molodensky_forward_3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_XYZ) align 8 initializes((0, 24)) %0, ptr nocapture noundef byval(%struct.PJ_LPZ) align 8 %1, ptr noundef %2) #0 {
   %4 = alloca %struct.PJ_LPZ, align 8
   %5 = alloca %struct.PJ_LPZ, align 8
   %6 = alloca %union.PJ_COORD, align 8
@@ -414,7 +414,7 @@ define internal void @_ZL24pj_molodensky_forward_3d6PJ_LPZP8PJconsts(ptr dead_on
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_LPZ) align 8 %0, ptr nocapture noundef readonly byval(%struct.PJ_XYZ) align 8 %1, ptr noundef %2) #0 {
+define internal void @_ZL24pj_molodensky_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_LPZ) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.PJ_XYZ) align 8 %1, ptr noundef %2) #0 {
   %4 = alloca %struct.PJ_LPZ, align 8
   %5 = alloca %struct.PJ_LPZ, align 8
   %6 = alloca %struct.PJ_LPZ, align 8
@@ -629,7 +629,7 @@ declare void @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef, ptr noundef, ...) l
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef byval(%struct.PJ_LPZ) align 8 %1, ptr nocapture noundef readonly %2) unnamed_addr #4 {
+define internal fastcc void @_ZL20calc_abridged_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 24)) %0, ptr nocapture noundef byval(%struct.PJ_LPZ) align 8 %1, ptr nocapture noundef readonly %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = load double, ptr %1, align 8
@@ -751,7 +751,7 @@ _ZL2RNddd.exit:                                   ; preds = %_ZL2RMddd.exit, %56
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef byval(%struct.PJ_LPZ) align 8 %1, ptr nocapture noundef readonly %2) unnamed_addr #4 {
+define internal fastcc void @_ZL20calc_standard_params6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 24)) %0, ptr nocapture noundef byval(%struct.PJ_LPZ) align 8 %1, ptr nocapture noundef readonly %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = load double, ptr %1, align 8

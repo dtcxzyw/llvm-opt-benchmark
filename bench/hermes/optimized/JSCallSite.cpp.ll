@@ -59,7 +59,7 @@ declare void @_ZN6hermes2vm17JSObjectBuildMetaEPKNS0_6GCCellERNS0_8Metadata7Buil
 declare void @_ZN6hermes2vm8Metadata7Builder8addFieldEPKcPKNS0_13GCPointerBaseE(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm10JSCallSiteC2ERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS4_INS0_11HiddenClassEEENS4_INS0_7JSErrorEEEm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %parent.coerce, ptr nocapture readonly %clazz.coerce, ptr nocapture readonly %error.coerce, i64 noundef %stackFrameIndex) unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes2vm10JSCallSiteC2ERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS4_INS0_11HiddenClassEEENS4_INS0_7JSErrorEEEm(ptr noundef nonnull align 8 dereferenceable(32) initializes((4, 24)) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %parent.coerce, ptr nocapture readonly %clazz.coerce, ptr nocapture readonly %error.coerce, i64 noundef %stackFrameIndex) unnamed_addr #1 align 2 {
 entry:
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %parent.coerce, align 8
   %and.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i, 281474976710655

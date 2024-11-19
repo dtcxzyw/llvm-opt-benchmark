@@ -56431,7 +56431,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL14sobel_gradientIfEvRKN18OpenImageIO_v2_6_08ImageBufERKNS1_8IteratorIffEEPfS8_S8_(ptr noundef nonnull align 8 dereferenceable(16) %src, ptr nocapture noundef nonnull readonly align 8 dereferenceable(125) %dstpix, ptr nocapture noundef writeonly %h, ptr nocapture noundef %dh_ds, ptr nocapture noundef %dh_dt) #5 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL14sobel_gradientIfEvRKN18OpenImageIO_v2_6_08ImageBufERKNS1_8IteratorIffEEPfS8_S8_(ptr noundef nonnull align 8 dereferenceable(16) %src, ptr nocapture noundef nonnull readonly align 8 dereferenceable(125) %dstpix, ptr nocapture noundef writeonly %h, ptr nocapture noundef initializes((0, 4)) %dh_ds, ptr nocapture noundef initializes((0, 4)) %dh_dt) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %srcpix = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator", align 8
   store float 0.000000e+00, ptr %dh_dt, align 4
@@ -56594,7 +56594,7 @@ _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit: ; preds = %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL15normal_gradientRKN18OpenImageIO_v2_6_08ImageBufERKNS0_8IteratorIffEEPfS7_S7_(ptr noundef nonnull align 8 dereferenceable(16) %src, ptr nocapture noundef nonnull readonly align 8 dereferenceable(125) %dstpix, ptr nocapture noundef writeonly %h, ptr nocapture noundef writeonly %dh_ds, ptr nocapture noundef writeonly %dh_dt) #5 {
+define internal void @_ZL15normal_gradientRKN18OpenImageIO_v2_6_08ImageBufERKNS0_8IteratorIffEEPfS7_S7_(ptr noundef nonnull align 8 dereferenceable(16) %src, ptr nocapture noundef nonnull readonly align 8 dereferenceable(125) %dstpix, ptr nocapture noundef writeonly initializes((0, 4)) %h, ptr nocapture noundef writeonly initializes((0, 4)) %dh_ds, ptr nocapture noundef writeonly initializes((0, 4)) %dh_dt) #5 {
 entry:
   %n = alloca [3 x float], align 4
   %m_x.i = getelementptr inbounds i8, ptr %dstpix, i64 60
@@ -56916,7 +56916,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL14sobel_gradientIhEvRKN18OpenImageIO_v2_6_08ImageBufERKNS1_8IteratorIffEEPfS8_S8_(ptr noundef nonnull align 8 dereferenceable(16) %src, ptr nocapture noundef nonnull readonly align 8 dereferenceable(125) %dstpix, ptr nocapture noundef writeonly %h, ptr nocapture noundef %dh_ds, ptr nocapture noundef %dh_dt) #5 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL14sobel_gradientIhEvRKN18OpenImageIO_v2_6_08ImageBufERKNS1_8IteratorIffEEPfS8_S8_(ptr noundef nonnull align 8 dereferenceable(16) %src, ptr nocapture noundef nonnull readonly align 8 dereferenceable(125) %dstpix, ptr nocapture noundef writeonly %h, ptr nocapture noundef initializes((0, 4)) %dh_ds, ptr nocapture noundef initializes((0, 4)) %dh_dt) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %srcpix = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.236", align 8
   store float 0.000000e+00, ptr %dh_dt, align 4
@@ -57375,7 +57375,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL14sobel_gradientI4halfEvRKN18OpenImageIO_v2_6_08ImageBufERKNS2_8IteratorIffEEPfS9_S9_(ptr noundef nonnull align 8 dereferenceable(16) %src, ptr nocapture noundef nonnull readonly align 8 dereferenceable(125) %dstpix, ptr nocapture noundef writeonly %h, ptr nocapture noundef %dh_ds, ptr nocapture noundef %dh_dt) #5 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL14sobel_gradientI4halfEvRKN18OpenImageIO_v2_6_08ImageBufERKNS2_8IteratorIffEEPfS9_S9_(ptr noundef nonnull align 8 dereferenceable(16) %src, ptr nocapture noundef nonnull readonly align 8 dereferenceable(125) %dstpix, ptr nocapture noundef writeonly %h, ptr nocapture noundef initializes((0, 4)) %dh_ds, ptr nocapture noundef initializes((0, 4)) %dh_dt) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %srcpix = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.240", align 8
   store float 0.000000e+00, ptr %dh_dt, align 4
@@ -57835,7 +57835,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL14sobel_gradientItEvRKN18OpenImageIO_v2_6_08ImageBufERKNS1_8IteratorIffEEPfS8_S8_(ptr noundef nonnull align 8 dereferenceable(16) %src, ptr nocapture noundef nonnull readonly align 8 dereferenceable(125) %dstpix, ptr nocapture noundef writeonly %h, ptr nocapture noundef %dh_ds, ptr nocapture noundef %dh_dt) #5 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL14sobel_gradientItEvRKN18OpenImageIO_v2_6_08ImageBufERKNS1_8IteratorIffEEPfS8_S8_(ptr noundef nonnull align 8 dereferenceable(16) %src, ptr nocapture noundef nonnull readonly align 8 dereferenceable(125) %dstpix, ptr nocapture noundef writeonly %h, ptr nocapture noundef initializes((0, 4)) %dh_ds, ptr nocapture noundef initializes((0, 4)) %dh_dt) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %srcpix = alloca %"class.OpenImageIO_v2_6_0::ImageBuf::ConstIterator.244", align 8
   store float 0.000000e+00, ptr %dh_dt, align 4

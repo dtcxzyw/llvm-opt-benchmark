@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5ZXing6QRCode6WriterC1Ev = unnamed_addr alias void (ptr), ptr @_ZN5ZXing6QRCode6WriterC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5ZXing6QRCode6WriterC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define void @_ZN5ZXing6QRCode6WriterC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) initializes((0, 9), (12, 17), (20, 24)) %0) unnamed_addr #0 align 2 {
   store i32 4, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4

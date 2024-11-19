@@ -29,7 +29,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_759NFRuleSetD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_759NFRuleSetD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_759NFRuleSetC2EPNS_21RuleBasedNumberFormatEPNS_13UnicodeStringEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(163) %this, ptr noundef %_owner, ptr noundef %descriptions, i32 noundef %index, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_759NFRuleSetC2EPNS_21RuleBasedNumberFormatEPNS_13UnicodeStringEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(163) initializes((8, 18), (72, 88), (136, 144)) %this, ptr noundef %_owner, ptr noundef %descriptions, i32 noundef %index, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8

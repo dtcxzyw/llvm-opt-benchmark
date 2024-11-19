@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @bitMapRank = external local_unnamed_addr global [16 x i16], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 2) i32 @_Z14ConvertFromPBNPKcPA4_j(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z14ConvertFromPBNPKcPA4_j(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 64)) %1) local_unnamed_addr #0 {
 .preheader.preheader:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1, i8 0, i64 64, i1 false)
   br label %.preheader

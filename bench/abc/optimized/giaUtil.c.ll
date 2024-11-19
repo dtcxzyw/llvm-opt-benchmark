@@ -2615,7 +2615,7 @@ define void @Gia_ManCreateValueRefs(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Gia_ManCreateRefs(ptr nocapture noundef %0) local_unnamed_addr #15 {
+define void @Gia_ManCreateRefs(ptr nocapture noundef initializes((144, 152)) %0) local_unnamed_addr #15 {
   %2 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %2, align 8
   %3 = sext i32 %.val to i64
@@ -4289,7 +4289,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @Gia_ObjRecognizeMuxLits(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #17 {
+define i32 @Gia_ObjRecognizeMuxLits(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #17 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = call ptr @Gia_ObjRecognizeMux(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6)
@@ -4496,7 +4496,7 @@ define range(i32 -2147483647, -2147483648) i32 @Gia_NodeRef_rec(ptr noundef %0, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @Gia_ManPoMffcSize(ptr noundef %0) local_unnamed_addr #15 {
+define range(i32 -2147483647, -2147483648) i32 @Gia_ManPoMffcSize(ptr noundef initializes((144, 152)) %0) local_unnamed_addr #15 {
   tail call void @Gia_ManCreateRefs(ptr noundef %0)
   %2 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %2, align 8
@@ -4743,7 +4743,7 @@ tailrecurse:                                      ; preds = %27
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @Gia_NodeMffcSizeSupp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define range(i32 -2147483647, -2147483648) i32 @Gia_NodeMffcSizeSupp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 616
@@ -6405,7 +6405,7 @@ Vec_IntFind.exit:                                 ; preds = %15, %Vec_IntPush.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManPrintCone(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define void @Gia_ManPrintCone(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef initializes((4, 8)) %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 0, ptr %6, align 4
   %7 = icmp sgt i32 %3, 0
@@ -6532,7 +6532,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManPrintConeMulti(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 {
+define void @Gia_ManPrintConeMulti(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef initializes((4, 8)) %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   tail call fastcc void @Vec_IntAppend(ptr noundef %3, ptr noundef %2)

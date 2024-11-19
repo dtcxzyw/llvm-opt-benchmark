@@ -41,7 +41,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN12MonitorChunkD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN12MonitorChunkD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12MonitorChunkC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN12MonitorChunkC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
   %3 = sext i32 %1 to i64
   %4 = shl nsw i64 %3, 4

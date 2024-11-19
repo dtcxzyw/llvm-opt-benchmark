@@ -2860,7 +2860,7 @@ declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr 
 declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 17) i32 @setipaddr(ptr nocapture noundef readonly %state, ptr noundef %name, ptr noundef nonnull %addr_ret, i64 noundef range(i64 16, 129) %addr_ret_size, i32 noundef range(i32 0, 11) %af) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 17) i32 @setipaddr(ptr nocapture noundef readonly %state, ptr noundef %name, ptr noundef nonnull initializes((0, 16)) %addr_ret, i64 noundef range(i64 16, 129) %addr_ret_size, i32 noundef range(i32 0, 11) %af) unnamed_addr #0 {
 entry:
   %hints = alloca %struct.addrinfo, align 8
   %res = alloca ptr, align 8
@@ -9243,7 +9243,7 @@ return:                                           ; preds = %sw.default15, %sw.b
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sock_accept_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef %data) #0 {
+define internal range(i32 0, 2) i32 @sock_accept_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef initializes((16, 20)) %data) #0 {
 entry:
   %addrbuf = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load ptr, ptr %addrbuf, align 8
@@ -11128,7 +11128,7 @@ declare i32 @_PyBytes_Resize(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sock_recv_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef %data) #0 {
+define internal range(i32 0, 2) i32 @sock_recv_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef initializes((24, 32)) %data) #0 {
 entry:
   %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
@@ -11150,7 +11150,7 @@ declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unna
 declare ptr @PyLong_FromSsize_t(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sock_recvfrom_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef %data) #0 {
+define internal range(i32 0, 2) i32 @sock_recvfrom_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef initializes((40, 48)) %data) #0 {
 entry:
   %addrbuf = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %addrbuf, align 8
@@ -11179,7 +11179,7 @@ entry:
 declare i64 @recvfrom(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sock_send_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef %data) #0 {
+define internal range(i32 0, 2) i32 @sock_send_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef initializes((24, 32)) %data) #0 {
 entry:
   %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
@@ -11201,7 +11201,7 @@ declare i64 @send(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unna
 declare i64 @PyTuple_Size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sock_sendto_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef %data) #0 {
+define internal range(i32 0, 2) i32 @sock_sendto_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef initializes((32, 40)) %data) #0 {
 entry:
   %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
@@ -11582,7 +11582,7 @@ declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sock_recvmsg_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef %data) #0 {
+define internal range(i32 0, 2) i32 @sock_recvmsg_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef initializes((16, 24)) %data) #0 {
 entry:
   %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
@@ -11734,7 +11734,7 @@ Py_XDECREF.exit:                                  ; preds = %finally, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sock_sendmsg_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef %data) #0 {
+define internal range(i32 0, 2) i32 @sock_sendmsg_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef initializes((16, 24)) %data) #0 {
 entry:
   %sock_fd = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8

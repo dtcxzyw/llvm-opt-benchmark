@@ -224,7 +224,7 @@ $_ZTIN5ceres30DynamicNumericDiffCostFunctionINS_12CostFunctionELNS_21NumericDiff
 @_ZN5ceres15GradientCheckerC1EPKNS_12CostFunctionEPKSt6vectorIPKNS_8ManifoldESaIS7_EERKNS_18NumericDiffOptionsE = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN5ceres15GradientCheckerC2EPKNS_12CostFunctionEPKSt6vectorIPKNS_8ManifoldESaIS7_EERKNS_18NumericDiffOptionsE
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres15GradientCheckerC2EPKNS_12CostFunctionEPKSt6vectorIPKNS_8ManifoldESaIS7_EERKNS_18NumericDiffOptionsE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres15GradientCheckerC2EPKNS_12CostFunctionEPKSt6vectorIPKNS_8ManifoldESaIS7_EERKNS_18NumericDiffOptionsE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.google::LogMessageFatal", align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.std::unique_ptr.8", align 8

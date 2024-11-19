@@ -91,7 +91,7 @@ $_ZGVZN13RelocIterator22opt_virtual_call_relocEvE5proto = comdat any
 @_ZN10CompiledICC1EP13RelocIterator = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN10CompiledICC2EP13RelocIterator
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16CompiledICLockerC2EP7nmethod(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN16CompiledICLockerC2EP7nmethod(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 17)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr @_ZN29CompiledICProtectionBehaviour8_currentE, align 8
@@ -453,7 +453,7 @@ _ZN13RelocIterator18virtual_call_relocEv.exit:    ; preds = %1, %4, %6
 declare noundef ptr @_ZN23virtual_call_Relocation12cached_valueEv(ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10CompiledICC2EP13RelocIterator(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN10CompiledICC2EP13RelocIterator(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8

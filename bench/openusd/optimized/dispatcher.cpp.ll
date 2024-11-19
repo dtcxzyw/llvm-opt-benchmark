@@ -52,7 +52,7 @@ $_ZN3tbb6detail2d113segment_tableIN32pxrInternal_v0_24__pxrReserved__16TfErrorTr
 @_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcherD1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcherD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(345) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(345) initializes((12, 14), (32, 48), (64, 72)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 1, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32

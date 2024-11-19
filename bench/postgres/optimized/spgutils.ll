@@ -757,7 +757,7 @@ define dso_local ptr @getSpGistTupleDesc(ptr nocapture noundef readonly %0, ptr 
 declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @initSpGistState(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @initSpGistState(ptr nocapture noundef initializes((0, 72)) %0, ptr noundef %1) local_unnamed_addr #0 {
   store ptr %1, ptr %0, align 8
   %3 = tail call ptr @spgGetCache(ptr noundef %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 8

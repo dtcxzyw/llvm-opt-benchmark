@@ -20,7 +20,7 @@ $_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN6Assimp13SGSpatialSort5Ent
 @_ZN6Assimp13SGSpatialSortD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6Assimp13SGSpatialSortD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6Assimp13SGSpatialSortC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13SGSpatialSortC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont4:
   %y.i = getelementptr inbounds i8, ptr %this, i64 4
   %z.i = getelementptr inbounds i8, ptr %this, i64 8

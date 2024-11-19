@@ -1205,7 +1205,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjN3ue28flat_setINS2_12PositionInfoESt4lessIS4_ESaIS4_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ue212_GLOBAL__N_122GlushkovBuildStateImplD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ue212_GLOBAL__N_122GlushkovBuildStateImplD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_122GlushkovBuildStateImplE, i64 16), ptr %this, align 8
   %successors = getelementptr inbounds i8, ptr %this, i64 48
@@ -1226,7 +1226,7 @@ _ZNSt3mapIjN3ue28flat_setINS0_12PositionInfoESt4lessIS2_ESaIS2_EEES3_IjESaISt4pa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ue212_GLOBAL__N_122GlushkovBuildStateImplD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ue212_GLOBAL__N_122GlushkovBuildStateImplD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_122GlushkovBuildStateImplE, i64 16), ptr %this, align 8
   %successors.i = getelementptr inbounds i8, ptr %this, i64 48

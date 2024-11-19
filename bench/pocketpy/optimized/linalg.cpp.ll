@@ -5756,7 +5756,7 @@ define void @_ZN4pkpy6Mat3x3C2Ev(ptr nocapture nonnull readnone align 4 %0) unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4pkpy6Mat3x3C2Efffffffff(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(36) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9) unnamed_addr #6 align 2 {
+define void @_ZN4pkpy6Mat3x3C2Efffffffff(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(36) initializes((0, 36)) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9) unnamed_addr #6 align 2 {
   store float %1, ptr %0, align 4
   %11 = getelementptr inbounds i8, ptr %0, i64 4
   store float %2, ptr %11, align 4

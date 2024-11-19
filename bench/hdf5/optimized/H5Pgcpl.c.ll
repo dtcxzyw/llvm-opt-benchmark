@@ -992,7 +992,7 @@ define internal noundef i32 @H5P__gcrt_group_info_enc(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__gcrt_group_info_dec(ptr nocapture noundef %0, ptr nocapture noundef %1) #3 {
+define internal noundef i32 @H5P__gcrt_group_info_dec(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 16)) %1) #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @H5G_def_ginfo_g, i64 16, i1 false)
   %3 = load ptr, ptr %0, align 8
   %4 = load i8, ptr %3, align 1

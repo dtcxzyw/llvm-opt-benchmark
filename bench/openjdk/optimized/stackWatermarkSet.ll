@@ -66,7 +66,7 @@ $_ZN5frameC2EPlS0_S0_Ph = comdat any
 @_ZN15StackWatermarksD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN15StackWatermarksD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15StackWatermarksC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN15StackWatermarksC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -100,14 +100,14 @@ define hidden noundef ptr @_ZN17StackWatermarkSet4headEP10JavaThread(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17StackWatermarkSet8set_headEP10JavaThreadP14StackWatermark(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17StackWatermarkSet8set_headEP10JavaThreadP14StackWatermark(ptr nocapture noundef writeonly initializes((1376, 1384)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1376
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN17StackWatermarkSet13add_watermarkEP10JavaThreadP14StackWatermark(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17StackWatermarkSet13add_watermarkEP10JavaThreadP14StackWatermark(ptr nocapture noundef %0, ptr noundef initializes((24, 32)) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1376
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24

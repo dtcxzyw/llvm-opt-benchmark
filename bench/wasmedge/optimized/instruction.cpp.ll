@@ -774,7 +774,7 @@ $_ZTIN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE = comdat any
 @.str.179 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader10loadOpCodeEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader10loadOpCodeEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cxx20::expected.0", align 4
   %4 = alloca %"class.cxx20::expected.37", align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 168
@@ -7284,7 +7284,7 @@ _ZNSt6vectorIN8WasmEdge3AST11Instruction15CatchDescriptorESaIS3_EE15_M_erase_at_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr %.0.val, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_1clERj"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 initializes((0, 1), (4, 8)) %0, ptr %.0.val, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cxx20::expected.37", align 4
   %4 = alloca %"class.cxx20::unexpected", align 4
   %5 = alloca %"class.WasmEdge::ErrCode", align 4
@@ -7401,7 +7401,7 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit:    ; preds = %_ZNSt11shared_lockI
 declare void @_ZN8WasmEdge6Loader6Loader12loadHeapTypeENS_8TypeCodeENS_11ASTNodeAttrE(ptr dead_on_unwind writable sret(%"class.cxx20::expected.120") align 4, ptr noundef nonnull align 8 dereferenceable(360), i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr %.0.val, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_2clERh"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 initializes((0, 1), (4, 8)) %0, ptr %.0.val, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cxx20::expected.0", align 4
   %4 = alloca %"class.cxx20::unexpected", align 4
   %5 = alloca %"class.WasmEdge::ErrCode", align 4
@@ -7641,7 +7641,7 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit: ; preds = %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_4clERj"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr %.0.val, ptr %.8.val, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge6Loader6Loader15loadInstructionERNS_3AST11InstructionEENK3$_4clERj"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 initializes((0, 1), (4, 8)) %0, ptr %.0.val, ptr %.8.val, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cxx20::expected.0", align 4
   %4 = alloca %"class.cxx20::unexpected", align 4
   %5 = alloca %"class.WasmEdge::ErrCode", align 4

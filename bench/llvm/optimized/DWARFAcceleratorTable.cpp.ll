@@ -2266,7 +2266,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14DWARFFormValueELb1EE28reserveForParamAndG
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21AppleAcceleratorTable5EntryC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(149) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm21AppleAcceleratorTable5EntryC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(149) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.llvm::DWARFFormValue", align 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm21DWARFAcceleratorTable5EntryE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3716,7 +3716,7 @@ _ZNK4llvm21AppleAcceleratorTable11readIthHashEj.exit: ; preds = %64, %66
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm21AppleAcceleratorTable24readStringFromStrSectionEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.65") align 8 %0, ptr noundef nonnull align 8 dereferenceable(149) %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4llvm21AppleAcceleratorTable24readStringFromStrSectionEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.65") align 8 initializes((16, 17)) %0, ptr noundef nonnull align 8 dereferenceable(149) %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %"class.llvm::Error", align 8
@@ -3911,7 +3911,7 @@ _ZN4llvm9DictScopeD2Ev.exit:                      ; preds = %83, %85
 declare { ptr, i64 } @_ZN4llvm5dwarf12FormatStringENS0_11DwarfFormatE(i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15DWARFDebugNames6Header7extractERKNS_18DWARFDataExtractorEPm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr nocapture noundef %3) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm15DWARFDebugNames6Header7extractERKNS_18DWARFDataExtractorEPm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 9), (10, 40)) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr nocapture noundef %3) local_unnamed_addr #3 align 2 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.llvm::DataExtractor::Cursor", align 8
@@ -4041,7 +4041,7 @@ _ZN4llvm13DataExtractor6CursorD2Ev.exit:          ; preds = %_ZN4llvm5ErrorD2Ev.
 declare void @_ZNK4llvm13DataExtractor4skipERNS0_6CursorEm(ptr noundef nonnull align 8 dereferenceable(18), ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm15DWARFDebugNames6Header7extractERKNS_18DWARFDataExtractorEPmENK3$_0clENS_5ErrorE"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i64 %.0.val, ptr nocapture noundef nonnull %1) unnamed_addr #3 align 2 {
+define internal fastcc void @"_ZZN4llvm15DWARFDebugNames6Header7extractERKNS_18DWARFDataExtractorEPmENK3$_0clENS_5ErrorE"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 initializes((0, 8)) %0, i64 %.0.val, ptr nocapture noundef nonnull %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -4213,7 +4213,7 @@ _ZN4llvm9DictScopeD2Ev.exit:                      ; preds = %40, %_ZN4llvmplERKN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm15DWARFDebugNames13AbbrevMapInfo11getEmptyKeyEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::DWARFDebugNames::Abbrev") align 8 %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN4llvm15DWARFDebugNames13AbbrevMapInfo11getEmptyKeyEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::DWARFDebugNames::Abbrev") align 8 initializes((0, 14), (16, 40)) %0) local_unnamed_addr #9 align 2 {
   store i64 0, ptr %0, align 8, !alias.scope !183
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8, !alias.scope !183
@@ -4225,7 +4225,7 @@ define dso_local void @_ZN4llvm15DWARFDebugNames13AbbrevMapInfo11getEmptyKeyEv(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm15DWARFDebugNames13AbbrevMapInfo15getTombstoneKeyEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::DWARFDebugNames::Abbrev") align 8 %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN4llvm15DWARFDebugNames13AbbrevMapInfo15getTombstoneKeyEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::DWARFDebugNames::Abbrev") align 8 initializes((0, 14), (16, 40)) %0) local_unnamed_addr #9 align 2 {
 _ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EED2Ev.exit:
   store i64 0, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4238,7 +4238,7 @@ _ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15DWARFDebugNames9NameIndex24extractAttributeEncodingEPm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm15DWARFDebugNames9NameIndex24extractAttributeEncodingEPm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.llvm::Error", align 8
@@ -4462,7 +4462,7 @@ _ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15DWARFDebugNames9NameIndex13extractAbbrevEPm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.118") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm15DWARFDebugNames9NameIndex13extractAbbrevEPm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.118") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.llvm::Error", align 8
@@ -4566,7 +4566,7 @@ _ZN4llvm8ExpectedISt6vectorINS_15DWARFDebugNames17AttributeEncodingESaIS3_EEED2E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm5dwarf21findDebugNamesOffsetsEmRKNS_15DWARFDebugNames6HeaderE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::DWARFDebugNames::DWARFDebugNamesOffsets") align 8 %0, i64 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) local_unnamed_addr #10 {
+define dso_local void @_ZN4llvm5dwarf21findDebugNamesOffsetsEmRKNS_15DWARFDebugNames6HeaderE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::DWARFDebugNames::DWARFDebugNamesOffsets") align 8 initializes((0, 48)) %0, i64 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i8, ptr %4, align 8
   %switch.i = icmp eq i8 %5, 0
@@ -4620,7 +4620,7 @@ define dso_local void @_ZN4llvm5dwarf21findDebugNamesOffsetsEmRKNS_15DWARFDebugN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15DWARFDebugNames9NameIndex7extractEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(160) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm15DWARFDebugNames9NameIndex7extractEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(160) initializes((24, 33), (34, 64)) %1) local_unnamed_addr #3 align 2 {
 _ZN4llvm5ErrorD2Ev.exit:
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
@@ -4824,7 +4824,7 @@ _ZN4llvm8ExpectedINS_15DWARFDebugNames6AbbrevEED2Ev.exit: ; preds = %91, %93, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15DWARFDebugNames5EntryC2ERKNS0_9NameIndexERKNS0_6AbbrevE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm15DWARFDebugNames5EntryC2ERKNS0_9NameIndexERKNS0_6AbbrevE(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm21DWARFAcceleratorTable5EntryE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6413,7 +6413,7 @@ _ZN4llvm15DWARFDebugNames5EntryD2Ev.exit:         ; preds = %103, %98, %_ZN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm15DWARFDebugNames9NameIndex17getNameTableEntryEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::DWARFDebugNames::NameTableEntry") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4llvm15DWARFDebugNames9NameIndex17getNameTableEntryEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::DWARFDebugNames::NameTableEntry") align 8 initializes((0, 28), (32, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -7712,7 +7712,7 @@ _ZN4llvm9DictScopeD2Ev.exit:                      ; preds = %.lr.ph, %84, %_ZN4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15DWARFDebugNames7extractEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm15DWARFDebugNames7extractEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.llvm::DWARFDebugNames::NameIndex", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -8621,7 +8621,7 @@ _ZN4llvm15DWARFDebugNames13ValueIterator29searchFromStartOfCurrentIndexEv.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15DWARFDebugNames13ValueIteratorC2ERKS0_NS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1, ptr %2, i64 %3) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm15DWARFDebugNames13ValueIteratorC2ERKS0_NS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 9), (200, 201), (208, 216)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1, ptr %2, i64 %3) unnamed_addr #3 align 2 {
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -8693,7 +8693,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15DWARFDebugNames13ValueIteratorC2ERKNS0_9NameIndexENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr %2, i64 %3) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm15DWARFDebugNames13ValueIteratorC2ERKNS0_9NameIndexENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 9), (200, 201), (208, 216)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr %2, i64 %3) unnamed_addr #3 align 2 {
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.std::allocator", align 1
   store ptr %1, ptr %0, align 8

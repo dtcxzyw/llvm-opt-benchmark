@@ -1378,7 +1378,7 @@ _ZN2cv4face11FacemarkAAM6ParamsD2Ev.exit:         ; preds = %_ZN2cv3PtrINS_4face
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4face15FacemarkAAMImplC2ERKNS0_11FacemarkAAM6ParamsE(ptr noundef nonnull align 8 dereferenceable(449) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(88) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4face15FacemarkAAMImplC2ERKNS0_11FacemarkAAM6ParamsE(ptr noundef nonnull align 8 dereferenceable(449) initializes((0, 56)) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(88) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = getelementptr inbounds i8, ptr %1, i64 24
@@ -1618,7 +1618,7 @@ define hidden void @_ZTv0_n40_NK2cv4face15FacemarkAAMImpl5writeERNS_11FileStorag
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef zeroext i1 @_ZN2cv4face15FacemarkAAMImpl15setFaceDetectorEPFbRKNS_11_InputArrayERKNS_12_OutputArrayEPvES8_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(449) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZN2cv4face15FacemarkAAMImpl15setFaceDetectorEPFbRKNS_11_InputArrayERKNS_12_OutputArrayEPvES8_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(449) initializes((432, 448)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 432
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 440

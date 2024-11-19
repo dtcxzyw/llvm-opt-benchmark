@@ -905,7 +905,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @submodules_of_tree(ptr noundef %r, ptr noundef %treeish_name, ptr nocapture noundef %out) local_unnamed_addr #0 {
+define dso_local void @submodules_of_tree(ptr noundef %r, ptr noundef %treeish_name, ptr nocapture noundef initializes((0, 16)) %out) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @xcalloc(i64 noundef 0, i64 noundef 24) #14
   store ptr %call, ptr %out, align 8

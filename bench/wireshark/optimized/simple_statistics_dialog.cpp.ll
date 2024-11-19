@@ -2717,7 +2717,7 @@ define linkonce_odr void @_ZN30SimpleStatisticsTreeWidgetItem7rowDataEv(ptr dead
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN22SimpleStatisticsDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22SimpleStatisticsDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8), (16, 24)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV22SimpleStatisticsDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV22SimpleStatisticsDialog, i64 560), ptr %2, align 8

@@ -4572,7 +4572,7 @@ terminate.lpad:                                   ; preds = %lpad82, %lpad72
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012OpenEXRInput5closeEv(ptr nocapture noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012OpenEXRInput5closeEv(ptr nocapture noundef nonnull align 8 dereferenceable(312) initializes((256, 264), (272, 276), (280, 284)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_input_multipart = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load ptr, ptr %m_input_multipart, align 8
@@ -7303,7 +7303,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Imf_2_56Header4typ
 declare noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_2_56Header15tileDescriptionEv(ptr noundef nonnull align 8 dereferenceable(49)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012OpenEXRInput8PartInfo14query_channelsEPS0_PKN7Imf_2_56HeaderE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %in, ptr noundef nonnull %header) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012OpenEXRInput8PartInfo14query_channelsEPS0_PKN7Imf_2_56HeaderE(ptr noundef nonnull align 8 dereferenceable(272) initializes((68, 72)) %this, ptr noundef %in, ptr noundef nonnull %header) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__val.sroa.7.i606 = alloca <{ i32, i32, i32 }>, align 8
   %__val.sroa.7.i457 = alloca <{ i32, i32, i32 }>, align 8
@@ -40835,7 +40835,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare void @_ZN18OpenImageIO_v2_6_05debugENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderEEE9constructIS2_JPKcRiRKN7Imf_2_57ChannelEEEEvRS3_PT_DpOT0_(ptr nocapture noundef writeonly %__p, ptr %__args.0.val, i32 %__args1.0.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(13) %__args3) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt16allocator_traitsISaIN18OpenImageIO_v2_6_012_GLOBAL__N_114ChanNameHolderEEE9constructIS2_JPKcRiRKN7Imf_2_57ChannelEEEEvRS3_PT_DpOT0_(ptr nocapture noundef writeonly initializes((0, 76)) %__p, ptr %__args.0.val, i32 %__args1.0.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(13) %__args3) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not.i.i = icmp eq ptr %__args.0.val, null
   br i1 %tobool.not.i.i, label %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.i, label %cond.true.i.i

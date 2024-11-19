@@ -100,7 +100,7 @@ $_ZTI13b3OpenCLArrayI10b3SortDataE = comdat any
 @_ZN15b3RadixSort32CLD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN15b3RadixSort32CLD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15b3RadixSort32CLC2EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %queue, i32 noundef %initialCapacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15b3RadixSort32CLC2EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((0, 64), (104, 105)) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %queue, i32 noundef %initialCapacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont16:
   %info = alloca %struct.b3OpenCLDeviceInfo, align 8
   %pErrNum = alloca i32, align 4
@@ -334,7 +334,7 @@ declare void @_ZN14b3PrefixScanCLC1EP11_cl_contextP13_cl_device_idP17_cl_command
 declare void @_ZN8b3FillCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queue(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15b3RadixSort32CLD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15b3RadixSort32CLD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV15b3RadixSort32CL, i64 16), ptr %this, align 8
   %m_scan = getelementptr inbounds i8, ptr %this, i64 112
@@ -499,7 +499,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15b3RadixSort32CLD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZN15b3RadixSort32CLD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN15b3RadixSort32CLD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15

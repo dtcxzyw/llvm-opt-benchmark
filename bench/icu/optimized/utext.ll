@@ -4689,7 +4689,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL16unistrTextAccessP5UTextla(ptr nocapture noundef %ut, i64 noundef %index, i8 noundef signext %forward) #2 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL16unistrTextAccessP5UTextla(ptr nocapture noundef initializes((40, 44)) %ut, i64 noundef %index, i8 noundef signext %forward) #2 {
 entry:
   %chunkLength = getelementptr inbounds i8, ptr %ut, i64 44
   %0 = load i32, ptr %chunkLength, align 4

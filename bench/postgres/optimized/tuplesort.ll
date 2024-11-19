@@ -188,7 +188,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 declare void @pg_rusage_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tuplesort_begin_batch(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @tuplesort_begin_batch(ptr nocapture noundef initializes((64, 72), (112, 118), (128, 136), (168, 176), (184, 188), (192, 194)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -1126,7 +1126,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @pg_rusage_show(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @inittapes(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @inittapes(ptr noundef initializes((144, 148)) %0, i1 noundef zeroext %1) unnamed_addr #0 {
   br i1 %1, label %3, label %10
 
 3:                                                ; preds = %2
@@ -1910,7 +1910,7 @@ define internal fastcc void @tuplesort_sort_memtuples(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mergeruns(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @mergeruns(ptr noundef initializes((200, 224)) %0) unnamed_addr #0 {
   %2 = alloca %struct.TapeShare, align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -3272,7 +3272,7 @@ define dso_local void @tuplesort_restorepos(ptr nocapture noundef %0) local_unna
 declare void @LogicalTapeSeek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @tuplesort_get_stats(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local void @tuplesort_get_stats(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp ne ptr %4, null
@@ -3425,7 +3425,7 @@ declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @tuplesort_initialize_shared(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @tuplesort_initialize_shared(ptr noundef initializes((0, 1), (4, 12)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !22
   store i8 0, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4

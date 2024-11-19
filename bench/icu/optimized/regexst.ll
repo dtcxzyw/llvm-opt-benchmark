@@ -664,7 +664,7 @@ declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet
 declare ptr @utext_openUChars_75(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7515RegexStaticSetsD2Ev(ptr noundef nonnull align 8 dereferenceable(3840) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7515RegexStaticSetsD2Ev(ptr noundef nonnull align 8 dereferenceable(3840) initializes((3824, 3832)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fRuleDigitsAlias = getelementptr inbounds i8, ptr %this, i64 3824
   store ptr null, ptr %fRuleDigitsAlias, align 8

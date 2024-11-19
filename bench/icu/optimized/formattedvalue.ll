@@ -495,7 +495,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524ConstrainedFieldPositionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7524ConstrainedFieldPositionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %this, i8 0, i64 25, i1 false)
   ret void
@@ -508,14 +508,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524ConstrainedFieldPosition5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN6icu_7524ConstrainedFieldPosition5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %this) local_unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %this, i8 0, i64 25, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524ConstrainedFieldPosition17constrainCategoryEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, i32 noundef %category) local_unnamed_addr #7 align 2 {
+define void @_ZN6icu_7524ConstrainedFieldPosition17constrainCategoryEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((20, 25)) %this, i32 noundef %category) local_unnamed_addr #7 align 2 {
 entry:
   %fConstraint = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %fConstraint, align 8
@@ -525,7 +525,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524ConstrainedFieldPosition14constrainFieldEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, i32 noundef %category, i32 noundef %field) local_unnamed_addr #7 align 2 {
+define void @_ZN6icu_7524ConstrainedFieldPosition14constrainFieldEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((8, 12), (20, 25)) %this, i32 noundef %category, i32 noundef %field) local_unnamed_addr #7 align 2 {
 entry:
   %fConstraint = getelementptr inbounds i8, ptr %this, i64 24
   store i8 2, ptr %fConstraint, align 8
@@ -537,7 +537,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524ConstrainedFieldPosition24setInt64IterationContextEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, i64 noundef %context) local_unnamed_addr #7 align 2 {
+define void @_ZN6icu_7524ConstrainedFieldPosition24setInt64IterationContextEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 8)) %this, i64 noundef %context) local_unnamed_addr #7 align 2 {
 entry:
   store i64 %context, ptr %this, align 8
   ret void
@@ -584,7 +584,7 @@ return:                                           ; preds = %entry, %sw.bb4, %sw
 declare void @abort() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524ConstrainedFieldPosition8setStateEiiii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, i32 noundef %category, i32 noundef %field, i32 noundef %start, i32 noundef %limit) local_unnamed_addr #7 align 2 {
+define void @_ZN6icu_7524ConstrainedFieldPosition8setStateEiiii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((8, 24)) %this, i32 noundef %category, i32 noundef %field, i32 noundef %start, i32 noundef %limit) local_unnamed_addr #7 align 2 {
 entry:
   %fCategory = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %category, ptr %fCategory, align 4

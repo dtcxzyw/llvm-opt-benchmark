@@ -4044,7 +4044,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5clang7targets14AllocateTargetERKN4llvm6TripleERKNS_13TargetOptionsE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) local_unnamed_addr #0 {
+define hidden void @_ZN5clang7targets14AllocateTargetERKN4llvm6TripleERKNS_13TargetOptionsE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2) local_unnamed_addr #0 {
   %4 = alloca %"class.std::unique_ptr.13", align 8
   %5 = alloca %"class.std::unique_ptr.21", align 8
   %6 = alloca %"class.std::unique_ptr.29", align 8

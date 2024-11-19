@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__PRETTY_FUNCTION__.get_score = private unnamed_addr constant [140 x i8] c"void get_score(enum badness, unsigned int, const struct filter *, const struct char_spec *, const struct char_spec *, int32_t *, int32_t *)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @filter_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @filter_init(ptr nocapture noundef writeonly initializes((0, 131072)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131072) %0, i8 -1, i64 131072, i1 false)
   ret void
 }

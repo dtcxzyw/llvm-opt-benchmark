@@ -606,7 +606,7 @@ declare ptr @EVP_PKEY_get0_EC_KEY(ptr noundef) local_unnamed_addr #1
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i64 @tls12_get_psigalgs(ptr nocapture noundef readnone %ssl, ptr nocapture noundef writeonly %psigs) local_unnamed_addr #6 {
+define hidden noundef i64 @tls12_get_psigalgs(ptr nocapture noundef readnone %ssl, ptr nocapture noundef writeonly initializes((0, 8)) %psigs) local_unnamed_addr #6 {
 entry:
   store ptr @tls12_sigalgs, ptr %psigs, align 8
   ret i64 16
@@ -1609,7 +1609,7 @@ return:                                           ; preds = %ssl_check_serverhel
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @tls_process_ticket(ptr noundef %ssl, ptr nocapture noundef writeonly %out_session, ptr nocapture noundef writeonly %out_renew_ticket, ptr noundef %ticket, i64 noundef %ticket_len, ptr nocapture noundef readonly %session_id, i64 noundef %session_id_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @tls_process_ticket(ptr noundef %ssl, ptr nocapture noundef writeonly initializes((0, 8)) %out_session, ptr nocapture noundef writeonly initializes((0, 4)) %out_renew_ticket, ptr noundef %ticket, i64 noundef %ticket_len, ptr nocapture noundef readonly %session_id, i64 noundef %session_id_len) local_unnamed_addr #0 {
 entry:
   %hmac_ctx = alloca %struct.hmac_ctx_st, align 8
   %cipher_ctx = alloca %struct.evp_cipher_ctx_st, align 8
@@ -2836,7 +2836,7 @@ return:                                           ; preds = %lor.lhs.false21, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ext_ticket_parse_serverhello(ptr nocapture noundef writeonly %ssl, ptr nocapture readnone %out_alert, ptr noundef %contents) #0 {
+define internal range(i32 0, 2) i32 @ext_ticket_parse_serverhello(ptr nocapture noundef writeonly initializes((296, 300)) %ssl, ptr nocapture readnone %out_alert, ptr noundef %contents) #0 {
 entry:
   %tlsext_ticket_expected = getelementptr inbounds i8, ptr %ssl, i64 296
   store i32 0, ptr %tlsext_ticket_expected, align 8
@@ -2995,7 +2995,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ext_ocsp_init(ptr nocapture noundef %ssl) #13 {
+define internal void @ext_ocsp_init(ptr nocapture noundef initializes((388, 392)) %ssl) #13 {
 entry:
   %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -3971,7 +3971,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @ext_srtp_init(ptr nocapture noundef writeonly %ssl) #6 {
+define internal void @ext_srtp_init(ptr nocapture noundef writeonly initializes((336, 344)) %ssl) #6 {
 entry:
   %srtp_profile = getelementptr inbounds i8, ptr %ssl, i64 336
   store ptr null, ptr %srtp_profile, align 8

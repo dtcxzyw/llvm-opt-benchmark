@@ -1010,7 +1010,7 @@ _ZN3gmx30AnalysisDataDisplacementModule12dataFinishedEv.exit: ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx30AnalysisDataDisplacementModule4ImplC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0) unnamed_addr #8 align 2 {
+define void @_ZN3gmx30AnalysisDataDisplacementModule4ImplC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 13), (16, 80)) %0) unnamed_addr #8 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %2, align 4
@@ -1143,7 +1143,7 @@ declare void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dere
 declare void @llvm.trap() #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3gmx30AnalysisDataDisplacementModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx30AnalysisDataDisplacementModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8), (16, 24)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx30AnalysisDataDisplacementModuleE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx30AnalysisDataDisplacementModuleE, i64 120), ptr %2, align 8

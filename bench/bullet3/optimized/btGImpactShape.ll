@@ -318,7 +318,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN22btGImpactMeshShapePartD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22btGImpactMeshShapePartD2Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV23btGImpactShapeInterface, i64 16), ptr %this, align 8
   %m_data.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -356,7 +356,7 @@ _ZN23btGImpactShapeInterfaceD2Ev.exit:            ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN22btGImpactMeshShapePartD0Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22btGImpactMeshShapePartD0Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV23btGImpactShapeInterface, i64 16), ptr %this, align 8
   %m_data.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -484,7 +484,7 @@ _ZN22btGImpactMeshShapePart23TrimeshPrimitiveManager6unlockEv.exit: ; preds = %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK22btGImpactCompoundShape21calculateLocalInertiaEfR9btVector3(ptr noundef nonnull align 8 dereferenceable(264) %this, float noundef %mass, ptr nocapture noundef nonnull align 4 dereferenceable(16) %inertia) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK22btGImpactCompoundShape21calculateLocalInertiaEfR9btVector3(ptr noundef nonnull align 8 dereferenceable(264) %this, float noundef %mass, ptr nocapture noundef nonnull align 4 dereferenceable(16) initializes((0, 16)) %inertia) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp_inertia = alloca %class.btVector3, align 4
   %vtable = load ptr, ptr %this, align 8
@@ -690,7 +690,7 @@ while.end:                                        ; preds = %if.end, %entry
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK22btGImpactMeshShapePart21calculateLocalInertiaEfR9btVector3(ptr noundef nonnull align 8 dereferenceable(280) %this, float noundef %mass, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %inertia) unnamed_addr #2 align 2 {
+define dso_local void @_ZNK22btGImpactMeshShapePart21calculateLocalInertiaEfR9btVector3(ptr noundef nonnull align 8 dereferenceable(280) %this, float noundef %mass, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %inertia) unnamed_addr #2 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
@@ -799,7 +799,7 @@ while.end:                                        ; preds = %_ZNK22btGImpactMesh
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK18btGImpactMeshShape21calculateLocalInertiaEfR9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, float noundef %mass, ptr nocapture noundef nonnull align 4 dereferenceable(16) %inertia) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK18btGImpactMeshShape21calculateLocalInertiaEfR9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, float noundef %mass, ptr nocapture noundef nonnull align 4 dereferenceable(16) initializes((0, 16)) %inertia) unnamed_addr #0 align 2 {
 entry:
   %partinertia = alloca %class.btVector3, align 4
   %arrayidx3.i = getelementptr inbounds i8, ptr %inertia, i64 4

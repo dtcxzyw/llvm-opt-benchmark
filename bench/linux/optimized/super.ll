@@ -226,7 +226,7 @@ declare dso_local i32 @__fs_parse(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare dso_local i32 @get_tree_single(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @efivarfs_fill_super(ptr noundef %0, ptr nocapture readnone %1) #2 align 16 {
+define internal i32 @efivarfs_fill_super(ptr noundef initializes((20, 21), (24, 40), (48, 56), (96, 104), (880, 884), (1016, 1024)) %0, ptr nocapture readnone %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 872
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -574,7 +574,7 @@ define internal void @efivarfs_evict_inode(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @efivarfs_statfs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define internal noundef i32 @efivarfs_statfs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 40), (56, 72)) %1) #2 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8

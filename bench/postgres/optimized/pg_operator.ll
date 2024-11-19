@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.OperatorShellMake = private unnamed_addr constant [18 x i8] c"OperatorShellMake\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @OperatorLookup(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local i32 @OperatorLookup(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #0 {
   %5 = tail call i32 @LookupOperName(ptr noundef null, ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext true, i32 noundef -1) #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %6

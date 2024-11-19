@@ -1304,7 +1304,7 @@ H5O__attr_post_copy_file.exit:                    ; preds = %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5O__attr_get_crt_index(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
+define internal noundef i32 @H5O__attr_get_crt_index(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 72

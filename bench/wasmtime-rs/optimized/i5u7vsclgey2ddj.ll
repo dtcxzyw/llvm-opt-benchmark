@@ -613,7 +613,7 @@ define { ptr, i64 } @"_ZN5alloc11collections5btree4node121NodeRef$LT$alloc..coll
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$21deallocate_and_ascend17h425ed709b1d55c4eE"(ptr nocapture writeonly sret({ ptr, [2 x i64] }) align 8 %0, ptr %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$21deallocate_and_ascend17h425ed709b1d55c4eE"(ptr nocapture writeonly sret({ ptr, [2 x i64] }) align 8 initializes((0, 24)) %0, ptr %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -643,7 +643,7 @@ define void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..collections.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$21deallocate_and_ascend17hfe9569fc892355e2E"(ptr nocapture writeonly sret({ ptr, [2 x i64] }) align 8 %0, ptr %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$21deallocate_and_ascend17hfe9569fc892355e2E"(ptr nocapture writeonly sret({ ptr, [2 x i64] }) align 8 initializes((0, 24)) %0, ptr %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -923,7 +923,7 @@ define void @_ZN5alloc11collections5btree4node13move_to_slice17hf2d03f5553c19007
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17h0d5ccf3a33acde28E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17h0d5ccf3a33acde28E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !3
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
@@ -942,7 +942,7 @@ define void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17h1b2c41efe1357d1fE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17h1b2c41efe1357d1fE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !3
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
@@ -961,7 +961,7 @@ define void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17h372e1bf5b6489fbcE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17h372e1bf5b6489fbcE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !3
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
@@ -980,7 +980,7 @@ define void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17h7a6e0692645e86e7E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17h7a6e0692645e86e7E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !3
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
@@ -999,7 +999,7 @@ define void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17h863da7c82e278ae7E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17h863da7c82e278ae7E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !3
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
@@ -1018,7 +1018,7 @@ define void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17ha5770188b237edd0E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17ha5770188b237edd0E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !3
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
@@ -1037,7 +1037,7 @@ define void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17hed43ac9a5ad76e7cE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17hed43ac9a5ad76e7cE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !3
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
@@ -1073,7 +1073,7 @@ define nonnull align 1 ptr @"_ZN5alloc11collections5btree4node171Handle$LT$alloc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$15split_leaf_data17h36b20b5ed6bd866eE"(ptr nocapture writeonly sret({ i64, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$15split_leaf_data17h36b20b5ed6bd866eE"(ptr nocapture writeonly sret({ i64, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 initializes((362, 364)) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { ptr, [1 x i64] }, i64, { {} }, {} } }, align 8
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %6 = getelementptr inbounds i8, ptr %5, i64 362
@@ -1176,7 +1176,7 @@ define void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i64 @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$15split_leaf_data17h85572e8c82dda0e4E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define noundef i64 @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$15split_leaf_data17h85572e8c82dda0e4E"(ptr nocapture readonly align 8 %0, ptr align 8 initializes((98, 100)) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %4 = getelementptr inbounds i8, ptr %3, i64 98
   %5 = load i16, ptr %4, align 2, !noundef !3
@@ -1244,7 +1244,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17hcaff6bba29f59195E.exit: ; pre
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$15split_leaf_data17h8c61e6db3c95d4a4E"(ptr nocapture writeonly sret({ i64, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$15split_leaf_data17h8c61e6db3c95d4a4E"(ptr nocapture writeonly sret({ i64, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 initializes((362, 364)) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { ptr, [1 x i64] }, i64, { {} }, {} } }, align 8
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %6 = getelementptr inbounds i8, ptr %5, i64 362
@@ -1347,7 +1347,7 @@ define void @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i64 @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$15split_leaf_data17ha293f127fba8bd54E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define noundef i64 @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$15split_leaf_data17ha293f127fba8bd54E"(ptr nocapture readonly align 8 %0, ptr align 8 initializes((98, 100)) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %4 = getelementptr inbounds i8, ptr %3, i64 98
   %5 = load i16, ptr %4, align 2, !noundef !3
@@ -1574,7 +1574,7 @@ define void @"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$10insert_fit17h5b240d0c1714818fE"(ptr nocapture writeonly sret({ { ptr, i64, {} }, i64, {} }) align 8 %0, ptr nocapture readonly align 8 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$10insert_fit17h5b240d0c1714818fE"(ptr nocapture writeonly sret({ { ptr, i64, {} }, i64, {} }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds i8, ptr %4, i64 98
   %6 = load i16, ptr %5, align 2, !noundef !3
@@ -3120,7 +3120,7 @@ define noundef align 8 ptr @"_ZN5alloc11collections5btree4node25InternalNode$LT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define void @"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h0e07f1df28d246a7E"(ptr nocapture writeonly sret({ ptr, [2 x i64] }) align 8 %0, ptr %1, i64 %2) unnamed_addr #3 {
+define void @"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h0e07f1df28d246a7E"(ptr nocapture writeonly sret({ ptr, [2 x i64] }) align 8 initializes((0, 24)) %0, ptr %1, i64 %2) unnamed_addr #3 {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = load ptr, ptr %1, align 8, !noundef !3
@@ -3150,7 +3150,7 @@ define void @"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define void @"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h4e7dfbb1f4f2a475E"(ptr nocapture writeonly sret({ ptr, [2 x i64] }) align 8 %0, ptr %1, i64 %2) unnamed_addr #3 {
+define void @"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h4e7dfbb1f4f2a475E"(ptr nocapture writeonly sret({ ptr, [2 x i64] }) align 8 initializes((0, 24)) %0, ptr %1, i64 %2) unnamed_addr #3 {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = load ptr, ptr %1, align 8, !noundef !3
@@ -3180,7 +3180,7 @@ define void @"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define void @"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h6846d0e7df592624E"(ptr nocapture writeonly sret({ ptr, [2 x i64] }) align 8 %0, ptr %1, i64 %2) unnamed_addr #3 {
+define void @"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h6846d0e7df592624E"(ptr nocapture writeonly sret({ ptr, [2 x i64] }) align 8 initializes((0, 24)) %0, ptr %1, i64 %2) unnamed_addr #3 {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = load ptr, ptr %1, align 8, !noundef !3
@@ -3210,7 +3210,7 @@ define void @"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define void @"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h767d124395808b5eE"(ptr nocapture writeonly sret({ ptr, [2 x i64] }) align 8 %0, ptr %1, i64 %2) unnamed_addr #3 {
+define void @"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h767d124395808b5eE"(ptr nocapture writeonly sret({ ptr, [2 x i64] }) align 8 initializes((0, 24)) %0, ptr %1, i64 %2) unnamed_addr #3 {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = load ptr, ptr %1, align 8, !noundef !3
@@ -3240,7 +3240,7 @@ define void @"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define void @"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hc61eaf8c1301dbdcE"(ptr nocapture writeonly sret({ ptr, [2 x i64] }) align 8 %0, ptr %1, i64 %2) unnamed_addr #3 {
+define void @"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hc61eaf8c1301dbdcE"(ptr nocapture writeonly sret({ ptr, [2 x i64] }) align 8 initializes((0, 24)) %0, ptr %1, i64 %2) unnamed_addr #3 {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = load ptr, ptr %1, align 8, !noundef !3
@@ -3270,7 +3270,7 @@ define void @"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define void @"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hfe638b248b8eb715E"(ptr nocapture writeonly sret({ ptr, [2 x i64] }) align 8 %0, ptr %1, i64 %2) unnamed_addr #3 {
+define void @"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hfe638b248b8eb715E"(ptr nocapture writeonly sret({ ptr, [2 x i64] }) align 8 initializes((0, 24)) %0, ptr %1, i64 %2) unnamed_addr #3 {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = load ptr, ptr %1, align 8, !noundef !3

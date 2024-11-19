@@ -108,7 +108,7 @@ declare void @Dch_ManResimulateCex(ptr noundef, ptr noundef, ptr noundef) local_
 declare void @Dch_ManResimulateCex2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Dch_ManSweep(ptr noundef %0) local_unnamed_addr #0 {
+define void @Dch_ManSweep(ptr noundef initializes((16, 24)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 32

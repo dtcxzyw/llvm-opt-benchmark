@@ -103,7 +103,7 @@ $_ZNSt7__cxx114listIN5clang6format17UnwrappedLineNodeESaIS3_EE14_M_move_assignEO
 @_ZN5clang6format22MacroCallReconstructor14MacroCallStateC1EPNS1_17ReconstructedLineEPNS0_11FormatTokenES6_ = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN5clang6format22MacroCallReconstructor14MacroCallStateC2EPNS1_17ReconstructedLineEPNS0_11FormatTokenES6_
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format22MacroCallReconstructorC2EjRKN4llvm8DenseMapIPNS0_11FormatTokenESt10unique_ptrINS0_13UnwrappedLineESt14default_deleteIS7_EENS2_12DenseMapInfoIS5_vEENS2_6detail12DenseMapPairIS5_SA_EEEE(ptr noundef nonnull align 8 dereferenceable(296) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(20) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6format22MacroCallReconstructorC2EjRKN4llvm8DenseMapIPNS0_11FormatTokenESt10unique_ptrINS0_13UnwrappedLineESt14default_deleteIS7_EENS2_12DenseMapInfoIS5_vEENS2_6detail12DenseMapPairIS5_SA_EEEE(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 4)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(20) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::unique_ptr", align 8
   store i32 %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3165,7 +3165,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit42:               ; preds = %106, %108
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang6format22MacroCallReconstructor14MacroCallStateC2EPNS1_17ReconstructedLineEPNS0_11FormatTokenES6_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang6format22MacroCallReconstructor14MacroCallStateC2EPNS1_17ReconstructedLineEPNS0_11FormatTokenES6_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #5 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8

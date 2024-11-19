@@ -604,7 +604,7 @@ Vec_IntPush.exit113:                              ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Sfm_NtkDfs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define noundef ptr @Sfm_NtkDfs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef initializes((4, 8)) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 20
@@ -1362,7 +1362,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Sfm_NtkCreateWindow(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Sfm_NtkCreateWindow(ptr noundef initializes((240, 244)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8

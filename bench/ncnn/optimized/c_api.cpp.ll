@@ -341,7 +341,7 @@ define hidden i32 @ncnn_option_get_num_threads(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ncnn_option_set_num_threads(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #9 {
+define hidden void @ncnn_option_set_num_threads(ptr nocapture noundef writeonly initializes((4, 8)) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   ret void
@@ -357,7 +357,7 @@ define hidden range(i32 0, 2) i32 @ncnn_option_get_use_local_pool_allocator(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ncnn_option_set_use_local_pool_allocator(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #9 {
+define hidden void @ncnn_option_set_use_local_pool_allocator(ptr nocapture noundef writeonly initializes((52, 53)) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = icmp ne i32 %1, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %5 = zext i1 %3 to i8
@@ -366,7 +366,7 @@ define hidden void @ncnn_option_set_use_local_pool_allocator(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ncnn_option_set_blob_allocator(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #10 {
+define hidden void @ncnn_option_set_blob_allocator(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr noundef readonly %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -382,7 +382,7 @@ define hidden void @ncnn_option_set_blob_allocator(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ncnn_option_set_workspace_allocator(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #10 {
+define hidden void @ncnn_option_set_workspace_allocator(ptr nocapture noundef writeonly initializes((16, 24)) %0, ptr noundef readonly %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -1734,7 +1734,7 @@ define hidden i32 @ncnn_blob_get_consumer(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ncnn_blob_get_shape(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #10 {
+define hidden void @ncnn_blob_get_shape(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #10 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load i32, ptr %6, align 8
   store i32 %7, ptr %1, align 4
@@ -4658,7 +4658,7 @@ define hidden i32 @ncnn_layer_get_top(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @ncnn_blob_get_bottom_shape(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #15 {
+define hidden void @ncnn_blob_get_bottom_shape(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #15 {
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %9 = sext i32 %1 to i64
@@ -4680,7 +4680,7 @@ define hidden void @ncnn_blob_get_bottom_shape(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @ncnn_blob_get_top_shape(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #15 {
+define hidden void @ncnn_blob_get_top_shape(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #15 {
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %9 = sext i32 %1 to i64

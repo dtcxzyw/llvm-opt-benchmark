@@ -424,7 +424,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal3smt17ProcessAssertionsD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal3smt17ProcessAssertionsD2Ev(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal3smt17ProcessAssertionsE, i64 16), ptr %this, align 8
   %d_passes = getelementptr inbounds i8, ptr %this, i64 40
@@ -505,7 +505,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNSt13unordered_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal3smt17ProcessAssertionsD0Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal3smt17ProcessAssertionsD0Ev(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal3smt17ProcessAssertionsD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -516,7 +516,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal3smt17ProcessAssertions10finishInitEPNS0_13preprocessing24PreprocessingPassContextE(ptr noundef nonnull align 8 dereferenceable(100) %this, ptr noundef %pc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal3smt17ProcessAssertions10finishInitEPNS0_13preprocessing24PreprocessingPassContextE(ptr noundef nonnull align 8 dereferenceable(100) initializes((24, 32)) %this, ptr noundef %pc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %passNames = alloca %"class.std::vector.353", align 8
   %d_preprocessingPassContext = getelementptr inbounds i8, ptr %this, i64 24

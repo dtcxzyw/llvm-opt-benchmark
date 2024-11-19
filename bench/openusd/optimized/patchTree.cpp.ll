@@ -1507,7 +1507,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit138: 
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Bfr9PatchTreeC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #6 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Bfr9PatchTreeC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((4, 44), (48, 124), (128, 176)) %0) unnamed_addr #6 align 2 {
   %2 = load i8, ptr %0, align 8
   %3 = and i8 %2, -8
   store i8 %3, ptr %0, align 8

@@ -2034,7 +2034,7 @@ define internal void @virtnet_config_changed_work(ptr noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @init_vqs(ptr noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load i8, ptr %2, align 8, !range !6, !noundef !7
   %4 = icmp eq i8 %3, 0
@@ -6596,7 +6596,7 @@ define internal void @virtnet_get_drvinfo(ptr nocapture noundef readonly %0, ptr
 declare dso_local i32 @ethtool_op_get_link(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @virtnet_get_coalesce(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #17 align 16 {
+define internal noundef i32 @virtnet_get_coalesce(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #17 align 16 {
   %5 = getelementptr i8, ptr %0, i64 2304
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 784
@@ -6975,7 +6975,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_coalesce(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtnet_get_ringparam(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #3 align 16 {
+define internal void @virtnet_get_ringparam(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((4, 8), (16, 24), (32, 36)) %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #3 align 16 {
   %5 = getelementptr i8, ptr %0, i64 2336
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 64
@@ -7876,7 +7876,7 @@ define internal noundef range(i32 -95, 1) i32 @virtnet_set_rxfh(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @virtnet_get_channels(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #19 align 16 {
+define internal void @virtnet_get_channels(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((12, 36)) %1) #19 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2350
   %4 = load i16, ptr %3, align 2
   %5 = zext i16 %4 to i32
@@ -8223,7 +8223,7 @@ define internal range(i32 -95, 1) i32 @virtnet_set_per_queue_coalesce(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @virtnet_get_link_ksettings(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #19 align 16 {
+define internal noundef i32 @virtnet_get_link_ksettings(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((4, 10)) %1) #19 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2564
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 4

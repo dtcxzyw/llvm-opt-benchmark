@@ -46,7 +46,7 @@ $_ZN26GrowableArrayWithAllocatorIPc13GrowableArrayIS0_EE9expand_toEi = comdat an
 @_ZN19StringArrayArgumentD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN19StringArrayArgumentD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19StringArrayArgumentC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN19StringArrayArgumentC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 23) #15
   %3 = icmp eq ptr %2, null
   br i1 %3, label %9, label %4
@@ -243,7 +243,7 @@ define hidden void @_ZNK15GenDCmdArgument9to_stringEPcS0_m(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK15GenDCmdArgument9to_stringEP19StringArrayArgumentPcm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(51) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #4 align 2 {
+define hidden void @_ZNK15GenDCmdArgument9to_stringEP19StringArrayArgumentPcm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(51) %0, ptr nocapture noundef readonly %1, ptr noundef initializes((0, 1)) %2, i64 noundef %3) local_unnamed_addr #4 align 2 {
   %5 = load ptr, ptr %1, align 8
   %6 = load i32, ptr %5, align 4
   store i8 0, ptr %2, align 1
@@ -534,7 +534,7 @@ declare noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFa
 declare noundef i32 @_ZN2os8snprintfEPcmPKcz(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12DCmdArgumentIPcE10init_valueEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN12DCmdArgumentIPcE10init_valueEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) initializes((56, 64)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -792,7 +792,7 @@ _ZN19StringArrayArgument3addEPKcm.exit:           ; preds = %4, %_ZN26GrowableAr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12DCmdArgumentIP19StringArrayArgumentE10init_valueEP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef readnone %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN12DCmdArgumentIP19StringArrayArgumentE10init_valueEP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((50, 51), (56, 64)) %0, ptr nocapture noundef readnone %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 9, i32 noundef 0) #15
   %4 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 23) #15
   %5 = icmp eq ptr %4, null

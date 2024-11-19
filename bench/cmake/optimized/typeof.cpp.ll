@@ -2344,13 +2344,13 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_19TypeInfos6NullTI9alignmentEv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZNK12_GLOBAL__N_19TypeInfos6NullTI9constructEPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly %1) unnamed_addr #13 align 2 {
+define internal void @_ZNK12_GLOBAL__N_19TypeInfos6NullTI9constructEPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) unnamed_addr #13 align 2 {
   store ptr null, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZNK12_GLOBAL__N_19TypeInfos6NullTI13copyConstructEPvPKv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) unnamed_addr #13 align 2 {
+define internal void @_ZNK12_GLOBAL__N_19TypeInfos6NullTI13copyConstructEPvPKv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture readnone %2) unnamed_addr #13 align 2 {
   store ptr null, ptr %1, align 8
   ret void
 }

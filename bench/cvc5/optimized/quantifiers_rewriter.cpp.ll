@@ -548,7 +548,7 @@ sw.epilog:                                        ; preds = %entry, %switch.look
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers19QuantifiersRewriterC2EPNS1_8RewriterERKNS0_7OptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %r, ptr noundef nonnull align 8 dereferenceable(392) %opts) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers19QuantifiersRewriterC2EPNS1_8RewriterERKNS0_7OptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %r, ptr noundef nonnull align 8 dereferenceable(392) %opts) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers19QuantifiersRewriterE, i64 16), ptr %this, align 8
   %d_rewriter = getelementptr inbounds i8, ptr %this, i64 8
@@ -2336,7 +2336,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers19QuantifiersRewriter10preRewriteENS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %in) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers19QuantifiersRewriter10preRewriteENS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %in) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load ptr, ptr %in, align 8

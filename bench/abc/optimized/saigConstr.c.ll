@@ -338,7 +338,7 @@ Vec_PtrFind.exit30:                               ; preds = %32, %Vec_PtrPush.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Saig_ManDetectConstr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define i32 @Saig_ManDetectConstr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8

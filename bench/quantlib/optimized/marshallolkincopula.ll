@@ -38,7 +38,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib19MarshallOlkinCopulaC1Edd = unnamed_addr alias void (ptr, double, double), ptr @_ZN8QuantLib19MarshallOlkinCopulaC2Edd
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19MarshallOlkinCopulaC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, double noundef %a1, double noundef %a2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19MarshallOlkinCopulaC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, double noundef %a1, double noundef %a2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

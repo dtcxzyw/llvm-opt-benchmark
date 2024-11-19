@@ -8,14 +8,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.nghttp2_vec = type { ptr, i64 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @nghttp2_buf_init(ptr nocapture noundef writeonly %buf) local_unnamed_addr #0 {
+define hidden void @nghttp2_buf_init(ptr nocapture noundef writeonly initializes((0, 40)) %buf) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %buf, i8 0, i64 40, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -901, 1) i32 @nghttp2_buf_init2(ptr nocapture noundef %buf, i64 noundef %initial, ptr noundef %mem) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_buf_init2(ptr nocapture noundef initializes((0, 40)) %buf, i64 noundef %initial, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %buf, i8 0, i64 40, i1 false)
   %end.i = getelementptr inbounds i8, ptr %buf, i64 8
@@ -129,7 +129,7 @@ declare void @nghttp2_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @nghttp2_mem_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @nghttp2_buf_reset(ptr nocapture noundef %buf) local_unnamed_addr #3 {
+define hidden void @nghttp2_buf_reset(ptr nocapture noundef initializes((16, 40)) %buf) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %buf, align 8
   %mark = getelementptr inbounds i8, ptr %buf, i64 32
@@ -142,7 +142,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @nghttp2_buf_wrap_init(ptr nocapture noundef writeonly %buf, ptr noundef %begin, i64 noundef %len) local_unnamed_addr #0 {
+define hidden void @nghttp2_buf_wrap_init(ptr nocapture noundef writeonly initializes((0, 40)) %buf, ptr noundef %begin, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %end = getelementptr inbounds i8, ptr %buf, i64 8
   store ptr %begin, ptr %end, align 8

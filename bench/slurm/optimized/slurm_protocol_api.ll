@@ -970,7 +970,7 @@ define i32 @slurm_init_msg_engine_port(i16 noundef zeroext %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define void @slurm_setup_addr(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #2 {
+define void @slurm_setup_addr(ptr noundef initializes((0, 128)) %0, i16 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = alloca [64 x i8], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
   %4 = tail call zeroext i1 @slurm_addr_is_unspec(ptr noundef nonnull @slurm_setup_addr.s_addr) #21
@@ -4043,7 +4043,7 @@ define void @response_init(ptr noundef %0, ptr nocapture noundef readonly %1, i1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @slurm_msg_set_r_uid(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #13 {
+define void @slurm_msg_set_r_uid(ptr nocapture noundef writeonly initializes((152, 157)) %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 156
@@ -4943,7 +4943,7 @@ declare void @slurmdb_destroy_cluster_rec(ptr noundef) local_unnamed_addr #3
 declare i32 @slurmdb_setup_cluster_rec(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_send_recv_node_msg(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define noundef i32 @slurm_send_recv_node_msg(ptr noundef %0, ptr noundef initializes((128, 136)) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 128
   store ptr null, ptr %4, align 8
   %5 = tail call i32 @slurm_open_stream(ptr noundef %0, i1 noundef zeroext false) #21

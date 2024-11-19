@@ -46,7 +46,7 @@ $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_r
 @_ZN11cmXMLWriterD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN11cmXMLWriterD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11cmXMLWriterC2ERSom(ptr noundef nonnull align 8 dereferenceable(83) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11cmXMLWriterC2ERSom(ptr noundef nonnull align 8 dereferenceable(83) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator.0", align 1
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -538,7 +538,7 @@ _ZN11cmXMLWriter20ConditionalLineBreakEb.exit:    ; preds = %41, %_ZN11cmXMLWrit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN11cmXMLWriter15BreakAttributesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(83) %0) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN11cmXMLWriter15BreakAttributesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(83) initializes((81, 82)) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 81
   store i8 1, ptr %2, align 1
   ret void

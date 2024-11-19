@@ -402,7 +402,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib17AdaptedPathPayoff13ValuationDataC2ERKNS_6MatrixERKSt6vectorINS_6HandleINS_18YieldTermStructureEEESaIS8_EERNS_5ArrayESE_RS5_ISD_SaISD_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef nonnull align 8 dereferenceable(24) %forwardTermStructures, ptr noundef nonnull align 8 dereferenceable(16) %payments, ptr noundef nonnull align 8 dereferenceable(16) %exercises, ptr noundef nonnull align 8 dereferenceable(24) %states) unnamed_addr #11 align 2 {
+define void @_ZN8QuantLib17AdaptedPathPayoff13ValuationDataC2ERKNS_6MatrixERKSt6vectorINS_6HandleINS_18YieldTermStructureEEESaIS8_EERNS_5ArrayESE_RS5_ISD_SaISD_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this, ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef nonnull align 8 dereferenceable(24) %forwardTermStructures, ptr noundef nonnull align 8 dereferenceable(16) %payments, ptr noundef nonnull align 8 dereferenceable(16) %exercises, ptr noundef nonnull align 8 dereferenceable(24) %states) unnamed_addr #11 align 2 {
 entry:
   store ptr %path, ptr %this, align 8, !tbaa !18
   %forwardTermStructures_ = getelementptr inbounds nuw i8, ptr %this, i64 8

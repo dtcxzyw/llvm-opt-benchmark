@@ -13482,7 +13482,7 @@ _ZNSt10shared_ptrIN3gmx19IRestraintPotentialEED2Ev.exit: ; preds = %11, %29, %42
 declare void @_ZN3gmx16RestraintManager9addToSpecESt10shared_ptrINS_19IRestraintPotentialEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx8MdrunnerC2ESt10unique_ptrINS_9MDModulesESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr nocapture noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx8MdrunnerC2ESt10unique_ptrINS_9MDModulesESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 28)) %0, ptr nocapture noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(97) %0, i8 0, i64 28, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #30
@@ -13583,7 +13583,7 @@ define void @_ZN3gmx8MdrunnerC2ESt10unique_ptrINS_9MDModulesESt14default_deleteI
 declare void @_ZN3gmx21SimulationInputHandleC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3gmx8MdrunnerC2EOS0_(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull align 8 dereferenceable(400) %1) unnamed_addr #1 align 2 {
+define void @_ZN3gmx8MdrunnerC2EOS0_(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 28)) %0, ptr noundef nonnull align 8 dereferenceable(400) %1) unnamed_addr #1 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(97) %1, i64 28, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %1, i64 32
@@ -13642,7 +13642,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 declare void @_ZN3gmx6detail32SimulationInputHandleImplDeleterC1EOS1_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(400) ptr @_ZN3gmx8MdrunneraSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(400) %0, ptr noundef nonnull align 8 dereferenceable(400) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(400) ptr @_ZN3gmx8MdrunneraSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(400) initializes((0, 28)) %0, ptr noundef nonnull align 8 dereferenceable(400) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(97) %1, i64 28, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %1, i64 32
@@ -13804,7 +13804,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZN3gmx6detail32Simulati
 declare void @_ZNK3gmx6detail32SimulationInputHandleImplDeleterclEPNS0_25SimulationInputHandleImplE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx8Mdrunner21BuilderImplementationC2ESt10unique_ptrINS_9MDModulesESt14default_deleteIS3_EENS_6compat8not_nullIPNS_17SimulationContextEEE(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr nocapture noundef %1, ptr nocapture readonly %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx8Mdrunner21BuilderImplementationC2ESt10unique_ptrINS_9MDModulesESt14default_deleteIS3_EENS_6compat8not_nullIPNS_17SimulationContextEEE(ptr noundef nonnull align 8 dereferenceable(376) initializes((0, 49), (52, 73), (76, 78), (80, 87), (88, 89), (92, 98), (100, 184), (192, 252)) %0, ptr nocapture noundef %1, ptr nocapture readonly %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 43
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(43) %0, i8 0, i64 43, i1 false)
   store i8 1, ptr %4, align 1
@@ -13989,7 +13989,7 @@ _ZNSt10unique_ptrIN3gmx9MDModulesESt14default_deleteIS1_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(376) ptr @_ZN3gmx8Mdrunner21BuilderImplementation20setExtraMdrunOptionsERKNS_12MdrunOptionsEfNS_16StartingBehaviorE(ptr noundef nonnull returned writeonly align 8 dereferenceable(376) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, float noundef %2, i32 noundef %3) local_unnamed_addr #20 align 2 {
+define noundef nonnull align 8 dereferenceable(376) ptr @_ZN3gmx8Mdrunner21BuilderImplementation20setExtraMdrunOptionsERKNS_12MdrunOptionsEfNS_16StartingBehaviorE(ptr noundef nonnull returned writeonly align 8 dereferenceable(376) initializes((40, 96), (200, 208)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, float noundef %2, i32 noundef %3) local_unnamed_addr #20 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 200
@@ -14000,21 +14000,21 @@ define noundef nonnull align 8 dereferenceable(376) ptr @_ZN3gmx8Mdrunner21Build
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx8Mdrunner21BuilderImplementation9addDomdecERKNS_13DomdecOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #20 align 2 {
+define void @_ZN3gmx8Mdrunner21BuilderImplementation9addDomdecERKNS_13DomdecOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) initializes((96, 160)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #20 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx8Mdrunner21BuilderImplementation13addVerletListEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) %0, i32 noundef %1) local_unnamed_addr #21 align 2 {
+define void @_ZN3gmx8Mdrunner21BuilderImplementation13addVerletListEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) initializes((172, 176)) %0, i32 noundef %1) local_unnamed_addr #21 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 172
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx8Mdrunner21BuilderImplementation18addReplicaExchangeERK25ReplicaExchangeParameters(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #20 align 2 {
+define void @_ZN3gmx8Mdrunner21BuilderImplementation18addReplicaExchangeERK25ReplicaExchangeParameters(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) initializes((160, 172)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #20 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   ret void
@@ -14871,20 +14871,20 @@ declare noundef zeroext i1 @_ZNK3gmx21SimulationInputHandlecvbEv(ptr noundef non
 declare void @_ZN3gmx16RestraintManagerC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx8Mdrunner21BuilderImplementation26addHardwareDetectionResultEPK13gmx_hw_info_t(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) %0, ptr noundef %1) local_unnamed_addr #21 align 2 {
+define void @_ZN3gmx8Mdrunner21BuilderImplementation26addHardwareDetectionResultEPK13gmx_hw_info_t(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) initializes((216, 224)) %0, ptr noundef %1) local_unnamed_addr #21 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 216
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx8Mdrunner21BuilderImplementation12addNonBondedEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) %0, ptr noundef %1) local_unnamed_addr #21 align 2 {
+define void @_ZN3gmx8Mdrunner21BuilderImplementation12addNonBondedEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #21 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx8Mdrunner21BuilderImplementation6addPMEEPKcS3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #21 align 2 {
+define void @_ZN3gmx8Mdrunner21BuilderImplementation6addPMEEPKcS3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) initializes((8, 24)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #21 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -14893,21 +14893,21 @@ define void @_ZN3gmx8Mdrunner21BuilderImplementation6addPMEEPKcS3_(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx8Mdrunner21BuilderImplementation23addBondedTaskAssignmentEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) %0, ptr noundef %1) local_unnamed_addr #21 align 2 {
+define void @_ZN3gmx8Mdrunner21BuilderImplementation23addBondedTaskAssignmentEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #21 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx8Mdrunner21BuilderImplementation23addUpdateTaskAssignmentEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) %0, ptr noundef %1) local_unnamed_addr #21 align 2 {
+define void @_ZN3gmx8Mdrunner21BuilderImplementation23addUpdateTaskAssignmentEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #21 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx8Mdrunner21BuilderImplementation18addHardwareOptionsERK12gmx_hw_opt_t(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull align 8 dereferenceable(97) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN3gmx8Mdrunner21BuilderImplementation18addHardwareOptionsERK12gmx_hw_opt_t(ptr noundef nonnull align 8 dereferenceable(376) initializes((224, 252)) %0, ptr noundef nonnull align 8 dereferenceable(97) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(97) %3, ptr noundef nonnull align 8 dereferenceable(97) %1, i64 28, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 256
@@ -14925,7 +14925,7 @@ define void @_ZN3gmx8Mdrunner21BuilderImplementation18addHardwareOptionsERK12gmx
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx8Mdrunner21BuilderImplementation12addFilenamesENS_8ArrayRefIK8t_filenmEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) %0, ptr %1, ptr %2) local_unnamed_addr #21 align 2 {
+define void @_ZN3gmx8Mdrunner21BuilderImplementation12addFilenamesENS_8ArrayRefIK8t_filenmEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) initializes((328, 344)) %0, ptr %1, ptr %2) local_unnamed_addr #21 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 328
   store ptr %1, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 336
@@ -14934,14 +14934,14 @@ define void @_ZN3gmx8Mdrunner21BuilderImplementation12addFilenamesENS_8ArrayRefI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx8Mdrunner21BuilderImplementation20addOutputEnvironmentEP16gmx_output_env_t(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) %0, ptr noundef %1) local_unnamed_addr #21 align 2 {
+define void @_ZN3gmx8Mdrunner21BuilderImplementation20addOutputEnvironmentEP16gmx_output_env_t(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) initializes((344, 352)) %0, ptr noundef %1) local_unnamed_addr #21 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 344
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx8Mdrunner21BuilderImplementation10addLogFileEP8t_fileio(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) %0, ptr noundef %1) local_unnamed_addr #21 align 2 {
+define void @_ZN3gmx8Mdrunner21BuilderImplementation10addLogFileEP8t_fileio(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) initializes((352, 360)) %0, ptr noundef %1) local_unnamed_addr #21 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 352
   store ptr %1, ptr %3, align 8
   ret void
@@ -15523,7 +15523,7 @@ _ZN3gmx8Mdrunner21BuilderImplementation8addInputENS_21SimulationInputHandleE.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx15MdrunnerBuilderC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #20 align 2 {
+define void @_ZN3gmx15MdrunnerBuilderC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #20 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8

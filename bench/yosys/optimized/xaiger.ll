@@ -4462,7 +4462,7 @@ declare noundef zeroext i1 @_ZNK5Yosys5RTLIL6Design21selected_whole_moduleEPNS0_
 declare void @_ZN5Yosys13log_cmd_errorEPKcz(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112XAigerWriterC2EPN5Yosys5RTLIL6ModuleEb(ptr noundef nonnull align 8 dereferenceable(768) %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112XAigerWriterC2EPN5Yosys5RTLIL6ModuleEb(ptr noundef nonnull align 8 dereferenceable(768) initializes((0, 64), (72, 96)) %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [75 x i32], align 4
   %5 = alloca %"class.std::allocator.5", align 1
   %6 = alloca [75 x i32], align 4

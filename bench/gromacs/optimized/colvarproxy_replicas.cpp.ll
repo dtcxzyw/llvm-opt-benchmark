@@ -49,7 +49,7 @@ define noundef i32 @_ZN20colvarproxy_replicas17replica_comm_sendEPcii(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN20colvarproxy_replicasC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #2 align 2 {
+define void @_ZN20colvarproxy_replicasC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV20colvarproxy_replicas, i64 16), ptr %0, align 8
   ret void
 }

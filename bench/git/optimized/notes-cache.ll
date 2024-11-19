@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @notes_cache_init(ptr noundef %r, ptr noundef %c, ptr noundef %name, ptr noundef %validity) local_unnamed_addr #0 {
+define dso_local void @notes_cache_init(ptr noundef %r, ptr noundef initializes((0, 64)) %c, ptr noundef %name, ptr noundef %validity) local_unnamed_addr #0 {
 entry:
   %oid.i = alloca %struct.object_id, align 4
   %pretty_ctx.i = alloca %struct.pretty_print_context, align 8

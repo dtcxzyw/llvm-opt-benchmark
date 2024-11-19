@@ -526,7 +526,7 @@ $_ZTVN5nblib14NbLibExceptionE = comdat any
 @_ZN5nblib9TprReaderC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5nblib9TprReaderC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5nblib9TprReaderC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1092) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5nblib9TprReaderC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1092) initializes((0, 1080)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.t_inputrec, align 8
   %4 = alloca %class.t_state, align 8
   %5 = alloca %struct.gmx_mtop_t, align 8

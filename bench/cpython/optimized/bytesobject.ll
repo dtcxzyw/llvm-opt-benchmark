@@ -2339,14 +2339,14 @@ return:                                           ; preds = %if.then2.i.i, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_PyBytesWriter_Init(ptr nocapture noundef writeonly %writer) local_unnamed_addr #4 {
+define dso_local void @_PyBytesWriter_Init(ptr nocapture noundef writeonly initializes((0, 36)) %writer) local_unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %writer, i8 0, i64 36, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_PyBytesWriter_Alloc(ptr noundef %writer, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local ptr @_PyBytesWriter_Alloc(ptr noundef initializes((8, 16), (32, 36)) %writer, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %use_small_buffer = getelementptr inbounds i8, ptr %writer, i64 32
   store i32 1, ptr %use_small_buffer, align 8
@@ -8536,7 +8536,7 @@ return:                                           ; preds = %if.end48.us, %if.th
 declare ptr @memrchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stringlib__preprocess(ptr noundef %needle, i64 noundef range(i64 6, -9223372036854775808) %len_needle, ptr nocapture noundef nonnull writeonly %p) unnamed_addr #10 {
+define internal fastcc void @stringlib__preprocess(ptr noundef %needle, i64 noundef range(i64 6, -9223372036854775808) %len_needle, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %p) unnamed_addr #10 {
 entry:
   store ptr %needle, ptr %p, align 8
   %len_needle2 = getelementptr inbounds i8, ptr %p, i64 8

@@ -744,7 +744,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @BIO_clear_retry_flags(ptr nocapture noundef %bio) local_unnamed_addr #4 {
+define hidden void @BIO_clear_retry_flags(ptr nocapture noundef initializes((36, 40)) %bio) local_unnamed_addr #4 {
 entry:
   %flags = getelementptr inbounds i8, ptr %bio, i64 32
   %0 = load i32, ptr %flags, align 8
@@ -764,7 +764,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @BIO_copy_next_retry(ptr nocapture noundef %bio) local_unnamed_addr #8 {
+define hidden void @BIO_copy_next_retry(ptr nocapture noundef initializes((36, 40)) %bio) local_unnamed_addr #8 {
 entry:
   %flags.i = getelementptr inbounds i8, ptr %bio, i64 32
   %0 = load i32, ptr %flags.i, align 8
@@ -1056,7 +1056,7 @@ BIO_ctrl.exit:                                    ; preds = %entry, %if.then4.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @BIO_set_callback(ptr nocapture noundef writeonly %bio, ptr noundef %callback_func) local_unnamed_addr #9 {
+define hidden void @BIO_set_callback(ptr nocapture noundef writeonly initializes((8, 16)) %bio, ptr noundef %callback_func) local_unnamed_addr #9 {
 entry:
   %callback = getelementptr inbounds i8, ptr %bio, i64 8
   store ptr %callback_func, ptr %callback, align 8
@@ -1064,7 +1064,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @BIO_set_callback_arg(ptr nocapture noundef writeonly %bio, ptr noundef %arg) local_unnamed_addr #9 {
+define hidden void @BIO_set_callback_arg(ptr nocapture noundef writeonly initializes((16, 24)) %bio, ptr noundef %arg) local_unnamed_addr #9 {
 entry:
   %cb_arg = getelementptr inbounds i8, ptr %bio, i64 16
   store ptr %arg, ptr %cb_arg, align 8

@@ -114,7 +114,7 @@ $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_r
 @_ZN13gmx_hw_info_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN13gmx_hw_info_tD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN13gmx_hw_info_tC2ESt10unique_ptrIN3gmx7CpuInfoESt14default_deleteIS2_EES0_INS1_16HardwareTopologyES3_IS6_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN13gmx_hw_info_tC2ESt10unique_ptrIN3gmx7CpuInfoESt14default_deleteIS2_EES0_INS1_16HardwareTopologyES3_IS6_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 40), (112, 136)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #0 align 2 {
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %0, align 8
   store ptr null, ptr %1, align 8

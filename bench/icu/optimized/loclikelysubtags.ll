@@ -595,7 +595,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7518LocaleDistanceDataC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull align 8 dereferenceable(48) %data) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7518LocaleDistanceDataC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(48) %data) unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %data, align 8
   store ptr %0, ptr %this, align 8
@@ -2199,7 +2199,7 @@ return:                                           ; preds = %entry, %_ZN6icu_751
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513LikelySubtagsC2ERNS_17LikelySubtagsDataE(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef nonnull align 8 dereferenceable(280) %data) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513LikelySubtagsC2ERNS_17LikelySubtagsDataE(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 60), (296, 304)) %this, ptr noundef nonnull align 8 dereferenceable(280) %data) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %data, align 8
   store ptr %0, ptr %this, align 8

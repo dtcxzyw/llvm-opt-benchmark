@@ -90,7 +90,7 @@ define void @_ZNK7mitsuba6Object7dec_refEb(ptr noundef nonnull align 8 dereferen
 declare void @abort() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK7mitsuba6Object6expandEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::__1::vector") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7mitsuba6Object6expandEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::__1::vector") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
@@ -106,7 +106,7 @@ define void @_ZN7mitsuba6Object18parameters_changedERKNSt3__16vectorINS1_12basic
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK7mitsuba6Object2idEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::__1::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7mitsuba6Object2idEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::__1::basic_string") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }

@@ -190,7 +190,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @init_local_reloptions(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #3 {
+define dso_local void @init_local_reloptions(ptr nocapture noundef writeonly initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i64 %1, ptr %3, align 8

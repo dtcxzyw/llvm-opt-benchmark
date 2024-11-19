@@ -39120,7 +39120,7 @@ declare void @_ZNK8WasmEdge8Executor8Executor14runStructNewOpERNS_7Runtime12Stac
 declare void @_ZNK8WasmEdge8Executor8Executor14runStructGetOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEjRKNS_3AST13CompositeTypeERKNSH_11InstructionEb(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4, ptr noundef nonnull align 8 dereferenceable(408), ptr noundef nonnull align 16 dereferenceable(16), i32 noundef, ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 16 dereferenceable(25), i1 noundef zeroext) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 1)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -39205,7 +39205,7 @@ declare void @_ZNK8WasmEdge8Executor8Executor14runArrayFillOpEjRKNS_7VariantIJji
 declare void @_ZNK8WasmEdge8Executor8Executor14runArrayCopyOpEjjRKNS_10RefVariantEjS4_RKNS_3AST13CompositeTypeES8_RKNS5_11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4, ptr noundef nonnull align 8 dereferenceable(408), i32 noundef, i32 noundef, ptr noundef nonnull align 16 dereferenceable(16), i32 noundef, ptr noundef nonnull align 16 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 16 dereferenceable(25)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE0_clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE0_clEv"(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 1)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8

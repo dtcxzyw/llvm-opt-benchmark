@@ -40,7 +40,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7510NormalizerC2ERKNS_13UnicodeStringE18UNormalizationMode(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef nonnull align 8 dereferenceable(64) %str, i32 noundef %mode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7510NormalizerC2ERKNS_13UnicodeStringE18UNormalizationMode(ptr noundef nonnull align 8 dereferenceable(116) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(64) %str, i32 noundef %mode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510NormalizerE, i64 16), ptr %this, align 8
   %fFilteredNorm2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -108,7 +108,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7510Normalizer4initEv(ptr nocapture noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7510Normalizer4initEv(ptr nocapture noundef nonnull align 8 dereferenceable(116) initializes((16, 24)) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %errorCode = alloca i32, align 4
   store i32 0, ptr %errorCode, align 4
@@ -187,7 +187,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7510NormalizerC2ENS_14ConstChar16PtrEi18UNormalizationMode(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr nocapture noundef readonly %str, i32 noundef %length, i32 noundef %mode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7510NormalizerC2ENS_14ConstChar16PtrEi18UNormalizationMode(ptr noundef nonnull align 8 dereferenceable(116) initializes((0, 32)) %this, ptr nocapture noundef readonly %str, i32 noundef %length, i32 noundef %mode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510NormalizerE, i64 16), ptr %this, align 8
@@ -254,7 +254,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad11
 declare void @_ZN6icu_7522UCharCharacterIteratorC1ENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7510NormalizerC2ERKNS_17CharacterIteratorE18UNormalizationMode(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef nonnull align 8 dereferenceable(24) %iter, i32 noundef %mode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7510NormalizerC2ERKNS_17CharacterIteratorE18UNormalizationMode(ptr noundef nonnull align 8 dereferenceable(116) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(24) %iter, i32 noundef %mode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510NormalizerE, i64 16), ptr %this, align 8
   %fFilteredNorm2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -306,7 +306,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7510NormalizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef nonnull align 8 dereferenceable(116) %copy) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7510NormalizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(116) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(116) %copy) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510NormalizerE, i64 16), ptr %this, align 8
   %fFilteredNorm2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -380,7 +380,7 @@ declare ptr @uniset_getUnicode32Instance_75(ptr noundef nonnull align 4 derefere
 declare noundef ptr @_ZN6icu_7518Normalizer2Factory15getNoopInstanceER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7510NormalizerD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #5 align 2 {
+define void @_ZN6icu_7510NormalizerD2Ev(ptr noundef nonnull align 8 dereferenceable(116) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510NormalizerE, i64 16), ptr %this, align 8
   %fFilteredNorm2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -947,7 +947,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510Normalizer13nextNormalizeEv(ptr noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510Normalizer13nextNormalizeEv(ptr noundef nonnull align 8 dereferenceable(116) initializes((40, 44), (112, 116)) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %segment = alloca %"class.icu_75::UnicodeString", align 8
   %errorCode = alloca i32, align 4
@@ -1154,7 +1154,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510Normalizer17previousNormalizeEv(ptr noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510Normalizer17previousNormalizeEv(ptr noundef nonnull align 8 dereferenceable(116) initializes((44, 48), (112, 116)) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %segment = alloca %"class.icu_75::UnicodeString", align 8
   %errorCode = alloca i32, align 4
@@ -1280,7 +1280,7 @@ return:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7510Normalizer5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7510Normalizer5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(116) initializes((40, 48), (112, 116)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %text = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %text, align 8
@@ -1305,7 +1305,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7510Normalizer11clearBufferEv(ptr nocapture noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_7510Normalizer11clearBufferEv(ptr nocapture noundef nonnull align 8 dereferenceable(116) initializes((112, 116)) %this) local_unnamed_addr #6 align 2 {
 entry:
   %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i16, ptr %fUnion.i.i, align 8
@@ -1320,7 +1320,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7510Normalizer12setIndexOnlyEi(ptr nocapture noundef nonnull align 8 dereferenceable(116) %this, i32 noundef %index) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7510Normalizer12setIndexOnlyEi(ptr nocapture noundef nonnull align 8 dereferenceable(116) initializes((40, 48), (112, 116)) %this, i32 noundef %index) local_unnamed_addr #1 align 2 {
 entry:
   %text = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %text, align 8
@@ -1348,7 +1348,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7510Normalizer5firstEv(ptr noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZN6icu_7510Normalizer5firstEv(ptr noundef nonnull align 8 dereferenceable(116) initializes((40, 48), (112, 116)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %text.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %text.i, align 8
@@ -1390,7 +1390,7 @@ _ZN6icu_7510Normalizer4nextEv.exit:               ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7510Normalizer4lastEv(ptr noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZN6icu_7510Normalizer4lastEv(ptr noundef nonnull align 8 dereferenceable(116) initializes((40, 48), (112, 116)) %this) local_unnamed_addr #1 align 2 {
 lor.lhs.false.i:
   %text = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %text, align 8
@@ -1473,7 +1473,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7510Normalizer7setModeE18UNormalizationMode(ptr nocapture noundef nonnull align 8 dereferenceable(116) %this, i32 noundef %newMode) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7510Normalizer7setModeE18UNormalizationMode(ptr nocapture noundef nonnull align 8 dereferenceable(116) initializes((16, 28)) %this, i32 noundef %newMode) local_unnamed_addr #1 align 2 {
 entry:
   %fUMode = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %newMode, ptr %fUMode, align 8
@@ -1490,7 +1490,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7510Normalizer9setOptionEia(ptr nocapture noundef nonnull align 8 dereferenceable(116) %this, i32 noundef %option, i8 noundef signext %value) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7510Normalizer9setOptionEia(ptr nocapture noundef nonnull align 8 dereferenceable(116) initializes((16, 24)) %this, i32 noundef %option, i8 noundef signext %value) local_unnamed_addr #1 align 2 {
 entry:
   %tobool.not = icmp eq i8 %value, 0
   br i1 %tobool.not, label %if.else, label %if.then

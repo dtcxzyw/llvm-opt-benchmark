@@ -112,7 +112,7 @@ $_ZZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21tls_
 @_ZN5folly11LogCategoryC1ENS_5RangeIPKcEEPS0_ = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN5folly11LogCategoryC2ENS_5RangeIPKcEEPS0_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly11LogCategoryC2EPNS_8LoggerDBE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %db) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11LogCategoryC2EPNS_8LoggerDBE(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 12), (16, 24)) %this, ptr noundef %db) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 1, ptr %this, align 8, !tbaa !7
   %effectiveLevel_ = getelementptr inbounds i8, ptr %this, i64 4
@@ -157,7 +157,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly11LogCategoryC2ENS_5RangeIPKcEEPS0_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr %name.coerce0, ptr %name.coerce1, ptr noundef %parent) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11LogCategoryC2ENS_5RangeIPKcEEPS0_(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 12), (16, 24)) %this, ptr %name.coerce0, ptr %name.coerce1, ptr noundef %parent) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 1, ptr %this, align 8, !tbaa !7
   %effectiveLevel_ = getelementptr inbounds i8, ptr %this, i64 4
@@ -3361,7 +3361,7 @@ lpad:                                             ; preds = %if.else.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly11LogCategory11getHandlersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly11LogCategory11getHandlersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i.i.i.i = alloca i32, align 4
   %ctx.i.i.i.i.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1

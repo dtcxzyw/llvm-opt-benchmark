@@ -520,7 +520,7 @@ define i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h12063a7b97f3239eE"(ptr nocapture writeonly sret({ i64, [1 x i64] }) align 8 %0, ptr align 8 %1, i64 %2, ptr align 8 %3, ptr align 8 %4, i64 %5) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h12063a7b97f3239eE"(ptr nocapture writeonly sret({ i64, [1 x i64] }) align 8 initializes((0, 16)) %0, ptr align 8 %1, i64 %2, ptr align 8 %3, ptr align 8 %4, i64 %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = alloca { ptr, ptr }, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !3
@@ -559,7 +559,7 @@ define void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_inser
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17hbd8dcb59debe0188E"(ptr nocapture writeonly sret({ i64, [1 x i64] }) align 8 %0, ptr align 8 %1, i64 %2, ptr align 8 %3, ptr align 8 %4, i64 %5) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17hbd8dcb59debe0188E"(ptr nocapture writeonly sret({ i64, [1 x i64] }) align 8 initializes((0, 16)) %0, ptr align 8 %1, i64 %2, ptr align 8 %3, ptr align 8 %4, i64 %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = alloca { ptr, ptr }, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !3

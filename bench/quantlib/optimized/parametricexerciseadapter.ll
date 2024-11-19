@@ -58,7 +58,7 @@ $_ZTIN8QuantLib16ExerciseStrategyINS_10CurveStateEEE = comdat any
 @_ZN8QuantLib25ParametricExerciseAdapterC1ERKNS_29MarketModelParametricExerciseESt6vectorIS4_IdSaIdEESaIS6_EE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN8QuantLib25ParametricExerciseAdapterC2ERKNS_29MarketModelParametricExerciseESt6vectorIS4_IdSaIdEESaIS6_EE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25ParametricExerciseAdapterC2ERKNS_29MarketModelParametricExerciseESt6vectorIS4_IdSaIdEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(16) %exercise, ptr nocapture noundef %parameters) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib25ParametricExerciseAdapterC2ERKNS_29MarketModelParametricExerciseESt6vectorIS4_IdSaIdEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 80)) %this, ptr noundef nonnull align 8 dereferenceable(16) %exercise, ptr nocapture noundef %parameters) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN8QuantLib25ParametricExerciseAdapterE, i64 16), ptr %this, align 8, !tbaa !3
@@ -427,7 +427,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EED2Ev.exit: ; preds = %invoke.cont, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib25ParametricExerciseAdapter13exerciseTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.2") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib25ParametricExerciseAdapter13exerciseTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.2") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %exerciseTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -473,7 +473,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.threa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib25ParametricExerciseAdapter13relevantTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.2") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib25ParametricExerciseAdapter13relevantTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.2") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %exercise_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %exercise_, align 8, !tbaa !6
@@ -525,7 +525,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.threa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25ParametricExerciseAdapter5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib25ParametricExerciseAdapter5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((64, 80)) %this) unnamed_addr #0 align 2 {
 entry:
   %exercise_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %exercise_, align 8, !tbaa !6

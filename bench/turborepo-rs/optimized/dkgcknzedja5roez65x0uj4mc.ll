@@ -428,7 +428,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCsff1zCjKRl2o_13turborepo_env22En
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_RNvXs0_Csff1zCjKRl2o_13turborepo_envNtB5_22EnvironmentVariableMapINtNtCs1LoaDTb72WA_4core7convert4FromINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map7HashMapNtNtCs68wO5nsWeTG_5alloc6string6StringB2x_EE4from(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #3 {
+define void @_RNvXs0_Csff1zCjKRl2o_13turborepo_envNtB5_22EnvironmentVariableMapINtNtCs1LoaDTb72WA_4core7convert4FromINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map7HashMapNtNtCs68wO5nsWeTG_5alloc6string6StringB2x_EE4from(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   ret void
 }
@@ -454,7 +454,7 @@ define void @_RNvMs3_Csff1zCjKRl2o_13turborepo_envNtB5_22EnvironmentVariableMap5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_RNvMs3_Csff1zCjKRl2o_13turborepo_envNtB5_22EnvironmentVariableMap10into_inner(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #3 {
+define void @_RNvMs3_Csff1zCjKRl2o_13turborepo_envNtB5_22EnvironmentVariableMap10into_inner(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   ret void
 }
@@ -1640,7 +1640,7 @@ _ZN4core3fmt9Formatter9write_fmt17h7b1b66abcbe56eabE.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_RNvXs8_Csff1zCjKRl2o_13turborepo_envNtB5_5ErrorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtCsaz5AFKTGGYY_5regex5error5ErrorE4from(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #3 {
+define void @_RNvXs8_Csff1zCjKRl2o_13turborepo_envNtB5_5ErrorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtCsaz5AFKTGGYY_5regex5error5ErrorE4from(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }

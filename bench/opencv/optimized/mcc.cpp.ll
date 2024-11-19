@@ -51,7 +51,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZN2cv3mcc18DetectorParametersC1Ev = unnamed_addr alias void (ptr), ptr @_ZN2cv3mcc18DetectorParametersC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv3mcc18DetectorParametersC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) %0) unnamed_addr #0 align 2 {
+define void @_ZN2cv3mcc18DetectorParametersC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) initializes((0, 12), (16, 100)) %0) unnamed_addr #0 align 2 {
   store i32 23, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 153, ptr %2, align 4

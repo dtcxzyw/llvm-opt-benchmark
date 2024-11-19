@@ -599,7 +599,7 @@ define dso_local noundef ptr @ExecGetUpdateNewTuple(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecInitMergeTupleSlots(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @ExecInitMergeTupleSlots(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((64, 81)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5449,7 +5449,7 @@ ExecPendingInserts.exit:                          ; preds = %37, %.thread.loopex
 declare zeroext i1 @ExecIRUpdateTriggers(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ExecUpdateAct(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc i32 @ExecUpdateAct(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef nonnull initializes((0, 1)) %6) unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
   %10 = alloca ptr, align 8

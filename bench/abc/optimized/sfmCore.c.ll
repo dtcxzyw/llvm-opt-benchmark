@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [3 x i8] c" }\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Sfm_ParSetDefault(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @Sfm_ParSetDefault(ptr nocapture noundef writeonly initializes((0, 124)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(124) %2, i8 0, i64 112, i1 false)
   store i32 2, ptr %0, align 4
@@ -68,7 +68,7 @@ define void @Sfm_ParSetDefault(ptr nocapture noundef writeonly %0) local_unnamed
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define void @Sfm_NtkPrintStats(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @Sfm_NtkPrintStats(ptr nocapture noundef initializes((7720, 7728)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 7728
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 7688
@@ -1396,7 +1396,7 @@ Vec_IntPrint.exit:                                ; preds = %35, %9
 declare void @Extra_PrintHex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Sfm_NtkPerform(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define i32 @Sfm_NtkPerform(ptr noundef initializes((7728, 7736)) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)

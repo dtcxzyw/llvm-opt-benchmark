@@ -163,7 +163,7 @@ $_ZN8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE12MaxCodeValueE = c
 @_ZN8rawspeed15CrwDecompressorC1ENS_8RawImageEjNS_10Array1DRefIKhEENS_8OptionalIS4_EE = hidden unnamed_addr alias void (ptr, ptr, i32, ptr, i32, ptr), ptr @_ZN8rawspeed15CrwDecompressorC2ENS_8RawImageEjNS_10Array1DRefIKhEENS_8OptionalIS4_EE
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8rawspeed15CrwDecompressorC2ENS_8RawImageEjNS_10Array1DRefIKhEENS_8OptionalIS4_EE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr nocapture noundef %1, i32 noundef %2, ptr %3, i32 %4, ptr nocapture noundef readonly byval(%"class.rawspeed::Optional") align 8 %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8rawspeed15CrwDecompressorC2ENS_8RawImageEjNS_10Array1DRefIKhEENS_8OptionalIS4_EE(ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 16)) %0, ptr nocapture noundef %1, i32 noundef %2, ptr %3, i32 %4, ptr nocapture noundef readonly byval(%"class.rawspeed::Optional") align 8 %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %7, align 8, !tbaa !6
   %8 = getelementptr inbounds i8, ptr %1, i64 8

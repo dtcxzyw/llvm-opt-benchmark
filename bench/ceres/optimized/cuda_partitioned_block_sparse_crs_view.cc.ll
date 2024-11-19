@@ -66,7 +66,7 @@ $_ZN5ceres8internal18CudaStreamedBufferIdE34MemoryTypeResultsInSynchronousCopyEP
 @_ZN5ceres8internal33CudaPartitionedBlockSparseCRSViewC1ERKNS0_17BlockSparseMatrixEiPNS0_11ContextImplE = hidden unnamed_addr alias void (ptr, ptr, i32, ptr), ptr @_ZN5ceres8internal33CudaPartitionedBlockSparseCRSViewC2ERKNS0_17BlockSparseMatrixEiPNS0_11ContextImplE
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal33CudaPartitionedBlockSparseCRSViewC2ERKNS0_17BlockSparseMatrixEiPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal33CudaPartitionedBlockSparseCRSViewC2ERKNS0_17BlockSparseMatrixEiPNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 32), (40, 48)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %6 = alloca %"class.ceres::internal::CudaBuffer", align 8
   %7 = alloca %"class.ceres::internal::CudaBuffer", align 8

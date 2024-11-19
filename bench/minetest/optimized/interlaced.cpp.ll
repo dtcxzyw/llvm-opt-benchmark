@@ -442,7 +442,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN22InitInterlacedMaskStepC2EP13TextureBufferh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, ptr nocapture noundef readonly %vtt, ptr noundef %_buffer, i8 noundef zeroext %_index) unnamed_addr #5 align 2 {
+define dso_local void @_ZN22InitInterlacedMaskStepC2EP13TextureBufferh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %_buffer, i8 noundef zeroext %_index) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = getelementptr inbounds i8, ptr %vtt, i64 16
@@ -480,7 +480,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22InitInterlacedMaskStepC1EP13TextureBufferh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, ptr noundef %_buffer, i8 noundef zeroext %_index) unnamed_addr #6 align 2 {
+define dso_local void @_ZN22InitInterlacedMaskStepC1EP13TextureBufferh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %this, ptr noundef %_buffer, i8 noundef zeroext %_index) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV22InitInterlacedMaskStep, i64 40), ptr %this, align 8, !tbaa !12
   %buffer = getelementptr inbounds i8, ptr %this, i64 8

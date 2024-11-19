@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @CbsP_SetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @CbsP_SetDefaultParams(ptr nocapture noundef writeonly initializes((0, 184)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %2, i8 0, i64 176, i1 false)
   store i32 1000, ptr %0, align 8
@@ -66,7 +66,7 @@ define void @CbsP_SetDefaultParams(ptr nocapture noundef writeonly %0) local_unn
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @CbsP_ManSetConflictNum(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @CbsP_ManSetConflictNum(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 %1, ptr %0, align 8
   ret void
 }
@@ -1573,7 +1573,7 @@ Vec_IntPush.exit38:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @CbsP_ManCancelUntil(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #11 {
+define internal fastcc void @CbsP_ManCancelUntil(ptr nocapture noundef initializes((192, 196)) %0, i32 noundef %1) unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 208
@@ -1970,7 +1970,7 @@ CbsP_QueFinish.exit:                              ; preds = %._crit_edge.i.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @CbsP_ManSolve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @CbsP_ManSolve(ptr noundef initializes((8, 20)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2138,7 +2138,7 @@ CbsP_ManCheckLimits.exit26.thread:                ; preds = %CbsP_ManCheckLimits
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @CbsP_ManSaveModel(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #4 {
+define internal fastcc void @CbsP_ManSaveModel(ptr nocapture noundef initializes((192, 196)) %0, ptr nocapture noundef initializes((4, 8)) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 192
@@ -2261,7 +2261,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @CbsP_ManSolve2(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @CbsP_ManSolve2(ptr noundef initializes((8, 20), (48, 60)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8

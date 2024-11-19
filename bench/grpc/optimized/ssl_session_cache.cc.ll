@@ -78,7 +78,7 @@ $_ZTIN9grpc_core10RefCountedIN3tsi18SslSessionLRUCacheENS_19PolymorphicRefCountE
 @_ZN3tsi18SslSessionLRUCacheD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3tsi18SslSessionLRUCacheD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3tsi18SslSessionLRUCacheC2Em(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %capacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3tsi18SslSessionLRUCacheC2Em(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 56), (64, 68), (72, 80)) %this, i64 noundef %capacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i, align 8
@@ -145,7 +145,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3tsi18SslSessionLRUCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3tsi18SslSessionLRUCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3tsi18SslSessionLRUCacheE, i64 16), ptr %this, align 8
   %use_order_list_head_ = getelementptr inbounds i8, ptr %this, i64 32

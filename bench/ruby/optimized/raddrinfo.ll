@@ -2371,7 +2371,7 @@ get_addrinfo.exit:                                ; preds = %1
 declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @rsock_sockaddr_string_value_with_addrinfo(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define i64 @rsock_sockaddr_string_value_with_addrinfo(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = load volatile i64, ptr %0, align 8
   store i64 4, ptr %1, align 8
   %4 = tail call i32 @rb_typeddata_is_kind_of(i64 noundef %3, ptr noundef nonnull @addrinfo_type) #19

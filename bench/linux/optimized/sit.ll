@@ -219,7 +219,7 @@ define internal i32 @sit_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @ipip6_tunnel_setup(ptr nocapture noundef %0) #2 align 16 {
+define internal void @ipip6_tunnel_setup(ptr nocapture noundef initializes((8, 24), (56, 60), (168, 172), (544, 554), (813, 814), (1308, 1309), (1312, 1320)) %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 2452
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8

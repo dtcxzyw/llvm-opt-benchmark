@@ -869,7 +869,7 @@ pmix_obj_run_destructors.exit196:                 ; preds = %.lr.ph.i193, %293
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mycbfunc(i32 noundef %0, ptr noundef %1) #0 {
+define internal void @mycbfunc(i32 noundef %0, ptr noundef initializes((500, 504)) %1) #0 {
   fence acquire
   %3 = getelementptr inbounds i8, ptr %1, i64 500
   store i32 %0, ptr %3, align 4
@@ -2023,7 +2023,7 @@ declare ptr @PMIx_Info_create(i64 noundef) local_unnamed_addr #1
 declare i32 @PMIx_Info_load(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @fcb(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 {
+define internal void @fcb(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef initializes((500, 504)) %3, ptr noundef readonly %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 500
   store i32 %0, ptr %7, align 4
   %8 = icmp eq i32 %0, 0

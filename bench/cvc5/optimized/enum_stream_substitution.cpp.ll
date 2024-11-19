@@ -5674,7 +5674,7 @@ return:                                           ; preds = %if.then10, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers21EnumStreamPermutation16PermutationState5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers21EnumStreamPermutation16PermutationState5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((72, 76)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_curr_ind = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %d_curr_ind, align 8
@@ -5894,7 +5894,7 @@ return:                                           ; preds = %entry, %_ZNKSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers21EnumStreamPermutation16PermutationStateC2ERKSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 8 dereferenceable(24) %vars) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers21EnumStreamPermutation16PermutationStateC2ERKSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(76) initializes((0, 72)) %this, ptr noundef nonnull align 8 dereferenceable(24) %vars) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_last_perm = getelementptr inbounds i8, ptr %this, i64 24
   %d_seq = getelementptr inbounds i8, ptr %this, i64 48
@@ -10412,7 +10412,7 @@ for.end:                                          ; preds = %_ZNSt6vectorIN4cvc5
 declare noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers22EnumStreamSubstitution16CombinationStateC2EjjjRKSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %n, i32 noundef %k, i32 noundef %subclass_id, ptr noundef nonnull align 8 dereferenceable(24) %vars) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers22EnumStreamSubstitution16CombinationStateC2EjjjRKSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(64) initializes((4, 12), (16, 64)) %this, i32 noundef %n, i32 noundef %k, i32 noundef %subclass_id, ptr noundef nonnull align 8 dereferenceable(24) %vars) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_n = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %n, ptr %d_n, align 4
@@ -11035,7 +11035,7 @@ lpad:                                             ; preds = %if.then13.i4.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers18EnumStreamConcrete10getCurrentEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers18EnumStreamConcrete10getCurrentEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %this) unnamed_addr #3 align 2 {
 entry:
   %d_currTerm = getelementptr inbounds i8, ptr %this, i64 472
   %0 = load ptr, ptr %d_currTerm, align 8

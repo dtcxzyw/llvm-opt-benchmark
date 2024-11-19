@@ -362,7 +362,7 @@ define hidden noundef ptr @_ZNK17G1AbstractSubTask4nameEv(ptr nocapture noundef 
 declare noundef ptr @_ZN14G1GCPhaseTimes10phase_nameENS_11GCParPhasesE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13G1BatchedTask21try_claim_serial_taskERi(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN13G1BatchedTask21try_claim_serial_taskERi(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %3) #10, !srcloc !6
   store i32 %4, ptr %1, align 4
@@ -391,7 +391,7 @@ define hidden void @_ZN13G1BatchedTask17add_parallel_taskEP17G1AbstractSubTask(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13G1BatchedTaskC2EPKcP14G1GCPhaseTimes(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN13G1BatchedTaskC2EPKcP14G1GCPhaseTimes(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 20)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -601,7 +601,7 @@ declare void @_ZN24G1GCParPhaseTimesTrackerC1EP14G1GCPhaseTimesNS0_11GCParPhases
 declare void @_ZN24G1GCParPhaseTimesTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(89)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13G1BatchedTaskD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN13G1BatchedTaskD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13G1BatchedTask, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8

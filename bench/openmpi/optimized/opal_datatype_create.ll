@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_class_init_epoch = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @opal_datatype_construct(ptr nocapture noundef writeonly %0) #0 {
+define internal void @opal_datatype_construct(ptr nocapture noundef writeonly initializes((16, 200)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i16 16, ptr %3, align 8
@@ -38,7 +38,7 @@ define internal void @opal_datatype_construct(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @opal_datatype_destruct(ptr nocapture noundef %0) #1 {
+define internal void @opal_datatype_destruct(ptr nocapture noundef initializes((80, 81)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
@@ -160,7 +160,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define noundef range(i32 -2, 1) i32 @opal_datatype_create_desc(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define noundef range(i32 -2, 1) i32 @opal_datatype_create_desc(ptr nocapture noundef writeonly initializes((144, 168)) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq i32 %1, -1
   %4 = add nuw nsw i32 %1, 1
   %5 = select i1 %3, i32 9, i32 %4

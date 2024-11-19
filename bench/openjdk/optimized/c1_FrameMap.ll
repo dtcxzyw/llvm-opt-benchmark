@@ -527,7 +527,7 @@ _ZNK7LIR_Opr10is_addressEv.exit.thread:           ; preds = %_ZN26GrowableArrayW
 declare noundef i32 @_ZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairi(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8FrameMapC2EP8ciMethodii(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN8FrameMapC2EP8ciMethodii(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 20), (32, 40)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   store i32 -1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 -1, ptr %5, align 4
@@ -729,7 +729,7 @@ declare noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef) local_unnam
 declare noundef ptr @_Z12as_ValueType9BasicType(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN8FrameMap14finalize_frameEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN8FrameMap14finalize_frameEi(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 4), (12, 16)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16

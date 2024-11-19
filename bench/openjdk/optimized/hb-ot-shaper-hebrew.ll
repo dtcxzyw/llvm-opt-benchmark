@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZZL14compose_hebrewPK31hb_ot_shape_normalize_context_tjjPjE12sDageshForms = internal unnamed_addr constant [27 x i32] [i32 64304, i32 64305, i32 64306, i32 64307, i32 64308, i32 64309, i32 64310, i32 0, i32 64312, i32 64313, i32 64314, i32 64315, i32 64316, i32 0, i32 64318, i32 0, i32 64320, i32 64321, i32 0, i32 64323, i32 64324, i32 0, i32 64326, i32 64327, i32 64328, i32 64329, i32 64330], align 16
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZL14compose_hebrewPK31hb_ot_shape_normalize_context_tjjPj(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+define internal noundef zeroext i1 @_ZL14compose_hebrewPK31hb_ot_shape_normalize_context_tjjPj(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef initializes((0, 4)) %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   store i32 0, ptr %3, align 4

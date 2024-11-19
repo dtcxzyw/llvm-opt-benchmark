@@ -163,7 +163,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf9ac_pluginC2ERNS_6egraphEjj(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef nonnull align 8 dereferenceable(536) %g, i32 noundef %fid, i32 noundef %op) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3euf9ac_pluginC2ERNS_6egraphEjj(ptr noundef nonnull align 8 dereferenceable(432) initializes((0, 72)) %this, ptr noundef nonnull align 8 dereferenceable(536) %g, i32 noundef %fid, i32 noundef %op) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %g2.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %g, ptr %g2.i, align 8
@@ -739,7 +739,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf9ac_pluginC2ERNS_6egraphEP9func_decl(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef nonnull align 8 dereferenceable(536) %g, ptr noundef %f) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3euf9ac_pluginC2ERNS_6egraphEP9func_decl(ptr noundef nonnull align 8 dereferenceable(432) initializes((0, 72)) %this, ptr noundef nonnull align 8 dereferenceable(536) %g, ptr noundef %f) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %g2.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %g, ptr %g2.i, align 8
@@ -9895,7 +9895,7 @@ return:                                           ; preds = %"_ZZN3euf9ac_plugin
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf9ac_plugin15justify_rewriteEjj(ptr noalias nocapture writeonly sret(%"class.euf::justification") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %this, i32 noundef %eq1, i32 noundef %eq2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3euf9ac_plugin15justify_rewriteEjj(ptr noalias nocapture writeonly sret(%"class.euf::justification") align 8 initializes((0, 4), (8, 9), (16, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %this, i32 noundef %eq1, i32 noundef %eq2) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN3euf9ac_plugin16justify_equationEj(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %eq1)
   %call2 = tail call noundef ptr @_ZN3euf9ac_plugin16justify_equationEj(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %eq2)
@@ -11790,7 +11790,7 @@ _ZNK6vectorIjLb0EjE3getEjRKj.exit.then.i7.i.i:    ; preds = %_ZNK3euf9ac_plugin1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf9ac_plugin4joinENS_13justificationEj(ptr noalias nocapture writeonly sret(%"class.euf::justification") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %this, ptr nocapture noundef readonly byval(%"class.euf::justification") align 8 %j, i32 noundef %eq) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3euf9ac_plugin4joinENS_13justificationEj(ptr noalias nocapture writeonly sret(%"class.euf::justification") align 8 initializes((0, 4), (8, 9), (16, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %this, ptr nocapture noundef readonly byval(%"class.euf::justification") align 8 %j, i32 noundef %eq) local_unnamed_addr #3 align 2 {
 if.else.i.i:
   %m_allocator.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_allocator.i.i, align 8

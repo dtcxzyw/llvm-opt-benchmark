@@ -1912,7 +1912,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento5taint21getTaintedSymbolsImplEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_9MemRegionEjb(ptr dead_on_unwind noalias writable sret(%"class.std::vector.81") align 8 %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang4ento5taint21getTaintedSymbolsImplEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_9MemRegionEjb(ptr dead_on_unwind noalias writable sret(%"class.std::vector.81") align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %"class.std::vector.81", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %8 = alloca %"class.std::vector.81", align 8
@@ -3115,7 +3115,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento5taint17getTaintedSymbolsEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_9MemRegionEj(ptr dead_on_unwind noalias writable sret(%"class.std::vector.81") align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang4ento5taint17getTaintedSymbolsEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_9MemRegionEj(ptr dead_on_unwind noalias writable sret(%"class.std::vector.81") align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %5, align 8

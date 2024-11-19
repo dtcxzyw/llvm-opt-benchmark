@@ -177,7 +177,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12mpff_managerC2Ejj(ptr noundef nonnull align 8 dereferenceable(89) %this, i32 noundef %prec, i32 noundef %initial_capacity) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12mpff_managerC2Ejj(ptr noundef nonnull align 8 dereferenceable(89) initializes((0, 21), (24, 28), (32, 88)) %this, i32 noundef %prec, i32 noundef %initial_capacity) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator", align 1
@@ -4608,7 +4608,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12mpff_manager16set_plus_epsilonER4mpff(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr nocapture noundef nonnull align 4 dereferenceable(8) %n) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12mpff_manager16set_plus_epsilonER4mpff(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr nocapture noundef nonnull align 4 dereferenceable(8) initializes((4, 8)) %n) local_unnamed_addr #3 align 2 {
 entry:
   %bf.load.i = load i32, ptr %n, align 4
   %cmp.i = icmp ult i32 %bf.load.i, 2
@@ -4687,7 +4687,7 @@ _ZN12mpff_manager19set_min_significandER4mpff.exit: ; preds = %for.body.i, %_ZN1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12mpff_manager17set_minus_epsilonER4mpff(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr nocapture noundef nonnull align 4 dereferenceable(8) %n) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12mpff_manager17set_minus_epsilonER4mpff(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr nocapture noundef nonnull align 4 dereferenceable(8) initializes((4, 8)) %n) local_unnamed_addr #3 align 2 {
 entry:
   %bf.load.i.i = load i32, ptr %n, align 4
   %cmp.i.i = icmp ult i32 %bf.load.i.i, 2
@@ -4766,7 +4766,7 @@ _ZN12mpff_manager16set_plus_epsilonER4mpff.exit:  ; preds = %for.body.i.i, %_ZN1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12mpff_manager7set_maxER4mpff(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr nocapture noundef nonnull align 4 dereferenceable(8) %n) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12mpff_manager7set_maxER4mpff(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr nocapture noundef nonnull align 4 dereferenceable(8) initializes((4, 8)) %n) local_unnamed_addr #3 align 2 {
 entry:
   %bf.load.i = load i32, ptr %n, align 4
   %cmp.i = icmp ult i32 %bf.load.i, 2
@@ -4839,7 +4839,7 @@ _ZN12mpff_manager19set_max_significandER4mpff.exit: ; preds = %for.body.i, %_ZN1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12mpff_manager7set_minER4mpff(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr nocapture noundef nonnull align 4 dereferenceable(8) %n) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12mpff_manager7set_minER4mpff(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr nocapture noundef nonnull align 4 dereferenceable(8) initializes((4, 8)) %n) local_unnamed_addr #3 align 2 {
 entry:
   %bf.load.i.i = load i32, ptr %n, align 4
   %cmp.i.i = icmp ult i32 %bf.load.i.i, 2

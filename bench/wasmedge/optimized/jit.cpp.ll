@@ -530,7 +530,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZN8WasmEdge4LLVM10JITLibraryD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8WasmEdge4LLVM10JITLibraryD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4LLVM10JITLibraryC2ENS0_8OrcLLJITE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN8WasmEdge4LLVM10JITLibraryC2ENS0_8OrcLLJITE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
 _ZNSt10unique_ptrIN8WasmEdge4LLVM8OrcLLJITESt14default_deleteIS2_EED2Ev.exit:
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -545,7 +545,7 @@ _ZNSt10unique_ptrIN8WasmEdge4LLVM8OrcLLJITESt14default_deleteIS2_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4LLVM10JITLibraryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
+define void @_ZN8WasmEdge4LLVM10JITLibraryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8WasmEdge4LLVM10JITLibraryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -686,7 +686,7 @@ _ZN5cxx208expectedIPPA23_KPvN8WasmEdge4LLVM5ErrorEED2Ev.exit: ; preds = %29, %.t
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4LLVM10JITLibrary8getTypesEm(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN8WasmEdge4LLVM10JITLibrary8getTypesEm(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca i64, align 8
   %6 = alloca %"class.fmt::v8::format_arg_store.192", align 16
@@ -917,7 +917,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4LLVM10JITLibrary8getCodesEmm(ptr dead_on_unwind noalias writable sret(%"class.std::vector.21") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
+define void @_ZN8WasmEdge4LLVM10JITLibrary8getCodesEmm(ptr dead_on_unwind noalias writable sret(%"class.std::vector.21") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca i64, align 8
   %7 = alloca %"class.fmt::v8::format_arg_store.192", align 16
@@ -1143,7 +1143,7 @@ _ZN5cxx208expectedIPvN8WasmEdge4LLVM5ErrorEED2Ev.exit: ; preds = %_ZNSt6vectorIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4LLVM3JIT4loadENS0_4DataE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.41") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
+define void @_ZN8WasmEdge4LLVM3JIT4loadENS0_4DataE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.41") align 8 initializes((0, 1), (8, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.WasmEdge::LLVM::OrcLLJIT", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca %"struct.spdlog::source_loc", align 8

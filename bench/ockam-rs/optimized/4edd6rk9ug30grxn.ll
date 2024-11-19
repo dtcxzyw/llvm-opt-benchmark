@@ -8452,7 +8452,7 @@ define noundef zeroext i1 @"_ZN77_$LT$ockam_abac..abac..outgoing..OutgoingAbac$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10ockam_abac4abac8outgoing12OutgoingAbac6create17haf8e931a11824de3E(ptr noalias nocapture noundef writeonly sret({ { [32 x i8] }, [64 x i8], { i8, [31 x i8] }, [103 x i64], ptr, ptr, [1 x i8], i8, [6 x i8] }) align 8 dereferenceable(976) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1, ptr noundef nonnull %2, ptr noalias nocapture noundef readonly align 1 dereferenceable(32) %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %4) unnamed_addr #4 {
+define void @_ZN10ockam_abac4abac8outgoing12OutgoingAbac6create17haf8e931a11824de3E(ptr noalias nocapture noundef writeonly sret({ { [32 x i8] }, [64 x i8], { i8, [31 x i8] }, [103 x i64], ptr, ptr, [1 x i8], i8, [6 x i8] }) align 8 dereferenceable(976) initializes((0, 32), (96, 128), (952, 968), (969, 970)) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1, ptr noundef nonnull %2, ptr noalias nocapture noundef readonly align 1 dereferenceable(32) %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %4) unnamed_addr #4 {
   %6 = getelementptr inbounds i8, ptr %0, i64 952
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 960
@@ -8466,7 +8466,7 @@ define void @_ZN10ockam_abac4abac8outgoing12OutgoingAbac6create17haf8e931a11824d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10ockam_abac4abac8outgoing12OutgoingAbac17create_name_value17h8f53d62c88252044E(ptr noalias nocapture noundef writeonly sret({ { [32 x i8] }, [992 x i8], { ptr, i64 }, { ptr, i64 }, ptr, ptr, [1 x i8], i8, [6 x i8] }) align 8 dereferenceable(1080) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1, ptr noundef nonnull %2, ptr noalias nocapture noundef readonly align 1 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %7) unnamed_addr #4 {
+define void @_ZN10ockam_abac4abac8outgoing12OutgoingAbac17create_name_value17h8f53d62c88252044E(ptr noalias nocapture noundef writeonly sret({ { [32 x i8] }, [992 x i8], { ptr, i64 }, { ptr, i64 }, ptr, ptr, [1 x i8], i8, [6 x i8] }) align 8 dereferenceable(1080) initializes((0, 32), (1024, 1072), (1073, 1074)) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1, ptr noundef nonnull %2, ptr noalias nocapture noundef readonly align 1 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %7) unnamed_addr #4 {
   %9 = getelementptr inbounds i8, ptr %0, i64 1056
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 1064
@@ -8486,7 +8486,7 @@ define void @_ZN10ockam_abac4abac8outgoing12OutgoingAbac17create_name_value17h8f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10ockam_abac4abac8outgoing12OutgoingAbac21check_credential_only17h0b2e93e50c471335E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, { [32 x i8] }, [976 x i8], i8, [7 x i8] }) align 8 dereferenceable(1032) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1, ptr noundef nonnull %2, ptr noalias nocapture noundef readonly align 1 dereferenceable(32) %3) unnamed_addr #4 {
+define void @_ZN10ockam_abac4abac8outgoing12OutgoingAbac21check_credential_only17h0b2e93e50c471335E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, { [32 x i8] }, [976 x i8], i8, [7 x i8] }) align 8 dereferenceable(1032) initializes((0, 48), (1024, 1025)) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1, ptr noundef nonnull %2, ptr noalias nocapture noundef readonly align 1 dereferenceable(32) %3) unnamed_addr #4 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
@@ -8498,7 +8498,7 @@ define void @_ZN10ockam_abac4abac8outgoing12OutgoingAbac21check_credential_only1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN10ockam_abac4abac8outgoing12OutgoingAbac18is_authorized_impl17h7191257f11d91af4E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, [8 x i8], i8, [431 x i8] }) align 8 dereferenceable(456) %0, ptr noalias noundef readonly align 8 dereferenceable(336) %1, ptr noalias noundef readonly align 8 dereferenceable(232) %2) unnamed_addr #5 {
+define void @_ZN10ockam_abac4abac8outgoing12OutgoingAbac18is_authorized_impl17h7191257f11d91af4E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, [8 x i8], i8, [431 x i8] }) align 8 dereferenceable(456) initializes((0, 16), (24, 25)) %0, ptr noalias noundef readonly align 8 dereferenceable(336) %1, ptr noalias noundef readonly align 8 dereferenceable(232) %2) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8

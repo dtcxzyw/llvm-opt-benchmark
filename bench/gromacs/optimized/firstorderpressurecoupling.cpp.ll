@@ -4222,7 +4222,7 @@ declare void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr nound
 declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx26FirstOrderPressureCouplingC2EiifPNS_19StatePropagatorDataEPNS_10EnergyDataEP8_IO_FILEPK10t_inputrecPKNS_7MDAtomsEP6t_nrnbNS_33ReportPreviousStepConservedEnergyE(ptr noundef nonnull align 8 dereferenceable(240) %0, i32 noundef %1, i32 noundef %2, float noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx26FirstOrderPressureCouplingC2EiifPNS_19StatePropagatorDataEPNS_10EnergyDataEP8_IO_FILEPK10t_inputrecPKNS_7MDAtomsEP6t_nrnbNS_33ReportPreviousStepConservedEnergyE(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 68)) %0, i32 noundef %1, i32 noundef %2, float noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator", align 1
   %14 = alloca %"class.std::function.317", align 8

@@ -249,7 +249,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @PyExpat_XmlInitUnknownEncoding(ptr noundef writeonly %mem, ptr nocapture noundef readonly %table, ptr noundef %convert, ptr noundef %userData) local_unnamed_addr #3 {
+define hidden noundef ptr @PyExpat_XmlInitUnknownEncoding(ptr noundef writeonly initializes((0, 464)) %mem, ptr nocapture noundef readonly %table, ptr noundef %convert, ptr noundef %userData) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(464) %mem, ptr noundef nonnull align 8 dereferenceable(464) @latin1_encoding, i64 464, i1 false)
   br label %for.body
@@ -1616,7 +1616,7 @@ return:                                           ; preds = %for.inc.i, %land.lh
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @PyExpat_XmlInitUnknownEncodingNS(ptr noundef %mem, ptr nocapture noundef readonly %table, ptr noundef %convert, ptr noundef %userData) local_unnamed_addr #6 {
+define hidden noundef ptr @PyExpat_XmlInitUnknownEncodingNS(ptr noundef initializes((0, 464)) %mem, ptr nocapture noundef readonly %table, ptr noundef %convert, ptr noundef %userData) local_unnamed_addr #6 {
 entry:
   %call = tail call ptr @PyExpat_XmlInitUnknownEncoding(ptr noundef %mem, ptr noundef %table, ptr noundef %convert, ptr noundef %userData)
   %tobool.not = icmp eq ptr %call, null
@@ -6021,7 +6021,7 @@ return:                                           ; preds = %sw.bb, %sw.bb20, %s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @normal_checkPiTarget(ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef nonnull writeonly %tokPtr) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @normal_checkPiTarget(ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %tokPtr) unnamed_addr #10 {
 entry:
   store i32 11, ptr %tokPtr, align 4
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
@@ -12308,7 +12308,7 @@ return:                                           ; preds = %sw.bb29, %sw.bb38, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @little2_checkPiTarget(ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef nonnull writeonly %tokPtr) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @little2_checkPiTarget(ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %tokPtr) unnamed_addr #10 {
 entry:
   store i32 11, ptr %tokPtr, align 4
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
@@ -18384,7 +18384,7 @@ return:                                           ; preds = %sw.bb30, %sw.bb39, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @big2_checkPiTarget(ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef nonnull writeonly %tokPtr) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @big2_checkPiTarget(ptr noundef %ptr, ptr noundef %end, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %tokPtr) unnamed_addr #10 {
 entry:
   store i32 11, ptr %tokPtr, align 4
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64

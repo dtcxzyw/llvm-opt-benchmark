@@ -134,7 +134,7 @@ entry:
 declare float @llvm.fmuladd.f32(float, float, float) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16btManifoldResultC2EPK24btCollisionObjectWrapperS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %this, ptr noundef %body0Wrap, ptr noundef %body1Wrap) unnamed_addr #2 align 2 {
+define dso_local void @_ZN16btManifoldResultC2EPK24btCollisionObjectWrapperS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((0, 52)) %this, ptr noundef %body0Wrap, ptr noundef %body1Wrap) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16btManifoldResult, i64 16), ptr %this, align 8
   %m_manifoldPtr = getelementptr inbounds i8, ptr %this, i64 8

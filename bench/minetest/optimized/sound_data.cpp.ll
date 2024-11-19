@@ -1001,7 +1001,7 @@ ehcleanup:                                        ; preds = %lpad16, %lpad
 declare i32 @ov_fopen(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN5sound19SoundDataOpenBufferC2ESt10unique_ptrINS_11RAIIOggFileESt14default_deleteIS2_EERKNS_17OggFileDecodeInfoE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef readonly %oggfile, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %decode_info) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5sound19SoundDataOpenBufferC2ESt10unique_ptrINS_11RAIIOggFileESt14default_deleteIS2_EERKNS_17OggFileDecodeInfoE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this, ptr nocapture noundef readonly %oggfile, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %decode_info) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %"struct.sound::RAIIALSoundBuffer", align 4
@@ -1211,7 +1211,7 @@ declare void @_ZN5sound11RAIIOggFile10loadBufferERKNS_17OggFileDecodeInfoEjj(ptr
 declare noundef nonnull align 4 dereferenceable(4) ptr @_ZN5sound17RAIIALSoundBufferaSEOS0_(ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5sound19SoundDataOpenStreamC2ESt10unique_ptrINS_11RAIIOggFileESt14default_deleteIS2_EERKNS_17OggFileDecodeInfoE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef %oggfile, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %decode_info) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5sound19SoundDataOpenStreamC2ESt10unique_ptrINS_11RAIIOggFileESt14default_deleteIS2_EERKNS_17OggFileDecodeInfoE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this, ptr nocapture noundef %oggfile, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %decode_info) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5sound14ISoundDataOpenE, i64 16), ptr %this, align 8, !tbaa !24

@@ -220,19 +220,19 @@ $_ZTIN3gmx15FloatOptionInfoE = comdat any
 @_ZN3gmx16TimeUnitBehaviorC1Ev = unnamed_addr alias void (ptr), ptr @_ZN3gmx16TimeUnitBehaviorC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx15TimeUnitManagerC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0) unnamed_addr #0 align 2 {
+define void @_ZN3gmx15TimeUnitManagerC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #0 align 2 {
   store i32 1, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx15TimeUnitManagerC2ENS_8TimeUnitE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN3gmx15TimeUnitManagerC2ENS_8TimeUnitE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx15TimeUnitManager11setTimeUnitENS_8TimeUnitE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN3gmx15TimeUnitManager11setTimeUnitENS_8TimeUnitE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
   ret void
 }
@@ -266,7 +266,7 @@ define noundef double @_ZNK3gmx15TimeUnitManager22inverseTimeScaleFactorEv(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx16TimeUnitBehaviorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define void @_ZN3gmx16TimeUnitBehaviorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16TimeUnitBehaviorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %2, align 8
@@ -276,7 +276,7 @@ define void @_ZN3gmx16TimeUnitBehaviorC2Ev(ptr nocapture noundef nonnull writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3gmx16TimeUnitBehavior11setTimeUnitENS_8TimeUnitE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN3gmx16TimeUnitBehavior11setTimeUnitENS_8TimeUnitE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -293,7 +293,7 @@ define void @_ZN3gmx16TimeUnitBehavior11setTimeUnitENS_8TimeUnitE(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx16TimeUnitBehavior16setTimeUnitStoreEPNS_8TimeUnitE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN3gmx16TimeUnitBehavior16setTimeUnitStoreEPNS_8TimeUnitE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

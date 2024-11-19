@@ -327,7 +327,7 @@ declare void @_ZN2cv8integralERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr nound
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv10xobjdetect14CvLBPEvaluator7Feature10calcPointsEi(ptr nocapture noundef nonnull align 4 dereferenceable(100) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN2cv10xobjdetect14CvLBPEvaluator7Feature10calcPointsEi(ptr nocapture noundef nonnull align 4 dereferenceable(100) initializes((0, 80), (96, 100)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 84
@@ -994,13 +994,13 @@ _ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EE9push_backEOS3_.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv10xobjdetect14CvLBPEvaluator7FeatureC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(100) %0) unnamed_addr #7 align 2 {
+define hidden void @_ZN2cv10xobjdetect14CvLBPEvaluator7FeatureC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(100) initializes((0, 16)) %0) unnamed_addr #7 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv10xobjdetect14CvLBPEvaluator7FeatureC2Eiiiii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(100) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #7 align 2 {
+define hidden void @_ZN2cv10xobjdetect14CvLBPEvaluator7FeatureC2Eiiiii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(100) initializes((0, 100)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #7 align 2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 %2, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 84

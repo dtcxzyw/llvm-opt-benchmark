@@ -404,7 +404,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core12experimental3Crl5ParseESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.absl::lts_20230802::StatusOr") align 8 %agg.result, i64 %crl_string.coerce0, ptr %crl_string.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core12experimental3Crl5ParseESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.absl::lts_20230802::StatusOr") align 8 initializes((0, 8)) %agg.result, i64 %crl_string.coerce0, ptr %crl_string.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp7 = alloca %"class.absl::lts_20230802::Status", align 8
@@ -801,7 +801,7 @@ invoke.cont:                                      ; preds = %entry
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core12experimental7CrlImplD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core12experimental7CrlImplD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12experimental7CrlImplE, i64 16), ptr %this, align 8
   %crl_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1285,7 +1285,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core12experimental17StaticCrlProvider6GetCrlERKNS0_15CertificateInfoE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.42") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %certificate_info) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core12experimental17StaticCrlProvider6GetCrlERKNS0_15CertificateInfoE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.42") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %certificate_info) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::basic_string_view", align 8
   %crls_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2013,7 +2013,7 @@ _ZNSt12__shared_ptrIN9grpc_core12experimental28DirectoryReloaderCrlProviderELN9_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core12experimental28DirectoryReloaderCrlProviderC2ENSt6chrono8durationIlSt5ratioILl1ELl1EEEESt8functionIFvN4absl12lts_202308026StatusEEESt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEESD_INS_15DirectoryReaderEE(ptr noundef nonnull align 8 dereferenceable(160) %this, i64 %duration.coerce, ptr nocapture noundef %callback, ptr nocapture noundef %event_engine, ptr nocapture noundef %directory_impl) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core12experimental28DirectoryReloaderCrlProviderC2ENSt6chrono8durationIlSt5ratioILl1ELl1EEEESt8functionIFvN4absl12lts_202308026StatusEEESt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEESD_INS_15DirectoryReaderEE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 136), (152, 153)) %this, i64 %duration.coerce, ptr nocapture noundef %callback, ptr nocapture noundef %event_engine, ptr nocapture noundef %directory_impl) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.58", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -2559,7 +2559,7 @@ _ZNSt8weak_ptrIN9grpc_core12experimental28DirectoryReloaderCrlProviderEED2Ev.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core12experimental28DirectoryReloaderCrlProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core12experimental28DirectoryReloaderCrlProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12experimental28DirectoryReloaderCrlProviderE, i64 16), ptr %this, align 8
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %this, i64 152

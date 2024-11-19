@@ -60,7 +60,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.48 = private unnamed_addr constant [8 x i8] c"default\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @pqParseInput3(ptr noundef %0) local_unnamed_addr #0 {
+define void @pqParseInput3(ptr noundef initializes((904, 908)) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = alloca i8, align 1
@@ -2284,7 +2284,7 @@ define range(i32 -1, 1) i32 @pqGetNegotiateProtocolVersion3(ptr noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2147483644) i32 @pqGetCopyData3(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 2147483644) i32 @pqGetCopyData3(ptr noundef initializes((904, 908)) %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @getCopyDataMessage(ptr noundef %0)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %.loopexit, label %.lr.ph
@@ -2374,7 +2374,7 @@ define range(i32 -2, 2147483644) i32 @pqGetCopyData3(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, -2147483648) i32 @getCopyDataMessage(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2, -2147483648) i32 @getCopyDataMessage(ptr noundef initializes((904, 908)) %0) unnamed_addr #0 {
   %2 = alloca %struct.PQExpBufferData, align 8
   %3 = alloca i8, align 1
   %4 = alloca i32, align 4
@@ -3151,7 +3151,7 @@ declare i32 @pqGetnchar(ptr noundef, i64 noundef, ptr noundef) local_unnamed_add
 declare ptr @pqPrepareAsyncResult(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @pqBuildStartupPacket3(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define noundef ptr @pqBuildStartupPacket3(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @build_startup_packet(ptr noundef %0, ptr noundef null, ptr noundef %2)
   store i32 %4, ptr %1, align 4
   %5 = sext i32 %4 to i64

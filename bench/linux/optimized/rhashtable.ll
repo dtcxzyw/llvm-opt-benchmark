@@ -586,7 +586,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rhashtable_walk_enter(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local void @rhashtable_walk_enter(ptr noundef %0, ptr noundef initializes((0, 16), (40, 57)) %1) #0 align 16 {
   store ptr %0, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr null, ptr %3, align 8

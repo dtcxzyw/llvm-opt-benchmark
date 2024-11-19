@@ -130,7 +130,7 @@ define hidden range(i32 1, 1073741825) i32 @encodeDeviceID(i32 noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @decodeDeviceID(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @decodeDeviceID(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = add i32 %0, -1
   %7 = lshr i32 %6, 20
   %8 = and i32 %7, 1023

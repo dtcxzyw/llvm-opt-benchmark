@@ -213,7 +213,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9Stockfish3UCIC2EiPPc(ptr noundef nonnull align 8 dereferenceable(248) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN9Stockfish3UCIC2EiPPc(ptr noundef nonnull align 8 dereferenceable(248) initializes((8, 12), (16, 24)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = alloca [2 x %"struct.std::pair"], align 8
   %5 = alloca %"struct.Stockfish::Eval::EvalFile", align 8
   %6 = alloca %"class.std::allocator.10", align 1

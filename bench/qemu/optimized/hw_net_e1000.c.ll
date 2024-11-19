@@ -558,7 +558,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @e1000_mit_timer(ptr noundef %opaque) #0 {
+define internal void @e1000_mit_timer(ptr noundef initializes((208536, 208537)) %opaque) #0 {
 entry:
   %mit_timer_on = getelementptr inbounds i8, ptr %opaque, i64 208536
   store i8 0, ptr %mit_timer_on, align 8
@@ -886,7 +886,7 @@ declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 declare void @pci_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @set_ctrl(ptr nocapture noundef writeonly %s, i32 %index, i32 noundef %val) #6 {
+define internal void @set_ctrl(ptr nocapture noundef writeonly initializes((11376, 11380)) %s, i32 %index, i32 noundef %val) #6 {
 entry:
   %and = and i32 %val, -67108865
   %mac_reg = getelementptr inbounds i8, ptr %s, i64 11376
@@ -1163,7 +1163,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_rx_control(ptr nocapture noundef %s, i32 %index, i32 noundef %val) #0 {
+define internal void @set_rx_control(ptr nocapture noundef initializes((11632, 11636), (142640, 142648)) %s, i32 %index, i32 noundef %val) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 11632
   store i32 %val, ptr %arrayidx, align 16
@@ -2599,7 +2599,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare void @e1000x_reset_mac_addr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @e1000_post_load(ptr nocapture noundef %opaque, i32 %version_id) #0 {
+define internal noundef i32 @e1000_post_load(ptr nocapture noundef initializes((208536, 208537), (208540, 208544)) %opaque, i32 %version_id) #0 {
 entry:
   %nic = getelementptr inbounds i8, ptr %opaque, i64 2608
   %0 = load ptr, ptr %nic, align 16
@@ -2726,7 +2726,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @e1000_tx_tso_post_load(ptr nocapture noundef writeonly %opaque, i32 %version_id) #6 {
+define internal noundef i32 @e1000_tx_tso_post_load(ptr nocapture noundef writeonly initializes((208556, 208557)) %opaque, i32 %version_id) #6 {
 entry:
   %received_tx_tso = getelementptr inbounds i8, ptr %opaque, i64 208556
   store i8 1, ptr %received_tx_tso, align 4

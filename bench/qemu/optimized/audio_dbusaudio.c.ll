@@ -915,7 +915,7 @@ glib_autoptr_cleanup_GBytes.exit:                 ; preds = %trace_dbus_audio_pu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dbus_enable_out(ptr noundef %hw, i1 noundef zeroext %enable) #0 {
+define internal void @dbus_enable_out(ptr noundef initializes((168, 169)) %hw, i1 noundef zeroext %enable) #0 {
 entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %listener = alloca ptr, align 8
@@ -958,7 +958,7 @@ while.end:                                        ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dbus_volume_out(ptr noundef %hw, ptr nocapture noundef readonly %vol) #0 {
+define internal void @dbus_volume_out(ptr noundef initializes((216, 217), (220, 244)) %hw, ptr nocapture noundef readonly %vol) #0 {
 entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %listener = alloca ptr, align 8
@@ -1219,7 +1219,7 @@ while.end:                                        ; preds = %glib_autoptr_cleanu
 declare void @audio_generic_run_buffer_in(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dbus_enable_in(ptr noundef %hw, i1 noundef zeroext %enable) #0 {
+define internal void @dbus_enable_in(ptr noundef initializes((168, 169)) %hw, i1 noundef zeroext %enable) #0 {
 entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %listener = alloca ptr, align 8
@@ -1262,7 +1262,7 @@ while.end:                                        ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dbus_volume_in(ptr noundef %hw, ptr nocapture noundef readonly %vol) #0 {
+define internal void @dbus_volume_in(ptr noundef initializes((192, 193), (196, 220)) %hw, ptr nocapture noundef readonly %vol) #0 {
 entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %listener = alloca ptr, align 8

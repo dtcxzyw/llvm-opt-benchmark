@@ -837,7 +837,7 @@ define noundef range(i32 0, 2) i32 @dimension(ptr nocapture noundef readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 352
   store ptr %2, ptr %3, align 8, !tbaa !60

@@ -2088,7 +2088,7 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @array_iter_next(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef range(i32 -32768, 32768) %3, i1 noundef zeroext %4, i8 noundef signext %5) unnamed_addr #0 {
+define internal fastcc i64 @array_iter_next(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, i32 noundef %2, i32 noundef range(i32 -32768, 32768) %3, i1 noundef zeroext %4, i8 noundef signext %5) unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %20, label %8
@@ -8137,7 +8137,7 @@ array_bitmap_copy.exit392:                        ; preds = %788, %807, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @deconstruct_array(ptr noundef %0, i32 %1, i32 noundef %2, i1 noundef zeroext %3, i8 noundef signext %4, ptr nocapture noundef writeonly %5, ptr noundef writeonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define dso_local void @deconstruct_array(ptr noundef %0, i32 %1, i32 noundef %2, i1 noundef zeroext %3, i8 noundef signext %4, ptr nocapture noundef writeonly initializes((0, 8)) %5, ptr noundef writeonly %6, ptr nocapture noundef writeonly initializes((0, 4)) %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr i8, ptr %0, i64 16

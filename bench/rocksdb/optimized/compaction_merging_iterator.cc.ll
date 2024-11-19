@@ -136,7 +136,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb25CompactionMergingIterator11SeekToFirstEv(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb25CompactionMergingIterator11SeekToFirstEv(ptr noundef nonnull align 8 dereferenceable(312) initializes((168, 174), (296, 304)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data_.i = getelementptr inbounds i8, ptr %this, i64 192
   %.pr.i.i = load i64, ptr %data_.i, align 8
@@ -893,7 +893,7 @@ while.end:                                        ; preds = %if.end16, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb25CompactionMergingIterator4SeekERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef nonnull align 8 dereferenceable(16) %target) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb25CompactionMergingIterator4SeekERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(312) initializes((168, 174), (296, 304)) %this, ptr noundef nonnull align 8 dereferenceable(16) %target) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.rocksdb::ParsedInternalKey", align 8
   %pik = alloca %"struct.rocksdb::ParsedInternalKey", align 8

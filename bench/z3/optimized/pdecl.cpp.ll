@@ -1050,7 +1050,7 @@ if.end:                                           ; preds = %_ZN16psort_inst_cac
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN10psort_declC2EjjR13pdecl_managerRK6symbol(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %id, i32 noundef %num_params, ptr nocapture noundef nonnull readnone align 8 dereferenceable(192) %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n) unnamed_addr #4 align 2 {
+define hidden void @_ZN10psort_declC2EjjR13pdecl_managerRK6symbol(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 20), (24, 36), (40, 48)) %this, i32 noundef %id, i32 noundef %num_params, ptr nocapture noundef nonnull readnone align 8 dereferenceable(192) %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n) unnamed_addr #4 align 2 {
 entry:
   %m_id.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %id, ptr %m_id.i, align 8
@@ -1174,7 +1174,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN15psort_user_declC2EjjR13pdecl_managerRK6symbolP5psort(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, i32 noundef %id, i32 noundef %num_params, ptr nocapture nonnull readnone align 8 %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n, ptr noundef %p) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN15psort_user_declC2EjjR13pdecl_managerRK6symbolP5psort(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 20), (24, 36), (40, 56)) %this, i32 noundef %id, i32 noundef %num_params, ptr nocapture nonnull readnone align 8 %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n, ptr noundef %p) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_id.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %id, ptr %m_id.i.i, align 8
@@ -1886,7 +1886,7 @@ if.end:                                           ; preds = %if.then, %_Z17displ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19psort_type_var_declC2EjR13pdecl_managerRK6symbol(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, i32 noundef %id, ptr nocapture nonnull readnone align 8 %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n) unnamed_addr #4 align 2 {
+define hidden void @_ZN19psort_type_var_declC2EjR13pdecl_managerRK6symbol(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 20), (24, 36), (40, 48)) %this, i32 noundef %id, ptr nocapture nonnull readnone align 8 %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n) unnamed_addr #4 align 2 {
 entry:
   %m_id.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %id, ptr %m_id.i.i, align 8
@@ -1963,7 +1963,7 @@ _ZlsRSo6symbol.exit:                              ; preds = %if.then2.i, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN13psort_dt_declC2EjjR13pdecl_managerRK6symbol(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %id, i32 noundef %num_params, ptr nocapture nonnull readnone align 8 %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n) unnamed_addr #4 align 2 {
+define hidden void @_ZN13psort_dt_declC2EjjR13pdecl_managerRK6symbol(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 20), (24, 36), (40, 48)) %this, i32 noundef %id, i32 noundef %num_params, ptr nocapture nonnull readnone align 8 %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n) unnamed_addr #4 align 2 {
 entry:
   %m_id.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %id, ptr %m_id.i.i, align 8
@@ -2297,7 +2297,7 @@ _ZlsRSo6symbol.exit:                              ; preds = %if.then2.i, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN18psort_builtin_declC2EjR13pdecl_managerRK6symbolii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, i32 noundef %id, ptr nocapture nonnull readnone align 8 %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n, i32 noundef %fid, i32 noundef %k) unnamed_addr #4 align 2 {
+define hidden void @_ZN18psort_builtin_declC2EjR13pdecl_managerRK6symbolii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 20), (24, 36), (40, 56)) %this, i32 noundef %id, ptr nocapture nonnull readnone align 8 %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n, i32 noundef %fid, i32 noundef %k) unnamed_addr #4 align 2 {
 entry:
   %m_id.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %id, ptr %m_id.i.i, align 8
@@ -3002,7 +3002,7 @@ sw.epilog:                                        ; preds = %if.else5.i5, %if.el
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN14paccessor_declC2EjjR13pdecl_managerRK6symbolRK5ptype(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %id, i32 noundef %num_params, ptr nocapture nonnull readnone align 8 %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %r) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN14paccessor_declC2EjjR13pdecl_managerRK6symbolRK5ptype(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 20), (24, 56)) %this, i32 noundef %id, i32 noundef %num_params, ptr nocapture nonnull readnone align 8 %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %r) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_id.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %id, ptr %m_id.i, align 8
@@ -3341,7 +3341,7 @@ _ZlsRSo6symbol.exit:                              ; preds = %if.then2.i, %if.els
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17pconstructor_declC2EjjR13pdecl_managerRK6symbolS4_jPKP14paccessor_decl(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %id, i32 noundef %num_params, ptr nocapture nonnull readnone align 8 %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %r, i32 noundef %num_accessors, ptr nocapture noundef readonly %accessors) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17pconstructor_declC2EjjR13pdecl_managerRK6symbolS4_jPKP14paccessor_decl(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 20), (24, 48)) %this, i32 noundef %id, i32 noundef %num_params, ptr nocapture nonnull readnone align 8 %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %r, i32 noundef %num_accessors, ptr nocapture noundef readonly %accessors) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_id.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %id, ptr %m_id.i, align 8
@@ -3983,7 +3983,7 @@ for.end:                                          ; preds = %for.body, %_ZlsRSo6
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN14pdatatype_declC2EjjR13pdecl_managerRK6symboljPKP17pconstructor_decl(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %id, i32 noundef %num_params, ptr nocapture nonnull readnone align 8 %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n, i32 noundef %num_constructors, ptr nocapture noundef readonly %constructors) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN14pdatatype_declC2EjjR13pdecl_managerRK6symboljPKP17pconstructor_decl(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 20), (24, 36), (40, 56)) %this, i32 noundef %id, i32 noundef %num_params, ptr nocapture nonnull readnone align 8 %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n, i32 noundef %num_constructors, ptr nocapture noundef readonly %constructors) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_id.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %id, ptr %m_id.i.i, align 8
@@ -6018,7 +6018,7 @@ _ZN10ptr_bufferIN8datatype3defELj16EED2Ev.exit:   ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15pdatatypes_declC2EjjR13pdecl_managerjPKP14pdatatype_decl(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %id, i32 noundef %num_params, ptr nocapture nonnull readnone align 8 %m, i32 noundef %num_datatypes, ptr nocapture noundef readonly %dts) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN15pdatatypes_declC2EjjR13pdecl_managerjPKP14pdatatype_decl(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 20), (24, 32)) %this, i32 noundef %id, i32 noundef %num_params, ptr nocapture nonnull readnone align 8 %m, i32 noundef %num_datatypes, ptr nocapture noundef readonly %dts) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_id.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %id, ptr %m_id.i, align 8
@@ -8086,7 +8086,7 @@ _ZN14pdatatype_declC2EjjR13pdecl_managerRK6symboljPKP17pconstructor_decl.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13pdecl_managerC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN13pdecl_managerC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 20), (24, 32)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %class.symbol, align 8
   store ptr %m, ptr %this, align 8

@@ -2339,7 +2339,7 @@ unreachable:                                      ; preds = %invoke.cont19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly6detail10PerfScopedC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6detail10PerfScopedC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8, !tbaa !112
   ret void
@@ -2349,7 +2349,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly6detail10PerfScopedC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #14 align 2 {
+define void @_ZN5folly6detail10PerfScopedC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #14 align 2 {
 entry:
   %1 = load i64, ptr %0, align 8, !tbaa !10
   store i64 %1, ptr %this, align 8, !tbaa !10

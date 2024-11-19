@@ -22,7 +22,7 @@ define dso_local noundef zeroext i1 @Curl_auth_is_ntlm_supported() local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 62) i32 @Curl_auth_decode_ntlm_type2_message(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 0, 62) i32 @Curl_auth_decode_ntlm_type2_message(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 4)) %2) local_unnamed_addr #1 {
   %4 = tail call ptr @Curl_bufref_ptr(ptr noundef %1) #7
   %5 = tail call i64 @Curl_bufref_len(ptr noundef %1) #7
   store i32 0, ptr %2, align 8
@@ -162,7 +162,7 @@ declare i32 @Curl_read32_le(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 28) i32 @Curl_auth_create_ntlm_type1_message(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef %5, ptr noundef %6) local_unnamed_addr #1 {
+define dso_local range(i32 0, 28) i32 @Curl_auth_create_ntlm_type1_message(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef initializes((12, 16)) %5, ptr noundef %6) local_unnamed_addr #1 {
   %8 = load ptr, ptr @Curl_cfree, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -184,7 +184,7 @@ define dso_local range(i32 0, 28) i32 @Curl_auth_create_ntlm_type1_message(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_auth_cleanup_ntlm(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define dso_local void @Curl_auth_cleanup_ntlm(ptr nocapture noundef initializes((12, 16)) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @Curl_cfree, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8

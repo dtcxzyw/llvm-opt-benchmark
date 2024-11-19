@@ -2840,7 +2840,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4Luau12TypeMismatchC2EPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4Luau12TypeMismatchC2EPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 20)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -2857,7 +2857,7 @@ define dso_local void @_ZN4Luau12TypeMismatchC2EPKNS_4TypeES3_(ptr noundef nonnu
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau12TypeMismatchC2EPKNS_4TypeES3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4Luau12TypeMismatchC2EPKNS_4TypeES3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 20)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #4 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
@@ -2873,7 +2873,7 @@ define dso_local void @_ZN4Luau12TypeMismatchC2EPKNS_4TypeES3_NSt7__cxx1112basic
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau12TypeMismatchC2EPKNS_4TypeES3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalINS_9TypeErrorEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau12TypeMismatchC2EPKNS_4TypeES3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalINS_9TypeErrorEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 20)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
@@ -2948,7 +2948,7 @@ _ZSt11make_sharedIN4Luau9TypeErrorEJS1_EESt10shared_ptrINSt9enable_ifIXntsr8is_a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4Luau12TypeMismatchC2EPKNS_4TypeES3_NS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4Luau12TypeMismatchC2EPKNS_4TypeES3_NS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 20)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
@@ -2962,7 +2962,7 @@ define dso_local void @_ZN4Luau12TypeMismatchC2EPKNS_4TypeES3_NS0_7ContextE(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau12TypeMismatchC2EPKNS_4TypeES3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4Luau12TypeMismatchC2EPKNS_4TypeES3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 20)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4) unnamed_addr #4 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
@@ -2976,7 +2976,7 @@ define dso_local void @_ZN4Luau12TypeMismatchC2EPKNS_4TypeES3_NSt7__cxx1112basic
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau12TypeMismatchC2EPKNS_4TypeES3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalINS_9TypeErrorEENS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau12TypeMismatchC2EPKNS_4TypeES3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalINS_9TypeErrorEENS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 20)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
@@ -3807,7 +3807,7 @@ define dso_local noundef i32 @_ZN4Luau9TypeError7minCodeEv() local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4Luau9TypeError7summaryEv(ptr dead_on_unwind noalias writable sret(%"struct.Luau::TypeErrorSummary") align 8 %0, ptr noundef nonnull align 8 dereferenceable(160) %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4Luau9TypeError7summaryEv(ptr dead_on_unwind noalias writable sret(%"struct.Luau::TypeErrorSummary") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load i32, ptr %4, align 8
@@ -17438,19 +17438,19 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_12TypeMismatchEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_12TypeMismatchEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_13UnknownSymbolEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_13UnknownSymbolEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_15UnknownPropertyEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_15UnknownPropertyEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
   %6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
@@ -17477,13 +17477,13 @@ _ZNK4Luau18InvalidNameCheckerclERKNS_15UnknownPropertyE.exit: ; preds = %3, %8, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_9NotATableEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_9NotATableEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_17CannotExtendTableEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_17CannotExtendTableEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
   %6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
@@ -17510,13 +17510,13 @@ _ZNK4Luau18InvalidNameCheckerclERKNS_17CannotExtendTableE.exit: ; preds = %3, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_24OnlyTablesCanHaveMethodsEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_24OnlyTablesCanHaveMethodsEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_23DuplicateTypeDefinitionEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr noundef nonnull %2) #2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_23DuplicateTypeDefinitionEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr noundef nonnull %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(52) %2) #27
   %5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   %6 = icmp eq i64 %4, %5
@@ -17542,241 +17542,241 @@ _ZNK4Luau18InvalidNameCheckerclERKNS_23DuplicateTypeDefinitionE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_13CountMismatchEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_13CountMismatchEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_23FunctionDoesNotTakeSelfEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_23FunctionDoesNotTakeSelfEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_20FunctionRequiresSelfEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_20FunctionRequiresSelfEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_17OccursCheckFailedEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_17OccursCheckFailedEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_14UnknownRequireEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_14UnknownRequireEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_30IncorrectGenericParameterCountEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_30IncorrectGenericParameterCountEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_11SyntaxErrorEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_11SyntaxErrorEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_14CodeTooComplexEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_14CodeTooComplexEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_21UnificationTooComplexEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_21UnificationTooComplexEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_27UnknownPropButFoundLikePropEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_27UnknownPropButFoundLikePropEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_12GenericErrorEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_12GenericErrorEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_13InternalErrorEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_13InternalErrorEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_21CannotCallNonFunctionEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_21CannotCallNonFunctionEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_16ExtraInformationEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_16ExtraInformationEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_17DeprecatedApiUsedEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_17DeprecatedApiUsedEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_25ModuleHasCyclicDependencyEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_25ModuleHasCyclicDependencyEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_14IllegalRequireEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_14IllegalRequireEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_29FunctionExitsWithoutReturningEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_29FunctionExitsWithoutReturningEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_25DuplicateGenericParameterEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_25DuplicateGenericParameterEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_19CannotAssignToNeverEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_19CannotAssignToNeverEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_26CannotInferBinaryOperationEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_26CannotInferBinaryOperationEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_17MissingPropertiesEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_17MissingPropertiesEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_27SwappedGenericTypeParameterEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_27SwappedGenericTypeParameterEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_19OptionalValueAccessEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_19OptionalValueAccessEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_20MissingUnionPropertyEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_20MissingUnionPropertyEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_17TypesAreUnrelatedEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_17TypesAreUnrelatedEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_23NormalizationTooComplexEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_23NormalizationTooComplexEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_16TypePackMismatchEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_16TypePackMismatchEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_36DynamicPropertyLookupOnClassesUnsafeEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_36DynamicPropertyLookupOnClassesUnsafeEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_21UninhabitedTypeFamilyEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_21UninhabitedTypeFamilyEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_25UninhabitedTypePackFamilyEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_25UninhabitedTypePackFamilyEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_17WhereClauseNeededEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_17WhereClauseNeededEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_21PackWhereClauseNeededEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_21PackWhereClauseNeededEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_24CheckedFunctionCallErrorEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_24CheckedFunctionCallErrorEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_32NonStrictFunctionDefinitionErrorEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_32NonStrictFunctionDefinitionErrorEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_23PropertyAccessViolationEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_23PropertyAccessViolationEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_28CheckedFunctionIncorrectArgsEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_28CheckedFunctionIncorrectArgsEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_25UnexpectedTypeInSubtypingEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_25UnexpectedTypeInSubtypingEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_29UnexpectedTypePackInSubtypingEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_29UnexpectedTypePackInSubtypingEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_37ExplicitFunctionAnnotationRecommendedEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture readnone %2) #19 {
+define internal void @_ZN4LuauL8fnVisitRINS_18InvalidNameCheckerEbKNS_37ExplicitFunctionAnnotationRecommendedEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture readnone %2) #19 {
   store i8 0, ptr %1, align 1
   ret void
 }

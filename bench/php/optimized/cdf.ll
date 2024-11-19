@@ -65,7 +65,7 @@ define hidden void @cdf_swap_header(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cdf_unpack_header(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define hidden void @cdf_unpack_header(ptr nocapture noundef writeonly initializes((0, 76)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = load i64, ptr %1, align 1
   store i64 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -159,7 +159,7 @@ define hidden void @cdf_swap_class(ptr nocapture noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @cdf_unpack_dir(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define hidden void @cdf_unpack_dir(ptr nocapture noundef writeonly initializes((0, 100), (104, 132)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 1 dereferenceable(64) %1, i64 64, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = getelementptr inbounds i8, ptr %1, i64 64
@@ -216,7 +216,7 @@ define hidden void @cdf_unpack_dir(ptr nocapture noundef writeonly %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cdf_zero_stream(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define hidden noundef i32 @cdf_zero_stream(ptr nocapture noundef initializes((8, 32)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %0, align 8
@@ -832,7 +832,7 @@ define hidden range(i64 -1, 10001) i64 @cdf_count_chain(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @cdf_read_long_sector_chain(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #6 {
+define hidden range(i32 -1, 1) i32 @cdf_read_long_sector_chain(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4, ptr nocapture noundef initializes((0, 8)) %5) local_unnamed_addr #6 {
   %7 = getelementptr inbounds i8, ptr %1, i64 30
   %8 = load i16, ptr %7, align 2
   %9 = zext nneg i16 %8 to i32
@@ -1007,7 +1007,7 @@ cdf_read_sector.exit:                             ; preds = %69
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @cdf_read_short_sector_chain(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #6 {
+define hidden range(i32 -1, 1) i32 @cdf_read_short_sector_chain(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4, ptr nocapture noundef initializes((0, 8)) %5) local_unnamed_addr #6 {
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load i16, ptr %7, align 8
   %9 = zext nneg i16 %8 to i32
@@ -1151,7 +1151,7 @@ cdf_read_short_sector.exit.thread:                ; preds = %.lr.ph.split, %42, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @cdf_read_sector_chain(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, ptr nocapture noundef %7) local_unnamed_addr #6 {
+define hidden range(i32 -1, 1) i32 @cdf_read_sector_chain(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, ptr nocapture noundef initializes((0, 8)) %7) local_unnamed_addr #6 {
   %9 = getelementptr inbounds i8, ptr %1, i64 56
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
@@ -1408,7 +1408,7 @@ cdf_read_sector.exit.thread:                      ; preds = %60, %43, %cdf_read_
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @cdf_read_ssat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #6 {
+define hidden range(i32 -1, 1) i32 @cdf_read_ssat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #6 {
   %5 = getelementptr inbounds i8, ptr %1, i64 30
   %6 = load i16, ptr %5, align 2
   %7 = zext nneg i16 %6 to i32
@@ -1561,7 +1561,7 @@ cdf_read_sector.exit.thread:                      ; preds = %58, %38, %cdf_read_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @cdf_read_short_stream(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #6 {
+define hidden range(i32 -1, 1) i32 @cdf_read_short_stream(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #6 {
   store ptr null, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   %8 = load i64, ptr %7, align 8
@@ -1617,7 +1617,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_short_stream(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @cdf_read_doc_summary_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6) local_unnamed_addr #6 {
+define hidden range(i32 -1, 1) i32 @cdf_read_doc_summary_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef initializes((0, 8)) %6) local_unnamed_addr #6 {
   %8 = tail call i32 @cdf_find_stream(ptr noundef readonly %5, ptr noundef nonnull @.str.1, i32 noundef 2)
   %9 = icmp slt i32 %8, 1
   br i1 %9, label %10, label %11
@@ -1659,7 +1659,7 @@ cdf_read_user_stream.exit:                        ; preds = %10, %25, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @cdf_read_user_stream(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef %7) local_unnamed_addr #6 {
+define hidden range(i32 -1, 1) i32 @cdf_read_user_stream(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef initializes((0, 8)) %7) local_unnamed_addr #6 {
   %9 = tail call i32 @cdf_find_stream(ptr noundef %5, ptr noundef %6, i32 noundef 2)
   %10 = icmp slt i32 %9, 1
   br i1 %10, label %11, label %12
@@ -1701,7 +1701,7 @@ cdf_read_sector_chain.exit:                       ; preds = %28, %26, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @cdf_read_summary_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6) local_unnamed_addr #6 {
+define hidden range(i32 -1, 1) i32 @cdf_read_summary_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef initializes((0, 8)) %6) local_unnamed_addr #6 {
   %8 = tail call i32 @cdf_find_stream(ptr noundef readonly %5, ptr noundef nonnull @.str.2, i32 noundef 2)
   %9 = icmp slt i32 %8, 1
   br i1 %9, label %10, label %11

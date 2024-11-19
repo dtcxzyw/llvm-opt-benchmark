@@ -1080,7 +1080,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit22: ; preds = %_ZN4cvc58internal12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory4bags10CardSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory4bags10CardSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory4bags10CardSolverE, i64 16), ptr %this, align 8
   %d_one = getelementptr inbounds i8, ptr %this, i64 168
@@ -1215,7 +1215,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt3setISt6vectorIS3_SaIS3_EESt4les
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory4bags10CardSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory4bags10CardSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory4bags10CardSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22

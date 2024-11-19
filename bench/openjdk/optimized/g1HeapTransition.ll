@@ -88,7 +88,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN16G1HeapTransitionC1EP15G1CollectedHeap = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN16G1HeapTransitionC2EP15G1CollectedHeap
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1HeapTransition4DataC2EP15G1CollectedHeap(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1HeapTransition4DataC2EP15G1CollectedHeap(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 32)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 984
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -172,7 +172,7 @@ define hidden void @_ZN16G1HeapTransition4DataD2Ev(ptr nocapture noundef nonnull
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1HeapTransitionC2EP15G1CollectedHeap(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1HeapTransitionC2EP15G1CollectedHeap(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 40)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN16G1HeapTransition4DataC2EP15G1CollectedHeap(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef %1)

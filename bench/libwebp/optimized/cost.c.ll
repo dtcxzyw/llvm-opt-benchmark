@@ -178,7 +178,7 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SetResidualCoeffs_C(ptr noundef %0, ptr nocapture noundef writeonly %1) #3 {
+define internal void @SetResidualCoeffs_C(ptr noundef %0, ptr nocapture noundef writeonly initializes((4, 8)) %1) #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 -1, ptr %3, align 4
   br label %4

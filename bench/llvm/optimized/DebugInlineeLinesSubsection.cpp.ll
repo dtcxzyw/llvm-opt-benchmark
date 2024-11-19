@@ -899,7 +899,7 @@ _ZN4llvm15BinaryStreamRefD2Ev.exit:               ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm8codeview30DebugInlineeLinesSubsectionRefC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm8codeview30DebugInlineeLinesSubsectionRefC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 12), (16, 48), (56, 57), (64, 65), (68, 72)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 246, ptr %2, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm8codeview30DebugInlineeLinesSubsectionRefE, i64 16), ptr %0, align 8
@@ -1318,7 +1318,7 @@ _ZN4llvm15BinaryStreamRefD2Ev.exit15:             ; preds = %.critedge, %126, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm8codeview27DebugInlineeLinesSubsectionC2ERNS0_24DebugChecksumsSubsectionEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm8codeview27DebugInlineeLinesSubsectionC2ERNS0_24DebugChecksumsSubsectionEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 12), (16, 25), (28, 56)) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 246, ptr %5, align 8

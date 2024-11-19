@@ -1706,7 +1706,7 @@ return:                                           ; preds = %entry, %_ZNK6vector
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3smt10theory_seq12solution_map4findEP4exprRPN18dependency_managerIN25scoped_dependency_managerINS0_10assumptionEE6configEE10dependencyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef readonly %e, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %d) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN3smt10theory_seq12solution_map4findEP4exprRPN18dependency_managerIN25scoped_dependency_managerINS0_10assumptionEE6configEE10dependencyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef readonly %e, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %d) local_unnamed_addr #3 align 2 {
 entry:
   %m_map.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %d, align 8
@@ -6297,7 +6297,7 @@ _ZN18dependency_managerIN25scoped_dependency_managerIN3smt10theory_seq10assumpti
 declare void @_ZN3smt6theoryD2Ev(ptr noundef nonnull align 8 dereferenceable(53)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt10theory_seqD2Ev(ptr noundef nonnull align 8 dereferenceable(4328) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt10theory_seqD2Ev(ptr noundef nonnull align 8 dereferenceable(4328) initializes((0, 8), (56, 64)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3smt10theory_seqE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
@@ -7648,7 +7648,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn56_N3smt10theory_seqD1Ev(ptr noundef %this) unnamed_addr #10 align 2 {
+define hidden void @_ZThn56_N3smt10theory_seqD1Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #10 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN3smt10theory_seqD2Ev(ptr noundef nonnull align 8 dereferenceable(4328) %0) #25
@@ -7656,7 +7656,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt10theory_seqD0Ev(ptr noundef nonnull align 8 dereferenceable(4328) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZN3smt10theory_seqD0Ev(ptr noundef nonnull align 8 dereferenceable(4328) initializes((0, 8), (56, 64)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN3smt10theory_seqD2Ev(ptr noundef nonnull align 8 dereferenceable(4328) %this) #25
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -7667,7 +7667,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn56_N3smt10theory_seqD0Ev(ptr noundef %this) unnamed_addr #10 align 2 {
+define hidden void @_ZThn56_N3smt10theory_seqD0Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #10 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN3smt10theory_seqD2Ev(ptr noundef nonnull align 8 dereferenceable(4328) %0) #25
@@ -8559,7 +8559,7 @@ return:                                           ; preds = %if.end410, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3smt10theory_seq22simplify_and_solve_eqsEv(ptr noundef nonnull align 8 dereferenceable(4328) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN3smt10theory_seq22simplify_and_solve_eqsEv(ptr noundef nonnull align 8 dereferenceable(4328) initializes((4201, 4202)) %this) local_unnamed_addr #3 align 2 {
 land.rhs.lr.ph:
   %m_new_solution = getelementptr inbounds i8, ptr %this, i64 4201
   store i8 1, ptr %m_new_solution, align 1
@@ -13580,7 +13580,7 @@ return:                                           ; preds = %land.rhs.i.i, %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt10theory_seq6mk_nthEP4exprS2_(ptr noalias nocapture writeonly sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(4328) %this, ptr noundef %s, ptr noundef %idx) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt10theory_seq6mk_nthEP4exprS2_(ptr noalias nocapture writeonly sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(4328) %this, ptr noundef %s, ptr noundef %idx) local_unnamed_addr #3 align 2 {
 entry:
   %es.i = alloca [2 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %es.i)
@@ -23685,7 +23685,7 @@ _ZNK3seq6skolem9is_skolemEPK4expr.exit:           ; preds = %entry, %land.rhs.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt10theory_seq6mk_subEP4exprS2_(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4328) %this, ptr noundef %a, ptr noundef %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt10theory_seq6mk_subEP4exprS2_(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(4328) %this, ptr noundef %a, ptr noundef %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_autil = getelementptr inbounds i8, ptr %this, i64 1864
   %0 = load ptr, ptr %m_autil, align 8
@@ -26277,7 +26277,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3smt10theory_seq16internalize_termEP3app(ptr noundef nonnull align 8 dereferenceable(4328) %this, ptr noundef %term) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN3smt10theory_seq16internalize_termEP3app(ptr noundef nonnull align 8 dereferenceable(4328) initializes((4200, 4201)) %this, ptr noundef %term) unnamed_addr #3 align 2 {
 entry:
   %m_has_seq = getelementptr inbounds i8, ptr %this, i64 4200
   store i8 1, ptr %m_has_seq, align 8
@@ -39431,7 +39431,7 @@ return:                                           ; preds = %if.then2.i.i.i342, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt10theory_seq10try_expandEP4exprRPN18dependency_managerIN25scoped_dependency_managerINS0_10assumptionEE6configEE10dependencyE(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4328) %this, ptr noundef %e, ptr nocapture noundef nonnull align 8 dereferenceable(8) %eqs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt10theory_seq10try_expandEP4exprRPN18dependency_managerIN25scoped_dependency_managerINS0_10assumptionEE6configEE10dependencyE(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(4328) %this, ptr noundef %e, ptr nocapture noundef nonnull align 8 dereferenceable(8) %eqs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m, align 8
@@ -41019,7 +41019,7 @@ ehcleanup:                                        ; preds = %lpad20, %lpad
 declare noundef ptr @_ZNK8seq_util3str7mk_charERK7zstringj(ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(80), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt10theory_seq6mk_addEP4exprS2_(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4328) %this, ptr noundef %a, ptr noundef %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt10theory_seq6mk_addEP4exprS2_(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(4328) %this, ptr noundef %a, ptr noundef %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_autil = getelementptr inbounds i8, ptr %this, i64 1864
   %0 = load ptr, ptr %m_autil, align 8

@@ -1219,7 +1219,7 @@ define dso_local noalias noundef ptr @drm_gtf_mode(ptr nocapture readnone %0, i3
 declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @drm_mode_get_hv_timing(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define dso_local void @drm_mode_get_hv_timing(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #6 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i16, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 14
@@ -1243,7 +1243,7 @@ define dso_local void @drm_mode_get_hv_timing(ptr nocapture noundef readonly %0,
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @drm_mode_init(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define dso_local void @drm_mode_init(ptr nocapture noundef initializes((0, 120)) %0, ptr nocapture noundef readonly %1) #6 align 16 {
   %3 = alloca %struct.list_head, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(120) %0, i8 0, i64 120, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -1418,7 +1418,7 @@ define dso_local void @drm_mode_set_crtcinfo(ptr noundef %0, i32 noundef %1) #6 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @drm_mode_copy(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define dso_local void @drm_mode_copy(ptr nocapture noundef initializes((0, 64), (80, 120)) %0, ptr nocapture noundef readonly %1) #6 align 16 {
   %3 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2656,7 +2656,7 @@ drm_mode_match.exit:                              ; preds = %.lr.ph.split, %39, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef initializes((0, 96)) %2) #0 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3667,7 +3667,7 @@ define dso_local noundef ptr @drm_mode_create_from_cmdline_mode(ptr noundef %0, 
 declare dso_local void @drm_mode_fixup_1366x768(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_mode_convert_to_umode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @drm_mode_convert_to_umode(ptr noundef initializes((0, 36)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 4

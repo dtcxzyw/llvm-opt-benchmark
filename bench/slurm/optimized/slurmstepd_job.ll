@@ -1317,7 +1317,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_slurm_cred_to_step_rec(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @_slurm_cred_to_step_rec(ptr noundef %0, ptr nocapture noundef initializes((0, 8), (160, 168), (368, 372), (376, 432), (784, 808), (888, 896)) %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_cred_get_args(ptr noundef %0) #9
   %4 = getelementptr inbounds i8, ptr %3, i64 12
   %5 = load i32, ptr %4, align 4

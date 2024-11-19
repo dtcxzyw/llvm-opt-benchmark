@@ -33,7 +33,7 @@ $_ZNSt6vectorIhSaIhEE6resizeEm = comdat any
 @_ZN14match_result_tC1Emmmm6node_tS0_S0_ = unnamed_addr alias void (ptr, i64, i64, i64, i64, ptr, i64, i64), ptr @_ZN14match_result_tC2Emmmm6node_tS0_S0_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6node_tC2EPh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef %data_) unnamed_addr #0 align 2 {
+define void @_ZN6node_tC2EPh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %data_) unnamed_addr #0 align 2 {
 entry:
   store ptr %data_, ptr %this, align 8
   ret void
@@ -473,7 +473,7 @@ do.end:                                           ; preds = %entry, %if.then
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq12radix_tree_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #6 align 2 {
+define void @_ZN3zmq12radix_tree_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 12)) %this) unnamed_addr #6 align 2 {
 entry:
   %retval.i = alloca %struct.node_t, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i)
@@ -594,7 +594,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN14match_result_tC2Emmmm6node_tS0_S0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, i64 noundef %key_bytes_matched_, i64 noundef %prefix_bytes_matched_, i64 noundef %edge_index_, i64 noundef %parent_edge_index_, ptr %current_.coerce, i64 %parent_.coerce, i64 %grandparent_.coerce) unnamed_addr #0 align 2 {
+define void @_ZN14match_result_tC2Emmmm6node_tS0_S0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %this, i64 noundef %key_bytes_matched_, i64 noundef %prefix_bytes_matched_, i64 noundef %edge_index_, i64 noundef %parent_edge_index_, ptr %current_.coerce, i64 %parent_.coerce, i64 %grandparent_.coerce) unnamed_addr #0 align 2 {
 entry:
   %coerce.val.ip = inttoptr i64 %parent_.coerce to ptr
   %coerce.val.ip3 = inttoptr i64 %grandparent_.coerce to ptr

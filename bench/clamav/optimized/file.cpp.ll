@@ -21,7 +21,7 @@ $_ZN4File8IsOpenedEv = comdat any
 @_ZN4FileD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FileD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4FileC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8256) %0) unnamed_addr #0 align 2 {
+define void @_ZN4FileC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8256) initializes((0, 17), (20, 26), (28, 37), (40, 49), (52, 56), (8244, 8248)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV4File, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 -1, ptr %2, align 8
@@ -57,7 +57,7 @@ define void @_ZN4FileC2Ev(ptr nocapture noundef nonnull writeonly align 8 derefe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4FileD2Ev(ptr noundef nonnull align 8 dereferenceable(8256) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4FileD2Ev(ptr noundef nonnull align 8 dereferenceable(8256) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV4File, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
@@ -210,7 +210,7 @@ define void @_ZN4FileD0Ev(ptr noundef nonnull align 8 dereferenceable(8256) %0) 
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4FileaSERS_(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef nonnull align 8 dereferenceable(8256) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN4FileaSERS_(ptr noundef nonnull align 8 dereferenceable(8256) initializes((8, 17), (20, 24), (32, 33), (36, 37)) %0, ptr noundef nonnull align 8 dereferenceable(8256) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -245,7 +245,7 @@ define void @_ZN4FileaSERS_(ptr noundef nonnull align 8 dereferenceable(8256) %0
 declare void @_Z8wcsncpyzPwPKwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4File4OpenEPKwj(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN4File4OpenEPKwj(ptr noundef nonnull align 8 dereferenceable(8256) initializes((8244, 8248)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
   %4 = alloca [2048 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 8244
   store i32 0, ptr %5, align 4
@@ -377,7 +377,7 @@ declare void @_ZN12ErrorHandler4ExitE8RAR_EXIT(ptr noundef nonnull align 4 deref
 declare void @_ZN12ErrorHandler12OpenErrorMsgEPKw(ptr noundef nonnull align 4 dereferenceable(14), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4File6CreateEPKwj(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN4File6CreateEPKwj(ptr noundef nonnull align 8 dereferenceable(8256) initializes((8, 16), (20, 24), (25, 26), (32, 33)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = alloca [2048 x i8], align 16
   %5 = and i32 %2, 2
   %.not = icmp eq i32 %5, 0
@@ -401,7 +401,7 @@ define noundef zeroext i1 @_ZN4File6CreateEPKwj(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4File7TCreateEPKwj(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define void @_ZN4File7TCreateEPKwj(ptr noundef nonnull align 8 dereferenceable(8256) initializes((8, 16), (20, 24), (25, 26), (32, 33)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = alloca [2048 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4)
   %5 = and i32 %2, 2
@@ -435,7 +435,7 @@ _ZN4File7WCreateEPKwj.exit.thread:                ; preds = %3, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4File7WCreateEPKwj(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN4File7WCreateEPKwj(ptr noundef nonnull align 8 dereferenceable(8256) initializes((8, 16), (20, 24), (25, 26), (32, 33)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = alloca [2048 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4)
   %5 = and i32 %2, 2
@@ -470,7 +470,7 @@ define noundef zeroext i1 @_ZN4File7WCreateEPKwj(ptr noundef nonnull align 8 der
 declare void @_ZN12ErrorHandler14CreateErrorMsgEPKw(ptr noundef nonnull align 4 dereferenceable(14), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4File5CloseEv(ptr noundef nonnull align 8 dereferenceable(8256) %0) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN4File5CloseEv(ptr noundef nonnull align 8 dereferenceable(8256) initializes((20, 24)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, -1

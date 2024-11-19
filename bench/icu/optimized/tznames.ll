@@ -52,7 +52,7 @@ $_ZTIN6icu_757UMemoryE = comdat any
 @_ZN6icu_7513TimeZoneNames19MatchInfoCollectionD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7513TimeZoneNames19MatchInfoCollectionD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7521TimeZoneNamesDelegateC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7521TimeZoneNamesDelegateC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521TimeZoneNamesDelegateE, i64 16), ptr %this, align 8
   %fTZnamesCacheEntry = getelementptr inbounds i8, ptr %this, i64 8
@@ -61,7 +61,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7521TimeZoneNamesDelegateC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7521TimeZoneNamesDelegateC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pos.i = alloca i32, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521TimeZoneNamesDelegateE, i64 16), ptr %this, align 8
@@ -412,7 +412,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7521TimeZoneNamesDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7521TimeZoneNamesDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521TimeZoneNamesDelegateE, i64 16), ptr %this, align 8
   invoke void @umtx_lock_75(ptr noundef nonnull @_ZN6icu_75L18gTimeZoneNamesLockE)
@@ -893,7 +893,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7513TimeZoneNames19MatchInfoCollectionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7513TimeZoneNames19MatchInfoCollectionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513TimeZoneNames19MatchInfoCollectionE, i64 16), ptr %this, align 8
   %fMatches = getelementptr inbounds i8, ptr %this, i64 8
@@ -902,7 +902,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7513TimeZoneNames19MatchInfoCollectionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7513TimeZoneNames19MatchInfoCollectionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513TimeZoneNames19MatchInfoCollectionE, i64 16), ptr %this, align 8
   %fMatches = getelementptr inbounds i8, ptr %this, i64 8

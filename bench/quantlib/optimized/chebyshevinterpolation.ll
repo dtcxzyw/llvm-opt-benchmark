@@ -210,7 +210,7 @@ $_ZTVN8QuantLib13Interpolation12templateImplIPKdS3_EE = comdat any
 @_ZN8QuantLib22ChebyshevInterpolationC1EmRKSt8functionIFddEENS0_10PointsTypeE = unnamed_addr alias void (ptr, i64, ptr, i32), ptr @_ZN8QuantLib22ChebyshevInterpolationC2EmRKSt8functionIFddEENS0_10PointsTypeE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30chebyshev_interpolation_detail5applyERKNS_5ArrayERKSt8functionIFddEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(32) %f) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30chebyshev_interpolation_detail5applyERKNS_5ArrayERKSt8functionIFddEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(32) %f) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i.i = alloca double, align 8
   %agg.tmp = alloca %"class.std::function", align 8
@@ -372,7 +372,7 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %ehcleanup, %_ZNKSt1
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22ChebyshevInterpolationC2ERKNS_5ArrayENS0_10PointsTypeE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %y, i32 noundef %pointsType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22ChebyshevInterpolationC2ERKNS_5ArrayENS0_10PointsTypeE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 9), (16, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %y, i32 noundef %pointsType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.3", align 8
   %ref.tmp5 = alloca ptr, align 8
@@ -609,7 +609,7 @@ ehcleanup32:                                      ; preds = %_ZN8QuantLib5ArrayD
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22ChebyshevInterpolation5nodesEmNS0_10PointsTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, i64 noundef %n, i32 noundef %pointsType) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22ChebyshevInterpolation5nodesEmNS0_10PointsTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, i64 noundef %n, i32 noundef %pointsType) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1157,7 +1157,7 @@ _ZN8QuantLib5ArrayD2Ev.exit11:                    ; preds = %ehcleanup, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib22ChebyshevInterpolation5nodesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib22ChebyshevInterpolation5nodesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %n_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %n_.i, align 8, !tbaa !3

@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.set_joinrel_partition_key_exprs = private unnamed_addr constant [32 x i8] c"set_joinrel_partition_key_exprs\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @setup_simple_rel_arrays(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @setup_simple_rel_arrays(ptr nocapture noundef initializes((56, 68), (72, 80)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 64

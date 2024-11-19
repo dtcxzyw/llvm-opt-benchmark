@@ -483,7 +483,7 @@ $_ZNSt6vectorIN4llvm19CodeGenRegisterFileESaIS1_EE17_M_realloc_insertIJS1_EEEvN9
 @_ZN4llvm18CodeGenSchedModelsC1ERNS_12RecordKeeperERKNS_13CodeGenTargetE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN4llvm18CodeGenSchedModelsC2ERNS_12RecordKeeperERKNS_13CodeGenTargetE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18CodeGenSchedModelsC2ERNS_12RecordKeeperERKNS_13CodeGenTargetE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 8 dereferenceable(232) %1, ptr noundef nonnull align 8 dereferenceable(724) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18CodeGenSchedModelsC2ERNS_12RecordKeeperERKNS_13CodeGenTargetE(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(232) %1, ptr noundef nonnull align 8 dereferenceable(724) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::vector.14", align 8
   %5 = alloca %"class.std::unique_ptr.79", align 8
   %6 = alloca %"class.std::unique_ptr.79", align 8
@@ -2642,7 +2642,7 @@ define dso_local void @_ZN4llvm18CodeGenSchedModels17inferSchedClassesEv(ptr nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18CodeGenSchedModels20collectProcResourcesEv(ptr noundef nonnull align 8 dereferenceable(336) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18CodeGenSchedModels20collectProcResourcesEv(ptr noundef nonnull align 8 dereferenceable(336) initializes((248, 256), (272, 280)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.std::vector.14", align 8
   %3 = alloca %"class.std::vector.14", align 8
   %4 = alloca i32, align 4
@@ -16502,7 +16502,7 @@ _ZNSt6vectorIN12_GLOBAL__N_114PredTransitionESaIS1_EED2Ev.exit73: ; preds = %_ZL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm18CodeGenSchedModels17getAllProcIndicesEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.187") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm18CodeGenSchedModels17getAllProcIndicesEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.187") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %1) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144

@@ -1010,7 +1010,7 @@ declare ptr @bit_alloc(i64 noundef) local_unnamed_addr #1
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @build_active_feature_bitmap(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local void @build_active_feature_bitmap(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 216
   %6 = load ptr, ptr %5, align 8
@@ -2665,7 +2665,7 @@ declare i32 @validate_group(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @bb_g_job_test_stage_in(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_end_null_job(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_end_null_job(ptr noundef initializes((252, 256)) %0) unnamed_addr #0 {
   %2 = tail call i64 @time(ptr noundef null) #13
   %3 = getelementptr inbounds i8, ptr %0, i64 252
   store i32 0, ptr %3, align 4
@@ -4569,7 +4569,7 @@ define internal fastcc range(i32 0, 2015) i32 @_nodes_in_sets(ptr noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2051) i32 @get_node_cnts(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2051) i32 @get_node_cnts(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((0, 4)) %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   store i32 0, ptr %7, align 4
   %8 = zext i32 %1 to i64
@@ -6671,7 +6671,7 @@ setup_cred_arg.exit:                              ; preds = %221, %224
 declare i32 @acct_policy_get_max_nodes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @setup_cred_arg(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @setup_cred_arg(ptr nocapture noundef writeonly initializes((0, 336)) %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %0, i8 0, i64 336, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 400
   %4 = load ptr, ptr %3, align 8
@@ -6868,7 +6868,7 @@ declare ptr @build_extern_step(ptr noundef) local_unnamed_addr #1
 declare i32 @select_g_step_start(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @valid_feature_counts(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define dso_local noundef i32 @valid_feature_counts(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef initializes((0, 1)) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8

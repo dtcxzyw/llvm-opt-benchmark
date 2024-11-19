@@ -781,7 +781,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node8builtins13BuiltinLoader13GetBuiltinIdsEv(ptr noalias sret(%"class.std::vector.265") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4node8builtins13BuiltinLoader13GetBuiltinIdsEv(ptr noalias sret(%"class.std::vector.265") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %this, align 8, !noalias !28
@@ -857,7 +857,7 @@ for.end:                                          ; preds = %_ZNSt6vectorISt17ba
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node8builtins13BuiltinLoader20GetBuiltinCategoriesEv(ptr noalias sret(%"struct.node::builtins::BuiltinLoader::BuiltinCategories") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4node8builtins13BuiltinLoader20GetBuiltinCategoriesEv(ptr noalias sret(%"struct.node::builtins::BuiltinLoader::BuiltinCategories") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp3 = alloca %"class.std::set", align 8
   %ref.tmp5 = alloca [5 x %"class.std::__cxx11::basic_string"], align 8
@@ -4443,7 +4443,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
 declare noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node8builtins13BuiltinLoader35CopySourceAndCodeCacheReferenceFromEPKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %other) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node8builtins13BuiltinLoader35CopySourceAndCodeCacheReferenceFromEPKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (32, 40)) %this, ptr nocapture noundef readonly %other) local_unnamed_addr #3 align 2 {
 entry:
   %code_cache_ = getelementptr inbounds i8, ptr %other, i64 32
   %code_cache_2 = getelementptr inbounds i8, ptr %this, i64 32

@@ -1664,7 +1664,7 @@ define internal fastcc void @_ZN17markup5ever_rcdom18remove_from_parent17hd48dc4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$6finish17hdb23ffc7caf3153bE"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, ptr, i8, [7 x i8] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
+define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$6finish17hdb23ffc7caf3153bE"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, ptr, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   ret void
 }
@@ -1810,7 +1810,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17hfb7cc39f043d5959E.exit: ; preds = %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$15set_quirks_mode17he22b84f71ee31a65E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #5 {
+define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$15set_quirks_mode17he22b84f71ee31a65E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) initializes((32, 33)) %0, i8 noundef %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 %1, ptr %3, align 8
   ret void

@@ -2290,7 +2290,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14verifyFunctionERKNS_8FunctionEPNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18VerifierC2EPN4llvm11raw_ostreamEbRKNS1_6ModuleE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(857) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18VerifierC2EPN4llvm11raw_ostreamEbRKNS1_6ModuleE(ptr noundef nonnull align 8 dereferenceable(2296) initializes((0, 16)) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(857) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = zext i1 %2 to i8
@@ -6160,7 +6160,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12verifyModuleERKNS_6ModuleEPNS_11r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_18Verifier6verifyEv(ptr noundef nonnull align 8 dereferenceable(2296) %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_18Verifier6verifyEv(ptr noundef nonnull align 8 dereferenceable(2296) initializes((200, 201)) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.llvm::Twine", align 8
@@ -82174,7 +82174,7 @@ _ZN4llvm15VerifierSupport7WriteTsIPNS_10ReturnInstEJEEEvRKT_DpRKT0_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL25getParameterABIAttributesRN4llvm11LLVMContextEjNS_13AttributeListE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2, ptr %3) unnamed_addr #0 {
+define internal fastcc void @_ZL25getParameterABIAttributesRN4llvm11LLVMContextEjNS_13AttributeListE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2, ptr %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::AttributeList", align 8
   %6 = alloca %"class.llvm::AttributeSet", align 8
   store ptr %3, ptr %5, align 8
@@ -85972,7 +85972,7 @@ declare void @_ZN4llvm12PassRegistry12registerPassERKNS_8PassInfoEb(ptr noundef 
 declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118VerifierLegacyPassD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118VerifierLegacyPassD2Ev(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_118VerifierLegacyPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
@@ -85991,7 +85991,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_18VerifierESt14default_deleteIS1_EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118VerifierLegacyPassD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118VerifierLegacyPassD0Ev(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_118VerifierLegacyPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
@@ -86115,7 +86115,7 @@ declare void @_ZN4llvm4Pass18preparePassManagerERNS_7PMStackE(ptr noundef nonnul
 declare noundef i32 @_ZNK4llvm12FunctionPass27getPotentialPassManagerTypeEv(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZNK12_GLOBAL__N_118VerifierLegacyPass16getAnalysisUsageERN4llvm13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(161) %1) unnamed_addr #16 align 2 {
+define internal void @_ZNK12_GLOBAL__N_118VerifierLegacyPass16getAnalysisUsageERN4llvm13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i8 1, ptr %3, align 8
   ret void

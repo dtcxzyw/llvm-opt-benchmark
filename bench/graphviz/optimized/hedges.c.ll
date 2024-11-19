@@ -389,7 +389,7 @@ define range(i32 0, 2) i32 @right_of(ptr nocapture noundef readonly %0, ptr noca
 declare ptr @getfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ELinsert(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define void @ELinsert(ptr noundef %0, ptr noundef initializes((0, 16)) %1) local_unnamed_addr #5 {
   store ptr %0, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -629,7 +629,7 @@ ELgethash.exit.thread:                            ; preds = %19, %ELgethash.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ELdelete(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @ELdelete(ptr nocapture noundef initializes((16, 24)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8

@@ -48,7 +48,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_errors_return = external global %struct.ompi_predefined_errhandler_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @file_constructor(ptr noundef %0) #0 {
+define internal void @file_constructor(ptr noundef initializes((96, 120)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %3 = tail call i32 @opal_pointer_array_add(ptr noundef nonnull @ompi_file_f_to_c_table, ptr noundef %0) #7

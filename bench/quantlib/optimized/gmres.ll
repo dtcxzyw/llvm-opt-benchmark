@@ -88,7 +88,7 @@ $_ZNSt6vectorIN8QuantLib5ArrayESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17
 @_ZN8QuantLib5GMRESC1ESt8functionIFNS_5ArrayERKS2_EEmdS6_ = unnamed_addr alias void (ptr, ptr, i64, double, ptr), ptr @_ZN8QuantLib5GMRESC2ESt8functionIFNS_5ArrayERKS2_EEmdS6_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib5GMRESC2ESt8functionIFNS_5ArrayERKS2_EEmdS6_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef %A, i64 noundef %maxIter, double noundef %relTol, ptr nocapture noundef %preConditioner) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib5GMRESC2ESt8functionIFNS_5ArrayERKS2_EEmdS6_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 80)) %this, ptr nocapture noundef %A, i64 noundef %maxIter, double noundef %relTol, ptr nocapture noundef %preConditioner) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

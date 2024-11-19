@@ -1702,7 +1702,7 @@ define internal void @_set_rect_attr(ptr noundef %0, ptr noundef %1, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_get_rect_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define internal void @_get_rect_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %4 = load float, ptr %3, align 8, !tbaa !173
   %5 = fptosi float %4 to i32
@@ -1871,7 +1871,7 @@ define internal void @_set_circle_attr(ptr noundef %0, ptr noundef %1, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_get_circle_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define internal void @_get_circle_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %4 = load float, ptr %3, align 8, !tbaa !180
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 584
@@ -2050,7 +2050,7 @@ define internal void @_set_ellipse_attr(ptr noundef %0, ptr noundef %1, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_get_ellipse_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define internal void @_get_ellipse_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %4 = load float, ptr %3, align 8, !tbaa !183
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 584
@@ -2238,7 +2238,7 @@ define internal void @_set_line_attr(ptr noundef %0, ptr noundef %1, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_get_line_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define internal void @_get_line_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %4 = load float, ptr %3, align 8, !tbaa !183
   %5 = fptosi float %4 to i32
@@ -2517,7 +2517,7 @@ define internal void @_set_polyline_attr(ptr noundef %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_get_poly_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define internal void @_get_poly_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %4 = load i32, ptr %3, align 4, !tbaa !158
   store i32 %4, ptr %1, align 4, !tbaa !158
@@ -3506,7 +3506,7 @@ _copy_draw_dsc_from_ref.exit:                     ; preds = %111, %.loopexit31.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_get_text_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define internal void @_get_text_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %4 = load i32, ptr %3, align 4, !tbaa !158
   store i32 %4, ptr %1, align 4, !tbaa !158
@@ -4126,7 +4126,7 @@ define internal void @_set_tspan_attr(ptr noundef %0, ptr noundef %1, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_get_tspan_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define internal void @_get_tspan_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %4 = load i32, ptr %3, align 4, !tbaa !158
   store i32 %4, ptr %1, align 4, !tbaa !158

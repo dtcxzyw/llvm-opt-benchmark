@@ -6366,7 +6366,7 @@ _ZL36fstWriterUint32WithVarint32AndLengthP16fstWriterContextPjjPKvj.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL26fstWriterEmitSectionHeaderPv(ptr nocapture noundef nonnull %0) unnamed_addr #11 {
+define internal fastcc void @_ZL26fstWriterEmitSectionHeaderPv(ptr nocapture noundef nonnull initializes((176, 184)) %0) unnamed_addr #11 {
 _ZL15fstWriterUint64P8_IO_FILEm.exit:
   %1 = alloca [10 x i8], align 1
   %2 = alloca [10 x i8], align 1

@@ -163,7 +163,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE0EE11_
 @_ZN15GCMemoryManagerD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN15GCMemoryManagerD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN13MemoryManagerC2EPKc(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN13MemoryManagerC2EPKc(ptr noundef nonnull align 8 dereferenceable(113) initializes((0, 92), (96, 112)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV13MemoryManager, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 96
@@ -490,7 +490,7 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 declare noundef ptr @_ZN8Universe9vm_globalEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10GCStatInfoC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN10GCStatInfoC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 44)) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   %3 = sext i32 %1 to i64
   %4 = shl nsw i64 %3, 5
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %4, i8 noundef zeroext 9, i32 noundef 0) #13
@@ -538,7 +538,7 @@ _ZN10GCStatInfo5clearEv.exit:                     ; preds = %.lr.ph9.i, %2, %.pr
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10GCStatInfo5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN10GCStatInfo5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 24)) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = load i32, ptr %2, align 8
@@ -608,7 +608,7 @@ define hidden void @_ZN10GCStatInfo12set_gc_usageEi11MemoryUsageb(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15GCMemoryManagerC2EPKc(ptr noundef nonnull align 8 dereferenceable(191) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN15GCMemoryManagerC2EPKc(ptr noundef nonnull align 8 dereferenceable(191) initializes((8, 92), (96, 112)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %3, i8 0, i64 84, i1 false)
@@ -638,7 +638,7 @@ define hidden void @_ZN15GCMemoryManagerC2EPKc(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15GCMemoryManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(191) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN15GCMemoryManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(191) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV15GCMemoryManager, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8

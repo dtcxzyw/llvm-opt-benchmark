@@ -240,7 +240,7 @@ if.end50:                                         ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18FilePrefetchBuffer4ReadERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmmj(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef nonnull %reader, i64 noundef %read_len, i64 noundef %chunk_len, i64 noundef %start_offset, i32 noundef %index) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18FilePrefetchBuffer4ReadERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmmj(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef nonnull %reader, i64 noundef %read_len, i64 noundef %chunk_len, i64 noundef %start_offset, i32 noundef %index) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8
@@ -752,7 +752,7 @@ _ZN7rocksdb8IOStatusD2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18FilePrefetchBuffer8PrefetchERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmm(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %n) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18FilePrefetchBuffer8PrefetchERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmm(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %n) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rounddown_offset = alloca i64, align 8
   %roundup_end = alloca i64, align 8
@@ -2808,7 +2808,7 @@ if.end22:                                         ; preds = %_ZN7rocksdb18FilePr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18FilePrefetchBuffer21HandleOverlappingDataERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmmRbRmS7_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %length, i64 noundef %readahead_size, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %copy_to_third_buffer, ptr nocapture noundef nonnull align 8 dereferenceable(8) %tmp_offset, ptr nocapture noundef nonnull align 8 dereferenceable(8) %tmp_length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18FilePrefetchBuffer21HandleOverlappingDataERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmmRbRmS7_(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %length, i64 noundef %readahead_size, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %copy_to_third_buffer, ptr nocapture noundef nonnull align 8 dereferenceable(8) %tmp_offset, ptr nocapture noundef nonnull align 8 dereferenceable(8) %tmp_length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %start_offset = alloca i64, align 8
   %read_len = alloca i64, align 8
@@ -3141,7 +3141,7 @@ nrvo.skipdtor:                                    ; preds = %land.lhs.true20, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18FilePrefetchBuffer21PrefetchAsyncInternalERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmmRb(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %length, i64 noundef %readahead_size, ptr nocapture noundef nonnull align 1 dereferenceable(1) %copy_to_third_buffer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18FilePrefetchBuffer21PrefetchAsyncInternalERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmmRb(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %length, i64 noundef %readahead_size, ptr nocapture noundef nonnull align 1 dereferenceable(1) %copy_to_third_buffer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i.i408 = alloca ptr, align 8
   %__args.addr.i.i183 = alloca ptr, align 8

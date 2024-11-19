@@ -476,7 +476,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6Assimp12BaseImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp11IRRImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(188) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11IRRImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(188) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11IRRImporterE, i64 16), ptr %this, align 8
   %lights = getelementptr inbounds i8, ptr %this, i64 152
@@ -517,7 +517,7 @@ _ZN6Assimp12IrrlichtBaseD2Ev.exit:                ; preds = %_ZNSt6vectorIP8aiCa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp11IRRImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(188) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11IRRImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(188) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11IRRImporterE, i64 16), ptr %this, align 8
   %lights.i = getelementptr inbounds i8, ptr %this, i64 152
@@ -577,7 +577,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11IRRImporter15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(188) %this, ptr noundef nonnull %pImp) unnamed_addr #4 align 2 {
+define hidden void @_ZN6Assimp11IRRImporter15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(188) initializes((112, 121)) %this, ptr noundef nonnull %pImp) unnamed_addr #4 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.1, i32 noundef 100)
   %conv = sitofp i32 %call to double
@@ -1630,7 +1630,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11IRRImporter12CopyMaterialERSt6vectorIP10aiMaterialSaIS3_EERS1_ISt4pairIS3_jESaIS8_EERjP6aiMesh(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %materials, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %inmaterials, ptr nocapture noundef nonnull align 4 dereferenceable(4) %defMatIdx, ptr nocapture noundef writeonly %mesh) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6Assimp11IRRImporter12CopyMaterialERSt6vectorIP10aiMaterialSaIS3_EERS1_ISt4pairIS3_jESaIS8_EERjP6aiMesh(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %materials, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %inmaterials, ptr nocapture noundef nonnull align 4 dereferenceable(4) %defMatIdx, ptr nocapture noundef writeonly initializes((232, 236)) %mesh) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %inmaterials, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %inmaterials, i64 8

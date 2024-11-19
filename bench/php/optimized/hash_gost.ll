@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @php_hash_gost_crypto_ops = hidden local_unnamed_addr constant %struct._php_hash_ops { ptr @.str.2, ptr @PHP_GOSTInitCrypto, ptr @PHP_GOSTUpdate, ptr @PHP_GOSTFinal, ptr @php_hash_copy, ptr @php_hash_serialize, ptr @php_gost_unserialize, ptr @.str.1, i64 32, i64 32, i64 120, i8 1 }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_GOSTInit(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define void @PHP_GOSTInit(ptr nocapture noundef writeonly initializes((0, 120)) %0, ptr nocapture readnone %1) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, i8 0, i64 112, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr @tables_test, ptr %3, align 8
@@ -25,7 +25,7 @@ define void @PHP_GOSTInit(ptr nocapture noundef writeonly %0, ptr nocapture read
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_GOSTInitCrypto(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define void @PHP_GOSTInitCrypto(ptr nocapture noundef writeonly initializes((0, 120)) %0, ptr nocapture readnone %1) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, i8 0, i64 112, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr @tables_crypto, ptr %3, align 8

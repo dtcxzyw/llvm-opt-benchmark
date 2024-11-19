@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [26 x i8] c"Mismatched alpha channels\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocAdaptationStateChunk(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocAdaptationStateChunk(ptr nocapture noundef initializes((40, 48)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -89,7 +89,7 @@ define hidden void @cmsSetAlarmCodesTHR(ptr noundef %0, ptr nocapture noundef re
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cmsGetAlarmCodesTHR(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @cmsGetAlarmCodesTHR(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 2) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %1, ptr noundef nonnull align 2 dereferenceable(32) %3, i64 32, i1 false)
   ret void
@@ -103,14 +103,14 @@ define hidden void @cmsSetAlarmCodes(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cmsGetAlarmCodes(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @cmsGetAlarmCodes(ptr nocapture noundef writeonly initializes((0, 32)) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @_cmsContextGetClientChunk(ptr noundef null, i32 noundef 2) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %0, ptr noundef nonnull align 2 dereferenceable(32) %2, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocAlarmCodesChunk(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocAlarmCodesChunk(ptr nocapture noundef initializes((32, 40)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -384,7 +384,7 @@ define hidden range(i32 0, 2) i32 @_cmsRegisterTransformPlugin(ptr noundef %0, p
 declare ptr @_cmsPluginMalloc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_cmsSetTransformUserData(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define hidden void @_cmsSetTransformUserData(ptr nocapture noundef writeonly initializes((240, 256)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 240
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 248
@@ -1189,7 +1189,7 @@ declare i32 @cmsPipelineInputChannels(ptr noundef) local_unnamed_addr #1
 declare i32 @cmsPipelineOutputChannels(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @SetWhitePoint(ptr nocapture noundef nonnull writeonly %0, ptr noundef readonly %1) unnamed_addr #6 {
+define internal fastcc void @SetWhitePoint(ptr nocapture noundef nonnull writeonly initializes((0, 24)) %0, ptr noundef readonly %1) unnamed_addr #6 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %7
 

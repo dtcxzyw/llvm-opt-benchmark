@@ -359,7 +359,7 @@ declare void @_ZN5NoiseD1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unn
 declare void @_ZN12NodeResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(73)) unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N3OreD1Ev(ptr noundef %this) unnamed_addr #9 align 2 {
+define dso_local void @_ZThn56_N3OreD1Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN3OreD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) #22
@@ -1626,7 +1626,7 @@ declare noundef ptr @_ZN5Noise11perlinMap2DEffPf(ptr noundef nonnull align 8 der
 declare float @llvm.fmuladd.f32(float, float, float) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN7OrePuffD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN7OrePuffD2Ev(ptr noundef nonnull align 8 dereferenceable(384) initializes((0, 8), (56, 64)) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV7OrePuff, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
@@ -1658,7 +1658,7 @@ delete.end4:                                      ; preds = %delete.notnull3, %d
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N7OrePuffD1Ev(ptr noundef %this) unnamed_addr #9 align 2 {
+define dso_local void @_ZThn56_N7OrePuffD1Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   store ptr getelementptr inbounds (i8, ptr @_ZTV7OrePuff, i64 16), ptr %0, align 8, !tbaa !4
@@ -1690,7 +1690,7 @@ _ZN7OrePuffD2Ev.exit:                             ; preds = %delete.notnull3.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN7OrePuffD0Ev(ptr noundef nonnull align 8 dereferenceable(384) %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN7OrePuffD0Ev(ptr noundef nonnull align 8 dereferenceable(384) initializes((0, 8), (56, 64)) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV7OrePuff, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -1723,7 +1723,7 @@ _ZN7OrePuffD2Ev.exit:                             ; preds = %delete.notnull3.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N7OrePuffD0Ev(ptr noundef %this) unnamed_addr #9 align 2 {
+define dso_local void @_ZThn56_N7OrePuffD0Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   store ptr getelementptr inbounds (i8, ptr @_ZTV7OrePuff, i64 16), ptr %0, align 8, !tbaa !4
@@ -2828,7 +2828,7 @@ cleanup163:                                       ; preds = %lor.lhs.false.i.i.i
 declare noundef ptr @_ZN5Noise11perlinMap3DEfffPf(ptr noundef nonnull align 8 dereferenceable(88), float noundef, float noundef, float noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN7OreVeinD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN7OreVeinD2Ev(ptr noundef nonnull align 8 dereferenceable(308) initializes((0, 8), (56, 64)) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV7OreVein, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
@@ -2849,7 +2849,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N7OreVeinD1Ev(ptr noundef %this) unnamed_addr #9 align 2 {
+define dso_local void @_ZThn56_N7OreVeinD1Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   store ptr getelementptr inbounds (i8, ptr @_ZTV7OreVein, i64 16), ptr %0, align 8, !tbaa !4
@@ -2870,7 +2870,7 @@ _ZN7OreVeinD2Ev.exit:                             ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN7OreVeinD0Ev(ptr noundef nonnull align 8 dereferenceable(308) %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN7OreVeinD0Ev(ptr noundef nonnull align 8 dereferenceable(308) initializes((0, 8), (56, 64)) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV7OreVein, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -2892,7 +2892,7 @@ _ZN7OreVeinD2Ev.exit:                             ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N7OreVeinD0Ev(ptr noundef %this) unnamed_addr #9 align 2 {
+define dso_local void @_ZThn56_N7OreVeinD0Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   store ptr getelementptr inbounds (i8, ptr @_ZTV7OreVein, i64 16), ptr %0, align 8, !tbaa !4
@@ -3459,7 +3459,7 @@ declare noundef i32 @_ZN9PcgRandom4nextEv(ptr noundef nonnull align 8 dereferenc
 declare noundef float @_Z7contourf(float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10OreStratumD2Ev(ptr noundef nonnull align 8 dereferenceable(338) %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN10OreStratumD2Ev(ptr noundef nonnull align 8 dereferenceable(338) initializes((0, 8), (56, 64)) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV10OreStratum, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
@@ -3480,7 +3480,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N10OreStratumD1Ev(ptr noundef %this) unnamed_addr #9 align 2 {
+define dso_local void @_ZThn56_N10OreStratumD1Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   store ptr getelementptr inbounds (i8, ptr @_ZTV10OreStratum, i64 16), ptr %0, align 8, !tbaa !4
@@ -3501,7 +3501,7 @@ _ZN10OreStratumD2Ev.exit:                         ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10OreStratumD0Ev(ptr noundef nonnull align 8 dereferenceable(338) %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN10OreStratumD0Ev(ptr noundef nonnull align 8 dereferenceable(338) initializes((0, 8), (56, 64)) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV10OreStratum, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -3523,7 +3523,7 @@ _ZN10OreStratumD2Ev.exit:                         ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N10OreStratumD0Ev(ptr noundef %this) unnamed_addr #9 align 2 {
+define dso_local void @_ZThn56_N10OreStratumD0Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   store ptr getelementptr inbounds (i8, ptr @_ZTV10OreStratum, i64 16), ptr %0, align 8, !tbaa !4
@@ -4168,7 +4168,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3OreD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3OreD2Ev(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 8), (56, 64)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV3Ore, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56

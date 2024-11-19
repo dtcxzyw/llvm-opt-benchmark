@@ -115,7 +115,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib28FdmDiscountDirichletBoundaryC2ERKN5boost10shared_ptrINS_9FdmMesherEEERKNS2_INS_18YieldTermStructureEEEddmNS_17BoundaryConditionINS_11FdmLinearOpEE4SideE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 %mesher, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rTS, double noundef %maturityTime, double noundef %valueOnBoundary, i64 noundef %direction, i32 noundef %side) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib28FdmDiscountDirichletBoundaryC2ERKN5boost10shared_ptrINS_9FdmMesherEEERKNS2_INS_18YieldTermStructureEEEddmNS_17BoundaryConditionINS_11FdmLinearOpEE4SideE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this, ptr noundef nonnull align 1 %mesher, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rTS, double noundef %maturityTime, double noundef %valueOnBoundary, i64 noundef %direction, i32 noundef %side) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %direction.addr = alloca i64, align 8
   %side.addr = alloca i32, align 4

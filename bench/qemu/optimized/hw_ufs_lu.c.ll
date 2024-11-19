@@ -56,7 +56,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [3 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @blk_unref, ptr @.str.24, ptr @.str.25, i32 46, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_getlength, ptr @.str.24, ptr @.str.26, i32 81, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_getlength, ptr @.str.27, ptr @.str.26, i32 81, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @ufs_init_wlu(ptr nocapture noundef writeonly %wlu, i8 noundef zeroext %wlun) local_unnamed_addr #0 {
+define dso_local void @ufs_init_wlu(ptr nocapture noundef writeonly initializes((160, 161), (448, 456)) %wlu, i8 noundef zeroext %wlun) local_unnamed_addr #0 {
 entry:
   %lun = getelementptr inbounds i8, ptr %wlu, i64 160
   store i8 %wlun, ptr %lun, align 8

@@ -97,7 +97,7 @@ index_tree_end.exit:                              ; preds = %2, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @lzma_index_prealloc(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #2 {
+define dso_local void @lzma_index_prealloc(ptr nocapture noundef writeonly initializes((64, 72)) %0, i64 noundef %1) local_unnamed_addr #2 {
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %1, i64 1152921504606846971)
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store i64 %spec.store.select, ptr %3, align 8
@@ -906,7 +906,7 @@ lzma_index_checks.exit:                           ; preds = %140, %164
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @index_cat_helper(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc void @index_cat_helper(ptr nocapture noundef nonnull readonly %0, ptr noundef initializes((16, 24)) %1) unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1337,7 +1337,7 @@ index_init_plain.exit.thread:                     ; preds = %.preheader.i, %2, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @lzma_index_iter_init(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @lzma_index_iter_init(ptr nocapture noundef writeonly initializes((256, 296)) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 264
@@ -1346,7 +1346,7 @@ define dso_local void @lzma_index_iter_init(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @lzma_index_iter_rewind(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
+define dso_local void @lzma_index_iter_rewind(ptr nocapture noundef writeonly initializes((264, 296)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 264
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   ret void
@@ -1628,7 +1628,7 @@ index_tree_next.exit82:                           ; preds = %.preheader.i79, %.p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define internal fastcc void @iter_set_info(ptr nocapture noundef %0) unnamed_addr #12 {
+define internal fastcc void @iter_set_info(ptr nocapture noundef initializes((0, 8), (32, 88), (288, 296)) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 272

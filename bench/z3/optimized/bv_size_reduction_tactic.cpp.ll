@@ -216,7 +216,7 @@ declare noundef ptr @_Z5cleanP6tactic(ptr noundef) local_unnamed_addr #0
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124bv_size_reduction_tacticC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(169) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_124bv_size_reduction_tacticC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(169) initializes((0, 12), (16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_ref_count.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_ref_count.i, align 8
@@ -470,7 +470,7 @@ _ZN14core_hashtableIN7obj_mapI3app8rationalE13obj_map_entryE8obj_hashINS3_8key_d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124bv_size_reduction_tacticD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(169) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_124bv_size_reduction_tacticD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(169) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_124bv_size_reduction_tacticE, i64 16), ptr %this, align 8
   %m_replacer = getelementptr inbounds i8, ptr %this, i64 160
@@ -753,7 +753,7 @@ _ZN7obj_mapI3app8rationalED2Ev.exit64:            ; preds = %_ZN7obj_mapI3app8ra
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124bv_size_reduction_tacticD0Ev(ptr noundef nonnull align 8 dereferenceable(169) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_124bv_size_reduction_tacticD0Ev(ptr noundef nonnull align 8 dereferenceable(169) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_124bv_size_reduction_tacticD2Ev(ptr noundef nonnull align 8 dereferenceable(169) %this) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21

@@ -3348,7 +3348,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.then.i, %_ZN5arr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute10SwissTable4initElPNS_10MemoryPoolEib(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %hardware_flags, ptr noundef %pool, i32 noundef %log_blocks, i1 noundef zeroext %no_hash_array) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute10SwissTable4initElPNS_10MemoryPoolEib(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 12), (48, 64)) %this, i64 noundef %hardware_flags, ptr noundef %pool, i32 noundef %log_blocks, i1 noundef zeroext %no_hash_array) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i88 = alloca %"class.std::__shared_ptr", align 8
   %ref.tmp.i.i = alloca %"class.std::__shared_ptr", align 8
@@ -3898,7 +3898,7 @@ ehcleanup66:                                      ; preds = %lpad, %lpad4.i, %eh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow7compute10SwissTable7cleanupEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute10SwissTable7cleanupEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((4, 12)) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %blocks_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %blocks_, align 8

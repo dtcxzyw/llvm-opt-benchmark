@@ -332,7 +332,7 @@ _ZN4llvm5ErrorD2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb21NativeTypeFunctionSigD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb21NativeTypeFunctionSigD2Ev(ptr noundef nonnull align 8 dereferenceable(97) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 1448) (i8, ptr @_ZTVN4llvm3pdb21NativeTypeFunctionSigE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -897,7 +897,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %36, %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb21NativeTypeFunctionSig12findChildrenENS0_11PDB_SymTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.172") align 8 %0, ptr noundef nonnull align 8 dereferenceable(97) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3pdb21NativeTypeFunctionSig12findChildrenENS0_11PDB_SymTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.172") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(97) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::unique_ptr.188", align 8
   %.not = icmp eq i32 %2, 20
   br i1 %.not, label %_ZNSt10unique_ptrIN4llvm3pdb15NativeEnumTypesESt14default_deleteIS2_EED2Ev.exit4, label %_ZNSt10unique_ptrIN4llvm3pdb14NullEnumeratorINS1_9PDBSymbolEEESt14default_deleteIS4_EED2Ev.exit
@@ -1453,7 +1453,7 @@ declare void @_ZNK4llvm3pdb15NativeRawSymbol9getUnusedB5cxx11Ev(ptr dead_on_unwi
 declare void @_ZN4llvm3pdb13IPDBRawSymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122NativeEnumFunctionArgsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_122NativeEnumFunctionArgsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_122NativeEnumFunctionArgsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -1473,7 +1473,7 @@ _ZNSt10unique_ptrIN4llvm3pdb15NativeEnumTypesESt14default_deleteIS2_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122NativeEnumFunctionArgsD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_122NativeEnumFunctionArgsD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_122NativeEnumFunctionArgsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -1644,7 +1644,7 @@ declare void @_ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionESt10unique_ptrIN
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121NativeTypeFunctionArgD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121NativeTypeFunctionArgD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 1448) (i8, ptr @_ZTVN12_GLOBAL__N_121NativeTypeFunctionArgE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -1665,7 +1665,7 @@ _ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121NativeTypeFunctionArgD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121NativeTypeFunctionArgD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 1448) (i8, ptr @_ZTVN12_GLOBAL__N_121NativeTypeFunctionArgE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8

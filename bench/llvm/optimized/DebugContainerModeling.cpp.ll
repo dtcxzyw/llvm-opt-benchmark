@@ -1424,7 +1424,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit41.i: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122DebugContainerModelingD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_122DebugContainerModelingD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_122DebugContainerModelingE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
@@ -1502,7 +1502,7 @@ _ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_122DebugContainerModelingEKFvP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122DebugContainerModelingD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_122DebugContainerModelingD0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_122DebugContainerModelingD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #15
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 160) #17
   ret void

@@ -601,7 +601,7 @@ declare void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp11LWOImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(233) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11LWOImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(233) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11LWOImporterE, i64 16), ptr %this, align 8
   %configLayerName = getelementptr inbounds i8, ptr %this, i64 200
@@ -683,7 +683,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN6Assimp12BaseImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp11LWOImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(233) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp11LWOImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(233) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6Assimp11LWOImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(233) %this) #25
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
@@ -703,7 +703,7 @@ entry:
 declare noundef zeroext i1 @_ZN6Assimp12BaseImporter15CheckMagicTokenEPNS_8IOSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvmjj(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11LWOImporter15SetupPropertiesEPKNS_8ImporterE(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11LWOImporter15SetupPropertiesEPKNS_8ImporterE(ptr noundef nonnull align 8 dereferenceable(233) initializes((192, 193), (196, 200)) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3934,7 +3934,7 @@ declare void @_ZN6Assimp11LWOImporter14FindVCChannelsERKNS_3LWO7SurfaceERSt6vect
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11LWOImporter14ComputeNormalsEP6aiMeshRKSt6vectorIjSaIjEERKNS_3LWO7SurfaceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(233) %this, ptr noundef %mesh, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %smoothingGroups, ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %surface) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11LWOImporter14ComputeNormalsEP6aiMeshRKSt6vectorIjSaIjEERKNS_3LWO7SurfaceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(233) %this, ptr noundef initializes((24, 32)) %mesh, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %smoothingGroups, ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %surface) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sSort = alloca %"class.Assimp::SGSpatialSort", align 8
   %poResult = alloca %"class.std::vector.29", align 8

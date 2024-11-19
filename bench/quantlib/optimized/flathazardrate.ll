@@ -1670,7 +1670,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_5QuoteEE4LinkEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14FlatHazardRateC1ERKNS_4DateENS_6HandleINS_5QuoteEEERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, ptr nocapture noundef %hazardRate, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14FlatHazardRateC1ERKNS_4DateENS_6HandleINS_5QuoteEEERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(168) initializes((168, 176), (184, 188), (192, 200)) %this, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, ptr nocapture noundef %hazardRate, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Calendar", align 8
   %ref.tmp2 = alloca %"class.std::vector", align 8
@@ -2548,7 +2548,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14FlatHazardRateC1ERKNS_4DateEdRKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, double noundef %hazardRate, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14FlatHazardRateC1ERKNS_4DateEdRKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(168) initializes((168, 176), (184, 188), (192, 200)) %this, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, double noundef %hazardRate, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Calendar", align 8
   %ref.tmp2 = alloca %"class.std::vector", align 8
@@ -3264,7 +3264,7 @@ eh.resume:                                        ; preds = %lpad16, %_ZNSt6vect
 declare void @_ZN8QuantLib19HazardRateStructureC2EjRKNS_8CalendarERKNS_10DayCounterERKSt6vectorINS_6HandleINS_5QuoteEEESaISA_EERKS7_INS_4DateESaISF_EE(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14FlatHazardRateC1EjRKNS_8CalendarENS_6HandleINS_5QuoteEEERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(168) %this, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, ptr nocapture noundef %hazardRate, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14FlatHazardRateC1EjRKNS_8CalendarENS_6HandleINS_5QuoteEEERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(168) initializes((168, 176), (184, 188), (192, 200)) %this, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, ptr nocapture noundef %hazardRate, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector", align 8
   %ref.tmp2 = alloca %"class.std::vector.15", align 8
@@ -3933,7 +3933,7 @@ eh.resume:                                        ; preds = %ehcleanup, %_ZNSt6v
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14FlatHazardRateC1EjRKNS_8CalendarEdRKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(168) %this, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, double noundef %hazardRate, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14FlatHazardRateC1EjRKNS_8CalendarEdRKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(168) initializes((168, 176), (184, 188), (192, 200)) %this, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, double noundef %hazardRate, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector", align 8
   %ref.tmp2 = alloca %"class.std::vector.15", align 8

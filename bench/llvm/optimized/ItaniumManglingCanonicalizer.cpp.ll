@@ -1205,7 +1205,7 @@ $_ZTVN4llvm16itanium_demangle9DotSuffixE = comdat any
 @_ZN4llvm28ItaniumManglingCanonicalizerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm28ItaniumManglingCanonicalizerD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm28ItaniumManglingCanonicalizerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm28ItaniumManglingCanonicalizerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(1464) ptr @_Znwm(i64 noundef 1464) #19
   tail call void @_ZN4llvm28ItaniumManglingCanonicalizer4ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(1464) %2)
   store ptr %2, ptr %0, align 8
@@ -1726,7 +1726,7 @@ define dso_local noundef i64 @_ZN4llvm28ItaniumManglingCanonicalizer12canonicali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i64 @_ZL21parseMaybeMangledNameRN4llvm16itanium_demangle14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr %1, i64 %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc noundef i64 @_ZL21parseMaybeMangledNameRN4llvm16itanium_demangle14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(1464) initializes((0, 16), (24, 32), (304, 312), (672, 680), (776, 778), (784, 804), (920, 928), (937, 938)) %0, ptr %1, i64 %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.std::basic_string_view", align 8
@@ -50370,7 +50370,7 @@ _ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle9Loca
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E18SaveTemplateParamsC2EPS6_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull %1) unnamed_addr #14 align 2 {
+define internal fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E18SaveTemplateParamsC2EPS6_(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0, ptr noundef nonnull %1) unnamed_addr #14 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.ptr2.i = getelementptr inbounds i8, ptr %0, i64 32

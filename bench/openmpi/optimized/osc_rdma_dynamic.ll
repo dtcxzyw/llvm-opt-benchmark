@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_osc_rdma_pending_op_t_class = external global %struct.opal_class_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @ompi_osc_rdma_handle_init(ptr noundef %0) #0 {
+define internal void @ompi_osc_rdma_handle_init(ptr noundef initializes((16, 32)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %2, align 8
   %3 = load i32, ptr @opal_class_init_epoch, align 4

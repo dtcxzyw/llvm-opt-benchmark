@@ -157,7 +157,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN9var_substclEP4exprjPKS1_(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(545) %this, ptr noundef %n, i32 noundef %num_args, ptr noundef %args) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN9var_substclEP4exprjPKS1_(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(545) %this, ptr noundef %n, i32 noundef %num_args, ptr noundef %args) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rep = alloca %class.expr_safe_replace, align 8
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -658,7 +658,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN22unused_vars_eliminatorC2ER11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(617) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %params) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN22unused_vars_eliminatorC2ER11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(617) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %params) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_subst = getelementptr inbounds i8, ptr %this, i64 8
@@ -798,7 +798,7 @@ _ZN10ptr_vectorI4sortED2Ev.exit:                  ; preds = %_ZN9hashtableI15exp
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN22unused_vars_eliminatorclEP10quantifier(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(617) %this, ptr noundef %q) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN22unused_vars_eliminatorclEP10quantifier(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(617) %this, ptr noundef %q) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %used_decl_sorts = alloca %class.ptr_buffer, align 8
   %used_decl_names = alloca %class.buffer.53, align 8
@@ -2316,7 +2316,7 @@ _ZN6bufferIP4sortLb0ELj16EED2Ev.exit:             ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z16elim_unused_varsR11ast_managerP10quantifierRK10params_ref(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %q, ptr noundef nonnull align 8 dereferenceable(8) %params) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z16elim_unused_varsR11ast_managerP10quantifierRK10params_ref(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %q, ptr noundef nonnull align 8 dereferenceable(8) %params) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %el = alloca %class.unused_vars_eliminator, align 8
   call void @_ZN22unused_vars_eliminatorC2ER11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(617) %el, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %params)
@@ -2399,7 +2399,7 @@ _ZN9used_varsD2Ev.exit:                           ; preds = %_ZN9hashtableI15exp
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z11instantiateR11ast_managerP10quantifierPKP4expr(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr nocapture noundef readonly %q, ptr noundef %exprs) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z11instantiateR11ast_managerP10quantifierPKP4expr(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr nocapture noundef readonly %q, ptr noundef %exprs) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %subst = alloca %class.var_subst, align 8
   %new_expr = alloca %class.obj_ref, align 8

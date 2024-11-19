@@ -186,7 +186,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly11AsyncBaseOpC2ENS_8FunctionIFvPS0_EEE(ptr noundef nonnull align 16 dereferenceable(104) %this, ptr noundef %cb) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11AsyncBaseOpC2ENS_8FunctionIFvPS0_EEE(ptr noundef nonnull align 16 dereferenceable(104) initializes((0, 8), (16, 24), (64, 80)) %this, ptr noundef %cb) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly11AsyncBaseOpE, i64 16), ptr %this, align 16, !tbaa !7
   %cb_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -470,7 +470,7 @@ _ZN5folly12_GLOBAL__N_122asyncIoOpStateToStringENS_11AsyncBaseOp5StateE.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly11AsyncBaseOpD2Ev(ptr noundef nonnull align 16 dereferenceable(104) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11AsyncBaseOpD2Ev(ptr noundef nonnull align 16 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_result = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp = alloca i32, align 4
@@ -1640,7 +1640,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly9AsyncBaseC2EmNS0_8PollModeE(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this, i64 noundef %capacity, i32 noundef %pollMode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly9AsyncBaseC2EmNS0_8PollModeE(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 9), (16, 84), (88, 136)) %this, i64 noundef %capacity, i32 noundef %pollMode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_result = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp = alloca i64, align 8
@@ -2167,7 +2167,7 @@ declare void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_trait
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly9AsyncBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly9AsyncBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_result = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp = alloca i32, align 4
@@ -3072,7 +3072,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14AsyncBaseQueueC2EPNS_9AsyncBaseE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %asyncBase) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14AsyncBaseQueueC2EPNS_9AsyncBaseE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 88)) %this, ptr noundef %asyncBase) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %asyncBase, ptr %this, align 8, !tbaa !87
   %queue_ = getelementptr inbounds i8, ptr %this, i64 8

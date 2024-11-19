@@ -700,7 +700,7 @@ define hidden noundef zeroext i1 @zend_optimizer_get_collected_constant(ptr noun
 declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zend_optimizer_convert_to_free_op1(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden void @zend_optimizer_convert_to_free_op1(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((12, 20), (28, 29), (30, 32)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 29
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 8
@@ -3050,7 +3050,7 @@ zend_optimizer_get_class_entry.exit:              ; preds = %62, %58, %50, %.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @zend_optimizer_get_called_func(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define hidden ptr @zend_optimizer_get_called_func(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %2, i64 28
   %6 = load i8, ptr %5, align 4

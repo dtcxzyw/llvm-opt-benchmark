@@ -393,7 +393,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core13StringMatcherC2ENS0_4TypeESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull align 8 dereferenceable(49) %this, i32 noundef %type, i64 %matcher.coerce0, ptr %matcher.coerce1, i1 noundef zeroext %case_sensitive) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core13StringMatcherC2ENS0_4TypeESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 4)) %this, i32 noundef %type, i64 %matcher.coerce0, ptr %matcher.coerce1, i1 noundef zeroext %case_sensitive) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -429,7 +429,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core13StringMatcherC2ESt10unique_ptrIN3re23RE2ESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr nocapture noundef %regex_matcher) unnamed_addr #4 align 2 {
+define void @_ZN9grpc_core13StringMatcherC2ESt10unique_ptrIN3re23RE2ESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 4)) %this, ptr nocapture noundef %regex_matcher) unnamed_addr #4 align 2 {
 entry:
   store i32 3, ptr %this, align 8
   %string_matcher_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -447,7 +447,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core13StringMatcherC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(49) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core13StringMatcherC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 4)) %this, ptr noundef nonnull align 8 dereferenceable(49) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %other, align 8
   store i32 %0, ptr %this, align 8
@@ -514,7 +514,7 @@ if.end:                                           ; preds = %invoke.cont7, %_ZNK
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(49) ptr @_ZN9grpc_core13StringMatcheraSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(49) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(49) ptr @_ZN9grpc_core13StringMatcheraSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(49) initializes((0, 4)) %this, ptr noundef nonnull align 8 dereferenceable(49) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %other, align 8
   store i32 %0, ptr %this, align 8
@@ -562,7 +562,7 @@ if.end:                                           ; preds = %_ZSt11make_uniqueIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core13StringMatcherC2EOS0_(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(49) %other) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core13StringMatcherC2EOS0_(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 4)) %this, ptr noundef nonnull align 8 dereferenceable(49) %other) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %other, align 8
   store i32 %0, ptr %this, align 8
@@ -606,7 +606,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(49) ptr @_ZN9grpc_core13StringMatcheraSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(49) %other) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(49) ptr @_ZN9grpc_core13StringMatcheraSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(49) initializes((0, 4)) %this, ptr noundef nonnull align 8 dereferenceable(49) %other) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %other, align 8
   store i32 %0, ptr %this, align 8

@@ -925,7 +925,7 @@ declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @init_global(ptr nocapture noundef writeonly %0) local_unnamed_addr #10 {
+define void @init_global(ptr nocapture noundef writeonly initializes((528, 536)) %0) local_unnamed_addr #10 {
   %2 = tail call noalias dereferenceable_or_null(12) ptr @malloc(i64 noundef 12) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 528
   store ptr %2, ptr %3, align 8, !tbaa !55
@@ -3088,7 +3088,7 @@ declare void @dt_print_pipe_ext(ptr noundef, ptr noundef, ptr noundef, i32 nound
 declare ptr @dt_colorspaces_get_name(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @commit_params(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
+define void @commit_params(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef initializes((32, 36), (216, 220)) %3) local_unnamed_addr #1 {
   %5 = alloca [1 x float], align 4
   %6 = alloca [1 x float], align 4
   %7 = alloca [1 x float], align 4
@@ -3939,7 +3939,7 @@ declare ptr @dt_ioppr_set_pipe_work_profile_info(ptr noundef, ptr noundef, i32 n
 declare ptr @dt_ioppr_set_pipe_input_profile_info(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #10 {
+define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #10 {
   %4 = tail call noalias dereferenceable_or_null(787776) ptr @malloc(i64 noundef 787776) #27
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !6
@@ -4192,7 +4192,7 @@ declare void @dt_bauhaus_combobox_set(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @dt_colorspaces_is_profile_equal(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @reload_defaults(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @reload_defaults(ptr nocapture noundef initializes((492, 496), (676, 680)) %0) local_unnamed_addr #1 {
   %2 = alloca [4096 x i8], align 16
   %3 = alloca i32, align 4
   %4 = alloca %struct.dt_imageio_jpeg_t, align 8
@@ -4821,7 +4821,7 @@ declare i32 @dt_image_is_hdr(ptr noundef) local_unnamed_addr #3
 declare void @dt_image_cache_write_release(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dt_alloc_aligned(i64 noundef 40) #19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
@@ -5316,7 +5316,7 @@ declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @dt_iop_image_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @dt_RGB_to_Lab(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #17 {
+define internal fastcc void @dt_RGB_to_Lab(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %4) unnamed_addr #17 {
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load float, ptr %1, align 4, !tbaa !72

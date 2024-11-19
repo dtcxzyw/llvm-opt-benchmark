@@ -347,7 +347,7 @@ $_ZTIN3gmx17KeyValueTreeArrayE = comdat any
 @.str.35 = private unnamed_addr constant [24 x i8] c"%10g  %10g  %10g  %10g\0A\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx25createElectricFieldModuleEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx25createElectricFieldModuleEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_113ElectricFieldESt14default_deleteIS2_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #25, !noalias !5
   %2 = getelementptr inbounds i8, ptr %1, i64 8

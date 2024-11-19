@@ -4562,7 +4562,7 @@ define internal fastcc range(i32 -1, 1) i32 @_queue_rpc(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @fed_mgr_job_allocate(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @fed_mgr_job_allocate(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   store i64 0, ptr %7, align 8
@@ -13146,7 +13146,7 @@ declare i32 @handle_job_dependency_updates(ptr noundef, ptr noundef) #1
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_clear_recv_conns(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #11 {
+define internal noundef i32 @_clear_recv_conns(ptr nocapture noundef writeonly initializes((200, 208)) %0, ptr nocapture readnone %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   store ptr null, ptr %3, align 8
   ret i32 0

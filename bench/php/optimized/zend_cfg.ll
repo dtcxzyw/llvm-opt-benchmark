@@ -484,7 +484,7 @@ zend_optimizer_is_loop_var_free.exit.thread:      ; preds = %.lr.ph192, %183, %z
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_build_cfg(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define void @zend_build_cfg(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef initializes((32, 36)) %3) local_unnamed_addr #0 {
   %5 = and i32 %2, 1090519040
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   store i32 %5, ptr %6, align 8

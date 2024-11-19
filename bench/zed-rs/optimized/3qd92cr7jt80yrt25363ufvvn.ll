@@ -2485,7 +2485,7 @@ define internal noundef zeroext i1 @"_ZN77_$LT$anyhow..wrapper..MessageError$LT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN77_$LT$thread_local..ThreadLocal$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h96df25b34e2ce182E.llvm.11286432610688846398"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([512 x i8]) align 8 dereferenceable(512) %0) unnamed_addr #16 {
+define hidden void @"_ZN77_$LT$thread_local..ThreadLocal$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h96df25b34e2ce182E.llvm.11286432610688846398"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([512 x i8]) align 8 dereferenceable(512) initializes((0, 512)) %0) unnamed_addr #16 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 0, i64 512, i1 false)
   ret void
 }
@@ -3258,7 +3258,7 @@ define void @"_ZN45_$LT$i32$u20$as$u20$sqlez..bindable..Bind$GT$4bind17h8eae3f3b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN47_$LT$i32$u20$as$u20$sqlez..bindable..Column$GT$6column17hfbb6ec8e66ae849dE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #12 {
+define void @"_ZN47_$LT$i32$u20$as$u20$sqlez..bindable..Column$GT$6column17hfbb6ec8e66ae849dE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 4), (8, 12)) %0, ptr noalias noundef align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #12 {
   %4 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @_ZN5sqlez9statement9Statement10column_int17h71f23d7e316b4444E(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2)
@@ -3381,7 +3381,7 @@ define void @"_ZN45_$LT$i64$u20$as$u20$sqlez..bindable..Bind$GT$4bind17h7f1f422f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN47_$LT$i64$u20$as$u20$sqlez..bindable..Column$GT$6column17h89e627df46ac1c2aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #12 {
+define void @"_ZN47_$LT$i64$u20$as$u20$sqlez..bindable..Column$GT$6column17h89e627df46ac1c2aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias noundef align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #12 {
   %4 = tail call { i64, ptr } @_ZN5sqlez9statement9Statement12column_int6417h9fcf111e6ac086e8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2)
   %5 = extractvalue { i64, ptr } %4, 0
   %switch = icmp eq i64 %5, 0
@@ -3491,7 +3491,7 @@ define void @"_ZN45_$LT$u64$u20$as$u20$sqlez..bindable..Bind$GT$4bind17h1133b07d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN47_$LT$u64$u20$as$u20$sqlez..bindable..Column$GT$6column17h161bf07a1dade951E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #12 {
+define void @"_ZN47_$LT$u64$u20$as$u20$sqlez..bindable..Column$GT$6column17h161bf07a1dade951E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias noundef align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #12 {
   %4 = tail call { i64, ptr } @_ZN5sqlez9statement9Statement12column_int6417h9fcf111e6ac086e8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2)
   %5 = extractvalue { i64, ptr } %4, 0
   %switch = icmp eq i64 %5, 0
@@ -3607,7 +3607,7 @@ define void @"_ZN45_$LT$u32$u20$as$u20$sqlez..bindable..Bind$GT$4bind17headff735
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN47_$LT$u32$u20$as$u20$sqlez..bindable..Column$GT$6column17h725282f7578acd52E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #12 {
+define void @"_ZN47_$LT$u32$u20$as$u20$sqlez..bindable..Column$GT$6column17h725282f7578acd52E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 4), (8, 12)) %0, ptr noalias noundef align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #12 {
   %4 = tail call { i64, ptr } @_ZN5sqlez9statement9Statement12column_int6417h9fcf111e6ac086e8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2)
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
@@ -3731,7 +3731,7 @@ define void @"_ZN45_$LT$u16$u20$as$u20$sqlez..bindable..Bind$GT$4bind17h585cf7c8
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN47_$LT$u16$u20$as$u20$sqlez..bindable..Column$GT$6column17h6ce0912111cf9ed1E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #12 {
+define void @"_ZN47_$LT$u16$u20$as$u20$sqlez..bindable..Column$GT$6column17h6ce0912111cf9ed1E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 4), (8, 12)) %0, ptr noalias noundef align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #12 {
   %4 = tail call { i64, ptr } @_ZN5sqlez9statement9Statement12column_int6417h9fcf111e6ac086e8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2)
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
@@ -3854,7 +3854,7 @@ define void @"_ZN47_$LT$usize$u20$as$u20$sqlez..bindable..Bind$GT$4bind17h2f0e5f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN49_$LT$usize$u20$as$u20$sqlez..bindable..Column$GT$6column17hd2cb8341bed1cefaE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #12 {
+define void @"_ZN49_$LT$usize$u20$as$u20$sqlez..bindable..Column$GT$6column17hd2cb8341bed1cefaE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias noundef align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #12 {
   %4 = tail call { i64, ptr } @_ZN5sqlez9statement9Statement12column_int6417h9fcf111e6ac086e8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2)
   %5 = extractvalue { i64, ptr } %4, 0
   %switch = icmp eq i64 %5, 0
@@ -3875,7 +3875,7 @@ define void @"_ZN49_$LT$usize$u20$as$u20$sqlez..bindable..Column$GT$6column17hd2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN49_$LT$$RF$str$u20$as$u20$sqlez..bindable..Bind$GT$4bind17h32ab126e387fbbbcE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 dereferenceable(40) %2, i32 noundef %3) unnamed_addr #12 {
+define void @"_ZN49_$LT$$RF$str$u20$as$u20$sqlez..bindable..Bind$GT$4bind17h32ab126e387fbbbcE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 dereferenceable(40) %2, i32 noundef %3) unnamed_addr #12 {
   %5 = alloca [24 x i8], align 8
   %6 = alloca [4 x i8], align 4
   %7 = alloca [8 x i8], align 8
@@ -3927,7 +3927,7 @@ define noundef i64 @"_ZN63_$LT$$LP$$RP$$u20$as$u20$sqlez..bindable..StaticColumn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN50_$LT$$LP$$RP$$u20$as$u20$sqlez..bindable..Bind$GT$4bind17h5d475cc872a8450aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2, i32 noundef %3) unnamed_addr #16 {
+define void @"_ZN50_$LT$$LP$$RP$$u20$as$u20$sqlez..bindable..Bind$GT$4bind17h5d475cc872a8450aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2, i32 noundef %3) unnamed_addr #16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %3, ptr %5, align 4
   store i32 0, ptr %0, align 8
@@ -3935,7 +3935,7 @@ define void @"_ZN50_$LT$$LP$$RP$$u20$as$u20$sqlez..bindable..Bind$GT$4bind17h5d4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN52_$LT$$LP$$RP$$u20$as$u20$sqlez..bindable..Column$GT$6column17hce4676227b68e983E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readnone align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #16 {
+define void @"_ZN52_$LT$$LP$$RP$$u20$as$u20$sqlez..bindable..Column$GT$6column17hce4676227b68e983E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noalias nocapture noundef readnone align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %4, align 4
   store i32 0, ptr %0, align 8

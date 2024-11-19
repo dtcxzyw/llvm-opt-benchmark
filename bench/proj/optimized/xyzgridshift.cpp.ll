@@ -68,7 +68,7 @@ define hidden noundef ptr @pj_xyzgridshift(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z41pj_projection_specific_setup_xyzgridshiftP8PJconsts(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_Z41pj_projection_specific_setup_xyzgridshiftP8PJconsts(ptr noundef initializes((88, 96), (104, 168), (380, 388)) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.8", align 8
   %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #10
   store ptr null, ptr %3, align 8
@@ -625,7 +625,7 @@ define internal void @_ZL32pj_xyzgridshift_reassign_contextP8PJconstsP6pj_ctx(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL26pj_xyzgridshift_forward_3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_XYZ) align 8 %0, ptr nocapture noundef readonly byval(%struct.PJ_LPZ) align 8 %1, ptr noundef %2) #0 {
+define internal void @_ZL26pj_xyzgridshift_forward_3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_XYZ) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.PJ_LPZ) align 8 %1, ptr noundef %2) #0 {
   %4 = alloca %union.PJ_COORD, align 8
   %5 = alloca %struct.PJ_LPZ, align 8
   %6 = alloca double, align 8
@@ -703,7 +703,7 @@ _ZL17direct_adjustmentP8PJconstsPN12_GLOBAL__N_116xyzgridshiftDataE8PJ_COORDd.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL26pj_xyzgridshift_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_LPZ) align 8 %0, ptr nocapture noundef readonly byval(%struct.PJ_XYZ) align 8 %1, ptr noundef %2) #0 {
+define internal void @_ZL26pj_xyzgridshift_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_LPZ) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.PJ_XYZ) align 8 %1, ptr noundef %2) #0 {
   %4 = alloca %union.PJ_COORD, align 8
   %5 = alloca %struct.PJ_LPZ, align 8
   %6 = alloca double, align 8

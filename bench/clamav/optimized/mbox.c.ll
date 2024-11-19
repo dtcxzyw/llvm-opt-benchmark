@@ -1671,7 +1671,7 @@ declare void @messageSetCTX(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @cli_chomp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parseEmailHeaders(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc ptr @parseEmailHeaders(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull initializes((0, 1)) %2) unnamed_addr #0 {
   %4 = alloca [1001 x i8], align 16
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34) #19
   store i8 0, ptr %2, align 1

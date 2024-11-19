@@ -4750,7 +4750,7 @@ entry:
 declare noundef ptr @_ZNK4node4quic7SessioncvP11ngtcp2_connEv(ptr noundef nonnull align 8 dereferenceable(2616)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8), (56, 64), (72, 80)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic6StreamE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
@@ -5066,7 +5066,7 @@ _ZN4node13AliasedStructINS_4quic6Stream5StatsEED2Ev.exit: ; preds = %_ZN2v814Per
 declare void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N4node4quic6StreamD1Ev(ptr noundef %this) unnamed_addr #8 align 2 {
+define dso_local void @_ZThn56_N4node4quic6StreamD1Ev(ptr noundef initializes((-56, -48), (0, 8), (16, 24)) %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN4node4quic6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) #26
@@ -5074,7 +5074,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic6StreamD0Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic6StreamD0Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8), (56, 64), (72, 80)) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node4quic6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) #26
   tail call void @_ZdlPv(ptr noundef nonnull %this) #28
@@ -5085,7 +5085,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N4node4quic6StreamD0Ev(ptr noundef %this) unnamed_addr #8 align 2 {
+define dso_local void @_ZThn56_N4node4quic6StreamD0Ev(ptr noundef initializes((-56, -48), (0, 8), (16, 24)) %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN4node4quic6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) #26

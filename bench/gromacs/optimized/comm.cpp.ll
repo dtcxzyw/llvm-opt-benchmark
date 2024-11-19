@@ -47,7 +47,7 @@ define noundef i32 @_Z14tMPI_Comm_rankP10tmpi_comm_Pi(ptr noundef %0, ptr nounde
 declare noundef i32 @_Z15tMPI_Group_rankP11tmpi_group_Pi(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_Z17tMPI_Comm_compareP10tmpi_comm_S0_Pi(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
+define noundef i32 @_Z17tMPI_Comm_compareP10tmpi_comm_S0_Pi(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit36.sink.split, label %5
 

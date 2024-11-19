@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cbs3_SetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @Cbs3_SetDefaultParams(ptr nocapture noundef writeonly initializes((0, 32)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %2, i8 0, i64 16, i1 false)
   store i32 1000, ptr %0, align 4
@@ -44,7 +44,7 @@ define void @Cbs3_SetDefaultParams(ptr nocapture noundef writeonly %0) local_unn
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cbs3_ManSetConflictNum(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Cbs3_ManSetConflictNum(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 %1, ptr %0, align 8
   ret void
 }
@@ -676,7 +676,7 @@ Vec_WecGrow.exit12:                               ; preds = %Vec_WecGrow.exit12.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cbs3_ManStop(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @Cbs3_ManStop(ptr nocapture noundef initializes((144, 152), (160, 168), (176, 184)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
@@ -2365,7 +2365,7 @@ Cbs3_ManAssign.exit:                              ; preds = %._crit_edge.i.i, %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Cbs3_ManCancelUntil(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #9 {
+define internal fastcc void @Cbs3_ManCancelUntil(ptr nocapture noundef initializes((40, 44)) %0, i32 noundef %1) unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56

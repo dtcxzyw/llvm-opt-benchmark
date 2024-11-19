@@ -3990,7 +3990,7 @@ declare { i32, i64 } @_ZN6hermes2vm11toInt32_RJSERNS0_7RuntimeENS0_6HandleINS0_1
 declare noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm20createHermesBuiltinsERNS0_7RuntimeEN4llvh15MutableArrayRefIPNS0_8CallableEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture writeonly %builtins.coerce0, i64 %builtins.coerce1) local_unnamed_addr #0 {
+define hidden void @_ZN6hermes2vm20createHermesBuiltinsERNS0_7RuntimeEN4llvh15MutableArrayRefIPNS0_8CallableEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture writeonly initializes((296, 416)) %builtins.coerce0, i64 %builtins.coerce1) local_unnamed_addr #0 {
 entry:
   %functionPrototype.i = getelementptr inbounds i8, ptr %runtime, i64 200
   %call15.i = tail call ptr @_ZN6hermes2vm14NativeFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S3_NS0_10NativeArgsEENS0_8SymbolIDEjS6_j(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %functionPrototype.i, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm26silentObjectSetPrototypeOfEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 436, i32 noundef 2, i64 ptrtoint (ptr @_ZN6hermes2vm15HandleRootOwner12nullPointer_E to i64), i32 noundef 0) #12

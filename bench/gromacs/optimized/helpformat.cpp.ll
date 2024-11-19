@@ -57,7 +57,7 @@ $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_d
 @_ZN3gmx18TextTableFormatterD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3gmx18TextTableFormatterD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx18TextTableFormatter4ImplC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(34) %0) unnamed_addr #0 align 2 {
+define void @_ZN3gmx18TextTableFormatter4ImplC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(34) initializes((0, 34)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
   store i32 -1, ptr %2, align 4

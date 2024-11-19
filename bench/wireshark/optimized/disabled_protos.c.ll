@@ -928,7 +928,7 @@ declare void @report_failure(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @save_protos_list(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #1 {
+define internal fastcc void @save_protos_list(ptr nocapture noundef nonnull writeonly initializes((0, 8)) %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %0, align 8
   %7 = tail call ptr @get_persconffile_path(ptr noundef %2, i1 noundef zeroext true) #12

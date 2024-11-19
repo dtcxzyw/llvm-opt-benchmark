@@ -260,7 +260,7 @@ define dso_local i64 @i915_ttm_buddy_man_visible_size(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_ttm_buddy_man_avail(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_ttm_buddy_man_avail(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @mutex_lock(ptr noundef %4) #7
   %5 = getelementptr inbounds i8, ptr %0, i64 160

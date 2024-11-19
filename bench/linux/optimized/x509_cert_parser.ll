@@ -279,7 +279,7 @@ declare dso_local i32 @x509_check_for_self_signed(ptr noundef) local_unnamed_add
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @x509_note_OID(ptr nocapture noundef writeonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @x509_note_OID(ptr nocapture noundef writeonly initializes((52, 56)) %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca [50 x i8], align 16
   %7 = tail call i32 @look_up_OID(ptr noundef %3, i64 noundef %4) #16
   %8 = getelementptr inbounds i8, ptr %0, i64 52
@@ -799,7 +799,7 @@ define dso_local noundef i32 @x509_note_params(ptr nocapture noundef %0, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -74, 1) i32 @x509_extract_key_data(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -74, 1) i32 @x509_extract_key_data(ptr nocapture noundef initializes((48, 52)) %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
   %7 = getelementptr inbounds i8, ptr %0, i64 52
@@ -1355,7 +1355,7 @@ define dso_local i32 @x509_akid_note_kid(ptr nocapture noundef readonly %0, i64 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @x509_akid_note_name(ptr nocapture noundef writeonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #11 align 16 {
+define dso_local noundef i32 @x509_akid_note_name(ptr nocapture noundef writeonly initializes((88, 100)) %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #11 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %3, ptr %6, align 8
   %7 = trunc i64 %4 to i32

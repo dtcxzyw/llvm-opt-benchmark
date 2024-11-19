@@ -4291,7 +4291,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox7variant9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox7variant9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 initializes((0, 4), (8, 40)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.folly::dynamic", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8

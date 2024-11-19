@@ -1933,7 +1933,7 @@ arraydestroy.done2:                               ; preds = %arraydestroy.body
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_758numparse4impl16NumberParserImpl6freezeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(5216) %this) local_unnamed_addr #12 align 2 {
+define void @_ZN6icu_758numparse4impl16NumberParserImpl6freezeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(5216) initializes((112, 113)) %this) local_unnamed_addr #12 align 2 {
 entry:
   %fFrozen = getelementptr inbounds i8, ptr %this, i64 112
   store i8 1, ptr %fFrozen, align 8
@@ -3130,7 +3130,7 @@ _ZN6icu_756number4impl31CurrencyPluralInfoAffixProviderD2Ev.exit: ; preds = %arr
 declare void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758numparse4impl16NumberParserImplC2Ei(ptr noundef nonnull align 8 dereferenceable(5216) %this, i32 noundef %parseFlags) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758numparse4impl16NumberParserImplC2Ei(ptr noundef nonnull align 8 dereferenceable(5216) initializes((0, 16)) %this, i32 noundef %parseFlags) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl16NumberParserImplE, i64 16), ptr %this, align 8
   %fParseFlags = getelementptr inbounds i8, ptr %this, i64 8
@@ -3521,7 +3521,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_758numparse4impl16NumberParserImplD2Ev(ptr noundef nonnull align 8 dereferenceable(5216) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758numparse4impl16NumberParserImplD2Ev(ptr noundef nonnull align 8 dereferenceable(5216) initializes((0, 8), (12, 16), (5184, 5192)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl16NumberParserImplE, i64 16), ptr %this, align 8
   %fNumMatchers = getelementptr inbounds i8, ptr %this, i64 12

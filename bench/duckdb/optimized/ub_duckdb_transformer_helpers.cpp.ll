@@ -837,7 +837,7 @@ $_ZTIN6duckdb17InternalExceptionE = comdat any
 @.str.462 = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer19TransformStringListB5cxx11EPN17duckdb_libpgquery6PGListE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::vector") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(208) %this, ptr noundef readonly %list) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer19TransformStringListB5cxx11EPN17duckdb_libpgquery6PGListE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(208) %this, ptr noundef readonly %list) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %tobool.not = icmp eq ptr %list, null
@@ -1144,7 +1144,7 @@ return:                                           ; preds = %invoke.cont5, %if.t
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb25CommonTableExpressionInfo4CopyEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb25CommonTableExpressionInfo4CopyEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.duckdb::unique_ptr.48", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
@@ -6965,7 +6965,7 @@ unreachable:                                      ; preds = %invoke.cont102
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL19VectorToGroupingSetERNS_6vectorImLb1EEE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %indexes) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL19VectorToGroupingSetERNS_6vectorImLb1EEE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %indexes) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8, !tbaa !253

@@ -30,7 +30,7 @@ $_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE17_M_default_appendEm = comdat any
 @_ZN6Assimp3LWO12AnimResolverC1ERNSt7__cxx114listINS0_8EnvelopeESaIS4_EEEd = hidden unnamed_addr alias void (ptr, ptr, double), ptr @_ZN6Assimp3LWO12AnimResolverC2ERNSt7__cxx114listINS0_8EnvelopeESaIS4_EEEd
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp3LWO12AnimResolverC2ERNSt7__cxx114listINS0_8EnvelopeESaIS4_EEEd(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(24) %_envelopes, double noundef %tick) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3LWO12AnimResolverC2ERNSt7__cxx114listINS0_8EnvelopeESaIS4_EEEd(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((0, 104), (112, 163), (164, 176)) %this, ptr noundef nonnull align 8 dereferenceable(24) %_envelopes, double noundef %tick) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %_envelopes, ptr %this, align 8
   %sample_rate = getelementptr inbounds i8, ptr %this, i64 8
@@ -599,7 +599,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @_ZN6Assimp3LWO12AnimResolver15ExtractBindPoseER12aiMatrix4x4tIfE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(64) %out) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6Assimp3LWO12AnimResolver15ExtractBindPoseER12aiMatrix4x4tIfE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(64) initializes((0, 64)) %out) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
@@ -985,7 +985,7 @@ return:                                           ; preds = %if.end67, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp3LWO12AnimResolver15DoInterpolationEN9__gnu_cxx17__normal_iteratorIPKNS0_3KeyESt6vectorIS4_SaIS4_EEEEPNS0_8EnvelopeEdRf(ptr nocapture nonnull readnone align 8 %this, ptr readonly %cur.coerce, ptr nocapture noundef readonly %envl, double noundef %time, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %fill) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp3LWO12AnimResolver15DoInterpolationEN9__gnu_cxx17__normal_iteratorIPKNS0_3KeyESt6vectorIS4_SaIS4_EEEEPNS0_8EnvelopeEdRf(ptr nocapture nonnull readnone align 8 %this, ptr readonly %cur.coerce, ptr nocapture noundef readonly %envl, double noundef %time, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %fill) local_unnamed_addr #6 align 2 {
 entry:
   %keys = getelementptr inbounds i8, ptr %envl, i64 16
   %_M_finish.i = getelementptr inbounds i8, ptr %envl, i64 24
@@ -1142,7 +1142,7 @@ return:                                           ; preds = %if.then.i46, %sw.ep
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6Assimp3LWO12AnimResolver16DoInterpolation2EN9__gnu_cxx17__normal_iteratorIPKNS0_3KeyESt6vectorIS4_SaIS4_EEEESA_dRf(ptr nocapture noundef nonnull readnone align 8 dereferenceable(176) %this, ptr nocapture readonly %beg.coerce, ptr nocapture readonly %end.coerce, double noundef %time, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %fill) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6Assimp3LWO12AnimResolver16DoInterpolation2EN9__gnu_cxx17__normal_iteratorIPKNS0_3KeyESt6vectorIS4_SaIS4_EEEESA_dRf(ptr nocapture noundef nonnull readnone align 8 dereferenceable(176) %this, ptr nocapture readonly %beg.coerce, ptr nocapture readonly %end.coerce, double noundef %time, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %fill) local_unnamed_addr #7 align 2 {
 entry:
   %inter = getelementptr inbounds i8, ptr %end.coerce, i64 12
   %0 = load i32, ptr %inter, align 4
@@ -1186,7 +1186,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp3LWO12AnimResolver16InterpolateTrackERSt6vectorI11aiVectorKeySaIS3_EERS3_d(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture nonnull readnone align 1 %out, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %fill, double noundef %time) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN6Assimp3LWO12AnimResolver16InterpolateTrackERSt6vectorI11aiVectorKeySaIS3_EERS3_d(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture nonnull readnone align 1 %out, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %fill, double noundef %time) local_unnamed_addr #9 align 2 {
 entry:
   store double %time, ptr %fill, align 8
   %cur_x = getelementptr inbounds i8, ptr %this, i64 136
@@ -1304,7 +1304,7 @@ if.end83:                                         ; preds = %if.then70, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3LWO12AnimResolver7GetKeysERSt6vectorI11aiVectorKeySaIS3_EEPNS0_8EnvelopeES8_S8_j(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %out, ptr noundef %_envl_x, ptr noundef %_envl_y, ptr noundef %_envl_z, i32 noundef %_flags) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3LWO12AnimResolver7GetKeysERSt6vectorI11aiVectorKeySaIS3_EEPNS0_8EnvelopeES8_S8_j(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((112, 136), (164, 168)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %out, ptr noundef %_envl_x, ptr noundef %_envl_y, ptr noundef %_envl_z, i32 noundef %_flags) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %def_x = alloca %"struct.Assimp::LWO::Envelope", align 8
   %def_y = alloca %"struct.Assimp::LWO::Envelope", align 8
@@ -1952,7 +1952,7 @@ _ZN6Assimp3LWO8EnvelopeD2Ev.exit208:              ; preds = %_ZN6Assimp3LWO8Enve
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3LWO12AnimResolver18ExtractAnimChannelEPP10aiNodeAnimj(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef writeonly %out, i32 noundef %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3LWO12AnimResolver18ExtractAnimChannelEPP10aiNodeAnimj(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef writeonly initializes((0, 8)) %out, i32 noundef %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %keys75 = alloca %"class.std::vector.4", align 8
   %keys95 = alloca %"class.std::vector.4", align 8

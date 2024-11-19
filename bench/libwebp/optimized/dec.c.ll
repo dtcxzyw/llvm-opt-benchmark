@@ -1107,7 +1107,7 @@ define internal void @VE4_C(ptr nocapture noundef %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @RD4_C(ptr nocapture noundef %0) #4 {
+define internal void @RD4_C(ptr nocapture noundef initializes((0, 4), (32, 36), (64, 68), (96, 100)) %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -1210,7 +1210,7 @@ define internal void @RD4_C(ptr nocapture noundef %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @LD4_C(ptr nocapture noundef %0) #4 {
+define internal void @LD4_C(ptr nocapture noundef initializes((0, 4), (32, 36), (64, 68), (96, 100)) %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -1310,7 +1310,7 @@ define internal void @LD4_C(ptr nocapture noundef %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @HE4_C(ptr nocapture noundef %0) #4 {
+define internal void @HE4_C(ptr nocapture noundef initializes((0, 4), (32, 36), (64, 68), (96, 100)) %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -33
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -1359,7 +1359,7 @@ define internal void @HE4_C(ptr nocapture noundef %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @VR4_C(ptr nocapture noundef %0) #4 {
+define internal void @VR4_C(ptr nocapture noundef initializes((0, 4), (32, 36), (64, 68), (96, 100)) %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -1468,7 +1468,7 @@ define internal void @VR4_C(ptr nocapture noundef %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @VL4_C(ptr nocapture noundef %0) #4 {
+define internal void @VL4_C(ptr nocapture noundef initializes((0, 4), (32, 36), (64, 68), (96, 100)) %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -1577,7 +1577,7 @@ define internal void @VL4_C(ptr nocapture noundef %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @HD4_C(ptr nocapture noundef %0) #4 {
+define internal void @HD4_C(ptr nocapture noundef initializes((0, 4), (32, 36), (64, 68), (96, 100)) %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -1686,7 +1686,7 @@ define internal void @HD4_C(ptr nocapture noundef %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @HU4_C(ptr nocapture noundef %0) #4 {
+define internal void @HU4_C(ptr nocapture noundef initializes((0, 4), (32, 36), (64, 68), (96, 100)) %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32

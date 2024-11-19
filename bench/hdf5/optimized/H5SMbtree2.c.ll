@@ -49,7 +49,7 @@ define internal noundef i32 @H5SM__bt2_dst_context(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5SM__bt2_store(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal noundef i32 @H5SM__bt2_store(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr nocapture noundef readonly %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   ret i32 0

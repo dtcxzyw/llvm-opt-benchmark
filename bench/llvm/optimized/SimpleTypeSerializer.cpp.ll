@@ -101,7 +101,7 @@ $_ZTVN4llvm18BinaryStreamWriterE = comdat any
 @_ZN4llvm8codeview20SimpleTypeSerializerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm8codeview20SimpleTypeSerializerD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8codeview20SimpleTypeSerializerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8codeview20SimpleTypeSerializerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(65280) ptr @_Znwm(i64 noundef 65280) #8
   store ptr %3, ptr %0, align 8

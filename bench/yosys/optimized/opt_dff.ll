@@ -34989,7 +34989,7 @@ _ZNSt8_Rb_treeISt3setISt4pairIN5Yosys5RTLIL6SigBitEbESt4lessIS5_ESaIS5_EES1_IKS9
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112OptDffWorker30find_muxtree_feedback_patternsEN5Yosys5RTLIL6SigBitES3_St3mapIS3_bSt4lessIS3_ESaISt4pairIKS3_bEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef nonnull %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112OptDffWorker30find_muxtree_feedback_patternsEN5Yosys5RTLIL6SigBitES3_St3mapIS3_bSt4lessIS3_ESaISt4pairIKS3_bEEE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr %2, i32 %3, ptr %4, i32 %5, ptr noundef nonnull %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.std::_Rb_tree<Yosys::RTLIL::SigBit, std::pair<const Yosys::RTLIL::SigBit, bool>, std::_Select1st<std::pair<const Yosys::RTLIL::SigBit, bool>>, std::less<Yosys::RTLIL::SigBit>>::_Alloc_node", align 8
   %9 = alloca %"struct.std::_Rb_tree<Yosys::RTLIL::SigBit, std::pair<const Yosys::RTLIL::SigBit, bool>, std::_Select1st<std::pair<const Yosys::RTLIL::SigBit, bool>>, std::less<Yosys::RTLIL::SigBit>>::_Alloc_node", align 8
   %10 = alloca %"struct.std::_Rb_tree<Yosys::RTLIL::SigBit, std::pair<const Yosys::RTLIL::SigBit, bool>, std::_Select1st<std::pair<const Yosys::RTLIL::SigBit, bool>>, std::less<Yosys::RTLIL::SigBit>>::_Alloc_node", align 8

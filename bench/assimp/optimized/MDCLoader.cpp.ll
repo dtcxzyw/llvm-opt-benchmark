@@ -155,7 +155,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6Assimp3MDC11BuildVertexERKNS0_5FrameERKNS0_10BaseVertexERKNS0_16CompressedVertexER10aiVector3tIfESC_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(56) %frame, ptr nocapture noundef nonnull readonly align 1 dereferenceable(8) %bvert, ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %cvert, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %vXYZOut, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %vNorOut) local_unnamed_addr #1 {
+define hidden void @_ZN6Assimp3MDC11BuildVertexERKNS0_5FrameERKNS0_10BaseVertexERKNS0_16CompressedVertexER10aiVector3tIfESC_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(56) %frame, ptr nocapture noundef nonnull readonly align 1 dereferenceable(8) %bvert, ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %cvert, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %vXYZOut, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %vNorOut) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr %cvert, align 1
   %conv2 = uitofp i8 %0 to float
@@ -632,7 +632,7 @@ if.end:                                           ; preds = %land.lhs.true41, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11MDCImporter15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) %this, ptr noundef nonnull %pImp) unnamed_addr #4 align 2 {
+define hidden void @_ZN6Assimp11MDCImporter15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) initializes((72, 76)) %this, ptr noundef nonnull %pImp) unnamed_addr #4 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.7, i32 noundef -1)
   %configFrameID = getelementptr inbounds i8, ptr %this, i64 72

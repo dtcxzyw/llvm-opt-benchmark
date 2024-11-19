@@ -437,7 +437,7 @@ sdssetlen.exit:                                   ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @sdsclear(ptr nocapture noundef %s) local_unnamed_addr #7 {
+define dso_local void @sdsclear(ptr nocapture noundef initializes((0, 1)) %s) local_unnamed_addr #7 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %s, i64 -1
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -4819,7 +4819,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sdssplitargs(ptr nocapture noundef readonly %line, ptr nocapture noundef %argc) local_unnamed_addr #0 {
+define dso_local ptr @sdssplitargs(ptr nocapture noundef readonly %line, ptr nocapture noundef initializes((0, 4)) %argc) local_unnamed_addr #0 {
 entry:
   %usable.i.i = alloca i64, align 8
   store i32 0, ptr %argc, align 4

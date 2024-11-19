@@ -149,7 +149,7 @@ declare noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef) 
 declare noundef i64 @_ZN22ThreadLocalAllocBuffer8min_sizeEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4PLABC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, i64 noundef %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN4PLABC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((32, 96)) %0, i64 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -291,7 +291,7 @@ define hidden void @_ZN4PLAB14add_undo_wasteEPP12HeapWordImplm(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4PLAB20undo_last_allocationEPP12HeapWordImplm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4PLAB20undo_last_allocationEPP12HeapWordImplm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((48, 56)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %1, ptr %4, align 8
   ret void

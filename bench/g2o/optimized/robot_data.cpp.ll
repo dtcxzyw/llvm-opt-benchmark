@@ -47,7 +47,7 @@ declare void @_ZN3g2o10HyperGraph4DataC2Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3g2o9RobotDataD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 {
+define void @_ZN3g2o9RobotDataD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3g2o9RobotDataE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #9
@@ -73,14 +73,14 @@ define void @_ZN3g2o9RobotDataD0Ev(ptr nocapture nonnull readnone align 8 %0) un
 declare void @llvm.trap() #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o9RobotData12setTimestampEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0, double noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN3g2o9RobotData12setTimestampEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((24, 32)) %0, double noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o9RobotData18setLoggerTimestampEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0, double noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN3g2o9RobotData18setLoggerTimestampEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((32, 40)) %0, double noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %1, ptr %3, align 8
   ret void

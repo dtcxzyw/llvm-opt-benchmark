@@ -233,7 +233,7 @@ return:                                           ; preds = %trace_hbitmap_iter_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hbitmap_iter_init(ptr nocapture noundef writeonly %hbi, ptr noundef %hb, i64 noundef %first) local_unnamed_addr #0 {
+define dso_local void @hbitmap_iter_init(ptr nocapture noundef writeonly initializes((0, 8)) %hbi, ptr noundef %hb, i64 noundef %first) local_unnamed_addr #0 {
 entry:
   store ptr %hb, ptr %hbi, align 8
   %granularity = getelementptr inbounds i8, ptr %hb, i64 24

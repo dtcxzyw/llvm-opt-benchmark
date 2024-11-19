@@ -1669,7 +1669,7 @@ declare noundef signext i8 @_ZN6icu_7518UnicodeSetIterator4nextEv(ptr noundef no
 declare void @_ZN6icu_7518UnicodeSetIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517RuleBasedCollator10setLocalesERKNS_6LocaleES3_S3_(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr nocapture nonnull readnone align 8 %requested, ptr noundef nonnull align 8 dereferenceable(217) %valid, ptr noundef nonnull align 8 dereferenceable(217) %actual) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7517RuleBasedCollator10setLocalesERKNS_6LocaleES3_S3_(ptr noundef nonnull align 8 dereferenceable(272) initializes((268, 269)) %this, ptr nocapture nonnull readnone align 8 %requested, ptr noundef nonnull align 8 dereferenceable(217) %valid, ptr noundef nonnull align 8 dereferenceable(217) %actual) unnamed_addr #1 align 2 {
 entry:
   %tailoring = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %tailoring, align 8
@@ -1840,7 +1840,7 @@ declare void @_ZN6icu_7515CollationLoader15appendRootRulesERNS_13UnicodeStringE(
 declare noundef ptr @_ZN6icu_7513UnicodeString19getTerminatedBufferEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6icu_7517RuleBasedCollator10getVersionEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this, ptr nocapture noundef writeonly %version) unnamed_addr #9 align 2 {
+define void @_ZNK6icu_7517RuleBasedCollator10getVersionEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this, ptr nocapture noundef writeonly initializes((0, 4)) %version) unnamed_addr #9 align 2 {
 entry:
   %tailoring = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %tailoring, align 8
@@ -5437,7 +5437,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorC2ERKNS_15Normalizer2ImplEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(80) %nfcImpl, ptr noundef %text, ptr noundef %textLimit) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorC2ERKNS_15Normalizer2ImplEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (24, 58)) %this, ptr noundef nonnull align 8 dereferenceable(80) %nfcImpl, ptr noundef %text, ptr noundef %textLimit) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %errorCode = alloca i32, align 4
   %r_buffer = alloca %"class.icu_75::ReorderingBuffer", align 8
@@ -5610,7 +5610,7 @@ ehcleanup:                                        ; preds = %lpad15, %lpad2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorE, i64 16), ptr %this, align 8
   %str = getelementptr inbounds i8, ptr %this, i64 48
@@ -5637,7 +5637,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6icu_7512_GLOBAL__N_118FCDUTF8NFDIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(528) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN6icu_7512_GLOBAL__N_118FCDUTF8NFDIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(528) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_118FCDUTF8NFDIteratorE, i64 16), ptr %this, align 8
   %u8ci = getelementptr inbounds i8, ptr %this, i64 32
@@ -6121,7 +6121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6icu_7512_GLOBAL__N_119FCDUIterNFDIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN6icu_7512_GLOBAL__N_119FCDUIterNFDIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUIterNFDIteratorE, i64 16), ptr %this, align 8
   %uici = getelementptr inbounds i8, ptr %this, i64 32
@@ -8123,7 +8123,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517RuleBasedCollator20computeMaxExpansionsEPKNS_18CollationTailoringER10UErrorCode(ptr nocapture noundef %t, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7517RuleBasedCollator20computeMaxExpansionsEPKNS_18CollationTailoringER10UErrorCode(ptr nocapture noundef initializes((384, 392)) %t, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %data = getelementptr inbounds i8, ptr %t, i64 24
   %0 = load ptr, ptr %data, align 8
@@ -8520,7 +8520,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorE, i64 16), ptr %this, align 8
   %str.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -8686,7 +8686,7 @@ return:                                           ; preds = %land.lhs.true88, %d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6icu_7512_GLOBAL__N_118FCDUTF8NFDIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(528) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN6icu_7512_GLOBAL__N_118FCDUTF8NFDIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(528) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_118FCDUTF8NFDIteratorE, i64 16), ptr %this, align 8
   %u8ci.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -8728,7 +8728,7 @@ entry:
 declare i32 @uiter_next32_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6icu_7512_GLOBAL__N_119FCDUIterNFDIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN6icu_7512_GLOBAL__N_119FCDUIterNFDIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUIterNFDIteratorE, i64 16), ptr %this, align 8
   %uici.i = getelementptr inbounds i8, ptr %this, i64 32

@@ -1633,7 +1633,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18cmOrderDirectories16OrderDirectoriesEv(ptr noundef nonnull align 8 dereferenceable(1072) %0) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN18cmOrderDirectories16OrderDirectoriesEv(ptr noundef nonnull align 8 dereferenceable(1072) initializes((992, 997)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 996
   store i8 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 992

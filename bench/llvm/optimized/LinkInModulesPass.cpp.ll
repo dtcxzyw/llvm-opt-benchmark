@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm17LinkInModulesPassC1EPN5clang15BackendConsumerE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm17LinkInModulesPassC2EPN5clang15BackendConsumerE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm17LinkInModulesPassC2EPN5clang15BackendConsumerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17LinkInModulesPassC2EPN5clang15BackendConsumerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }

@@ -983,7 +983,7 @@ declare void @_ZN7datalog16accounted_object28set_accounting_parent_objectERNS_7c
 declare void @_ZN7datalog4rule9norm_varsERNS_12rule_managerE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(1368)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog25mk_interp_tail_simplifierC2ERNS_7contextEj(ptr noundef nonnull align 8 dereferenceable(424) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx, i32 noundef %priority) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog25mk_interp_tail_simplifierC2ERNS_7contextEj(ptr noundef nonnull align 8 dereferenceable(424) initializes((0, 13), (16, 48)) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx, i32 noundef %priority) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_priority.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %priority, ptr %m_priority.i, align 8
@@ -1485,7 +1485,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %_ZN10ref_vectorI3ap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog25mk_interp_tail_simplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog25mk_interp_tail_simplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(424) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog25mk_interp_tail_simplifierE, i64 16), ptr %this, align 8
   %m_rw = getelementptr inbounds i8, ptr %this, i64 416
@@ -1783,7 +1783,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog25mk_interp_tail_simplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN7datalog25mk_interp_tail_simplifierD0Ev(ptr noundef nonnull align 8 dereferenceable(424) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN7datalog25mk_interp_tail_simplifierD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20

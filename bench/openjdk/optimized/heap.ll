@@ -353,7 +353,7 @@ _ZN8CodeHeap19mark_segmap_as_freeEmm.exit:        ; preds = %3, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN8CodeHeap5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN8CodeHeap5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(336) initializes((256, 264)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 224
@@ -380,7 +380,7 @@ define hidden void @_ZN8CodeHeap15on_code_mappingEPcm(ptr nocapture noundef nonn
 declare void @_Z15linux_wrap_codePcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN8CodeHeap7reserveE13ReservedSpacemm(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN8CodeHeap7reserveE13ReservedSpacemm(ptr noundef nonnull align 8 dereferenceable(336) initializes((240, 252)) %0, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.ThreadCritical, align 1
   %6 = alloca %class.ReservedSpace, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 240
@@ -1106,7 +1106,7 @@ _ZN8CodeHeap11split_blockEP9HeapBlockm.exit:      ; preds = %53, %17, %44, %45, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN8CodeHeap15add_to_freelistEP9HeapBlock(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN8CodeHeap15add_to_freelistEP9HeapBlock(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0, ptr noundef initializes((4, 5)) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = getelementptr inbounds i8, ptr %0, i64 288
@@ -1635,7 +1635,7 @@ define hidden noundef ptr @_ZN8CodeHeap15following_blockEP9FreeBlock(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN8CodeHeap12insert_afterEP9FreeBlockS1_(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN8CodeHeap12insert_afterEP9FreeBlockS1_(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1, ptr noundef initializes((8, 16)) %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8

@@ -1038,7 +1038,7 @@ declare i64 @GetCurrentTimestamp() local_unnamed_addr #2
 declare zeroext i1 @TimestampDifferenceExceeds(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pa_switch_to_partial_serialize(ptr nocapture noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local void @pa_switch_to_partial_serialize(ptr nocapture noundef initializes((24, 25)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %3, label %4, label %10
 

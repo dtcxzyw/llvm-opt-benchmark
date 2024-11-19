@@ -80,7 +80,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_hda_pick
 @llvm.compiler.used = appending global [11 x ptr] [ptr @__UNIQUE_ID___addressable___snd_hda_apply_fixup368, ptr @__UNIQUE_ID___addressable_hda_get_autocfg_input_label363, ptr @__UNIQUE_ID___addressable_snd_hda_add_verbs365, ptr @__UNIQUE_ID___addressable_snd_hda_apply_fixup369, ptr @__UNIQUE_ID___addressable_snd_hda_apply_pincfgs367, ptr @__UNIQUE_ID___addressable_snd_hda_apply_verbs366, ptr @__UNIQUE_ID___addressable_snd_hda_get_input_pin_attr362, ptr @__UNIQUE_ID___addressable_snd_hda_get_pin_label364, ptr @__UNIQUE_ID___addressable_snd_hda_parse_pin_defcfg361, ptr @__UNIQUE_ID___addressable_snd_hda_pick_fixup371, ptr @__UNIQUE_ID___addressable_snd_hda_pick_pin_fixup370], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr noundef initializes((0, 296)) %1, ptr noundef readonly %2, i32 noundef %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca [5 x %struct.auto_out_pin], align 16
   %7 = alloca [5 x %struct.auto_out_pin], align 16

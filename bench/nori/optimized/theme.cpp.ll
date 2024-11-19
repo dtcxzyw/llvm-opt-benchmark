@@ -40,7 +40,7 @@ $_ZTIN7nanogui5ThemeE = comdat any
 @_ZN7nanogui5ThemeC1EP10NVGcontext = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN7nanogui5ThemeC2EP10NVGcontext
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui5ThemeC2EP10NVGcontext(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui5ThemeC2EP10NVGcontext(ptr noundef nonnull align 8 dereferenceable(528) initializes((0, 12)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.nanogui::Array.1", align 8
   %4 = alloca %"struct.nanogui::Array.1", align 4
   %5 = alloca %"struct.nanogui::Array.1", align 4

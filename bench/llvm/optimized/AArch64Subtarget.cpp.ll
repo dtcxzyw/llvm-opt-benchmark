@@ -15361,7 +15361,7 @@ _ZNK4llvm16AArch64Subtarget23ClassifyGlobalReferenceEPKNS_11GlobalValueERKNS_13T
 declare noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4llvm16AArch64Subtarget19overrideSchedPolicyERNS_18MachineSchedPolicyEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(409552) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(6) %1, i32 %2) unnamed_addr #9 align 2 {
+define dso_local void @_ZNK4llvm16AArch64Subtarget19overrideSchedPolicyERNS_18MachineSchedPolicyEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(409552) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(6) initializes((2, 5)) %1, i32 %2) unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 0, ptr %4, align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 3
@@ -15990,7 +15990,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit:          ; preds = %7, %4, %_ZN4llvmgeE
 declare { i64, i64 } @_ZNK4llvm6Triple13getiOSVersionEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm16AArch64Subtarget24getCustomPBQPConstraintsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.279") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(409552) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm16AArch64Subtarget24getCustomPBQPConstraintsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.279") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(409552) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 297
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1

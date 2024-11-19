@@ -1271,7 +1271,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly8channels24MaxConcurrentRateLimiterC2Em(ptr noundef nonnull align 128 dereferenceable(640) %this, i64 noundef %maxConcurrent) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly8channels24MaxConcurrentRateLimiterC2Em(ptr noundef nonnull align 128 dereferenceable(640) initializes((0, 32)) %this, i64 noundef %maxConcurrent) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)

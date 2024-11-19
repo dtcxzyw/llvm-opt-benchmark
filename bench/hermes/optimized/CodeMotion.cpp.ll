@@ -760,7 +760,7 @@ declare void @_ZN6hermes13DominanceInfoC1EPNS_8FunctionE(ptr noundef nonnull ali
 declare void @_ZN6hermes12LoopAnalysisC1EPNS_8FunctionERKNS_13DominanceInfoE(ptr noundef nonnull align 8 dereferenceable(528), ptr noundef, ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes16createCodeMotionEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result) local_unnamed_addr #0 {
+define hidden void @_ZN6hermes16createCodeMotionEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN6hermes10CodeMotionESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #7, !noalias !15
   %kind.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8

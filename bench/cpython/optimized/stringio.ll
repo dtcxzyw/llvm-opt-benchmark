@@ -949,7 +949,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_PyIO_Module = external global %struct.PyModuleDef, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @stringio_dealloc(ptr noundef %self) #0 {
+define internal void @stringio_dealloc(ptr noundef initializes((112, 113)) %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -1926,7 +1926,7 @@ declare ptr @PyUnicode_FromKindAndData(i32 noundef, ptr noundef, i64 noundef) lo
 declare ptr @PyObject_VectorcallMethod(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_io_StringIO_close(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_io_StringIO_close(ptr noundef initializes((113, 114)) %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %closed.i = getelementptr inbounds i8, ptr %self, i64 113
   store i8 1, ptr %closed.i, align 1

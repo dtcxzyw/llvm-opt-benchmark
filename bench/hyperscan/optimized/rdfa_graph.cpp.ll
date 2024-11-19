@@ -48,7 +48,7 @@ $_ZN5boost9container18throw_length_errorEPKc = comdat any
 @_ZN3ue29RdfaGraphC1ERKNS_7raw_dfaE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN3ue29RdfaGraphC2ERKNS_7raw_dfaE
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue29RdfaGraphC2ERKNS_7raw_dfaE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %rdfa) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue29RdfaGraphC2ERKNS_7raw_dfaE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %rdfa) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %local_succs = alloca %"class.ue2::flat_set", align 8
   %m_header.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8

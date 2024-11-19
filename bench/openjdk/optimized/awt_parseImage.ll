@@ -1265,7 +1265,7 @@ define hidden range(i32 -1, 2) i32 @awt_parseRaster(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @awt_parseColorModel(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @awt_parseColorModel(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef initializes((24, 32)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr null, ptr %5, align 8
   %6 = icmp eq ptr %1, null

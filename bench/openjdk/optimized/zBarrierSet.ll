@@ -126,7 +126,7 @@ _Z17is_reference_type9BasicTypeb.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ZBarrierSet16on_thread_createEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11ZBarrierSet16on_thread_createEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef initializes((40, 104)) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = getelementptr inbounds i8, ptr %1, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %3, i8 0, i64 56, i1 false)
@@ -167,7 +167,7 @@ _ZN16ZThreadLocalData7destroyEP6Thread.exit:      ; preds = %2, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ZBarrierSet16on_thread_attachEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11ZBarrierSet16on_thread_attachEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef initializes((40, 80), (88, 96)) %1) unnamed_addr #0 align 2 {
   %3 = load i64, ptr @ZPointerLoadBadMask, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   store i64 %3, ptr %4, align 8

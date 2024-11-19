@@ -500,7 +500,7 @@ luaL_pushresult.exit:                             ; preds = %entry.emptybuffer.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @luaL_buffinit(ptr noundef %L, ptr noundef %B) local_unnamed_addr #6 {
+define dso_local void @luaL_buffinit(ptr noundef %L, ptr noundef initializes((16, 24)) %B) local_unnamed_addr #6 {
 entry:
   %L1 = getelementptr inbounds i8, ptr %B, i64 16
   store ptr %L, ptr %L1, align 8

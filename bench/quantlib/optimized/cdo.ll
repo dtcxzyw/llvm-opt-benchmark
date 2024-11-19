@@ -3007,7 +3007,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5boost3anyESt4les
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib3CDOC1EddSt6vectorIdSaIdEERKS1_INS_6HandleINS_31DefaultProbabilityTermStructureEEESaIS6_EENS4_INS_15OneFactorCopulaEEEbNS_8ScheduleEdNS_10DayCounterEddNS4_INS_18YieldTermStructureEEEmRKNS_6PeriodE(ptr noundef nonnull align 8 dereferenceable(488) %this, double noundef %attachment, double noundef %detachment, ptr nocapture noundef %nominals, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %basket, ptr nocapture noundef %copula, i1 noundef zeroext %protectionSeller, ptr nocapture noundef %premiumSchedule, double noundef %premiumRate, ptr nocapture noundef %dayCounter, double noundef %recoveryRate, double noundef %upfrontPremiumRate, ptr nocapture noundef %yieldTS, i64 noundef %nBuckets, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %integrationStep) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib3CDOC1EddSt6vectorIdSaIdEERKS1_INS_6HandleINS_31DefaultProbabilityTermStructureEEESaIS6_EENS4_INS_15OneFactorCopulaEEEbNS_8ScheduleEdNS_10DayCounterEddNS4_INS_18YieldTermStructureEEEmRKNS_6PeriodE(ptr noundef nonnull align 8 dereferenceable(488) initializes((488, 496), (504, 508), (512, 520)) %this, double noundef %attachment, double noundef %detachment, ptr nocapture noundef %nominals, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %basket, ptr nocapture noundef %copula, i1 noundef zeroext %protectionSeller, ptr nocapture noundef %premiumSchedule, double noundef %premiumRate, ptr nocapture noundef %dayCounter, double noundef %recoveryRate, double noundef %upfrontPremiumRate, ptr nocapture noundef %yieldTS, i64 noundef %nBuckets, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %integrationStep) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5235,7 +5235,7 @@ _ZN8QuantLib10ObservableD2Ev.exit:                ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib3CDO12setupExpiredEv(ptr noundef nonnull align 8 dereferenceable(488) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib3CDO12setupExpiredEv(ptr noundef nonnull align 8 dereferenceable(488) initializes((16, 40)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %NPV_.i = getelementptr inbounds nuw i8, ptr %this, i64 16

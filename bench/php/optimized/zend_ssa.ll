@@ -4755,7 +4755,7 @@ define hidden void @zend_ssa_replace_use_chain(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @zend_ssa_remove_instr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #6 {
+define hidden void @zend_ssa_remove_instr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 20), (28, 32)) %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, -1

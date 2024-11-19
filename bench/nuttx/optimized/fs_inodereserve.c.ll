@@ -31,7 +31,7 @@ inode_alloc.exit:                                 ; preds = %inode_namelen.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @inode_reserve(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @inode_reserve(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.inode_search_s, align 8
   store ptr null, ptr %2, align 8
   %5 = load i8, ptr %0, align 1

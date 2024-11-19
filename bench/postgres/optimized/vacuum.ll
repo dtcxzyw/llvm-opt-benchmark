@@ -1986,7 +1986,7 @@ declare ptr @try_relation_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare zeroext i1 @ConditionalLockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @vacuum_get_cutoffs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @vacuum_get_cutoffs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 24)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 12
@@ -2504,7 +2504,7 @@ declare void @heap_freetuple(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @ForceTransactionIdLimitUpdate() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @vac_open_indexes(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define dso_local void @vac_open_indexes(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = tail call ptr @RelationGetIndexList(ptr noundef %0) #16
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit

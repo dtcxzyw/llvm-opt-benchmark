@@ -203,7 +203,7 @@ _ZNSt11this_thread9sleep_forIdSt5ratioILl1ELl1EEEEvRKNSt6chrono8durationIT_T0_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io16LatencyGenerator4MakeEd(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, double noundef %average_latency) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io16LatencyGenerator4MakeEd(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, double noundef %average_latency) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN5arrow2io20LatencyGeneratorImplEED2Ev.exit:
   %call = tail call noundef i64 @_ZN5arrow8internal13GetRandomSeedEv()
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #23, !noalias !6
@@ -240,7 +240,7 @@ _ZNSt10shared_ptrIN5arrow2io20LatencyGeneratorImplEED2Ev.exit:
 declare noundef i64 @_ZN5arrow8internal13GetRandomSeedEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io16LatencyGenerator4MakeEdi(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, double noundef %average_latency, i32 noundef %seed) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io16LatencyGenerator4MakeEdi(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, double noundef %average_latency, i32 noundef %seed) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN5arrow2io20LatencyGeneratorImplEED2Ev.exit:
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #23, !noalias !9
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
@@ -273,7 +273,7 @@ _ZNSt10shared_ptrIN5arrow2io20LatencyGeneratorImplEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io15SlowInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %vtt) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io15SlowInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this, ptr noundef %vtt) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8
@@ -496,7 +496,7 @@ _ZNSt10shared_ptrIN5arrow2io11InputStreamEED2Ev.exit: ; preds = %_ZNSt10shared_p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io15SlowInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io15SlowInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (40, 48)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io15SlowInputStreamE, i64 232), ptr %add.ptr.i, align 8
@@ -547,7 +547,7 @@ _ZN5arrow2io15SlowInputStreamD1Ev.exit:           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io15SlowInputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io15SlowInputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (40, 48)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io15SlowInputStreamE, i64 232), ptr %add.ptr.i.i, align 8
@@ -968,7 +968,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io20SlowRandomAccessFileD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %vtt) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io20SlowRandomAccessFileD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 16)) %this, ptr noundef %vtt) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8
@@ -1181,7 +1181,7 @@ _ZNSt10shared_ptrIN5arrow2io16RandomAccessFileEED2Ev.exit: ; preds = %_ZNSt10sha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io20SlowRandomAccessFileD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io20SlowRandomAccessFileD1Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 16), (56, 64)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 328), ptr %add.ptr.i, align 8
@@ -1233,7 +1233,7 @@ _ZN5arrow2io20SlowRandomAccessFileD1Ev.exit:      ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn8_N5arrow2io20SlowRandomAccessFileD1Ev(ptr noundef %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn8_N5arrow2io20SlowRandomAccessFileD1Ev(ptr noundef initializes((-8, 8), (48, 56)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -1257,7 +1257,7 @@ _ZN5arrow2io20SlowRandomAccessFileD1Ev.exit:      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io20SlowRandomAccessFileD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io20SlowRandomAccessFileD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 16), (56, 64)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20SlowRandomAccessFileE, i64 328), ptr %add.ptr.i.i, align 8
@@ -1311,7 +1311,7 @@ _ZN5arrow2io20SlowRandomAccessFileD0Ev.exit:      ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn8_N5arrow2io20SlowRandomAccessFileD0Ev(ptr noundef %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn8_N5arrow2io20SlowRandomAccessFileD0Ev(ptr noundef initializes((-8, 8), (48, 56)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 48

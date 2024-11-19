@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.KeccakWidth1600_12rounds_SpongeInstanceStruct = type { [200 x i8], i32, i32, i32 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @KangarooTwelve_Initialize(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define i32 @KangarooTwelve_Initialize(ptr noundef initializes((432, 456)) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 432
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 448

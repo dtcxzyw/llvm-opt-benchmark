@@ -804,7 +804,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_copy(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_copy(ptr nocapture noundef initializes((8, 256)) %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %dst, align 8
   %flags2 = getelementptr inbounds i8, ptr %dst, i64 4
@@ -3384,7 +3384,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_CTX_set0_keygen_info(ptr nocapture noundef writeonly %ctx, ptr noundef %dat, i32 noundef %datlen) local_unnamed_addr #8 {
+define void @EVP_PKEY_CTX_set0_keygen_info(ptr nocapture noundef writeonly initializes((104, 116)) %ctx, ptr noundef %dat, i32 noundef %datlen) local_unnamed_addr #8 {
 entry:
   %keygen_info = getelementptr inbounds i8, ptr %ctx, i64 104
   store ptr %dat, ptr %keygen_info, align 8
@@ -3394,7 +3394,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_CTX_set_data(ptr nocapture noundef writeonly %ctx, ptr noundef %data) local_unnamed_addr #8 {
+define void @EVP_PKEY_CTX_set_data(ptr nocapture noundef writeonly initializes((152, 160)) %ctx, ptr noundef %data) local_unnamed_addr #8 {
 entry:
   %data1 = getelementptr inbounds i8, ptr %ctx, i64 152
   store ptr %data, ptr %data1, align 8
@@ -3426,7 +3426,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_CTX_set_app_data(ptr nocapture noundef writeonly %ctx, ptr noundef %data) local_unnamed_addr #8 {
+define void @EVP_PKEY_CTX_set_app_data(ptr nocapture noundef writeonly initializes((88, 96)) %ctx, ptr noundef %data) local_unnamed_addr #8 {
 entry:
   %app_data = getelementptr inbounds i8, ptr %ctx, i64 88
   store ptr %data, ptr %app_data, align 8
@@ -3442,7 +3442,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_meth_set_init(ptr nocapture noundef writeonly %pmeth, ptr noundef %init) local_unnamed_addr #8 {
+define void @EVP_PKEY_meth_set_init(ptr nocapture noundef writeonly initializes((8, 16)) %pmeth, ptr noundef %init) local_unnamed_addr #8 {
 entry:
   %init1 = getelementptr inbounds i8, ptr %pmeth, i64 8
   store ptr %init, ptr %init1, align 8
@@ -3450,7 +3450,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_meth_set_copy(ptr nocapture noundef writeonly %pmeth, ptr noundef %copy) local_unnamed_addr #8 {
+define void @EVP_PKEY_meth_set_copy(ptr nocapture noundef writeonly initializes((16, 24)) %pmeth, ptr noundef %copy) local_unnamed_addr #8 {
 entry:
   %copy1 = getelementptr inbounds i8, ptr %pmeth, i64 16
   store ptr %copy, ptr %copy1, align 8
@@ -3458,7 +3458,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_meth_set_cleanup(ptr nocapture noundef writeonly %pmeth, ptr noundef %cleanup) local_unnamed_addr #8 {
+define void @EVP_PKEY_meth_set_cleanup(ptr nocapture noundef writeonly initializes((24, 32)) %pmeth, ptr noundef %cleanup) local_unnamed_addr #8 {
 entry:
   %cleanup1 = getelementptr inbounds i8, ptr %pmeth, i64 24
   store ptr %cleanup, ptr %cleanup1, align 8
@@ -3466,7 +3466,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_meth_set_paramgen(ptr nocapture noundef writeonly %pmeth, ptr noundef %paramgen_init, ptr noundef %paramgen) local_unnamed_addr #8 {
+define void @EVP_PKEY_meth_set_paramgen(ptr nocapture noundef writeonly initializes((32, 48)) %pmeth, ptr noundef %paramgen_init, ptr noundef %paramgen) local_unnamed_addr #8 {
 entry:
   %paramgen_init1 = getelementptr inbounds i8, ptr %pmeth, i64 32
   store ptr %paramgen_init, ptr %paramgen_init1, align 8
@@ -3476,7 +3476,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_meth_set_keygen(ptr nocapture noundef writeonly %pmeth, ptr noundef %keygen_init, ptr noundef %keygen) local_unnamed_addr #8 {
+define void @EVP_PKEY_meth_set_keygen(ptr nocapture noundef writeonly initializes((48, 64)) %pmeth, ptr noundef %keygen_init, ptr noundef %keygen) local_unnamed_addr #8 {
 entry:
   %keygen_init1 = getelementptr inbounds i8, ptr %pmeth, i64 48
   store ptr %keygen_init, ptr %keygen_init1, align 8
@@ -3486,7 +3486,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_meth_set_sign(ptr nocapture noundef writeonly %pmeth, ptr noundef %sign_init, ptr noundef %sign) local_unnamed_addr #8 {
+define void @EVP_PKEY_meth_set_sign(ptr nocapture noundef writeonly initializes((64, 80)) %pmeth, ptr noundef %sign_init, ptr noundef %sign) local_unnamed_addr #8 {
 entry:
   %sign_init1 = getelementptr inbounds i8, ptr %pmeth, i64 64
   store ptr %sign_init, ptr %sign_init1, align 8
@@ -3496,7 +3496,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_meth_set_verify(ptr nocapture noundef writeonly %pmeth, ptr noundef %verify_init, ptr noundef %verify) local_unnamed_addr #8 {
+define void @EVP_PKEY_meth_set_verify(ptr nocapture noundef writeonly initializes((80, 96)) %pmeth, ptr noundef %verify_init, ptr noundef %verify) local_unnamed_addr #8 {
 entry:
   %verify_init1 = getelementptr inbounds i8, ptr %pmeth, i64 80
   store ptr %verify_init, ptr %verify_init1, align 8
@@ -3506,7 +3506,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_meth_set_verify_recover(ptr nocapture noundef writeonly %pmeth, ptr noundef %verify_recover_init, ptr noundef %verify_recover) local_unnamed_addr #8 {
+define void @EVP_PKEY_meth_set_verify_recover(ptr nocapture noundef writeonly initializes((96, 112)) %pmeth, ptr noundef %verify_recover_init, ptr noundef %verify_recover) local_unnamed_addr #8 {
 entry:
   %verify_recover_init1 = getelementptr inbounds i8, ptr %pmeth, i64 96
   store ptr %verify_recover_init, ptr %verify_recover_init1, align 8
@@ -3516,7 +3516,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_meth_set_signctx(ptr nocapture noundef writeonly %pmeth, ptr noundef %signctx_init, ptr noundef %signctx) local_unnamed_addr #8 {
+define void @EVP_PKEY_meth_set_signctx(ptr nocapture noundef writeonly initializes((112, 128)) %pmeth, ptr noundef %signctx_init, ptr noundef %signctx) local_unnamed_addr #8 {
 entry:
   %signctx_init1 = getelementptr inbounds i8, ptr %pmeth, i64 112
   store ptr %signctx_init, ptr %signctx_init1, align 8
@@ -3526,7 +3526,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_meth_set_verifyctx(ptr nocapture noundef writeonly %pmeth, ptr noundef %verifyctx_init, ptr noundef %verifyctx) local_unnamed_addr #8 {
+define void @EVP_PKEY_meth_set_verifyctx(ptr nocapture noundef writeonly initializes((128, 144)) %pmeth, ptr noundef %verifyctx_init, ptr noundef %verifyctx) local_unnamed_addr #8 {
 entry:
   %verifyctx_init1 = getelementptr inbounds i8, ptr %pmeth, i64 128
   store ptr %verifyctx_init, ptr %verifyctx_init1, align 8
@@ -3536,7 +3536,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_meth_set_encrypt(ptr nocapture noundef writeonly %pmeth, ptr noundef %encrypt_init, ptr noundef %encryptfn) local_unnamed_addr #8 {
+define void @EVP_PKEY_meth_set_encrypt(ptr nocapture noundef writeonly initializes((144, 160)) %pmeth, ptr noundef %encrypt_init, ptr noundef %encryptfn) local_unnamed_addr #8 {
 entry:
   %encrypt_init1 = getelementptr inbounds i8, ptr %pmeth, i64 144
   store ptr %encrypt_init, ptr %encrypt_init1, align 8
@@ -3546,7 +3546,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_meth_set_decrypt(ptr nocapture noundef writeonly %pmeth, ptr noundef %decrypt_init, ptr noundef %decrypt) local_unnamed_addr #8 {
+define void @EVP_PKEY_meth_set_decrypt(ptr nocapture noundef writeonly initializes((160, 176)) %pmeth, ptr noundef %decrypt_init, ptr noundef %decrypt) local_unnamed_addr #8 {
 entry:
   %decrypt_init1 = getelementptr inbounds i8, ptr %pmeth, i64 160
   store ptr %decrypt_init, ptr %decrypt_init1, align 8
@@ -3556,7 +3556,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_meth_set_derive(ptr nocapture noundef writeonly %pmeth, ptr noundef %derive_init, ptr noundef %derive) local_unnamed_addr #8 {
+define void @EVP_PKEY_meth_set_derive(ptr nocapture noundef writeonly initializes((176, 192)) %pmeth, ptr noundef %derive_init, ptr noundef %derive) local_unnamed_addr #8 {
 entry:
   %derive_init1 = getelementptr inbounds i8, ptr %pmeth, i64 176
   store ptr %derive_init, ptr %derive_init1, align 8
@@ -3566,7 +3566,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_meth_set_ctrl(ptr nocapture noundef writeonly %pmeth, ptr noundef %ctrl, ptr noundef %ctrl_str) local_unnamed_addr #8 {
+define void @EVP_PKEY_meth_set_ctrl(ptr nocapture noundef writeonly initializes((192, 208)) %pmeth, ptr noundef %ctrl, ptr noundef %ctrl_str) local_unnamed_addr #8 {
 entry:
   %ctrl1 = getelementptr inbounds i8, ptr %pmeth, i64 192
   store ptr %ctrl, ptr %ctrl1, align 8
@@ -3576,7 +3576,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_meth_set_digestsign(ptr nocapture noundef writeonly %pmeth, ptr noundef %digestsign) local_unnamed_addr #8 {
+define void @EVP_PKEY_meth_set_digestsign(ptr nocapture noundef writeonly initializes((208, 216)) %pmeth, ptr noundef %digestsign) local_unnamed_addr #8 {
 entry:
   %digestsign1 = getelementptr inbounds i8, ptr %pmeth, i64 208
   store ptr %digestsign, ptr %digestsign1, align 8
@@ -3584,7 +3584,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_meth_set_digestverify(ptr nocapture noundef writeonly %pmeth, ptr noundef %digestverify) local_unnamed_addr #8 {
+define void @EVP_PKEY_meth_set_digestverify(ptr nocapture noundef writeonly initializes((216, 224)) %pmeth, ptr noundef %digestverify) local_unnamed_addr #8 {
 entry:
   %digestverify1 = getelementptr inbounds i8, ptr %pmeth, i64 216
   store ptr %digestverify, ptr %digestverify1, align 8
@@ -3592,7 +3592,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_meth_set_check(ptr nocapture noundef writeonly %pmeth, ptr noundef %check) local_unnamed_addr #8 {
+define void @EVP_PKEY_meth_set_check(ptr nocapture noundef writeonly initializes((224, 232)) %pmeth, ptr noundef %check) local_unnamed_addr #8 {
 entry:
   %check1 = getelementptr inbounds i8, ptr %pmeth, i64 224
   store ptr %check, ptr %check1, align 8
@@ -3600,7 +3600,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_meth_set_public_check(ptr nocapture noundef writeonly %pmeth, ptr noundef %check) local_unnamed_addr #8 {
+define void @EVP_PKEY_meth_set_public_check(ptr nocapture noundef writeonly initializes((232, 240)) %pmeth, ptr noundef %check) local_unnamed_addr #8 {
 entry:
   %public_check = getelementptr inbounds i8, ptr %pmeth, i64 232
   store ptr %check, ptr %public_check, align 8
@@ -3608,7 +3608,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_meth_set_param_check(ptr nocapture noundef writeonly %pmeth, ptr noundef %check) local_unnamed_addr #8 {
+define void @EVP_PKEY_meth_set_param_check(ptr nocapture noundef writeonly initializes((240, 248)) %pmeth, ptr noundef %check) local_unnamed_addr #8 {
 entry:
   %param_check = getelementptr inbounds i8, ptr %pmeth, i64 240
   store ptr %check, ptr %param_check, align 8
@@ -3616,7 +3616,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_meth_set_digest_custom(ptr nocapture noundef writeonly %pmeth, ptr noundef %digest_custom) local_unnamed_addr #8 {
+define void @EVP_PKEY_meth_set_digest_custom(ptr nocapture noundef writeonly initializes((248, 256)) %pmeth, ptr noundef %digest_custom) local_unnamed_addr #8 {
 entry:
   %digest_custom1 = getelementptr inbounds i8, ptr %pmeth, i64 248
   store ptr %digest_custom, ptr %digest_custom1, align 8
@@ -3624,7 +3624,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_get_init(ptr nocapture noundef readonly %pmeth, ptr nocapture noundef writeonly %pinit) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_get_init(ptr nocapture noundef readonly %pmeth, ptr nocapture noundef writeonly initializes((0, 8)) %pinit) local_unnamed_addr #3 {
 entry:
   %init = getelementptr inbounds i8, ptr %pmeth, i64 8
   %0 = load ptr, ptr %init, align 8
@@ -3633,7 +3633,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_get_copy(ptr nocapture noundef readonly %pmeth, ptr nocapture noundef writeonly %pcopy) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_get_copy(ptr nocapture noundef readonly %pmeth, ptr nocapture noundef writeonly initializes((0, 8)) %pcopy) local_unnamed_addr #3 {
 entry:
   %copy = getelementptr inbounds i8, ptr %pmeth, i64 16
   %0 = load ptr, ptr %copy, align 8
@@ -3642,7 +3642,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_meth_get_cleanup(ptr nocapture noundef readonly %pmeth, ptr nocapture noundef writeonly %pcleanup) local_unnamed_addr #3 {
+define void @EVP_PKEY_meth_get_cleanup(ptr nocapture noundef readonly %pmeth, ptr nocapture noundef writeonly initializes((0, 8)) %pcleanup) local_unnamed_addr #3 {
 entry:
   %cleanup = getelementptr inbounds i8, ptr %pmeth, i64 24
   %0 = load ptr, ptr %cleanup, align 8

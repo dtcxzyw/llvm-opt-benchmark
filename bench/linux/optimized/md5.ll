@@ -47,7 +47,7 @@ define internal i32 @md5_mod_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @md5_init(ptr nocapture noundef writeonly %0) #2 align 16 {
+define internal noundef i32 @md5_init(ptr nocapture noundef writeonly initializes((8, 24), (88, 96)) %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1732584193, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 12
@@ -115,7 +115,7 @@ define internal noundef i32 @md5_update(ptr nocapture noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @md5_final(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #4 align 16 {
+define internal noundef i32 @md5_final(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8
@@ -158,14 +158,14 @@ define internal noundef i32 @md5_final(ptr nocapture noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @md5_export(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 align 16 {
+define internal noundef i32 @md5_export(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 88)) %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(88) %1, ptr noundef align 8 dereferenceable(88) %3, i64 88, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @md5_import(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #4 align 16 {
+define internal noundef i32 @md5_import(ptr nocapture noundef writeonly initializes((8, 96)) %0, ptr nocapture noundef readonly %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(88) %3, ptr noundef align 1 dereferenceable(88) %1, i64 88, i1 false)
   ret i32 0

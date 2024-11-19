@@ -213,7 +213,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp19FindAABBTransformedEPK6aiMeshR10aiVector3tIfES5_RK12aiMatrix4x4tIfE(ptr nocapture noundef readonly %mesh, ptr nocapture noundef nonnull align 4 dereferenceable(12) %min, ptr nocapture noundef nonnull align 4 dereferenceable(12) %max, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %m) local_unnamed_addr #3 {
+define hidden void @_ZN6Assimp19FindAABBTransformedEPK6aiMeshR10aiVector3tIfES5_RK12aiMatrix4x4tIfE(ptr nocapture noundef readonly %mesh, ptr nocapture noundef nonnull align 4 dereferenceable(12) initializes((0, 12)) %min, ptr nocapture noundef nonnull align 4 dereferenceable(12) initializes((0, 12)) %max, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %m) local_unnamed_addr #3 {
 entry:
   store float 0x42374876E0000000, ptr %min, align 4
   %ref.tmp.sroa.2.0.min.sroa_idx = getelementptr inbounds i8, ptr %min, i64 4
@@ -318,7 +318,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp14FindMeshCenterEP6aiMeshR10aiVector3tIfES4_S4_(ptr nocapture noundef readonly %mesh, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %out, ptr nocapture noundef nonnull align 4 dereferenceable(12) %min, ptr nocapture noundef nonnull align 4 dereferenceable(12) %max) local_unnamed_addr #3 {
+define hidden void @_ZN6Assimp14FindMeshCenterEP6aiMeshR10aiVector3tIfES4_S4_(ptr nocapture noundef readonly %mesh, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %out, ptr nocapture noundef nonnull align 4 dereferenceable(12) initializes((0, 12)) %min, ptr nocapture noundef nonnull align 4 dereferenceable(12) initializes((0, 12)) %max) local_unnamed_addr #3 {
 entry:
   %mVertices = getelementptr inbounds i8, ptr %mesh, i64 16
   %0 = load ptr, ptr %mVertices, align 8
@@ -607,7 +607,7 @@ return:                                           ; preds = %if.end, %entry, %fo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp25FindMeshCenterTransformedEP6aiMeshR10aiVector3tIfES4_S4_RK12aiMatrix4x4tIfE(ptr nocapture noundef readonly %mesh, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %out, ptr nocapture noundef nonnull align 4 dereferenceable(12) %min, ptr nocapture noundef nonnull align 4 dereferenceable(12) %max, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %m) local_unnamed_addr #3 {
+define hidden void @_ZN6Assimp25FindMeshCenterTransformedEP6aiMeshR10aiVector3tIfES4_S4_RK12aiMatrix4x4tIfE(ptr nocapture noundef readonly %mesh, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %out, ptr nocapture noundef nonnull align 4 dereferenceable(12) initializes((0, 12)) %min, ptr nocapture noundef nonnull align 4 dereferenceable(12) initializes((0, 12)) %max, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %m) local_unnamed_addr #3 {
 entry:
   tail call void @_ZN6Assimp19FindAABBTransformedEPK6aiMeshR10aiVector3tIfES5_RK12aiMatrix4x4tIfE(ptr noundef %mesh, ptr noundef nonnull align 4 dereferenceable(12) %min, ptr noundef nonnull align 4 dereferenceable(12) %max, ptr noundef nonnull align 4 dereferenceable(64) %m)
   %0 = load float, ptr %max, align 4

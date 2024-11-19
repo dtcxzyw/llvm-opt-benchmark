@@ -2651,7 +2651,7 @@ _ZNSt13unordered_mapIiPN7nanogui6WidgetESt4hashIiESt8equal_toIiESaISt4pairIKiS2_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7nanogui9TabWidget10append_tabERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6WidgetE(ptr noundef nonnull align 8 dereferenceable(473) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN7nanogui9TabWidget10append_tabERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6WidgetE(ptr noundef nonnull align 8 dereferenceable(473) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef initializes((88, 89)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 176

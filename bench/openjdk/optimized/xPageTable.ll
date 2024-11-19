@@ -42,7 +42,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN10XPageTableC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN10XPageTableC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10XPageTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN10XPageTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @XAddressOffsetMax, align 8
   %3 = lshr i64 %2, 21
   store i64 %3, ptr %0, align 8

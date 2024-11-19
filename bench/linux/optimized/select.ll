@@ -111,7 +111,7 @@ declare dso_local void @ktime_get_ts64(ptr noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(argmem: write)
-define dso_local void @poll_initwait(ptr nocapture noundef writeonly %0) #4 align 16 {
+define dso_local void @poll_initwait(ptr nocapture noundef writeonly initializes((0, 12), (16, 44)) %0) #4 align 16 {
   store ptr @__pollwait, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8

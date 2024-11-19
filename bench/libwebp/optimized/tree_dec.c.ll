@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @kYModesIntra4 = internal unnamed_addr constant [18 x i8] c"\00\01\FF\02\FE\03\04\06\FD\05\FC\FB\FA\07\F9\08\F8\F7", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @VP8ResetProba(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @VP8ResetProba(ptr nocapture noundef writeonly initializes((0, 3)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %0, i8 -1, i64 3, i1 false)
   ret void
 }

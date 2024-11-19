@@ -91,7 +91,7 @@ declare dso_local void @acpi_os_unmap_memory(ptr noundef, i64 noundef) local_unn
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @acpi_ev_io_space_region_setup(ptr nocapture noundef readnone %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 align 16 {
+define dso_local noundef i32 @acpi_ev_io_space_region_setup(ptr nocapture noundef readnone %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #3 align 16 {
   %5 = icmp eq i32 %1, 1
   %6 = select i1 %5, ptr null, ptr %2
   store ptr %6, ptr %3, align 8
@@ -412,7 +412,7 @@ define dso_local noundef range(i32 0, 5) i32 @acpi_ev_data_table_region_setup(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @acpi_ev_default_region_setup(ptr nocapture noundef readnone %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 align 16 {
+define dso_local noundef i32 @acpi_ev_default_region_setup(ptr nocapture noundef readnone %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #3 align 16 {
   %5 = icmp eq i32 %1, 1
   %6 = select i1 %5, ptr null, ptr %2
   store ptr %6, ptr %3, align 8

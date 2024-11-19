@@ -305,7 +305,7 @@ define dso_local noundef zeroext i1 @_ZN5clang13DiagnosticIDs12isDeferrableEj(i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang13DiagnosticIDsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang13DiagnosticIDsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0) unnamed_addr #3 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
@@ -1261,7 +1261,7 @@ _ZN5clang13DiagnosticIDs15getGroupForDiagEj.exit.thread: ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13DiagnosticIDs18getDiagnosticFlagsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector.131") align 8 %0) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN5clang13DiagnosticIDs18getDiagnosticFlagsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector.131") align 8 initializes((0, 8), (16, 24)) %0) local_unnamed_addr #4 align 2 {
   %2 = alloca %"class.std::allocator.29", align 1
   %3 = alloca %"class.std::allocator.29", align 1
   %4 = alloca %"class.std::allocator.29", align 1

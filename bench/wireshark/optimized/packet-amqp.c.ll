@@ -2407,7 +2407,7 @@ define hidden void @proto_register_amqp() local_unnamed_addr #0 {
 declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @message_decode_match_criteria_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @message_decode_match_criteria_set_cb(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #12
   store i32 0, ptr %0, align 8
@@ -2508,7 +2508,7 @@ define internal void @message_decode_topic_pattern_set_cb(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @message_decode_topic_pattern_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @message_decode_topic_pattern_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2536,7 +2536,7 @@ define internal void @message_decode_topic_pattern_tostr_cb(ptr nocapture nounde
 declare zeroext i1 @uat_fld_chk_proto(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @message_decode_payload_proto_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @message_decode_payload_proto_set_cb(ptr nocapture noundef initializes((24, 40)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %14, label %6
 
@@ -2565,7 +2565,7 @@ define internal void @message_decode_payload_proto_set_cb(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @message_decode_payload_proto_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @message_decode_payload_proto_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2601,7 +2601,7 @@ define internal void @message_decode_topic_more_info_set_cb(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @message_decode_topic_more_info_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @message_decode_topic_more_info_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2629,7 +2629,7 @@ define internal void @message_decode_topic_more_info_tostr_cb(ptr nocapture noun
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @amqp_message_decode_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @amqp_message_decode_copy_cb(ptr noundef returned writeonly initializes((0, 4), (8, 16), (24, 48)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2760,7 +2760,7 @@ define internal ptr @amqp_value(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @amqp_prompt(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #2 {
+define internal void @amqp_prompt(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(16) @.str.1380, i64 16, i1 false)
   ret void
 }
@@ -11678,7 +11678,7 @@ declare ptr @wmem_packet_scope() local_unnamed_addr #1
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @format_amqp_0_10_vbin(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal i32 @format_amqp_0_10_vbin(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   switch i32 %2, label %14 [
     i32 1, label %5
     i32 2, label %8
@@ -11721,7 +11721,7 @@ define internal i32 @format_amqp_0_10_vbin(ptr noundef %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @format_amqp_0_10_str(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal i32 @format_amqp_0_10_str(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   switch i32 %2, label %14 [
     i32 1, label %5
     i32 2, label %8
@@ -11766,7 +11766,7 @@ define internal i32 @format_amqp_0_10_str(ptr noundef %0, i32 noundef %1, i32 no
 declare ptr @tvb_bytes_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @format_amqp_0_10_bin(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef i32 @format_amqp_0_10_bin(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   %5 = tail call ptr @wmem_packet_scope() #12
   %6 = tail call ptr @tvb_bytes_to_str(ptr noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef %2) #12
   store ptr %6, ptr %3, align 8
@@ -11774,7 +11774,7 @@ define internal noundef i32 @format_amqp_0_10_bin(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @format_amqp_0_10_int(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef i32 @format_amqp_0_10_int(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   switch i32 %2, label %13 [
     i32 1, label %5
     i32 2, label %8
@@ -11813,7 +11813,7 @@ define internal noundef i32 @format_amqp_0_10_int(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @format_amqp_0_10_uint(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef i32 @format_amqp_0_10_uint(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   switch i32 %2, label %13 [
     i32 1, label %5
     i32 2, label %8
@@ -11852,7 +11852,7 @@ define internal noundef i32 @format_amqp_0_10_uint(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @format_amqp_0_10_char(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef i32 @format_amqp_0_10_char(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   %5 = tail call ptr @wmem_packet_scope() #12
   %6 = tail call ptr @tvb_format_text(ptr noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 1) #12
   store ptr %6, ptr %3, align 8
@@ -11860,7 +11860,7 @@ define internal noundef i32 @format_amqp_0_10_char(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @format_amqp_0_10_boolean(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef i32 @format_amqp_0_10_boolean(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #12
   %6 = tail call ptr @wmem_packet_scope() #12
   %.not = icmp eq i8 %5, 0
@@ -13184,7 +13184,7 @@ dissect_amqp_1_0_array.exit:                      ; preds = %191, %225, %.crited
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @format_amqp_1_0_str(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal i32 @format_amqp_1_0_str(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   switch i32 %2, label %10 [
     i32 1, label %5
     i32 4, label %8
@@ -13227,7 +13227,7 @@ define internal noundef i32 @dissect_amqp_1_0_skip(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @format_amqp_1_0_null(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture noundef writeonly %3) #7 {
+define internal noundef i32 @format_amqp_1_0_null(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #7 {
   store ptr @.str.1522, ptr %3, align 8
   ret i32 0
 }
@@ -13240,7 +13240,7 @@ define internal noundef i32 @dissect_amqp_1_0_true(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @format_amqp_1_0_boolean_true(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef i32 @format_amqp_1_0_boolean_true(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   %5 = tail call ptr @wmem_packet_scope() #12
   %6 = tail call noalias ptr @wmem_strdup(ptr noundef %5, ptr noundef nonnull @.str.1464) #12
   store ptr %6, ptr %3, align 8
@@ -13255,7 +13255,7 @@ define internal noundef i32 @dissect_amqp_1_0_false(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @format_amqp_1_0_boolean_false(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef i32 @format_amqp_1_0_boolean_false(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   %5 = tail call ptr @wmem_packet_scope() #12
   %6 = tail call noalias ptr @wmem_strdup(ptr noundef %5, ptr noundef nonnull @.str.1465) #12
   store ptr %6, ptr %3, align 8
@@ -13269,7 +13269,7 @@ define internal noundef i32 @dissect_amqp_1_0_fixed(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @format_amqp_1_0_boolean(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef i32 @format_amqp_1_0_boolean(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #12
   %6 = tail call ptr @wmem_packet_scope() #12
   %.not = icmp eq i8 %5, 0
@@ -13280,7 +13280,7 @@ define internal noundef i32 @format_amqp_1_0_boolean(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @format_amqp_1_0_uint(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef i32 @format_amqp_1_0_uint(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   switch i32 %2, label %16 [
     i32 0, label %19
     i32 1, label %5
@@ -13377,7 +13377,7 @@ define internal noundef i32 @dissect_amqp_1_0_zero(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @format_amqp_1_0_int(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef i32 @format_amqp_1_0_int(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   switch i32 %2, label %16 [
     i32 1, label %5
     i32 2, label %8
@@ -13422,7 +13422,7 @@ define internal noundef i32 @format_amqp_1_0_int(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @format_amqp_1_0_float(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef i32 @format_amqp_1_0_float(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   %5 = tail call float @tvb_get_ntohieee_float(ptr noundef %0, i32 noundef %1) #12
   %6 = tail call ptr @wmem_packet_scope() #12
   %7 = fpext float %5 to double
@@ -13432,7 +13432,7 @@ define internal noundef i32 @format_amqp_1_0_float(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @format_amqp_1_0_double(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef i32 @format_amqp_1_0_double(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   %5 = tail call double @tvb_get_ntohieee_double(ptr noundef %0, i32 noundef %1) #12
   %6 = tail call ptr @wmem_packet_scope() #12
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %6, ptr noundef nonnull @.str.1526, double noundef %5) #12
@@ -13441,7 +13441,7 @@ define internal noundef i32 @format_amqp_1_0_double(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @format_amqp_1_0_decimal(ptr nocapture readnone %0, i32 %1, i32 noundef returned %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef i32 @format_amqp_1_0_decimal(ptr nocapture readnone %0, i32 %1, i32 noundef returned %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   %5 = tail call ptr @wmem_packet_scope() #12
   %6 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %5, ptr noundef nonnull @.str.1527) #12
   store ptr %6, ptr %3, align 8
@@ -13449,7 +13449,7 @@ define internal noundef i32 @format_amqp_1_0_decimal(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @format_amqp_1_0_char(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef i32 @format_amqp_1_0_char(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   %5 = tail call ptr @wmem_packet_scope() #12
   %6 = tail call ptr @tvb_get_string_enc(ptr noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 8) #12
   store ptr %6, ptr %3, align 8
@@ -13472,7 +13472,7 @@ define internal noundef i32 @dissect_amqp_1_0_timestamp(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @format_amqp_1_0_timestamp(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef i32 @format_amqp_1_0_timestamp(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %1) #12
   %7 = sdiv i64 %6, 1000
@@ -13489,7 +13489,7 @@ define internal noundef i32 @format_amqp_1_0_timestamp(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @format_amqp_1_0_uuid(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef i32 @format_amqp_1_0_uuid(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   %5 = alloca %struct._e_guid_t, align 4
   call void @tvb_get_guid(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %5, i32 noundef 0) #12
   %6 = call ptr @wmem_packet_scope() #12
@@ -13723,7 +13723,7 @@ find_data_dissector.exit:                         ; preds = %104
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @format_amqp_1_0_bin(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal i32 @format_amqp_1_0_bin(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   switch i32 %2, label %10 [
     i32 1, label %5
     i32 4, label %8
@@ -13759,7 +13759,7 @@ define internal i32 @format_amqp_1_0_bin(ptr noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @format_amqp_1_0_symbol(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal i32 @format_amqp_1_0_symbol(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
   switch i32 %2, label %10 [
     i32 1, label %5
     i32 4, label %8

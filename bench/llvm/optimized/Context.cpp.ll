@@ -175,7 +175,7 @@ $_ZTVN5clang6interp15ByteCodeEmitterE = comdat any
 @_ZN5clang6interp7ContextD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang6interp7ContextD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6interp7ContextC2ERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6interp7ContextC2ERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)

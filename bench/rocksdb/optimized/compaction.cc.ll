@@ -537,7 +537,7 @@ for.end:                                          ; preds = %land.rhs, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb10Compaction15SetInputVersionEPNS_7VersionE(ptr nocapture noundef nonnull align 16 dereferenceable(4788) %this, ptr noundef %_input_version) local_unnamed_addr #3 align 2 {
+define void @_ZN7rocksdb10Compaction15SetInputVersionEPNS_7VersionE(ptr nocapture noundef nonnull align 16 dereferenceable(4788) initializes((1472, 1480), (1792, 1796), (1992, 2000)) %this, ptr noundef %_input_version) local_unnamed_addr #3 align 2 {
 entry:
   %input_version_ = getelementptr inbounds i8, ptr %this, i64 1472
   store ptr %_input_version, ptr %input_version_, align 16
@@ -1510,7 +1510,7 @@ for.end11:                                        ; preds = %for.body5, %for.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb10Compaction24InitInputTablePropertiesEv(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(4788) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb10Compaction24InitInputTablePropertiesEv(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 16 dereferenceable(4788) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %read_options = alloca %"struct.rocksdb::ReadOptions", align 8
   %tp = alloca %"class.std::shared_ptr.297", align 8
@@ -2083,7 +2083,7 @@ _ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb10CompactionC2EPNS_18VersionStorageInfoERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKNS_16MutableDBOptionsESt6vectorINS_20CompactionInputFilesESaISD_EEimmjNS_15CompressionTypeENS_18CompressionOptionsENS_11TemperatureEjSC_IPNS_12FileMetaDataESaISK_EEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdbbNS_16CompactionReasonENS_27BlobGarbageCollectionPolicyEd(ptr noundef nonnull align 16 dereferenceable(4788) %this, ptr noundef %vstorage, ptr noundef nonnull align 8 dereferenceable(857) %_immutable_options, ptr noundef nonnull align 8 dereferenceable(560) %_mutable_cf_options, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %_mutable_db_options, ptr nocapture noundef %_inputs, i32 noundef %_output_level, i64 noundef %_target_file_size, i64 noundef %_max_compaction_bytes, i32 noundef %_output_path_id, i8 noundef zeroext %_compression, ptr nocapture noundef readonly byval(%"struct.rocksdb::CompressionOptions") align 8 %_compression_opts, i8 noundef zeroext %_output_temperature, i32 noundef %_max_subcompactions, ptr nocapture noundef %_grandparents, i1 noundef zeroext %_manual_compaction, ptr noundef nonnull align 8 dereferenceable(32) %_trim_ts, double noundef %_score, i1 noundef zeroext %_deletion_compaction, i1 noundef zeroext %l0_files_might_overlap, i32 noundef %_compaction_reason, i32 noundef %_blob_garbage_collection_policy, double noundef %_blob_garbage_collection_age_cutoff) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb10CompactionC2EPNS_18VersionStorageInfoERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKNS_16MutableDBOptionsESt6vectorINS_20CompactionInputFilesESaISD_EEimmjNS_15CompressionTypeENS_18CompressionOptionsENS_11TemperatureEjSC_IPNS_12FileMetaDataESaISK_EEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdbbNS_16CompactionReasonENS_27BlobGarbageCollectionPolicyEd(ptr noundef nonnull align 16 dereferenceable(4788) initializes((0, 24), (32, 44)) %this, ptr noundef %vstorage, ptr noundef nonnull align 8 dereferenceable(857) %_immutable_options, ptr noundef nonnull align 8 dereferenceable(560) %_mutable_cf_options, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %_mutable_db_options, ptr nocapture noundef %_inputs, i32 noundef %_output_level, i64 noundef %_target_file_size, i64 noundef %_max_compaction_bytes, i32 noundef %_output_path_id, i8 noundef zeroext %_compression, ptr nocapture noundef readonly byval(%"struct.rocksdb::CompressionOptions") align 8 %_compression_opts, i8 noundef zeroext %_output_temperature, i32 noundef %_max_subcompactions, ptr nocapture noundef %_grandparents, i1 noundef zeroext %_manual_compaction, ptr noundef nonnull align 8 dereferenceable(32) %_trim_ts, double noundef %_score, i1 noundef zeroext %_deletion_compaction, i1 noundef zeroext %l0_files_might_overlap, i32 noundef %_compaction_reason, i32 noundef %_blob_garbage_collection_policy, double noundef %_blob_garbage_collection_age_cutoff) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %smallest_key.i = alloca %"class.rocksdb::Slice", align 8
   %largest_key.i = alloca %"class.rocksdb::Slice", align 8

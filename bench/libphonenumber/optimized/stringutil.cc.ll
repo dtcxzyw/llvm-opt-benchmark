@@ -761,7 +761,7 @@ _ZNSt4pairIN4absl7debian211string_viewES2_EC2IRKNSt7__cxx1112basic_stringIcSt11c
 declare noundef i32 @_ZN4absl7debian213StrReplaceAllESt16initializer_listISt4pairINS0_11string_viewES3_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr, i64, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4i18n12phonenumbers12StringHolderC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers12StringHolderC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
   %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
   store ptr %3, ptr %0, align 8
@@ -779,7 +779,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 }
 
 ; Function Attrs: mustprogress nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4i18n12phonenumbers12StringHolderC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4i18n12phonenumbers12StringHolderC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #4 align 2 {
   store ptr %1, ptr %0, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN4absl7debian28AlphaNumC2EPKc.exit, label %3

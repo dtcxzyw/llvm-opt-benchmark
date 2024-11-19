@@ -236,7 +236,7 @@ $_ZZN5folly3f146detail8F14ChunkIjE6setTagEmmE30__folly_detail_safe_assert_arg_0 
 @_ZN5folly17FunctionSchedulerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5folly17FunctionSchedulerD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly17FunctionSchedulerC2Ev(ptr noundef nonnull align 8 dereferenceable(202) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly17FunctionSchedulerC2Ev(ptr noundef nonnull align 8 dereferenceable(202) initializes((0, 49), (56, 104), (112, 120)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %functions_ = getelementptr inbounds i8, ptr %this, i64 56
   %chunks_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88

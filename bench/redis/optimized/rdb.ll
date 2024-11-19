@@ -11814,7 +11814,7 @@ declare ptr @sdsnew(ptr noundef) local_unnamed_addr #3
 declare ptr @functionsCreateWithLibraryCtx(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @rdbLoadRio(ptr noundef %rdb, i32 noundef %rdbflags, ptr noundef %rsi) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbLoadRio(ptr noundef initializes((32, 40), (64, 72)) %rdb, i32 noundef %rdbflags, ptr noundef %rsi) local_unnamed_addr #0 {
 entry:
   %loading_ctx = alloca %struct.rdbLoadingCtx, align 8
   %call = tail call ptr @functionsLibCtxGetCurrent() #22
@@ -11829,7 +11829,7 @@ entry:
 declare ptr @functionsLibCtxGetCurrent() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @rdbLoadRioWithLoadingCtx(ptr noundef %rdb, i32 noundef %rdbflags, ptr noundef writeonly %rsi, ptr nocapture noundef readonly %rdb_loading_ctx) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbLoadRioWithLoadingCtx(ptr noundef initializes((32, 40), (64, 72)) %rdb, i32 noundef %rdbflags, ptr noundef writeonly %rsi, ptr nocapture noundef readonly %rdb_loading_ctx) local_unnamed_addr #0 {
 entry:
   %len.i259 = alloca i64, align 8
   %len.i254 = alloca i64, align 8
@@ -13604,7 +13604,7 @@ if.end4:                                          ; preds = %if.else, %if.then3,
 declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @rdbPopulateSaveInfo(ptr noundef writeonly %rsi) local_unnamed_addr #18 {
+define dso_local noundef ptr @rdbPopulateSaveInfo(ptr noundef writeonly initializes((0, 64)) %rsi) local_unnamed_addr #18 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %rsi, ptr noundef nonnull align 8 dereferenceable(64) @__const.rdbPopulateSaveInfo.rsi_init, i64 64, i1 false)
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8

@@ -184,7 +184,7 @@ entry:
 declare void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp17Q3BSPFileImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp17Q3BSPFileImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp17Q3BSPFileImporterE, i64 16), ptr %this, align 8
   %_M_left.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -313,7 +313,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #3
 declare void @_ZN6Assimp12BaseImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp17Q3BSPFileImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp17Q3BSPFileImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6Assimp17Q3BSPFileImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -2120,7 +2120,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp17Q3BSPFileImporter22createTriangleTopologyEPKNS_5Q3BSP10Q3BSPModelEPNS1_10sQ3BSPFaceEP6aiMeshRjS9_(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef readonly %pModel, ptr nocapture noundef readonly %pQ3BSPFace, ptr nocapture noundef readonly %pMesh, ptr nocapture noundef nonnull align 4 dereferenceable(4) %faceIdx, ptr nocapture noundef nonnull align 4 dereferenceable(4) %vertIdx) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6Assimp17Q3BSPFileImporter22createTriangleTopologyEPKNS_5Q3BSP10Q3BSPModelEPNS1_10sQ3BSPFaceEP6aiMeshRjS9_(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((80, 88)) %this, ptr nocapture noundef readonly %pModel, ptr nocapture noundef readonly %pQ3BSPFace, ptr nocapture noundef readonly %pMesh, ptr nocapture noundef nonnull align 4 dereferenceable(4) %faceIdx, ptr nocapture noundef nonnull align 4 dereferenceable(4) %vertIdx) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i32, ptr %faceIdx, align 4
   %mNumFaces.i = getelementptr inbounds i8, ptr %pMesh, i64 8

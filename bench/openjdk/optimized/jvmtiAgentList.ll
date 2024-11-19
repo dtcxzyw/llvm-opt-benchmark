@@ -69,7 +69,7 @@ declare noundef zeroext i1 @_ZNK10JvmtiAgent8is_jplisEv(ptr noundef nonnull alig
 declare noundef ptr @_ZNK10JvmtiAgent4nextEv(ptr noundef nonnull align 8 dereferenceable(86)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JvmtiAgentList8IteratorC2EPP10JvmtiAgentNS0_6FilterE(ptr nocapture noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN14JvmtiAgentList8IteratorC2EPP10JvmtiAgentNS0_6FilterE(ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 16, i8 noundef zeroext 23) #10
   %6 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 16, i32 noundef 8, i8 noundef zeroext 23) #10
@@ -145,31 +145,31 @@ define hidden noundef ptr @_ZN14JvmtiAgentList8Iterator4nextEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JvmtiAgentList6agentsEv(ptr dead_on_unwind noalias nocapture nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JvmtiAgentList6agentsEv(ptr dead_on_unwind noalias nocapture nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 initializes((0, 12)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN14JvmtiAgentList8IteratorC2EPP10JvmtiAgentNS0_6FilterE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull @_ZN14JvmtiAgentList5_listE, i32 noundef 3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JvmtiAgentList11java_agentsEv(ptr dead_on_unwind noalias nocapture nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JvmtiAgentList11java_agentsEv(ptr dead_on_unwind noalias nocapture nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 initializes((0, 12)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN14JvmtiAgentList8IteratorC2EPP10JvmtiAgentNS0_6FilterE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull @_ZN14JvmtiAgentList5_listE, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JvmtiAgentList13native_agentsEv(ptr dead_on_unwind noalias nocapture nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JvmtiAgentList13native_agentsEv(ptr dead_on_unwind noalias nocapture nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 initializes((0, 12)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN14JvmtiAgentList8IteratorC2EPP10JvmtiAgentNS0_6FilterE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull @_ZN14JvmtiAgentList5_listE, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JvmtiAgentList11xrun_agentsEv(ptr dead_on_unwind noalias nocapture nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JvmtiAgentList11xrun_agentsEv(ptr dead_on_unwind noalias nocapture nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 initializes((0, 12)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN14JvmtiAgentList8IteratorC2EPP10JvmtiAgentNS0_6FilterE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull @_ZN14JvmtiAgentList5_listE, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JvmtiAgentList3allEv(ptr dead_on_unwind noalias nocapture nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JvmtiAgentList3allEv(ptr dead_on_unwind noalias nocapture nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 initializes((0, 12)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN14JvmtiAgentList8IteratorC2EPP10JvmtiAgentNS0_6FilterE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull @_ZN14JvmtiAgentList5_listE, i32 noundef 4)
   ret void
 }

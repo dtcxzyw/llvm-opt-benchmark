@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.AppendStringToManifest = private unnamed_addr constant [23 x i8] c"AppendStringToManifest\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @InitializeBackupManifest(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @InitializeBackupManifest(ptr nocapture noundef initializes((0, 40)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %2, ptr %4, align 8

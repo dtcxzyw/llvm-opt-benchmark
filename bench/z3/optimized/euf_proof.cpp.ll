@@ -4642,7 +4642,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf6solver17mk_tseitin_statusEN3sat7literalES2_(ptr noalias nocapture writeonly sret(%"class.sat::status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(9136) %this, i32 %a.coerce, i32 %b.coerce) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3euf6solver17mk_tseitin_statusEN3sat7literalES2_(ptr noalias nocapture writeonly sret(%"class.sat::status") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(9136) %this, i32 %a.coerce, i32 %b.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i = alloca %class.symbol, align 8
   %lits = alloca [2 x %"class.sat::literal"], align 4
@@ -4705,7 +4705,7 @@ _ZN3euf6solver17mk_tseitin_statusEjPKN3sat7literalE.exit: ; preds = %entry, %lan
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf6solver17mk_tseitin_statusEjPKN3sat7literalE(ptr noalias nocapture writeonly sret(%"class.sat::status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(9136) %this, i32 noundef %n, ptr nocapture noundef readonly %lits) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3euf6solver17mk_tseitin_statusEjPKN3sat7literalE(ptr noalias nocapture writeonly sret(%"class.sat::status") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(9136) %this, i32 noundef %n, ptr nocapture noundef readonly %lits) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %class.symbol, align 8
   %m_solver.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -4761,7 +4761,7 @@ cond.end:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf6solver18mk_distinct_statusEjPKN3sat7literalE(ptr noalias nocapture writeonly sret(%"class.sat::status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(9136) %this, i32 noundef %n, ptr nocapture noundef readonly %lits) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3euf6solver18mk_distinct_statusEjPKN3sat7literalE(ptr noalias nocapture writeonly sret(%"class.sat::status") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(9136) %this, i32 noundef %n, ptr nocapture noundef readonly %lits) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %class.symbol, align 8
   %m_solver.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -7137,7 +7137,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf6solver17status2proof_hintEN3sat6statusE(ptr noalias nocapture writeonly sret(%class.obj_ref.231) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr nocapture noundef readonly %st) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3euf6solver17status2proof_hintEN3sat6statusE(ptr noalias nocapture writeonly sret(%class.obj_ref.231) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr nocapture noundef readonly %st) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i.i = alloca %class.symbol, align 8
   %m_orig.i = getelementptr inbounds i8, ptr %st, i64 4

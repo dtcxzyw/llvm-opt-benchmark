@@ -251,7 +251,7 @@ eh.resume:                                        ; preds = %lpad10, %lpad
 declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z38grpc_set_socket_no_sigpipe_if_possiblei(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i32 noundef %fd) local_unnamed_addr #6 {
+define void @_Z38grpc_set_socket_no_sigpipe_if_possiblei(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 initializes((0, 8)) %agg.result, i32 noundef %fd) local_unnamed_addr #6 {
 entry:
   store i64 0, ptr %agg.result, align 8, !alias.scope !13
   ret void
@@ -1525,14 +1525,14 @@ if.end6:                                          ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z28grpc_create_dualstack_socketPK21grpc_resolved_addressiiP19grpc_dualstack_modePi(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %resolved_addr, i32 noundef %type, i32 noundef %protocol, ptr nocapture noundef writeonly %dsmode, ptr nocapture noundef %newfd) local_unnamed_addr #3 {
+define void @_Z28grpc_create_dualstack_socketPK21grpc_resolved_addressiiP19grpc_dualstack_modePi(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %resolved_addr, i32 noundef %type, i32 noundef %protocol, ptr nocapture noundef writeonly initializes((0, 4)) %dsmode, ptr nocapture noundef initializes((0, 4)) %newfd) local_unnamed_addr #3 {
 entry:
   tail call void @_Z42grpc_create_dualstack_socket_using_factoryP19grpc_socket_factoryPK21grpc_resolved_addressiiP19grpc_dualstack_modePi(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef null, ptr noundef %resolved_addr, i32 noundef %type, i32 noundef %protocol, ptr noundef %dsmode, ptr noundef %newfd)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z42grpc_create_dualstack_socket_using_factoryP19grpc_socket_factoryPK21grpc_resolved_addressiiP19grpc_dualstack_modePi(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %factory, ptr noundef %resolved_addr, i32 noundef %type, i32 noundef %protocol, ptr nocapture noundef writeonly %dsmode, ptr nocapture noundef %newfd) local_unnamed_addr #3 {
+define void @_Z42grpc_create_dualstack_socket_using_factoryP19grpc_socket_factoryPK21grpc_resolved_addressiiP19grpc_dualstack_modePi(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %factory, ptr noundef %resolved_addr, i32 noundef %type, i32 noundef %protocol, ptr nocapture noundef writeonly initializes((0, 4)) %dsmode, ptr nocapture noundef initializes((0, 4)) %newfd) local_unnamed_addr #3 {
 entry:
   %0 = load i16, ptr %resolved_addr, align 2
   %conv = zext i16 %0 to i32

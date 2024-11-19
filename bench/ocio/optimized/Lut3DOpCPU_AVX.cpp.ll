@@ -255,7 +255,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123applyTetrahedralAVXFuncILNS_8BitDepthE8E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122interp_tetrahedral_avxERKNS0_15Lut3DContextAVXEDv8_fS4_S4_S4_(ptr noalias nocapture nonnull writeonly align 32 %agg.result, ptr nocapture noundef nonnull readonly align 32 dereferenceable(128) %ctx, <8 x float> noundef %r, <8 x float> noundef %g, <8 x float> noundef %b, <8 x float> noundef %a) unnamed_addr #4 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122interp_tetrahedral_avxERKNS0_15Lut3DContextAVXEDv8_fS4_S4_S4_(ptr noalias nocapture nonnull writeonly align 32 initializes((0, 128)) %agg.result, ptr nocapture noundef nonnull readonly align 32 dereferenceable(128) %ctx, <8 x float> noundef %r, <8 x float> noundef %g, <8 x float> noundef %b, <8 x float> noundef %a) unnamed_addr #4 {
 entry:
   %lutmax = getelementptr inbounds i8, ptr %ctx, i64 32
   %0 = load <8 x float>, ptr %lutmax, align 32

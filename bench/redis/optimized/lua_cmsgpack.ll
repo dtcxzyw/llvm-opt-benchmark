@@ -232,7 +232,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @mp_cur_init(ptr nocapture noundef writeonly %cursor, ptr noundef %s, i64 noundef %len) local_unnamed_addr #6 {
+define dso_local void @mp_cur_init(ptr nocapture noundef writeonly initializes((0, 20)) %cursor, ptr noundef %s, i64 noundef %len) local_unnamed_addr #6 {
 entry:
   store ptr %s, ptr %cursor, align 8, !tbaa !18
   %left = getelementptr inbounds i8, ptr %cursor, i64 8

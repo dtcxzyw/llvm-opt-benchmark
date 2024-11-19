@@ -546,7 +546,7 @@ define noundef float @_ZN2cv8KeyPoint7overlapERKS0_S2_(ptr nocapture noundef non
 declare float @llvm.fmuladd.f32(float, float, float) #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv11RotatedRectC2ERKNS_6Point_IfEES4_S4_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv11RotatedRectC2ERKNS_6Point_IfEES4_S4_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [2 x %"class.cv::Vec"], align 16
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.10", align 1
@@ -764,7 +764,7 @@ _ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit68: ; preds = %101
 declare double @llvm.fabs.f64(double) #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZNK2cv11RotatedRect6pointsEPNS_6Point_IfEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #10 align 2 {
+define void @_ZNK2cv11RotatedRect6pointsEPNS_6Point_IfEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load float, ptr %3, align 4
   %5 = fpext float %4 to double

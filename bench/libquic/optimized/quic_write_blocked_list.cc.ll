@@ -125,7 +125,7 @@ $_ZTIN3net22PriorityWriteSchedulerIjEE = comdat any
 @_ZN3net20QuicWriteBlockedListD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net20QuicWriteBlockedListD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net20QuicWriteBlockedListC2Ev(ptr noundef nonnull align 8 dereferenceable(843) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net20QuicWriteBlockedListC2Ev(ptr noundef nonnull align 8 dereferenceable(843) initializes((0, 16)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net22PriorityWriteSchedulerIjEE, i64 16), ptr %this, align 8
   %num_ready_streams_.i = getelementptr inbounds i8, ptr %this, i64 8

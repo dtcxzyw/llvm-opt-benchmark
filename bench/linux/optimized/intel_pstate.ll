@@ -2435,7 +2435,7 @@ define internal noundef i32 @intel_pstate_cpu_offline(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @intel_pstate_cpu_exit(ptr nocapture noundef writeonly %0) #14 align 16 {
+define internal noundef i32 @intel_pstate_cpu_exit(ptr nocapture noundef writeonly initializes((504, 505)) %0) #14 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 504
   store i8 0, ptr %2, align 8
   ret i32 0
@@ -3437,7 +3437,7 @@ define internal fastcc void @intel_pstate_verify_cpu_policy(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc void @intel_pstate_update_perf_limits(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #18 align 16 {
+define internal fastcc void @intel_pstate_update_perf_limits(ptr nocapture noundef initializes((176, 184)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #18 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = udiv i32 %2, %5
@@ -4669,7 +4669,7 @@ define internal i32 @intel_cpufreq_fast_switch(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @intel_cpufreq_cpu_exit(ptr nocapture noundef %0) #0 align 16 {
+define internal noundef i32 @intel_cpufreq_cpu_exit(ptr nocapture noundef initializes((504, 505)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 576
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 56
@@ -4940,7 +4940,7 @@ declare dso_local i64 @ktime_get() local_unnamed_addr #2
 declare dso_local i32 @smp_call_function_single(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hybrid_get_type(ptr nocapture noundef writeonly %0) #0 align 16 {
+define internal void @hybrid_get_type(ptr nocapture noundef writeonly initializes((0, 1)) %0) #0 align 16 {
   %2 = tail call zeroext i8 @get_this_hybrid_cpu_type() #26
   store i8 %2, ptr %0, align 1
   ret void
@@ -5095,7 +5095,7 @@ define internal i64 @atom_get_val(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @atom_get_vid(ptr nocapture noundef %0) #0 align 16 {
+define internal void @atom_get_vid(ptr nocapture noundef initializes((60, 76)) %0) #0 align 16 {
   %2 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 1643) #26, !srcloc !12
   %3 = extractvalue { i64, i64 } %2, 0
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #26

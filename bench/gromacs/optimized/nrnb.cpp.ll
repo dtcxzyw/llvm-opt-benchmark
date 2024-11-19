@@ -175,7 +175,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.167 = private unnamed_addr constant [6 x i8] c"%c%2d\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z10clear_nrnbP6t_nrnb(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @_Z10clear_nrnbP6t_nrnb(ptr nocapture noundef writeonly initializes((0, 928)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(928) %0, i8 0, i64 928, i1 false)
   ret void
 }
@@ -219,7 +219,7 @@ define void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr nocapture noundef %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
+define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
   store double 0.000000e+00, ptr %2, align 8
   br label %5
 

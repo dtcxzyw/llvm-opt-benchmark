@@ -678,7 +678,7 @@ define range(i32 -2147483648, 2147483647) i32 @Gia_ManFindFailedPoCex(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Gia_ManSetFailedPoCex(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define i32 @Gia_ManSetFailedPoCex(ptr noundef %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #0 {
   tail call void @Gia_ManCleanMark0(ptr noundef %0) #20
   store i32 -1, ptr %1, align 4
   %3 = getelementptr inbounds i8, ptr %1, i64 4
@@ -955,7 +955,7 @@ define i32 @Gia_ManSetFailedPoCex(ptr noundef %0, ptr nocapture noundef %1) loca
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Gia_ManCounterExampleValueStart(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @Gia_ManCounterExampleValueStart(ptr nocapture noundef initializes((776, 784)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add nsw i32 %4, 1
@@ -1345,7 +1345,7 @@ define range(i32 0, 2) i32 @Gia_ManCounterExampleValueLookup(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManCounterExampleValueTest(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Gia_ManCounterExampleValueTest(ptr nocapture noundef initializes((776, 784)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val14 = load i32, ptr %3, align 8
   %4 = sdiv i32 %.val14, 2

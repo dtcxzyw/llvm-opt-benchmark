@@ -206,7 +206,7 @@ $_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_ = comdat any
 @_ZN4llvm18RISCVFrameLoweringC1ERKNS_14RISCVSubtargetE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm18RISCVFrameLoweringC2ERKNS_14RISCVSubtargetE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm18RISCVFrameLoweringC2ERKNS_14RISCVSubtargetE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(409192) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18RISCVFrameLoweringC2ERKNS_14RISCVSubtargetE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 14), (16, 21), (24, 32)) %0, ptr noundef nonnull align 8 dereferenceable(409192) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 508
   %4 = load i32, ptr %3, align 4
   %switch.selectcmp.i = icmp eq i32 %4, 7
@@ -5038,7 +5038,7 @@ declare ptr @_ZN4llvm17MachineBasicBlock18getFirstTerminatorEv(ptr noundef nonnu
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i64, i64 } @_ZNK4llvm18RISCVFrameLowering22getFrameIndexReferenceERKNS_15MachineFunctionEiRNS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) unnamed_addr #1 align 2 {
+define dso_local { i64, i64 } @_ZNK4llvm18RISCVFrameLowering22getFrameIndexReferenceERKNS_15MachineFunctionEiRNS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3) unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::SmallVector.301", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load ptr, ptr %6, align 8

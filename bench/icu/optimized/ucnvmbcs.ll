@@ -4441,7 +4441,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare void @ucnv_extContinueMatchFromU_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL9_extFromUP10UConverterPK20UConverterSharedDataiPPKDsS5_PPhPKhPPiiaP10UErrorCode(ptr noundef %cnv, ptr nocapture noundef readonly %sharedData, i32 noundef %cp, ptr noundef nonnull %source, ptr noundef %sourceLimit, ptr noundef nonnull %target, ptr noundef %targetLimit, ptr noundef %offsets, i32 noundef %sourceIndex, i8 noundef signext %flush, ptr noundef %pErrorCode) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL9_extFromUP10UConverterPK20UConverterSharedDataiPPKDsS5_PPhPKhPPiiaP10UErrorCode(ptr noundef initializes((95, 96)) %cnv, ptr nocapture noundef readonly %sharedData, i32 noundef %cp, ptr noundef nonnull %source, ptr noundef %sourceLimit, ptr noundef nonnull %target, ptr noundef %targetLimit, ptr noundef %offsets, i32 noundef %sourceIndex, i8 noundef signext %flush, ptr noundef %pErrorCode) unnamed_addr #0 {
 entry:
   %bytes = alloca [4 x i8], align 1
   %useSubChar1 = getelementptr inbounds i8, ptr %cnv, i64 95

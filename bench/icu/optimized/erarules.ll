@@ -25,7 +25,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_758EraRulesD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_758EraRulesD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758EraRulesC2ERNS_11LocalMemoryIiEEi(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %eraStartDates, i32 noundef %numEras) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758EraRulesC2ERNS_11LocalMemoryIiEEi(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 12)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %eraStartDates, i32 noundef %numEras) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
   %numEras2 = getelementptr inbounds i8, ptr %this, i64 8

@@ -927,7 +927,7 @@ _ZN10open_spiel18ObserverRegisterer9observersB5cxx11Ev.exit14: ; preds = %_ZNSt3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel4Game19MakeBuiltInObserverEN4absl7debian28optionalINS_18IIGObservationTypeEEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i64 %2, i32 %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel4Game19MakeBuiltInObserverEN4absl7debian28optionalINS_18IIGObservationTypeEEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i64 %2, i32 %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = alloca %"class.std::unique_ptr.18", align 8
   %7 = alloca %"class.std::unique_ptr", align 8
@@ -1531,7 +1531,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit12.i:                ; preds = %71, %68, %66
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN10open_spiel8ObserverEEC2INS0_12_GLOBAL__N_115DefaultObserverESt14default_deleteIS5_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN10open_spiel8ObserverEEC2INS0_12_GLOBAL__N_115DefaultObserverESt14default_deleteIS5_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.val.i = load ptr, ptr %1, align 8
   store ptr %.val.i, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1912,7 +1912,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit12.i:                ; preds = %71, %68, %66
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN10open_spiel8ObserverEEC2INS0_12_GLOBAL__N_124InformationStateObserverESt14default_deleteIS5_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN10open_spiel8ObserverEEC2INS0_12_GLOBAL__N_124InformationStateObserverESt14default_deleteIS5_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.val.i = load ptr, ptr %1, align 8
   store ptr %.val.i, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2381,7 +2381,7 @@ _ZN4absl7debian2eqENS0_11string_viewES1_.exit.thread: ; preds = %_ZN4absl7debian
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel11ObservationC2ERKNS_4GameESt10shared_ptrINS_8ObserverEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr nocapture noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel11ObservationC2ERKNS_4GameESt10shared_ptrINS_8ObserverEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr nocapture noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unique_ptr.44", align 8
   %5 = alloca %"class.open_spiel::TrackingVectorAllocator", align 8
   %6 = load ptr, ptr %2, align 8
@@ -2977,7 +2977,7 @@ define linkonce_odr void @_ZN10open_spiel19ContiguousAllocatorD2Ev(ptr noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel11Observation7tensorsEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.60") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel11Observation7tensorsEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.60") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::debian2::Span", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -4284,7 +4284,7 @@ _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEclE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel24MakeSingleTensorObserverERKNS_4GameEN4absl7debian28optionalINS_18IIGObservationTypeEEERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessISE_ESaISt4pairIKSE_SF_EEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i64 %2, i32 %3, ptr nocapture nonnull readnone align 8 %4) #3 {
+define void @_ZN10open_spiel24MakeSingleTensorObserverERKNS_4GameEN4absl7debian28optionalINS_18IIGObservationTypeEEERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessISE_ESaISt4pairIKSE_SF_EEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i64 %2, i32 %3, ptr nocapture nonnull readnone align 8 %4) #3 {
   tail call void @_ZNK10open_spiel4Game19MakeBuiltInObserverEN4absl7debian28optionalINS_18IIGObservationTypeEEE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i64 %2, i32 %3)
   ret void
 }
@@ -5442,7 +5442,7 @@ define internal void @_ZNK10open_spiel12_GLOBAL__N_115DefaultObserver10StringFro
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN10open_spiel12_GLOBAL__N_115DefaultObserverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN10open_spiel12_GLOBAL__N_115DefaultObserverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_115DefaultObserverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
@@ -5464,7 +5464,7 @@ _ZN4absl7debian213InlinedVectorIiLm4ESaIiEED2Ev.exit: ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN10open_spiel12_GLOBAL__N_115DefaultObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN10open_spiel12_GLOBAL__N_115DefaultObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_115DefaultObserverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
@@ -5957,7 +5957,7 @@ define internal void @_ZNK10open_spiel12_GLOBAL__N_124InformationStateObserver10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN10open_spiel12_GLOBAL__N_124InformationStateObserverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN10open_spiel12_GLOBAL__N_124InformationStateObserverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_124InformationStateObserverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
@@ -5979,7 +5979,7 @@ _ZN4absl7debian213InlinedVectorIiLm4ESaIiEED2Ev.exit: ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN10open_spiel12_GLOBAL__N_124InformationStateObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN10open_spiel12_GLOBAL__N_124InformationStateObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_124InformationStateObserverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8

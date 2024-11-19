@@ -4047,7 +4047,7 @@ define linkonce_odr dso_local void @_Z8cvtToHexIP6AstArgENSt9enable_ifIXsr3std10
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6V3Task15taskConnectWrapEP15AstNodeFTaskRefRKSt6vectorISt4pairIP6AstVarP6AstArgESaIS8_EEP18V3TaskConnectStateRKSt3setIPKS4_St4lessISH_ESaISH_EE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6V3Task15taskConnectWrapEP15AstNodeFTaskRefRKSt6vectorISt4pairIP6AstVarP6AstArgESaIS8_EEP18V3TaskConnectStateRKSt3setIPKS4_St4lessISH_ESaISH_EE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef initializes((24, 25)) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

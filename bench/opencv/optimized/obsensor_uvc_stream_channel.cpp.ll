@@ -495,7 +495,7 @@ define hidden noundef i32 @_ZN2cv8obsensor19frameFormatToFourccENS0_11FrameForma
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8obsensor21getStreamChannelGroupEj(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, i32 noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8obsensor21getStreamChannelGroupEj(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, i32 noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.9", align 8
   %4 = alloca %"class.std::map.14", align 8
   %5 = alloca %"struct.std::pair.25", align 8
@@ -1462,7 +1462,7 @@ _ZNSt12_Vector_baseIN2cv3PtrINS0_8obsensor14IStreamChannelEEESaIS4_EED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8obsensor19DepthFrameProcessorC2ERKNS0_16OBExtensionParamE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8obsensor19DepthFrameProcessorC2ERKNS0_16OBExtensionParamE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8obsensor19DepthFrameProcessorE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
@@ -1525,7 +1525,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8obsensor19DepthFrameProcessorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN2cv8obsensor19DepthFrameProcessorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8obsensor19DepthFrameProcessorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -1544,7 +1544,7 @@ define hidden void @_ZN2cv8obsensor19DepthFrameProcessorD2Ev(ptr nocapture nound
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8obsensor19DepthFrameProcessorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN2cv8obsensor19DepthFrameProcessorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8obsensor19DepthFrameProcessorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -1598,7 +1598,7 @@ define hidden void @_ZN2cv8obsensor19DepthFrameProcessor7processEPNS0_5FrameE(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8obsensor18DepthFrameUnpackerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8obsensor18DepthFrameUnpackerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8obsensor18DepthFrameUnpackerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 2048000, ptr %2, align 8
@@ -1609,7 +1609,7 @@ define hidden void @_ZN2cv8obsensor18DepthFrameUnpackerC2Ev(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8obsensor18DepthFrameUnpackerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN2cv8obsensor18DepthFrameUnpackerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8obsensor18DepthFrameUnpackerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -1625,7 +1625,7 @@ define hidden void @_ZN2cv8obsensor18DepthFrameUnpackerD2Ev(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8obsensor18DepthFrameUnpackerD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN2cv8obsensor18DepthFrameUnpackerD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8obsensor18DepthFrameUnpackerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -1890,7 +1890,7 @@ define hidden void @_ZN2cv8obsensor18DepthFrameUnpacker7processEPNS0_5FrameE(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8obsensor17IUvcStreamChannelC2ERKNS0_13UvcDeviceInfoE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(102) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8obsensor17IUvcStreamChannelC2ERKNS0_13UvcDeviceInfoE(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(102) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv8obsensor17IUvcStreamChannelE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8

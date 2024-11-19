@@ -2040,7 +2040,7 @@ define void @_ZNK10open_spiel10dark_chess14DarkChessState8ToStringB5cxx11Ev(ptr 
 declare void @_ZNK10open_spiel5chess10ChessBoard5ToFENB5cxx11Eb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(168), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10dark_chess14DarkChessState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.41") align 8 %0, ptr noundef nonnull align 8 dereferenceable(496) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10dark_chess14DarkChessState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.41") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(496) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::debian2::optional.46", align 8
   call void @_ZNK10open_spiel10dark_chess14DarkChessState17MaybeFinalReturnsEv(ptr dead_on_unwind nonnull writable sret(%"class.absl::debian2::optional.46") align 8 %3, ptr noundef nonnull align 8 dereferenceable(496) %1)
   %4 = load i8, ptr %3, align 8
@@ -13569,7 +13569,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel10dark_chess12_GLOBAL__N_123ComputePrivateInfoTableERKNS_5chess10ChessBoardENS2_5ColorERKSt5arrayIbLm64EE(ptr dead_on_unwind noalias nonnull writable align 1 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i8 noundef signext %2, ptr noundef nonnull align 1 dereferenceable(64) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10dark_chess12_GLOBAL__N_123ComputePrivateInfoTableERKNS_5chess10ChessBoardENS2_5ColorERKSt5arrayIbLm64EE(ptr dead_on_unwind noalias nonnull writable align 1 initializes((0, 64)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i8 noundef signext %2, ptr noundef nonnull align 1 dereferenceable(64) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca i8, align 1
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::function.38", align 8

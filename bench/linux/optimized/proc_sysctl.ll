@@ -1253,7 +1253,7 @@ define dso_local void @unregister_sysctl_table(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @setup_sysctl_set(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 align 16 {
+define dso_local void @setup_sysctl_set(ptr noundef initializes((0, 56), (88, 96)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   store i64 0, ptr %4, align 8
   store ptr %2, ptr %0, align 8

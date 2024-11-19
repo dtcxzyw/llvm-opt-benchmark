@@ -53,7 +53,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib20EvolutionDescriptionC1ERKSt6vectorIdSaIdEES5_RKS1_ISt4pairImmESaIS7_EE = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN8QuantLib20EvolutionDescriptionC2ERKSt6vectorIdSaIdEES5_RKS1_ISt4pairImmESaIS7_EE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20EvolutionDescriptionC2ERKSt6vectorIdSaIdEES5_RKS1_ISt4pairImmESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rateTimes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %evolutionTimes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %relevanceRates) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20EvolutionDescriptionC2ERKSt6vectorIdSaIdEES5_RKS1_ISt4pairImmESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rateTimes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %evolutionTimes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %relevanceRates) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp70 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -290,7 +290,7 @@ Vec_IntPush.exit61:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Lpk_ComputeSets(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @Lpk_ComputeSets(ptr noundef %0, ptr noundef initializes((4, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4
   %4 = load i32, ptr %1, align 8

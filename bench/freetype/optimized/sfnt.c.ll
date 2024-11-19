@@ -109,7 +109,7 @@ define internal ptr @sfnt_get_interface(ptr nocapture readnone %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @tt_cmap_init(ptr nocapture noundef writeonly %0, ptr noundef %1) #1 {
+define internal noundef i32 @tt_cmap_init(ptr nocapture noundef writeonly initializes((24, 32)) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret i32 0
@@ -235,7 +235,7 @@ define internal noundef i32 @tt_cmap0_validate(ptr noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @tt_cmap0_get_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 {
+define internal noundef i32 @tt_cmap0_get_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 4
@@ -736,7 +736,7 @@ define internal noundef i32 @tt_cmap2_validate(ptr noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @tt_cmap2_get_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 {
+define internal noundef i32 @tt_cmap2_get_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 4
@@ -754,7 +754,7 @@ define internal noundef i32 @tt_cmap2_get_info(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @tt_cmap4_init(ptr nocapture noundef writeonly %0, ptr noundef %1) #5 {
+define internal noundef i32 @tt_cmap4_init(ptr nocapture noundef writeonly initializes((24, 32), (40, 52)) %0, ptr noundef %1) #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 6
@@ -1268,7 +1268,7 @@ define internal i32 @tt_cmap4_validate(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @tt_cmap4_get_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 {
+define internal noundef i32 @tt_cmap4_get_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 4
@@ -1488,7 +1488,7 @@ define internal noundef i32 @tt_cmap6_validate(ptr noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @tt_cmap6_get_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 {
+define internal noundef i32 @tt_cmap6_get_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 4
@@ -2044,7 +2044,7 @@ define internal noundef i32 @tt_cmap8_validate(ptr noundef %0, ptr noundef %1) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @tt_cmap8_get_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 {
+define internal noundef i32 @tt_cmap8_get_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2341,7 +2341,7 @@ define internal noundef i32 @tt_cmap10_validate(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @tt_cmap10_get_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 {
+define internal noundef i32 @tt_cmap10_get_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2369,7 +2369,7 @@ define internal noundef i32 @tt_cmap10_get_info(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @tt_cmap12_init(ptr nocapture noundef writeonly %0, ptr noundef %1) #5 {
+define internal noundef i32 @tt_cmap12_init(ptr nocapture noundef writeonly initializes((24, 32), (40, 41), (72, 80)) %0, ptr noundef %1) #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 12
@@ -2746,7 +2746,7 @@ define internal noundef i32 @tt_cmap12_validate(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @tt_cmap12_get_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 {
+define internal noundef i32 @tt_cmap12_get_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2774,7 +2774,7 @@ define internal noundef i32 @tt_cmap12_get_info(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @tt_cmap13_init(ptr nocapture noundef writeonly %0, ptr noundef %1) #5 {
+define internal noundef i32 @tt_cmap13_init(ptr nocapture noundef writeonly initializes((24, 32), (40, 41), (72, 80)) %0, ptr noundef %1) #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 12
@@ -3232,7 +3232,7 @@ define internal noundef i32 @tt_cmap13_validate(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @tt_cmap13_get_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 {
+define internal noundef i32 @tt_cmap13_get_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -3260,7 +3260,7 @@ define internal noundef i32 @tt_cmap13_get_info(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @tt_cmap14_init(ptr nocapture noundef writeonly %0, ptr noundef %1) #5 {
+define internal noundef i32 @tt_cmap14_init(ptr nocapture noundef writeonly initializes((24, 32), (40, 52), (56, 64)) %0, ptr noundef %1) #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 6
@@ -3291,7 +3291,7 @@ define internal noundef i32 @tt_cmap14_init(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tt_cmap14_done(ptr nocapture noundef %0) #0 {
+define internal void @tt_cmap14_done(ptr nocapture noundef initializes((48, 52)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -3320,7 +3320,7 @@ define internal noundef i32 @tt_cmap14_char_index(ptr nocapture readnone %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @tt_cmap14_char_next(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #1 {
+define internal noundef i32 @tt_cmap14_char_next(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #1 {
   store i32 0, ptr %1, align 4
   ret i32 0
 }
@@ -5230,7 +5230,7 @@ define internal noundef i32 @tt_cmap14_validate(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @tt_cmap14_get_info(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #1 {
+define internal noundef i32 @tt_cmap14_get_info(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 14, ptr %3, align 8
   store i64 4294967295, ptr %1, align 8
@@ -5262,7 +5262,7 @@ define internal i32 @tt_cmap_unicode_init(ptr noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tt_cmap_unicode_done(ptr nocapture noundef %0) #0 {
+define internal void @tt_cmap_unicode_done(ptr nocapture noundef initializes((24, 28)) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 184
   %4 = load ptr, ptr %3, align 8
@@ -8896,7 +8896,7 @@ define internal i32 @tt_face_load_post(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tt_face_load_name(ptr noundef %0, ptr noundef %1) #0 {
+define internal i32 @tt_face_load_name(ptr noundef initializes((608, 616)) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 56
@@ -10147,7 +10147,7 @@ load_post_names.exit:                             ; preds = %22, %40, %44
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tt_face_free_ps_names(ptr nocapture noundef %0) #0 {
+define internal void @tt_face_free_ps_names(ptr nocapture noundef initializes((1024, 1025)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1026
@@ -10703,7 +10703,7 @@ define internal i32 @tt_face_load_hmtx(ptr noundef %0, ptr noundef %1, i8 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tt_face_load_sbit(ptr noundef %0, ptr noundef %1) #0 {
+define internal i32 @tt_face_load_sbit(ptr noundef initializes((1328, 1352)) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1328
@@ -15423,7 +15423,7 @@ define internal i32 @tt_face_colr_blend_layer(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tt_face_get_metrics(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) #0 {
+define internal void @tt_face_get_metrics(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef initializes((0, 2)) %3, ptr nocapture noundef initializes((0, 2)) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -15803,7 +15803,7 @@ define internal i32 @tt_face_get_name(ptr nocapture noundef readonly %0, i16 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal zeroext range(i8 0, 2) i8 @sfnt_get_name_id(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr nocapture noundef %2, ptr nocapture noundef %3) #3 {
+define internal zeroext range(i8 0, 2) i8 @sfnt_get_name_id(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr nocapture noundef initializes((0, 4)) %2, ptr nocapture noundef initializes((0, 4)) %3) #3 {
   store i32 -1, ptr %2, align 4
   store i32 -1, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 560
@@ -16370,7 +16370,7 @@ declare i32 @FT_Gzip_Uncompress(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare hidden void @FT_Stream_OpenMemory(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal void @sfnt_stream_close(ptr nocapture noundef %0) #0 {
+define internal void @sfnt_stream_close(ptr nocapture noundef initializes((8, 16), (48, 56)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -18259,7 +18259,7 @@ thread-pre-split:                                 ; preds = %.thread280, %106, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stream_close(ptr nocapture noundef %0) #0 {
+define internal void @stream_close(ptr nocapture noundef initializes((8, 16), (48, 56)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -23924,7 +23924,7 @@ define internal range(i32 0, 9) i32 @sfnt_get_charset_id(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9) i32 @tt_face_find_bdf_prop(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) #0 {
+define internal range(i32 0, 9) i32 @tt_face_find_bdf_prop(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1392
   %5 = getelementptr inbounds i8, ptr %0, i64 160
   %6 = load ptr, ptr %5, align 8

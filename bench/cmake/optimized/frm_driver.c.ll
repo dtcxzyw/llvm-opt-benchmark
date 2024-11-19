@@ -5427,7 +5427,7 @@ Adjust_Cursor_Position.exit:                      ; preds = %55, %76
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FE_Delete_Line(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @FE_Delete_Line(ptr nocapture noundef initializes((12, 16)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 56
@@ -5614,7 +5614,7 @@ define internal noundef i32 @FE_Clear_To_End_Of_Form(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FE_Clear_Field(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @FE_Clear_Field(ptr nocapture noundef initializes((8, 16)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 8

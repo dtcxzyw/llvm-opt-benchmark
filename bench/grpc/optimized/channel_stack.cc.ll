@@ -602,7 +602,7 @@ _ZN9grpc_core17ManualConstructorISt10shared_ptrIN17grpc_event_engine12experiment
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z20grpc_call_stack_initP18grpc_channel_stackiPFvPvN4absl12lts_202308026StatusEES1_PK22grpc_call_element_args(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr nocapture noundef readonly %channel_stack, i32 noundef %initial_refs, ptr noundef %destroy, ptr noundef %destroy_arg, ptr noundef %elem_args) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_Z20grpc_call_stack_initP18grpc_channel_stackiPFvPvN4absl12lts_202308026StatusEES1_PK22grpc_call_element_args(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef readonly %channel_stack, i32 noundef %initial_refs, ptr noundef %destroy, ptr noundef %destroy_arg, ptr noundef %elem_args) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %error = alloca %"class.absl::lts_20230802::Status", align 8
   %add.ptr = getelementptr inbounds i8, ptr %channel_stack, i64 112

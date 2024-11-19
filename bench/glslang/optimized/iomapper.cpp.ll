@@ -564,7 +564,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @_ZN7glslang22TDefaultGlslIoResolverC1ERKNS_13TIntermediateE = unnamed_addr alias void (ptr, ptr), ptr @_ZN7glslang22TDefaultGlslIoResolverC2ERKNS_13TIntermediateE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7glslang22TDefaultIoResolverBaseC2ERKNS_13TIntermediateE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(2024) %1) unnamed_addr #0 align 2 {
+define void @_ZN7glslang22TDefaultIoResolverBaseC2ERKNS_13TIntermediateE(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2024) %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN7glslang22TDefaultIoResolverBaseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -988,7 +988,7 @@ _ZN7glslang22TDefaultIoResolverBase8findSlotEii.exit: ; preds = %_ZSt7advanceIN9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7glslang22TDefaultIoResolverBase10resolveSetE11EShLanguageRNS_13TVarEntryInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %0, i32 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #4 align 2 {
+define noundef i32 @_ZN7glslang22TDefaultIoResolverBase10resolveSetE11EShLanguageRNS_13TVarEntryInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %0, i32 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((24, 28)) %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -1055,7 +1055,7 @@ declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #6
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7glslang22TDefaultIoResolverBase22resolveUniformLocationE11EShLanguageRNS_13TVarEntryInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(224) %0, i32 %1, ptr nocapture noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #4 align 2 {
+define noundef i32 @_ZN7glslang22TDefaultIoResolverBase22resolveUniformLocationE11EShLanguageRNS_13TVarEntryInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(224) %0, i32 %1, ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((28, 32)) %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -1216,7 +1216,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 declare noundef i32 @_ZN7glslang13TIntermediate30computeTypeUniformLocationSizeERKNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7glslang22TDefaultIoResolverBase20resolveInOutLocationE11EShLanguageRNS_13TVarEntryInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(224) %0, i32 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #4 align 2 {
+define noundef i32 @_ZN7glslang22TDefaultIoResolverBase20resolveInOutLocationE11EShLanguageRNS_13TVarEntryInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(224) %0, i32 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((28, 32)) %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -1449,14 +1449,14 @@ _ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit: ; preds = %39, %39, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @_ZN7glslang22TDefaultIoResolverBase21resolveInOutComponentE11EShLanguageRNS_13TVarEntryInfoE(ptr nocapture nonnull readnone align 8 %0, i32 %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %2) unnamed_addr #9 align 2 {
+define noundef i32 @_ZN7glslang22TDefaultIoResolverBase21resolveInOutComponentE11EShLanguageRNS_13TVarEntryInfoE(ptr nocapture nonnull readnone align 8 %0, i32 %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((32, 36)) %2) unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 32
   store i32 -1, ptr %4, align 8
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @_ZN7glslang22TDefaultIoResolverBase17resolveInOutIndexE11EShLanguageRNS_13TVarEntryInfoE(ptr nocapture nonnull readnone align 8 %0, i32 %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %2) unnamed_addr #9 align 2 {
+define noundef i32 @_ZN7glslang22TDefaultIoResolverBase17resolveInOutIndexE11EShLanguageRNS_13TVarEntryInfoE(ptr nocapture nonnull readnone align 8 %0, i32 %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((36, 40)) %2) unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 36
   store i32 -1, ptr %4, align 4
   ret i32 -1
@@ -2091,7 +2091,7 @@ _ZN7glslang22TDefaultIoResolverBase13isTextureTypeERKNS_5TTypeE.exit.thread: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7glslang22TDefaultGlslIoResolverC2ERKNS_13TIntermediateE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(2024) %1) unnamed_addr #0 align 2 {
+define void @_ZN7glslang22TDefaultGlslIoResolverC2ERKNS_13TIntermediateE(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2024) %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN7glslang22TDefaultIoResolverBaseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -3005,7 +3005,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7glslang22TDefaultGlslIoResolver22resolveUniformLocationE11EShLanguageRNS_13TVarEntryInfoE(ptr noundef nonnull align 8 dereferenceable(328) %0, i32 %1, ptr nocapture noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #4 align 2 {
+define noundef i32 @_ZN7glslang22TDefaultGlslIoResolver22resolveUniformLocationE11EShLanguageRNS_13TVarEntryInfoE(ptr noundef nonnull align 8 dereferenceable(328) %0, i32 %1, ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((28, 32)) %2) unnamed_addr #4 align 2 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::map.123", align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
@@ -7017,7 +7017,7 @@ _ZN7glslang22TDefaultIoResolverBaseD2Ev.exit:     ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang13TGlslIoMapper8addStageE11EShLanguageRNS_13TIntermediateER9TInfoSinkPNS_14TIoMapResolverE(ptr nocapture noundef nonnull align 8 dereferenceable(520) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(2024) %2, ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef %4) unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN7glslang13TGlslIoMapper8addStageE11EShLanguageRNS_13TIntermediateER9TInfoSinkPNS_14TIoMapResolverE(ptr nocapture noundef nonnull align 8 dereferenceable(520) initializes((460, 468)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(2024) %2, ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef %4) unnamed_addr #4 align 2 {
   %6 = alloca %"struct.glslang::TDefaultGlslIoResolver", align 8
   %7 = alloca %"struct.glslang::TDefaultHlslIoResolver", align 8
   %8 = alloca %"class.glslang::TVarGatherTraverser", align 8

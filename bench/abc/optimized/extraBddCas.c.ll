@@ -76,7 +76,7 @@ declare ptr @Cudd_bddOr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Extra_bddEncodingNonStrict(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define noundef ptr @Extra_bddEncodingNonStrict(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef writeonly initializes((0, 4)) %6) local_unnamed_addr #0 {
 Abc_Clock.exit:
   %7 = alloca %struct.timespec, align 8
   %8 = tail call i32 @Cudd_SupportSize(ptr noundef %0, ptr noundef %3) #11

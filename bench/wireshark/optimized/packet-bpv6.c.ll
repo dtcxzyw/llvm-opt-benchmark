@@ -3272,7 +3272,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_dictionary(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull readonly %4, i8 noundef zeroext %5, ptr nocapture noundef nonnull writeonly %6, i32 noundef range(i32 -1, -2147483648) %7, i32 noundef range(i32 -1, -2147483648) %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_dictionary(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull readonly %4, i8 noundef zeroext %5, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %6, i32 noundef range(i32 -1, -2147483648) %7, i32 noundef range(i32 -1, -2147483648) %8) unnamed_addr #0 {
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @col_get_text(ptr noundef %11, i32 noundef 25) #6

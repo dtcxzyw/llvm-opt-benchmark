@@ -179,7 +179,7 @@ define noundef i64 @_ZNK4LIEF5MachO15DyldBindingInfo13binding_classEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO15DyldBindingInfo13binding_classENS0_13BINDING_CLASSE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF5MachO15DyldBindingInfo13binding_classENS0_13BINDING_CLASSE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((64, 72)) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store i64 %1, ptr %3, align 8
   ret void
@@ -193,7 +193,7 @@ define noundef i64 @_ZNK4LIEF5MachO15DyldBindingInfo12binding_typeEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO15DyldBindingInfo12binding_typeENS0_10BIND_TYPESE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF5MachO15DyldBindingInfo12binding_typeENS0_10BIND_TYPESE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((72, 80)) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   store i64 %1, ptr %3, align 8
   ret void

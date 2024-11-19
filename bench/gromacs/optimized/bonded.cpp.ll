@@ -217,7 +217,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_Z10bond_anglePKfS0_S0_PK5t_pbcPfS4_S4_PiS5_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #4 {
+define noundef float @_Z10bond_anglePKfS0_S0_PK5t_pbcPfS4_S4_PiS5_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly initializes((0, 4)) %7, ptr nocapture noundef writeonly initializes((0, 4)) %8) local_unnamed_addr #4 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -323,7 +323,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #9
 declare float @acosf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_Z9dih_anglePKfS0_S0_S0_PK5t_pbcPfS4_S4_S4_S4_PiS5_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9, ptr nocapture noundef writeonly %10, ptr nocapture noundef writeonly %11, ptr nocapture noundef writeonly %12) local_unnamed_addr #4 {
+define noundef float @_Z9dih_anglePKfS0_S0_S0_PK5t_pbcPfS4_S4_S4_S4_PiS5_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef initializes((0, 12)) %8, ptr nocapture noundef initializes((0, 12)) %9, ptr nocapture noundef writeonly initializes((0, 4)) %10, ptr nocapture noundef writeonly initializes((0, 4)) %11, ptr nocapture noundef writeonly initializes((0, 4)) %12) local_unnamed_addr #4 {
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %18, label %14
 
@@ -21883,7 +21883,7 @@ declare <8 x float> @llvm.x86.avx.rcp.ps.256(<8 x float>) #15
 declare <8 x float> @llvm.x86.avx.min.ps.256(<8 x float>, <8 x float>) #15
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_113g96bond_angleEPKfS1_S1_PK5t_pbcPfS5_PiS6_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #4 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_113g96bond_angleEPKfS1_S1_PK5t_pbcPfS5_PiS6_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %6, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %7) unnamed_addr #4 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %12, label %9
 
@@ -21978,7 +21978,7 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %51, %54
 declare void @_Z26compute_factors_restanglesiPK9t_iparamsPfS2_PdS3_S3_S2_(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114dih_angle_simdEPA3_KfPKiS4_S4_S4_PS0_PN3gmx9SimdFloatES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull %7, ptr nocapture noundef nonnull %8, ptr nocapture noundef nonnull %9, ptr nocapture noundef nonnull %10, ptr nocapture noundef nonnull %11, ptr nocapture noundef nonnull %12, ptr nocapture noundef nonnull writeonly %13, ptr nocapture noundef nonnull writeonly %14, ptr nocapture noundef nonnull writeonly %15, ptr nocapture noundef nonnull writeonly %16) unnamed_addr #17 {
+define internal fastcc void @_ZN12_GLOBAL__N_114dih_angle_simdEPA3_KfPKiS4_S4_S4_PS0_PN3gmx9SimdFloatES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull initializes((0, 32)) %6, ptr nocapture noundef nonnull initializes((0, 32)) %7, ptr nocapture noundef nonnull initializes((0, 32)) %8, ptr nocapture noundef nonnull initializes((0, 32)) %9, ptr nocapture noundef nonnull initializes((0, 32)) %10, ptr nocapture noundef nonnull initializes((0, 32)) %11, ptr nocapture noundef nonnull initializes((0, 32)) %12, ptr nocapture noundef nonnull writeonly initializes((0, 32)) %13, ptr nocapture noundef nonnull writeonly initializes((0, 32)) %14, ptr nocapture noundef nonnull writeonly initializes((0, 32)) %15, ptr nocapture noundef nonnull writeonly initializes((0, 32)) %16) unnamed_addr #17 {
   %18 = load i32, ptr %1, align 4
   %19 = mul nsw i32 %18, 3
   %20 = sext i32 %19 to i64

@@ -655,7 +655,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z13readTpxHeaderRKNSt10filesystem7__cxx114pathEb(ptr dead_on_unwind noalias writable sret(%struct.TpxFileHeader) align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i1 noundef zeroext %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_Z13readTpxHeaderRKNSt10filesystem7__cxx114pathEb(ptr dead_on_unwind noalias writable sret(%struct.TpxFileHeader) align 8 initializes((0, 6), (8, 41)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i1 noundef zeroext %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 _ZL9close_tpxP8t_fileio.exit:
   %3 = alloca %"class.gmx::FileIOXdrSerializer", align 8
   %4 = tail call noundef ptr @_Z12gmx_fio_openRKNSt10filesystem7__cxx114pathEPKc(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull @.str.10)
@@ -8057,7 +8057,7 @@ declare void @_ZN7t_state8addEntryE10StateEntry(ptr noundef nonnull align 8 dere
 declare void @_ZN7t_state14changeNumAtomsEi(ptr noundef nonnull align 8 dereferenceable(832), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11do_inputrecPN3gmx11ISerializerEP10t_inputreci(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11do_inputrecPN3gmx11ISerializerEP10t_inputreci(ptr noundef nonnull %0, ptr noundef nonnull initializes((0, 4)) %1, i32 noundef %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct._Guard, align 8
   %5 = alloca %struct._Guard, align 8
   %6 = alloca %struct._Guard, align 8
@@ -18506,7 +18506,7 @@ _Z26completeTprDeserializationP26PartialDeserializedTprFileP10t_inputrecP7t_stat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z14read_tpx_stateRKNSt10filesystem7__cxx114pathEP10t_inputrecP7t_stateP10gmx_mtop_t(ptr dead_on_unwind noalias writable sret(%struct.PartialDeserializedTprFile) align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_Z14read_tpx_stateRKNSt10filesystem7__cxx114pathEP10t_inputrecP7t_stateP10gmx_mtop_t(ptr dead_on_unwind noalias writable sret(%struct.PartialDeserializedTprFile) align 8 initializes((0, 6), (8, 41)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector.71", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.gmx::FileIOXdrSerializer", align 8
@@ -18600,7 +18600,7 @@ _ZL9close_tpxP8t_fileio.exit:                     ; preds = %_ZN26PartialDeseria
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11readTpxBodyP13TpxFileHeaderPN3gmx11ISerializerEP10t_inputrecP7t_statePA3_fS9_P10gmx_mtop_t(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11readTpxBodyP13TpxFileHeaderPN3gmx11ISerializerEP10t_inputrecP7t_statePA3_fS9_P10gmx_mtop_t(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 6), (8, 41)) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::vector.71", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = alloca %"class.gmx::InMemoryDeserializer", align 8

@@ -121,7 +121,7 @@ declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #3
 declare i32 @close(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 1) i32 @evutil_read_file_(ptr nocapture noundef readonly %filename, ptr nocapture noundef writeonly %content_out, ptr nocapture noundef writeonly %len_out, i32 noundef %is_binary) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @evutil_read_file_(ptr nocapture noundef readonly %filename, ptr nocapture noundef writeonly initializes((0, 8)) %content_out, ptr nocapture noundef writeonly initializes((0, 8)) %len_out, i32 noundef %is_binary) local_unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
   store ptr null, ptr %content_out, align 8
@@ -1256,7 +1256,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @evutil_inet_pton_scope(i32 noundef %af, ptr noundef %src, ptr nocapture noundef writeonly %dst, ptr nocapture noundef writeonly %indexp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @evutil_inet_pton_scope(i32 noundef %af, ptr noundef %src, ptr nocapture noundef writeonly %dst, ptr nocapture noundef writeonly initializes((0, 4)) %indexp) local_unnamed_addr #0 {
 entry:
   %check = alloca ptr, align 8
   store i32 0, ptr %indexp, align 4
@@ -3239,7 +3239,7 @@ return:                                           ; preds = %entry, %evutil_isse
 declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #22
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evutil_weakrand_seed_(ptr nocapture noundef writeonly %state, i32 noundef %seed) local_unnamed_addr #0 {
+define dso_local i32 @evutil_weakrand_seed_(ptr nocapture noundef writeonly initializes((0, 4)) %state, i32 noundef %seed) local_unnamed_addr #0 {
 entry:
   %tv = alloca %struct.timeval, align 8
   %cmp = icmp eq i32 %seed, 0

@@ -210,7 +210,7 @@ define hidden void @bagDelete(ptr nocapture noundef %0, ptr noundef writeonly %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @bagDeleteAll(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 {
+define hidden void @bagDeleteAll(ptr nocapture noundef writeonly initializes((8, 12)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   ret void

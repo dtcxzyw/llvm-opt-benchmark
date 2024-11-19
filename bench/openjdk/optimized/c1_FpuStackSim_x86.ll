@@ -47,7 +47,7 @@ define hidden void @_ZN11FpuStackSim14inc_stack_sizeEv(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11FpuStackSimC2EP11Compilation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN11FpuStackSimC2EP11Compilation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((0, 44)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
@@ -375,7 +375,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit9: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN11FpuStackSim10read_stateEP13GrowableArrayIiE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN11FpuStackSim10read_stateEP13GrowableArrayIiE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((8, 12)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4

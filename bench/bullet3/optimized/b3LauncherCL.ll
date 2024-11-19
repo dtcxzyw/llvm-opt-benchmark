@@ -57,7 +57,7 @@ $_ZTI13b3OpenCLArrayIhE = comdat any
 @_ZN12b3LauncherCLD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN12b3LauncherCLD2Ev
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN12b3LauncherCLC2EP17_cl_command_queueP10_cl_kernelPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %this, ptr noundef %queue, ptr noundef %kernel, ptr noundef %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12b3LauncherCLC2EP17_cl_command_queueP10_cl_kernelPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 28), (36, 44), (48, 57), (64, 69), (72, 80), (84, 92), (96, 105)) %this, ptr noundef %queue, ptr noundef %kernel, ptr noundef %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTV12b3LauncherCL, i64 16), ptr %this, align 8
   %m_commandQueue = getelementptr inbounds i8, ptr %this, i64 8
@@ -109,7 +109,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12b3LauncherCLD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12b3LauncherCLD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV12b3LauncherCL, i64 16), ptr %this, align 8
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 84
@@ -257,7 +257,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12b3LauncherCLD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #2 align 2 {
+define dso_local void @_ZN12b3LauncherCLD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN12b3LauncherCLD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #11
   tail call void @_ZdlPv(ptr noundef nonnull %this) #13
@@ -625,7 +625,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12b3LauncherCL18serializeArgumentsEPhi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, ptr noundef %destBuffer, i32 noundef %destBufferCapacity) local_unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZN12b3LauncherCL18serializeArgumentsEPhi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, ptr noundef initializes((0, 4)) %destBuffer, i32 noundef %destBufferCapacity) local_unnamed_addr #6 align 2 {
 entry:
   %cmp19 = icmp sgt i32 %destBufferCapacity, 0
   br i1 %cmp19, label %for.body.preheader, label %for.end

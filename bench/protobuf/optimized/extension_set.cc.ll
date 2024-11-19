@@ -1739,7 +1739,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet17MaybeNewExtensionEiPKNS0_15FieldDescriptorEPPNS2_9ExtensionE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, ptr noundef %descriptor, ptr nocapture noundef writeonly %result) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet17MaybeNewExtensionEiPKNS0_15FieldDescriptorEPPNS2_9ExtensionE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, ptr noundef %descriptor, ptr nocapture noundef writeonly initializes((0, 8)) %result) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
   %0 = extractvalue { ptr, i8 } %call, 0

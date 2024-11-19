@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.jpeg_component_info = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr }
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @jtransform_parse_crop_spec(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @jtransform_parse_crop_spec(ptr nocapture noundef writeonly initializes((16, 20), (28, 32), (36, 40), (44, 48), (52, 56)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 28
@@ -251,7 +251,7 @@ jt_read_integer.exit.thread:                      ; preds = %jt_read_integer.exi
 declare ptr @__ctype_b_loc() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @jtransform_request_workspace(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @jtransform_request_workspace(ptr noundef initializes((136, 144)) %0, ptr noundef initializes((72, 76)) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0

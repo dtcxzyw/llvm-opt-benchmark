@@ -3168,7 +3168,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare void @dpy_mouse_set(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ati_vga_switch_mode(ptr noundef %s) unnamed_addr #0 {
+define internal fastcc void @ati_vga_switch_mode(ptr noundef initializes((70730, 70731)) %s) unnamed_addr #0 {
 entry:
   %crtc_gen_cntl = getelementptr inbounds i8, ptr %s, i64 71420
   %0 = load i32, ptr %crtc_gen_cntl, align 4

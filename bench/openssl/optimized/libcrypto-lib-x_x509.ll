@@ -385,7 +385,7 @@ return:                                           ; preds = %if.end.i, %if.end.i
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @i2d_re_X509_tbs(ptr noundef %x, ptr noundef %pp) local_unnamed_addr #1 {
+define i32 @i2d_re_X509_tbs(ptr noundef initializes((128, 132)) %x, ptr noundef %pp) local_unnamed_addr #1 {
 entry:
   %modified = getelementptr inbounds i8, ptr %x, i64 128
   store i32 1, ptr %modified, align 8

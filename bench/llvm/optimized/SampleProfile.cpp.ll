@@ -32243,7 +32243,7 @@ declare noundef ptr @_ZNK4llvm8Function13getSubprogramEv(ptr noundef nonnull ali
 declare noundef i32 @_ZNK4llvm8Function19getInstructionCountEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_119SampleProfileLoader31findIndirectCallFunctionSamplesERKN4llvm11InstructionERm(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1648) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_119SampleProfileLoader31findIndirectCallFunctionSamplesERKN4llvm11InstructionERm(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(1648) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::vector.1265", align 8
   %6 = alloca %"struct.llvm::sampleprof::LineLocation", align 8
   %7 = alloca %"class.llvm::ErrorOr.1043", align 8
@@ -35091,7 +35091,7 @@ _ZNK4llvm10sampleprof15FunctionSamples7getGUIDEv.exit28: ; preds = %_ZNK4llvm10s
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader28getExternalInlineAdvisorCostERN4llvm8CallBaseE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.1632.val, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119SampleProfileLoader28getExternalInlineAdvisorCostERN4llvm8CallBaseE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((64, 65)) %0, ptr %.1632.val, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::unique_ptr.1303", align 8
   %4 = alloca %"class.llvm::InlineCost", align 8
   %5 = alloca %"class.std::optional.1289", align 8
@@ -41830,7 +41830,7 @@ _ZNKSt4lessIN4llvm10sampleprof10FunctionIdEEclERKS2_S5_.exit11.thread35: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionEN12_GLOBAL__N_119SampleProfileLoader21NotInlinedProfileInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionEN12_GLOBAL__N_119SampleProfileLoader21NotInlinedProfileInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8

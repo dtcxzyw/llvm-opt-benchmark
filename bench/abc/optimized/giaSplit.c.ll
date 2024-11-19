@@ -1709,7 +1709,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Spl_ManLutFanouts(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define i32 @Spl_ManLutFanouts(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %6, align 4
   %7 = getelementptr i8, ptr %0, i64 248

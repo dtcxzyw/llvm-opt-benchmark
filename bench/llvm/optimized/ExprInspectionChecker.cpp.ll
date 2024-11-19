@@ -926,7 +926,7 @@ define linkonce_odr hidden void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121ExprInspectionCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121ExprInspectionCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8), (32, 40)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_121ExprInspectionCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %.val = load ptr, ptr %2, align 8
@@ -946,7 +946,7 @@ define internal void @_ZN12_GLOBAL__N_121ExprInspectionCheckerD2Ev(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121ExprInspectionCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121ExprInspectionCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8), (32, 40)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_121ExprInspectionCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %.val.i = load ptr, ptr %2, align 8
@@ -8679,7 +8679,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang8CallExprEN12_GLOBAL__N_121ExprInsp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang8CallExprEN12_GLOBAL__N_121ExprInspectionChecker11ReachedStatENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang8CallExprEN12_GLOBAL__N_121ExprInspectionChecker11ReachedStatENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8

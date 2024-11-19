@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN17KlassCleaningTaskC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN17KlassCleaningTaskC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22CodeCacheUnloadingTaskC2Ejb(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN22CodeCacheUnloadingTaskC2Ejb(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 1), (4, 16)) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   store i8 %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -96,7 +96,7 @@ define hidden void @_ZN22CodeCacheUnloadingTaskD2Ev(ptr nocapture nonnull readno
 declare void @_ZN9CodeCache26verify_clean_inline_cachesEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22CodeCacheUnloadingTask14claim_nmethodsEPP7nmethodPi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN22CodeCacheUnloadingTask14claim_nmethodsEPP7nmethodPi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef initializes((0, 4)) %2) local_unnamed_addr #0 align 2 {
 _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit:
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   br label %4

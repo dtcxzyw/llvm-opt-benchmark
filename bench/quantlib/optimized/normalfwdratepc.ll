@@ -123,7 +123,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15NormalFwdRatePcC2ERKN5boost10shared_ptrINS_11MarketModelEEERKNS_24BrownianGeneratorFactoryERKSt6vectorImSaImEEm(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %marketModel, ptr noundef nonnull align 8 dereferenceable(8) %factory, ptr noundef nonnull align 8 dereferenceable(24) %numeraires, i64 noundef %initialStep) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15NormalFwdRatePcC2ERKN5boost10shared_ptrINS_11MarketModelEEERKNS_24BrownianGeneratorFactoryERKSt6vectorImSaImEEm(ptr noundef nonnull align 8 dereferenceable(536) initializes((0, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %marketModel, ptr noundef nonnull align 8 dereferenceable(8) %factory, ptr noundef nonnull align 8 dereferenceable(24) %numeraires, i64 noundef %initialStep) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp84 = alloca %"class.boost::shared_ptr.10", align 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN8QuantLib15NormalFwdRatePcE, i64 16), ptr %this, align 8, !tbaa !3
@@ -1799,7 +1799,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib15NormalFwdRatePc12startNewPathEv(ptr nocapture noundef nonnull align 8 dereferenceable(536) %this) unnamed_addr #4 align 2 {
+define noundef double @_ZN8QuantLib15NormalFwdRatePc12startNewPathEv(ptr nocapture noundef nonnull align 8 dereferenceable(536) initializes((312, 320)) %this) unnamed_addr #4 align 2 {
 entry:
   %initialStep_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i64, ptr %initialStep_, align 8, !tbaa !18

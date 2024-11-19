@@ -18,7 +18,7 @@ $_ZNSt6vectorIdSaIdEE17_M_default_appendEm = comdat any
 @_ZN8QuantLib11AlphaFinderC1EN5boost10shared_ptrINS_9AlphaFormEEE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8QuantLib11AlphaFinderC2EN5boost10shared_ptrINS_9AlphaFormEEE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib11AlphaFinderC2EN5boost10shared_ptrINS_9AlphaFormEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) %this, ptr nocapture noundef %parametricform) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib11AlphaFinderC2EN5boost10shared_ptrINS_9AlphaFormEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) initializes((0, 16), (24, 120)) %this, ptr nocapture noundef %parametricform) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %parametricform, align 8, !tbaa !3
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -286,7 +286,7 @@ for.body:                                         ; preds = %_ZN8QuantLib11Alpha
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8QuantLib11AlphaFinder9finalPartEdiRKSt6vectorIdSaIdEEdddRdS6_S6_RS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, double noundef %alphaFound, i32 noundef %stepindex, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ratetwohomogeneousvols, double noundef %quadraticPart, double noundef %linearPart, double noundef %constantPart, ptr nocapture noundef nonnull align 8 dereferenceable(8) %alpha, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %b, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ratetwovols) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN8QuantLib11AlphaFinder9finalPartEdiRKSt6vectorIdSaIdEEdddRdS6_S6_RS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, double noundef %alphaFound, i32 noundef %stepindex, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ratetwohomogeneousvols, double noundef %quadraticPart, double noundef %linearPart, double noundef %constantPart, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %alpha, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %b, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ratetwovols) local_unnamed_addr #1 align 2 {
 entry:
   %q2 = alloca %"class.QuantLib::quadratic", align 8
   %y = alloca double, align 8
@@ -585,7 +585,7 @@ cleanup:                                          ; preds = %entry, %_ZN8QuantLi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8QuantLib11AlphaFinder5solveEdiRKSt6vectorIdSaIdEES5_S5_ddddddiRdS6_S6_RS3_(ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %alpha0, i32 noundef %stepindex, ptr noundef nonnull align 8 dereferenceable(24) %rateonevols, ptr noundef nonnull align 8 dereferenceable(24) %ratetwohomogeneousvols, ptr noundef nonnull align 8 dereferenceable(24) %correlations, double noundef %w0, double noundef %w1, double noundef %targetVariance, double noundef %tolerance, double noundef %alphaMax, double noundef %alphaMin, i32 noundef %steps, ptr nocapture noundef nonnull align 8 dereferenceable(8) %alpha, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %b, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ratetwovols) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN8QuantLib11AlphaFinder5solveEdiRKSt6vectorIdSaIdEES5_S5_ddddddiRdS6_S6_RS3_(ptr noundef nonnull align 8 dereferenceable(176) initializes((16, 20)) %this, double noundef %alpha0, i32 noundef %stepindex, ptr noundef nonnull align 8 dereferenceable(24) %rateonevols, ptr noundef nonnull align 8 dereferenceable(24) %ratetwohomogeneousvols, ptr noundef nonnull align 8 dereferenceable(24) %correlations, double noundef %w0, double noundef %w1, double noundef %targetVariance, double noundef %tolerance, double noundef %alphaMax, double noundef %alphaMin, i32 noundef %steps, ptr nocapture noundef nonnull align 8 dereferenceable(8) %alpha, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %b, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ratetwovols) local_unnamed_addr #1 align 2 {
 entry:
   %stepindex_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %stepindex, ptr %stepindex_, align 8, !tbaa !13
@@ -961,7 +961,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8QuantLib11AlphaFinder23solveWithMaxHomogeneityEdiRKSt6vectorIdSaIdEES5_S5_ddddddiRdS6_S6_RS3_(ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %alpha0, i32 noundef %stepindex, ptr noundef nonnull align 8 dereferenceable(24) %rateonevols, ptr noundef nonnull align 8 dereferenceable(24) %ratetwohomogeneousvols, ptr noundef nonnull align 8 dereferenceable(24) %correlations, double noundef %w0, double noundef %w1, double noundef %targetVariance, double noundef %tolerance, double noundef %alphaMax, double noundef %alphaMin, i32 noundef %steps, ptr nocapture noundef nonnull align 8 dereferenceable(8) %alpha, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %b, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ratetwovols) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8QuantLib11AlphaFinder23solveWithMaxHomogeneityEdiRKSt6vectorIdSaIdEES5_S5_ddddddiRdS6_S6_RS3_(ptr noundef nonnull align 8 dereferenceable(176) initializes((16, 20)) %this, double noundef %alpha0, i32 noundef %stepindex, ptr noundef nonnull align 8 dereferenceable(24) %rateonevols, ptr noundef nonnull align 8 dereferenceable(24) %ratetwohomogeneousvols, ptr noundef nonnull align 8 dereferenceable(24) %correlations, double noundef %w0, double noundef %w1, double noundef %targetVariance, double noundef %tolerance, double noundef %alphaMax, double noundef %alphaMin, i32 noundef %steps, ptr nocapture noundef nonnull align 8 dereferenceable(8) %alpha, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %b, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ratetwovols) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stepindex_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %stepindex, ptr %stepindex_, align 8, !tbaa !13

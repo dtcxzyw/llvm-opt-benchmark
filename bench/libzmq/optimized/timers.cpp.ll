@@ -17,7 +17,7 @@ $_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5eraseERKi = comdat any
 @_ZN3zmq8timers_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq8timers_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8timers_tC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq8timers_tC2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 -889267494, ptr %this, align 8
   %_next_timer_id = getelementptr inbounds i8, ptr %this, i64 4
@@ -50,7 +50,7 @@ entry:
 declare void @_ZN3zmq7clock_tC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq8timers_tD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq8timers_tD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 4)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 -559038737, ptr %this, align 8
   %_cancelled_timers = getelementptr inbounds i8, ptr %this, i64 72

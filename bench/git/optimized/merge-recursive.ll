@@ -4021,7 +4021,7 @@ declare i32 @repo_hold_locked_index(ptr noundef, ptr noundef, i32 noundef) local
 declare i32 @write_locked_index(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @init_merge_options(ptr noundef %opt, ptr noundef %repo) local_unnamed_addr #0 {
+define dso_local void @init_merge_options(ptr noundef initializes((0, 136)) %opt, ptr noundef %repo) local_unnamed_addr #0 {
 entry:
   %value.i = alloca ptr, align 8
   %renormalize.i = alloca i32, align 4
@@ -4157,7 +4157,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #3
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @copy_merge_options(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #5 {
+define dso_local void @copy_merge_options(ptr nocapture noundef writeonly initializes((0, 136)) %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #5 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %dst, ptr noundef nonnull align 8 dereferenceable(136) %src, i64 136, i1 false)
   ret void
@@ -8232,7 +8232,7 @@ if.end46:                                         ; preds = %if.then44, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @merge_submodule(ptr noundef %opt, ptr nocapture noundef nonnull writeonly %result, ptr noundef %path, ptr noundef %base, ptr noundef %a, ptr noundef %b) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @merge_submodule(ptr noundef %opt, ptr nocapture noundef nonnull writeonly initializes((0, 36)) %result, ptr noundef %path, ptr noundef %base, ptr noundef %a, ptr noundef %b) unnamed_addr #0 {
 entry:
   %subrepo = alloca %struct.repository, align 8
   %merges = alloca %struct.object_array, align 8
@@ -8751,7 +8751,7 @@ flush_output.exit:                                ; preds = %if.end16, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @find_first_merges(ptr noundef nonnull %repo, ptr noundef nonnull %result, ptr noundef readnone %path, ptr noundef nonnull %a, ptr noundef nonnull %b) unnamed_addr #0 {
+define internal fastcc i32 @find_first_merges(ptr noundef nonnull %repo, ptr noundef nonnull initializes((0, 16)) %result, ptr noundef readnone %path, ptr noundef nonnull %a, ptr noundef nonnull %b) unnamed_addr #0 {
 entry:
   %merges = alloca %struct.object_array, align 8
   %merged_revision = alloca [66 x i8], align 16

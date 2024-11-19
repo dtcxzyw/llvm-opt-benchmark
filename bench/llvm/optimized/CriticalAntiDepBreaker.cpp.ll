@@ -53,7 +53,7 @@ $_ZN4llvm8DenseMapIPNS_12MachineInstrEPKNS_5SUnitENS_12DenseMapInfoIS2_vEENS_6de
 @_ZN4llvm22CriticalAntiDepBreakerD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN4llvm22CriticalAntiDepBreakerD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm22CriticalAntiDepBreakerC2ERNS_15MachineFunctionERKNS_17RegisterClassInfoE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef nonnull align 8 dereferenceable(320) %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm22CriticalAntiDepBreakerC2ERNS_15MachineFunctionERKNS_17RegisterClassInfoE(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef nonnull align 8 dereferenceable(320) %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm22CriticalAntiDepBreakerE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -183,7 +183,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit13:          ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm22CriticalAntiDepBreakerD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm22CriticalAntiDepBreakerD2Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm22CriticalAntiDepBreakerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %2) #11
@@ -266,7 +266,7 @@ _ZN4llvm9BitVectorD2Ev.exit4:                     ; preds = %_ZNSt6vectorIPKN4ll
 declare void @_ZN4llvm14AntiDepBreakerD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm22CriticalAntiDepBreakerD0Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm22CriticalAntiDepBreakerD0Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm22CriticalAntiDepBreakerD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) #11
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 312) #13
   ret void

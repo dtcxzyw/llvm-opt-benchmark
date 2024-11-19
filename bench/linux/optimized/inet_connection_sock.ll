@@ -289,7 +289,7 @@ define dso_local zeroext i1 @inet_rcv_saddr_any(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local noundef zeroext i1 @inet_sk_get_local_port_range(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #2 align 16 {
+define dso_local noundef zeroext i1 @inet_sk_get_local_port_range(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1100
@@ -1747,7 +1747,7 @@ define dso_local void @inet_csk_init_xmit_timers(ptr noundef %0, ptr noundef %1,
 declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @inet_csk_clear_xmit_timers(ptr noundef %0) #0 align 16 {
+define dso_local void @inet_csk_clear_xmit_timers(ptr noundef initializes((1210, 1211), (1216, 1217)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1216
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1210
@@ -1784,7 +1784,7 @@ define dso_local void @inet_csk_reset_keepalive_timer(ptr noundef %0, i64 nounde
 declare dso_local void @sk_reset_timer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @inet_csk_route_req(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local ptr @inet_csk_route_req(ptr noundef %0, ptr noundef initializes((0, 52)) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 48
   %5 = load ptr, ptr %4, align 8
   tail call void @__rcu_read_lock() #12
@@ -1928,7 +1928,7 @@ declare dso_local void @security_req_classify_flow(ptr noundef, ptr noundef) loc
 declare dso_local ptr @ip_route_output_flow(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @inet_csk_route_child_sock(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local ptr @inet_csk_route_child_sock(ptr noundef %0, ptr noundef initializes((872, 924)) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 240
@@ -3168,7 +3168,7 @@ define dso_local void @inet_csk_listen_stop(ptr noundef %0) #0 align 16 {
 declare dso_local ptr @reuseport_migrate_sock(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @inet_csk_addr2sockaddr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #10 align 16 {
+define dso_local void @inet_csk_addr2sockaddr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #10 align 16 {
   store i16 2, ptr %1, align 4
   %3 = load i32, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 4
@@ -3217,7 +3217,7 @@ define dso_local ptr @inet_csk_update_pmtu(ptr noundef %0, i32 noundef %1) #0 al
 declare dso_local ptr @__sk_dst_check(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @inet_csk_rebuild_route(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc ptr @inet_csk_rebuild_route(ptr noundef %0, ptr noundef initializes((0, 52)) %1) unnamed_addr #0 align 16 {
   %3 = load i32, ptr %0, align 8
   tail call void @__rcu_read_lock() #12
   %4 = getelementptr inbounds i8, ptr %0, i64 768

@@ -1078,7 +1078,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pcnet_rdte_poll(ptr nocapture noundef %s) unnamed_addr #0 {
+define internal fastcc void @pcnet_rdte_poll(ptr nocapture noundef initializes((8324, 8328)) %s) unnamed_addr #0 {
 entry:
   %rda.i159 = alloca %struct.anon, align 4
   %rda.i138 = alloca %struct.anon, align 4
@@ -1909,7 +1909,7 @@ sw.epilog:                                        ; preds = %cond.true, %sw.defa
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pcnet_h_reset(ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local void @pcnet_h_reset(ptr noundef initializes((8524, 8530), (8532, 8540), (8542, 8544), (8560, 8566), (8568, 8570)) %opaque) local_unnamed_addr #0 {
 entry:
   %bcr = getelementptr inbounds i8, ptr %opaque, i64 8524
   store i16 5, ptr %bcr, align 4
@@ -3030,7 +3030,7 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @pcnet_tdte_poll(ptr nocapture noundef %s) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcnet_tdte_poll(ptr nocapture noundef initializes((8336, 8340)) %s) unnamed_addr #0 {
 entry:
   %xda.i38 = alloca %struct.anon.6, align 4
   %xda.i = alloca %struct.anon.6, align 4
@@ -3231,7 +3231,7 @@ if.end108:                                        ; preds = %if.else, %pcnet_tmd
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pcnet_transmit(ptr noundef %s) unnamed_addr #0 {
+define internal fastcc void @pcnet_transmit(ptr noundef initializes((8588, 8592)) %s) unnamed_addr #0 {
 entry:
   %xda.i115 = alloca %struct.anon.7, align 4
   %xda10.i116 = alloca %struct.anon.8, align 4

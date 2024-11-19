@@ -335,7 +335,7 @@ declare dso_local void @__flush_workqueue(ptr noundef) local_unnamed_addr #1
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @tcf_queue_work(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local zeroext i1 @tcf_queue_work(ptr noundef initializes((0, 8)) %0, ptr noundef %1) #0 align 16 {
   store i64 68719476704, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store volatile ptr %3, ptr %3, align 8
@@ -955,7 +955,7 @@ tcf_proto_destroy.exit:                           ; preds = %9, %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @tcf_block_netif_keep_dst(ptr noundef %0) #5 align 16 {
+define dso_local void @tcf_block_netif_keep_dst(ptr noundef initializes((168, 169)) %0) #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 152
@@ -2077,7 +2077,7 @@ define dso_local range(i32 -1, -2147483648) i32 @tcf_classify(ptr noundef %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @tcf_exts_init_ex(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 %5, i1 zeroext %6) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @tcf_exts_init_ex(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 %5, i1 zeroext %6) #0 align 16 {
   store i32 0, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %8, align 4
@@ -2105,7 +2105,7 @@ define dso_local noundef range(i32 -12, 1) i32 @tcf_exts_init_ex(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcf_exts_destroy(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @tcf_exts_destroy(ptr nocapture noundef initializes((4, 8)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2245,7 +2245,7 @@ define dso_local i32 @tcf_exts_validate(ptr noundef %0, ptr noundef %1, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcf_exts_change(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @tcf_exts_change(ptr nocapture noundef initializes((0, 8), (16, 40)) %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(40) %0, ptr noundef align 8 dereferenceable(40) %1, i64 40, i1 false)
@@ -4886,7 +4886,7 @@ tcf_proto_destroy.exit:                           ; preds = %89, %108
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tcf_proto_signal_destroying(ptr %.56.val, ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @tcf_proto_signal_destroying(ptr %.56.val, ptr noundef initializes((88, 96)) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %.56.val, i64 1248
   tail call void @mutex_lock(ptr noundef %2) #14
   %3 = getelementptr inbounds i8, ptr %0, i64 88

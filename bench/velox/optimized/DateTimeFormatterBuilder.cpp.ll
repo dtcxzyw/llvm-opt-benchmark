@@ -54,7 +54,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZN8facebook5velox9functions24DateTimeFormatterBuilderC1Em = unnamed_addr alias void (ptr, i64), ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilderC2Em
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9functions24DateTimeFormatterBuilderC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %this, i64 noundef %literalBufSize) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9functions24DateTimeFormatterBuilderC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((0, 44)) %this, i64 noundef %literalBufSize) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %type_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
@@ -2281,7 +2281,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder7setTypeENS1_21DateTimeFormatterTypeE(ptr noundef nonnull returned writeonly align 8 dereferenceable(44) %this, i32 noundef %type) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder7setTypeENS1_21DateTimeFormatterTypeE(ptr noundef nonnull returned writeonly align 8 dereferenceable(44) initializes((40, 44)) %this, i32 noundef %type) local_unnamed_addr #4 align 2 {
 entry:
   %type_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %type, ptr %type_, align 8

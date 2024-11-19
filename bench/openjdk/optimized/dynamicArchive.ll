@@ -269,7 +269,7 @@ $_ZTVN16MetaspaceClosure6MSORefI10ArrayKlassEE = comdat any
 @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm548932ES1_EELNS_11BarrierTypeE2ELm548932EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm548932ES1_EELNS_11BarrierTypeE2ELm548932EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm548932ES1_EELNS_11BarrierTypeE2ELm548932EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm548932ES1_EELNS_11BarrierTypeE2ELm548932EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm548932ES1_EELNS_11BarrierTypeE2ELm548932EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm548932ES1_EELNS_11BarrierTypeE2ELm548932EE18oop_access_barrierEPv], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21DynamicArchiveBuilder11init_headerEv(ptr nocapture noundef nonnull align 8 dereferenceable(1096) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21DynamicArchiveBuilder11init_headerEv(ptr nocapture noundef nonnull align 8 dereferenceable(1096) initializes((1088, 1096)) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 9, i32 noundef 0) #11
   %3 = getelementptr inbounds i8, ptr %0, i64 1080
   %4 = load ptr, ptr %3, align 8
@@ -314,7 +314,7 @@ declare void @_ZN11FileMapInfoC1EPKcb(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZN11FileMapInfo15populate_headerEm(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21DynamicArchiveBuilder14release_headerEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1096) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21DynamicArchiveBuilder14release_headerEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1096) initializes((1088, 1096)) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN11FileMapInfo21_dynamic_archive_infoE, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4

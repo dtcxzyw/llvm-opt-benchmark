@@ -1266,7 +1266,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z15read_pullparamsB5cxx11PSt6vectorI9t_inpfileSaIS0_EEP13pull_params_tP14WarningHandler(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_Z15read_pullparamsB5cxx11PSt6vectorI9t_inpfileSaIS0_EEP13pull_params_tP14WarningHandler(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef %1, ptr noundef initializes((0, 30)) %2, ptr noundef %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct._Guard, align 8
   %7 = alloca i64, align 8
@@ -31222,7 +31222,7 @@ _ZNSt12_Vector_baseI12t_pull_coordSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z19process_pull_groupsN3gmx8ArrayRefI12t_pull_groupEENS0_IKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_IK10IndexGroupEE(ptr %0, ptr %1, ptr %2, ptr nocapture readnone %3, ptr %4, ptr %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_Z19process_pull_groupsN3gmx8ArrayRefI12t_pull_groupEENS0_IKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_IK10IndexGroupEE(ptr initializes((48, 56)) %0, ptr %1, ptr %2, ptr nocapture readnone %3, ptr %4, ptr %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %8 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %9 = alloca %"class.std::filesystem::__cxx11::path", align 8

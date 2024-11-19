@@ -53,7 +53,7 @@ $_ZNSt6vectorIN2cv3PtrINS0_6detail8tracking18TrackerTargetStateEEESaIS5_EE17_M_r
 @_ZN2cv6detail8tracking12TrackerModelD1Ev = unnamed_addr alias void (ptr), ptr @_ZN2cv6detail8tracking12TrackerModelD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv6detail8tracking12TrackerModelC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv6detail8tracking12TrackerModelC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) initializes((0, 100)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEED2Ev.exit:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail8tracking12TrackerModelE, i64 16), ptr %0, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 8
@@ -197,7 +197,7 @@ _ZNSt12_Vector_baseISt6vectorISt4pairIN2cv3PtrINS2_6detail8tracking18TrackerTarg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv6detail8tracking12TrackerModelD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv6detail8tracking12TrackerModelD2Ev(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail8tracking12TrackerModelE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -612,7 +612,7 @@ _ZN2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEEaSERKS4_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK2cv6detail8tracking12TrackerModel24getTrackerStateEstimatorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv6detail8tracking12TrackerModel24getTrackerStateEstimatorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -1488,7 +1488,7 @@ _ZNSt10shared_ptrIN2cv6detail8tracking18TrackerTargetStateEED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK2cv6detail8tracking12TrackerModel18getLastTargetStateEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.21") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv6detail8tracking12TrackerModel18getLastTargetStateEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.21") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -16
@@ -1543,7 +1543,7 @@ define <2 x float> @_ZNK2cv6detail8tracking18TrackerTargetState17getTargetPositi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2cv6detail8tracking18TrackerTargetState17setTargetPositionERKNS_6Point_IfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #12 align 2 {
+define void @_ZN2cv6detail8tracking18TrackerTargetState17setTargetPositionERKNS_6Point_IfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 16)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %1, align 4
   store i64 %4, ptr %3, align 8
@@ -1558,7 +1558,7 @@ define noundef i32 @_ZNK2cv6detail8tracking18TrackerTargetState14getTargetWidthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv6detail8tracking18TrackerTargetState14setTargetWidthEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN2cv6detail8tracking18TrackerTargetState14setTargetWidthEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   ret void
@@ -1572,7 +1572,7 @@ define noundef i32 @_ZNK2cv6detail8tracking18TrackerTargetState15getTargetHeight
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv6detail8tracking18TrackerTargetState15setTargetHeightEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN2cv6detail8tracking18TrackerTargetState15setTargetHeightEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((20, 24)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %1, ptr %3, align 4
   ret void

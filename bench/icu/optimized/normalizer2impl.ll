@@ -40,7 +40,7 @@ $_ZN6icu_7512LocalPointerINS_10UnicodeSetEED2Ev = comdat any
 @_ZN6icu_7513CanonIterDataD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7513CanonIterDataD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516ReorderingBufferC2ERKNS_15Normalizer2ImplERNS_13UnicodeStringER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(80) %ni, ptr noundef nonnull align 8 dereferenceable(64) %dest, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7516ReorderingBufferC2ERKNS_15Normalizer2ImplERNS_13UnicodeStringER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 45)) %this, ptr noundef nonnull align 8 dereferenceable(80) %ni, ptr noundef nonnull align 8 dereferenceable(64) %dest, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 {
 entry:
   store ptr %ni, ptr %this, align 8
   %str = getelementptr inbounds i8, ptr %this, i64 8
@@ -81,7 +81,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare noundef ptr @_ZN6icu_7513UnicodeString9getBufferEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7516ReorderingBuffer4initEiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %destCapacity, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7516ReorderingBuffer4initEiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 24)) %this, i32 noundef %destCapacity, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 {
 entry:
   %str = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %str, align 8
@@ -155,7 +155,7 @@ return:                                           ; preds = %if.then12, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN6icu_7516ReorderingBuffer10previousCCEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #0 align 2 {
+define noundef zeroext i8 @_ZN6icu_7516ReorderingBuffer10previousCCEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((56, 64)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %codePointStart = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %codePointStart, align 8
@@ -702,7 +702,7 @@ return:                                           ; preds = %if.end18, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516ReorderingBuffer6insertEih(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %c, i8 noundef zeroext %cc) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7516ReorderingBuffer6insertEih(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((48, 64)) %this, i32 noundef %c, i8 noundef zeroext %cc) local_unnamed_addr #0 align 2 {
 entry:
   %limit.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %limit.i, align 8
@@ -1467,7 +1467,7 @@ return:                                           ; preds = %_ZN6icu_7516Reorder
 declare ptr @u_memcpy_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7516ReorderingBuffer6removeEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN6icu_7516ReorderingBuffer6removeEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((24, 45)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %start = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %start, align 8
@@ -1492,7 +1492,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7516ReorderingBuffer12removeSuffixEi(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %suffixLength) local_unnamed_addr #3 align 2 {
+define void @_ZN6icu_7516ReorderingBuffer12removeSuffixEi(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((24, 32), (44, 45)) %this, i32 noundef %suffixLength) local_unnamed_addr #3 align 2 {
 entry:
   %conv = sext i32 %suffixLength to i64
   %limit = getelementptr inbounds i8, ptr %this, i64 32
@@ -1543,7 +1543,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare void @_ZN6icu_7513UnicodeString13releaseBufferEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7516ReorderingBuffer12skipPreviousEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN6icu_7516ReorderingBuffer12skipPreviousEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((56, 64)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %codePointStart = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %codePointStart, align 8
@@ -1576,7 +1576,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7515Normalizer2ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 align 2 {
+define void @_ZN6icu_7515Normalizer2ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515Normalizer2ImplE, i64 16), ptr %this, align 8
   %fCanonIterData = getelementptr inbounds i8, ptr %this, i64 72
@@ -1609,7 +1609,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7515Normalizer2Impl4initEPKiPK7UCPTriePKtPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this, ptr nocapture noundef readonly %inIndexes, ptr noundef %inTrie, ptr noundef %inExtraData, ptr noundef %inSmallFCD) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_7515Normalizer2Impl4initEPKiPK7UCPTriePKtPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((8, 64)) %this, ptr nocapture noundef readonly %inIndexes, ptr noundef %inTrie, ptr noundef %inExtraData, ptr noundef %inSmallFCD) local_unnamed_addr #6 align 2 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %inIndexes, i64 32
   %0 = load i32, ptr %arrayidx, align 4
@@ -11399,7 +11399,7 @@ return:                                           ; preds = %_ZNK6icu_7515Normal
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513CanonIterDataC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7513CanonIterDataC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 16)) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 {
 entry:
   %call = tail call ptr @umutablecptrie_open_75(i32 noundef 0, i32 noundef 0, ptr noundef nonnull %errorCode)
   store ptr %call, ptr %this, align 8

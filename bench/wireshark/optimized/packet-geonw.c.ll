@@ -757,7 +757,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btpa(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_btpa(ptr noundef %0, ptr noundef initializes((284, 292)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1035,7 +1035,7 @@ define hidden void @proto_register_btpb() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btpb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_btpb(ptr noundef %0, ptr noundef initializes((288, 292)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1304,7 +1304,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @geonw_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 {
+define internal noundef i32 @geonw_to_str(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 2)) %1, i32 %2) #0 {
   %4 = alloca %struct._address, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -4412,7 +4412,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @geonw_addr_resolve(ptr noundef returned %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @geonw_addr_resolve(ptr noundef returned initializes((40, 42)) %0) unnamed_addr #0 {
   %2 = alloca %struct._address, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = getelementptr inbounds i8, ptr %0, i64 40

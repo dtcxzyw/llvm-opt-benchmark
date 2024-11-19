@@ -636,7 +636,7 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #8
 declare void @_ZN13ObjDefManager5clearEv(ptr noundef nonnull align 8 dereferenceable(44)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9SchematicD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9SchematicD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8), (56, 64)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV9Schematic, i64 16), ptr %this, align 8, !tbaa !12
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
@@ -701,7 +701,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
 declare void @_ZN12NodeResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(73)) unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N9SchematicD1Ev(ptr noundef %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZThn56_N9SchematicD1Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   store ptr getelementptr inbounds (i8, ptr @_ZTV9Schematic, i64 16), ptr %0, align 8, !tbaa !12
@@ -760,7 +760,7 @@ _ZN9SchematicD2Ev.exit:                           ; preds = %if.then.i.i.i6.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9SchematicD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9SchematicD0Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8), (56, 64)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV9Schematic, i64 16), ptr %this, align 8, !tbaa !12
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -820,7 +820,7 @@ _ZN9SchematicD2Ev.exit:                           ; preds = %if.then.i.i.i6.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N9SchematicD0Ev(ptr noundef %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZThn56_N9SchematicD0Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN9SchematicD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) #28

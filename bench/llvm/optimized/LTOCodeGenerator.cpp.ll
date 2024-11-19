@@ -665,7 +665,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16LTOCodeGeneratorC2ERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(1680) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm16LTOCodeGeneratorC2ERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(1680) initializes((0, 35), (40, 136)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call noalias noundef nonnull dereferenceable(864) ptr @_Znwm(i64 noundef 864) #23
@@ -1901,7 +1901,7 @@ _ZNSt10shared_ptrIN4llvm12MemoryBufferEEaSERKS2_.exit: ; preds = %2, %_ZNSt16_Sp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm16LTOCodeGenerator12setDebugInfoE15lto_debug_model(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1680) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN4llvm16LTOCodeGenerator12setDebugInfoE15lto_debug_model(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1680) initializes((32, 33)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %switch = icmp ne i32 %1, 0
   %spec.select = zext i1 %switch to i8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1910,7 +1910,7 @@ define dso_local void @_ZN4llvm16LTOCodeGenerator12setDebugInfoE15lto_debug_mode
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm16LTOCodeGenerator11setOptLevelEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1680) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN4llvm16LTOCodeGenerator11setOptLevelEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1680) initializes((824, 828), (832, 836), (1425, 1427)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 832
   store i32 %1, ptr %3, align 8
   %4 = icmp ugt i32 %1, 1
@@ -4279,7 +4279,7 @@ declare { ptr, i64 } @_ZN4llvm3lto20getThinLTODefaultCPUERKNS_6TripleE(ptr nound
 declare i16 @_ZN4llvm7codegen23getExplicitDataSectionsEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16LTOCodeGenerator19createTargetMachineEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.36") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1680) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm16LTOCodeGenerator19createTargetMachineEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.36") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(1680) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Triple", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 200
@@ -5408,7 +5408,7 @@ _ZN4llvm11raw_ostream5flushEv.exit:               ; preds = %10, %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16LTOCodeGenerator20setDiagnosticHandlerEPFv33lto_codegen_diagnostic_severity_tPKcPvES4_(ptr noundef nonnull align 8 dereferenceable(1680) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm16LTOCodeGenerator20setDiagnosticHandlerEPFv33lto_codegen_diagnostic_severity_tPKcPvES4_(ptr noundef nonnull align 8 dereferenceable(1680) initializes((240, 256)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.std::unique_ptr.435", align 8
   %5 = alloca %"class.std::unique_ptr.435", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -7340,7 +7340,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE18uninitialized_copyIKS1_S1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEEjRKNS0_5TwineEEZNS0_16LTOCodeGenerator22compileOptimizedToFileEPPKcE3$_0E9_M_invokeERKSt9_Any_dataOjSA_"(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.594") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture nonnull readonly align 4 %2, ptr nocapture nonnull readnone align 8 %3) #1 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEEjRKNS0_5TwineEEZNS0_16LTOCodeGenerator22compileOptimizedToFileEPPKcE3$_0E9_M_invokeERKSt9_Any_dataOjSA_"(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.594") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture nonnull readonly align 4 %2, ptr nocapture nonnull readnone align 8 %3) #1 align 2 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.(anonymous namespace)::LTODiagnosticInfo", align 8

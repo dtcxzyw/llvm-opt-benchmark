@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.3 = private unnamed_addr constant [7 x i8] c"failed\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_des_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_des_init(ptr nocapture noundef writeonly initializes((0, 128)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %0, i8 0, i64 128, i1 false)
   ret void
 }
@@ -55,7 +55,7 @@ define hidden void @mbedtls_des_free(ptr noundef %0) local_unnamed_addr #2 {
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_des3_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_des3_init(ptr nocapture noundef writeonly initializes((0, 384)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(384) %0, i8 0, i64 384, i1 false)
   ret void
 }

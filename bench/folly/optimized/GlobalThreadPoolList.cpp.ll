@@ -3526,7 +3526,7 @@ _ZNSt6vectorImSaImEEaSEOS1_.exit:                 ; preds = %if.then.i.i.i.i.i16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly15debugger_detail14ThreadListHookC2EPNS_18ThreadPoolListHookENSt6thread2idEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %poolId, i64 %threadId.coerce, i64 noundef %osThreadId) unnamed_addr #24 align 2 {
+define void @_ZN5folly15debugger_detail14ThreadListHookC2EPNS_18ThreadPoolListHookENSt6thread2idEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %poolId, i64 %threadId.coerce, i64 noundef %osThreadId) unnamed_addr #24 align 2 {
 entry:
   %threadId_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %poolId, ptr %this, align 8, !tbaa !171

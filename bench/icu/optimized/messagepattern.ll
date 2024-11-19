@@ -28,7 +28,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_7514MessagePatternD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7514MessagePatternD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7514MessagePatternC2ER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(127) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514MessagePatternC2ER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(127) initializes((0, 12), (16, 26), (80, 100), (104, 127)) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514MessagePatternE, i64 16), ptr %this, align 8
   %aposMode = getelementptr inbounds i8, ptr %this, i64 8
@@ -117,7 +117,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7514MessagePatternC2E29UMessagePatternApostropheModeR10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(127) %this, i32 noundef %mode, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514MessagePatternC2E29UMessagePatternApostropheModeR10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(127) initializes((0, 12), (16, 26), (80, 100), (104, 127)) %this, i32 noundef %mode, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514MessagePatternE, i64 16), ptr %this, align 8
   %aposMode = getelementptr inbounds i8, ptr %this, i64 8
@@ -161,7 +161,7 @@ invoke.cont3:                                     ; preds = %if.end5.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514MessagePatternC2ERKNS_13UnicodeStringEP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %this, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef %parseError, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514MessagePatternC2ERKNS_13UnicodeStringEP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) initializes((0, 12), (16, 26), (80, 100), (104, 127)) %this, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef %parseError, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514MessagePatternE, i64 16), ptr %this, align 8
   %aposMode = getelementptr inbounds i8, ptr %this, i64 8
@@ -332,7 +332,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514MessagePatternC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(127) %this, ptr noundef nonnull align 8 dereferenceable(127) %other) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514MessagePatternC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(127) initializes((0, 12)) %this, ptr noundef nonnull align 8 dereferenceable(127) %other) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %errorCode = alloca i32, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514MessagePatternE, i64 16), ptr %this, align 8
@@ -633,7 +633,7 @@ return:                                           ; preds = %if.then8.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7514MessagePattern5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(127) %this) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7514MessagePattern5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(127) initializes((96, 100), (120, 127)) %this) local_unnamed_addr #5 align 2 {
 entry:
   %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i16, ptr %fUnion.i.i, align 8
@@ -702,7 +702,7 @@ return:                                           ; preds = %if.end, %if.then8, 
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7514MessagePatternD2Ev(ptr noundef nonnull align 8 dereferenceable(127) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514MessagePatternD2Ev(ptr noundef nonnull align 8 dereferenceable(127) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514MessagePatternE, i64 16), ptr %this, align 8
   %partsList = getelementptr inbounds i8, ptr %this, i64 80

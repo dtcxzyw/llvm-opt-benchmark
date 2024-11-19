@@ -365,7 +365,7 @@ declare void @gtk_widget_set_sensitive(ptr noundef, i32 noundef) local_unnamed_a
 declare i64 @gtk_widget_get_type() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #16
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !27

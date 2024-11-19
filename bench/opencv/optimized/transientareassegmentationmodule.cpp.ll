@@ -427,7 +427,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11bioinspired36TransientAreasSegmentationModuleImpl5setupENS0_22SegmentationParametersE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr nocapture noundef readonly byval(%"struct.cv::bioinspired::SegmentationParameters") align 8 %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv11bioinspired36TransientAreasSegmentationModuleImpl5setupENS0_22SegmentationParametersE(ptr noundef nonnull align 8 dereferenceable(472) initializes((176, 208)) %0, ptr nocapture noundef readonly byval(%"struct.cv::bioinspired::SegmentationParameters") align 8 %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -515,7 +515,7 @@ declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) un
 declare void @_ZN2cv11bioinspired17BasicRetinaFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(168)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv11bioinspired36TransientAreasSegmentationModuleImplD2Ev(ptr noundef nonnull align 8 dereferenceable(472) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11bioinspired36TransientAreasSegmentationModuleImplD2Ev(ptr noundef nonnull align 8 dereferenceable(472) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv11bioinspired36TransientAreasSegmentationModuleImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 376
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #23
@@ -536,7 +536,7 @@ define hidden void @_ZN2cv11bioinspired36TransientAreasSegmentationModuleImplD2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv11bioinspired36TransientAreasSegmentationModuleImplD0Ev(ptr noundef nonnull align 8 dereferenceable(472) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11bioinspired36TransientAreasSegmentationModuleImplD0Ev(ptr noundef nonnull align 8 dereferenceable(472) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv11bioinspired36TransientAreasSegmentationModuleImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 376
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #23
@@ -561,7 +561,7 @@ define hidden void @_ZN2cv11bioinspired36TransientAreasSegmentationModuleImplD0E
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv11bioinspired36TransientAreasSegmentationModuleImpl13getParametersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::bioinspired::SegmentationParameters") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN2cv11bioinspired36TransientAreasSegmentationModuleImpl13getParametersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::bioinspired::SegmentationParameters") align 4 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   ret void

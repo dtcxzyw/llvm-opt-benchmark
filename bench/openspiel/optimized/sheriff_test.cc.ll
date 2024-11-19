@@ -4332,7 +4332,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel7sheriff12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE(ptr dead_on_unwind noalias nocapture nonnull writable align 4 %0, ptr nonnull %.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel7sheriff12_GLOBAL__N_115ComputeGameSizeESt10shared_ptrIKNS_4GameEE(ptr dead_on_unwind noalias nocapture nonnull writable align 4 initializes((0, 20)) %0, ptr nonnull %.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::map.8", align 8
   %3 = alloca %"class.absl::debian2::flat_hash_set", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

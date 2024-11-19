@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm16MCRelocationInfoD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm16MCRelocationInfoD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm16MCRelocationInfoC2ERNS_9MCContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16MCRelocationInfoC2ERNS_9MCContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm16MCRelocationInfoE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8

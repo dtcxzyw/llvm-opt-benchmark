@@ -51,7 +51,7 @@ $_ZTVN3url15RawCanonOutputTIcLi1024EEE = comdat any
 @.str.1 = private unnamed_addr constant [8 x i8] c"file://\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url25CanonicalizeFileSystemURLEPKciRKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, i32 noundef %spec_len, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %charset_converter, ptr noundef %output, ptr noundef %new_parsed) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url25CanonicalizeFileSystemURLEPKciRKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, i32 noundef %spec_len, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %charset_converter, ptr noundef %output, ptr noundef initializes((0, 4), (8, 40)) %new_parsed) local_unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"struct.url::URLComponentSource", align 8
   store ptr %spec, ptr %ref.tmp, align 8
@@ -74,7 +74,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizeFileSystemURLIchEEbPKT_RKNS_18URLComponentSourceIS2_EERKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS9_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %source, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %charset_converter, ptr noundef %output, ptr noundef %new_parsed) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizeFileSystemURLIchEEbPKT_RKNS_18URLComponentSourceIS2_EERKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS9_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %source, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %charset_converter, ptr noundef %output, ptr noundef initializes((0, 4), (8, 40)) %new_parsed) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %new_inner_parsed = alloca %"struct.url::Parsed", align 8
   %username = getelementptr inbounds i8, ptr %new_parsed, i64 8
@@ -331,7 +331,7 @@ cleanup:                                          ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url25CanonicalizeFileSystemURLEPKtiRKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, i32 noundef %spec_len, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %charset_converter, ptr noundef %output, ptr noundef %new_parsed) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3url25CanonicalizeFileSystemURLEPKtiRKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, i32 noundef %spec_len, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %charset_converter, ptr noundef %output, ptr noundef initializes((0, 4), (8, 40)) %new_parsed) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %new_inner_parsed.i = alloca %"struct.url::Parsed", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %new_inner_parsed.i)

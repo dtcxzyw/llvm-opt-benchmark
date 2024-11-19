@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.16 = private unnamed_addr constant [59 x i8] c"lockcnt_unlock_success lockcnt %p unlock %d->%d succeeded\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qemu_lockcnt_init(ptr nocapture noundef writeonly %lockcnt) local_unnamed_addr #0 {
+define dso_local void @qemu_lockcnt_init(ptr nocapture noundef writeonly initializes((0, 4)) %lockcnt) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %lockcnt, align 4
   ret void

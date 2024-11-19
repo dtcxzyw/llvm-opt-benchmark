@@ -525,7 +525,7 @@ zend_user_it_invalidate_current.exit:             ; preds = %1, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @zend_user_it_get_gc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
+define noalias noundef ptr @zend_user_it_get_gc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8

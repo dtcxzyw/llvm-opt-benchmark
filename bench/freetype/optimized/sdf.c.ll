@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__const.sdf_generate_bounding_box.dist = private unnamed_addr constant %struct.SDF_Signed_Distance_ { i32 2147483647, i32 0, i8 0 }, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @ft_sdf_init(ptr nocapture noundef writeonly %0) #0 {
+define internal noundef i32 @ft_sdf_init(ptr nocapture noundef writeonly initializes((128, 135)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   store i32 8, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 132
@@ -299,7 +299,7 @@ define internal range(i32 0, 7) i32 @ft_sdf_transform(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ft_sdf_get_cbox(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal void @ft_sdf_get_cbox(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef initializes((0, 32)) %2) #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 144
   %5 = load i32, ptr %4, align 8
@@ -490,7 +490,7 @@ thread-pre-split.thread:                          ; preds = %17, %19, %thread-pr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bsdf_raster_new(ptr noundef %0, ptr nocapture noundef writeonly %1) #2 {
+define internal i32 @bsdf_raster_new(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #2 {
   %3 = alloca i32, align 4
   %4 = call ptr @ft_mem_alloc(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %3) #11
   %5 = load i32, ptr %3, align 4
@@ -620,7 +620,7 @@ define internal void @bsdf_raster_done(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sdf_raster_new(ptr noundef %0, ptr nocapture noundef writeonly %1) #2 {
+define internal i32 @sdf_raster_new(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #2 {
   %3 = alloca i32, align 4
   %4 = call ptr @ft_mem_alloc(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %3) #11
   %5 = load i32, ptr %3, align 4

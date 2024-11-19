@@ -2383,7 +2383,7 @@ define hidden noundef zeroext i16 @de_cld_party_bcd_num(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @de_bcd_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %6) unnamed_addr #1 {
+define internal fastcc void @de_bcd_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull initializes((0, 8)) %6) unnamed_addr #1 {
   store ptr null, ptr %6, align 8
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #6
   %9 = load i32, ptr @hf_gsm_a_extension, align 4
@@ -5253,7 +5253,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @de_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #1 {
+define internal fastcc void @de_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull initializes((0, 8)) %5) unnamed_addr #1 {
   store ptr null, ptr %5, align 8
   %7 = load i32, ptr @hf_gsm_a_extension, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6

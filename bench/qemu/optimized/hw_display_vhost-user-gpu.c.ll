@@ -405,7 +405,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vhost_user_gpu_get_config(ptr noundef %vdev, ptr noundef %config_data) #0 {
+define internal void @vhost_user_gpu_get_config(ptr noundef %vdev, ptr noundef initializes((0, 16)) %config_data) #0 {
 entry:
   %local_err = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 39, ptr noundef nonnull @__func__.VHOST_USER_GPU) #7

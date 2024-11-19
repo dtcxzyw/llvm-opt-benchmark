@@ -188,7 +188,7 @@ _ZN17ExportObjectModel11objectEntryEi.exit:       ; preds = %_ZNK5QListI8QVarian
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN17ExportObjectModelD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17ExportObjectModelD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QVariant, align 8
   %3 = alloca %class.QVariant, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV17ExportObjectModel, i64 16), ptr %0, align 8
@@ -1658,7 +1658,7 @@ define noundef ptr @_ZN17ExportObjectModel16getTapPacketFuncEv(ptr nocapture nou
 declare ptr @get_eo_packet_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN17ExportObjectModel9removeTapEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0) local_unnamed_addr #11 align 2 {
+define void @_ZN17ExportObjectModel9removeTapEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((64, 72)) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr null, ptr %2, align 8
   ret void

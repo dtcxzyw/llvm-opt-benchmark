@@ -7732,7 +7732,7 @@ declare noundef i64 @_ZNK4llvm9StringRef16find_insensitiveES0_m(ptr noundef nonn
 declare noundef ptr @_ZN5clang26AnalysisDeclContextManager10getContextEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(161), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 12), (16, 24)) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.clang::ast_matchers::internal::Matcher.408", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.1141", align 8
   %.sroa.02 = alloca [12 x i8], align 8
@@ -8072,7 +8072,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_14BinaryOperatorEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120bindAssignmentToDeclEPKc(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120bindAssignmentToDeclEPKc(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 1), (4, 12), (16, 24)) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::Matcher.426", align 8
   %5 = alloca %"class.clang::ast_matchers::internal::Matcher.423", align 8

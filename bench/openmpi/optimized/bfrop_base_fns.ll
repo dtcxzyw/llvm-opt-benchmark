@@ -56,7 +56,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [21 x i8] c"pthread_mutex_lock()\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @pmix_bfrops_base_value_load(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define void @pmix_bfrops_base_value_load(ptr noundef initializes((0, 2)) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   store i16 %2, ptr %0, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %9
@@ -2750,13 +2750,13 @@ pmix_bfrops_base_tma_net_stats_destruct.exit.i:   ; preds = %131, %.lr.ph.i169.p
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_bfrops_base_value_xfer(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @pmix_bfrops_base_value_xfer(ptr noundef initializes((0, 2)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i32 @pmix_bfrops_base_tma_value_xfer(ptr noundef %0, ptr noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pmix_bfrops_base_tma_value_xfer(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @pmix_bfrops_base_tma_value_xfer(ptr noundef initializes((0, 2)) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = load i16, ptr %1, align 8
   store i16 %3, ptr %0, align 8
   switch i16 %3, label %262 [
@@ -3996,7 +3996,7 @@ pmix_obj_run_destructors.exit38:                  ; preds = %.lr.ph.i35, %53
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define nonnull ptr @PMIx_Info_list_get_info(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #10 {
+define nonnull ptr @PMIx_Info_list_get_info(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #10 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %7
 
@@ -6403,7 +6403,7 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_pinfo(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pmix_bfrops_base_tma_copy_darray(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @pmix_bfrops_base_tma_copy_darray(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   %3 = tail call noalias noundef dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #29
   %4 = icmp eq ptr %3, null
@@ -8682,7 +8682,7 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_endpoint
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_regattr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_regattr(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = tail call noalias noundef dereferenceable_or_null(536) ptr @malloc(i64 noundef 536) #23
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %pmix_bfrops_base_tma_regattr_create.exit.thread, label %.preheader.i.preheader
@@ -9175,7 +9175,7 @@ define internal fastcc noalias noundef ptr @pmix_bfrops_base_tma_device_distance
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @pmix_bfrops_base_tma_populate_ndstats(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #15 {
+define internal fastcc void @pmix_bfrops_base_tma_populate_ndstats(ptr nocapture noundef nonnull initializes((8, 52), (56, 72), (80, 88)) %0, ptr nocapture noundef readonly %1) unnamed_addr #15 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4

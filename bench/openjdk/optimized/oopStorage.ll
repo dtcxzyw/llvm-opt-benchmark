@@ -133,7 +133,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN10OopStorage13BasicParStateD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN10OopStorage13BasicParStateD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10OopStorage19AllocationListEntryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN10OopStorage19AllocationListEntryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
@@ -144,7 +144,7 @@ define hidden void @_ZN10OopStorage19AllocationListEntryD2Ev(ptr nocapture nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10OopStorage14AllocationListC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN10OopStorage14AllocationListC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
@@ -259,7 +259,7 @@ define hidden noundef zeroext i1 @_ZNK10OopStorage14AllocationList8containsERKNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN10OopStorage11ActiveArrayC2Em(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN10OopStorage11ActiveArrayC2Em(ptr noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %0, i64 noundef %1) unnamed_addr #4 align 2 {
   store i64 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store volatile i64 0, ptr %3, align 8
@@ -375,7 +375,7 @@ define hidden noundef zeroext i1 @_ZN10OopStorage11ActiveArray4pushEPNS_5BlockE(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10OopStorage5Block16set_active_indexEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(576) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10OopStorage5Block16set_active_indexEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(576) initializes((536, 544)) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 536
   store i64 %1, ptr %3, align 8
   ret void
@@ -437,7 +437,7 @@ define hidden void @_ZN10OopStorage11ActiveArray9copy_fromEPKS0_(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN10OopStorage5BlockC2EPKS_Pv(ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 {
+define hidden void @_ZN10OopStorage5BlockC2EPKS_Pv(ptr noundef nonnull align 8 dereferenceable(576) initializes((0, 512)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 0, i64 512, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 512
   store volatile i64 0, ptr %4, align 8
@@ -1848,7 +1848,7 @@ define hidden noundef ptr @_ZN10OopStorage6createEPKc8MEMFLAGS(ptr noundef %0, i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10OopStorageC2EPKc8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(126) %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #5 align 2 {
+define hidden void @_ZN10OopStorageC2EPKc8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(126) initializes((0, 32)) %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #5 align 2 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca [256 x i8], align 16
   %6 = alloca %class.NativeCallStack, align 8
@@ -2065,7 +2065,7 @@ _ZN10OopStorage14AllocationList6unlinkERKNS_5BlockE.exit: ; preds = %_ZN10OopSto
 declare void @_ZN2os4freeEPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10OopStorage26register_num_dead_callbackEPFvmE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(126) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10OopStorage26register_num_dead_callbackEPFvmE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(126) initializes((56, 64)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %1, ptr %3, align 8
   ret void
@@ -2644,7 +2644,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN10OopStorage13BasicParState30defau
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10OopStorage13BasicParStateC2EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #5 align 2 {
+define hidden void @_ZN10OopStorage13BasicParStateC2EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #5 align 2 {
   %5 = zext i1 %3 to i8
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8

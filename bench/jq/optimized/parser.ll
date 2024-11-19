@@ -4687,7 +4687,7 @@ define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @jq_parse(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define i32 @jq_parse(ptr noundef %0, ptr nocapture noundef initializes((0, 16)) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lexer_param, align 8
   %4 = alloca i32, align 4
   %5 = call i32 @jq_yylex_init_extra(i32 noundef 0, ptr noundef nonnull %3) #9
@@ -4737,7 +4737,7 @@ declare void @jq_yy_delete_buffer(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @jq_yylex_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @jq_parse_library(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define i32 @jq_parse_library(ptr noundef %0, ptr nocapture noundef initializes((0, 16)) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @jq_parse(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %10

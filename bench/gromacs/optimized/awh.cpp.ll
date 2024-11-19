@@ -1497,7 +1497,7 @@ _ZN3gmx15CorrelationGridD2Ev.exit:                ; preds = %_ZSt8_DestroyIPN3gm
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx3AwhC2EP8_IO_FILERK10t_inputrecPK9t_commrecPK14gmx_multisim_tRKNS_9AwhParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP6pull_tii(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(856) %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx3AwhC2EP8_IO_FILERK10t_inputrecPK9t_commrecPK14gmx_multisim_tRKNS_9AwhParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP6pull_tii(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 36), (40, 80)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(856) %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.gmx::Bias", align 8
   %12 = alloca %"class.gmx::InvalidInputError", align 8
   %13 = alloca %"class.gmx::ExceptionInitializer", align 8
@@ -4823,7 +4823,7 @@ declare void @_ZN3gmx4Bias28doSkippedUpdatesForAllPointsEv(ptr noundef nonnull a
 declare void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3gmx3Awh20initHistoryFromStateEv(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.252") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3gmx3Awh20initHistoryFromStateEv(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.252") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 52

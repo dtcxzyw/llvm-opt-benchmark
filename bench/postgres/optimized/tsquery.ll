@@ -489,7 +489,7 @@ findoprnd.exit:                                   ; preds = %._crit_edge
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 3) i32 @gettoken_query_plain(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #3 {
+define internal range(i32 0, 3) i32 @gettoken_query_plain(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly initializes((0, 2)) %4, ptr nocapture noundef writeonly initializes((0, 1)) %5) #3 {
   store i16 0, ptr %4, align 2
   store i8 0, ptr %5, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -521,7 +521,7 @@ define internal range(i32 0, 3) i32 @gettoken_query_plain(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 4) i32 @gettoken_query_websearch(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 4) i32 @gettoken_query_websearch(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 2)) %4, ptr nocapture noundef writeonly initializes((0, 1)) %5) #0 {
   store i16 0, ptr %4, align 2
   store i8 0, ptr %5, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 28
@@ -754,7 +754,7 @@ define internal range(i32 0, 4) i32 @gettoken_query_websearch(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 6) i32 @gettoken_query_standard(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 6) i32 @gettoken_query_standard(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef initializes((0, 2)) %4, ptr nocapture noundef writeonly initializes((0, 1)) %5) #0 {
   %7 = alloca ptr, align 8
   store i16 0, ptr %4, align 2
   store i8 0, ptr %5, align 1

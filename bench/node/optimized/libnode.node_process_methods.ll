@@ -1606,7 +1606,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4node7process11BindingData23PrepareForSerializationEN2v85LocalINS2_7ContextEEEPNS2_15SnapshotCreatorE(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, ptr %context.coerce, ptr noundef %creator) unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4node7process11BindingData23PrepareForSerializationEN2v85LocalINS2_7ContextEEEPNS2_15SnapshotCreatorE(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((96, 104)) %this, ptr %context.coerce, ptr noundef %creator) unnamed_addr #3 align 2 {
 entry:
   %type_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %type_.i, align 8

@@ -124,7 +124,7 @@ _ZN4absl24synchronization_internalL17NewThreadIdentityEv.exit: ; preds = %_ZN4ab
 declare void @_ZN4absl13base_internal24SetCurrentThreadIdentityEPNS0_14ThreadIdentityEPFvPvE(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl24synchronization_internalL21ReclaimThreadIdentityEPv(ptr noundef %v) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl24synchronization_internalL21ReclaimThreadIdentityEPv(ptr noundef initializes((344, 352)) %v) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %all_locks = getelementptr inbounds i8, ptr %v, i64 56
   %0 = load ptr, ptr %all_locks, align 8

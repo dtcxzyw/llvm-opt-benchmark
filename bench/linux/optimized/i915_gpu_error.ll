@@ -6228,7 +6228,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #4
 declare dso_local i32 @i915_gem_get_pat_index(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -4095, 1) i32 @compress_page(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -4095, 1) i32 @compress_page(ptr noundef nonnull initializes((128, 144)) %0, ptr noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %1, ptr %5, align 8
   br i1 %3, label %6, label %14

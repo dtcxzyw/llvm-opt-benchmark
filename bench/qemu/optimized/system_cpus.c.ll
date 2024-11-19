@@ -1078,7 +1078,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @cpu_thread_signal_created(ptr nocapture noundef writeonly %cpu) local_unnamed_addr #0 {
+define dso_local void @cpu_thread_signal_created(ptr nocapture noundef writeonly initializes((201, 202)) %cpu) local_unnamed_addr #0 {
 entry:
   %created = getelementptr inbounds i8, ptr %cpu, i64 201
   store i8 1, ptr %created, align 1
@@ -1089,7 +1089,7 @@ entry:
 declare void @qemu_cond_signal(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @cpu_thread_signal_destroyed(ptr nocapture noundef writeonly %cpu) local_unnamed_addr #0 {
+define dso_local void @cpu_thread_signal_destroyed(ptr nocapture noundef writeonly initializes((201, 202)) %cpu) local_unnamed_addr #0 {
 entry:
   %created = getelementptr inbounds i8, ptr %cpu, i64 201
   store i8 0, ptr %created, align 1
@@ -1274,7 +1274,7 @@ declare void @replay_mutex_unlock() local_unnamed_addr #1
 declare void @replay_mutex_lock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @cpu_resume(ptr noundef %cpu) local_unnamed_addr #0 {
+define dso_local void @cpu_resume(ptr noundef initializes((202, 204)) %cpu) local_unnamed_addr #0 {
 entry:
   %stop = getelementptr inbounds i8, ptr %cpu, i64 202
   store i8 0, ptr %stop, align 2
@@ -1316,7 +1316,7 @@ for.end:                                          ; preds = %for.body, %if.end, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @cpu_remove_sync(ptr noundef %cpu) local_unnamed_addr #0 {
+define dso_local void @cpu_remove_sync(ptr noundef initializes((202, 203), (205, 206)) %cpu) local_unnamed_addr #0 {
 entry:
   %stop = getelementptr inbounds i8, ptr %cpu, i64 202
   store i8 1, ptr %stop, align 2
@@ -1401,7 +1401,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_init_vcpu(ptr noundef %cpu) local_unnamed_addr #0 {
+define dso_local void @qemu_init_vcpu(ptr noundef initializes((168, 176), (203, 204), (240, 248)) %cpu) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qdev_get_machine() #16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16

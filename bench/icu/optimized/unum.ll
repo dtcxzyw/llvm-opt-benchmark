@@ -1338,7 +1338,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @unum_parseDoubleCurrency_75(ptr noundef %fmt, ptr noundef %text, i32 noundef %textLength, ptr noundef %parsePos, ptr noundef %currency, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef double @unum_parseDoubleCurrency_75(ptr noundef %fmt, ptr noundef %text, i32 noundef %textLength, ptr noundef %parsePos, ptr noundef initializes((0, 2)) %currency, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %src = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8

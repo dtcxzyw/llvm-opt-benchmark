@@ -633,7 +633,7 @@ _ZN5boost10shared_ptrIN8QuantLib13CommodityType4DataEED2Ev.exit: ; preds = %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib10EnergySwapC1ENS_8CalendarENS_8CurrencyES2_St6vectorIN5boost10shared_ptrINS_13PricingPeriodEEESaIS7_EERKNS_13CommodityTypeERKNS5_ISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_3anyESt4lessISJ_ESaISt4pairIKSJ_SK_EEEEE(ptr noundef nonnull align 8 dereferenceable(376) %this, ptr nocapture noundef %calendar, ptr nocapture noundef %payCurrency, ptr nocapture noundef %receiveCurrency, ptr nocapture noundef %pricingPeriods, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %commodityType, ptr noundef nonnull align 8 dereferenceable(16) %secondaryCosts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib10EnergySwapC1ENS_8CalendarENS_8CurrencyES2_St6vectorIN5boost10shared_ptrINS_13PricingPeriodEEESaIS7_EERKNS_13CommodityTypeERKNS5_ISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_3anyESt4lessISJ_ESaISt4pairIKSJ_SK_EEEEE(ptr noundef nonnull align 8 dereferenceable(376) initializes((376, 384), (392, 396), (400, 408)) %this, ptr nocapture noundef %calendar, ptr nocapture noundef %payCurrency, ptr nocapture noundef %receiveCurrency, ptr nocapture noundef %pricingPeriods, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %commodityType, ptr noundef nonnull align 8 dereferenceable(16) %secondaryCosts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::CommodityType", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 376

@@ -5644,7 +5644,7 @@ _ZNSt12__shared_ptrIN7rocksdb14SstFileManagerELN9__gnu_cxx12_Lock_policyE2EED2Ev
 declare void @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6DBImpl15ValidateOptionsERKNS_9DBOptionsERKSt6vectorINS_22ColumnFamilyDescriptorESaIS5_EE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(688) %db_options, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %column_families) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBImpl15ValidateOptionsERKNS_9DBOptionsERKSt6vectorINS_22ColumnFamilyDescriptorESaIS5_EE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(688) %db_options, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %column_families) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
   %ref.tmp9 = alloca %"class.rocksdb::Status", align 8
@@ -16677,7 +16677,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE14_M_mo
 declare void @_ZN7rocksdb15OptionsFileNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6DBImpl35PersistentStatsProcessFormatVersionEv(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBImpl35PersistentStatsProcessFormatVersionEv(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %format_version_recovered = alloca i64, align 8
   %s_format = alloca %"class.rocksdb::Status", align 8
@@ -17562,7 +17562,7 @@ declare void @_ZN7rocksdb10WriteBatchD1Ev(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN7rocksdb17InstrumentedMutex4LockEv(ptr noundef nonnull align 8 dereferenceable(60)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6DBImpl28InitPersistStatsColumnFamilyEv(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBImpl28InitPersistStatsColumnFamilyEv(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %handle = alloca ptr, align 8
   %cfo = alloca %"struct.rocksdb::ColumnFamilyOptions", align 8
@@ -20904,7 +20904,7 @@ return:                                           ; preds = %invoke.cont20, %for
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6DBImpl26GetLogSizeAndMaybeTruncateEmbPNS0_17LogFileNumberSizeE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this, i64 noundef %wal_number, i1 noundef zeroext %truncate, ptr noundef writeonly %log_ptr) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBImpl26GetLogSizeAndMaybeTruncateEmbPNS0_17LogFileNumberSizeE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this, i64 noundef %wal_number, i1 noundef zeroext %truncate, ptr noundef writeonly %log_ptr) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %log = alloca %"struct.rocksdb::DBImpl::LogFileNumberSize", align 8
   %fname = alloca %"class.std::__cxx11::basic_string", align 8
@@ -26830,7 +26830,7 @@ nrvo.skipdtor:                                    ; preds = %"_ZZN7rocksdb2DB18O
 declare void @_ZN7rocksdb6DBImpl20CompactRangeInternalERKNS_19CompactRangeOptionsEPNS_18ColumnFamilyHandleEPKNS_5SliceES8_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.rocksdb::Status") align 8, ptr noundef nonnull align 64 dereferenceable(6660), ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6DBImpl9CreateWALEmmmPPNS_3log6WriterE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this, i64 noundef %log_file_num, i64 noundef %recycle_log_number, i64 noundef %preallocate_block_size, ptr nocapture noundef writeonly %new_log) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBImpl9CreateWALEmmmPPNS_3log6WriterE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this, i64 noundef %log_file_num, i64 noundef %recycle_log_number, i64 noundef %preallocate_block_size, ptr nocapture noundef writeonly %new_log) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lfile = alloca %"class.std::unique_ptr.456", align 8
   %db_options = alloca %"struct.rocksdb::DBOptions", align 8

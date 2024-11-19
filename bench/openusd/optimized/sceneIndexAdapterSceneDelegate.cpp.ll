@@ -1862,7 +1862,7 @@ $_ZTIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceIPNS_15HdScene
 @_ZN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegateD1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegateD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegate25AppendDefaultSceneFiltersENS_8TfRefPtrINS_16HdSceneIndexBaseEEERKNS_7SdfPathE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegate25AppendDefaultSceneFiltersENS_8TfRefPtrINS_16HdSceneIndexBaseEEERKNS_7SdfPathE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.1", align 8
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %0, align 8
@@ -2774,7 +2774,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserverD2Ev(pt
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__15HdSceneDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(1184) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(1184) initializes((0, 8), (24, 32)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 464) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegateE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegateE, i64 496), ptr %2, align 8
@@ -27570,7 +27570,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourc
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema12GetConstantsEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::HdTypedContainerSchema") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ToDictionaryENS_22HdTypedContainerSchemaINS_19HdSampledDataSourceEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ToDictionaryENS_22HdTypedContainerSchemaINS_19HdSampledDataSourceEEE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 8)) %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %4 = alloca %"class.std::vector.80", align 8
   %5 = alloca %"class.std::shared_ptr.302", align 8
@@ -69366,7 +69366,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17HdContainerSchemaD2Ev.exit: ; preds = %1,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L26_GetHdParamsFromDataSourceENS_28HdSchemaBasedContainerSchemaINS_29HdMaterialNodeParameterSchemaEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L26_GetHdParamsFromDataSourceENS_28HdSchemaBasedContainerSchemaINS_29HdMaterialNodeParameterSchemaEEE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.80", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdMaterialNodeParameterSchema", align 8
   %5 = alloca %"class.std::shared_ptr.302", align 8

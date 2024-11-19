@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @blk_SHA256_Final.pad = internal constant <{ i8, [63 x i8] }> <{ i8 -128, [63 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @blk_SHA256_Init(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #0 {
+define dso_local void @blk_SHA256_Init(ptr nocapture noundef writeonly initializes((0, 44)) %ctx) local_unnamed_addr #0 {
 entry:
   %offset = getelementptr inbounds i8, ptr %ctx, i64 40
   store i32 0, ptr %offset, align 8

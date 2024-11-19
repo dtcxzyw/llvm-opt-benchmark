@@ -262,7 +262,7 @@ _yr_arena_page_for_address.exit:                  ; preds = %18, %9
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @yr_arena_create(i64 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @yr_arena_create(i64 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   %4 = tail call ptr @cli_max_malloc(i64 noundef 24) #11
   %5 = icmp eq ptr %4, null

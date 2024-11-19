@@ -84,7 +84,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN8AgeTableC1Eb = hidden unnamed_addr alias void (ptr, i1), ptr @_ZN8AgeTableC2Eb
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8AgeTableC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(264) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN8AgeTableC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(264) initializes((0, 129)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.ExceptionMark, align 8
   %4 = alloca [10 x i8], align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 128
@@ -165,7 +165,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %42, %40, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN8AgeTable5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(264) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8AgeTable5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(264) initializes((0, 128)) %0) local_unnamed_addr #1 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
   ret void
 }

@@ -31,7 +31,7 @@ $_ZN10OpenSubdiv6v3_6_03Vtr8internal14FVarRefinement32populateChildValuesForEdge
 @_ZN10OpenSubdiv6v3_6_03Vtr8internal14FVarRefinementD1Ev = unnamed_addr alias void (ptr), ptr @_ZN10OpenSubdiv6v3_6_03Vtr8internal14FVarRefinementD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal14FVarRefinementC2ERKNS2_10RefinementERNS2_9FVarLevelES8_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(504) %1, ptr noundef nonnull align 8 dereferenceable(216) %2, ptr noundef nonnull align 8 dereferenceable(216) %3) unnamed_addr #0 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal14FVarRefinementC2ERKNS2_10RefinementERNS2_9FVarLevelES8_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef nonnull align 8 dereferenceable(504) %1, ptr noundef nonnull align 8 dereferenceable(216) %2, ptr noundef nonnull align 8 dereferenceable(216) %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8

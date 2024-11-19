@@ -554,7 +554,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512ICUDataTableC2EPKcRKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef readonly %path, ptr noundef nonnull align 8 dereferenceable(217) %locale) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512ICUDataTableC2EPKcRKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %this, ptr noundef readonly %path, ptr noundef nonnull align 8 dereferenceable(217) %locale) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
   %locale3 = getelementptr inbounds i8, ptr %this, i64 8
@@ -761,7 +761,7 @@ entry:
 declare void @llvm.trap() #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522LocaleDisplayNamesImplC2ERKNS_6LocaleE16UDialectHandling(ptr noundef nonnull align 8 dereferenceable(1206) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, i32 noundef %dialectHandling) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7522LocaleDisplayNamesImplC2ERKNS_6LocaleE16UDialectHandling(ptr noundef nonnull align 8 dereferenceable(1206) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, i32 noundef %dialectHandling) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522LocaleDisplayNamesImplE, i64 16), ptr %this, align 8
   %locale2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -1422,7 +1422,7 @@ ehcleanup125:                                     ; preds = %ehcleanup121, %lpad
 declare void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522LocaleDisplayNamesImplC2ERKNS_6LocaleEP15UDisplayContexti(ptr noundef nonnull align 8 dereferenceable(1206) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr nocapture noundef readonly %contexts, i32 noundef %length) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7522LocaleDisplayNamesImplC2ERKNS_6LocaleEP15UDisplayContexti(ptr noundef nonnull align 8 dereferenceable(1206) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr nocapture noundef readonly %contexts, i32 noundef %length) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522LocaleDisplayNamesImplE, i64 16), ptr %this, align 8
   %locale2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -1659,7 +1659,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare noundef ptr @_ZN6icu_7513BreakIterator22createSentenceInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7522LocaleDisplayNamesImplD2Ev(ptr noundef nonnull align 8 dereferenceable(1206) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7522LocaleDisplayNamesImplD2Ev(ptr noundef nonnull align 8 dereferenceable(1206) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522LocaleDisplayNamesImplE, i64 16), ptr %this, align 8
   %capitalizationBrkIter = getelementptr inbounds i8, ptr %this, i64 928

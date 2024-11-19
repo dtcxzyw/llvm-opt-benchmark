@@ -523,7 +523,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN11MapgenBasicD2Ev(ptr noundef nonnull align 8 dereferenceable(474)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10MapgenFlatD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %this) unnamed_addr #9 align 2 {
+define dso_local void @_ZN10MapgenFlatD2Ev(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %this) unnamed_addr #9 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV10MapgenFlat, i64 16), ptr %this, align 8, !tbaa !12
   %noise_filler_depth = getelementptr inbounds i8, ptr %this, i64 208
@@ -563,7 +563,7 @@ if.end:                                           ; preds = %delete.notnull6, %i
 declare void @_ZN5NoiseD1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10MapgenFlatD0Ev(ptr noundef nonnull align 8 dereferenceable(504) %this) unnamed_addr #9 align 2 {
+define dso_local void @_ZN10MapgenFlatD0Ev(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %this) unnamed_addr #9 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV10MapgenFlat, i64 16), ptr %this, align 8, !tbaa !12
   %noise_filler_depth.i = getelementptr inbounds i8, ptr %this, i64 208
@@ -601,7 +601,7 @@ _ZN10MapgenFlatD2Ev.exit:                         ; preds = %delete.notnull6.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16MapgenFlatParamsC2Ev(ptr noundef nonnull writeonly align 8 dereferenceable(344) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16MapgenFlatParamsC2Ev(ptr noundef nonnull writeonly align 8 dereferenceable(344) initializes((0, 14), (16, 36), (40, 53), (54, 86), (88, 130), (132, 170), (172, 210), (212, 250), (252, 290), (292, 330), (332, 344)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont22:
   %mgtype.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %mgtype.i, align 8, !tbaa !58
@@ -4145,7 +4145,7 @@ cleanup:                                          ; preds = %if.end46, %if.then3
 declare noundef float @_Z13NoisePerlin2DPK11NoiseParamsffi(ptr noundef, float noundef, float noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10MapgenFlat9makeChunkEP13BlockMakeData(ptr noundef nonnull align 8 dereferenceable(504) %this, ptr noundef %data) unnamed_addr #5 align 2 {
+define dso_local void @_ZN10MapgenFlat9makeChunkEP13BlockMakeData(ptr noundef nonnull align 8 dereferenceable(504) initializes((24, 25), (32, 40), (48, 60), (216, 240)) %this, ptr noundef %data) unnamed_addr #5 align 2 {
 entry:
   %generating = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %generating, align 8, !tbaa !91

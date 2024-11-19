@@ -59,7 +59,7 @@ entry:
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7523UCharsDictionaryMatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7523UCharsDictionaryMatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523UCharsDictionaryMatcherE, i64 16), ptr %this, align 8
   %file = getelementptr inbounds i8, ptr %this, i64 16
@@ -540,7 +540,7 @@ declare noundef i32 @_ZN6icu_7510UCharsTrie4nextEi(ptr noundef nonnull align 8 d
 declare void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7522BytesDictionaryMatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7522BytesDictionaryMatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522BytesDictionaryMatcherE, i64 16), ptr %this, align 8
   %file = getelementptr inbounds i8, ptr %this, i64 24

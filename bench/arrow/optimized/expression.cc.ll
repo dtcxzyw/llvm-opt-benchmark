@@ -1441,7 +1441,7 @@ return:                                           ; preds = %if.then, %_ZSt6get_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute10ExpressionC2ENS1_4CallE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %call) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute10ExpressionC2ENS1_4CallE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull %call) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   invoke void @_ZN5arrow7compute10Expression4Call11ComputeHashEv(ptr noundef nonnull align 8 dereferenceable(144) %call)
@@ -1694,7 +1694,7 @@ _ZNSt12__shared_ptrISt7variantIJN5arrow5DatumENS1_7compute10Expression9Parameter
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute10ExpressionC2ENS_5DatumE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef %literal) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute10ExpressionC2ENS_5DatumE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef %literal) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   store ptr null, ptr %this, align 8, !alias.scope !8
@@ -1734,7 +1734,7 @@ _ZSt11make_sharedISt7variantIJN5arrow5DatumENS1_7compute10Expression9ParameterEN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute10ExpressionC2ENS1_9ParameterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %parameter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute10ExpressionC2ENS1_9ParameterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %parameter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   store ptr null, ptr %this, align 8, !alias.scope !11
@@ -14075,7 +14075,7 @@ _ZNSt12_Vector_baseIN5arrow10TypeHolderESaIS1_EED2Ev.exit: ; preds = %invoke.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute18FieldsInExpressionERKNS0_10ExpressionE(ptr noalias sret(%"class.std::vector.225") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %expr) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute18FieldsInExpressionERKNS0_10ExpressionE(ptr noalias sret(%"class.std::vector.225") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %expr) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [1 x %"class.arrow::FieldRef"], align 8
   %argument_fields = alloca %"class.std::vector.225", align 8
@@ -44403,7 +44403,7 @@ lpad:                                             ; preds = %_ZNSt16allocator_tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5arrow7compute12_GLOBAL__N_124SimplifyIsValidGuaranteeENS0_10ExpressionERKNS2_4CallEENK3$_1clES2_z"(ptr noalias nocapture nonnull writeonly sret(%"class.arrow::Result.131") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull %expr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5arrow7compute12_GLOBAL__N_124SimplifyIsValidGuaranteeENS0_10ExpressionERKNS2_4CallEENK3$_1clES2_z"(ptr noalias nocapture nonnull writeonly sret(%"class.arrow::Result.131") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull %expr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::compute::Expression", align 8
   %ref.tmp11 = alloca i8, align 1

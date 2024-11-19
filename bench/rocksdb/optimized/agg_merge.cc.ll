@@ -240,7 +240,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb16AggMergeOperatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb16AggMergeOperatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this) unnamed_addr #4 align 2 {
 entry:
   %options_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i, i8 0, i64 24, i1 false)
@@ -399,7 +399,7 @@ return:                                           ; preds = %if.end20, %if.then1
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb22ExtractAggFuncAndValueERKNS_5SliceERS0_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %op, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %func, ptr nocapture noundef nonnull align 8 dereferenceable(16) %value) local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN7rocksdb22ExtractAggFuncAndValueERKNS_5SliceERS0_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %op, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %func, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %value) local_unnamed_addr #3 {
 entry:
   %len.i = alloca i32, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) %op, i64 16, i1 false)

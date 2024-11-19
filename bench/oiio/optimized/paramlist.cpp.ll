@@ -628,7 +628,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiPKvNS0_4CopyENS0_11FromUstringE(ptr noundef nonnull align 8 dereferenceable(39) %this, ptr nocapture noundef readonly %_name, ptr nocapture noundef readonly %_type, i32 noundef %_nvalues, ptr noundef %_value, i8 %_copy.coerce, i8 %_from_ustring.coerce) local_unnamed_addr #3 align 2 {
+define void @_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiPKvNS0_4CopyENS0_11FromUstringE(ptr noundef nonnull align 8 dereferenceable(39) initializes((0, 16), (32, 37)) %this, ptr nocapture noundef readonly %_name, ptr nocapture noundef readonly %_type, i32 noundef %_nvalues, ptr noundef %_value, i8 %_copy.coerce, i8 %_from_ustring.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::ustring", align 8
   %agg.tmp5 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
@@ -655,7 +655,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_6InterpEPKvNS0_4CopyENS0_11FromUstringE(ptr noundef nonnull align 8 dereferenceable(39) %this, ptr nocapture noundef readonly %_name, ptr nocapture noundef readonly %_type, i32 noundef %_nvalues, i32 noundef %_interp, ptr noundef %_value, i8 %_copy.coerce, i8 %_from_ustring.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_010ParamValue12init_noclearENS_7ustringENS_8TypeDescEiNS0_6InterpEPKvNS0_4CopyENS0_11FromUstringE(ptr noundef nonnull align 8 dereferenceable(39) initializes((0, 16), (32, 37)) %this, ptr nocapture noundef readonly %_name, ptr nocapture noundef readonly %_type, i32 noundef %_nvalues, i32 noundef %_interp, ptr noundef %_value, i8 %_copy.coerce, i8 %_from_ustring.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %agg.tmp.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %0 = load ptr, ptr %_name, align 8
@@ -1005,7 +1005,7 @@ if.end:                                           ; preds = %invoke.cont9, %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_010ParamValueC2ENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescES4_(ptr noundef nonnull align 8 dereferenceable(39) %this, ptr nocapture noundef readonly %name, ptr nocapture noundef readonly %type, ptr nocapture noundef readonly %value) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_010ParamValueC2ENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescES4_(ptr noundef nonnull align 8 dereferenceable(39) initializes((0, 16), (32, 39)) %this, ptr nocapture noundef readonly %name, ptr nocapture noundef readonly %type, ptr nocapture noundef readonly %value) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i814 = alloca %"class.OpenImageIO_v2_6_0::ustring", align 8
   %agg.tmp3.i.i.i815 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
@@ -5486,7 +5486,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK18OpenImageIO_v2_6_014ParamValueList10get_stringENS_17basic_string_viewIcSt11char_traitsIcEEES4_bb(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %name, ptr nocapture noundef readonly %defaultval, i1 noundef zeroext %casesensitive, i1 noundef zeroext %convert) local_unnamed_addr #11 align 2 {
+define void @_ZNK18OpenImageIO_v2_6_014ParamValueList10get_stringENS_17basic_string_viewIcSt11char_traitsIcEEES4_bb(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %name, ptr nocapture noundef readonly %defaultval, i1 noundef zeroext %casesensitive, i1 noundef zeroext %convert) local_unnamed_addr #11 align 2 {
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp3 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4

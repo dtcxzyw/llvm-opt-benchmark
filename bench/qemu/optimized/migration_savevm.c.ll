@@ -3958,7 +3958,7 @@ declare zeroext i1 @migration_in_postcopy() local_unnamed_addr #1
 declare void @cpu_synchronize_all_states() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_savevm_state_pending_estimate(ptr noundef %must_precopy, ptr noundef %can_postcopy) local_unnamed_addr #0 {
+define dso_local void @qemu_savevm_state_pending_estimate(ptr noundef initializes((0, 8)) %must_precopy, ptr noundef initializes((0, 8)) %can_postcopy) local_unnamed_addr #0 {
 entry:
   store i64 0, ptr %must_precopy, align 8
   store i64 0, ptr %can_postcopy, align 8
@@ -4014,7 +4014,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_savevm_state_pending_exact(ptr noundef %must_precopy, ptr noundef %can_postcopy) local_unnamed_addr #0 {
+define dso_local void @qemu_savevm_state_pending_exact(ptr noundef initializes((0, 8)) %must_precopy, ptr noundef initializes((0, 8)) %can_postcopy) local_unnamed_addr #0 {
 entry:
   store i64 0, ptr %must_precopy, align 8
   store i64 0, ptr %can_postcopy, align 8
@@ -7113,7 +7113,7 @@ declare i32 @llvm.bswap.i32(i32) #12
 declare i64 @llvm.bswap.i64(i64) #12
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @configuration_pre_load(ptr nocapture noundef writeonly %opaque) #0 {
+define internal noundef i32 @configuration_pre_load(ptr nocapture noundef writeonly initializes((88, 92)) %opaque) #0 {
 entry:
   %call = tail call i32 @qemu_target_page_bits_min() #18
   %target_page_bits = getelementptr inbounds i8, ptr %opaque, i64 88
@@ -7250,7 +7250,7 @@ out:                                              ; preds = %configuration_valid
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @configuration_pre_save(ptr nocapture noundef %opaque) #0 {
+define internal noundef i32 @configuration_pre_save(ptr nocapture noundef initializes((76, 92)) %opaque) #0 {
 entry:
   %0 = load ptr, ptr @current_machine, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %0) #18
@@ -7333,7 +7333,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @configuration_post_save(ptr nocapture noundef %opaque) #0 {
+define internal noundef i32 @configuration_post_save(ptr nocapture noundef initializes((92, 96)) %opaque) #0 {
 entry:
   %capabilities = getelementptr inbounds i8, ptr %opaque, i64 96
   %0 = load ptr, ptr %capabilities, align 8
@@ -8253,7 +8253,7 @@ declare i32 @migrate_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @snapshot_save_job_run(ptr noundef %job, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @snapshot_save_job_run(ptr noundef initializes((304, 320)) %job, ptr noundef %errp) #0 {
 entry:
   %errp1 = getelementptr inbounds i8, ptr %job, i64 312
   store ptr %errp, ptr %errp1, align 8
@@ -8316,7 +8316,7 @@ declare void @aio_co_wake(ptr noundef) local_unnamed_addr #1
 declare void @qapi_free_strList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @snapshot_load_job_run(ptr noundef %job, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @snapshot_load_job_run(ptr noundef initializes((304, 320)) %job, ptr noundef %errp) #0 {
 entry:
   %errp1 = getelementptr inbounds i8, ptr %job, i64 312
   store ptr %errp, ptr %errp1, align 8
@@ -8375,7 +8375,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @snapshot_delete_job_run(ptr noundef %job, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @snapshot_delete_job_run(ptr noundef initializes((304, 320)) %job, ptr noundef %errp) #0 {
 entry:
   %errp1 = getelementptr inbounds i8, ptr %job, i64 312
   store ptr %errp, ptr %errp1, align 8

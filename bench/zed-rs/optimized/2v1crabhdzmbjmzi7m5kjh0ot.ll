@@ -558,7 +558,7 @@ define noundef zeroext i1 @"_ZN198_$LT$proto..participant_location.._..$LT$impl$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN86_$LT$proto..participant_location..SharedProject$u20$as$u20$prost..message..Message$GT$5clear17h7bbaf1b9805a97f9E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define void @"_ZN86_$LT$proto..participant_location..SharedProject$u20$as$u20$prost..message..Message$GT$5clear17h7bbaf1b9805a97f9E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #1 {
   store i64 0, ptr %0, align 8
   ret void
 }
@@ -778,14 +778,14 @@ define noundef zeroext i1 @"_ZN186_$LT$proto..resolve_state.._..$LT$impl$u20$ser
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN81_$LT$proto..resolve_state..LspResolveState$u20$as$u20$prost..message..Message$GT$5clear17he90347b978003b09E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0) unnamed_addr #1 {
+define void @"_ZN81_$LT$proto..resolve_state..LspResolveState$u20$as$u20$prost..message..Message$GT$5clear17he90347b978003b09E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) initializes((16, 32)) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN80_$LT$proto..resolve_state..LspResolveState$u20$as$u20$core..default..Default$GT$7default17hd0da520f1802eff8E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0) unnamed_addr #1 {
+define void @"_ZN80_$LT$proto..resolve_state..LspResolveState$u20$as$u20$core..default..Default$GT$7default17hd0da520f1802eff8E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #1 {
   store i64 0, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.42.0..sroa_idx, align 8
@@ -1010,7 +1010,7 @@ define noundef zeroext i1 @"_ZN185_$LT$proto..task_source_kind.._..$LT$impl$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN77_$LT$proto..task_source_kind..Worktree$u20$as$u20$prost..message..Message$GT$5clear17h84bf8cb75f38ecf0E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(56) %0) unnamed_addr #1 {
+define void @"_ZN77_$LT$proto..task_source_kind..Worktree$u20$as$u20$prost..message..Message$GT$5clear17h84bf8cb75f38ecf0E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(56) initializes((16, 24), (40, 56)) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1019,7 +1019,7 @@ define void @"_ZN77_$LT$proto..task_source_kind..Worktree$u20$as$u20$prost..mess
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN76_$LT$proto..task_source_kind..Worktree$u20$as$u20$core..default..Default$GT$7default17h8a90a517decc09aeE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) %0) unnamed_addr #1 {
+define void @"_ZN76_$LT$proto..task_source_kind..Worktree$u20$as$u20$core..default..Default$GT$7default17h8a90a517decc09aeE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) initializes((0, 56)) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 0, ptr %2, align 8
   store i64 0, ptr %0, align 8
@@ -1086,7 +1086,7 @@ define noundef zeroext i1 @"_ZN184_$LT$proto..task_source_kind.._..$LT$impl$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN76_$LT$proto..task_source_kind..AbsPath$u20$as$u20$prost..message..Message$GT$5clear17h219cca9078166531E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0) unnamed_addr #1 {
+define void @"_ZN76_$LT$proto..task_source_kind..AbsPath$u20$as$u20$prost..message..Message$GT$5clear17h219cca9078166531E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) initializes((16, 24), (40, 48)) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1095,7 +1095,7 @@ define void @"_ZN76_$LT$proto..task_source_kind..AbsPath$u20$as$u20$prost..messa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN75_$LT$proto..task_source_kind..AbsPath$u20$as$u20$core..default..Default$GT$7default17he3e70c1d9ad81ef3E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0) unnamed_addr #1 {
+define void @"_ZN75_$LT$proto..task_source_kind..AbsPath$u20$as$u20$core..default..Default$GT$7default17he3e70c1d9ad81ef3E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #1 {
   store i64 0, ptr %0, align 8
   %.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.33.0..sroa_idx, align 8
@@ -1154,14 +1154,14 @@ define noundef zeroext i1 @"_ZN185_$LT$proto..task_source_kind.._..$LT$impl$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN77_$LT$proto..task_source_kind..Language$u20$as$u20$prost..message..Message$GT$5clear17h6205bb6d02e2a4c5E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define void @"_ZN77_$LT$proto..task_source_kind..Language$u20$as$u20$prost..message..Message$GT$5clear17h6205bb6d02e2a4c5E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) initializes((16, 24)) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN76_$LT$proto..task_source_kind..Language$u20$as$u20$core..default..Default$GT$7default17h6450913a213d4e38E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define void @"_ZN76_$LT$proto..task_source_kind..Language$u20$as$u20$core..default..Default$GT$7default17h6450913a213d4e38E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #1 {
   store i64 0, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.42.0..sroa_idx, align 8
@@ -1356,7 +1356,7 @@ define void @"_ZN83_$LT$proto..context_operation..InsertMessage$u20$as$u20$prost
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN82_$LT$proto..context_operation..InsertMessage$u20$as$u20$core..default..Default$GT$7default17h2867e13bb2c92cb7E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) %0) unnamed_addr #1 {
+define void @"_ZN82_$LT$proto..context_operation..InsertMessage$u20$as$u20$core..default..Default$GT$7default17h2867e13bb2c92cb7E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 8), (80, 104)) %0) unnamed_addr #1 {
   store i64 3, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store i64 0, ptr %2, align 8
@@ -1413,7 +1413,7 @@ define noundef zeroext i1 @"_ZN192_$LT$proto..context_operation.._..$LT$impl$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN83_$LT$proto..context_operation..UpdateMessage$u20$as$u20$prost..message..Message$GT$5clear17h8035dce83e7bf5f5E"(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN83_$LT$proto..context_operation..UpdateMessage$u20$as$u20$prost..message..Message$GT$5clear17h8035dce83e7bf5f5E"(ptr noalias noundef align 8 dereferenceable(80) initializes((48, 52), (72, 76)) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 0, ptr %3, align 8
@@ -1471,7 +1471,7 @@ define void @"_ZN83_$LT$proto..context_operation..UpdateMessage$u20$as$u20$prost
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN82_$LT$proto..context_operation..UpdateMessage$u20$as$u20$core..default..Default$GT$7default17hddc808f2b142c675E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([80 x i8]) align 8 dereferenceable(80) %0) unnamed_addr #1 {
+define void @"_ZN82_$LT$proto..context_operation..UpdateMessage$u20$as$u20$core..default..Default$GT$7default17hddc808f2b142c675E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([80 x i8]) align 8 dereferenceable(80) initializes((0, 32), (48, 52), (60, 64), (72, 76)) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 72
@@ -1586,7 +1586,7 @@ _ZN5proto17LanguageModelRole8from_i3217hcb39dae4609da5e1E.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define void @_ZN5proto17context_operation13UpdateMessage8set_role17h36565e2143d722d8E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #5 {
+define void @_ZN5proto17context_operation13UpdateMessage8set_role17h36565e2143d722d8E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(80) initializes((72, 76)) %0, i32 noundef %1) unnamed_addr #5 {
   %3 = icmp ult i32 %1, 3
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 72
@@ -1619,7 +1619,7 @@ define noundef zeroext i1 @"_ZN192_$LT$proto..context_operation.._..$LT$impl$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN83_$LT$proto..context_operation..UpdateSummary$u20$as$u20$prost..message..Message$GT$5clear17hf6590d950d97d4c6E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(64) %0) unnamed_addr #1 {
+define void @"_ZN83_$LT$proto..context_operation..UpdateSummary$u20$as$u20$prost..message..Message$GT$5clear17hf6590d950d97d4c6E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(64) initializes((16, 24), (40, 52), (60, 61)) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 60
@@ -1632,7 +1632,7 @@ define void @"_ZN83_$LT$proto..context_operation..UpdateSummary$u20$as$u20$prost
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN82_$LT$proto..context_operation..UpdateSummary$u20$as$u20$core..default..Default$GT$7default17h40af5c2a2ea75952E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) %0) unnamed_addr #1 {
+define void @"_ZN82_$LT$proto..context_operation..UpdateSummary$u20$as$u20$core..default..Default$GT$7default17h40af5c2a2ea75952E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) initializes((0, 52), (60, 61)) %0) unnamed_addr #1 {
   store i64 0, ptr %0, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.47.0..sroa_idx, align 8
@@ -1707,7 +1707,7 @@ define noundef zeroext i1 @"_ZN199_$LT$proto..context_operation.._..$LT$impl$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN90_$LT$proto..context_operation..SlashCommandFinished$u20$as$u20$prost..message..Message$GT$5clear17h86fb093e1be0455eE"(ptr noalias nocapture noundef align 8 dereferenceable(144) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN90_$LT$proto..context_operation..SlashCommandFinished$u20$as$u20$prost..message..Message$GT$5clear17h86fb093e1be0455eE"(ptr noalias nocapture noundef align 8 dereferenceable(144) initializes((0, 8), (128, 132)) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   store i32 0, ptr %2, align 8
   store i64 3, ptr %0, align 8
@@ -1761,7 +1761,7 @@ define void @"_ZN90_$LT$proto..context_operation..SlashCommandFinished$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN89_$LT$proto..context_operation..SlashCommandFinished$u20$as$u20$core..default..Default$GT$7default17hb44cbcd8cadb8e01E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([144 x i8]) align 8 dereferenceable(144) %0) unnamed_addr #1 {
+define void @"_ZN89_$LT$proto..context_operation..SlashCommandFinished$u20$as$u20$core..default..Default$GT$7default17hb44cbcd8cadb8e01E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([144 x i8]) align 8 dereferenceable(144) initializes((0, 8), (80, 132)) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   store i32 0, ptr %2, align 8
   store i64 3, ptr %0, align 8
@@ -1858,7 +1858,7 @@ define void @"_ZN85_$LT$proto..context_operation..BufferOperation$u20$as$u20$pro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN84_$LT$proto..context_operation..BufferOperation$u20$as$u20$core..default..Default$GT$7default17h56839449ab3770d8E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([80 x i8]) align 8 dereferenceable(80) %0) unnamed_addr #1 {
+define void @"_ZN84_$LT$proto..context_operation..BufferOperation$u20$as$u20$core..default..Default$GT$7default17h56839449ab3770d8E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([80 x i8]) align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #1 {
   store i64 -9223372036854775803, ptr %0, align 8
   ret void
 }

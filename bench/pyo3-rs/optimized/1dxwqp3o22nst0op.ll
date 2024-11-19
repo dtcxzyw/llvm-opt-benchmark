@@ -2549,7 +2549,7 @@ define hidden range(i8 0, 3) i8 @_ZN19pyo3_macros_backend6method17CallingConvent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN19pyo3_macros_backend6method21parse_method_receiver17h08af83769db6707cE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden void @_ZN19pyo3_macros_backend6method21parse_method_receiver17h08af83769db6707cE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 9), (12, 16)) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8

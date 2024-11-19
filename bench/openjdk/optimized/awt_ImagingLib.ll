@@ -582,7 +582,7 @@ declare i32 @awt_parseImage(ptr noundef, ptr noundef, ptr noundef, i32 noundef) 
 declare void @awt_freeParsedImage(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @setImageHints(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #4 {
+define internal fastcc i32 @setImageHints(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef nonnull writeonly initializes((0, 4), (20, 24)) %3) unnamed_addr #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 488
   %6 = load i32, ptr %5, align 8
   store i32 %6, ptr %3, align 4
@@ -861,7 +861,7 @@ define internal fastcc i32 @setImageHints(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @allocateArray(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @allocateArray(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca [32 x i32], align 16
   %9 = alloca [32 x i32], align 16
   %10 = alloca [32 x i32], align 16
@@ -3177,7 +3177,7 @@ declare i32 @awt_parseRaster(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @awt_freeParsedRaster(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca [32 x i32], align 16
   %7 = alloca [32 x i32], align 16
   store ptr null, ptr %3, align 8

@@ -32,7 +32,7 @@ $_ZTI8RAR_EXIT = comdat any
 @switch.table._ZL13RarErrorToDll8RAR_EXIT = private unnamed_addr constant [13 x i32] [i32 0, i32 21, i32 18, i32 12, i32 21, i32 19, i32 15, i32 21, i32 11, i32 16, i32 21, i32 24, i32 18], align 4
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @RAROpenArchive(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define noundef ptr @RAROpenArchive(ptr nocapture noundef initializes((12, 16), (28, 36)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RAROpenArchiveDataEx, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 0, i64 168, i1 false)
@@ -1191,7 +1191,7 @@ declare noundef zeroext i1 @_Z12MergeArchiveR7ArchiveP11ComprDataIObw(ptr nounde
 declare void @_ZN7Archive4SeekEli(ptr noundef nonnull align 8 dereferenceable(57108), i64 noundef, i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @RARProcessFile(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define noundef i32 @RARProcessFile(ptr noundef initializes((83424, 83428)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call noundef i32 @_Z11ProcessFilePviPcS0_PwS1_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null, ptr noundef null)
   ret i32 %5
 }
@@ -1203,7 +1203,7 @@ declare noundef i32 @_ZN7RarTime6GetDosEv(ptr noundef nonnull align 8 dereferenc
 declare noundef i64 @_ZN7RarTime6GetWinEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z11ProcessFilePviPcS0_PwS1_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_Z11ProcessFilePviPcS0_PwS1_(ptr noundef initializes((83424, 83428)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca [2048 x i8], align 16
   %8 = alloca [2048 x i8], align 16
   %9 = alloca i8, align 1
@@ -1439,20 +1439,20 @@ declare noundef zeroext i1 @_ZN10CmdExtract18ExtractCurrentFileER7ArchivemRb(ptr
 declare noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @RARProcessFileW(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define noundef i32 @RARProcessFileW(ptr noundef initializes((83424, 83428)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call noundef i32 @_Z11ProcessFilePviPcS0_PwS1_(ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef null, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @RARSetChangeVolProc(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #9 {
+define void @RARSetChangeVolProc(ptr nocapture noundef writeonly initializes((83448, 83456)) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 83448
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @RARSetCallback(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #9 {
+define void @RARSetCallback(ptr nocapture noundef writeonly initializes((83432, 83448)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %0, i64 83440
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 83432
@@ -1461,7 +1461,7 @@ define void @RARSetCallback(ptr nocapture noundef writeonly %0, ptr noundef %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @RARSetProcessDataProc(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #9 {
+define void @RARSetProcessDataProc(ptr nocapture noundef writeonly initializes((83456, 83464)) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 83456
   store ptr %1, ptr %3, align 8
   ret void

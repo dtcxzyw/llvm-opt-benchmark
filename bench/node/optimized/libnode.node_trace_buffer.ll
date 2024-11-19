@@ -359,7 +359,7 @@ cleanup:                                          ; preds = %if.end5, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4node7tracing19InternalTraceBuffer13ExtractHandleEmPjPmS2_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i64 noundef %handle, ptr nocapture noundef writeonly %buffer_id, ptr nocapture noundef writeonly %chunk_index, ptr nocapture noundef writeonly %chunk_seq, ptr nocapture noundef writeonly %event_index) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4node7tracing19InternalTraceBuffer13ExtractHandleEmPjPmS2_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i64 noundef %handle, ptr nocapture noundef writeonly initializes((0, 4)) %buffer_id, ptr nocapture noundef writeonly initializes((0, 8)) %chunk_index, ptr nocapture noundef writeonly initializes((0, 4)) %chunk_seq, ptr nocapture noundef writeonly initializes((0, 8)) %event_index) local_unnamed_addr #3 align 2 {
 entry:
   %0 = trunc i64 %handle to i32
   %conv = and i32 %0, 1
@@ -460,7 +460,7 @@ declare void @_ZN4node7tracing5Agent16AppendTraceEventEPN2v88platform7tracing11T
 declare void @_ZN4node7tracing5Agent5FlushEb(ptr noundef nonnull align 8 dereferenceable(1312), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node7tracing15NodeTraceBufferC2EmPNS0_5AgentEP9uv_loop_s(ptr noundef nonnull align 8 dereferenceable(584) %this, i64 noundef %max_chunks, ptr noundef %agent, ptr noundef %tracing_loop) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node7tracing15NodeTraceBufferC2EmPNS0_5AgentEP9uv_loop_s(ptr noundef nonnull align 8 dereferenceable(584) initializes((0, 16), (272, 273)) %this, i64 noundef %max_chunks, ptr noundef %agent, ptr noundef %tracing_loop) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node7tracing15NodeTraceBufferE, i64 16), ptr %this, align 8
   %tracing_loop_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -781,7 +781,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node7tracing15NodeTraceBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node7tracing15NodeTraceBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(584) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node7tracing15NodeTraceBufferE, i64 16), ptr %this, align 8
   %exit_signal_ = getelementptr inbounds i8, ptr %this, i64 144
@@ -908,7 +908,7 @@ _ZN4node7tracing19InternalTraceBufferD2Ev.exit21: ; preds = %_ZSt8_DestroyIPSt10
 declare i32 @uv_async_send(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node7tracing15NodeTraceBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(584) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node7tracing15NodeTraceBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(584) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN4node7tracing15NodeTraceBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16

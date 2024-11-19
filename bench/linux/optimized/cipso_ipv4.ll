@@ -1633,7 +1633,7 @@ define dso_local range(i32 -2147483648, 1) i32 @cipso_v4_sock_setattr(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef initializes((0, 40)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   %4 = alloca [16 x i16], align 16
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = getelementptr i8, ptr %0, i64 6

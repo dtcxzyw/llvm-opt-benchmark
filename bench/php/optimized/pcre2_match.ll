@@ -28483,7 +28483,7 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_callout(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc i32 @do_callout(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull initializes((0, 8)) %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 118

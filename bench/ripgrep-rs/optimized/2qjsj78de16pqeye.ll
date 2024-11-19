@@ -77,7 +77,7 @@ define hidden { ptr, i64 } @"_ZN79_$LT$std..path..Path$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12grep_printer5stats5Stats3new17he5a5705241a68468E(ptr noalias nocapture noundef writeonly sret({ i64, i64, i64, i64, i64, i64, { { i64, i32, [1 x i32] } } }) align 8 dereferenceable(64) %0) unnamed_addr #4 {
+define void @_ZN12grep_printer5stats5Stats3new17he5a5705241a68468E(ptr noalias nocapture noundef writeonly sret({ i64, i64, i64, i64, i64, i64, { { i64, i32, [1 x i32] } } }) align 8 dereferenceable(64) initializes((0, 60)) %0) unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %0, i8 0, i64 60, i1 false)
   ret void
 }

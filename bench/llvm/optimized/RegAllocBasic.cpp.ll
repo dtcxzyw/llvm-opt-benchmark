@@ -247,7 +247,7 @@ define internal noundef nonnull ptr @_ZL25initializeRABasicPassOnceRN4llvm12Pass
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_17RABasicC2ESt8functionIFbRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoENS2_8RegisterEEE(ptr noundef nonnull align 8 dereferenceable(872) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_17RABasicC2ESt8functionIFbRKN4llvm18TargetRegisterInfoERKNS2_19MachineRegisterInfoENS2_8RegisterEEE(ptr noundef nonnull align 8 dereferenceable(872) initializes((0, 28), (32, 104)) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8
@@ -425,7 +425,7 @@ _ZNSt8functionIFbRKN4llvm18TargetRegisterInfoERKNS0_19MachineRegisterInfoENS0_8R
 declare void @_ZN4llvm12PassRegistry12registerPassERKNS_8PassInfoEb(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(56), i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_17RABasicD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_17RABasicD2Ev(ptr noundef nonnull align 8 dereferenceable(872) initializes((0, 8), (56, 64), (744, 752)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTVN12_GLOBAL__N_17RABasicE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN12_GLOBAL__N_17RABasicE, i64 256), ptr %2, align 8
@@ -503,7 +503,7 @@ _ZN4llvm12RegAllocBaseD2Ev.exit:                  ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_17RABasicD0Ev(ptr noundef nonnull align 8 dereferenceable(872) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_17RABasicD0Ev(ptr noundef nonnull align 8 dereferenceable(872) initializes((0, 8), (56, 64), (744, 752)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_17RABasicD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %0) #20
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 872) #22
   ret void
@@ -612,7 +612,7 @@ declare void @_ZN4llvm4Pass17dumpPassStructureEj(ptr noundef nonnull align 8 der
 declare noundef zeroext i1 @_ZN4llvm19MachineFunctionPass13runOnFunctionERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(136)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_17RABasic20runOnMachineFunctionERN4llvm15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(872) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_17RABasic20runOnMachineFunctionERN4llvm15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(872) initializes((752, 760)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::VirtRegAuxInfo", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 752
   store ptr %1, ptr %4, align 8
@@ -1853,14 +1853,14 @@ _ZN4llvm11SmallVectorINS_10MCRegisterELj8EED2Ev.exit: ; preds = %_ZN4llvm15Alloc
 declare void @_ZN4llvm12RegAllocBase6anchorEv(ptr noundef nonnull align 8 dereferenceable(688)) unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn56_N12_GLOBAL__N_17RABasicD1Ev(ptr noundef %0) unnamed_addr #7 align 2 {
+define internal void @_ZThn56_N12_GLOBAL__N_17RABasicD1Ev(ptr noundef initializes((-56, -48), (0, 8), (688, 696)) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -56
   tail call void @_ZN12_GLOBAL__N_17RABasicD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %2) #20
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn56_N12_GLOBAL__N_17RABasicD0Ev(ptr noundef %0) unnamed_addr #7 align 2 {
+define internal void @_ZThn56_N12_GLOBAL__N_17RABasicD0Ev(ptr noundef initializes((-56, -48), (0, 8), (688, 696)) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -56
   tail call void @_ZN12_GLOBAL__N_17RABasicD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %2) #20
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(872) %2, i64 noundef 872) #22
@@ -2015,14 +2015,14 @@ define linkonce_odr hidden void @_ZN4llvm12RegAllocBase21aboutToRemoveIntervalER
 declare void @_ZN4llvm13LiveRangeEdit8Delegate6anchorEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn744_N12_GLOBAL__N_17RABasicD1Ev(ptr noundef %0) unnamed_addr #7 align 2 {
+define internal void @_ZThn744_N12_GLOBAL__N_17RABasicD1Ev(ptr noundef initializes((-744, -736), (-688, -680), (0, 8)) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -744
   tail call void @_ZN12_GLOBAL__N_17RABasicD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %2) #20
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn744_N12_GLOBAL__N_17RABasicD0Ev(ptr noundef %0) unnamed_addr #7 align 2 {
+define internal void @_ZThn744_N12_GLOBAL__N_17RABasicD0Ev(ptr noundef initializes((-744, -736), (-688, -680), (0, 8)) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -744
   tail call void @_ZN12_GLOBAL__N_17RABasicD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %2) #20
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(872) %2, i64 noundef 872) #22

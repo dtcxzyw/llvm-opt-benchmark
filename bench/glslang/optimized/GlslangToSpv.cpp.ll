@@ -1332,7 +1332,7 @@ declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadP
 declare void @_ZN7glslang14TPoolAllocator4pushEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverserC2EjPKN7glslang13TIntermediateEPN3spv14SpvBuildLoggerERNS1_10SpvOptionsE(ptr noundef nonnull align 8 dereferenceable(3528) %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull align 1 dereferenceable(9) %4) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverserC2EjPKN7glslang13TIntermediateEPN3spv14SpvBuildLoggerERNS1_10SpvOptionsE(ptr noundef nonnull align 8 dereferenceable(3528) initializes((0, 20), (24, 80), (88, 92), (96, 104)) %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull align 1 dereferenceable(9) %4) unnamed_addr #3 align 2 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4950,7 +4950,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit699:                 ; preds = %._crit_edge894, %15
 declare void @_ZN7glslang14TPoolAllocator3popEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverserD2Ev(ptr noundef nonnull align 8 dereferenceable(3528) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverserD2Ev(ptr noundef nonnull align 8 dereferenceable(3528) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN12_GLOBAL__N_122TGlslangToSpvTraverserE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 3472
   %3 = getelementptr inbounds i8, ptr %0, i64 3488
@@ -9000,7 +9000,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %276, %271, %313, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverserD0Ev(ptr noundef nonnull align 8 dereferenceable(3528) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverserD0Ev(ptr noundef nonnull align 8 dereferenceable(3528) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverserD2Ev(ptr noundef nonnull align 8 dereferenceable(3528) %0) #20
   ret void
 }
@@ -54989,7 +54989,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser22makeGlobalInitializersERKN7glslang7TVectorIP11TIntermNodeEE(ptr noundef nonnull align 8 dereferenceable(3528) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_122TGlslangToSpvTraverser22makeGlobalInitializersERKN7glslang7TVectorIP11TIntermNodeEE(ptr noundef nonnull align 8 dereferenceable(3528) initializes((248, 249), (560, 568)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 152

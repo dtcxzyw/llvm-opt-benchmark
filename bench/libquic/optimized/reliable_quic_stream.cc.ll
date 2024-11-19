@@ -104,7 +104,7 @@ _ZN13scoped_refptrIN3net24QuicAckListenerInterfaceEED2Ev.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18ReliableQuicStreamC2EjPNS_11QuicSessionE(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef %id, ptr noundef %session) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net18ReliableQuicStreamC2EjPNS_11QuicSessionE(ptr noundef nonnull align 8 dereferenceable(377) initializes((0, 8)) %this, i32 noundef %id, ptr noundef %session) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net18ReliableQuicStreamE, i64 16), ptr %this, align 8
   %queued_data_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -256,7 +256,7 @@ _ZNSt7__cxx1110_List_baseIN3net18ReliableQuicStream11PendingDataESaIS3_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(377) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(377) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net18ReliableQuicStreamE, i64 16), ptr %this, align 8
   %sequencer_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -507,7 +507,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18ReliableQuicStream13OnStreamResetERKNS_18QuicRstStreamFrameE(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %frame) unnamed_addr #2 align 2 {
+define dso_local void @_ZN3net18ReliableQuicStream13OnStreamResetERKNS_18QuicRstStreamFrameE(ptr noundef nonnull align 8 dereferenceable(377) initializes((262, 263)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %frame) unnamed_addr #2 align 2 {
 entry:
   %rst_received_ = getelementptr inbounds i8, ptr %this, i64 262
   store i8 1, ptr %rst_received_, align 2
@@ -664,7 +664,7 @@ return:                                           ; preds = %if.then4.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18ReliableQuicStream9OnFinReadEv(ptr noundef nonnull align 8 dereferenceable(377) %this) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN3net18ReliableQuicStream9OnFinReadEv(ptr noundef nonnull align 8 dereferenceable(377) initializes((260, 261)) %this) local_unnamed_addr #2 align 2 {
 entry:
   %fin_received_ = getelementptr inbounds i8, ptr %this, i64 260
   store i8 1, ptr %fin_received_, align 4
@@ -698,7 +698,7 @@ _ZN3net18ReliableQuicStream13CloseReadSideEv.exit: ; preds = %entry, %if.end.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18ReliableQuicStream5ResetENS_22QuicRstStreamErrorCodeE(ptr nocapture noundef nonnull align 8 dereferenceable(377) %this, i32 noundef %error) unnamed_addr #2 align 2 {
+define dso_local void @_ZN3net18ReliableQuicStream5ResetENS_22QuicRstStreamErrorCodeE(ptr nocapture noundef nonnull align 8 dereferenceable(377) initializes((248, 252), (261, 262)) %this, i32 noundef %error) unnamed_addr #2 align 2 {
 entry:
   %stream_error_ = getelementptr inbounds i8, ptr %this, i64 248
   store i32 %error, ptr %stream_error_, align 8

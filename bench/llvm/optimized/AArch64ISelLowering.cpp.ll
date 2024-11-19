@@ -69843,7 +69843,7 @@ declare noundef ptr @_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVT
 declare void @_ZN4llvm18report_fatal_errorERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(34), i1 noundef zeroext) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_Z24lookThroughSignExtensionN4llvm7SDValueE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.744") align 8 %0, ptr %1, i32 %2) local_unnamed_addr #0 {
+define dso_local void @_Z24lookThroughSignExtensionN4llvm7SDValueE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.744") align 8 initializes((0, 12), (16, 24)) %0, ptr %1, i32 %2) local_unnamed_addr #0 {
   %4 = alloca %"struct.llvm::EVT", align 8
   %5 = alloca %"struct.llvm::EVT", align 8
   %6 = alloca %"struct.llvm::EVT", align 8
@@ -83710,7 +83710,7 @@ _ZNK4llvm3EVT20getVectorNumElementsEv.exit:       ; preds = %_ZNK4llvm3MVT20getV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL18isUZP_v_undef_MaskN4llvm8ArrayRefIiEENS_3EVTERj(ptr nocapture readonly %0, i16 %1, ptr %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL18isUZP_v_undef_MaskN4llvm8ArrayRefIiEENS_3EVTERj(ptr nocapture readonly %0, i16 %1, ptr %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3) unnamed_addr #0 {
   %5 = alloca %"struct.llvm::EVT", align 8
   store i16 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -99974,7 +99974,7 @@ _ZNK4llvm11Instruction11hasMetadataENS_9StringRefE.exit.thread: ; preds = %8, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm21AArch64TargetLowering28isLegalInterleavedAccessTypeEPNS_10VectorTypeERKNS_10DataLayoutERb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408240) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(512) %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm21AArch64TargetLowering28isLegalInterleavedAccessTypeEPNS_10VectorTypeERKNS_10DataLayoutERb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408240) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(512) %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca %"class.llvm::TypeSize", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -144180,7 +144180,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZL8getPTrueRN4llvm
 declare { ptr, i32 } @_ZN4llvm12SelectionDAG14getMaskedStoreENS_7SDValueERKNS_5SDLocES1_S1_S1_S1_NS_3EVTEPNS_17MachineMemOperandENS_3ISD14MemIndexedModeEbb(ptr noundef nonnull align 8 dereferenceable(904), ptr, i32, ptr noundef nonnull align 8 dereferenceable(12), ptr, i32, ptr noundef byval(%"class.llvm::SDValue") align 8, ptr noundef byval(%"class.llvm::SDValue") align 8, ptr noundef byval(%"class.llvm::SDValue") align 8, ptr noundef byval(%"struct.llvm::EVT") align 8, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK4llvm21AArch64TargetLowering36LowerFixedLengthVectorIntDivideToSVEENS_7SDValueERNS_12SelectionDAGEENK3$_0clES1_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr %2, i32 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK4llvm21AArch64TargetLowering36LowerFixedLengthVectorIntDivideToSVEENS_7SDValueERNS_12SelectionDAGEENK3$_0clES1_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 12), (16, 28)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr %2, i32 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDValue", align 8
   %6 = alloca %"class.llvm::SDValue", align 8
   %7 = alloca %"class.llvm::SDValue", align 8
@@ -167178,7 +167178,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2EPK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL15checkValueWidthN4llvm7SDValueEjRNS_3ISD11LoadExtTypeE(ptr nocapture readonly %0, i32 noundef range(i32 1, 17) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) unnamed_addr #26 {
+define internal fastcc noundef zeroext i1 @_ZL15checkValueWidthN4llvm7SDValueEjRNS_3ISD11LoadExtTypeE(ptr nocapture readonly %0, i32 noundef range(i32 1, 17) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2) unnamed_addr #26 {
   store i32 0, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8

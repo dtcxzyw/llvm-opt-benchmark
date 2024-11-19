@@ -341,7 +341,7 @@ gv_alloc.exit:                                    ; preds = %7, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @freeMPair(ptr noundef %0, ptr nocapture noundef %1) #11 {
+define internal void @freeMPair(ptr noundef initializes((0, 8)) %0, ptr nocapture noundef %1) #11 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8

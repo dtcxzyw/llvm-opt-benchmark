@@ -759,7 +759,7 @@ declare void @_Unwind_SetIP(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare hidden void @lj_vm_unwind_rethrow() #1
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @lj_err_register_mcode(ptr noundef %base, i64 noundef %sz, ptr noundef %info) local_unnamed_addr #0 {
+define hidden nonnull ptr @lj_err_register_mcode(ptr noundef %base, i64 noundef %sz, ptr noundef initializes((0, 60)) %info) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(60) %info, ptr noundef nonnull align 16 dereferenceable(60) @err_frame_jit_template, i64 60, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %info, i64 18
@@ -835,7 +835,7 @@ entry:
 declare void @__deregister_frame(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @lj_err_throw(ptr noundef %L, i32 noundef %errcode) local_unnamed_addr #3 {
+define hidden void @lj_err_throw(ptr noundef initializes((11, 12)) %L, i32 noundef %errcode) local_unnamed_addr #3 {
 entry:
   %glref = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8

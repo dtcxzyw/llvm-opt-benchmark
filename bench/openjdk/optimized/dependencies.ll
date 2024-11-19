@@ -316,7 +316,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN17CallSiteDepChangeC1E6HandleS0_ = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN17CallSiteDepChangeC2E6HandleS0_
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12Dependencies10initializeEP5ciEnv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12Dependencies10initializeEP5ciEnv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) initializes((0, 8), (80, 81), (160, 176)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load ptr, ptr %4, align 8
@@ -1315,7 +1315,7 @@ define hidden void @_ZN12Dependencies29assert_call_site_target_valueEP10ciCallSi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12DependenciesC2EP5ArenaP11OopRecorderP10CompileLog(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN12DependenciesC2EP5ArenaP11OopRecorderP10CompileLog(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) initializes((0, 8), (80, 81), (160, 176)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 168
@@ -6743,7 +6743,7 @@ declare noundef ptr @_ZN13InstanceKlass24method_at_itable_or_nullEPS_iRb(ptr nou
 declare noundef ptr @_ZN5Klass16method_at_vtableEi(ptr noundef nonnull align 8 dereferenceable(196), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN26LinkedConcreteMethodFinder20compute_vtable_indexEP13InstanceKlassP6MethodRb(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN26LinkedConcreteMethodFinder20compute_vtable_indexEP13InstanceKlassP6MethodRb(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 164
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 512
@@ -9345,7 +9345,7 @@ define hidden noundef zeroext i1 @_ZN9DepChange13ContextStream4nextEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9DepChange13ContextStream5startEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9DepChange13ContextStream5startEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((8, 12), (16, 40)) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -9461,7 +9461,7 @@ _ZN9DepChange13ContextStream4nextEv.exit:         ; preds = %select.unfold, %._c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14KlassDepChangeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN14KlassDepChangeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
 select.unfold.preheader:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV14KlassDepChange, i64 16), ptr %0, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 8
@@ -9630,7 +9630,7 @@ define hidden void @_ZN28AbstractClassHierarchyWalker16print_statisticsEv() loca
 declare void @_ZN9xmlStream4elemEPKcz(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17CallSiteDepChangeC2E6HandleS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr %1, ptr %2) unnamed_addr #11 align 2 {
+define hidden void @_ZN17CallSiteDepChangeC2E6HandleS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr %1, ptr %2) unnamed_addr #11 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV17CallSiteDepChange, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8

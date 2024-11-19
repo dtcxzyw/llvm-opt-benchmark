@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @dtstat.Size = internal unnamed_addr global i64 0, align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @dtstat(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @dtstat(ptr noundef %0, ptr noundef initializes((0, 32)) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8

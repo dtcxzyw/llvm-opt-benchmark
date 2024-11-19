@@ -246,7 +246,7 @@ define linkonce_odr void @_ZN5faiss26ProgressiveDimIndexFactoryD0Ev(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss10ClusteringC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define void @_ZN5faiss10ClusteringC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 21), (24, 36), (40, 112)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 25, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12
@@ -274,7 +274,7 @@ define void @_ZN5faiss10ClusteringC2Eii(ptr nocapture noundef nonnull writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5faiss10ClusteringC2EiiRKNS_20ClusteringParametersE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %3) unnamed_addr #3 align 2 {
+define void @_ZN5faiss10ClusteringC2EiiRKNS_20ClusteringParametersE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 112)) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %3) unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss10ClusteringE, i64 16), ptr %0, align 8
@@ -3239,7 +3239,7 @@ declare noundef float @_ZN5faiss15RandomGenerator10rand_floatEv(ptr noundef nonn
 declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss12Clustering1DC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, i32 noundef %1) unnamed_addr #2 align 2 {
+define void @_ZN5faiss12Clustering1DC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 21), (24, 36), (40, 112)) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 25, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
@@ -3319,7 +3319,7 @@ _ZN5faiss12Clustering1DD2Ev.exit:                 ; preds = %_ZNSt6vectorIN5fais
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5faiss12Clustering1DC2EiRKNS_20ClusteringParametersE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) unnamed_addr #3 align 2 {
+define void @_ZN5faiss12Clustering1DC2EiRKNS_20ClusteringParametersE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 112)) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 48
@@ -3637,7 +3637,7 @@ declare void @_ZN5faiss9IndexFlatC2ElNS_10MetricTypeE(ptr noundef nonnull align 
 declare void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss34ProgressiveDimClusteringParametersC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(45) %0) unnamed_addr #2 align 2 {
+define void @_ZN5faiss34ProgressiveDimClusteringParametersC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(45) initializes((0, 13), (16, 28), (32, 45)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3659,7 +3659,7 @@ define void @_ZN5faiss34ProgressiveDimClusteringParametersC2Ev(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss24ProgressiveDimClusteringC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define void @_ZN5faiss24ProgressiveDimClusteringC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 21), (24, 36), (40, 53), (56, 120)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 1, ptr %5, align 4
@@ -3744,7 +3744,7 @@ _ZN5faiss24ProgressiveDimClusteringD2Ev.exit:     ; preds = %_ZNSt6vectorIN5fais
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5faiss24ProgressiveDimClusteringC2EiiRKNS_34ProgressiveDimClusteringParametersE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(45) %3) unnamed_addr #3 align 2 {
+define void @_ZN5faiss24ProgressiveDimClusteringC2EiiRKNS_34ProgressiveDimClusteringParametersE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 120)) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(45) %3) unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss24ProgressiveDimClusteringE, i64 16), ptr %0, align 8

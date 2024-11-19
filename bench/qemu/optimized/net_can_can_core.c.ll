@@ -45,7 +45,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @can_bus_insert_client(ptr noundef %bus, ptr noundef %client) local_unnamed_addr #1 {
+define dso_local noundef i32 @can_bus_insert_client(ptr noundef %bus, ptr noundef initializes((8, 16), (24, 40)) %client) local_unnamed_addr #1 {
 entry:
   %bus1 = getelementptr inbounds i8, ptr %client, i64 8
   store ptr %bus, ptr %bus1, align 8
@@ -203,7 +203,7 @@ entry:
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @can_bus_instance_init(ptr noundef %object) #5 {
+define internal void @can_bus_instance_init(ptr noundef initializes((40, 48)) %object) #5 {
 entry:
   %clients = getelementptr inbounds i8, ptr %object, i64 40
   store ptr null, ptr %clients, align 8

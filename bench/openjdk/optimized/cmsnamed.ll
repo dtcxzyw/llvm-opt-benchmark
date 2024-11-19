@@ -1980,7 +1980,7 @@ define hidden ptr @_cmsStageAllocNamedColor(ptr noundef %0, i32 noundef %1) loca
 declare ptr @_cmsStageAllocPlaceholder(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @EvalNamedColorPCS(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @EvalNamedColorPCS(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr nocapture noundef readonly %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load float, ptr %0, align 4

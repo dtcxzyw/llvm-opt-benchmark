@@ -2029,7 +2029,7 @@ _ZNSt12__shared_ptrIN7openvdb5v11_08GridBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_02io6Stream8readGridERKNS1_14GridDescriptorERSi(ptr noalias sret(%"class.std::shared_ptr.72") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(160) %gd, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7openvdb5v11_02io6Stream8readGridERKNS1_14GridDescriptorERSi(ptr noalias sret(%"class.std::shared_ptr.72") align 8 initializes((0, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(160) %gd, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -2540,7 +2540,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7openvdb5v11_02io6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_02io6StreamE, i64 16), ptr %this, align 8
   %mImpl = getelementptr inbounds i8, ptr %this, i64 72
@@ -2568,7 +2568,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_02io6StreamC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(80) %other) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io6StreamC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 20)) %this, ptr noundef nonnull align 8 dereferenceable(80) %other) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_02io7ArchiveE, i64 16), ptr %this, align 8
   %mFileVersion.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2818,7 +2818,7 @@ entry:
 declare void @_ZNK7openvdb5v11_02io7Archive5writeERSoRKSt6vectorISt10shared_ptrIKNS0_8GridBaseEESaIS8_EEbRKNS0_7MetaMapE(ptr noundef nonnull align 8 dereferenceable(65), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7openvdb5v11_02io6Stream11getMetadataEv(ptr noalias sret(%"class.std::shared_ptr.2") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7openvdb5v11_02io6Stream11getMetadataEv(ptr noalias sret(%"class.std::shared_ptr.2") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.2", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)

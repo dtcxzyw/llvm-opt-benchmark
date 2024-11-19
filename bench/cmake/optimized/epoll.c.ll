@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @uv__io_poll.no_epoll_wait_cached = internal unnamed_addr global i1 false, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv__epoll_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv__epoll_init(ptr nocapture noundef writeonly initializes((64, 68)) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @epoll_create1(i32 noundef 524288) #7
   %3 = icmp eq i32 %2, -1
   br i1 %3, label %4, label %11

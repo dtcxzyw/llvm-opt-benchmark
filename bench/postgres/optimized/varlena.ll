@@ -6163,7 +6163,7 @@ text_to_cstring.exit:                             ; preds = %25, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @SplitIdentifierString(ptr noundef %0, i8 noundef signext %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @SplitIdentifierString(ptr noundef %0, i8 noundef signext %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   br label %4
 
@@ -6313,7 +6313,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 declare void @truncate_identifier(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @SplitDirectoriesString(ptr noundef %0, i8 noundef signext %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @SplitDirectoriesString(ptr noundef %0, i8 noundef signext %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   br label %4
 
@@ -6441,7 +6441,7 @@ thread-pre-split:                                 ; preds = %43
 declare void @canonicalize_path(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @SplitGUCList(ptr noundef %0, i8 noundef signext %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @SplitGUCList(ptr noundef %0, i8 noundef signext %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   br label %4
 
@@ -12802,7 +12802,7 @@ rest_of_char_same.exit:                           ; preds = %120, %99
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @initClosestMatch(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #9 {
+define dso_local void @initClosestMatch(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #9 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 -1, ptr %4, align 8

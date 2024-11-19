@@ -472,7 +472,7 @@ lpad:                                             ; preds = %entry
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_116LuaBfbsGeneratorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull align 8 dereferenceable(32) %flatc_version) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_116LuaBfbsGeneratorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(624) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(32) %flatc_version) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i331 = alloca %struct._Guard, align 8
   %__guard.i321 = alloca %struct._Guard, align 8
@@ -2704,7 +2704,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11flatbuffers12_GLOBAL__N_116LuaBfbsGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11flatbuffers12_GLOBAL__N_116LuaBfbsGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(624) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN11flatbuffers12_GLOBAL__N_116LuaBfbsGeneratorE, i64 16), ptr %this, align 8
   %namer_ = getelementptr inbounds i8, ptr %this, i64 232
@@ -2766,7 +2766,7 @@ _ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hash
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11flatbuffers12_GLOBAL__N_116LuaBfbsGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(624) %this) unnamed_addr #5 align 2 {
+define internal void @_ZN11flatbuffers12_GLOBAL__N_116LuaBfbsGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(624) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN11flatbuffers12_GLOBAL__N_116LuaBfbsGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21

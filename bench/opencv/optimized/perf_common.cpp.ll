@@ -5260,7 +5260,7 @@ define hidden noundef zeroext i1 @_ZN11opencv_test15validateVPUTypeEv() local_un
 declare void @_ZN2cv3dnn14dnn4_v2024052119getAvailableTargetsENS1_7BackendE(ptr dead_on_unwind writable sret(%"class.std::vector.46") align 8, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test23dnnBackendsAndTargetsIEEv(ptr dead_on_unwind noalias writable sret(%"class.testing::internal::ParamGenerator") align 8 %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test23dnnBackendsAndTargetsIEEv(ptr dead_on_unwind noalias writable sret(%"class.testing::internal::ParamGenerator") align 8 initializes((0, 8)) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorISt5tupleIJN2cv3dnn14dnn4_v202405217BackendENS3_6TargetEEESaIS6_EED2Ev.exit:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !121)

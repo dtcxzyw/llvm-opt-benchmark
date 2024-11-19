@@ -1429,7 +1429,7 @@ _ZNSt3setIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4lessIS1_ESaIS1_EED2Ev.e
 declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33), ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__15SdfAbstractData15HasSpecAndFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueEPNS_11SdfSpecTypeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__15SdfAbstractData15HasSpecAndFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_20SdfAbstractDataValueEPNS_11SdfSpecTypeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) unnamed_addr #1 align 2 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 96
   %8 = load ptr, ptr %7, align 8
@@ -1451,7 +1451,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__15SdfAbstractDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__15SdfAbstractData15HasSpecAndFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_7VtValueEPNS_11SdfSpecTypeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__15SdfAbstractData15HasSpecAndFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_7VtValueEPNS_11SdfSpecTypeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) unnamed_addr #1 align 2 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 96
   %8 = load ptr, ptr %7, align 8
@@ -1725,7 +1725,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %_ZN32pxrInter
 declare noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary14GetValueAtPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__15SdfAbstractData17GetDictValueByKeyERKNS_7SdfPathERKNS_7TfTokenES6_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__15SdfAbstractData17GetDictValueByKeyERKNS_7SdfPathERKNS_7TfTokenES6_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 initializes((8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %6, align 8
   %7 = load ptr, ptr %1, align 8
@@ -2243,7 +2243,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionary16EraseValueAtP
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary5emptyEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__15SdfAbstractData12ListDictKeysERKNS_7SdfPathERKNS_7TfTokenES6_(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__15SdfAbstractData12ListDictKeysERKNS_7SdfPathERKNS_7TfTokenES6_(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticHelper", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8

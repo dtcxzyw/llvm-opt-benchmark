@@ -2439,7 +2439,7 @@ define internal range(i32 -30, 2) i32 @compression_code_deflate(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @compression_end_deflate(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -30, 1) i32 @compression_end_deflate(ptr noundef %0, ptr nocapture noundef initializes((64, 68)) %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @cm_zlib_deflateEnd(ptr noundef %4) #18
@@ -2541,7 +2541,7 @@ define internal range(i32 -30, 2) i32 @compression_code_bzip2(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @compression_end_bzip2(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -30, 1) i32 @compression_end_bzip2(ptr noundef %0, ptr nocapture noundef initializes((64, 68)) %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @BZ2_bzCompressEnd(ptr noundef %4) #18
@@ -2771,7 +2771,7 @@ define internal range(i32 -30, 2) i32 @compression_code_lzma(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @compression_end_lzma(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
+define internal noundef i32 @compression_end_lzma(ptr nocapture readnone %0, ptr nocapture noundef initializes((64, 68)) %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   tail call void @lzma_end(ptr noundef %4) #18
@@ -2962,7 +2962,7 @@ define internal range(i32 0, 2) i32 @compression_code_ppmd(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @compression_end_ppmd(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
+define internal noundef i32 @compression_end_ppmd(ptr nocapture readnone %0, ptr nocapture noundef initializes((64, 68)) %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @__archive_ppmd7_functions, i64 16), align 8
@@ -3025,7 +3025,7 @@ define internal range(i32 0, 2) i32 @compression_code_copy(ptr nocapture readnon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @compression_end_copy(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #13 {
+define internal noundef i32 @compression_end_copy(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((64, 68)) %1) #13 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   store i32 0, ptr %3, align 8
   ret i32 0

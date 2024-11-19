@@ -1443,7 +1443,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11KnownIssuesC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11KnownIssuesC2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24

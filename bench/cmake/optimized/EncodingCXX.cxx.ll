@@ -44,7 +44,7 @@ $_ZNSt6vectorIPcSaIS0_EE17_M_default_appendEm = comdat any
 @_ZN5cmsys8Encoding20CommandLineArgumentsC1ERKS1_ = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN5cmsys8Encoding20CommandLineArgumentsC2ERKS1_
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5cmsys8Encoding20CommandLineArguments4MainEiPKPKc(ptr dead_on_unwind noalias writable sret(%"class.cmsys::Encoding::CommandLineArguments") align 8 %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5cmsys8Encoding20CommandLineArguments4MainEiPKPKc(ptr dead_on_unwind noalias writable sret(%"class.cmsys::Encoding::CommandLineArguments") align 8 initializes((0, 24)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = add nsw i32 %1, 1
   %.not.i = icmp eq i32 %4, 0
@@ -98,7 +98,7 @@ _ZN5cmsys8Encoding20CommandLineArgumentsC2EiPKPKc.exit: ; preds = %.lr.ph.i, %3,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5cmsys8Encoding20CommandLineArgumentsC2EiPKPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5cmsys8Encoding20CommandLineArgumentsC2EiPKPKc(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = add nsw i32 %1, 1
   %.not = icmp eq i32 %4, 0
@@ -157,7 +157,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5cmsys8Encoding20CommandLineArgumentsC2EiPKPKw(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5cmsys8Encoding20CommandLineArgumentsC2EiPKPKw(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = add nsw i32 %1, 1
   %.not = icmp eq i32 %4, 0
@@ -265,7 +265,7 @@ _ZNSt6vectorIPcSaIS0_EED2Ev.exit:                 ; preds = %._crit_edge, %16
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5cmsys8Encoding20CommandLineArgumentsC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5cmsys8Encoding20CommandLineArgumentsC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8

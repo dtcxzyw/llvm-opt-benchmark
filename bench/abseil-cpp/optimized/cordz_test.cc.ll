@@ -5331,7 +5331,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_136CordzStringTest_ConstructString_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_136CordzStringTest_ConstructString_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -5360,7 +5360,7 @@ _ZN4absl12_GLOBAL__N_115CordzStringTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_136CordzStringTest_ConstructString_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_136CordzStringTest_ConstructString_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -5620,7 +5620,7 @@ ehcleanup33:                                      ; preds = %ehcleanup32, %ehcle
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_136CordzStringTest_ConstructString_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_136CordzStringTest_ConstructString_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %0, align 8
@@ -5649,7 +5649,7 @@ _ZN4absl12_GLOBAL__N_136CordzStringTest_ConstructString_TestD2Ev.exit: ; preds =
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_136CordzStringTest_ConstructString_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_136CordzStringTest_ConstructString_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %0, align 8
@@ -5679,7 +5679,7 @@ _ZN4absl12_GLOBAL__N_136CordzStringTest_ConstructString_TestD0Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_115CordzStringTestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_115CordzStringTestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
@@ -5715,7 +5715,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_115CordzStringTestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_115CordzStringTestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %0, align 8
@@ -7413,7 +7413,7 @@ ehcleanup94:                                      ; preds = %ehcleanup90, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE(ptr noalias nonnull align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE(ptr noalias nonnull align 8 initializes((0, 16)) %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %always = alloca %"class.absl::CordzSamplingIntervalHelper", align 4
   %call.i = tail call noundef i32 @_ZN4absl13cord_internal23get_cordz_mean_intervalEv()
@@ -9838,7 +9838,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_140CordzUpdateTest_AssignUnsampledCord_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_140CordzUpdateTest_AssignUnsampledCord_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -9885,7 +9885,7 @@ _ZN4absl12_GLOBAL__N_115CordzUpdateTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_140CordzUpdateTest_AssignUnsampledCord_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_140CordzUpdateTest_AssignUnsampledCord_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -10315,7 +10315,7 @@ ehcleanup58:                                      ; preds = %ehcleanup57, %lpad3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_140CordzUpdateTest_AssignUnsampledCord_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_140CordzUpdateTest_AssignUnsampledCord_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %0, align 8
@@ -10362,7 +10362,7 @@ _ZN4absl12_GLOBAL__N_140CordzUpdateTest_AssignUnsampledCord_TestD2Ev.exit: ; pre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_140CordzUpdateTest_AssignUnsampledCord_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_140CordzUpdateTest_AssignUnsampledCord_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN4absl12_GLOBAL__N_140CordzUpdateTest_AssignUnsampledCord_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
@@ -10370,7 +10370,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_115CordzUpdateTestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_115CordzUpdateTestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
@@ -10424,7 +10424,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_115CordzUpdateTestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_115CordzUpdateTestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %0, align 8
@@ -10540,7 +10540,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_138CordzUpdateTest_AssignSampledCord_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_138CordzUpdateTest_AssignSampledCord_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -10587,7 +10587,7 @@ _ZN4absl12_GLOBAL__N_115CordzUpdateTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_138CordzUpdateTest_AssignSampledCord_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_138CordzUpdateTest_AssignSampledCord_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -11146,7 +11146,7 @@ ehcleanup126:                                     ; preds = %ehcleanup122, %ehcl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_138CordzUpdateTest_AssignSampledCord_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_138CordzUpdateTest_AssignSampledCord_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %0, align 8
@@ -11193,7 +11193,7 @@ _ZN4absl12_GLOBAL__N_138CordzUpdateTest_AssignSampledCord_TestD2Ev.exit: ; preds
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_138CordzUpdateTest_AssignSampledCord_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_138CordzUpdateTest_AssignSampledCord_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN4absl12_GLOBAL__N_138CordzUpdateTest_AssignSampledCord_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
@@ -15517,7 +15517,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_137CordzUpdateTest_AssignLargeArray_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_137CordzUpdateTest_AssignLargeArray_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -15564,7 +15564,7 @@ _ZN4absl12_GLOBAL__N_115CordzUpdateTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_137CordzUpdateTest_AssignLargeArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_137CordzUpdateTest_AssignLargeArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -15723,7 +15723,7 @@ ehcleanup15:                                      ; preds = %_ZN7testing7Message
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_137CordzUpdateTest_AssignLargeArray_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_137CordzUpdateTest_AssignLargeArray_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %0, align 8
@@ -15770,7 +15770,7 @@ _ZN4absl12_GLOBAL__N_137CordzUpdateTest_AssignLargeArray_TestD2Ev.exit: ; preds 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_137CordzUpdateTest_AssignLargeArray_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_137CordzUpdateTest_AssignLargeArray_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN4absl12_GLOBAL__N_137CordzUpdateTest_AssignLargeArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
@@ -15838,7 +15838,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_137CordzUpdateTest_AssignSmallArray_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_137CordzUpdateTest_AssignSmallArray_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -15885,7 +15885,7 @@ _ZN4absl12_GLOBAL__N_115CordzUpdateTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_137CordzUpdateTest_AssignSmallArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_137CordzUpdateTest_AssignSmallArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -16044,7 +16044,7 @@ ehcleanup15:                                      ; preds = %_ZN7testing7Message
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_137CordzUpdateTest_AssignSmallArray_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_137CordzUpdateTest_AssignSmallArray_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %0, align 8
@@ -16091,7 +16091,7 @@ _ZN4absl12_GLOBAL__N_137CordzUpdateTest_AssignSmallArray_TestD2Ev.exit: ; preds 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_137CordzUpdateTest_AssignSmallArray_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_137CordzUpdateTest_AssignSmallArray_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN4absl12_GLOBAL__N_137CordzUpdateTest_AssignSmallArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
@@ -16157,7 +16157,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_139CordzUpdateTest_AssignInlinedArray_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_139CordzUpdateTest_AssignInlinedArray_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -16204,7 +16204,7 @@ _ZN4absl12_GLOBAL__N_115CordzUpdateTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_139CordzUpdateTest_AssignInlinedArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_139CordzUpdateTest_AssignInlinedArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -16372,7 +16372,7 @@ ehcleanup17:                                      ; preds = %_ZN7testing7Message
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_139CordzUpdateTest_AssignInlinedArray_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_139CordzUpdateTest_AssignInlinedArray_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %0, align 8
@@ -16419,7 +16419,7 @@ _ZN4absl12_GLOBAL__N_139CordzUpdateTest_AssignInlinedArray_TestD2Ev.exit: ; pred
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_139CordzUpdateTest_AssignInlinedArray_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_139CordzUpdateTest_AssignInlinedArray_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN4absl12_GLOBAL__N_139CordzUpdateTest_AssignInlinedArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
@@ -16511,7 +16511,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_142CordzStringTest_AssignStringToInlined_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_142CordzStringTest_AssignStringToInlined_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -16540,7 +16540,7 @@ _ZN4absl12_GLOBAL__N_115CordzStringTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_142CordzStringTest_AssignStringToInlined_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_142CordzStringTest_AssignStringToInlined_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -16782,7 +16782,7 @@ ehcleanup32:                                      ; preds = %ehcleanup30, %ehcle
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_142CordzStringTest_AssignStringToInlined_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_142CordzStringTest_AssignStringToInlined_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %0, align 8
@@ -16811,7 +16811,7 @@ _ZN4absl12_GLOBAL__N_142CordzStringTest_AssignStringToInlined_TestD2Ev.exit: ; p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_142CordzStringTest_AssignStringToInlined_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_142CordzStringTest_AssignStringToInlined_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %0, align 8
@@ -16930,7 +16930,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_139CordzStringTest_AssignStringToCord_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_139CordzStringTest_AssignStringToCord_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -16959,7 +16959,7 @@ _ZN4absl12_GLOBAL__N_115CordzStringTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_139CordzStringTest_AssignStringToCord_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_139CordzStringTest_AssignStringToCord_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -17308,7 +17308,7 @@ ehcleanup57:                                      ; preds = %ehcleanup55, %ehcle
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_139CordzStringTest_AssignStringToCord_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_139CordzStringTest_AssignStringToCord_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %0, align 8
@@ -17337,7 +17337,7 @@ _ZN4absl12_GLOBAL__N_139CordzStringTest_AssignStringToCord_TestD2Ev.exit: ; pred
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_139CordzStringTest_AssignStringToCord_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_139CordzStringTest_AssignStringToCord_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %0, align 8
@@ -18174,7 +18174,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_140CordzUpdateTest_AssignInlinedString_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_140CordzUpdateTest_AssignInlinedString_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -18221,7 +18221,7 @@ _ZN4absl12_GLOBAL__N_115CordzUpdateTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_140CordzUpdateTest_AssignInlinedString_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_140CordzUpdateTest_AssignInlinedString_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -18444,7 +18444,7 @@ eh.resume:                                        ; preds = %ehcleanup24, %ehcle
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_140CordzUpdateTest_AssignInlinedString_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_140CordzUpdateTest_AssignInlinedString_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %0, align 8
@@ -18491,7 +18491,7 @@ _ZN4absl12_GLOBAL__N_140CordzUpdateTest_AssignInlinedString_TestD2Ev.exit: ; pre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_140CordzUpdateTest_AssignInlinedString_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_140CordzUpdateTest_AssignInlinedString_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN4absl12_GLOBAL__N_140CordzUpdateTest_AssignInlinedString_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
@@ -18557,7 +18557,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_131CordzUpdateTest_AppendCord_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_131CordzUpdateTest_AppendCord_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -18604,7 +18604,7 @@ _ZN4absl12_GLOBAL__N_115CordzUpdateTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_131CordzUpdateTest_AppendCord_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_131CordzUpdateTest_AppendCord_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -18806,7 +18806,7 @@ ehcleanup22:                                      ; preds = %ehcleanup21, %lpad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_131CordzUpdateTest_AppendCord_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_131CordzUpdateTest_AppendCord_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %0, align 8
@@ -18853,7 +18853,7 @@ _ZN4absl12_GLOBAL__N_131CordzUpdateTest_AppendCord_TestD2Ev.exit: ; preds = %inv
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_131CordzUpdateTest_AppendCord_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_131CordzUpdateTest_AppendCord_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN4absl12_GLOBAL__N_131CordzUpdateTest_AppendCord_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
@@ -18921,7 +18921,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_135CordzUpdateTest_MoveAppendCord_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_135CordzUpdateTest_MoveAppendCord_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -18968,7 +18968,7 @@ _ZN4absl12_GLOBAL__N_115CordzUpdateTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_135CordzUpdateTest_MoveAppendCord_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_135CordzUpdateTest_MoveAppendCord_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -19163,7 +19163,7 @@ eh.resume:                                        ; preds = %ehcleanup18, %lpad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_135CordzUpdateTest_MoveAppendCord_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_135CordzUpdateTest_MoveAppendCord_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %0, align 8
@@ -19210,7 +19210,7 @@ _ZN4absl12_GLOBAL__N_135CordzUpdateTest_MoveAppendCord_TestD2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_135CordzUpdateTest_MoveAppendCord_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_135CordzUpdateTest_MoveAppendCord_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN4absl12_GLOBAL__N_135CordzUpdateTest_MoveAppendCord_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
@@ -19278,7 +19278,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_137CordzUpdateTest_AppendSmallArray_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_137CordzUpdateTest_AppendSmallArray_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -19325,7 +19325,7 @@ _ZN4absl12_GLOBAL__N_115CordzUpdateTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_137CordzUpdateTest_AppendSmallArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_137CordzUpdateTest_AppendSmallArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -19488,7 +19488,7 @@ ehcleanup15:                                      ; preds = %_ZN7testing7Message
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_137CordzUpdateTest_AppendSmallArray_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_137CordzUpdateTest_AppendSmallArray_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %0, align 8
@@ -19535,7 +19535,7 @@ _ZN4absl12_GLOBAL__N_137CordzUpdateTest_AppendSmallArray_TestD2Ev.exit: ; preds 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_137CordzUpdateTest_AppendSmallArray_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_137CordzUpdateTest_AppendSmallArray_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN4absl12_GLOBAL__N_137CordzUpdateTest_AppendSmallArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
@@ -19601,7 +19601,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_137CordzUpdateTest_AppendLargeArray_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_137CordzUpdateTest_AppendLargeArray_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -19648,7 +19648,7 @@ _ZN4absl12_GLOBAL__N_115CordzUpdateTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_137CordzUpdateTest_AppendLargeArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_137CordzUpdateTest_AppendLargeArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -19811,7 +19811,7 @@ ehcleanup15:                                      ; preds = %_ZN7testing7Message
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_137CordzUpdateTest_AppendLargeArray_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_137CordzUpdateTest_AppendLargeArray_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %0, align 8
@@ -19858,7 +19858,7 @@ _ZN4absl12_GLOBAL__N_137CordzUpdateTest_AppendLargeArray_TestD2Ev.exit: ; preds 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_137CordzUpdateTest_AppendLargeArray_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_137CordzUpdateTest_AppendLargeArray_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN4absl12_GLOBAL__N_137CordzUpdateTest_AppendLargeArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
@@ -19950,7 +19950,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_140CordzStringTest_AppendStringToEmpty_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_140CordzStringTest_AppendStringToEmpty_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -19979,7 +19979,7 @@ _ZN4absl12_GLOBAL__N_115CordzStringTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_140CordzStringTest_AppendStringToEmpty_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_140CordzStringTest_AppendStringToEmpty_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -20209,7 +20209,7 @@ ehcleanup31:                                      ; preds = %ehcleanup29, %ehcle
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_140CordzStringTest_AppendStringToEmpty_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_140CordzStringTest_AppendStringToEmpty_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %0, align 8
@@ -20238,7 +20238,7 @@ _ZN4absl12_GLOBAL__N_140CordzStringTest_AppendStringToEmpty_TestD2Ev.exit: ; pre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_140CordzStringTest_AppendStringToEmpty_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_140CordzStringTest_AppendStringToEmpty_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %0, align 8
@@ -20354,7 +20354,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_142CordzStringTest_AppendStringToInlined_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_142CordzStringTest_AppendStringToInlined_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -20383,7 +20383,7 @@ _ZN4absl12_GLOBAL__N_115CordzStringTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_142CordzStringTest_AppendStringToInlined_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_142CordzStringTest_AppendStringToInlined_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -20618,7 +20618,7 @@ ehcleanup34:                                      ; preds = %ehcleanup32, %ehcle
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_142CordzStringTest_AppendStringToInlined_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_142CordzStringTest_AppendStringToInlined_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %0, align 8
@@ -20647,7 +20647,7 @@ _ZN4absl12_GLOBAL__N_142CordzStringTest_AppendStringToInlined_TestD2Ev.exit: ; p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_142CordzStringTest_AppendStringToInlined_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_142CordzStringTest_AppendStringToInlined_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %0, align 8
@@ -20761,7 +20761,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_139CordzStringTest_AppendStringToCord_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_139CordzStringTest_AppendStringToCord_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -20790,7 +20790,7 @@ _ZN4absl12_GLOBAL__N_115CordzStringTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_139CordzStringTest_AppendStringToCord_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_139CordzStringTest_AppendStringToCord_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -21115,7 +21115,7 @@ ehcleanup51:                                      ; preds = %ehcleanup50, %ehcle
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_139CordzStringTest_AppendStringToCord_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_139CordzStringTest_AppendStringToCord_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %0, align 8
@@ -21144,7 +21144,7 @@ _ZN4absl12_GLOBAL__N_139CordzStringTest_AppendStringToCord_TestD2Ev.exit: ; pred
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_139CordzStringTest_AppendStringToCord_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_139CordzStringTest_AppendStringToCord_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %0, align 8
@@ -21711,7 +21711,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_132CordzUpdateTest_PrependCord_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_132CordzUpdateTest_PrependCord_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -21758,7 +21758,7 @@ _ZN4absl12_GLOBAL__N_115CordzUpdateTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_132CordzUpdateTest_PrependCord_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_132CordzUpdateTest_PrependCord_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -21960,7 +21960,7 @@ ehcleanup22:                                      ; preds = %ehcleanup21, %lpad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_132CordzUpdateTest_PrependCord_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_132CordzUpdateTest_PrependCord_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %0, align 8
@@ -22007,7 +22007,7 @@ _ZN4absl12_GLOBAL__N_132CordzUpdateTest_PrependCord_TestD2Ev.exit: ; preds = %in
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_132CordzUpdateTest_PrependCord_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_132CordzUpdateTest_PrependCord_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN4absl12_GLOBAL__N_132CordzUpdateTest_PrependCord_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
@@ -22075,7 +22075,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_138CordzUpdateTest_PrependSmallArray_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_138CordzUpdateTest_PrependSmallArray_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -22122,7 +22122,7 @@ _ZN4absl12_GLOBAL__N_115CordzUpdateTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_138CordzUpdateTest_PrependSmallArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_138CordzUpdateTest_PrependSmallArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -22285,7 +22285,7 @@ ehcleanup15:                                      ; preds = %_ZN7testing7Message
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_138CordzUpdateTest_PrependSmallArray_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_138CordzUpdateTest_PrependSmallArray_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %0, align 8
@@ -22332,7 +22332,7 @@ _ZN4absl12_GLOBAL__N_138CordzUpdateTest_PrependSmallArray_TestD2Ev.exit: ; preds
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_138CordzUpdateTest_PrependSmallArray_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_138CordzUpdateTest_PrependSmallArray_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN4absl12_GLOBAL__N_138CordzUpdateTest_PrependSmallArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
@@ -22400,7 +22400,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_138CordzUpdateTest_PrependLargeArray_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_138CordzUpdateTest_PrependLargeArray_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -22447,7 +22447,7 @@ _ZN4absl12_GLOBAL__N_115CordzUpdateTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_138CordzUpdateTest_PrependLargeArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_138CordzUpdateTest_PrependLargeArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -22610,7 +22610,7 @@ ehcleanup15:                                      ; preds = %_ZN7testing7Message
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_138CordzUpdateTest_PrependLargeArray_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_138CordzUpdateTest_PrependLargeArray_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzUpdateTestE, i64 16), ptr %0, align 8
@@ -22657,7 +22657,7 @@ _ZN4absl12_GLOBAL__N_138CordzUpdateTest_PrependLargeArray_TestD2Ev.exit: ; preds
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_138CordzUpdateTest_PrependLargeArray_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_138CordzUpdateTest_PrependLargeArray_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN4absl12_GLOBAL__N_138CordzUpdateTest_PrependLargeArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
@@ -22749,7 +22749,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_141CordzStringTest_PrependStringToEmpty_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_141CordzStringTest_PrependStringToEmpty_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -22778,7 +22778,7 @@ _ZN4absl12_GLOBAL__N_115CordzStringTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_141CordzStringTest_PrependStringToEmpty_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_141CordzStringTest_PrependStringToEmpty_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -23008,7 +23008,7 @@ ehcleanup31:                                      ; preds = %ehcleanup29, %ehcle
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_141CordzStringTest_PrependStringToEmpty_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_141CordzStringTest_PrependStringToEmpty_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %0, align 8
@@ -23037,7 +23037,7 @@ _ZN4absl12_GLOBAL__N_141CordzStringTest_PrependStringToEmpty_TestD2Ev.exit: ; pr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_141CordzStringTest_PrependStringToEmpty_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_141CordzStringTest_PrependStringToEmpty_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %0, align 8
@@ -23153,7 +23153,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_143CordzStringTest_PrependStringToInlined_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_143CordzStringTest_PrependStringToInlined_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -23182,7 +23182,7 @@ _ZN4absl12_GLOBAL__N_115CordzStringTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_143CordzStringTest_PrependStringToInlined_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_143CordzStringTest_PrependStringToInlined_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -23417,7 +23417,7 @@ ehcleanup34:                                      ; preds = %ehcleanup32, %ehcle
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_143CordzStringTest_PrependStringToInlined_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_143CordzStringTest_PrependStringToInlined_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %0, align 8
@@ -23446,7 +23446,7 @@ _ZN4absl12_GLOBAL__N_143CordzStringTest_PrependStringToInlined_TestD2Ev.exit: ; 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_143CordzStringTest_PrependStringToInlined_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_143CordzStringTest_PrependStringToInlined_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %0, align 8
@@ -23560,7 +23560,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_140CordzStringTest_PrependStringToCord_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_140CordzStringTest_PrependStringToCord_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -23589,7 +23589,7 @@ _ZN4absl12_GLOBAL__N_115CordzStringTestD2Ev.exit: ; preds = %invoke.cont.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12_GLOBAL__N_140CordzStringTest_PrependStringToCord_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12_GLOBAL__N_140CordzStringTest_PrependStringToCord_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -23914,7 +23914,7 @@ ehcleanup51:                                      ; preds = %ehcleanup50, %ehcle
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_140CordzStringTest_PrependStringToCord_TestD1Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_140CordzStringTest_PrependStringToCord_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %0, align 8
@@ -23943,7 +23943,7 @@ _ZN4absl12_GLOBAL__N_140CordzStringTest_PrependStringToCord_TestD2Ev.exit: ; pre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl12_GLOBAL__N_140CordzStringTest_PrependStringToCord_TestD0Ev(ptr noundef %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl12_GLOBAL__N_140CordzStringTest_PrependStringToCord_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12_GLOBAL__N_115CordzStringTestE, i64 16), ptr %0, align 8
@@ -26570,7 +26570,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare void @abort() local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEEE, i64 16), ptr %this, align 8
   %instantiations_ = getelementptr inbounds i8, ptr %this, i64 104
@@ -26710,7 +26710,7 @@ _ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4abs
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33
@@ -28004,7 +28004,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEEE, i64 16), ptr %this, align 8
   %instantiations_ = getelementptr inbounds i8, ptr %this, i64 104
@@ -28144,7 +28144,7 @@ _ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4abs
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33

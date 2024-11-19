@@ -8340,7 +8340,7 @@ _ZN16ArithmeticPathCV18ArithmeticPathBaseIdED2Ev.exit: ; preds = %_ZNSt6vectorId
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6colvar6aspathD2Ev(ptr noundef nonnull align 8 dereferenceable(1752) %0) unnamed_addr #1 align 2 {
+define void @_ZN6colvar6aspathD2Ev(ptr noundef nonnull align 8 dereferenceable(1752) initializes((0, 8), (320, 328)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6aspathE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6aspathE, i64 264), ptr %2, align 8
@@ -10873,7 +10873,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit70:                  ; preds = %169, %167, %146, %.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6colvar6azpathD2Ev(ptr noundef nonnull align 8 dereferenceable(1752) %0) unnamed_addr #1 align 2 {
+define void @_ZN6colvar6azpathD2Ev(ptr noundef nonnull align 8 dereferenceable(1752) initializes((0, 8), (320, 328)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6azpathE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar6azpathE, i64 264), ptr %2, align 8
@@ -12140,7 +12140,7 @@ declare noundef zeroext i1 @_ZN11colvarparse10get_keyvalERKNSt7__cxx1112basic_st
 declare void @_ZN6colvar11CVBasedPathD2Ev(ptr noundef nonnull align 8 dereferenceable(1712)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6colvar8aspathCVD2Ev(ptr noundef nonnull align 8 dereferenceable(1720) %0) unnamed_addr #1 align 2 {
+define void @_ZN6colvar8aspathCVD2Ev(ptr noundef nonnull align 8 dereferenceable(1720) initializes((0, 8), (320, 328)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar8aspathCVE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar8aspathCVE, i64 264), ptr %2, align 8
@@ -18630,7 +18630,7 @@ _ZN11colvarvalueD2Ev.exit258:                     ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6colvar8azpathCVD2Ev(ptr noundef nonnull align 8 dereferenceable(1720) %0) unnamed_addr #1 align 2 {
+define void @_ZN6colvar8azpathCVD2Ev(ptr noundef nonnull align 8 dereferenceable(1720) initializes((0, 8), (320, 328)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar8azpathCVE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar8azpathCVE, i64 264), ptr %2, align 8

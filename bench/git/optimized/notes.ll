@@ -237,7 +237,7 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @combine_notes_overwrite(ptr nocapture noundef writeonly %cur_oid, ptr nocapture noundef readonly %new_oid) local_unnamed_addr #4 {
+define dso_local noundef i32 @combine_notes_overwrite(ptr nocapture noundef writeonly initializes((0, 36)) %cur_oid, ptr nocapture noundef readonly %new_oid) local_unnamed_addr #4 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %cur_oid, ptr noundef nonnull readonly align 4 dereferenceable(32) %new_oid, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %new_oid, i64 32
@@ -1065,7 +1065,7 @@ for.end:                                          ; preds = %land.rhs.preheader,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @init_display_notes(ptr nocapture noundef writeonly %opt) local_unnamed_addr #10 {
+define dso_local void @init_display_notes(ptr nocapture noundef writeonly initializes((0, 48)) %opt) local_unnamed_addr #10 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %opt, i8 0, i64 48, i1 false)
   store i32 -1, ptr %opt, align 8
@@ -1073,7 +1073,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @enable_default_display_notes(ptr nocapture noundef writeonly %opt, ptr nocapture noundef writeonly %show_notes) local_unnamed_addr #10 {
+define dso_local void @enable_default_display_notes(ptr nocapture noundef writeonly initializes((0, 4)) %opt, ptr nocapture noundef writeonly initializes((0, 4)) %show_notes) local_unnamed_addr #10 {
 entry:
   store i32 1, ptr %opt, align 8
   store i32 1, ptr %show_notes, align 4
@@ -1081,7 +1081,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @enable_ref_display_notes(ptr noundef %opt, ptr nocapture noundef writeonly %show_notes, ptr noundef %ref) local_unnamed_addr #0 {
+define dso_local void @enable_ref_display_notes(ptr noundef %opt, ptr nocapture noundef writeonly initializes((0, 4)) %show_notes, ptr noundef %ref) local_unnamed_addr #0 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.load_subtree.non_note_path, i64 24, i1 false)
@@ -1145,7 +1145,7 @@ if.end6:                                          ; preds = %if.then4, %if.else5
 declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @disable_display_notes(ptr noundef %opt, ptr nocapture noundef writeonly %show_notes) local_unnamed_addr #0 {
+define dso_local void @disable_display_notes(ptr noundef initializes((0, 4)) %opt, ptr nocapture noundef writeonly initializes((0, 4)) %show_notes) local_unnamed_addr #0 {
 entry:
   store i32 -1, ptr %opt, align 8
   %extra_notes_refs = getelementptr inbounds i8, ptr %opt, i64 8

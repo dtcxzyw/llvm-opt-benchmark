@@ -1088,7 +1088,7 @@ declare void @_Z19read_inventory_listP9lua_StateiP9InventoryPKcP8IGameDefi(ptr n
 declare noundef ptr @_ZN10ModApiBase9getServerEP9lua_State(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN11NodeMetaRefC2EN3irr4core8vector3dIsEEP17ServerEnvironment(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i48 %p.coerce, ptr noundef %env) unnamed_addr #11 align 2 {
+define dso_local void @_ZN11NodeMetaRefC2EN3irr4core8vector3dIsEEP17ServerEnvironment(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 9), (10, 32)) %this, i48 %p.coerce, ptr noundef %env) unnamed_addr #11 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV11NodeMetaRef, i64 16), ptr %this, align 8, !tbaa !95
   %m_is_local = getelementptr inbounds i8, ptr %this, i64 8
@@ -1103,7 +1103,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN11NodeMetaRefC2EP9IMetadata(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %meta) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11NodeMetaRefC2EP9IMetadata(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 9), (10, 32)) %this, ptr noundef %meta) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV11NodeMetaRef, i64 16), ptr %this, align 8, !tbaa !95
   %m_is_local = getelementptr inbounds i8, ptr %this, i64 8

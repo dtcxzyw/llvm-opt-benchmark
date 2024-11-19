@@ -913,7 +913,7 @@ declare void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(5
 declare noundef ptr @_ZN8GraphKit13gen_checkcastEP4NodeS1_PS1_(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5Parse22load_interpreter_stateEP4Node(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5Parse22load_interpreter_stateEP4Node(ptr noundef nonnull align 8 dereferenceable(352) initializes((56, 60), (80, 84)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.MethodLivenessResult, align 8
   %4 = alloca %class.MethodLivenessResult, align 8
   %5 = alloca %class.MethodLivenessResult, align 8
@@ -1949,7 +1949,7 @@ _ZNK8GraphKit15record_for_igvnEP4Node.exit:       ; preds = %_ZN9VectorSet8test_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5Parse13set_parse_bciEi(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5Parse13set_parse_bciEi(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((56, 60)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2863,7 +2863,7 @@ declare noundef ptr @_ZN8ciMethod17get_flow_analysisEv(ptr noundef nonnull align
 declare void @_ZN9xmlStream4doneEPKcz(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5Parse11init_blocksEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5Parse11init_blocksEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((136, 148)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 64
@@ -4321,7 +4321,7 @@ _ZN8JVMState7set_bciEi.exit:                      ; preds = %_ZN8JVMStatenwEmP7C
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5Parse15do_method_entryEv(ptr noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5Parse15do_method_entryEv(ptr noundef nonnull align 8 dereferenceable(352) initializes((56, 60), (80, 84)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 -1, ptr %3, align 8
@@ -4461,7 +4461,7 @@ _ZN5Parse13set_parse_bciEi.exit:                  ; preds = %1, %9, %15, %17, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5Parse12clinit_deoptEv(ptr noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5Parse12clinit_deoptEv(ptr noundef nonnull align 8 dereferenceable(352) initializes((56, 60)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6274,7 +6274,7 @@ _ZNK8GraphKit15record_for_igvnEP4Node.exit51:     ; preds = %_ZN9Node_List4pushE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5Parse8do_exitsEv(ptr noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5Parse8do_exitsEv(ptr noundef nonnull align 8 dereferenceable(352) initializes((56, 60)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.GraphKit, align 8
   %3 = alloca %class.GraphKit, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -7136,7 +7136,7 @@ _ZN8GraphKit19pop_exception_stateEv.exit.thread:  ; preds = %497, %439, %435
 declare noundef i64 @_ZNK5Arena4usedEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5Parse15load_state_fromEPNS_5BlockE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(352) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN5Parse15load_state_fromEPNS_5BlockE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(352) initializes((40, 48), (80, 84), (256, 264)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
@@ -8832,7 +8832,7 @@ declare void @_ZN8GraphKit42record_profiled_parameters_for_speculationEv(ptr nou
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5Parse5Block10init_graphEPS_(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5Parse5Block10init_graphEPS_(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((60, 68), (72, 80)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -9012,7 +9012,7 @@ define hidden noundef ptr @_ZN5Parse5Block17successor_for_bciEi(ptr nocapture no
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5Parse5Block12record_stateEPS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr nocapture noundef %1) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN5Parse5Block12record_stateEPS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((24, 32)) %0, ptr nocapture noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   store ptr null, ptr %3, align 8

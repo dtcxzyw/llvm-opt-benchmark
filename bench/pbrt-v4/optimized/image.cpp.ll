@@ -2748,7 +2748,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i98, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt5Image12ChannelNamesB5cxx11ERKNS_16ImageChannelDescE(ptr noalias sret(%"class.std::vector.36") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %desc) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt5Image12ChannelNamesB5cxx11ERKNS_16ImageChannelDescE(ptr noalias sret(%"class.std::vector.36") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %desc) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %nStored.i.i = getelementptr inbounds i8, ptr %desc, i64 40
@@ -5849,7 +5849,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt5ImageC2ENS_11PixelFormatENS_6Point2IiEEN4pstd4spanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_13ColorEncodingENS4_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %format, i64 %resolution.coerce, ptr %channels.coerce0, i64 %channels.coerce1, ptr nocapture noundef readonly %encoding, i64 %alloc.coerce) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt5ImageC2ENS_11PixelFormatENS_6Point2IiEEN4pstd4spanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_13ColorEncodingENS4_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 12)) %this, i32 noundef %format, i64 %resolution.coerce, ptr %channels.coerce0, i64 %channels.coerce1, ptr nocapture noundef readonly %encoding, i64 %alloc.coerce) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.pstd::pmr::polymorphic_allocator.27", align 8
   store i32 %format, ptr %this, align 8
@@ -6801,7 +6801,7 @@ _ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt5Image11GetChannelsENS_6Point2IiEERKNS_16ImageChannelDescENS_10WrapMode2DE(ptr noalias sret(%"struct.pbrt::ImageChannelValues") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, i64 %p.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %desc, i64 %wrapMode.coerce) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt5Image11GetChannelsENS_6Point2IiEERKNS_16ImageChannelDescENS_10WrapMode2DE(ptr noalias sret(%"struct.pbrt::ImageChannelValues") align 8 initializes((0, 16), (32, 48)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, i64 %p.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %desc, i64 %wrapMode.coerce) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca %"class.pbrt::Point2", align 8
   store i64 %p.coerce, ptr %p, align 8
@@ -7539,7 +7539,7 @@ sw.epilog:                                        ; preds = %for.body.i.i.i.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt5ImageC2EN4pstd6vectorIhNS1_3pmr21polymorphic_allocatorIhEEEENS_6Point2IiEENS1_4spanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_13ColorEncodingE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef %p8c, i64 %resolution.coerce, ptr %channels.coerce0, i64 %channels.coerce1, ptr nocapture noundef readonly %encoding) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt5ImageC2EN4pstd6vectorIhNS1_3pmr21polymorphic_allocatorIhEEEENS_6Point2IiEENS1_4spanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_13ColorEncodingE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 12)) %this, ptr nocapture noundef %p8c, i64 %resolution.coerce, ptr %channels.coerce0, i64 %channels.coerce1, ptr nocapture noundef readonly %encoding) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont16:
   %ref.tmp = alloca %"class.pstd::pmr::polymorphic_allocator.27", align 8
   %va = alloca i64, align 8
@@ -7653,7 +7653,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt5ImageC2EN4pstd6vectorINS_4HalfENS1_3pmr21polymorphic_allocatorIS3_EEEENS_6Point2IiEENS1_4spanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef %p16c, i64 %resolution.coerce, ptr %channels.coerce0, i64 %channels.coerce1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt5ImageC2EN4pstd6vectorINS_4HalfENS1_3pmr21polymorphic_allocatorIS3_EEEENS_6Point2IiEENS1_4spanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 12)) %this, ptr nocapture noundef %p16c, i64 %resolution.coerce, ptr %channels.coerce0, i64 %channels.coerce1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont15:
   %ref.tmp = alloca %"class.pstd::pmr::polymorphic_allocator.27", align 8
   %va = alloca i64, align 8
@@ -7809,7 +7809,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt5ImageC2EN4pstd6vectorIfNS1_3pmr21polymorphic_allocatorIfEEEENS_6Point2IiEENS1_4spanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef %p32c, i64 %resolution.coerce, ptr %channels.coerce0, i64 %channels.coerce1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt5ImageC2EN4pstd6vectorIfNS1_3pmr21polymorphic_allocatorIfEEEENS_6Point2IiEENS1_4spanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 12)) %this, ptr nocapture noundef %p32c, i64 %resolution.coerce, ptr %channels.coerce0, i64 %channels.coerce1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont15:
   %ref.tmp = alloca %"class.pstd::pmr::polymorphic_allocator.27", align 8
   %va = alloca i64, align 8
@@ -8193,7 +8193,7 @@ ehcleanup16:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt5Image11GetChannelsENS_6Point2IiEENS_10WrapMode2DE(ptr noalias sret(%"struct.pbrt::ImageChannelValues") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, i64 %p.coerce, i64 %wrapMode.coerce) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt5Image11GetChannelsENS_6Point2IiEENS_10WrapMode2DE(ptr noalias sret(%"struct.pbrt::ImageChannelValues") align 8 initializes((0, 16), (32, 48)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, i64 %p.coerce, i64 %wrapMode.coerce) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca %"class.pbrt::Point2", align 8
   store i64 %p.coerce, ptr %p, align 8
@@ -8423,7 +8423,7 @@ nrvo.skipdtor:                                    ; preds = %for.body45, %_ZNK4p
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt5Image12ChannelNamesB5cxx11Ev(ptr noalias nonnull sret(%"class.std::vector.36") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt5Image12ChannelNamesB5cxx11Ev(ptr noalias nonnull sret(%"class.std::vector.36") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ptr.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %ptr.i, align 8
@@ -12413,7 +12413,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt5Image13LookupNearestENS_6Point2IfEENS_10WrapMode2DE(ptr noalias sret(%"struct.pbrt::ImageChannelValues") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, <2 x float> %p.coerce, i64 %wrapMode.coerce) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt5Image13LookupNearestENS_6Point2IfEENS_10WrapMode2DE(ptr noalias sret(%"struct.pbrt::ImageChannelValues") align 8 initializes((0, 16), (32, 48)) %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, <2 x float> %p.coerce, i64 %wrapMode.coerce) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nStored.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %nStored.i.i, align 8
@@ -12524,7 +12524,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont9, %_ZN4
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt5Image13LookupNearestENS_6Point2IfEERKNS_16ImageChannelDescENS_10WrapMode2DE(ptr noalias sret(%"struct.pbrt::ImageChannelValues") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, <2 x float> %p.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %desc, i64 %wrapMode.coerce) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt5Image13LookupNearestENS_6Point2IfEERKNS_16ImageChannelDescENS_10WrapMode2DE(ptr noalias sret(%"struct.pbrt::ImageChannelValues") align 8 initializes((0, 16), (32, 48)) %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, <2 x float> %p.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %desc, i64 %wrapMode.coerce) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nStored.i = getelementptr inbounds i8, ptr %desc, i64 40
   %0 = load i64, ptr %nStored.i, align 8
@@ -12636,7 +12636,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont14, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt5Image6BilerpENS_6Point2IfEENS_10WrapMode2DE(ptr noalias sret(%"struct.pbrt::ImageChannelValues") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, <2 x float> %p.coerce, i64 %wrapMode.coerce) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt5Image6BilerpENS_6Point2IfEENS_10WrapMode2DE(ptr noalias sret(%"struct.pbrt::ImageChannelValues") align 8 initializes((0, 16), (32, 48)) %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, <2 x float> %p.coerce, i64 %wrapMode.coerce) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nStored.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %nStored.i.i, align 8
@@ -12788,7 +12788,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont9, %_ZN4
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt5Image6BilerpENS_6Point2IfEERKNS_16ImageChannelDescENS_10WrapMode2DE(ptr noalias sret(%"struct.pbrt::ImageChannelValues") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, <2 x float> %p.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %desc, i64 %wrapMode.coerce) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt5Image6BilerpENS_6Point2IfEERKNS_16ImageChannelDescENS_10WrapMode2DE(ptr noalias sret(%"struct.pbrt::ImageChannelValues") align 8 initializes((0, 16), (32, 48)) %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, <2 x float> %p.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %desc, i64 %wrapMode.coerce) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nStored.i = getelementptr inbounds i8, ptr %desc, i64 40
   %0 = load i64, ptr %nStored.i, align 8
@@ -28155,7 +28155,7 @@ eh.resume:                                        ; preds = %lpad.i, %cleanup.ac
 declare void @_ZNK4pbrt13ColorEncoding8ToStringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt5Image20QuantizePixelsToU256EPi(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr nocapture noundef %nOutOfGamut) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt5Image20QuantizePixelsToU256EPi(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr nocapture noundef %nOutOfGamut) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %wrapMode.i.sroa.0 = alloca i32, align 4
   %wrapMode.i.sroa.4 = alloca i32, align 4

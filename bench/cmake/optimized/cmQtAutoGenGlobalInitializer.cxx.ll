@@ -791,7 +791,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN28cmQtAutoGenGlobalInitializerC2ERKSt6vectorISt10unique_ptrI16cmLocalGeneratorSt14default_deleteIS2_EESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(680) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN28cmQtAutoGenGlobalInitializerC2ERKSt6vectorISt10unique_ptrI16cmLocalGeneratorSt14default_deleteIS2_EESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(680) initializes((0, 24), (32, 36), (40, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

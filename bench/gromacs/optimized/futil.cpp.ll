@@ -2250,7 +2250,7 @@ declare void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef n
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx15openLibraryFileERKNSt10filesystem7__cxx114pathEbb(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::unique_ptr.10") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx15openLibraryFileERKNSt10filesystem7__cxx114pathEbb(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::unique_ptr.10") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr.10", align 8
   %6 = alloca %"class.gmx::DataFileOptions", align 8
   store ptr null, ptr %0, align 8

@@ -237,7 +237,7 @@ define linkonce_odr hidden { i32, ptr } @_ZNK5boost6system14error_category23defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5boost10filesystem15directory_entry12refresh_implEPNS_6system10error_codeE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZNK5boost10filesystem15directory_entry12refresh_implEPNS_6system10error_codeE(ptr noundef nonnull align 8 dereferenceable(48) initializes((32, 48)) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
   %3 = alloca %"class.boost::filesystem::file_status", align 4
   %4 = alloca %"class.boost::filesystem::file_status", align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -281,7 +281,7 @@ declare void @_ZN5boost10filesystem6detail14symlink_statusERKNS0_4pathEPNS_6syst
 declare void @_ZN5boost10filesystem6detail6statusERKNS0_4pathEPNS_6system10error_codeE(ptr dead_on_unwind writable sret(%"class.boost::filesystem::file_status") align 4, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost10filesystem6detail14open_directoryERKNS0_4pathENS0_17directory_optionsERNS_6system10error_codeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::scope::unique_resource") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost10filesystem6detail14open_directoryERKNS0_4pathENS0_17directory_optionsERNS_6system10error_codeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::scope::unique_resource") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %5 = and i32 %2, 16
   %.not = icmp eq i32 %5, 0
@@ -345,7 +345,7 @@ declare ptr @__errno_location() local_unnamed_addr #8
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost10filesystem6detail16openat_directoryEiRKNS0_4pathENS0_17directory_optionsERNS_6system10error_codeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::scope::unique_resource") align 4 %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %4) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost10filesystem6detail16openat_directoryEiRKNS0_4pathENS0_17directory_optionsERNS_6system10error_codeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::scope::unique_resource") align 4 %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %4) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %6 = and i32 %3, 16
   %.not = icmp eq i32 %6, 0
@@ -1297,7 +1297,7 @@ declare void @_ZN5boost10filesystem16filesystem_errorD1Ev(ptr noundef nonnull al
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost10filesystem6detail12_GLOBAL__N_117dir_itr_incrementERNS1_11dir_itr_impERNS0_4pathERNS0_11file_statusES8_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %4) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost10filesystem6detail12_GLOBAL__N_117dir_itr_incrementERNS1_11dir_itr_impERNS0_4pathERNS0_11file_statusES8_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %4) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 56
   %.val = load ptr, ptr %6, align 8, !tbaa !37
   %7 = tail call ptr @__errno_location() #33

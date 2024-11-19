@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.try_exit.2 = private unnamed_addr constant [4 x i32] [i32 41, i32 93, i32 125, i32 300], align 4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -128, 302) i32 @jq_yylex(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -128, 302) i32 @jq_yylex(ptr noundef %0, ptr noundef %1, ptr noundef initializes((144, 160)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 144
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 152
@@ -1905,7 +1905,7 @@ define i32 @jq_yyget_extra(ptr nocapture noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jq_yyset_extra(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define void @jq_yyset_extra(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #2 {
   store i32 %0, ptr %1, align 8
   ret void
 }
@@ -3272,14 +3272,14 @@ define void @jq_yyset_column(i32 noundef %0, ptr nocapture noundef readonly %1) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jq_yyset_in(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define void @jq_yyset_in(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jq_yyset_out(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define void @jq_yyset_out(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
@@ -3293,7 +3293,7 @@ define i32 @jq_yyget_debug(ptr nocapture noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jq_yyset_debug(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define void @jq_yyset_debug(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
@@ -3307,7 +3307,7 @@ define ptr @jq_yyget_lval(ptr nocapture noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jq_yyset_lval(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define void @jq_yyset_lval(ptr noundef %0, ptr nocapture noundef writeonly initializes((144, 152)) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   store ptr %0, ptr %3, align 8
   ret void
@@ -3321,7 +3321,7 @@ define ptr @jq_yyget_lloc(ptr nocapture noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jq_yyset_lloc(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define void @jq_yyset_lloc(ptr noundef %0, ptr nocapture noundef writeonly initializes((152, 160)) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 152
   store ptr %0, ptr %3, align 8
   ret void

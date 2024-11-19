@@ -45,7 +45,7 @@ $__clang_call_terminate = comdat any
 @_ZN32pxrInternal_v0_24__pxrReserved__19HgiGraphicsPipelineD1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HgiGraphicsPipelineD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__22HgiVertexAttributeDescC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__22HgiVertexAttributeDescC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %0) unnamed_addr #0 align 2 {
   store i32 13, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -83,7 +83,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22HgiVer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__19HgiVertexBufferDescC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__19HgiVertexBufferDescC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 4), (8, 40)) %0) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -175,7 +175,7 @@ _ZSteqIN32pxrInternal_v0_24__pxrReserved__22HgiVertexAttributeDescESaIS1_EEbRKSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__19HgiMultiSampleStateC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__19HgiMultiSampleStateC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 3), (4, 8)) %0) unnamed_addr #0 align 2 {
   store i8 1, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %2, align 1
@@ -271,7 +271,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_19HgiMultiSampleStateES2_.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__21HgiRasterizationStateC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__21HgiRasterizationStateC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 18), (20, 29), (32, 40)) %0) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 1.000000e+00, ptr %2, align 4
@@ -471,7 +471,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_21HgiRasterizationStateES2_.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__20HgiDepthStencilStateC2Ev(ptr noundef nonnull align 4 dereferenceable(80) %0) unnamed_addr #3 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__20HgiDepthStencilStateC2Ev(ptr noundef nonnull align 4 dereferenceable(80) initializes((0, 2), (4, 9), (12, 21)) %0) unnamed_addr #3 align 2 {
   store i8 1, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 1, ptr %2, align 1
@@ -710,7 +710,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_20HgiDepthStencilStateES2_.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__15HgiStencilStateC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__15HgiStencilStateC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) initializes((0, 28)) %0) unnamed_addr #0 align 2 {
   store i32 7, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -782,7 +782,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_15HgiStencilStateES2_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__30HgiGraphicsShaderConstantsDescC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__30HgiGraphicsShaderConstantsDescC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 2, ptr %2, align 4
@@ -818,13 +818,13 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__neERKNS_30HgiGra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__20HgiTessellationLevelC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__20HgiTessellationLevelC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__20HgiTessellationStateC2Ev(ptr noundef nonnull align 4 dereferenceable(36) %0) unnamed_addr #3 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__20HgiTessellationStateC2Ev(ptr noundef nonnull align 4 dereferenceable(36) initializes((0, 12)) %0) unnamed_addr #3 align 2 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -1418,7 +1418,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__neERKNS_23HgiGra
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__19HgiGraphicsPipelineC2ERKNS_23HgiGraphicsPipelineDescE(ptr noundef nonnull align 8 dereferenceable(368) %0, ptr noundef nonnull align 8 dereferenceable(360) %1) unnamed_addr #3 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__19HgiGraphicsPipelineC2ERKNS_23HgiGraphicsPipelineDescE(ptr noundef nonnull align 8 dereferenceable(368) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19HgiGraphicsPipelineE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__23HgiGraphicsPipelineDescC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(360) %3, ptr noundef nonnull align 8 dereferenceable(360) %1)
@@ -1565,7 +1565,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__17HgiAttachmentDes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__19HgiGraphicsPipelineD2Ev(ptr noundef nonnull align 8 dereferenceable(368) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__19HgiGraphicsPipelineD2Ev(ptr noundef nonnull align 8 dereferenceable(368) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19HgiGraphicsPipelineE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8

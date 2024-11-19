@@ -1657,7 +1657,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @report_backup_error(ptr nocapture noundef nonnull %0, ptr noalias noundef %1, ...) unnamed_addr #0 {
+define internal void @report_backup_error(ptr nocapture noundef nonnull initializes((33, 34)) %0, ptr noalias noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   call void @pg_log_generic_v(i32 noundef 4, i32 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #16

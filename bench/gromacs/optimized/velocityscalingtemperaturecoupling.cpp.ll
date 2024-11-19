@@ -1216,7 +1216,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN3gmx34VelocityScaling
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx34VelocityScalingTemperatureCoupling22registerEnergyCallbackENS_20EnergySignallerEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx34VelocityScalingTemperatureCoupling22registerEnergyCallbackENS_20EnergySignallerEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %10
 
@@ -1289,7 +1289,7 @@ define linkonce_odr void @_ZThn16_N3gmx34VelocityScalingTemperatureCouplingD0Ev(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZThn16_N3gmx34VelocityScalingTemperatureCoupling22registerEnergyCallbackENS_20EnergySignallerEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn16_N3gmx34VelocityScalingTemperatureCoupling22registerEnergyCallbackENS_20EnergySignallerEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 initializes((32, 33)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %_ZN3gmx34VelocityScalingTemperatureCoupling22registerEnergyCallbackENS_20EnergySignallerEventE.exit
 
@@ -1313,7 +1313,7 @@ _ZN3gmx34VelocityScalingTemperatureCoupling22registerEnergyCallbackENS_20EnergyS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx34VelocityScalingTemperatureCouplingC2EiiNS_13UseFullStepKEENS_33ReportPreviousStepConservedEnergyElidPKfS4_S4_PNS_10EnergyDataE19TemperatureCoupling(ptr noundef nonnull align 8 dereferenceable(256) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, double noundef %7, ptr nocapture noundef readonly %8, ptr nocapture noundef readonly %9, ptr nocapture noundef readonly %10, ptr noundef %11, i32 noundef %12) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx34VelocityScalingTemperatureCouplingC2EiiNS_13UseFullStepKEENS_33ReportPreviousStepConservedEnergyElidPKfS4_S4_PNS_10EnergyDataE19TemperatureCoupling(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 44), (48, 80)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, double noundef %7, ptr nocapture noundef readonly %8, ptr nocapture noundef readonly %9, ptr nocapture noundef readonly %10, ptr noundef %11, i32 noundef %12) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %14 = alloca %"class.std::allocator.36", align 1
   %15 = alloca %"class.gmx::ExceptionInitializer", align 8
   %16 = alloca %"class.std::__cxx11::basic_string", align 8

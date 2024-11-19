@@ -1012,7 +1012,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers11InstantiateD2Ev(ptr noundef nonnull align 8 dereferenceable(472) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers11InstantiateD2Ev(ptr noundef nonnull align 8 dereferenceable(472) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers11InstantiateE, i64 16), ptr %this, align 8
   %d_c_inst_match_trie = getelementptr inbounds i8, ptr %this, i64 360
@@ -1170,7 +1170,7 @@ _ZNSt6vectorIPN4cvc58internal6theory11quantifiers21InstantiationRewriterESaIS5_E
 declare void @_ZN4cvc58internal6theory11quantifiers15CDInstMatchTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers11InstantiateD0Ev(ptr noundef nonnull align 8 dereferenceable(472) %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers11InstantiateD0Ev(ptr noundef nonnull align 8 dereferenceable(472) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory11quantifiers11InstantiateD2Ev(ptr noundef nonnull align 8 dereferenceable(472) %this) #26
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25

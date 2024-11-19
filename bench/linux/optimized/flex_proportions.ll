@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @fprop_new_period.__UNIQUE_ID___addressable___SCK__preempt_schedule139], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @fprop_global_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @fprop_global_init(ptr noundef initializes((40, 44)) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 0, ptr %3, align 8
   %4 = tail call i32 @__percpu_counter_init_many(ptr noundef %0, i64 noundef 1, i32 noundef %1, i32 noundef 1, ptr noundef nonnull @fprop_global_init.__key) #7
@@ -81,7 +81,7 @@ define dso_local noundef zeroext i1 @fprop_new_period(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @fprop_local_init_single(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 align 16 {
+define dso_local noundef i32 @fprop_local_init_single(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #3 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret i32 0
 }

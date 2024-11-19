@@ -2517,7 +2517,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib8FdmCIROpC2ERKN5boost10shared_ptrINS_9FdmMesherEEERKNS2_INS_23CoxIngersollRossProcessEEERKNS2_INS_30GeneralizedBlackScholesProcessEEEdd(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, ptr noundef nonnull align 8 dereferenceable(16) %cirProcess, ptr noundef nonnull align 8 dereferenceable(16) %bsProcess, double noundef %rho, double noundef %strike) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib8FdmCIROpC2ERKN5boost10shared_ptrINS_9FdmMesherEEERKNS2_INS_23CoxIngersollRossProcessEEERKNS2_INS_30GeneralizedBlackScholesProcessEEEdd(ptr noundef nonnull align 8 dereferenceable(872) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, ptr noundef nonnull align 8 dereferenceable(16) %cirProcess, ptr noundef nonnull align 8 dereferenceable(16) %bsProcess, double noundef %rho, double noundef %strike) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN8QuantLib8FdmCIROpE, i64 16), ptr %this, align 8, !tbaa !14
   %dxMap_ = getelementptr inbounds nuw i8, ptr %this, i64 8

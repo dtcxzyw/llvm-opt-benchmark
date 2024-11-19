@@ -3131,7 +3131,7 @@ define noundef zeroext i1 @"_ZN55_$LT$uu_cat..CatError$u20$as$u20$core..fmt..Dis
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN85_$LT$uu_cat..CatError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17haf32e449587c91a9E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noundef nonnull %1) unnamed_addr #5 {
+define void @"_ZN85_$LT$uu_cat..CatError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17haf32e449587c91a9E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -3139,7 +3139,7 @@ define void @"_ZN85_$LT$uu_cat..CatError$u20$as$u20$core..convert..From$LT$std..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN89_$LT$uu_cat..CatError$u20$as$u20$core..convert..From$LT$nix..errno..consts..Errno$GT$$GT$4from17hd1c688391fc209f8E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #5 {
+define void @"_ZN89_$LT$uu_cat..CatError$u20$as$u20$core..convert..From$LT$nix..errno..consts..Errno$GT$$GT$4from17hd1c688391fc209f8E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 12)) %0, i32 noundef %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   store i64 -9223372036854775807, ptr %0, align 8

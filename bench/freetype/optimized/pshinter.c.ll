@@ -2625,7 +2625,7 @@ define internal fastcc void @psh_glyph_interpolate_other_points(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ps_hinter_init(ptr noundef %0) #3 {
+define internal noundef i32 @ps_hinter_init(ptr noundef initializes((24, 168), (176, 224)) %0) #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2670,7 +2670,7 @@ define internal noundef i32 @ps_hinter_init(ptr noundef %0) #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ps_hinter_done(ptr nocapture noundef %0) #0 {
+define internal void @ps_hinter_done(ptr nocapture noundef initializes((168, 176), (224, 232)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 224
@@ -2695,7 +2695,7 @@ declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 n
 declare hidden i32 @ft_corner_is_flat(i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @psh_hint_table_init(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @psh_hint_table_init(ptr nocapture noundef nonnull initializes((16, 24)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr %1, align 8
   %7 = shl i32 %6, 1
@@ -4286,7 +4286,7 @@ psh_blues_set_zones_0.exit140:                    ; preds = %69, %psh_blues_set_
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @t1_hints_open(ptr nocapture noundef writeonly %0) #9 {
+define internal void @t1_hints_open(ptr nocapture noundef writeonly initializes((8, 12), (16, 20), (24, 28), (40, 44), (56, 60), (72, 76), (88, 92), (104, 108)) %0) #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5373,7 +5373,7 @@ ps_mask_set_bit.exit:                             ; preds = %71, %92
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @t2_hints_open(ptr nocapture noundef writeonly %0) #9 {
+define internal void @t2_hints_open(ptr nocapture noundef writeonly initializes((8, 12), (16, 20), (24, 28), (40, 44), (56, 60), (72, 76), (88, 92), (104, 108)) %0) #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16

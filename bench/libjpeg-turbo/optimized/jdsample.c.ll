@@ -404,13 +404,13 @@ define internal void @sep_upsample(ptr noundef %0, ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @noop_upsample(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3) #2 {
+define internal void @noop_upsample(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #2 {
   store ptr null, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @fullsize_upsample(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #2 {
+define internal void @fullsize_upsample(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #2 {
   store ptr %2, ptr %3, align 8
   ret void
 }

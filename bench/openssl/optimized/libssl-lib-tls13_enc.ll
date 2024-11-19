@@ -394,7 +394,7 @@ entry:
 declare ptr @ssl_handshake_md(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls13_generate_master_secret(ptr noundef %s, ptr noundef %out, ptr noundef %prev, i64 noundef %prevlen, ptr nocapture noundef writeonly %secret_size) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls13_generate_master_secret(ptr noundef %s, ptr noundef %out, ptr noundef %prev, i64 noundef %prevlen, ptr nocapture noundef writeonly initializes((0, 8)) %secret_size) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ssl_handshake_md(ptr noundef %s) #3
   %call1 = tail call i32 @EVP_MD_get_size(ptr noundef %call) #3

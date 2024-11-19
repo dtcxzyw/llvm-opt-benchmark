@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.convert_samples_short.channel_selector = private unnamed_addr constant [3 x [2 x i32]] [[2 x i32] zeroinitializer, [2 x i32] [i32 1, i32 0], [2 x i32] [i32 2, i32 4]], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @error(ptr nocapture noundef writeonly %f, i32 noundef %e) local_unnamed_addr #0 {
+define noundef i32 @error(ptr nocapture noundef writeonly initializes((156, 160)) %f, i32 noundef %e) local_unnamed_addr #0 {
 entry:
   %error = getelementptr inbounds i8, ptr %f, i64 156
   store i32 %e, ptr %error, align 4
@@ -563,7 +563,7 @@ return:                                           ; preds = %for.inc, %for.inc72
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @compute_accelerated_huffman(ptr nocapture noundef %c) local_unnamed_addr #14 {
+define void @compute_accelerated_huffman(ptr nocapture noundef initializes((48, 2096)) %c) local_unnamed_addr #14 {
 entry:
   %fast_huffman = getelementptr inbounds i8, ptr %c, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(2048) %fast_huffman, i8 -1, i64 2048, i1 false)
@@ -6639,7 +6639,7 @@ return:                                           ; preds = %for.body43, %for.en
 declare void @draw_line(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #27
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @vorbis_decode_initial(ptr noundef %f, ptr nocapture noundef writeonly %p_left_start, ptr nocapture noundef writeonly %p_left_end, ptr nocapture noundef writeonly %p_right_start, ptr nocapture noundef writeonly %p_right_end, ptr nocapture noundef writeonly %mode) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @vorbis_decode_initial(ptr noundef initializes((1892, 1900)) %f, ptr nocapture noundef writeonly %p_left_start, ptr nocapture noundef writeonly %p_left_end, ptr nocapture noundef writeonly %p_right_start, ptr nocapture noundef writeonly %p_right_end, ptr nocapture noundef writeonly %mode) local_unnamed_addr #16 {
 entry:
   %channel_buffer_end = getelementptr inbounds i8, ptr %f, i64 1896
   store i32 0, ptr %channel_buffer_end, align 8
@@ -8375,7 +8375,7 @@ return:                                           ; preds = %if.end576, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @vorbis_decode_packet(ptr noundef %f, ptr nocapture noundef writeonly %len, ptr nocapture noundef %p_left, ptr nocapture noundef %p_right) local_unnamed_addr #26 {
+define range(i32 0, 2) i32 @vorbis_decode_packet(ptr noundef initializes((1892, 1900)) %f, ptr nocapture noundef writeonly %len, ptr nocapture noundef %p_left, ptr nocapture noundef %p_right) local_unnamed_addr #26 {
 entry:
   %mode = alloca i32, align 4
   %left_end = alloca i32, align 4
@@ -8569,7 +8569,7 @@ return:                                           ; preds = %if.end.i, %for.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @vorbis_pump_first_frame(ptr noundef %f) local_unnamed_addr #26 {
+define range(i32 0, 2) i32 @vorbis_pump_first_frame(ptr noundef initializes((1892, 1900)) %f) local_unnamed_addr #26 {
 entry:
   %mode.i = alloca i32, align 4
   %left_end.i = alloca i32, align 4
@@ -8776,7 +8776,7 @@ return:                                           ; preds = %if.end99, %return.s
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @start_decoder(ptr noundef %f) local_unnamed_addr #26 {
+define range(i32 0, 2) i32 @start_decoder(ptr noundef initializes((1765, 1766)) %f) local_unnamed_addr #26 {
 entry:
   %header = alloca [6 x i8], align 1
   %p = alloca [250 x %struct.stbv__floor_ordering], align 16
@@ -11947,7 +11947,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @vorbis_init(ptr nocapture noundef %p, ptr noundef readonly %z) local_unnamed_addr #30 {
+define void @vorbis_init(ptr nocapture noundef initializes((0, 1904)) %p, ptr noundef readonly %z) local_unnamed_addr #30 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1904) %p, i8 0, i64 1904, i1 false)
   %tobool.not = icmp eq ptr %z, null
@@ -12001,7 +12001,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stb_vorbis_get_info(ptr noalias nocapture writeonly sret(%struct.stb_vorbis_info) align 4 %agg.result, ptr nocapture noundef readonly %f) local_unnamed_addr #30 {
+define void @stb_vorbis_get_info(ptr noalias nocapture writeonly sret(%struct.stb_vorbis_info) align 4 initializes((0, 24)) %agg.result, ptr nocapture noundef readonly %f) local_unnamed_addr #30 {
 entry:
   %channels = getelementptr inbounds i8, ptr %f, i64 4
   %0 = load i32, ptr %channels, align 4
@@ -12030,7 +12030,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stb_vorbis_get_comment(ptr noalias nocapture writeonly sret(%struct.stb_vorbis_comment) align 8 %agg.result, ptr nocapture noundef readonly %f) local_unnamed_addr #30 {
+define void @stb_vorbis_get_comment(ptr noalias nocapture writeonly sret(%struct.stb_vorbis_comment) align 8 initializes((0, 12), (16, 24)) %agg.result, ptr nocapture noundef readonly %f) local_unnamed_addr #30 {
 entry:
   %vendor = getelementptr inbounds i8, ptr %f, i64 24
   %0 = load ptr, ptr %vendor, align 8
@@ -12092,7 +12092,7 @@ setup_malloc.exit:                                ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stb_vorbis_flush_pushdata(ptr nocapture noundef writeonly %f) local_unnamed_addr #0 {
+define void @stb_vorbis_flush_pushdata(ptr nocapture noundef writeonly initializes((1272, 1276), (1412, 1416), (1765, 1766), (1800, 1812), (1892, 1900)) %f) local_unnamed_addr #0 {
 entry:
   %previous_length = getelementptr inbounds i8, ptr %f, i64 1272
   store i32 0, ptr %previous_length, align 8
@@ -13210,7 +13210,7 @@ return:                                           ; preds = %if.end136, %stb_vor
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @get_seek_page_info(ptr nocapture noundef %f, ptr nocapture noundef %z) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @get_seek_page_info(ptr nocapture noundef %f, ptr nocapture noundef initializes((0, 4)) %z) local_unnamed_addr #16 {
 entry:
   %header = alloca [27 x i8], align 16
   %lacing = alloca [255 x i8], align 16
@@ -14938,7 +14938,7 @@ return:                                           ; preds = %vorbis_pump_first_f
 declare double @llvm.fmuladd.f64(double, double, double) #21
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @peek_decode_initial(ptr noundef %f, ptr nocapture noundef writeonly %p_left_start, ptr nocapture noundef writeonly %p_left_end, ptr nocapture noundef writeonly %p_right_start, ptr nocapture noundef writeonly %p_right_end, ptr nocapture noundef %mode) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @peek_decode_initial(ptr noundef initializes((1892, 1900)) %f, ptr nocapture noundef writeonly %p_left_start, ptr nocapture noundef writeonly %p_left_end, ptr nocapture noundef writeonly %p_right_start, ptr nocapture noundef writeonly %p_right_end, ptr nocapture noundef %mode) local_unnamed_addr #16 {
 entry:
   %call = tail call i32 @vorbis_decode_initial(ptr noundef %f, ptr noundef %p_left_start, ptr noundef %p_left_end, ptr noundef %p_right_start, ptr noundef %p_right_end, ptr noundef %mode)
   %tobool.not = icmp eq i32 %call, 0

@@ -675,7 +675,7 @@ _ZN7QStringD2Ev.exit27:                           ; preds = %210, %_ZN17QArrayDa
 declare void @_ZN9QComboBox19setSizeAdjustPolicyENS_16SizeAdjustPolicyE(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18AddressEditorFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 align 2 {
+define void @_ZN18AddressEditorFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV18AddressEditorFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV18AddressEditorFrame, i64 456), ptr %2, align 8
@@ -1056,7 +1056,7 @@ declare void @_ZN9ProtoNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(40))
 declare ptr @_ZN9ProtoNode13ChildIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18AddressEditorFrame13editAddressesER11CaptureFilei(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18AddressEditorFrame13editAddressesER11CaptureFilei(ptr noundef nonnull align 8 dereferenceable(72) initializes((64, 72)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QVariant, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %struct.epan_dissect, align 8

@@ -136,7 +136,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3log20MAX_LOG_LEVEL_FILTER17hd082296e0bcf20a0E = external local_unnamed_addr global { i64 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10actix_http4body12message_body11MessageBody5boxed17h725fd5e72c166302E.llvm.14837436092785038340(ptr noalias nocapture noundef writeonly sret({ { i64, [4 x i64] } }) align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN10actix_http4body12message_body11MessageBody5boxed17h725fd5e72c166302E.llvm.14837436092785038340(ptr noalias nocapture noundef writeonly sret({ { i64, [4 x i64] } }) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   store i64 1, ptr %0, align 8, !alias.scope !4
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.d07909af76fe9cd4e206baf0847e55b7.1.llvm.14837436092785038340, ptr %.sroa.44.0..sroa_idx.i, align 8, !alias.scope !4
@@ -148,7 +148,7 @@ define hidden void @_ZN10actix_http4body12message_body11MessageBody5boxed17h725f
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN10actix_http4body12message_body13foreign_impls82_$LT$impl$u20$actix_http..body..message_body..MessageBody$u20$for$u20$$LP$$RP$$GT$14try_into_bytes17h5d649762f0baf06bE.llvm.14837436092785038340"(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %0) unnamed_addr #0 {
+define hidden void @"_ZN10actix_http4body12message_body13foreign_impls82_$LT$impl$u20$actix_http..body..message_body..MessageBody$u20$for$u20$$LP$$RP$$GT$14try_into_bytes17h5d649762f0baf06bE.llvm.14837436092785038340"(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #0 {
   store ptr @anon.d07909af76fe9cd4e206baf0847e55b7.1.llvm.14837436092785038340, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.d07909af76fe9cd4e206baf0847e55b7.0.llvm.14837436092785038340, ptr %.sroa.4.0..sroa_idx, align 8
@@ -163,7 +163,7 @@ define hidden { i64, i64 } @"_ZN10actix_http4body12message_body13foreign_impls82
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10actix_http4body5boxed7BoxBody3new17h6eda6b2058ec4666E.llvm.14837436092785038340(ptr noalias nocapture noundef writeonly sret({ { i64, [4 x i64] } }) align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN10actix_http4body5boxed7BoxBody3new17h6eda6b2058ec4666E.llvm.14837436092785038340(ptr noalias nocapture noundef writeonly sret({ { i64, [4 x i64] } }) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   store i64 1, ptr %0, align 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.d07909af76fe9cd4e206baf0847e55b7.1.llvm.14837436092785038340, ptr %.sroa.44.0..sroa_idx, align 8
@@ -5159,7 +5159,7 @@ define hidden void @_ZN5bytes5bytes11static_drop17h7b0cc40933e82eb8E.llvm.148374
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5bytes5bytes12static_clone17h5d85fa132ab860c5E.llvm.14837436092785038340(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, i64, { ptr } }) align 8 dereferenceable(32) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2, i64 noundef %3) unnamed_addr #8 {
+define hidden void @_ZN5bytes5bytes12static_clone17h5d85fa132ab860c5E.llvm.14837436092785038340(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, i64, { ptr } }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2, i64 noundef %3) unnamed_addr #8 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12177,7 +12177,7 @@ define hidden { ptr, ptr } @"_ZN76_$LT$alloc..rc..Rc$LT$S$GT$$u20$as$u20$actix_s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define internal void @"_ZN88_$LT$core..future..pending..Pending$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h273d1d671677b9d8E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture nonnull readnone align 1 %1, ptr noalias nocapture readnone align 8 %2) unnamed_addr #8 {
+define internal void @"_ZN88_$LT$core..future..pending..Pending$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h273d1d671677b9d8E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias nocapture nonnull readnone align 1 %1, ptr noalias nocapture readnone align 8 %2) unnamed_addr #8 {
   store i64 1, ptr %0, align 8
   ret void
 }
@@ -15254,7 +15254,7 @@ define hidden noundef ptr @_ZN9hashbrown3raw5alloc5inner8do_alloc17hf6f615167844
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN3awc8any_body16AnyBody$LT$B$GT$17from_message_body17hafa8b2eaa87cc1b4E"(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden void @"_ZN3awc8any_body16AnyBody$LT$B$GT$17from_message_body17hafa8b2eaa87cc1b4E"(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.d07909af76fe9cd4e206baf0847e55b7.1.llvm.14837436092785038340, ptr %2, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16

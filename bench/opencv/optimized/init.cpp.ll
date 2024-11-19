@@ -4344,7 +4344,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_116ProtobufShutdownD2Ev(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_116ProtobufShutdownD2Ev(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store i8 0, ptr %0, align 1
   invoke void @_ZN6google8protobuf23ShutdownProtobufLibraryEv()
           to label %2 unwind label %3

@@ -533,7 +533,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_
 @_ZN5arrow16TableBatchReaderC1ESt10shared_ptrINS_5TableEE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5arrow16TableBatchReaderC2ESt10shared_ptrINS_5TableEE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow5TableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
+define void @_ZN5arrow5TableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow5TableE, i64 16), ptr %this, align 8
   %schema_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -542,7 +542,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow5Table6fieldsEv(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow5Table6fieldsEv(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.0", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -903,7 +903,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN5arrow5FieldEESaIS3_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow5Table4MakeESt10shared_ptrINS_6SchemaEESt6vectorIS1_INS_12ChunkedArrayEESaIS6_EEl(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.3") align 8 %agg.result, ptr nocapture noundef %schema, ptr nocapture noundef %columns, i64 noundef %num_rows) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow5Table4MakeESt10shared_ptrINS_6SchemaEESt6vectorIS1_INS_12ChunkedArrayEESaIS6_EEl(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.3") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef %schema, ptr nocapture noundef %columns, i64 noundef %num_rows) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !10
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
@@ -15573,7 +15573,7 @@ declare void @_ZN5arrow15MakeArrayOfNullERKSt10shared_ptrINS_8DataTypeEElPNS_10M
 declare void @_ZN5arrow11RecordBatch4MakeESt10shared_ptrINS_6SchemaEElSt6vectorIS1_INS_5ArrayEESaIS6_EE(ptr sret(%"class.std::shared_ptr.50") align 8, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow16TableBatchReaderC2ERKNS_5TableE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(32) %table) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow16TableBatchReaderC2ERKNS_5TableE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(32) %table) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp24 = alloca %"class.std::shared_ptr.42", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16TableBatchReaderE, i64 16), ptr %this, align 8
@@ -15900,7 +15900,7 @@ ehcleanup31:                                      ; preds = %if.then.i.i.i57, %e
 declare void @_ZN5arrow17RecordBatchReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow16TableBatchReaderC2ESt10shared_ptrINS_5TableEE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef %table) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow16TableBatchReaderC2ESt10shared_ptrINS_5TableEE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 32)) %this, ptr nocapture noundef %table) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp34 = alloca %"class.std::shared_ptr.42", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow16TableBatchReaderE, i64 16), ptr %this, align 8
@@ -16240,7 +16240,7 @@ ehcleanup43:                                      ; preds = %if.then.i.i.i53, %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK5arrow16TableBatchReader6schemaEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow16TableBatchReader6schemaEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %table_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %table_, align 8
@@ -16275,7 +16275,7 @@ _ZNSt10shared_ptrIN5arrow6SchemaEEC2ERKS2_.exit:  ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow16TableBatchReader13set_chunksizeEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %this, i64 noundef %chunksize) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow16TableBatchReader13set_chunksizeEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((112, 120)) %this, i64 noundef %chunksize) local_unnamed_addr #0 align 2 {
 entry:
   %max_chunksize_ = getelementptr inbounds i8, ptr %this, i64 112
   store i64 %chunksize, ptr %max_chunksize_, align 8

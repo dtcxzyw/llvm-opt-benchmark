@@ -131,7 +131,7 @@ _ZN4pbrt12StringPrintfIJlEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt16ProgressReporterC2ElNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %totalWork, ptr noundef nonnull %title, i1 noundef zeroext %quiet, i1 noundef zeroext %gpu) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt16ProgressReporterC2ElNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this, i64 noundef %totalWork, ptr noundef nonnull %title, i1 noundef zeroext %quiet, i1 noundef zeroext %gpu) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %agg.tmp.i = alloca %"class.std::unique_ptr.6", align 8
   %ref.tmp15 = alloca %"class.std::thread", align 8

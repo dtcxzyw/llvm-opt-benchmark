@@ -463,7 +463,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10algorithms26DeterministicTabularPolicyC2ERKNS_4GameEiSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_lEEE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10algorithms26DeterministicTabularPolicyC2ERKNS_4GameEiSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_lEEE(ptr noundef nonnull align 8 dereferenceable(60) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca i32, align 4
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN10open_spiel10algorithms26DeterministicTabularPolicyE, i64 16), ptr %0, align 8
@@ -952,7 +952,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10algorithms26DeterministicTabularPolicyC2ERKNS_4GameEi(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10algorithms26DeterministicTabularPolicyC2ERKNS_4GameEi(ptr noundef nonnull align 8 dereferenceable(60) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN10open_spiel10algorithms26DeterministicTabularPolicyE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1265,7 +1265,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10al
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10algorithms26DeterministicTabularPolicy16GetTabularPolicyEv(ptr dead_on_unwind noalias writable sret(%"class.open_spiel::TabularPolicy") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(60) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10algorithms26DeterministicTabularPolicy16GetTabularPolicyEv(ptr dead_on_unwind noalias writable sret(%"class.open_spiel::TabularPolicy") align 8 initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 dereferenceable(60) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.35", align 8
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN10open_spiel13TabularPolicyE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

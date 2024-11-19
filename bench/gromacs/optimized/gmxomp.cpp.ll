@@ -50,7 +50,7 @@ define void @_Z23gmx_omp_set_num_threadsi(i32 noundef %0) local_unnamed_addr #0 
 declare void @omp_set_num_threads(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z29gmx_omp_check_thread_affinityPPc(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z29gmx_omp_check_thread_affinityPPc(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr null, ptr %0, align 8
   %3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx17getProgramContextEv()

@@ -420,7 +420,7 @@ define void @_ZN5boost3log11v2_mt_posix10attributes16named_scope_list4swapERS3_(
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost3log11v2_mt_posix10attributes11named_scopeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix10attributes11named_scopeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr @_ZN5boost3log11v2_mt_posix3aux9singletonINS1_10attributes11named_scope4implENS_13intrusive_ptrIS6_EEE8instanceE, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8, !tbaa !37
   %.not.i = icmp eq ptr %3, null
@@ -437,7 +437,7 @@ _ZN5boost13intrusive_ptrINS_3log11v2_mt_posix9attribute4implEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: read) uwtable
-define void @_ZN5boost3log11v2_mt_posix10attributes11named_scopeC2ERKNS2_11cast_sourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix10attributes11named_scopeC2ERKNS2_11cast_sourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !41
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix9attribute4implEED2Ev.exit, label %_ZNK5boost3log11v2_mt_posix10attributes11cast_source2asINS2_11named_scope4implEEEPT_v.exit

@@ -345,7 +345,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @pmix_bfrops_base_copy_string(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #5 {
+define noundef i32 @pmix_bfrops_base_copy_string(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %7, label %5
 
@@ -363,7 +363,7 @@ define noundef i32 @pmix_bfrops_base_copy_string(ptr nocapture noundef writeonly
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_bfrops_base_copy_value(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define i32 @pmix_bfrops_base_copy_value(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call noalias noundef dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #19
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %4, null
@@ -381,7 +381,7 @@ pmix_bfrops_base_tma_copy_value.exit:             ; preds = %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_bfrops_base_copy_info(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define i32 @pmix_bfrops_base_copy_info(ptr nocapture noundef initializes((0, 8)) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(552) ptr @malloc(i64 noundef 552) #19
   store ptr %4, ptr %0, align 8
   br label %5
@@ -467,7 +467,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %9, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_bfrops_base_copy_app(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define noundef i32 @pmix_bfrops_base_copy_app(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #19
   store ptr %4, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
@@ -634,7 +634,7 @@ pmix_obj_new_tma.exit.thread8:                    ; preds = %.lr.ph.i.i, %10
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -29, 1) i32 @pmix_bfrops_base_copy_proc(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #7 {
+define range(i32 -29, 1) i32 @pmix_bfrops_base_copy_proc(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #7 {
   %4 = tail call noalias dereferenceable_or_null(260) ptr @malloc(i64 noundef 260) #19
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %4, null
@@ -672,7 +672,7 @@ pmix_strncpy.exit:                                ; preds = %.preheader, %8
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -29, 1) i32 @pmix_bfrop_base_copy_persist(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #8 {
+define range(i32 -29, 1) i32 @pmix_bfrop_base_copy_persist(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #8 {
   %4 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #19
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %4, null
@@ -689,7 +689,7 @@ define range(i32 -29, 1) i32 @pmix_bfrop_base_copy_persist(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define range(i32 -29, 1) i32 @pmix_bfrops_base_copy_bo(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #2 {
+define range(i32 -29, 1) i32 @pmix_bfrops_base_copy_bo(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #2 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %4, null
@@ -712,7 +712,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_copy_bo(ptr nocapture noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_bfrops_base_copy_pdata(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define i32 @pmix_bfrops_base_copy_pdata(ptr nocapture noundef initializes((0, 8)) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(808) ptr @malloc(i64 noundef 808) #19
   store ptr %4, ptr %0, align 8
   br label %5
@@ -877,13 +877,13 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_pinfo(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_bfrops_base_copy_darray(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define noundef i32 @pmix_bfrops_base_copy_darray(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @pmix_bfrops_base_tma_copy_darray(ptr noundef %0, ptr noundef %1)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pmix_bfrops_base_tma_copy_darray(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @pmix_bfrops_base_tma_copy_darray(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   %3 = tail call noalias noundef dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #20
   %4 = icmp eq ptr %3, null
@@ -2681,7 +2681,7 @@ pmix_bfrops_base_tma_node_stats_create.exit:      ; preds = %15
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_bfrops_base_copy_query(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define i32 @pmix_bfrops_base_copy_query(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #19
   store ptr %4, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
@@ -2758,7 +2758,7 @@ pmix_bfrops_base_copy_info.exit:                  ; preds = %20, %23
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -32, 1) i32 @pmix_bfrops_base_copy_envar(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix_bfrops_base_copy_envar(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call ptr @PMIx_Envar_create(i64 noundef 1) #17
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %4, null
@@ -2893,7 +2893,7 @@ pmix_bfrops_base_tma_coord_destruct.exit:         ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -32, 1) i32 @pmix_bfrops_base_copy_regattr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix_bfrops_base_copy_regattr(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call noalias noundef dereferenceable_or_null(536) ptr @malloc(i64 noundef 536) #19
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %pmix_bfrops_base_tma_regattr_create.exit.thread.i, label %.preheader.i.preheader.i
@@ -2960,7 +2960,7 @@ pmix_bfrops_base_tma_copy_regattr.exit:           ; preds = %pmix_bfrops_base_tm
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_regattr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_regattr(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = tail call noalias noundef dereferenceable_or_null(536) ptr @malloc(i64 noundef 536) #19
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %pmix_bfrops_base_tma_regattr_create.exit.thread, label %.preheader.i.preheader
@@ -4014,7 +4014,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pmix_bfrops_base_tma_value_xfer(ptr noundef nonnull %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @pmix_bfrops_base_tma_value_xfer(ptr noundef nonnull initializes((0, 2)) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = load i16, ptr %1, align 8
   store i16 %3, ptr %0, align 8
   switch i16 %3, label %262 [
@@ -5024,7 +5024,7 @@ pmix_bfrops_base_tma_geometry_destruct.exit:      ; preds = %11, %pmix_bfrops_ba
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @pmix_bfrops_base_tma_populate_ndstats(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #11 {
+define internal fastcc void @pmix_bfrops_base_tma_populate_ndstats(ptr nocapture noundef nonnull initializes((8, 52), (56, 72), (80, 88)) %0, ptr nocapture noundef readonly %1) unnamed_addr #11 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4

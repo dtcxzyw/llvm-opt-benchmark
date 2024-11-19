@@ -1893,7 +1893,7 @@ try.cont:                                         ; preds = %_Z18SetGenericPrope
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @aiCreateQuaternionFromMatrix(ptr nocapture noundef writeonly %quat, ptr noundef nonnull %mat) local_unnamed_addr #3 {
+define void @aiCreateQuaternionFromMatrix(ptr nocapture noundef writeonly initializes((0, 16)) %quat, ptr noundef nonnull %mat) local_unnamed_addr #3 {
 entry:
   %ref.tmp = alloca %class.aiQuaterniont, align 4
   call void @_ZN13aiQuaterniontIfEC2ERK12aiMatrix3x3tIfE(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(36) %mat)
@@ -2714,7 +2714,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @aiIdentityMatrix3(ptr nocapture noundef writeonly %mat) local_unnamed_addr #14 {
+define void @aiIdentityMatrix3(ptr nocapture noundef writeonly initializes((0, 36)) %mat) local_unnamed_addr #14 {
 entry:
   store float 1.000000e+00, ptr %mat, align 4
   %ref.tmp.sroa.2.0.mat.sroa_idx = getelementptr inbounds i8, ptr %mat, i64 4
@@ -2737,7 +2737,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @aiIdentityMatrix4(ptr nocapture noundef writeonly %mat) local_unnamed_addr #14 {
+define void @aiIdentityMatrix4(ptr nocapture noundef writeonly initializes((0, 64)) %mat) local_unnamed_addr #14 {
 entry:
   store float 1.000000e+00, ptr %mat, align 4
   %ref.tmp.sroa.2.0.mat.sroa_idx = getelementptr inbounds i8, ptr %mat, i64 4
@@ -3374,7 +3374,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiVector3CrossProduct(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #13 {
+define void @aiVector3CrossProduct(ptr nocapture noundef writeonly initializes((0, 12)) %dst, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #13 {
 entry:
   %y.i = getelementptr inbounds i8, ptr %a, i64 4
   %0 = load float, ptr %y.i, align 4
@@ -3516,7 +3516,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiMatrix3FromMatrix4(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %mat) local_unnamed_addr #12 {
+define void @aiMatrix3FromMatrix4(ptr nocapture noundef writeonly initializes((0, 36)) %dst, ptr nocapture noundef readonly %mat) local_unnamed_addr #12 {
 entry:
   %0 = load float, ptr %mat, align 4
   %a2.i = getelementptr inbounds i8, ptr %mat, i64 4
@@ -3556,7 +3556,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiMatrix3FromQuaternion(ptr nocapture noundef writeonly %mat, ptr nocapture noundef readonly %q) local_unnamed_addr #12 {
+define void @aiMatrix3FromQuaternion(ptr nocapture noundef writeonly initializes((0, 36)) %mat, ptr nocapture noundef readonly %q) local_unnamed_addr #12 {
 entry:
   %y.i = getelementptr inbounds i8, ptr %q, i64 8
   %0 = load float, ptr %y.i, align 4, !noalias !16
@@ -3923,7 +3923,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define void @aiMatrix3RotationZ(ptr nocapture noundef writeonly %mat, float noundef %angle) local_unnamed_addr #17 {
+define void @aiMatrix3RotationZ(ptr nocapture noundef writeonly initializes((0, 36)) %mat, float noundef %angle) local_unnamed_addr #17 {
 entry:
   %call.i.i = tail call noundef float @cosf(float noundef %angle) #44
   %b2.i = getelementptr inbounds i8, ptr %mat, i64 16
@@ -3949,7 +3949,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @aiMatrix3FromRotationAroundAxis(ptr nocapture noundef writeonly %mat, ptr nocapture noundef readonly %axis, float noundef %angle) local_unnamed_addr #18 {
+define void @aiMatrix3FromRotationAroundAxis(ptr nocapture noundef writeonly initializes((0, 36)) %mat, ptr nocapture noundef readonly %axis, float noundef %angle) local_unnamed_addr #18 {
 entry:
   %call.i.i = tail call noundef float @cosf(float noundef %angle) #44
   %call.i50.i = tail call noundef float @sinf(float noundef %angle) #44
@@ -3998,7 +3998,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiMatrix3Translation(ptr nocapture noundef writeonly %mat, ptr nocapture noundef readonly %translation) local_unnamed_addr #12 {
+define void @aiMatrix3Translation(ptr nocapture noundef writeonly initializes((0, 36)) %mat, ptr nocapture noundef readonly %translation) local_unnamed_addr #12 {
 entry:
   store float 1.000000e+00, ptr %mat, align 4
   %ref.tmp.sroa.2.0.out.sroa_idx.i = getelementptr inbounds i8, ptr %mat, i64 4
@@ -4294,7 +4294,7 @@ if.end165:                                        ; preds = %_ZN12aiMatrix3x3tIf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiMatrix4FromMatrix3(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %mat) local_unnamed_addr #12 {
+define void @aiMatrix4FromMatrix3(ptr nocapture noundef writeonly initializes((0, 64)) %dst, ptr nocapture noundef readonly %mat) local_unnamed_addr #12 {
 entry:
   %0 = load float, ptr %mat, align 4
   %a2.i = getelementptr inbounds i8, ptr %mat, i64 4
@@ -4342,7 +4342,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiMatrix4FromScalingQuaternionPosition(ptr nocapture noundef writeonly %mat, ptr nocapture noundef readonly %scaling, ptr nocapture noundef readonly %rotation, ptr nocapture noundef readonly %position) local_unnamed_addr #12 {
+define void @aiMatrix4FromScalingQuaternionPosition(ptr nocapture noundef writeonly initializes((0, 64)) %mat, ptr nocapture noundef readonly %scaling, ptr nocapture noundef readonly %rotation, ptr nocapture noundef readonly %position) local_unnamed_addr #12 {
 entry:
   %y.i.i = getelementptr inbounds i8, ptr %rotation, i64 8
   %0 = load float, ptr %y.i.i, align 4, !noalias !21
@@ -5558,7 +5558,7 @@ if.end91:                                         ; preds = %if.else, %if.then65
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @aiMatrix4DecomposeIntoScalingAxisAnglePosition(ptr noundef nonnull %mat, ptr noundef nonnull %scaling, ptr nocapture noundef writeonly %axis, ptr nocapture noundef writeonly %angle, ptr noundef nonnull %position) local_unnamed_addr #3 {
+define void @aiMatrix4DecomposeIntoScalingAxisAnglePosition(ptr noundef nonnull %mat, ptr noundef nonnull %scaling, ptr nocapture noundef writeonly initializes((0, 12)) %axis, ptr nocapture noundef writeonly initializes((0, 4)) %angle, ptr noundef nonnull %position) local_unnamed_addr #3 {
 entry:
   %pRotation.i = alloca %class.aiQuaterniont, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pRotation.i)
@@ -5746,7 +5746,7 @@ _ZN13aiQuaterniontIfEC2ERK12aiMatrix3x3tIfE.exit: ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define void @aiMatrix4FromEulerAngles(ptr nocapture noundef writeonly %mat, float noundef %x, float noundef %y, float noundef %z) local_unnamed_addr #17 {
+define void @aiMatrix4FromEulerAngles(ptr nocapture noundef writeonly initializes((0, 12), (16, 28), (32, 44)) %mat, float noundef %x, float noundef %y, float noundef %z) local_unnamed_addr #17 {
 entry:
   %call.i.i = tail call noundef float @cosf(float noundef %x) #44
   %call.i35.i = tail call noundef float @sinf(float noundef %x) #44
@@ -5792,7 +5792,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define void @aiMatrix4RotationX(ptr nocapture noundef writeonly %mat, float noundef %angle) local_unnamed_addr #17 {
+define void @aiMatrix4RotationX(ptr nocapture noundef writeonly initializes((0, 64)) %mat, float noundef %angle) local_unnamed_addr #17 {
 entry:
   store float 1.000000e+00, ptr %mat, align 4
   %ref.tmp.sroa.2.0.out.sroa_idx.i = getelementptr inbounds i8, ptr %mat, i64 4
@@ -5818,7 +5818,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define void @aiMatrix4RotationY(ptr nocapture noundef writeonly %mat, float noundef %angle) local_unnamed_addr #17 {
+define void @aiMatrix4RotationY(ptr nocapture noundef writeonly initializes((0, 64)) %mat, float noundef %angle) local_unnamed_addr #17 {
 entry:
   %ref.tmp.sroa.2.0.out.sroa_idx.i = getelementptr inbounds i8, ptr %mat, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.sroa.2.0.out.sroa_idx.i, i8 0, i64 16, i1 false)
@@ -5844,7 +5844,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define void @aiMatrix4RotationZ(ptr nocapture noundef writeonly %mat, float noundef %angle) local_unnamed_addr #17 {
+define void @aiMatrix4RotationZ(ptr nocapture noundef writeonly initializes((0, 64)) %mat, float noundef %angle) local_unnamed_addr #17 {
 entry:
   %ref.tmp.sroa.2.0.out.sroa_idx.i = getelementptr inbounds i8, ptr %mat, i64 4
   %0 = getelementptr inbounds i8, ptr %mat, i64 8
@@ -5870,7 +5870,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @aiMatrix4FromRotationAroundAxis(ptr nocapture noundef writeonly %mat, ptr nocapture noundef readonly %axis, float noundef %angle) local_unnamed_addr #18 {
+define void @aiMatrix4FromRotationAroundAxis(ptr nocapture noundef writeonly initializes((0, 64)) %mat, ptr nocapture noundef readonly %axis, float noundef %angle) local_unnamed_addr #18 {
 entry:
   %call.i.i = tail call noundef float @cosf(float noundef %angle) #44
   %call.i57.i = tail call noundef float @sinf(float noundef %angle) #44
@@ -5927,7 +5927,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiMatrix4Translation(ptr nocapture noundef writeonly %mat, ptr nocapture noundef readonly %translation) local_unnamed_addr #12 {
+define void @aiMatrix4Translation(ptr nocapture noundef writeonly initializes((0, 64)) %mat, ptr nocapture noundef readonly %translation) local_unnamed_addr #12 {
 entry:
   store float 1.000000e+00, ptr %mat, align 4
   %ref.tmp.sroa.2.0.out.sroa_idx.i = getelementptr inbounds i8, ptr %mat, i64 4
@@ -5956,7 +5956,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @aiMatrix4Scaling(ptr nocapture noundef writeonly %mat, ptr nocapture noundef readonly %scaling) local_unnamed_addr #12 {
+define void @aiMatrix4Scaling(ptr nocapture noundef writeonly initializes((0, 64)) %mat, ptr nocapture noundef readonly %scaling) local_unnamed_addr #12 {
 entry:
   store float 1.000000e+00, ptr %mat, align 4
   %ref.tmp.sroa.2.0.out.sroa_idx.i = getelementptr inbounds i8, ptr %mat, i64 4
@@ -5983,7 +5983,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @aiMatrix4FromTo(ptr nocapture noundef writeonly %mat, ptr noundef nonnull %from, ptr noundef nonnull %to) local_unnamed_addr #3 {
+define void @aiMatrix4FromTo(ptr nocapture noundef writeonly initializes((0, 64)) %mat, ptr noundef nonnull %from, ptr noundef nonnull %to) local_unnamed_addr #3 {
 entry:
   %m3.i = alloca %class.aiMatrix3x3t, align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %m3.i)
@@ -6044,7 +6044,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define void @aiQuaternionFromEulerAngles(ptr nocapture noundef writeonly %q, float noundef %x, float noundef %y, float noundef %z) local_unnamed_addr #17 {
+define void @aiQuaternionFromEulerAngles(ptr nocapture noundef writeonly initializes((0, 16)) %q, float noundef %x, float noundef %y, float noundef %z) local_unnamed_addr #17 {
 entry:
   %mul.i = fmul float %x, 5.000000e-01
   %call.i.i = tail call noundef float @sinf(float noundef %mul.i) #44
@@ -6082,7 +6082,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @aiQuaternionFromAxisAngle(ptr nocapture noundef writeonly %q, ptr nocapture noundef readonly %axis, float noundef %angle) local_unnamed_addr #19 {
+define void @aiQuaternionFromAxisAngle(ptr nocapture noundef writeonly initializes((0, 16)) %q, ptr nocapture noundef readonly %axis, float noundef %angle) local_unnamed_addr #19 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %axis, align 4
   %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %axis, i64 8
@@ -6124,7 +6124,7 @@ _ZN13aiQuaterniontIfEC2E10aiVector3tIfEf.exit:    ; preds = %entry, %_ZN10aiVect
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @aiQuaternionFromNormalizedQuaternion(ptr nocapture noundef writeonly %q, ptr nocapture noundef readonly %normalized) local_unnamed_addr #19 {
+define void @aiQuaternionFromNormalizedQuaternion(ptr nocapture noundef writeonly initializes((0, 16)) %q, ptr nocapture noundef readonly %normalized) local_unnamed_addr #19 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %normalized, align 4
   %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %normalized, i64 8
@@ -6339,7 +6339,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @aiQuaternionInterpolate(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %start, ptr nocapture noundef readonly %end, float noundef %factor) local_unnamed_addr #18 {
+define void @aiQuaternionInterpolate(ptr nocapture noundef writeonly initializes((0, 16)) %dst, ptr nocapture noundef readonly %start, ptr nocapture noundef readonly %end, float noundef %factor) local_unnamed_addr #18 {
 entry:
   %x.i = getelementptr inbounds i8, ptr %start, i64 4
   %0 = load float, ptr %x.i, align 4
@@ -7691,7 +7691,7 @@ return:                                           ; preds = %if.then4, %if.then2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL13stbi__do_zlibP10stbi__zbufPciii(ptr noundef nonnull %a, ptr noundef %obuf, i32 noundef %olen, i32 noundef range(i32 0, 2) %exp, i32 noundef %parse_header) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL13stbi__do_zlibP10stbi__zbufPciii(ptr noundef nonnull initializes((24, 52)) %a, ptr noundef %obuf, i32 noundef %olen, i32 noundef range(i32 0, 2) %exp, i32 noundef %parse_header) unnamed_addr #0 {
 entry:
   %z_codelength.i.i = alloca %struct.stbi__zhuffman, align 4
   %lencodes.i.i = alloca [455 x i8], align 16
@@ -11469,7 +11469,7 @@ declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #25
 declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi(ptr noundef nonnull %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture noundef nonnull writeonly %ri) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi(ptr noundef nonnull %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture noundef nonnull writeonly initializes((0, 12)) %ri) unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.stbi__png, align 8
   store i32 8, ptr %ri, align 4
@@ -12416,7 +12416,7 @@ return:                                           ; preds = %if.end, %_ZL14stbi_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr nocapture noundef nonnull %z, i32 noundef range(i32 0, 3) %scan, i32 noundef range(i32 0, 5) %req_comp) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr nocapture noundef nonnull initializes((8, 32)) %z, i32 noundef range(i32 0, 3) %scan, i32 noundef range(i32 0, 5) %req_comp) unnamed_addr #3 {
 entry:
   %palette = alloca [1024 x i8], align 16
   %tc = alloca [3 x i8], align 1
@@ -14553,7 +14553,7 @@ return:                                           ; preds = %if.end44, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL26stbi__create_png_image_rawP9stbi__pngPhjijjii(ptr nocapture noundef nonnull %a, ptr nocapture noundef readonly %raw, i32 noundef %raw_len, i32 noundef %out_n, i32 noundef %x, i32 noundef %y, i32 noundef %depth, i32 noundef range(i32 0, 7) %color) unnamed_addr #27 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL26stbi__create_png_image_rawP9stbi__pngPhjijjii(ptr nocapture noundef nonnull initializes((24, 32)) %a, ptr nocapture noundef readonly %raw, i32 noundef %raw_len, i32 noundef %out_n, i32 noundef %x, i32 noundef %y, i32 noundef %depth, i32 noundef range(i32 0, 7) %color) unnamed_addr #27 {
 entry:
   %cmp = icmp eq i32 %depth, 16
   %0 = load ptr, ptr %a, align 8
@@ -15755,7 +15755,7 @@ declare float @powf(float noundef, float noundef) local_unnamed_addr #32
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #33
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__zbuild_huffmanP14stbi__zhuffmanPKhi(ptr nocapture noundef nonnull %z, ptr nocapture noundef readonly %sizelist, i32 noundef %num) unnamed_addr #34 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__zbuild_huffmanP14stbi__zhuffmanPKhi(ptr nocapture noundef nonnull initializes((0, 1024)) %z, ptr nocapture noundef readonly %sizelist, i32 noundef %num) unnamed_addr #34 {
 entry:
   %next_code = alloca [16 x i32], align 16
   %sizes = alloca [17 x i32], align 16

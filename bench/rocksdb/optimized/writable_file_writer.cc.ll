@@ -997,7 +997,7 @@ _ZNSt12__shared_ptrIN7rocksdb8IOTracerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: 
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb18WritableFileWriter6AppendERKNS_5SliceEjNS_3Env10IOPriorityE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(218) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %data, i32 noundef %crc32c_checksum, i32 noundef %op_rate_limiter_priority) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18WritableFileWriter6AppendERKNS_5SliceEjNS_3Env10IOPriorityE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(218) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %data, i32 noundef %crc32c_checksum, i32 noundef %op_rate_limiter_priority) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %io_options = alloca %"struct.rocksdb::IOOptions", align 8
   %iostats_step_timer_prepare_write_nanos = alloca %"class.rocksdb::PerfStepTimer", align 8
@@ -2239,7 +2239,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18WritableFileWriter5FlushENS_3Env10IOPriorityE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(218) %this, i32 noundef %op_rate_limiter_priority) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18WritableFileWriter5FlushENS_3Env10IOPriorityE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(218) %this, i32 noundef %op_rate_limiter_priority) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8
   %ref.tmp13 = alloca %"class.rocksdb::IOStatus", align 8
@@ -2967,7 +2967,7 @@ declare noundef i32 @_ZN7rocksdb6crc32c13Crc32cCombineEjjm(i32 noundef, i32 noun
 declare noundef i32 @_ZN7rocksdb6crc32c6ExtendEjPKcm(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb18WritableFileWriter25WriteBufferedWithChecksumEPKcmNS_3Env10IOPriorityE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(218) %this, ptr noundef %data, i64 noundef %size, i32 noundef %op_rate_limiter_priority) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18WritableFileWriter25WriteBufferedWithChecksumEPKcmNS_3Env10IOPriorityE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(218) %this, ptr noundef %data, i64 noundef %size, i32 noundef %op_rate_limiter_priority) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v_info = alloca %"struct.rocksdb::DataVerificationInfo", align 8
   %checksum_buf = alloca [4 x i8], align 4
@@ -3694,7 +3694,7 @@ return:                                           ; preds = %if.end.i.i.i.i.i177
 }
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb18WritableFileWriter13WriteBufferedEPKcmNS_3Env10IOPriorityE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(218) %this, ptr noundef %data, i64 noundef %size, i32 noundef %op_rate_limiter_priority) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18WritableFileWriter13WriteBufferedEPKcmNS_3Env10IOPriorityE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(218) %this, ptr noundef %data, i64 noundef %size, i32 noundef %op_rate_limiter_priority) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v_info = alloca %"struct.rocksdb::DataVerificationInfo", align 8
   %checksum_buf = alloca [4 x i8], align 4
@@ -6286,7 +6286,7 @@ _ZN7rocksdb17FileOperationInfoD2Ev.exit5:         ; preds = %for.end, %_ZNKSt14d
 }
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb18WritableFileWriter23WriteDirectWithChecksumENS_3Env10IOPriorityE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(218) %this, i32 noundef %op_rate_limiter_priority) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18WritableFileWriter23WriteDirectWithChecksumENS_3Env10IOPriorityE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(218) %this, i32 noundef %op_rate_limiter_priority) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v_info = alloca %"struct.rocksdb::DataVerificationInfo", align 8
   %checksum_buf = alloca [4 x i8], align 4
@@ -6928,7 +6928,7 @@ return:                                           ; preds = %if.end.i.i.i.i.i140
 }
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb18WritableFileWriter11WriteDirectENS_3Env10IOPriorityE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(218) %this, i32 noundef %op_rate_limiter_priority) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18WritableFileWriter11WriteDirectENS_3Env10IOPriorityE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(218) %this, i32 noundef %op_rate_limiter_priority) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v_info = alloca %"struct.rocksdb::DataVerificationInfo", align 8
   %checksum_buf = alloca [4 x i8], align 4
@@ -8444,7 +8444,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb18WritableFileWriter12SyncInternalEb(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(218) %this, i1 noundef zeroext %use_fsync) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18WritableFileWriter12SyncInternalEb(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(218) %this, i1 noundef zeroext %use_fsync) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %iostats_step_timer_fsync_nanos = alloca %"class.rocksdb::PerfStepTimer", align 8
   %iostats_step_timer_cpu_write_nanos = alloca %"class.rocksdb::PerfStepTimer", align 8
@@ -9072,7 +9072,7 @@ _ZN7rocksdb8IOStatusD2Ev.exit129:                 ; preds = %ehcleanup59, %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18WritableFileWriter16SyncWithoutFlushEb(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(218) %this, i1 noundef zeroext %use_fsync) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18WritableFileWriter16SyncWithoutFlushEb(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(218) %this, i1 noundef zeroext %use_fsync) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %seen_error_.i = getelementptr inbounds i8, ptr %this, i64 137
   %0 = load atomic i8, ptr %seen_error_.i monotonic, align 1
@@ -9302,7 +9302,7 @@ _ZN7rocksdb17FileOperationInfoD2Ev.exit5:         ; preds = %for.end, %_ZNKSt14d
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18WritableFileWriter32Crc32cHandoffChecksumCalculationEPKcmPc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(218) %this, ptr noundef %data, i64 noundef %size, ptr nocapture noundef writeonly %buf) local_unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb18WritableFileWriter32Crc32cHandoffChecksumCalculationEPKcmPc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(218) %this, ptr noundef %data, i64 noundef %size, ptr nocapture noundef writeonly initializes((0, 4)) %buf) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN7rocksdb6crc32c6ExtendEjPKcm(i32 noundef 0, ptr noundef %data, i64 noundef %size)
   store i32 %call, ptr %buf, align 1

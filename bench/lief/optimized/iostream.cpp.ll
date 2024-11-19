@@ -17,13 +17,13 @@ $_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh
 @_ZN4LIEF15vector_iostreamC1Eb = hidden unnamed_addr alias void (ptr, i1), ptr @_ZN4LIEF15vector_iostreamC2Eb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4LIEF15vector_iostreamC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN4LIEF15vector_iostreamC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 41)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 0, i64 41, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4LIEF15vector_iostreamC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN4LIEF15vector_iostreamC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 41)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
@@ -736,7 +736,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEENS1_IPhS6_EEET0_T
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(41) ptr @_ZN4LIEF15vector_iostream4moveERSt6vectorIhSaIhEE(ptr noundef nonnull returned align 8 dereferenceable(41) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(41) ptr @_ZN4LIEF15vector_iostream4moveERSt6vectorIhSaIhEE(ptr noundef nonnull returned align 8 dereferenceable(41) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 24)) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -791,7 +791,7 @@ define hidden noundef i64 @_ZNK4LIEF15vector_iostream4sizeEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(41) ptr @_ZN4LIEF15vector_iostream5seekpESt4fposI11__mbstate_tE(ptr noundef nonnull returned writeonly align 8 dereferenceable(41) %0, i64 %1, i64 %2) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(41) ptr @_ZN4LIEF15vector_iostream5seekpESt4fposI11__mbstate_tE(ptr noundef nonnull returned writeonly align 8 dereferenceable(41) initializes((0, 16)) %0, i64 %1, i64 %2) local_unnamed_addr #0 align 2 {
   store i64 %1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8
@@ -875,7 +875,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit: ; preds = %13, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4LIEF15vector_iostream15set_endian_swapEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4LIEF15vector_iostream15set_endian_swapEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((40, 41)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 %3, ptr %4, align 8

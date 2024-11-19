@@ -154,7 +154,7 @@ declare void @_ZN6colvar3cvc14get_atom_listsEv(ptr dead_on_unwind writable sret(
 declare void @_ZN6colvar3cvc9read_dataEv(ptr noundef nonnull align 8 dereferenceable(1648)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar12alpha_angles10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1720) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6colvar12alpha_angles10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1720) initializes((640, 648)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 640
   store double 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1664
@@ -1037,7 +1037,7 @@ define void @_ZN6colvar7dihedPCD0Ev(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar7dihedPC10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1696) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar7dihedPC10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1696) initializes((640, 648)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 640
   store double 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1648
@@ -3023,7 +3023,7 @@ _ZNSt6vectorIPN6colvar5angleESaIS2_EED2Ev.exit:   ; preds = %_ZNSt6vectorIPN6col
 declare void @_ZN6colvar3cvcC2Ev(ptr noundef nonnull align 8 dereferenceable(1648)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6colvar12alpha_anglesD2Ev(ptr noundef nonnull align 8 dereferenceable(1720) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6colvar12alpha_anglesD2Ev(ptr noundef nonnull align 8 dereferenceable(1720) initializes((0, 8), (320, 328)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar12alpha_anglesE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar12alpha_anglesE, i64 248), ptr %2, align 8
@@ -4975,7 +4975,7 @@ _ZNSt6vectorIPN6colvar8dihedralESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIdSaId
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6colvar7dihedPCD2Ev(ptr noundef nonnull align 8 dereferenceable(1696) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6colvar7dihedPCD2Ev(ptr noundef nonnull align 8 dereferenceable(1696) initializes((0, 8), (320, 328)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar7dihedPCE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar7dihedPCE, i64 248), ptr %2, align 8

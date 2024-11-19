@@ -129,7 +129,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_usb_register_types, ptr null }]
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @usb_device_post_load(ptr nocapture noundef %opaque, i32 %version_id) #0 {
+define internal noundef i32 @usb_device_post_load(ptr nocapture noundef initializes((264, 265)) %opaque, i32 %version_id) #0 {
 entry:
   %state = getelementptr inbounds i8, ptr %opaque, i64 268
   %0 = load i32, ptr %state, align 4
@@ -529,7 +529,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local void @usb_register_port(ptr nocapture noundef %bus, ptr noundef %port, ptr noundef %opaque, i32 noundef %index, ptr noundef %ops, i32 noundef %speedmask) local_unnamed_addr #6 {
+define dso_local void @usb_register_port(ptr nocapture noundef %bus, ptr noundef initializes((8, 12), (32, 52)) %port, ptr noundef %opaque, i32 noundef %index, ptr noundef %ops, i32 noundef %speedmask) local_unnamed_addr #6 {
 entry:
   %opaque1.i = getelementptr inbounds i8, ptr %port, i64 40
   store ptr %opaque, ptr %opaque1.i, align 8

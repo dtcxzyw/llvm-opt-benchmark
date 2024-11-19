@@ -87,7 +87,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @Aig_ManReprStart(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Ssw_ClassesSetData(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define void @Ssw_ClassesSetData(ptr nocapture noundef writeonly initializes((80, 112)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 88
@@ -267,7 +267,7 @@ define ptr @Ssw_ClassesReadClass(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ssw_ClassesCollectClass(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define void @Ssw_ClassesCollectClass(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 8

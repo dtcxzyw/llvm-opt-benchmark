@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.e244748147d68cb62d7d11c511d26339.2 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.e244748147d68cb62d7d11c511d26339.0, [16 x i8] c"\16\00\00\00\00\00\00\00\19\00\00\00\17\00\00\00" }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN5serde2de6format3Buf3new17h3f9c823c2e07801fE(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2) unnamed_addr #0 {
+define void @_ZN5serde2de6format3Buf3new17h3f9c823c2e07801fE(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2) unnamed_addr #0 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8

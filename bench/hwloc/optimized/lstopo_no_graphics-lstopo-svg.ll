@@ -294,7 +294,7 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %19, %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @native_svg_textsize(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) #5 {
+define internal void @native_svg_textsize(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) #5 {
   %6 = mul i32 %3, 11
   %7 = udiv i32 %6, 9
   %8 = mul i32 %7, %2

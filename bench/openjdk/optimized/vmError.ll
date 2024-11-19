@@ -5445,7 +5445,7 @@ define hidden noundef zeroext i1 @_ZN7VMError13check_timeoutEv() local_unnamed_a
 declare void @_ZN7VMError26interrupt_reporting_threadEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19VMErrorCallbackMarkC2EP15VMErrorCallback(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #14 align 2 {
+define hidden void @_ZN19VMErrorCallbackMarkC2EP15VMErrorCallback(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef initializes((8, 16)) %1) unnamed_addr #14 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8

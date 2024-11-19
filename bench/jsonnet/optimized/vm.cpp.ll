@@ -1613,7 +1613,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_111InterpreterC2EPNS0_9AllocatorERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5VmExtESt4lessISB_ESaISt4pairIKSB_SC_EEEjddRKS5_ISB_NS0_16VmNativeCallbackESE_SaISF_ISG_SM_EEEPFiPvPKcSU_PPcSW_PmESS_(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, i32 noundef %3, double noundef %4, double noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %6, ptr noundef %7, ptr noundef %8) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_111InterpreterC2EPNS0_9AllocatorERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5VmExtESt4lessISB_ESaISt4pairIKSB_SC_EEEjddRKS5_ISB_NS0_16VmNativeCallbackESE_SaISF_ISG_SM_EEEPFiPvPKcSU_PPcSW_PmESS_(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 4), (8, 17), (24, 64), (80, 128)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, i32 noundef %3, double noundef %4, double noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %6, ptr noundef %7, ptr noundef %8) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i:
   %9 = alloca %"class.std::__cxx11::basic_string.58", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -29306,7 +29306,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15StackD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_15StackD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_15StackE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -34634,7 +34634,7 @@ _ZNK7jsonnet8internal12_GLOBAL__N_15Frame4markERNS1_4HeapE.exit: ; preds = %.lr.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7jsonnet8internal12_GLOBAL__N_19HeapThunkD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7jsonnet8internal12_GLOBAL__N_19HeapThunkD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_19HeapThunkE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %.val = load ptr, ptr %2, align 8
@@ -34643,7 +34643,7 @@ define internal void @_ZN7jsonnet8internal12_GLOBAL__N_19HeapThunkD2Ev(ptr nocap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7jsonnet8internal12_GLOBAL__N_19HeapThunkD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7jsonnet8internal12_GLOBAL__N_19HeapThunkD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_19HeapThunkE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %.val.i = load ptr, ptr %2, align 8
@@ -35141,7 +35141,7 @@ _ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierESt4pairIKS4_PNS1_12_GLOBAL__N_19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7jsonnet8internal12_GLOBAL__N_19HeapArrayD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7jsonnet8internal12_GLOBAL__N_19HeapArrayD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_19HeapArrayE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %.val = load ptr, ptr %2, align 8
@@ -35157,7 +35157,7 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7jsonnet8internal12_GLOBAL__N_19HeapArrayD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7jsonnet8internal12_GLOBAL__N_19HeapArrayD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_19HeapArrayE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %.val.i = load ptr, ptr %2, align 8
@@ -35600,7 +35600,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter8makeHeapINS1_10HeapStringEJRKNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapStringD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapStringD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_110HeapStringE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -35624,7 +35624,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapStringD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7jsonnet8internal12_GLOBAL__N_110HeapStringD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_110HeapStringE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -35760,7 +35760,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPKN7jsonnet8internal1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter12objectFieldsEPKNS1_10HeapObjectEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter12objectFieldsEPKNS1_10HeapObjectEb(ptr dead_on_unwind noalias nonnull writable align 8 initializes((8, 12), (16, 24)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::map.233", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
@@ -35992,7 +35992,7 @@ _ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierES4_St9_IdentityIS4_ESt4lessIS4_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter15objectFieldsAuxEPKNS1_10HeapObjectE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter15objectFieldsAuxEPKNS1_10HeapObjectE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((8, 12), (16, 24)) %0, ptr noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::map.233", align 8
   %4 = alloca %"class.std::map.233", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -38036,7 +38036,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_111Interpreter8makeHeapINS1_11HeapClosureEJSt3m
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_111HeapClosureC2ERKSt3mapIPKNS0_10IdentifierEPNS1_9HeapThunkESt4lessIS6_ESaISt4pairIKS6_S8_EEEPNS1_10HeapObjectEjRKSt6vectorINS2_5ParamESaISL_EEPKNS0_3ASTERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_111HeapClosureC2ERKSt3mapIPKNS0_10IdentifierEPNS1_9HeapThunkESt4lessIS6_ESaISt4pairIKS6_S8_EEEPNS1_10HeapObjectEjRKSt6vectorINS2_5ParamESaISL_EEPKNS0_3ASTERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8), (9, 10), (24, 28), (32, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 9
   store i8 2, ptr %8, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_111HeapClosureE, i64 16), ptr %0, align 8
@@ -38175,7 +38175,7 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7jsonnet8internal12_GLOBAL__N_111HeapClosureD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7jsonnet8internal12_GLOBAL__N_111HeapClosureD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_111HeapClosureE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
@@ -38196,7 +38196,7 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7jsonnet8internal12_GLOBAL__N_111HeapClosureD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7jsonnet8internal12_GLOBAL__N_111HeapClosureD0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_111HeapClosureE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
@@ -54390,7 +54390,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_123HeapComprehensionObjectC2ERKSt3mapIPKNS0_10IdentifierEPNS1_9HeapThunkESt4lessIS6_ESaISt4pairIKS6_S8_EEEPKNS0_3ASTES6_SH_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_123HeapComprehensionObjectC2ERKSt3mapIPKNS0_10IdentifierEPNS1_9HeapThunkESt4lessIS6_ESaISt4pairIKS6_S8_EEEPKNS0_3ASTES6_SH_(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8), (9, 10), (24, 28), (32, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 9
   store i8 5, ptr %6, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_123HeapComprehensionObjectE, i64 16), ptr %0, align 8
@@ -54501,7 +54501,7 @@ _ZNSt3mapIPKN7jsonnet8internal10IdentifierEPNS1_12_GLOBAL__N_19HeapThunkESt4less
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7jsonnet8internal12_GLOBAL__N_123HeapComprehensionObjectD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7jsonnet8internal12_GLOBAL__N_123HeapComprehensionObjectD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_123HeapComprehensionObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %.val1 = load ptr, ptr %2, align 8
@@ -54513,7 +54513,7 @@ define internal void @_ZN7jsonnet8internal12_GLOBAL__N_123HeapComprehensionObjec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7jsonnet8internal12_GLOBAL__N_123HeapComprehensionObjectD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7jsonnet8internal12_GLOBAL__N_123HeapComprehensionObjectD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_123HeapComprehensionObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %.val1.i = load ptr, ptr %2, align 8
@@ -63076,7 +63076,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_14Heap9checkHeapEv.exit.thread: ; preds = %_ZN7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter7captureERKSt6vectorIPKNS0_10IdentifierESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %1, ptr readonly %.0.val, ptr readnone %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter7captureERKSt6vectorIPKNS0_10IdentifierESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %1, ptr readonly %.0.val, ptr readnone %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -68224,7 +68224,7 @@ _ZNKSt4lessISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_IDiS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7jsonnet8internal12_GLOBAL__N_116HeapSimpleObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7jsonnet8internal12_GLOBAL__N_116HeapSimpleObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_116HeapSimpleObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -68249,7 +68249,7 @@ _ZNSt7__cxx114listIPN7jsonnet8internal3ASTESaIS4_EED2Ev.exit: ; preds = %.lr.ph.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7jsonnet8internal12_GLOBAL__N_116HeapSimpleObjectD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7jsonnet8internal12_GLOBAL__N_116HeapSimpleObjectD0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7jsonnet8internal12_GLOBAL__N_116HeapSimpleObjectE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8

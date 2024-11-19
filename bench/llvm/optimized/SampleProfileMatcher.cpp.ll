@@ -1635,7 +1635,7 @@ _ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i41: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm20SampleProfileMatcher18functionHasProfileERKNS_10sampleprof10FunctionIdERPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm20SampleProfileMatcher18functionHasProfileERKNS_10sampleprof10FunctionIdERPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
   store ptr null, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %5 = tail call ptr @_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdEPNS_8FunctionEJEE4findERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(16) %1)

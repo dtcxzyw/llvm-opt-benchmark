@@ -16,7 +16,7 @@ $_ZN4llvm11raw_ostream13enable_colorsEb = comdat any
 @_ZN4llvm14raw_os_ostreamD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm14raw_os_ostreamD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14raw_os_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14raw_os_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm14raw_os_ostreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8

@@ -149,7 +149,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang7CodeGen7ABIInfo12isOHOSFamilyEv(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5clang7CodeGen7ABIInfo11EmitMSVAArgERNS0_15CodeGenFunctionENS0_7AddressENS_8QualTypeENS0_12AggValueSlotE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::RValue") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef readnone byval(%"class.clang::CodeGen::Address") align 8 %3, i64 %4, ptr nocapture noundef readnone byval(%"class.clang::CodeGen::AggValueSlot") align 8 %5) unnamed_addr #6 align 2 {
+define dso_local void @_ZNK5clang7CodeGen7ABIInfo11EmitMSVAArgERNS0_15CodeGenFunctionENS0_7AddressENS_8QualTypeENS0_12AggValueSlotE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::RValue") align 8 initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef readnone byval(%"class.clang::CodeGen::Address") align 8 %3, i64 %4, ptr nocapture noundef readnone byval(%"class.clang::CodeGen::AggValueSlot") align 8 %5) unnamed_addr #6 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %8, align 8, !alias.scope !4
@@ -802,7 +802,7 @@ _ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread: ; preds = %14, %_ZNK5
 declare noundef zeroext i1 @_ZNK5clang10ASTContext23isPromotableIntegerTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096), i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang7CodeGen7ABIInfo23getNaturalAlignIndirectENS_8QualTypeEbbPN4llvm4TypeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::ABIArgInfo") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK5clang7CodeGen7ABIInfo23getNaturalAlignIndirectENS_8QualTypeEbbPN4llvm4TypeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::ABIArgInfo") align 8 initializes((0, 25)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #3 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -830,7 +830,7 @@ define dso_local void @_ZNK5clang7CodeGen7ABIInfo23getNaturalAlignIndirectENS_8Q
 declare i64 @_ZNK5clang10ASTContext19getTypeAlignInCharsENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096), i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang7CodeGen7ABIInfo28getNaturalAlignIndirectInRegENS_8QualTypeEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::ABIArgInfo") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK5clang7CodeGen7ABIInfo28getNaturalAlignIndirectInRegENS_8QualTypeEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::ABIArgInfo") align 8 initializes((0, 25)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8

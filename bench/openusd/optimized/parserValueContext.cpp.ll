@@ -173,7 +173,7 @@ $_ZTIN32pxrInternal_v0_24__pxrReserved__20SdfUnregisteredValueE = comdat any
 @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_ParserValueContextC1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_ParserValueContextC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_ParserValueContextC2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_ParserValueContextC2Ev(ptr noundef nonnull align 8 dereferenceable(328) initializes((8, 32), (56, 112)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -224,7 +224,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L17ReportCodingErrorE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_ParserValueContext5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_ParserValueContext5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((0, 4), (32, 36), (112, 116)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 -1, ptr %2, align 8
@@ -1824,7 +1824,7 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_ParserValueContext20StartRecordingStringEv(ptr noundef nonnull align 8 dereferenceable(328) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_ParserValueContext20StartRecordingStringEv(ptr noundef nonnull align 8 dereferenceable(328) initializes((288, 290)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 289
@@ -1838,7 +1838,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_ParserValueContext20Star
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_ParserValueContext19StopRecordingStringEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(328) %0) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_ParserValueContext19StopRecordingStringEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(328) initializes((289, 290)) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 289
   store i8 0, ptr %2, align 1
   ret void

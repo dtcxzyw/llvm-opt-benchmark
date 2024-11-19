@@ -2114,7 +2114,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @replicationSetupSlaveForFullResync(ptr noundef %slave, i64 noundef %offset) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @replicationSetupSlaveForFullResync(ptr noundef initializes((260, 264), (352, 360)) %slave, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
   %buf = alloca [128 x i8], align 16
   %psync_initial_offset = getelementptr inbounds i8, ptr %slave, i64 352
@@ -3693,7 +3693,7 @@ declare ptr @sdssplitargs(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @sdsfreesplitres(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @replicaPutOnline(ptr nocapture noundef %slave) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @replicaPutOnline(ptr nocapture noundef initializes((260, 264)) %slave) local_unnamed_addr #0 {
 entry:
   %li.i = alloca %struct.listIter, align 8
   %flags = getelementptr inbounds i8, ptr %slave, i64 8

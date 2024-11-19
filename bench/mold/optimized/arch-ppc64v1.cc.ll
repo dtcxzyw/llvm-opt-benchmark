@@ -413,7 +413,7 @@ _ZNSt12_Vector_baseIPN4mold7CounterESaIS2_EED2Ev.exit: ; preds = %entry, %if.the
 }
 
 ; Function Attrs: mustprogress nofree nounwind
-define dso_local void @_ZN4mold3elf16write_plt_headerINS0_7PPC64V1EEEvRNS0_7ContextIT_EEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4584) %ctx, ptr nocapture noundef %buf) local_unnamed_addr #5 {
+define dso_local void @_ZN4mold3elf16write_plt_headerINS0_7PPC64V1EEEvRNS0_7ContextIT_EEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4584) %ctx, ptr nocapture noundef initializes((0, 44)) %buf) local_unnamed_addr #5 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN4mold3elf16write_plt_headerINS0_7PPC64V1EEEvRNS0_7ContextIT_EEPhE4insn acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
@@ -474,7 +474,7 @@ init.end:                                         ; preds = %init, %init.check, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind
-define dso_local void @_ZN4mold3elf15write_plt_entryINS0_7PPC64V1EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4584) %ctx, ptr nocapture noundef %buf, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %sym) local_unnamed_addr #5 {
+define dso_local void @_ZN4mold3elf15write_plt_entryINS0_7PPC64V1EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4584) %ctx, ptr nocapture noundef initializes((0, 8)) %buf, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %sym) local_unnamed_addr #5 {
 entry:
   %aux_idx.i = getelementptr inbounds i8, ptr %sym, i64 40
   %0 = load i32, ptr %aux_idx.i, align 8
@@ -2393,7 +2393,7 @@ _ZN4mold7SyncOutINS_3elf7ContextINS1_7PPC64V1EEEElsIRA50_KcEERS5_OT_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind
-define dso_local void @_ZN4mold3elf12InputSectionINS0_7PPC64V1EE16scan_relocationsERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(118) %this, ptr noundef nonnull align 8 dereferenceable(4584) %ctx) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4mold3elf12InputSectionINS0_7PPC64V1EE16scan_relocationsERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(118) initializes((88, 92)) %this, ptr noundef nonnull align 8 dereferenceable(4584) %ctx) local_unnamed_addr #4 align 2 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp43 = alloca %"class.mold::Error", align 8

@@ -541,7 +541,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @_ZN7rocksdb19ThreadStatusUpdater17EraseDatabaseInfoEPKv(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb31AutoThreadOperationStageUpdaterC2ENS_12ThreadStatus14OperationStageE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, i32 noundef %stage) unnamed_addr #3 align 2 {
+define void @_ZN7rocksdb31AutoThreadOperationStageUpdaterC2ENS_12ThreadStatus14OperationStageE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, i32 noundef %stage) unnamed_addr #3 align 2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_local_cache_E)
   %1 = load ptr, ptr %0, align 8

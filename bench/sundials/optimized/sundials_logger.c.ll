@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.sunCreateLogMessage = private unnamed_addr constant [4 x ptr] [ptr @.str.5, ptr @.str.3, ptr @.str.4, ptr @.str.2], align 8
 
 ; Function Attrs: nounwind uwtable
-define void @sunCreateLogMessage(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define void @sunCreateLogMessage(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr nocapture noundef writeonly initializes((0, 8)) %6) local_unnamed_addr #0 {
   %8 = alloca [1 x %struct.__va_list_tag], align 16
   store ptr null, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
@@ -102,7 +102,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -9999, 1) i32 @SUNLogger_Create(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -9999, 1) i32 @SUNLogger_Create(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(88) ptr @malloc(i64 noundef 88) #15
   store ptr %4, ptr %2, align 8
   %5 = icmp eq ptr %4, null

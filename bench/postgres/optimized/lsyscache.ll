@@ -213,7 +213,7 @@ define dso_local i32 @get_opfamily_member(i32 noundef %0, i32 noundef %1, i32 no
 declare ptr @SearchSysCache4(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @get_ordering_op_properties(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @get_ordering_op_properties(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 2)) %3) local_unnamed_addr #0 {
   store i32 0, ptr %1, align 4
   store i32 0, ptr %2, align 4
   store i16 0, ptr %3, align 2
@@ -4238,7 +4238,7 @@ define dso_local range(i32 0, -2147483648) i32 @get_attavgwidth(i32 noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @get_attstatsslot(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @get_attstatsslot(ptr noundef initializes((0, 64)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 22

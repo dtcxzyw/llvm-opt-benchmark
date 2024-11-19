@@ -423,7 +423,7 @@ define void @"_ZN96_$LT$regex..regexset..bytes..SetMatches$u20$as$u20$core..iter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN100_$LT$$RF$regex..regexset..bytes..SetMatches$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h19b63ebf679e5c55E"(ptr noalias nocapture noundef writeonly sret({ { { { ptr, ptr }, i64 } } }) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN100_$LT$$RF$regex..regexset..bytes..SetMatches$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h19b63ebf679e5c55E"(ptr noalias nocapture noundef writeonly sret({ { { { ptr, ptr }, i64 } } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { { { ptr, ptr }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @_ZN14regex_automata4util6search10PatternSet4iter17habd91a20f9e33f51E(ptr noalias nocapture noundef nonnull sret({ { { ptr, ptr }, i64 } }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
@@ -459,7 +459,7 @@ define { i64, i64 } @"_ZN101_$LT$regex..regexset..bytes..SetMatchesIntoIter$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN101_$LT$regex..regexset..bytes..SetMatchesIntoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hbfca381603777bd6E"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #7 {
+define void @"_ZN101_$LT$regex..regexset..bytes..SetMatchesIntoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hbfca381603777bd6E"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, i64 } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %.val = load i64, ptr %3, align 8, !alias.scope !43, !noalias !46, !noundef !5
   %4 = getelementptr inbounds i8, ptr %1, i64 32

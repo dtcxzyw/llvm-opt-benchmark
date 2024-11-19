@@ -2822,7 +2822,7 @@ _ZNSt12__shared_ptrIN5arrow7compute14VectorFunctionELN9__gnu_cxx12_Lock_policyE2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal29PreallocatePrimitiveArrayDataEPNS0_13KernelContextElibPNS_9ArrayDataE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %ctx, i64 noundef %length, i32 noundef %bit_width, i1 noundef zeroext %allocate_validity, ptr noundef %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal29PreallocatePrimitiveArrayDataEPNS0_13KernelContextElibPNS_9ArrayDataE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %ctx, i64 noundef %length, i32 noundef %bit_width, i1 noundef zeroext %allocate_validity, ptr noundef initializes((16, 24)) %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.54", align 8
   %ref.tmp15 = alloca %"class.arrow::Result.54", align 8
@@ -37222,7 +37222,7 @@ declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #10
 declare noundef i64 @_ZN5arrow7compute8internal19GetFilterOutputSizeERKNS_9ArraySpanENS0_13FilterOptions21NullSelectionBehaviorE(ptr noundef nonnull align 8 dereferenceable(128), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImplE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
@@ -37378,7 +37378,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19F
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImplD0Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImplD0Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImplD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -37386,7 +37386,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !2471
   ret void
@@ -37406,7 +37406,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEEE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -39235,7 +39235,7 @@ return:                                           ; preds = %if.else, %_ZN5arrow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11VisitFilterIZNS4_14GenerateOutputINS6_13FilterAdapterEEENS_6StatusEvEUllE_ZNS8_IS9_EESA_vEUlvE_EESA_OT_OT0_ENKUllE0_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %index) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11VisitFilterIZNS4_14GenerateOutputINS6_13FilterAdapterEEENS_6StatusEvEUllE_ZNS8_IS9_EESA_vEUlvE_EESA_OT_OT0_ENKUllE0_clEl(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %index) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
@@ -39832,7 +39832,7 @@ _ZN5arrow5ArrayD2Ev.exit:                         ; preds = %entry, %_ZN9__gnu_c
 declare noundef i32 @_ZNK5arrow9ArraySpan11num_buffersEv(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEEC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %output_length, ptr nocapture noundef readonly %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEEC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 40)) %this, ptr noundef %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %output_length, ptr nocapture noundef readonly %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_EE, i64 16), ptr %this, align 8
   %ctx2.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -39973,7 +39973,7 @@ invoke.cont6:                                     ; preds = %if.else.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEEE, i64 16), ptr %this, align 8
   %child_index_builder = getelementptr inbounds i8, ptr %this, i64 176
@@ -40211,7 +40211,7 @@ _ZN5arrow13BufferBuilderD2Ev.exit:                ; preds = %entry, %_ZN9__gnu_c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -40219,7 +40219,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %output_length = getelementptr inbounds i8, ptr %this, i64 32
@@ -40786,7 +40786,7 @@ ehcleanup88:                                      ; preds = %ehcleanup86, %lpad8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_ED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_ED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_EE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -40874,7 +40874,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !2547
   ret void
@@ -44982,7 +44982,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEEC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %output_length, ptr nocapture noundef readonly %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEEC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 40)) %this, ptr noundef %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %output_length, ptr nocapture noundef readonly %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_EE, i64 16), ptr %this, align 8
   %ctx2.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -45123,7 +45123,7 @@ invoke.cont6:                                     ; preds = %if.else.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEEE, i64 16), ptr %this, align 8
   %child_index_builder = getelementptr inbounds i8, ptr %this, i64 176
@@ -45361,7 +45361,7 @@ _ZN5arrow13BufferBuilderD2Ev.exit:                ; preds = %entry, %_ZN9__gnu_c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -45369,7 +45369,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %output_length = getelementptr inbounds i8, ptr %this, i64 32
@@ -45936,7 +45936,7 @@ ehcleanup78:                                      ; preds = %ehcleanup76, %lpad9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_ED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_ED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_EE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -46024,7 +46024,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !2721
   ret void
@@ -48347,7 +48347,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImplC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %output_length, ptr nocapture noundef readonly %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImplC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 40)) %this, ptr noundef %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %output_length, ptr nocapture noundef readonly %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEEE, i64 16), ptr %this, align 8
   %ctx2.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -48475,7 +48475,7 @@ invoke.cont2:                                     ; preds = %if.else.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImplD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImplD2Ev(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImplE, i64 16), ptr %this, align 8
   %child_index_builder = getelementptr inbounds i8, ptr %this, i64 120
@@ -48559,7 +48559,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17F
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImplD0Ev(ptr noundef nonnull align 8 dereferenceable(336) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImplD0Ev(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImplE, i64 16), ptr %this, align 8
   %child_index_builder.i = getelementptr inbounds i8, ptr %this, i64 120
@@ -48644,7 +48644,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImplD2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !2857
   ret void
@@ -49156,7 +49156,7 @@ ehcleanup53:                                      ; preds = %ehcleanup51, %lpad9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEEE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -49528,7 +49528,7 @@ return:                                           ; preds = %if.else, %_ZZN5arro
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11VisitFilterIZNS4_14GenerateOutputINS6_13FilterAdapterEEENS_6StatusEvEUllE_ZNS8_IS9_EESA_vEUlvE_EESA_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11VisitFilterIZNS4_14GenerateOutputINS6_13FilterAdapterEEENS_6StatusEvEUllE_ZNS8_IS9_EESA_vEUlvE_EESA_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
   %0 = load ptr, ptr %this, align 8
@@ -49893,7 +49893,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImplC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %output_length, ptr nocapture noundef readonly %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImplC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 40)) %this, ptr noundef %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %output_length, ptr nocapture noundef readonly %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp23 = alloca %"class.arrow::NumericBuilder", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEEE, i64 16), ptr %this, align 8
@@ -50185,7 +50185,7 @@ ehcleanup30:                                      ; preds = %if.then.i.i.i36, %e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImplE, i64 16), ptr %this, align 8
   %child_indices_builders_ = getelementptr inbounds i8, ptr %this, i64 256
@@ -50840,7 +50840,7 @@ _ZN5arrow13BufferBuilderD2Ev.exit:                ; preds = %entry, %_ZN9__gnu_c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImplD0Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImplD0Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImplD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -50848,7 +50848,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp9 = alloca %"class.arrow::Status", align 8
@@ -52207,7 +52207,7 @@ ehcleanup123:                                     ; preds = %lpad, %lpad4.i, %eh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEEE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -52295,7 +52295,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !2962
   ret void
@@ -54047,7 +54047,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE13FilterAdapterEEENS_6StatusEvENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %index) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE13FilterAdapterEEENS_6StatusEvENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %index) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -54180,7 +54180,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE11VisitFilterIZNS4_14GenerateOutputINS6_13FilterAdapterEEENS_6StatusEvEUllE_ZNS8_IS9_EESA_vEUlvE_EESA_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE11VisitFilterIZNS4_14GenerateOutputINS6_13FilterAdapterEEENS_6StatusEvEUllE_ZNS8_IS9_EESA_vEUlvE_EESA_OT_OT0_ENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Status", align 8
   %0 = load ptr, ptr %this, align 8
@@ -54635,7 +54635,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEEC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %output_length, ptr nocapture noundef readonly %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEEC2EPNS0_13KernelContextERKNS0_8ExecSpanElPNS0_10ExecResultE(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 40)) %this, ptr noundef %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %output_length, ptr nocapture noundef readonly %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_EE, i64 16), ptr %this, align 8
   %ctx2.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -54776,7 +54776,7 @@ invoke.cont6:                                     ; preds = %if.else.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEEE, i64 16), ptr %this, align 8
   %child_index_builder = getelementptr inbounds i8, ptr %this, i64 176
@@ -54934,7 +54934,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7M
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -54942,7 +54942,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %output_length = getelementptr inbounds i8, ptr %this, i64 32
@@ -55509,7 +55509,7 @@ ehcleanup77:                                      ; preds = %ehcleanup75, %lpad9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_ED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_ED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_EE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -55597,7 +55597,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !3041
   ret void
@@ -56279,7 +56279,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 declare void @_ZN5arrow8internal16CheckIndexBoundsERKNS_9ArraySpanEm(ptr sret(%"class.arrow::Status") align 8, ptr noundef nonnull align 8 dereferenceable(128), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(232) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEEE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
@@ -56509,7 +56509,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(232) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(232) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -56549,7 +56549,7 @@ _ZN5arrow18TypedBufferBuilderIivE7ReserveEl.exit: ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE6FinishEv(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(232) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE6FinishEv(ptr noalias sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(232) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %offset_builder = getelementptr inbounds i8, ptr %this, i64 120
@@ -56580,7 +56580,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_ED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_ED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_EE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -56668,7 +56668,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !3087
   ret void
@@ -56774,7 +56774,7 @@ return:                                           ; preds = %if.else, %_ZN5arrow
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(232) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEEE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
@@ -57004,7 +57004,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(232) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(232) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -57044,7 +57044,7 @@ _ZN5arrow18TypedBufferBuilderIlvE7ReserveEl.exit: ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE6FinishEv(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(232) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE6FinishEv(ptr noalias sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(232) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %offset_builder = getelementptr inbounds i8, ptr %this, i64 120
@@ -57075,7 +57075,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_ED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_ED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_EE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -57163,7 +57163,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !3103
   ret void
@@ -58046,7 +58046,7 @@ return:                                           ; preds = %for.body, %_ZN5arro
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef range(i64 0, 256) %index) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef range(i64 0, 256) %index) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -58179,7 +58179,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture %this.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %type_codes_ = getelementptr inbounds i8, ptr %this.0.val, i64 232
@@ -58285,7 +58285,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef range(i64 0, 65536) %index) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef range(i64 0, 65536) %index) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -58418,7 +58418,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture %this.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %type_codes_ = getelementptr inbounds i8, ptr %this.0.val, i64 232
@@ -58524,7 +58524,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef range(i64 0, 4294967296) %index) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef range(i64 0, 4294967296) %index) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -58657,7 +58657,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture %this.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %type_codes_ = getelementptr inbounds i8, ptr %this.0.val, i64 232
@@ -58763,7 +58763,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %index) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %index) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -58896,7 +58896,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture %this.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %type_codes_ = getelementptr inbounds i8, ptr %this.0.val, i64 232
@@ -59002,7 +59002,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(177) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(177) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImplE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
@@ -59158,7 +59158,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImplD0Ev(ptr noundef nonnull align 8 dereferenceable(177) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImplD0Ev(ptr noundef nonnull align 8 dereferenceable(177) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImplD2Ev(ptr noundef nonnull align 8 dereferenceable(177) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -59166,7 +59166,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(177) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(177) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %output_length = getelementptr inbounds i8, ptr %this, i64 32
@@ -60422,7 +60422,7 @@ ehcleanup96:                                      ; preds = %lpad, %lpad4.i, %eh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEEE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -60510,7 +60510,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !3276
   ret void
@@ -61293,7 +61293,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_119StructSelectionImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_119StructSelectionImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEEE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -61374,7 +61374,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_119StructSelectionImplD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_119StructSelectionImplD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEEE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -61456,7 +61456,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_119StructSelectionImplD2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !3281
   ret void
@@ -62046,7 +62046,7 @@ eh.resume:                                        ; preds = %ehcleanup47, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEEE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56

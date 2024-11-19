@@ -158,7 +158,7 @@ define range(i32 0, 2) i32 @Maj_ManValue(i32 noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @Maj_ManTruthTables(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define noundef ptr @Maj_ManTruthTables(ptr nocapture noundef initializes((32, 40)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -328,7 +328,7 @@ Maj_ManValue.exit:                                ; preds = %.lr.ph.i26, %.prehe
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Maj_ManMarkup(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define i32 @Maj_ManMarkup(ptr nocapture noundef initializes((16, 20)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 1, ptr %2, align 8
   %3 = load i32, ptr %0, align 8
@@ -1897,7 +1897,7 @@ declare i32 @bmcg_sat_solver_clausenum(ptr noundef) local_unnamed_addr #6
 declare i32 @bmcg_sat_solver_conflictnum(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @Exa_ManTruthTables(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define noundef ptr @Exa_ManTruthTables(ptr nocapture noundef initializes((40, 48)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2004,7 +2004,7 @@ Abc_TtIthVar.exit:                                ; preds = %42, %40, %.preheade
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Exa_ManMarkup(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define i32 @Exa_ManMarkup(ptr nocapture noundef initializes((24, 28)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = mul nsw i32 %3, 3
@@ -2957,7 +2957,7 @@ Exa_ManFindFanin.exit.thread:                     ; preds = %39, %54, %Exa_ManFi
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Exa_ManAddCnfAdd(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Exa_ManAddCnfAdd(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #2 {
   %3 = alloca [64 x i32], align 16
   %4 = alloca [2 x i32], align 4
   store i32 0, ptr %1, align 4
@@ -12345,7 +12345,7 @@ Exa4_ManAddClause4.exit545:                       ; preds = %703, %._crit_edge.i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Exa4_ManGenCnf(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define void @Exa4_ManGenCnf(ptr noundef initializes((32816, 32824)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.16)
   %8 = getelementptr inbounds i8, ptr %0, i64 32816
   store ptr %7, ptr %8, align 8
@@ -16060,7 +16060,7 @@ Exa5_ManAddClause4.exit104:                       ; preds = %195, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Exa5_ManGenCnf(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define void @Exa5_ManGenCnf(ptr noundef initializes((16432, 16440)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.16)
   %8 = getelementptr inbounds i8, ptr %0, i64 16432
   store ptr %7, ptr %8, align 8
@@ -18413,7 +18413,7 @@ define void @Exa6_WriteFile2(ptr nocapture noundef readonly %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Exa6_GenCount(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @Exa6_GenCount(ptr nocapture noundef initializes((0, 24)) %0, i32 noundef %1) local_unnamed_addr #8 {
 .preheader:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not18 = icmp eq i32 %1, 31
@@ -22357,7 +22357,7 @@ split:                                            ; preds = %18, %27, %.preheade
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Exa6_ManGenCnf(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define void @Exa6_ManGenCnf(ptr noundef initializes((32824, 32832)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.16)
   %8 = getelementptr inbounds i8, ptr %0, i64 32824
   store ptr %7, ptr %8, align 8

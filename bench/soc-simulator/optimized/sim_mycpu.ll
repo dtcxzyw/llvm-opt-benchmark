@@ -905,7 +905,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z12connect_wireR8axi4_ptrILj32ELj32ELj4EEP10Vmycpu_top(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define dso_local void @_Z12connect_wireR8axi4_ptrILj32ELj32ELj4EEP10Vmycpu_top(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((0, 232)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 352
   %4 = load ptr, ptr %3, align 32, !tbaa !4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3322,7 +3322,7 @@ define linkonce_odr dso_local void @_ZN10memory_busD2Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z9bind_wireR8axi4_refILj32ELj32ELj4EER10axi4_ptr_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(236) %1) local_unnamed_addr #3 {
+define dso_local void @_Z9bind_wireR8axi4_refILj32ELj32ELj4EER10axi4_ptr_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(236) initializes((0, 232)) %1) local_unnamed_addr #3 {
   %3 = load <2 x ptr>, ptr %0, align 8, !tbaa !18
   store <2 x ptr> %3, ptr %1, align 8, !tbaa !18
   %4 = getelementptr inbounds i8, ptr %0, i64 16

@@ -2224,7 +2224,7 @@ define void @Fraig_ManIncrementTravId(ptr nocapture noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Fraig_NodeSetTravIdCurrent(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 {
+define void @Fraig_NodeSetTravIdCurrent(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((20, 24)) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 132
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 20

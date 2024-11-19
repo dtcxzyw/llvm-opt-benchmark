@@ -374,7 +374,7 @@ define internal void @cls_cgroup_walk(ptr noundef %0, ptr noundef %1, i1 zeroext
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @cls_cgroup_dump(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture noundef writeonly %4, i1 zeroext %5) #0 align 16 {
+define internal i32 @cls_cgroup_dump(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((8, 12)) %4, i1 zeroext %5) #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8

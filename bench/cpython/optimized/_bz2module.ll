@@ -576,7 +576,7 @@ declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #1
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @compress(ptr noundef %c, ptr noundef %data, i64 noundef %len, i32 noundef range(i32 0, 3) %action) unnamed_addr #0 {
+define internal fastcc ptr @compress(ptr noundef initializes((48, 52)) %c, ptr noundef %data, i64 noundef %len, i32 noundef range(i32 0, 3) %action) unnamed_addr #0 {
 entry:
   %buffer = alloca %struct._BlocksOutputBuffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)

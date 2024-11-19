@@ -5392,7 +5392,7 @@ unreachable:                                      ; preds = %invoke.cont36, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb14GetListEntriesENS_6vectorINS_5ValueELb1EEES2_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::vector.14") align 8 %agg.result, ptr noundef %keys, ptr noundef %values) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb14GetListEntriesENS_6vectorINS_5ValueELb1EEES2_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::vector.14") align 8 initializes((0, 24)) %agg.result, ptr noundef %keys, ptr noundef %values) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %children = alloca %"class.duckdb::vector.20", align 16
   %ref.tmp = alloca %"struct.std::pair", align 8

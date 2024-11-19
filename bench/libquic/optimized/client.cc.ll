@@ -2553,7 +2553,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare void @SSL_CTX_set_next_proto_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZL23NextProtoSelectCallbackP6ssl_stPPhS1_PKhjPv(ptr nocapture readnone %ssl, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %in, i32 %inlen, ptr noundef %arg) #6 {
+define internal noundef i32 @_ZL23NextProtoSelectCallbackP6ssl_stPPhS1_PKhjPv(ptr nocapture readnone %ssl, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 1)) %outlen, ptr nocapture readnone %in, i32 %inlen, ptr noundef %arg) #6 {
 entry:
   store ptr %arg, ptr %out, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #28

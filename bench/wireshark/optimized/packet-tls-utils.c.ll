@@ -2256,7 +2256,7 @@ declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) loca
 declare ptr @wmem_list_frame_next(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @ssl_data_alloc(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @ssl_data_alloc(ptr nocapture noundef writeonly initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = tail call noalias ptr @g_malloc(i64 noundef %1) #25
   store ptr %3, ptr %0, align 8
   %.not = icmp ne i64 %1, 0
@@ -3618,7 +3618,7 @@ define hidden void @ssl_print_string(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @tls12_handshake_hash(ptr nocapture noundef readonly %0, i32 noundef range(i32 8, 10) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @tls12_handshake_hash(ptr nocapture noundef readonly %0, i32 noundef range(i32 8, 10) %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca [48 x i8], align 16
   %6 = call i32 @gcry_md_open(ptr noundef nonnull %4, i32 noundef %1, i32 noundef 0) #23
@@ -4057,7 +4057,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #0
 declare i64 @gcry_cipher_get_algo_keylen(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ssl3_generate_export_iv(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 17) %3) unnamed_addr #1 {
+define internal fastcc void @ssl3_generate_export_iv(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull initializes((8, 12)) %2, i32 noundef range(i32 0, 17) %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca [16 x i8], align 16
   %7 = call i32 @gcry_md_open(ptr noundef nonnull %5, i32 noundef 1, i32 noundef 0) #23
@@ -6387,7 +6387,7 @@ define hidden void @ssl_association_remove(ptr noundef %0, ptr noundef %1, ptr n
 declare void @dissector_delete_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ssl_set_server(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define hidden void @ssl_set_server(ptr nocapture noundef writeonly initializes((24, 56)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = tail call ptr @wmem_file_scope() #23
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i32, ptr %1, align 8
@@ -6642,7 +6642,7 @@ define hidden ptr @ssl_get_record_info(ptr noundef %0, i32 noundef %1, ptr nound
 declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ssl_common_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define hidden void @ssl_common_init(ptr nocapture noundef writeonly initializes((0, 104)) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #1 {
   %4 = tail call ptr @g_hash_table_new(ptr noundef nonnull @ssl_hash, ptr noundef nonnull @ssl_equal) #23
   store ptr %4, ptr %0, align 8
   %5 = tail call ptr @g_hash_table_new(ptr noundef nonnull @ssl_hash, ptr noundef nonnull @ssl_equal) #23
@@ -8091,13 +8091,13 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef zeroext i1 @ssldecrypt_uat_fld_ip_chk_cb(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #17 {
+define hidden noundef zeroext i1 @ssldecrypt_uat_fld_ip_chk_cb(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #17 {
   store ptr null, ptr %5, align 8
   ret i1 true
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @ssldecrypt_uat_fld_port_chk_cb(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @ssldecrypt_uat_fld_port_chk_cb(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #1 {
   %7 = alloca i16, align 2
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %16, label %8
@@ -8130,7 +8130,7 @@ define hidden noundef zeroext i1 @ssldecrypt_uat_fld_port_chk_cb(ptr nocapture n
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @ssldecrypt_uat_fld_fileopen_chk_cb(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @ssldecrypt_uat_fld_fileopen_chk_cb(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #1 {
   %7 = alloca %struct.stat, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %8
@@ -8166,7 +8166,7 @@ declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef)
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @ssldecrypt_uat_fld_password_chk_cb(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @ssldecrypt_uat_fld_password_chk_cb(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %25, label %8
@@ -9011,7 +9011,7 @@ define hidden noundef i32 @ssl_is_valid_handshake_type(i8 noundef zeroext %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @tls_scan_server_hello(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @tls_scan_server_hello(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 2)) %3, ptr noundef writeonly %4) local_unnamed_addr #1 {
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1) #23
   store i16 %6, ptr %3, align 2
   switch i16 %6, label %46 [
@@ -12382,7 +12382,7 @@ declare noalias ptr @wmem_strndup(ptr noundef, ptr noundef, i64 noundef) local_u
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ssl_dissect_hnd_srv_hello(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #1 {
+define hidden void @ssl_dissect_hnd_srv_hello(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef initializes((84, 88)) %6, ptr noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #1 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i16, align 2

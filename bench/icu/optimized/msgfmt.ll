@@ -1064,7 +1064,7 @@ declare void @_ZN6icu_756FormatC2ERKS0_(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN6icu_7514MessagePatternC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(127), ptr noundef nonnull align 8 dereferenceable(127)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513MessageFormat11copyObjectsERKS0_R10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(816) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(816) %that, ptr noundef nonnull align 4 dereferenceable(4) %ec) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7513MessageFormat11copyObjectsERKS0_R10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(816) initializes((704, 708)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(816) %that, ptr noundef nonnull align 4 dereferenceable(4) %ec) local_unnamed_addr #1 align 2 {
 entry:
   %pos = alloca i32, align 4
   %pos58 = alloca i32, align 4
@@ -1271,7 +1271,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7513MessageFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(816) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513MessageFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(816) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513MessageFormatE, i64 16), ptr %this, align 8
   %cachedFormatters = getelementptr inbounds i8, ptr %this, i64 736
@@ -5420,7 +5420,7 @@ ehcleanup76:                                      ; preds = %lpad.loopexit, %lpa
 declare noundef double @_ZNK6icu_7514MessagePattern15getPluralOffsetEi(ptr noundef nonnull align 8 dereferenceable(127), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6icu_7512_GLOBAL__N_121PluralSelectorContextC2EiRKNS_13UnicodeStringERKNS_11FormattableEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %this, i32 noundef range(i32 -2147483645, -2147483648) %start, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 8 dereferenceable(112) %num, double noundef %off, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6icu_7512_GLOBAL__N_121PluralSelectorContextC2EiRKNS_13UnicodeStringERKNS_11FormattableEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) initializes((0, 4), (8, 16)) %this, i32 noundef range(i32 -2147483645, -2147483648) %start, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 8 dereferenceable(112) %num, double noundef %off, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.icu_75::Formattable", align 8
   store i32 %start, ptr %this, align 8
@@ -5498,7 +5498,7 @@ entry:
 declare void @_ZN6icu_7511MessageImpl24appendReducedApostrophesERKNS_13UnicodeStringEiiRS1_(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7513MessageFormat33getLiteralStringUntilNextArgumentEi(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %from) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7513MessageFormat33getLiteralStringUntilNextArgumentEi(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %from) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %msg.i = getelementptr inbounds i8, ptr %this, i64 568
   %parts.i = getelementptr inbounds i8, ptr %this, i64 640
@@ -5779,7 +5779,7 @@ return:                                           ; preds = %_ZNK6icu_7514Messag
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7513MessageFormat5parseEiRKNS_13UnicodeStringERNS_13ParsePositionERiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %msgStart, ptr noundef nonnull align 8 dereferenceable(64) %source, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos, ptr nocapture noundef nonnull align 4 dereferenceable(4) %count, ptr nocapture noundef nonnull align 4 dereferenceable(4) %ec) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK6icu_7513MessageFormat5parseEiRKNS_13UnicodeStringERNS_13ParsePositionERiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %msgStart, ptr noundef nonnull align 8 dereferenceable(64) %source, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %count, ptr nocapture noundef nonnull align 4 dereferenceable(4) %ec) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i142 = alloca i16, align 2
   %temp.i = alloca [16 x i16], align 16
@@ -6488,7 +6488,7 @@ delete.end3:                                      ; preds = %arraydestroy.done2,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7513MessageFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionERi(ptr noundef nonnull align 8 dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(64) %source, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos, ptr nocapture noundef nonnull align 4 dereferenceable(4) %count) unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK6icu_7513MessageFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionERi(ptr noundef nonnull align 8 dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(64) %source, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %count) unnamed_addr #1 align 2 {
 entry:
   %ec = alloca i32, align 4
   store i32 0, ptr %ec, align 4
@@ -6592,7 +6592,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_ZN6icu_7511Formattable10adoptArrayEPS0_i(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513MessageFormat19autoQuoteApostropheERKNS_13UnicodeStringER10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513MessageFormat19autoQuoteApostropheERKNS_13UnicodeStringER10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -7431,7 +7431,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 declare noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7521FormatNameEnumeration5resetER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #16 align 2 {
+define void @_ZN6icu_7521FormatNameEnumeration5resetER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((116, 120)) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #16 align 2 {
 entry:
   %pos = getelementptr inbounds i8, ptr %this, i64 116
   store i32 0, ptr %pos, align 4
@@ -7457,7 +7457,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7521FormatNameEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7521FormatNameEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521FormatNameEnumerationE, i64 16), ptr %this, align 8
   %fFormatNames = getelementptr inbounds i8, ptr %this, i64 120
@@ -7486,7 +7486,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7513MessageFormat22PluralSelectorProviderC2ERKS0_11UPluralType(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(816) %mf, i32 noundef %t) unnamed_addr #16 align 2 {
+define void @_ZN6icu_7513MessageFormat22PluralSelectorProviderC2ERKS0_11UPluralType(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 28)) %this, ptr noundef nonnull align 8 dereferenceable(816) %mf, i32 noundef %t) unnamed_addr #16 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513MessageFormat22PluralSelectorProviderE, i64 16), ptr %this, align 8
   %msgFormat = getelementptr inbounds i8, ptr %this, i64 8
@@ -7499,7 +7499,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7513MessageFormat22PluralSelectorProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7513MessageFormat22PluralSelectorProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513MessageFormat22PluralSelectorProviderE, i64 16), ptr %this, align 8
   %rules = getelementptr inbounds i8, ptr %this, i64 16

@@ -60,7 +60,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @vnc_hextile_set_pixel_conversion(ptr nocapture noundef writeonly %vs, i32 noundef %generic) local_unnamed_addr #3 {
+define dso_local void @vnc_hextile_set_pixel_conversion(ptr nocapture noundef writeonly initializes((49808, 49816)) %vs, i32 noundef %generic) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq i32 %generic, 0
   %spec.select = select i1 %tobool.not, ptr @send_hextile_tile_32, ptr @send_hextile_tile_generic_32

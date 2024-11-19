@@ -364,7 +364,7 @@ declare void @_ZN19OpenColorIO_v2_4dev13GpuShaderDescC2Ev(ptr noundef nonnull al
 declare void @_ZN19OpenColorIO_v2_4dev13GpuShaderDescD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDescD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDescD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20GenericGpuShaderDescE, i64 16), ptr %this, align 8
   %m_implGeneric = getelementptr inbounds i8, ptr %this, i64 16
@@ -386,7 +386,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDescD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDescD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20GenericGpuShaderDescE, i64 16), ptr %this, align 8
   %m_implGeneric.i = getelementptr inbounds i8, ptr %this, i64 16

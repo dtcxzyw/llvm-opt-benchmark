@@ -278,7 +278,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN3g2o16OptimizableGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3g2o15SparseOptimizerD2Ev(ptr noundef nonnull align 8 dereferenceable(409) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o15SparseOptimizerD2Ev(ptr noundef nonnull align 8 dereferenceable(409) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 264) (i8, ptr @_ZTVN3g2o15SparseOptimizerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %3 = load ptr, ptr %2, align 8
@@ -4157,7 +4157,7 @@ define void @_ZN3g2o15SparseOptimizer10discardTopERSt6vectorIPNS_16OptimizableGr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o15SparseOptimizer10setVerboseEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(409) %0, i1 noundef zeroext %1) local_unnamed_addr #13 align 2 {
+define void @_ZN3g2o15SparseOptimizer10setVerboseEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(409) initializes((296, 297)) %0, i1 noundef zeroext %1) local_unnamed_addr #13 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i8 %3, ptr %4, align 8
@@ -4464,7 +4464,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit10:      ; preds = %_ZN3g2o15SparseOpti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o15SparseOptimizer16setForceStopFlagEPb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(409) %0, ptr noundef %1) local_unnamed_addr #13 align 2 {
+define void @_ZN3g2o15SparseOptimizer16setForceStopFlagEPb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(409) initializes((288, 296)) %0, ptr noundef %1) local_unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr %1, ptr %3, align 8
   ret void

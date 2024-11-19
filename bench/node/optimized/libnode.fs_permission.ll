@@ -419,7 +419,7 @@ return:                                           ; preds = %entry, %sw.bb12, %l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node10permission12FSPermission9RadixTreeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node10permission12FSPermission9RadixTreeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.0", align 1

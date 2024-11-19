@@ -34,7 +34,7 @@ $_ZN5boost9container18throw_length_errorEPKc = comdat any
 @_ZTISt12length_error = external constant ptr
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211all_reportsERKNS_8NGHolderE(ptr noalias sret(%"class.std::set") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211all_reportsERKNS_8NGHolderE(ptr noalias sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont1:
   %agg.tmp.i18 = alloca %"class.ue2::flat_detail::iter_wrapper.118", align 8
   %agg.tmp1.i19 = alloca %"class.ue2::flat_detail::iter_wrapper.118", align 8

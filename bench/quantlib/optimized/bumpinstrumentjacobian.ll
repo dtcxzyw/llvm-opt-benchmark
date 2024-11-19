@@ -114,7 +114,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib32VolatilityBumpInstrumentJacobianC2ERKNS_18VegaBumpCollectionERKSt6vectorINS0_8SwaptionESaIS5_EERKS4_INS0_3CapESaISA_EE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(43) %bumps, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %swaptions, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %caps) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib32VolatilityBumpInstrumentJacobianC2ERKNS_18VegaBumpCollectionERKSt6vectorINS0_8SwaptionESaIS5_EERKS4_INS0_3CapESaISA_EE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(43) %bumps, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %swaptions, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %caps) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp10 = alloca %"class.std::vector.27", align 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %bumps, i64 8
@@ -2053,7 +2053,7 @@ _ZN5boost10shared_ptrIN8QuantLib11MarketModelEED2Ev.exit: ; preds = %_ZNSt6vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib32VolatilityBumpInstrumentJacobian14onePercentBumpEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.27") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef %j) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib32VolatilityBumpInstrumentJacobian14onePercentBumpEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.27") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef %j) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured = alloca %"class.std::vector.27", align 8
   call void @_ZNK8QuantLib32VolatilityBumpInstrumentJacobian21derivativesVolatilityEm(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.27") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef %j)

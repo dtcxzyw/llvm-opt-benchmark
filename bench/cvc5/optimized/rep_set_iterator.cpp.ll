@@ -102,7 +102,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory14RepSetIteratorC2EPKNS1_6RepSetEPNS1_11RepBoundExtE(ptr noundef nonnull align 8 dereferenceable(169) %this, ptr noundef %rs, ptr noundef %rext) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory14RepSetIteratorC2EPKNS1_6RepSetEPNS1_11RepBoundExtE(ptr noundef nonnull align 8 dereferenceable(169) initializes((0, 112)) %this, ptr noundef %rs, ptr noundef %rext) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_index = getelementptr inbounds i8, ptr %this, i64 24
   %d_rs = getelementptr inbounds i8, ptr %this, i64 48
@@ -338,7 +338,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory14RepSetIterator9getTypeOfEm(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(169) %this, i64 noundef %i) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal6theory14RepSetIterator9getTypeOfEm(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(169) %this, i64 noundef %i) local_unnamed_addr #3 align 2 {
 entry:
   %d_types = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %d_types, align 8

@@ -172,7 +172,7 @@ define hidden void @_ZN5Arena29start_chunk_pool_cleaner_taskEv() local_unnamed_a
 declare void @_ZN12PeriodicTask6enrollEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5ChunkC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN5ChunkC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
   store ptr null, ptr %0, align 8
@@ -288,7 +288,7 @@ _ZN5Chunk4chopEPS_.exit:                          ; preds = %_ZN9ChunkPool16deal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ArenaC2E8MEMFLAGSNS_3TagEm(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i64 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN5ArenaC2E8MEMFLAGSNS_3TagEm(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 2), (8, 48)) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i64 noundef %3) unnamed_addr #0 align 2 {
   store i8 %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %2, ptr %5, align 1

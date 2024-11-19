@@ -113,7 +113,7 @@ declare noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm19getTheRISCV6
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117RISCVDisassemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117RISCVDisassemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_117RISCVDisassemblerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -131,7 +131,7 @@ _ZNSt10unique_ptrIKN4llvm11MCInstrInfoESt14default_deleteIS2_EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117RISCVDisassemblerD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117RISCVDisassemblerD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_117RISCVDisassemblerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -150,7 +150,7 @@ _ZN12_GLOBAL__N_117RISCVDisassemblerD2Ev.exit:    ; preds = %1, %_ZNKSt14default
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructionERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr %3, i64 %4, i64 noundef %5, ptr nocapture nonnull readnone align 8 %6) unnamed_addr #0 align 2 {
+define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructionERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2, ptr %3, i64 %4, i64 noundef %5, ptr nocapture nonnull readnone align 8 %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::MCOperand", align 8
   %9 = alloca %"class.llvm::MCOperand", align 8
   %10 = alloca %"class.llvm::MCOperand", align 8
@@ -3154,7 +3154,7 @@ declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() local
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(128) %3, i64 noundef %4, ptr noundef nonnull readonly %5, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %6) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(128) %3, i64 noundef %4, ptr noundef nonnull readonly %5, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %6) unnamed_addr #0 {
   store i8 1, ptr %6, align 1
   switch i32 %1, label %8 [
     i32 0, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit

@@ -7554,7 +7554,7 @@ _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_M
 declare void @_ZN3ue28NGHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(136)) unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L19findExclusiveGroupsERKNS_13RoseBuildImplERKSt3mapIjSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESt4lessIjESaISt4pairIKjSA_EEERKS3_IjSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISS_EESC_SaISD_ISE_SU_EEEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr noundef nonnull readonly align 8 dereferenceable(48) %exclusiveInfo, ptr noundef nonnull readonly align 8 dereferenceable(48) %vertex_map, i1 noundef zeroext %is_infix) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L19findExclusiveGroupsERKNS_13RoseBuildImplERKSt3mapIjSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEESt4lessIjESaISt4pairIKjSA_EEERKS3_IjSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISS_EESC_SaISD_ISE_SU_EEEb(ptr noalias nonnull align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr noundef nonnull readonly align 8 dereferenceable(48) %exclusiveInfo, ptr noundef nonnull readonly align 8 dereferenceable(48) %vertex_map, i1 noundef zeroext %is_infix) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.307", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.310", align 1

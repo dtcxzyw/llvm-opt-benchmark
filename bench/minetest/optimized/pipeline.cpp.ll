@@ -398,7 +398,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13TextureBufferD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TextureBufferD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !12
@@ -539,7 +539,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13TextureBufferD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZN13TextureBufferD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN13TextureBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull @_ZTT13TextureBuffer) #31
   ret void
@@ -557,7 +557,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13TextureBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZN13TextureBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN13TextureBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull @_ZTT13TextureBuffer) #31
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -1389,7 +1389,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19TextureBufferOutputC2EP13TextureBufferh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr nocapture noundef readonly %vtt, ptr noundef %_buffer, i8 noundef zeroext %_texture_index) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19TextureBufferOutputC2EP13TextureBufferh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 9), (16, 49), (56, 72)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %_buffer, i8 noundef zeroext %_texture_index) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -1430,7 +1430,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19TextureBufferOutputC1EP13TextureBufferh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr noundef %_buffer, i8 noundef zeroext %_texture_index) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19TextureBufferOutputC1EP13TextureBufferh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 9), (16, 49), (56, 72)) %this, ptr noundef %_buffer, i8 noundef zeroext %_texture_index) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_clear.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %m_clear.i, align 8, !tbaa !76
@@ -1455,7 +1455,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19TextureBufferOutputC2EP13TextureBufferRKSt6vectorIhSaIhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr nocapture noundef readonly %vtt, ptr noundef %_buffer, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %_texture_map) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19TextureBufferOutputC2EP13TextureBufferRKSt6vectorIhSaIhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 9), (16, 48)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %_buffer, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %_texture_map) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -1532,7 +1532,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19TextureBufferOutputC1EP13TextureBufferRKSt6vectorIhSaIhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr noundef %_buffer, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %_texture_map) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19TextureBufferOutputC1EP13TextureBufferRKSt6vectorIhSaIhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 9), (16, 48)) %this, ptr noundef %_buffer, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %_texture_map) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_clear.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %m_clear.i, align 8, !tbaa !76
@@ -1593,7 +1593,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19TextureBufferOutputC2EP13TextureBufferRKSt6vectorIhSaIhEEh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr nocapture noundef readonly %vtt, ptr noundef %_buffer, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %_texture_map, i8 noundef zeroext %_depth_stencil) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19TextureBufferOutputC2EP13TextureBufferRKSt6vectorIhSaIhEEh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 9), (16, 48)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %_buffer, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %_texture_map, i8 noundef zeroext %_depth_stencil) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -1670,7 +1670,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19TextureBufferOutputC1EP13TextureBufferRKSt6vectorIhSaIhEEh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr noundef %_buffer, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %_texture_map, i8 noundef zeroext %_depth_stencil) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19TextureBufferOutputC1EP13TextureBufferRKSt6vectorIhSaIhEEh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 9), (16, 48)) %this, ptr noundef %_buffer, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %_texture_map, i8 noundef zeroext %_depth_stencil) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_clear.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %m_clear.i, align 8, !tbaa !76
@@ -1731,7 +1731,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN19TextureBufferOutputD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19TextureBufferOutputD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !12
@@ -1781,7 +1781,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN19TextureBufferOutputD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19TextureBufferOutputD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV19TextureBufferOutput, i64 40), ptr %this, align 8, !tbaa !12
   %render_target.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -1871,7 +1871,7 @@ _ZN19TextureBufferOutputD1Ev.exit:                ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN19TextureBufferOutputD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19TextureBufferOutputD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV19TextureBufferOutput, i64 40), ptr %this, align 8, !tbaa !12
   %render_target.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -2359,7 +2359,7 @@ declare void @_ZNSt11logic_errorD1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12ScreenTarget5resetER15PipelineContext(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(47) %context) unnamed_addr #10 align 2 {
+define dso_local void @_ZN12ScreenTarget5resetER15PipelineContext(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((8, 9), (12, 20)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(47) %context) unnamed_addr #10 align 2 {
 entry:
   %m_clear.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %m_clear.i, align 8, !tbaa !76
@@ -2411,7 +2411,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN19SetRenderTargetStepC2EP10RenderStepP12RenderTarget(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %vtt, ptr noundef %_step, ptr noundef %_target) unnamed_addr #17 align 2 {
+define dso_local void @_ZN19SetRenderTargetStepC2EP10RenderStepP12RenderTarget(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %_step, ptr noundef %_target) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = getelementptr inbounds i8, ptr %vtt, i64 16
@@ -2447,7 +2447,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN19SetRenderTargetStepC1EP10RenderStepP12RenderTarget(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %_step, ptr noundef %_target) unnamed_addr #18 align 2 {
+define dso_local void @_ZN19SetRenderTargetStepC1EP10RenderStepP12RenderTarget(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %_step, ptr noundef %_target) unnamed_addr #18 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV19SetRenderTargetStep, i64 40), ptr %this, align 8, !tbaa !12
   %step = getelementptr inbounds i8, ptr %this, i64 8
@@ -2472,7 +2472,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN16SwapTexturesStepC2EP13TextureBufferhh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(18) %this, ptr nocapture noundef readonly %vtt, ptr noundef %_buffer, i8 noundef zeroext %_texture_a, i8 noundef zeroext %_texture_b) unnamed_addr #17 align 2 {
+define dso_local void @_ZN16SwapTexturesStepC2EP13TextureBufferhh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(18) initializes((0, 18)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %_buffer, i8 noundef zeroext %_texture_a, i8 noundef zeroext %_texture_b) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = getelementptr inbounds i8, ptr %vtt, i64 16
@@ -2510,7 +2510,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16SwapTexturesStepC1EP13TextureBufferhh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(18) %this, ptr noundef %_buffer, i8 noundef zeroext %_texture_a, i8 noundef zeroext %_texture_b) unnamed_addr #18 align 2 {
+define dso_local void @_ZN16SwapTexturesStepC1EP13TextureBufferhh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(18) initializes((0, 18)) %this, ptr noundef %_buffer, i8 noundef zeroext %_texture_a, i8 noundef zeroext %_texture_b) unnamed_addr #18 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16SwapTexturesStep, i64 40), ptr %this, align 8, !tbaa !12
   %buffer = getelementptr inbounds i8, ptr %this, i64 8
@@ -2626,7 +2626,7 @@ for.body26:                                       ; preds = %for.cond.cleanup, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN14RenderPipeline15setRenderSourceEP12RenderSource(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this, ptr noundef %source) unnamed_addr #18 align 2 {
+define dso_local void @_ZN14RenderPipeline15setRenderSourceEP12RenderSource(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((64, 72)) %this, ptr noundef %source) unnamed_addr #18 align 2 {
 entry:
   %upstream.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %source, ptr %upstream.i, align 8, !tbaa !92
@@ -2634,7 +2634,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN14RenderPipeline15setRenderTargetEP12RenderTarget(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this, ptr noundef %target) unnamed_addr #18 align 2 {
+define dso_local void @_ZN14RenderPipeline15setRenderTargetEP12RenderTarget(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((88, 96)) %this, ptr noundef %target) unnamed_addr #18 align 2 {
 entry:
   %upstream.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %target, ptr %upstream.i, align 8, !tbaa !94

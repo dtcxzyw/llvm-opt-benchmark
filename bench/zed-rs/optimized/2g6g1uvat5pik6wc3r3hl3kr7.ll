@@ -2681,7 +2681,7 @@ define void @_ZN8terminal4init17h770ff54a95099140E(ptr noalias noundef align 8 d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN8terminal12TerminalSize3new17h5b5e78d3ca87fc26E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 4 dereferenceable(16) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #10 {
+define void @_ZN8terminal12TerminalSize3new17h5b5e78d3ca87fc26E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 4 dereferenceable(16) initializes((0, 16)) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #10 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store float %2, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 12
@@ -2743,7 +2743,7 @@ define noundef float @_ZN8terminal12TerminalSize11line_height17hf5ee1fd0db0b88cb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN65_$LT$terminal..TerminalSize$u20$as$u20$core..default..Default$GT$7default17h69ae46b3bc485f63E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 4 dereferenceable(16) %0) unnamed_addr #10 {
+define void @"_ZN65_$LT$terminal..TerminalSize$u20$as$u20$core..default..Default$GT$7default17h69ae46b3bc485f63E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 4 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store float 5.000000e+00, ptr %2, align 4, !alias.scope !393
   %3 = getelementptr inbounds i8, ptr %0, i64 12
@@ -6317,7 +6317,7 @@ define void @_ZN8terminal15TerminalBuilder9subscribe17h0c343a0d868e6a4bE(ptr dea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN68_$LT$terminal..TerminalContent$u20$as$u20$core..default..Default$GT$7default17h0f558b379fc5fd47E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([216 x i8]) align 8 dereferenceable(216) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
+define void @"_ZN68_$LT$terminal..TerminalContent$u20$as$u20$core..default..Default$GT$7default17h0f558b379fc5fd47E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([216 x i8]) align 8 dereferenceable(216) initializes((0, 32), (48, 56), (152, 153), (160, 172), (176, 177), (184, 216)) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
   store i64 0, ptr %0, align 8
   %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.417.0..sroa_idx, align 8
@@ -7354,7 +7354,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN8terminal8Terminal12
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN8terminal8Terminal16set_cursor_shape17h11d8162aab7c9222E(ptr noalias noundef align 16 dereferenceable(9760) %0, i8 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @_ZN8terminal8Terminal16set_cursor_shape17h11d8162aab7c9222E(ptr noalias noundef align 16 dereferenceable(9760) initializes((8944, 8946)) %0, i8 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8912
@@ -12987,7 +12987,7 @@ define void @_ZN8terminal8Terminal8focus_in17h656c9dc6fbd5cf4cE(ptr noalias noun
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN8terminal8Terminal9focus_out17hec327b79c9569c89E(ptr noalias noundef align 16 dereferenceable(9760) %0) unnamed_addr #2 {
+define void @_ZN8terminal8Terminal9focus_out17hec327b79c9569c89E(ptr noalias noundef align 16 dereferenceable(9760) initializes((9736, 9740)) %0) unnamed_addr #2 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 9736
@@ -13086,7 +13086,7 @@ define noundef zeroext i1 @_ZN8terminal8Terminal10mouse_mode17hda74fcc17b8ec481E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN8terminal8Terminal10mouse_move17ha995b08325495f3eE(ptr noalias noundef align 16 dereferenceable(9760) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1, float noundef %2, float noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @_ZN8terminal8Terminal10mouse_move17ha995b08325495f3eE(ptr noalias noundef align 16 dereferenceable(9760) initializes((9736, 9748)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1, float noundef %2, float noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [16 x i8], align 4
@@ -13296,7 +13296,7 @@ _ZN8terminal8mappings5mouse18mouse_moved_report17h2aedc570aa8cc579E.exit.thread:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN8terminal8Terminal10mouse_drag17hdf605ba058e9779dE(ptr noalias noundef align 16 dereferenceable(9760) %0, ptr noalias noundef readonly align 4 dereferenceable(16) %1, float noundef %2, float noundef %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %4) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @_ZN8terminal8Terminal10mouse_drag17hdf605ba058e9779dE(ptr noalias noundef align 16 dereferenceable(9760) initializes((9736, 9748)) %0, ptr noalias noundef readonly align 4 dereferenceable(16) %1, float noundef %2, float noundef %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %4) unnamed_addr #2 personality ptr @rust_eh_personality {
   %6 = alloca [4 x i8], align 4
   %7 = alloca [4 x i8], align 4
   %8 = alloca [4 x i8], align 4
@@ -16743,7 +16743,7 @@ define { ptr, i64 } @"_ZN56_$LT$terminal..Clear$u20$as$u20$gpui..action..Action$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN56_$LT$terminal..Clear$u20$as$u20$gpui..action..Action$GT$5build17h82cb1428cf4363ffE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @"_ZN56_$LT$terminal..Clear$u20$as$u20$gpui..action..Action$GT$5build17h82cb1428cf4363ffE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.7648dab19e72b4798efc337902be0c47.214, ptr %3, align 8
@@ -16784,7 +16784,7 @@ define { ptr, ptr } @"_ZN56_$LT$terminal..Clear$u20$as$u20$gpui..action..Action$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN8terminal5Clear15__autogenerated28__gpui_actions_builder_clear17h1dfdac8d5adf5a88E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #10 {
+define void @_ZN8terminal5Clear15__autogenerated28__gpui_actions_builder_clear17h1dfdac8d5adf5a88E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #10 {
   store ptr @anon.7648dab19e72b4798efc337902be0c47.213, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 15, ptr %2, align 8
@@ -16814,7 +16814,7 @@ define { ptr, i64 } @"_ZN55_$LT$terminal..Copy$u20$as$u20$gpui..action..Action$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN55_$LT$terminal..Copy$u20$as$u20$gpui..action..Action$GT$5build17h04e90fb14238c7a6E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @"_ZN55_$LT$terminal..Copy$u20$as$u20$gpui..action..Action$GT$5build17h04e90fb14238c7a6E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.7648dab19e72b4798efc337902be0c47.218, ptr %3, align 8
@@ -16855,7 +16855,7 @@ define { ptr, ptr } @"_ZN55_$LT$terminal..Copy$u20$as$u20$gpui..action..Action$G
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN8terminal4Copy15__autogenerated27__gpui_actions_builder_copy17hf0f137aa3cee04e6E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #10 {
+define void @_ZN8terminal4Copy15__autogenerated27__gpui_actions_builder_copy17hf0f137aa3cee04e6E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #10 {
   store ptr @anon.7648dab19e72b4798efc337902be0c47.217, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 14, ptr %2, align 8
@@ -16885,7 +16885,7 @@ define { ptr, i64 } @"_ZN56_$LT$terminal..Paste$u20$as$u20$gpui..action..Action$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN56_$LT$terminal..Paste$u20$as$u20$gpui..action..Action$GT$5build17hfe1a16b145239ef7E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @"_ZN56_$LT$terminal..Paste$u20$as$u20$gpui..action..Action$GT$5build17hfe1a16b145239ef7E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.7648dab19e72b4798efc337902be0c47.222, ptr %3, align 8
@@ -16926,7 +16926,7 @@ define { ptr, ptr } @"_ZN56_$LT$terminal..Paste$u20$as$u20$gpui..action..Action$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN8terminal5Paste15__autogenerated28__gpui_actions_builder_paste17hc0b0695e2b3d88f7E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #10 {
+define void @_ZN8terminal5Paste15__autogenerated28__gpui_actions_builder_paste17hc0b0695e2b3d88f7E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #10 {
   store ptr @anon.7648dab19e72b4798efc337902be0c47.221, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 15, ptr %2, align 8
@@ -16956,7 +16956,7 @@ define { ptr, i64 } @"_ZN71_$LT$terminal..ShowCharacterPalette$u20$as$u20$gpui..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN71_$LT$terminal..ShowCharacterPalette$u20$as$u20$gpui..action..Action$GT$5build17hf05d4f0689d8fce9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @"_ZN71_$LT$terminal..ShowCharacterPalette$u20$as$u20$gpui..action..Action$GT$5build17hf05d4f0689d8fce9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.7648dab19e72b4798efc337902be0c47.226, ptr %3, align 8
@@ -16997,7 +16997,7 @@ define { ptr, ptr } @"_ZN71_$LT$terminal..ShowCharacterPalette$u20$as$u20$gpui..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN8terminal20ShowCharacterPalette15__autogenerated43__gpui_actions_builder_showcharacterpalette17hd0f36099202081bfE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #10 {
+define void @_ZN8terminal20ShowCharacterPalette15__autogenerated43__gpui_actions_builder_showcharacterpalette17hd0f36099202081bfE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #10 {
   store ptr @anon.7648dab19e72b4798efc337902be0c47.225, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 30, ptr %2, align 8
@@ -17027,7 +17027,7 @@ define { ptr, i64 } @"_ZN61_$LT$terminal..SearchTest$u20$as$u20$gpui..action..Ac
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN61_$LT$terminal..SearchTest$u20$as$u20$gpui..action..Action$GT$5build17h2538d003f3c80fc1E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @"_ZN61_$LT$terminal..SearchTest$u20$as$u20$gpui..action..Action$GT$5build17h2538d003f3c80fc1E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.7648dab19e72b4798efc337902be0c47.230, ptr %3, align 8
@@ -17068,7 +17068,7 @@ define { ptr, ptr } @"_ZN61_$LT$terminal..SearchTest$u20$as$u20$gpui..action..Ac
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN8terminal10SearchTest15__autogenerated33__gpui_actions_builder_searchtest17h200891ca6dce36d3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #10 {
+define void @_ZN8terminal10SearchTest15__autogenerated33__gpui_actions_builder_searchtest17h200891ca6dce36d3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #10 {
   store ptr @anon.7648dab19e72b4798efc337902be0c47.229, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 20, ptr %2, align 8
@@ -17098,7 +17098,7 @@ define { ptr, i64 } @"_ZN63_$LT$terminal..ScrollLineUp$u20$as$u20$gpui..action..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN63_$LT$terminal..ScrollLineUp$u20$as$u20$gpui..action..Action$GT$5build17h939dcd41ffb0c463E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @"_ZN63_$LT$terminal..ScrollLineUp$u20$as$u20$gpui..action..Action$GT$5build17h939dcd41ffb0c463E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.7648dab19e72b4798efc337902be0c47.234, ptr %3, align 8
@@ -17139,7 +17139,7 @@ define { ptr, ptr } @"_ZN63_$LT$terminal..ScrollLineUp$u20$as$u20$gpui..action..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN8terminal12ScrollLineUp15__autogenerated35__gpui_actions_builder_scrolllineup17ha72e9824b860ce65E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #10 {
+define void @_ZN8terminal12ScrollLineUp15__autogenerated35__gpui_actions_builder_scrolllineup17ha72e9824b860ce65E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #10 {
   store ptr @anon.7648dab19e72b4798efc337902be0c47.233, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 22, ptr %2, align 8
@@ -17169,7 +17169,7 @@ define { ptr, i64 } @"_ZN65_$LT$terminal..ScrollLineDown$u20$as$u20$gpui..action
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN65_$LT$terminal..ScrollLineDown$u20$as$u20$gpui..action..Action$GT$5build17h182ab7e522e56eacE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @"_ZN65_$LT$terminal..ScrollLineDown$u20$as$u20$gpui..action..Action$GT$5build17h182ab7e522e56eacE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.7648dab19e72b4798efc337902be0c47.238, ptr %3, align 8
@@ -17210,7 +17210,7 @@ define { ptr, ptr } @"_ZN65_$LT$terminal..ScrollLineDown$u20$as$u20$gpui..action
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN8terminal14ScrollLineDown15__autogenerated37__gpui_actions_builder_scrolllinedown17h5b9b038ba8741805E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #10 {
+define void @_ZN8terminal14ScrollLineDown15__autogenerated37__gpui_actions_builder_scrolllinedown17h5b9b038ba8741805E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #10 {
   store ptr @anon.7648dab19e72b4798efc337902be0c47.237, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 24, ptr %2, align 8
@@ -17240,7 +17240,7 @@ define { ptr, i64 } @"_ZN63_$LT$terminal..ScrollPageUp$u20$as$u20$gpui..action..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN63_$LT$terminal..ScrollPageUp$u20$as$u20$gpui..action..Action$GT$5build17h36afcd65207a9eb1E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @"_ZN63_$LT$terminal..ScrollPageUp$u20$as$u20$gpui..action..Action$GT$5build17h36afcd65207a9eb1E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.7648dab19e72b4798efc337902be0c47.242, ptr %3, align 8
@@ -17281,7 +17281,7 @@ define { ptr, ptr } @"_ZN63_$LT$terminal..ScrollPageUp$u20$as$u20$gpui..action..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN8terminal12ScrollPageUp15__autogenerated35__gpui_actions_builder_scrollpageup17h49937f52c408eab5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #10 {
+define void @_ZN8terminal12ScrollPageUp15__autogenerated35__gpui_actions_builder_scrollpageup17h49937f52c408eab5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #10 {
   store ptr @anon.7648dab19e72b4798efc337902be0c47.241, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 22, ptr %2, align 8
@@ -17311,7 +17311,7 @@ define { ptr, i64 } @"_ZN65_$LT$terminal..ScrollPageDown$u20$as$u20$gpui..action
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN65_$LT$terminal..ScrollPageDown$u20$as$u20$gpui..action..Action$GT$5build17h2f36ce95c942e773E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @"_ZN65_$LT$terminal..ScrollPageDown$u20$as$u20$gpui..action..Action$GT$5build17h2f36ce95c942e773E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.7648dab19e72b4798efc337902be0c47.246, ptr %3, align 8
@@ -17352,7 +17352,7 @@ define { ptr, ptr } @"_ZN65_$LT$terminal..ScrollPageDown$u20$as$u20$gpui..action
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN8terminal14ScrollPageDown15__autogenerated37__gpui_actions_builder_scrollpagedown17h9dbc3d56729ead25E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #10 {
+define void @_ZN8terminal14ScrollPageDown15__autogenerated37__gpui_actions_builder_scrollpagedown17h9dbc3d56729ead25E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #10 {
   store ptr @anon.7648dab19e72b4798efc337902be0c47.245, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 24, ptr %2, align 8
@@ -17382,7 +17382,7 @@ define { ptr, i64 } @"_ZN62_$LT$terminal..ScrollToTop$u20$as$u20$gpui..action..A
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN62_$LT$terminal..ScrollToTop$u20$as$u20$gpui..action..Action$GT$5build17hc15424e644438ee7E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @"_ZN62_$LT$terminal..ScrollToTop$u20$as$u20$gpui..action..Action$GT$5build17hc15424e644438ee7E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.7648dab19e72b4798efc337902be0c47.250, ptr %3, align 8
@@ -17423,7 +17423,7 @@ define { ptr, ptr } @"_ZN62_$LT$terminal..ScrollToTop$u20$as$u20$gpui..action..A
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN8terminal11ScrollToTop15__autogenerated34__gpui_actions_builder_scrolltotop17h8e9bc6f02f8c57f8E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #10 {
+define void @_ZN8terminal11ScrollToTop15__autogenerated34__gpui_actions_builder_scrolltotop17h8e9bc6f02f8c57f8E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #10 {
   store ptr @anon.7648dab19e72b4798efc337902be0c47.249, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 21, ptr %2, align 8
@@ -17453,7 +17453,7 @@ define { ptr, i64 } @"_ZN65_$LT$terminal..ScrollToBottom$u20$as$u20$gpui..action
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN65_$LT$terminal..ScrollToBottom$u20$as$u20$gpui..action..Action$GT$5build17h8a075e538635e7beE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @"_ZN65_$LT$terminal..ScrollToBottom$u20$as$u20$gpui..action..Action$GT$5build17h8a075e538635e7beE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   store ptr inttoptr (i64 1 to ptr), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.7648dab19e72b4798efc337902be0c47.254, ptr %3, align 8
@@ -17494,7 +17494,7 @@ define { ptr, ptr } @"_ZN65_$LT$terminal..ScrollToBottom$u20$as$u20$gpui..action
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN8terminal14ScrollToBottom15__autogenerated37__gpui_actions_builder_scrolltobottom17h19c0fee75378c8feE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #10 {
+define void @_ZN8terminal14ScrollToBottom15__autogenerated37__gpui_actions_builder_scrolltobottom17h19c0fee75378c8feE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #10 {
   store ptr @anon.7648dab19e72b4798efc337902be0c47.253, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 24, ptr %2, align 8

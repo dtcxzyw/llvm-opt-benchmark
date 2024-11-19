@@ -589,7 +589,7 @@ entry:
 declare void @llvm.trap() #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl22MutablePatternModifierC2Eb(ptr noundef nonnull align 8 dereferenceable(392) %this, i1 noundef zeroext %isStrong) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl22MutablePatternModifierC2Eb(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 25)) %this, i1 noundef zeroext %isStrong) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %isStrong to i8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -666,7 +666,7 @@ declare void @_ZN6icu_756number4impl14SymbolProviderD2Ev(ptr noundef nonnull ali
 declare void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number4impl22MutablePatternModifier14setPatternInfoEPKNS1_20AffixPatternProviderENS_22FormattedStringBuilder5FieldE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(392) %this, ptr noundef %patternInfo, i8 %field.coerce) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_756number4impl22MutablePatternModifier14setPatternInfoEPKNS1_20AffixPatternProviderENS_22FormattedStringBuilder5FieldE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(392) initializes((32, 41)) %this, ptr noundef %patternInfo, i8 %field.coerce) local_unnamed_addr #11 align 2 {
 entry:
   %fPatternInfo = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %patternInfo, ptr %fPatternInfo, align 8
@@ -676,7 +676,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number4impl22MutablePatternModifier20setPatternAttributesE18UNumberSignDisplaybb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(392) %this, i32 noundef %signDisplay, i1 noundef zeroext %perMille, i1 noundef zeroext %approximately) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_756number4impl22MutablePatternModifier20setPatternAttributesE18UNumberSignDisplaybb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(392) initializes((44, 50)) %this, i32 noundef %signDisplay, i1 noundef zeroext %perMille, i1 noundef zeroext %approximately) local_unnamed_addr #11 align 2 {
 entry:
   %frombool = zext i1 %perMille to i8
   %frombool1 = zext i1 %approximately to i8
@@ -690,7 +690,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl22MutablePatternModifier10setSymbolsEPKNS_20DecimalFormatSymbolsERKNS_12CurrencyUnitE16UNumberUnitWidthPKNS_11PluralRulesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef %symbols, ptr noundef nonnull align 8 dereferenceable(28) %currency, i32 noundef %unitWidth, ptr noundef %rules, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl22MutablePatternModifier10setSymbolsEPKNS_20DecimalFormatSymbolsERKNS_12CurrencyUnitE16UNumberUnitWidthPKNS_11PluralRulesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(392) initializes((56, 64)) %this, ptr noundef %symbols, ptr noundef nonnull align 8 dereferenceable(28) %currency, i32 noundef %unitWidth, ptr noundef %rules, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::number::impl::CurrencySymbols", align 8
   %agg.tmp = alloca %"class.icu_75::CurrencyUnit", align 8
@@ -772,7 +772,7 @@ declare void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN6icu_7512CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number4impl22MutablePatternModifier19setNumberPropertiesENS1_6SignumENS_14StandardPlural4FormE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(392) %this, i32 noundef %signum, i32 noundef %plural) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_756number4impl22MutablePatternModifier19setNumberPropertiesENS1_6SignumENS_14StandardPlural4FormE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(392) initializes((312, 320)) %this, i32 noundef %signum, i32 noundef %plural) local_unnamed_addr #11 align 2 {
 entry:
   %fSignum = getelementptr inbounds i8, ptr %this, i64 312
   store i32 %signum, ptr %fSignum, align 8
@@ -796,7 +796,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode(ptr noalias sret(%"class.icu_75::number::impl::AdoptingSignumModifierStore") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, i32 noundef %plural, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode(ptr noalias sret(%"class.icu_75::number::impl::AdoptingSignumModifierStore") align 8 initializes((0, 40)) %agg.result, ptr noundef nonnull align 8 dereferenceable(392) initializes((312, 320)) %this, i32 noundef %plural, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl27AdoptingSignumModifierStoreE, i64 16), ptr %agg.result, align 8
   %scevgep.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1330,7 +1330,7 @@ declare void @_ZN6icu_756number4impl30CurrencySpacingEnabledModifierC1ERKNS_22Fo
 declare void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136)) unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number4impl24ImmutablePatternModifierC2EPNS1_21AdoptingModifierStoreEPKNS_11PluralRulesE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %pm, ptr noundef %rules) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl24ImmutablePatternModifierC2EPNS1_21AdoptingModifierStoreEPKNS_11PluralRulesE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %pm, ptr noundef %rules) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl24ImmutablePatternModifierE, i64 16), ptr %this, align 8
   %pm2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -1525,7 +1525,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number4impl24ImmutablePatternModifier10addToChainEPKNS1_19MicroPropsGeneratorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %parent) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_756number4impl24ImmutablePatternModifier10addToChainEPKNS1_19MicroPropsGeneratorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((24, 32)) %this, ptr noundef %parent) local_unnamed_addr #11 align 2 {
 entry:
   %parent2 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %parent, ptr %parent2, align 8
@@ -1533,7 +1533,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6icu_756number4impl22MutablePatternModifier10addToChainEPKNS1_19MicroPropsGeneratorE(ptr noundef nonnull returned writeonly align 8 dereferenceable(392) %this, ptr noundef %parent) local_unnamed_addr #11 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6icu_756number4impl22MutablePatternModifier10addToChainEPKNS1_19MicroPropsGeneratorE(ptr noundef nonnull returned writeonly align 8 dereferenceable(392) initializes((320, 328)) %this, ptr noundef %parent) local_unnamed_addr #11 align 2 {
 entry:
   %fParent = getelementptr inbounds i8, ptr %this, i64 320
   store ptr %parent, ptr %fParent, align 8

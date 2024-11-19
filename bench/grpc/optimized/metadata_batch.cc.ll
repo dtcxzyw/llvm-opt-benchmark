@@ -636,7 +636,7 @@ while.end:                                        ; preds = %for.end15, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core15metadata_detail10UnknownMap14GetStringValueESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS4_SaIcEEE(ptr noalias nocapture sret(%"class.std::optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 %key.coerce0, ptr nocapture readonly %key.coerce1, ptr noundef %backing) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core15metadata_detail10UnknownMap14GetStringValueESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS4_SaIcEEE(ptr noalias nocapture sret(%"class.std::optional") align 8 initializes((16, 17)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 %key.coerce0, ptr nocapture readonly %key.coerce1, ptr noundef %backing) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp13 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -1185,7 +1185,7 @@ if.end15:                                         ; preds = %_ZNSt11char_traitsI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9grpc_core18HttpMethodMetadata6EncodeENS0_9ValueTypeE(ptr noalias nocapture writeonly sret(%"class.grpc_core::StaticSlice") align 8 %agg.result, i8 noundef zeroext %x) local_unnamed_addr #11 align 2 {
+define void @_ZN9grpc_core18HttpMethodMetadata6EncodeENS0_9ValueTypeE(ptr noalias nocapture writeonly sret(%"class.grpc_core::StaticSlice") align 8 initializes((0, 24)) %agg.result, i8 noundef zeroext %x) local_unnamed_addr #11 align 2 {
 entry:
   store ptr inttoptr (i64 1 to ptr), ptr %agg.result, align 8
   %0 = icmp ult i8 %x, 3
@@ -1287,7 +1287,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core17LbCostBinMetadata6EncodeERKNS0_9ValueTypeE(ptr noalias nocapture writeonly sret(%"class.grpc_core::Slice") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %x) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core17LbCostBinMetadata6EncodeERKNS0_9ValueTypeE(ptr noalias nocapture writeonly sret(%"class.grpc_core::Slice") align 8 initializes((0, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %x) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont8:
   %ref.tmp.i8 = alloca %struct.grpc_slice, align 8
   %slice = alloca %"class.grpc_core::MutableSlice", align 8

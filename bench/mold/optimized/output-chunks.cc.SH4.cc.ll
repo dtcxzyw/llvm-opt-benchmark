@@ -4478,7 +4478,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt6vectorImSaImE
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4mold3elfL11encode_relrINS0_3SH4EEESt6vectorImSaImEESt4spanImLm18446744073709551615EE(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture readonly %pos.coerce0, i64 %pos.coerce1) unnamed_addr #4 {
+define internal fastcc void @_ZN4mold3elfL11encode_relrINS0_3SH4EEESt6vectorImSaImEESt4spanImLm18446744073709551615EE(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result, ptr nocapture readonly %pos.coerce0, i64 %pos.coerce1) unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %cmp31.not = icmp eq i64 %pos.coerce1, 0
@@ -5276,7 +5276,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4mold3elfL15get_got_entriesINS0_3SH4EEESt6vectorINS0_12_GLOBAL__N_18GotEntryIT_EESaIS7_EERNS0_7ContextIS6_EE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4568) %ctx) unnamed_addr #4 {
+define internal fastcc void @_ZN4mold3elfL15get_got_entriesINS0_3SH4EEESt6vectorINS0_12_GLOBAL__N_18GotEntryIT_EESaIS7_EERNS0_7ContextIS6_EE(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(4568) %ctx) unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %got = getelementptr inbounds i8, ptr %ctx, i64 4024
@@ -9305,7 +9305,7 @@ return:                                           ; preds = %land.lhs.true, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4mold3elfL22create_dynamic_sectionINS0_3SH4EEESt6vectorINSt11conditionalIXsrT_5is_64ENS4_IXsrS5_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS4_IXsrS5_5is_leENS6_IjLi4EEENS8_IjLi4EEEE4typeEE4typeESaISH_EERNS0_7ContextIS5_EE(ptr noalias nocapture nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4568) %ctx) unnamed_addr #4 {
+define internal fastcc void @_ZN4mold3elfL22create_dynamic_sectionINS0_3SH4EEESt6vectorINSt11conditionalIXsrT_5is_64ENS4_IXsrS5_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS4_IXsrS5_5is_leENS6_IjLi4EEENS8_IjLi4EEEE4typeEE4typeESaISH_EERNS0_7ContextIS5_EE(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(4568) %ctx) unnamed_addr #4 {
 entry:
   %str.i178 = alloca %"class.std::basic_string_view", align 8
   %str.i167 = alloca %"class.std::basic_string_view", align 8

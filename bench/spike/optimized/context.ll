@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN9context_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN9context_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9context_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9context_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = tail call noalias noundef nonnull dereferenceable(968) ptr @_Znwm(i64 noundef 968) #9
@@ -74,7 +74,7 @@ define void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9context_t4initEPFvPvES0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN9context_t4initEPFvPvES0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16

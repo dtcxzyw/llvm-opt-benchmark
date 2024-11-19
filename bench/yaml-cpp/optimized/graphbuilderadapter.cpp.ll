@@ -839,7 +839,7 @@ _ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit: ; preds = %_ZNSt5stackIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter8OnMapEndEv(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML19GraphBuilderAdapter8OnMapEndEv(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((128, 136)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8

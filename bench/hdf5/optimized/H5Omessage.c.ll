@@ -2014,7 +2014,7 @@ define range(i32 -1, 1) i32 @H5O_msg_set_share(i32 noundef %0, ptr noundef %1, p
 declare i32 @H5O_set_shared(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @H5O_msg_reset_share(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define noundef i32 @H5O_msg_reset_share(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 40)) %1) local_unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 40, i1 false)
   ret i32 0
 }

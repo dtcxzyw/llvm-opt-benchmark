@@ -377,7 +377,7 @@ _ZN3irr3gui11IGUIElement11setTabOrderEi.exit:     ; preds = %if.then11.i, %if.th
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui10CGUIButtonC1EPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEEb(ptr noundef nonnull align 8 dereferenceable(651) %this, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i64 %rectangle.coerce0, i64 %rectangle.coerce1, i1 noundef zeroext %noclip) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui10CGUIButtonC1EPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEEb(ptr noundef nonnull align 8 dereferenceable(651) initializes((656, 676)) %this, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i64 %rectangle.coerce0, i64 %rectangle.coerce1, i1 noundef zeroext %noclip) unnamed_addr #0 align 2 {
 entry:
   %first.i = alloca ptr, align 8
   %closest.i = alloca ptr, align 8
@@ -552,7 +552,7 @@ _ZN3irr3gui11IGUIElement11setTabOrderEi.exit:     ; preds = %if.then11.i, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui10CGUIButtonD2Ev(ptr noundef nonnull align 8 dereferenceable(651) %this, ptr noundef %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui10CGUIButtonD2Ev(ptr noundef nonnull align 8 dereferenceable(651) initializes((0, 8)) %this, ptr noundef %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -843,7 +843,7 @@ _ZN3irr3gui10CGUIButton11ButtonImageD2Ev.exit.8:  ; preds = %delete.notnull.i.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui10CGUIButtonD1Ev(ptr noundef nonnull align 8 dereferenceable(651) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui10CGUIButtonD1Ev(ptr noundef nonnull align 8 dereferenceable(651) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr3gui10CGUIButtonD2Ev(ptr noundef nonnull align 8 dereferenceable(651) %this, ptr noundef nonnull @_ZTTN3irr3gui10CGUIButtonE) #17
   ret void
@@ -861,7 +861,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui10CGUIButtonD0Ev(ptr noundef nonnull align 8 dereferenceable(651) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui10CGUIButtonD0Ev(ptr noundef nonnull align 8 dereferenceable(651) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr3gui10CGUIButtonD2Ev(ptr noundef nonnull align 8 dereferenceable(651) %this, ptr noundef nonnull @_ZTTN3irr3gui10CGUIButtonE) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
@@ -884,7 +884,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui10CGUIButton13setScaleImageEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(651) %this, i1 noundef zeroext %scaleImage) unnamed_addr #4 align 2 {
+define void @_ZN3irr3gui10CGUIButton13setScaleImageEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(651) initializes((650, 651)) %this, i1 noundef zeroext %scaleImage) unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %scaleImage to i8
   %ScaleImage = getelementptr inbounds i8, ptr %this, i64 650
@@ -902,7 +902,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui10CGUIButton13setDrawBorderEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(651) %this, i1 noundef zeroext %border) unnamed_addr #4 align 2 {
+define void @_ZN3irr3gui10CGUIButton13setDrawBorderEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(651) initializes((649, 650)) %this, i1 noundef zeroext %border) unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %border to i8
   %DrawBorder = getelementptr inbounds i8, ptr %this, i64 649
@@ -2469,7 +2469,7 @@ return:                                           ; preds = %if.then4, %if.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui10CGUIButton16setOverrideColorENS_5video6SColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(651) %this, i32 %color.coerce) unnamed_addr #4 align 2 {
+define void @_ZN3irr3gui10CGUIButton16setOverrideColorENS_5video6SColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(651) initializes((624, 625), (628, 632)) %this, i32 %color.coerce) unnamed_addr #4 align 2 {
 entry:
   %OverrideColor = getelementptr inbounds i8, ptr %this, i64 628
   store i32 %color.coerce, ptr %OverrideColor, align 4, !tbaa !62
@@ -2541,7 +2541,7 @@ return:                                           ; preds = %if.end13, %cond.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui10CGUIButton19enableOverrideColorEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(651) %this, i1 noundef zeroext %enable) unnamed_addr #4 align 2 {
+define void @_ZN3irr3gui10CGUIButton19enableOverrideColorEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(651) initializes((624, 625)) %this, i1 noundef zeroext %enable) unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %enable to i8
   %OverrideColorEnabled = getelementptr inbounds i8, ptr %this, i64 624
@@ -2617,7 +2617,7 @@ return:                                           ; preds = %if.end14, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui10CGUIButton15setIsPushButtonEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(651) %this, i1 noundef zeroext %isPushButton) unnamed_addr #4 align 2 {
+define void @_ZN3irr3gui10CGUIButton15setIsPushButtonEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(651) initializes((646, 647)) %this, i1 noundef zeroext %isPushButton) unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %isPushButton to i8
   %IsPushButton = getelementptr inbounds i8, ptr %this, i64 646
@@ -2664,7 +2664,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui10CGUIButton18setUseAlphaChannelEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(651) %this, i1 noundef zeroext %useAlphaChannel) unnamed_addr #4 align 2 {
+define void @_ZN3irr3gui10CGUIButton18setUseAlphaChannelEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(651) initializes((648, 649)) %this, i1 noundef zeroext %useAlphaChannel) unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %useAlphaChannel to i8
   %UseAlphaChannel = getelementptr inbounds i8, ptr %this, i64 648

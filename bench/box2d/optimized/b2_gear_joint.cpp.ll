@@ -289,7 +289,7 @@ declare i32 @__gxx_personality_v0(...)
 declare float @llvm.fmuladd.f32(float, float, float) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN11b2GearJoint23InitVelocityConstraintsERK12b2SolverData(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #3 align 2 {
+define void @_ZN11b2GearJoint23InitVelocityConstraintsERK12b2SolverData(ptr noundef nonnull align 8 dereferenceable(356) initializes((240, 356)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #3 align 2 {
 entry:
   %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
@@ -1345,7 +1345,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11b2GearJoint8SetRatioEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(356) %this, float noundef %ratio) local_unnamed_addr #8 align 2 {
+define void @_ZN11b2GearJoint8SetRatioEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(356) initializes((228, 232)) %this, float noundef %ratio) local_unnamed_addr #8 align 2 {
 entry:
   %m_ratio = getelementptr inbounds i8, ptr %this, i64 228
   store float %ratio, ptr %m_ratio, align 4

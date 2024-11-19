@@ -4609,7 +4609,7 @@ ehcleanup95:                                      ; preds = %ehcleanup, %lpad15,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt17theory_array_base18instantiate_lambdaEP3app(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(249) %this, ptr noundef %e) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt17theory_array_base18instantiate_lambdaEP3app(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(249) %this, ptr noundef %e) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit:
   %sub = alloca %class.var_subst, align 8
   %ref.tmp = alloca %class.obj_ref, align 8
@@ -6801,7 +6801,7 @@ if.end22:                                         ; preds = %if.then, %if.then16
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt17theory_array_base10init_modelERNS_15model_generatorE(ptr noundef nonnull align 8 dereferenceable(249) %this, ptr noundef nonnull align 8 dereferenceable(104) %mg) unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt17theory_array_base10init_modelERNS_15model_generatorE(ptr noundef nonnull align 8 dereferenceable(249) initializes((176, 184)) %this, ptr noundef nonnull align 8 dereferenceable(104) %mg) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 104)
   %m = getelementptr inbounds i8, ptr %this, i64 24

@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [78 x i8] c"Unrecognized content encoding type. libcurl understands %s content encodings.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_all_content_encodings(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local void @Curl_all_content_encodings(ptr noundef initializes((0, 1)) %0, i64 noundef %1) local_unnamed_addr #0 {
   store i8 0, ptr %0, align 1
   br label %3
 
@@ -338,7 +338,7 @@ declare i32 @Curl_cwriter_def_write(ptr noundef, ptr noundef, i32 noundef, ptr n
 declare void @Curl_cwriter_def_close(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 62) i32 @deflate_do_init(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 62) i32 @deflate_do_init(ptr noundef %0, ptr noundef initializes((96, 112)) %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = getelementptr inbounds i8, ptr %1, i64 96
   store ptr @zalloc_cb, ptr %4, align 8
@@ -872,7 +872,7 @@ declare i32 @cm_zlib_inflate(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @cm_zlib_inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 62) i32 @gzip_do_init(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 62) i32 @gzip_do_init(ptr noundef %0, ptr noundef initializes((96, 112)) %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = getelementptr inbounds i8, ptr %1, i64 96
   store ptr @zalloc_cb, ptr %4, align 8

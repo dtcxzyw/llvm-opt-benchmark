@@ -507,7 +507,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512RegexPatternC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512RegexPatternC2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 28), (32, 50), (104, 156), (160, 172), (176, 185), (192, 200)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512RegexPatternE, i64 16), ptr %this, align 8
   %fLiteralText = getelementptr inbounds i8, ptr %this, i64 40
@@ -529,7 +529,7 @@ lpad2:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512RegexPattern4initEv(ptr noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512RegexPattern4initEv(ptr noundef nonnull align 8 dereferenceable(200) initializes((8, 28), (32, 40), (104, 156), (160, 172), (176, 185), (192, 200)) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fFlags = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %fFlags, align 8
@@ -674,7 +674,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512RegexPatternC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(200) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512RegexPatternC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 28), (32, 50), (104, 156), (160, 172), (176, 185), (192, 200)) %this, ptr noundef nonnull align 8 dereferenceable(200) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512RegexPatternE, i64 16), ptr %this, align 8
   %fLiteralText = getelementptr inbounds i8, ptr %this, i64 40

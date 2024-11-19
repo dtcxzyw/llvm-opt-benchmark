@@ -210,7 +210,7 @@ common.ret26:                                     ; preds = %7, %4, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Iso_ManObjCount(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Iso_ManObjCount(ptr noundef %0, ptr nocapture noundef %1, ptr noundef initializes((0, 4)) %2, ptr noundef initializes((0, 4)) %3) local_unnamed_addr #0 {
   store i32 0, ptr %3, align 4
   store i32 0, ptr %2, align 4
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #22

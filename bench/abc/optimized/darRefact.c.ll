@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [47 x i8] c"Dar_ManRefactor: The network check has failed.\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Dar_ManDefaultRefParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @Dar_ManDefaultRefParams(ptr nocapture noundef writeonly initializes((0, 32)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %2, align 4
   store i32 2, ptr %0, align 4
@@ -885,7 +885,7 @@ define ptr @Dar_RefactBuildGraph(ptr noundef %0, ptr nocapture noundef readonly 
 declare ptr @Aig_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i32 @Dar_ManRefactorTryCuts(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define i32 @Dar_ManRefactorTryCuts(ptr nocapture noundef initializes((64, 76)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 -1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64

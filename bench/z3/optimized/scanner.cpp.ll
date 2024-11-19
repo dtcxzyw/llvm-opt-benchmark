@@ -3372,7 +3372,7 @@ eh.resume:                                        ; preds = %lpad76, %lpad70, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7scannerC2ERSiRSobb(ptr noundef nonnull align 8 dereferenceable(388) %this, ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull align 8 dereferenceable(8) %err, i1 noundef zeroext %smt2, i1 noundef zeroext %bv_token) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7scannerC2ERSiRSobb(ptr noundef nonnull align 8 dereferenceable(388) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(16) %stream, ptr noundef nonnull align 8 dereferenceable(8) %err, i1 noundef zeroext %smt2, i1 noundef zeroext %bv_token) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 for.cond.preheader.i:
   %frombool = zext i1 %smt2 to i8
   %frombool1 = zext i1 %bv_token to i8

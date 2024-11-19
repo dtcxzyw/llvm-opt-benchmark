@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [24 x i8] c"  Node%lx -> Node%lx;\0A\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @opal_interval_tree_construct(ptr noundef %0) #0 {
+define internal void @opal_interval_tree_construct(ptr noundef initializes((16, 24)) %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_interval_tree_node_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3

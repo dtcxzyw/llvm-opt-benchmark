@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [21 x i8] c"io_uring/filetable.h\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @io_alloc_file_tables(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @io_alloc_file_tables(ptr nocapture noundef initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = zext i32 %1 to i64
   %4 = shl nuw nsw i64 %3, 3
   %5 = tail call noalias ptr @kvmalloc_node(i64 noundef %4, i32 noundef 4197824, i32 noundef -1) #7

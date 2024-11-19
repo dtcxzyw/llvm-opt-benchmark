@@ -1644,7 +1644,7 @@ declare i64 @EVP_CIPHER_get_flags(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @rsa_keygen(ptr noundef nonnull %pub, ptr nocapture noundef nonnull %priv) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @rsa_keygen(ptr noundef nonnull %pub, ptr nocapture noundef nonnull initializes((0, 8)) %priv) unnamed_addr #1 {
 entry:
   %pub_der = alloca ptr, align 8
   %pp = alloca ptr, align 8

@@ -195,7 +195,7 @@ $_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb25CacheWithSecondaryAdapterESaIvELN9__
 @_ZN7rocksdb9lru_cache8LRUCacheC1ERKNS_15LRUCacheOptionsE = unnamed_addr alias void (ptr, ptr), ptr @_ZN7rocksdb9lru_cache8LRUCacheC2ERKNS_15LRUCacheOptionsE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb9lru_cache14LRUHandleTableC2EiPNS_15MemoryAllocatorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %max_upper_hash_bits, ptr noundef %allocator) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb9lru_cache14LRUHandleTableC2EiPNS_15MemoryAllocatorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 4), (8, 32)) %this, i32 noundef %max_upper_hash_bits, ptr noundef %allocator) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 4, ptr %this, align 8
   %list_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -674,7 +674,7 @@ if.end:                                           ; preds = %while.body.i, %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb9lru_cache13LRUCacheShardC2EmbddbNS_25CacheMetadataChargePolicyEiPNS_15MemoryAllocatorEPKSt8functionIFbRKNS_5SliceEPNS_5Cache6HandleEbEE(ptr noundef nonnull align 64 dereferenceable(256) %this, i64 noundef %capacity, i1 noundef zeroext %strict_capacity_limit, double noundef %high_pri_pool_ratio, double noundef %low_pri_pool_ratio, i1 noundef zeroext %use_adaptive_mutex, i32 noundef %metadata_charge_policy, i32 noundef %max_upper_hash_bits, ptr noundef %allocator, ptr noundef %eviction_callback) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb9lru_cache13LRUCacheShardC2EmbddbNS_25CacheMetadataChargePolicyEiPNS_15MemoryAllocatorEPKSt8functionIFbRKNS_5SliceEPNS_5Cache6HandleEbEE(ptr noundef nonnull align 64 dereferenceable(256) initializes((0, 4), (8, 33), (40, 72)) %this, i64 noundef %capacity, i1 noundef zeroext %strict_capacity_limit, double noundef %high_pri_pool_ratio, double noundef %low_pri_pool_ratio, i1 noundef zeroext %use_adaptive_mutex, i32 noundef %metadata_charge_policy, i32 noundef %max_upper_hash_bits, ptr noundef %allocator, ptr noundef %eviction_callback) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %strict_capacity_limit to i8
   store i32 %metadata_charge_policy, ptr %this, align 64
@@ -1750,7 +1750,7 @@ _ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit22: ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb9lru_cache13LRUCacheShard15TEST_GetLRUListEPPNS0_9LRUHandleES4_S4_(ptr noundef nonnull align 64 dereferenceable(256) %this, ptr nocapture noundef writeonly %lru, ptr nocapture noundef writeonly %lru_low_pri, ptr nocapture noundef writeonly %lru_bottom_pri) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb9lru_cache13LRUCacheShard15TEST_GetLRUListEPPNS0_9LRUHandleES4_S4_(ptr noundef nonnull align 64 dereferenceable(256) %this, ptr nocapture noundef writeonly initializes((0, 8)) %lru, ptr nocapture noundef writeonly initializes((0, 8)) %lru_low_pri, ptr nocapture noundef writeonly initializes((0, 8)) %lru_bottom_pri) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %mutex_)
@@ -1855,7 +1855,7 @@ _ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb9lru_cache13LRUCacheShard10LRU_InsertEPNS0_9LRUHandleE(ptr noundef nonnull align 64 dereferenceable(256) %this, ptr noundef %e) local_unnamed_addr #11 align 2 {
+define void @_ZN7rocksdb9lru_cache13LRUCacheShard10LRU_InsertEPNS0_9LRUHandleE(ptr noundef nonnull align 64 dereferenceable(256) %this, ptr noundef initializes((24, 40)) %e) local_unnamed_addr #11 align 2 {
 entry:
   %high_pri_pool_ratio_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load double, ptr %high_pri_pool_ratio_, align 8
@@ -2529,7 +2529,7 @@ _ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb9lru_cache13LRUCacheShard10InsertItemEPNS0_9LRUHandleEPS3_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 64 dereferenceable(256) %this, ptr noundef %e, ptr noundef writeonly %handle) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb9lru_cache13LRUCacheShard10InsertItemEPNS0_9LRUHandleEPS3_(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 64 dereferenceable(256) %this, ptr noundef %e, ptr noundef writeonly %handle) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr2.i.i = alloca ptr, align 8
   %__args.addr4.i.i = alloca i8, align 1
@@ -3745,7 +3745,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb9lru_cache13LRUCacheShard6InsertERKNS_5SliceEjPvPKNS_5Cache15CacheItemHelperEmPPNS0_9LRUHandleENS6_8PriorityE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 64 dereferenceable(256) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %key, i32 noundef %hash, ptr noundef %value, ptr noundef %helper, i64 noundef %charge, ptr noundef %handle, i32 noundef %priority) local_unnamed_addr #0 align 2 {
+define void @_ZN7rocksdb9lru_cache13LRUCacheShard6InsertERKNS_5SliceEjPvPKNS_5Cache15CacheItemHelperEmPPNS0_9LRUHandleENS6_8PriorityE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 64 dereferenceable(256) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %key, i32 noundef %hash, ptr noundef %value, ptr noundef %helper, i64 noundef %charge, ptr noundef %handle, i32 noundef %priority) local_unnamed_addr #0 align 2 {
 entry:
   %size_.i.i = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load i64, ptr %size_.i.i, align 8

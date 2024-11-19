@@ -2121,7 +2121,7 @@ declare dso_local i64 @v9fs_qid2ino(ptr noundef) local_unnamed_addr #2
 declare dso_local ptr @iget5_locked(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @v9fs_set_inode_dotl(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #8 align 16 {
+define internal noundef i32 @v9fs_set_inode_dotl(ptr nocapture noundef writeonly initializes((576, 580), (632, 648)) %0, ptr nocapture noundef readonly %1) #8 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 632
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %3, ptr noundef align 8 dereferenceable(16) %4, i64 16, i1 false)

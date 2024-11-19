@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6b2BodyD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6b2BodyD2Ev
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN6b2BodyC2EPK9b2BodyDefP7b2World(ptr nocapture noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef readonly %bd, ptr noundef %world) unnamed_addr #0 align 2 {
+define void @_ZN6b2BodyC2EPK9b2BodyDefP7b2World(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((0, 6), (12, 124), (128, 184)) %this, ptr nocapture noundef readonly %bd, ptr noundef %world) unnamed_addr #0 align 2 {
 entry:
   %m_userData = getelementptr inbounds i8, ptr %this, i64 176
   store i64 0, ptr %m_userData, align 8
@@ -322,7 +322,7 @@ for.end24:                                        ; preds = %for.inc23, %while.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6b2Body13ResetMassDataEv(ptr nocapture noundef nonnull align 8 dereferenceable(184) %this) local_unnamed_addr #2 align 2 {
+define void @_ZN6b2Body13ResetMassDataEv(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((28, 36), (144, 160)) %this) local_unnamed_addr #2 align 2 {
 entry:
   %massData = alloca %struct.b2MassData, align 4
   %m_mass = getelementptr inbounds i8, ptr %this, i64 144

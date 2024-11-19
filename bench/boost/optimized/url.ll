@@ -127,7 +127,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost4urls3urlD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls3urlD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls3urlE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8, !tbaa !6
@@ -249,7 +249,7 @@ define void @_ZN5boost4urls3urlC2EOS1_(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN5boost4urls8url_baseC2ERKNS0_6detail8url_implE(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef nonnull align 8 dereferenceable(171)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN5boost4urls3urlaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(216) %0, ptr nocapture noundef nonnull align 8 dereferenceable(216) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN5boost4urls3urlaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(216) initializes((16, 187), (208, 216)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(216) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %.not = icmp eq ptr %4, null
@@ -284,7 +284,7 @@ _ZN5boost4urls3url10deallocateEPc.exit:           ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef nonnull ptr @_ZN5boost4urls3url8allocateEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define noalias noundef nonnull ptr @_ZN5boost4urls3url8allocateEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((208, 216)) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = add i64 %1, 1
   %4 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208

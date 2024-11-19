@@ -740,7 +740,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory6arrays4InfoD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory6arrays4InfoD2Ev(ptr noundef nonnull align 8 dereferenceable(408) initializes((336, 344)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %indices = getelementptr inbounds i8, ptr %this, i64 384
   %0 = load ptr, ptr %indices, align 8
@@ -882,7 +882,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory6arrays9ArrayInfoC2ERNS0_18StatisticsRegistryEPNS_7context7ContextENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(72) %sr, ptr noundef %c, ptr noundef nonnull %statisticsPrefix) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory6arrays9ArrayInfoC2ERNS0_18StatisticsRegistryEPNS_7context7ContextENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8), (40, 48)) %this, ptr noundef nonnull align 8 dereferenceable(72) %sr, ptr noundef %c, ptr noundef nonnull %statisticsPrefix) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8

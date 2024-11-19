@@ -259,7 +259,7 @@ define void @conversation_table_set_gui_info(ptr noundef %0) local_unnamed_addr 
 declare zeroext i1 @wmem_tree_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @set_conv_gui_data(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 {
+define internal noundef zeroext i1 @set_conv_gui_data(ptr nocapture readnone %0, ptr noundef initializes((24, 32)) %1, ptr noundef %2) #1 {
   %4 = alloca %struct._stat_tap_ui, align 8
   %5 = tail call ptr @g_string_new(ptr noundef nonnull @.str) #10
   %6 = getelementptr inbounds i8, ptr %1, i64 24
@@ -292,7 +292,7 @@ define void @endpoint_table_set_gui_info(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @set_endpoint_gui_data(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 {
+define internal noundef zeroext i1 @set_endpoint_gui_data(ptr nocapture readnone %0, ptr noundef initializes((32, 40)) %1, ptr noundef %2) #1 {
   %4 = alloca %struct._stat_tap_ui, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %2, ptr %5, align 8

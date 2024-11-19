@@ -428,7 +428,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm8GVNHoist3runERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(581) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm8GVNHoist3runERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(581) initializes((152, 176), (576, 580)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::iterator_range", align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::df_iterator", align 8

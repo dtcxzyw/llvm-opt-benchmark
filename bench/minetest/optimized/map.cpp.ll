@@ -376,7 +376,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3MapC2EP8IGameDef(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %gamedef) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3MapC2EP8IGameDef(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 16), (24, 28), (32, 40)) %this, ptr noundef %gamedef) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV3Map, i64 16), ptr %this, align 8, !tbaa !4
   %m_gamedef = getelementptr inbounds i8, ptr %this, i64 8
@@ -479,7 +479,7 @@ _ZNSt8_Rb_treeIP16MapEventReceiverS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3MapD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3MapD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV3Map, i64 16), ptr %this, align 8, !tbaa !4
   %m_sectors = getelementptr inbounds i8, ptr %this, i64 64
@@ -560,7 +560,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3MapD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZN3MapD0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN3MapD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) #26
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
@@ -5176,7 +5176,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN3Map21findNodesWithMetadataEN3irr4core8vector3dIsEES3_(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, i48 %p1.coerce, i48 %p2.coerce) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3Map21findNodesWithMetadataEN3irr4core8vector3dIsEES3_(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, i48 %p1.coerce, i48 %p2.coerce) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %keys = alloca %"class.std::vector", align 8
   %p1.sroa.0.0.extract.trunc = trunc i48 %p1.coerce to i16
@@ -8197,7 +8197,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 declare noundef i32 @_Z12myrand_rangeii(i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN8MMVManipC2EP3Map(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %map) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8MMVManipC2EP3Map(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 49), (56, 64), (72, 76), (80, 88)) %this, ptr noundef %map) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %0, align 8
@@ -10058,7 +10058,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #16
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN8MMVManip8reparentEP3Map(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %this, ptr noundef %map) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN8MMVManip8reparentEP3Map(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((56, 64)) %this, ptr noundef %map) local_unnamed_addr #15 align 2 {
 entry:
   %m_map = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %map, ptr %m_map, align 8, !tbaa !269

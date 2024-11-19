@@ -24,7 +24,7 @@ $_ZN10OpenSubdiv6v3_6_03Vtr8internal5Level11resizeFacesEi = comdat any
 @_ZN10OpenSubdiv6v3_6_03Far18TopologyDescriptorC1Ev = unnamed_addr alias void (ptr), ptr @_ZN10OpenSubdiv6v3_6_03Far18TopologyDescriptorC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Far18TopologyDescriptorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Far18TopologyDescriptorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 104)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 104, i1 false)
   ret void
 }

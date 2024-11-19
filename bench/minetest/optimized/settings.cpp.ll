@@ -390,7 +390,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17SettingsHierarchyC2EP8Settings(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %fallback) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17SettingsHierarchyC2EP8Settings(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %fallback) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 cond.true.i.i.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8

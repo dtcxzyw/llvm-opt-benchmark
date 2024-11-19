@@ -478,7 +478,7 @@ $_ZTV17DeadlyImportError = comdat any
 @_ZN6Assimp3ASE6ParserC1EPKcj = hidden unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN6Assimp3ASE6ParserC2EPKcj
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp3ASE6ParserC2EPKcj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(180) %this, ptr noundef %szFile, i32 noundef %fileFormatDefault) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3ASE6ParserC2EPKcj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(180) initializes((0, 173), (176, 180)) %this, ptr noundef %szFile, i32 noundef %fileFormatDefault) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_clrBackground = getelementptr inbounds i8, ptr %this, i64 8
   %m_clrAmbient = getelementptr inbounds i8, ptr %this, i64 20

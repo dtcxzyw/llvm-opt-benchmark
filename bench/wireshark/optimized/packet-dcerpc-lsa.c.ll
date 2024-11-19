@@ -8996,7 +8996,7 @@ define internal i32 @lsarpc_dissect_element_lsa_ForestTrustInformation2_entries_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_Close_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_Close_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1005, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_Close_handle, align 4
@@ -9006,7 +9006,7 @@ define internal i32 @lsarpc_dissect_lsa_Close_request(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_Close_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_Close_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1005, ptr %8, align 8
@@ -9031,7 +9031,7 @@ define internal i32 @lsarpc_dissect_lsa_Close_response(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_Delete_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_Delete_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1006, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_Delete_handle, align 4
@@ -9041,7 +9041,7 @@ define internal i32 @lsarpc_dissect_lsa_Delete_request(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_Delete_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_Delete_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1006, ptr %8, align 8
@@ -9063,7 +9063,7 @@ define internal i32 @lsarpc_dissect_lsa_Delete_response(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_EnumPrivs_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_EnumPrivs_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1007, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_EnumPrivs_handle, align 4
@@ -9079,7 +9079,7 @@ define internal i32 @lsarpc_dissect_lsa_EnumPrivs_request(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_EnumPrivs_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_EnumPrivs_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1007, ptr %8, align 8
@@ -9107,7 +9107,7 @@ define internal i32 @lsarpc_dissect_lsa_EnumPrivs_response(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_QuerySecurity_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_QuerySecurity_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1008, ptr %8, align 8
@@ -9137,7 +9137,7 @@ define internal i32 @lsarpc_dissect_lsa_QuerySecurity_request(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_QuerySecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_QuerySecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1008, ptr %8, align 8
@@ -9162,7 +9162,7 @@ define internal i32 @lsarpc_dissect_lsa_QuerySecurity_response(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_SetSecObj_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_SetSecObj_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1009, ptr %8, align 8
@@ -9195,7 +9195,7 @@ define internal i32 @lsarpc_dissect_lsa_SetSecObj_request(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_SetSecObj_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_SetSecObj_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1009, ptr %8, align 8
@@ -9217,14 +9217,14 @@ define internal i32 @lsarpc_dissect_lsa_SetSecObj_response(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_ChangePassword_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_ChangePassword_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1010, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_ChangePassword_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_ChangePassword_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1010, ptr %8, align 8
@@ -9246,7 +9246,7 @@ define internal i32 @lsarpc_dissect_lsa_ChangePassword_response(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_OpenPolicy_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_OpenPolicy_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1011, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_OpenPolicy_system_name, align 4
@@ -9262,7 +9262,7 @@ define internal i32 @lsarpc_dissect_lsa_OpenPolicy_request(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_OpenPolicy_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_OpenPolicy_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1011, ptr %8, align 8
@@ -9287,7 +9287,7 @@ define internal i32 @lsarpc_dissect_lsa_OpenPolicy_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_QueryInfoPolicy_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_QueryInfoPolicy_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1012, ptr %8, align 8
@@ -9304,7 +9304,7 @@ define internal i32 @lsarpc_dissect_lsa_QueryInfoPolicy_request(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_QueryInfoPolicy_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_QueryInfoPolicy_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1012, ptr %8, align 8
@@ -9329,7 +9329,7 @@ define internal i32 @lsarpc_dissect_lsa_QueryInfoPolicy_response(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_SetInfoPolicy_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_SetInfoPolicy_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1013, ptr %8, align 8
@@ -9349,7 +9349,7 @@ define internal i32 @lsarpc_dissect_lsa_SetInfoPolicy_request(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_SetInfoPolicy_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_SetInfoPolicy_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1013, ptr %8, align 8
@@ -9371,14 +9371,14 @@ define internal i32 @lsarpc_dissect_lsa_SetInfoPolicy_response(ptr noundef %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_ClearAuditLog_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_ClearAuditLog_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1014, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_ClearAuditLog_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_ClearAuditLog_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1014, ptr %8, align 8
@@ -9400,7 +9400,7 @@ define internal i32 @lsarpc_dissect_lsa_ClearAuditLog_response(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CreateAccount_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CreateAccount_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1015, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_CreateAccount_handle, align 4
@@ -9416,7 +9416,7 @@ define internal i32 @lsarpc_dissect_lsa_CreateAccount_request(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CreateAccount_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CreateAccount_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1015, ptr %8, align 8
@@ -9441,7 +9441,7 @@ define internal i32 @lsarpc_dissect_lsa_CreateAccount_response(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_EnumAccounts_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_EnumAccounts_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1016, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_EnumAccounts_handle, align 4
@@ -9457,7 +9457,7 @@ define internal i32 @lsarpc_dissect_lsa_EnumAccounts_request(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_EnumAccounts_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_EnumAccounts_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1016, ptr %8, align 8
@@ -9485,7 +9485,7 @@ define internal i32 @lsarpc_dissect_lsa_EnumAccounts_response(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1017, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_CreateTrustedDomain_policy_handle, align 4
@@ -9501,7 +9501,7 @@ define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomain_request(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1017, ptr %8, align 8
@@ -9526,7 +9526,7 @@ define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomain_response(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_EnumTrustDom_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_EnumTrustDom_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1018, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_EnumTrustDom_handle, align 4
@@ -9542,7 +9542,7 @@ define internal i32 @lsarpc_dissect_lsa_EnumTrustDom_request(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_EnumTrustDom_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_EnumTrustDom_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1018, ptr %8, align 8
@@ -9570,7 +9570,7 @@ define internal i32 @lsarpc_dissect_lsa_EnumTrustDom_response(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LookupNames_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LookupNames_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1019, ptr %8, align 8
@@ -9599,7 +9599,7 @@ define internal i32 @lsarpc_dissect_lsa_LookupNames_request(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LookupNames_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LookupNames_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1019, ptr %8, align 8
@@ -9630,7 +9630,7 @@ define internal i32 @lsarpc_dissect_lsa_LookupNames_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LookupSids_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LookupSids_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1020, ptr %8, align 8
@@ -9656,7 +9656,7 @@ define internal i32 @lsarpc_dissect_lsa_LookupSids_request(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LookupSids_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LookupSids_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1020, ptr %8, align 8
@@ -9687,7 +9687,7 @@ define internal i32 @lsarpc_dissect_lsa_LookupSids_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CreateSecret_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CreateSecret_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1021, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_CreateSecret_handle, align 4
@@ -9703,7 +9703,7 @@ define internal i32 @lsarpc_dissect_lsa_CreateSecret_request(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CreateSecret_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CreateSecret_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1021, ptr %8, align 8
@@ -9728,7 +9728,7 @@ define internal i32 @lsarpc_dissect_lsa_CreateSecret_response(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_OpenAccount_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_OpenAccount_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1022, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_OpenAccount_handle, align 4
@@ -9744,7 +9744,7 @@ define internal i32 @lsarpc_dissect_lsa_OpenAccount_request(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_OpenAccount_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_OpenAccount_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1022, ptr %8, align 8
@@ -9769,7 +9769,7 @@ define internal i32 @lsarpc_dissect_lsa_OpenAccount_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_EnumPrivsAccount_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_EnumPrivsAccount_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1023, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_EnumPrivsAccount_handle, align 4
@@ -9779,7 +9779,7 @@ define internal i32 @lsarpc_dissect_lsa_EnumPrivsAccount_request(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_EnumPrivsAccount_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_EnumPrivsAccount_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1023, ptr %8, align 8
@@ -9804,7 +9804,7 @@ define internal i32 @lsarpc_dissect_lsa_EnumPrivsAccount_response(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_AddPrivilegesToAccount_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_AddPrivilegesToAccount_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1024, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_AddPrivilegesToAccount_handle, align 4
@@ -9817,7 +9817,7 @@ define internal i32 @lsarpc_dissect_lsa_AddPrivilegesToAccount_request(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_AddPrivilegesToAccount_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_AddPrivilegesToAccount_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1024, ptr %8, align 8
@@ -9839,7 +9839,7 @@ define internal i32 @lsarpc_dissect_lsa_AddPrivilegesToAccount_response(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_RemovePrivilegesFromAccount_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_RemovePrivilegesFromAccount_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1025, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_RemovePrivilegesFromAccount_handle, align 4
@@ -9855,7 +9855,7 @@ define internal i32 @lsarpc_dissect_lsa_RemovePrivilegesFromAccount_request(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_RemovePrivilegesFromAccount_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_RemovePrivilegesFromAccount_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1025, ptr %8, align 8
@@ -9877,14 +9877,14 @@ define internal i32 @lsarpc_dissect_lsa_RemovePrivilegesFromAccount_response(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_GetQuotasForAccount_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_GetQuotasForAccount_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1026, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_GetQuotasForAccount_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_GetQuotasForAccount_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1026, ptr %8, align 8
@@ -9906,14 +9906,14 @@ define internal i32 @lsarpc_dissect_lsa_GetQuotasForAccount_response(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_SetQuotasForAccount_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_SetQuotasForAccount_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1027, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_SetQuotasForAccount_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_SetQuotasForAccount_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1027, ptr %8, align 8
@@ -9935,7 +9935,7 @@ define internal i32 @lsarpc_dissect_lsa_SetQuotasForAccount_response(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_GetSystemAccessAccount_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_GetSystemAccessAccount_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1028, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_GetSystemAccessAccount_handle, align 4
@@ -9945,7 +9945,7 @@ define internal i32 @lsarpc_dissect_lsa_GetSystemAccessAccount_request(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_GetSystemAccessAccount_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_GetSystemAccessAccount_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1028, ptr %8, align 8
@@ -9970,7 +9970,7 @@ define internal i32 @lsarpc_dissect_lsa_GetSystemAccessAccount_response(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_SetSystemAccessAccount_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_SetSystemAccessAccount_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1029, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_SetSystemAccessAccount_handle, align 4
@@ -9983,7 +9983,7 @@ define internal i32 @lsarpc_dissect_lsa_SetSystemAccessAccount_request(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_SetSystemAccessAccount_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_SetSystemAccessAccount_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1029, ptr %8, align 8
@@ -10005,7 +10005,7 @@ define internal i32 @lsarpc_dissect_lsa_SetSystemAccessAccount_response(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_OpenTrustedDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_OpenTrustedDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1030, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_OpenTrustedDomain_handle, align 4
@@ -10021,7 +10021,7 @@ define internal i32 @lsarpc_dissect_lsa_OpenTrustedDomain_request(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_OpenTrustedDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_OpenTrustedDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1030, ptr %8, align 8
@@ -10046,7 +10046,7 @@ define internal i32 @lsarpc_dissect_lsa_OpenTrustedDomain_response(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_QueryTrustedDomainInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_QueryTrustedDomainInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1031, ptr %8, align 8
@@ -10063,7 +10063,7 @@ define internal i32 @lsarpc_dissect_lsa_QueryTrustedDomainInfo_request(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_QueryTrustedDomainInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_QueryTrustedDomainInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1031, ptr %8, align 8
@@ -10088,7 +10088,7 @@ define internal i32 @lsarpc_dissect_lsa_QueryTrustedDomainInfo_response(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_SetInformationTrustedDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_SetInformationTrustedDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1032, ptr %8, align 8
@@ -10108,7 +10108,7 @@ define internal i32 @lsarpc_dissect_lsa_SetInformationTrustedDomain_request(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_SetInformationTrustedDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_SetInformationTrustedDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1032, ptr %8, align 8
@@ -10130,7 +10130,7 @@ define internal i32 @lsarpc_dissect_lsa_SetInformationTrustedDomain_response(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_OpenSecret_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_OpenSecret_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1033, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_OpenSecret_handle, align 4
@@ -10146,7 +10146,7 @@ define internal i32 @lsarpc_dissect_lsa_OpenSecret_request(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_OpenSecret_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_OpenSecret_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1033, ptr %8, align 8
@@ -10171,7 +10171,7 @@ define internal i32 @lsarpc_dissect_lsa_OpenSecret_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_SetSecret_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_SetSecret_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1034, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_SetSecret_sec_handle, align 4
@@ -10187,7 +10187,7 @@ define internal i32 @lsarpc_dissect_lsa_SetSecret_request(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_SetSecret_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_SetSecret_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1034, ptr %8, align 8
@@ -10209,7 +10209,7 @@ define internal i32 @lsarpc_dissect_lsa_SetSecret_response(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_QuerySecret_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_QuerySecret_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1035, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_QuerySecret_sec_handle, align 4
@@ -10231,7 +10231,7 @@ define internal i32 @lsarpc_dissect_lsa_QuerySecret_request(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_QuerySecret_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_QuerySecret_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1035, ptr %8, align 8
@@ -10265,7 +10265,7 @@ define internal i32 @lsarpc_dissect_lsa_QuerySecret_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LookupPrivValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LookupPrivValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1036, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_LookupPrivValue_handle, align 4
@@ -10278,7 +10278,7 @@ define internal i32 @lsarpc_dissect_lsa_LookupPrivValue_request(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LookupPrivValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LookupPrivValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1036, ptr %8, align 8
@@ -10303,7 +10303,7 @@ define internal i32 @lsarpc_dissect_lsa_LookupPrivValue_response(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LookupPrivName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LookupPrivName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1037, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_LookupPrivName_handle, align 4
@@ -10316,7 +10316,7 @@ define internal i32 @lsarpc_dissect_lsa_LookupPrivName_request(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LookupPrivName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LookupPrivName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1037, ptr %8, align 8
@@ -10341,7 +10341,7 @@ define internal i32 @lsarpc_dissect_lsa_LookupPrivName_response(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LookupPrivDisplayName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LookupPrivDisplayName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1038, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_LookupPrivDisplayName_handle, align 4
@@ -10360,7 +10360,7 @@ define internal i32 @lsarpc_dissect_lsa_LookupPrivDisplayName_request(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LookupPrivDisplayName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LookupPrivDisplayName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1038, ptr %8, align 8
@@ -10388,7 +10388,7 @@ define internal i32 @lsarpc_dissect_lsa_LookupPrivDisplayName_response(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_DeleteObject_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_DeleteObject_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1039, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_DeleteObject_handle, align 4
@@ -10398,7 +10398,7 @@ define internal i32 @lsarpc_dissect_lsa_DeleteObject_request(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_DeleteObject_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_DeleteObject_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1039, ptr %8, align 8
@@ -10423,7 +10423,7 @@ define internal i32 @lsarpc_dissect_lsa_DeleteObject_response(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_EnumAccountsWithUserRight_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_EnumAccountsWithUserRight_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1040, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_EnumAccountsWithUserRight_handle, align 4
@@ -10436,7 +10436,7 @@ define internal i32 @lsarpc_dissect_lsa_EnumAccountsWithUserRight_request(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_EnumAccountsWithUserRight_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_EnumAccountsWithUserRight_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1040, ptr %8, align 8
@@ -10461,7 +10461,7 @@ define internal i32 @lsarpc_dissect_lsa_EnumAccountsWithUserRight_response(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_EnumAccountRights_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_EnumAccountRights_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1041, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_EnumAccountRights_handle, align 4
@@ -10474,7 +10474,7 @@ define internal i32 @lsarpc_dissect_lsa_EnumAccountRights_request(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_EnumAccountRights_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_EnumAccountRights_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1041, ptr %8, align 8
@@ -10499,7 +10499,7 @@ define internal i32 @lsarpc_dissect_lsa_EnumAccountRights_response(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_AddAccountRights_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_AddAccountRights_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1042, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_AddAccountRights_handle, align 4
@@ -10515,7 +10515,7 @@ define internal i32 @lsarpc_dissect_lsa_AddAccountRights_request(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_AddAccountRights_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_AddAccountRights_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1042, ptr %8, align 8
@@ -10537,7 +10537,7 @@ define internal i32 @lsarpc_dissect_lsa_AddAccountRights_response(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_RemoveAccountRights_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_RemoveAccountRights_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1043, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_RemoveAccountRights_handle, align 4
@@ -10556,7 +10556,7 @@ define internal i32 @lsarpc_dissect_lsa_RemoveAccountRights_request(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_RemoveAccountRights_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_RemoveAccountRights_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1043, ptr %8, align 8
@@ -10578,7 +10578,7 @@ define internal i32 @lsarpc_dissect_lsa_RemoveAccountRights_response(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_QueryTrustedDomainInfoBySid_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_QueryTrustedDomainInfoBySid_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1044, ptr %8, align 8
@@ -10598,7 +10598,7 @@ define internal i32 @lsarpc_dissect_lsa_QueryTrustedDomainInfoBySid_request(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_QueryTrustedDomainInfoBySid_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_QueryTrustedDomainInfoBySid_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1044, ptr %8, align 8
@@ -10623,7 +10623,7 @@ define internal i32 @lsarpc_dissect_lsa_QueryTrustedDomainInfoBySid_response(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_SetTrustedDomainInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_SetTrustedDomainInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1045, ptr %8, align 8
@@ -10646,7 +10646,7 @@ define internal i32 @lsarpc_dissect_lsa_SetTrustedDomainInfo_request(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_SetTrustedDomainInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_SetTrustedDomainInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1045, ptr %8, align 8
@@ -10668,7 +10668,7 @@ define internal i32 @lsarpc_dissect_lsa_SetTrustedDomainInfo_response(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_DeleteTrustedDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_DeleteTrustedDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1046, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_DeleteTrustedDomain_handle, align 4
@@ -10681,7 +10681,7 @@ define internal i32 @lsarpc_dissect_lsa_DeleteTrustedDomain_request(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_DeleteTrustedDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_DeleteTrustedDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1046, ptr %8, align 8
@@ -10703,7 +10703,7 @@ define internal i32 @lsarpc_dissect_lsa_DeleteTrustedDomain_response(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_StorePrivateData_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_StorePrivateData_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1047, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_StorePrivateData_handle, align 4
@@ -10719,7 +10719,7 @@ define internal i32 @lsarpc_dissect_lsa_StorePrivateData_request(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_StorePrivateData_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_StorePrivateData_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1047, ptr %8, align 8
@@ -10741,7 +10741,7 @@ define internal i32 @lsarpc_dissect_lsa_StorePrivateData_response(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_RetrievePrivateData_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_RetrievePrivateData_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1048, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_RetrievePrivateData_handle, align 4
@@ -10757,7 +10757,7 @@ define internal i32 @lsarpc_dissect_lsa_RetrievePrivateData_request(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_RetrievePrivateData_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_RetrievePrivateData_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1048, ptr %8, align 8
@@ -10782,7 +10782,7 @@ define internal i32 @lsarpc_dissect_lsa_RetrievePrivateData_response(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_OpenPolicy2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_OpenPolicy2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1049, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_OpenPolicy2_system_name, align 4
@@ -10798,7 +10798,7 @@ define internal i32 @lsarpc_dissect_lsa_OpenPolicy2_request(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_OpenPolicy2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_OpenPolicy2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1049, ptr %8, align 8
@@ -10823,7 +10823,7 @@ define internal i32 @lsarpc_dissect_lsa_OpenPolicy2_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_GetUserName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_GetUserName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1050, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_GetUserName_system_name, align 4
@@ -10839,7 +10839,7 @@ define internal i32 @lsarpc_dissect_lsa_GetUserName_request(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_GetUserName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_GetUserName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1050, ptr %8, align 8
@@ -10867,7 +10867,7 @@ define internal i32 @lsarpc_dissect_lsa_GetUserName_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_QueryInfoPolicy2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_QueryInfoPolicy2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1051, ptr %8, align 8
@@ -10884,7 +10884,7 @@ define internal i32 @lsarpc_dissect_lsa_QueryInfoPolicy2_request(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_QueryInfoPolicy2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_QueryInfoPolicy2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1051, ptr %8, align 8
@@ -10909,7 +10909,7 @@ define internal i32 @lsarpc_dissect_lsa_QueryInfoPolicy2_response(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_SetInfoPolicy2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_SetInfoPolicy2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1052, ptr %8, align 8
@@ -10929,7 +10929,7 @@ define internal i32 @lsarpc_dissect_lsa_SetInfoPolicy2_request(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_SetInfoPolicy2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_SetInfoPolicy2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1052, ptr %8, align 8
@@ -10951,7 +10951,7 @@ define internal i32 @lsarpc_dissect_lsa_SetInfoPolicy2_response(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_QueryTrustedDomainInfoByName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_QueryTrustedDomainInfoByName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1053, ptr %8, align 8
@@ -10971,7 +10971,7 @@ define internal i32 @lsarpc_dissect_lsa_QueryTrustedDomainInfoByName_request(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_QueryTrustedDomainInfoByName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_QueryTrustedDomainInfoByName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1053, ptr %8, align 8
@@ -10996,7 +10996,7 @@ define internal i32 @lsarpc_dissect_lsa_QueryTrustedDomainInfoByName_response(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_SetTrustedDomainInfoByName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_SetTrustedDomainInfoByName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1054, ptr %8, align 8
@@ -11019,7 +11019,7 @@ define internal i32 @lsarpc_dissect_lsa_SetTrustedDomainInfoByName_request(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_SetTrustedDomainInfoByName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_SetTrustedDomainInfoByName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1054, ptr %8, align 8
@@ -11041,7 +11041,7 @@ define internal i32 @lsarpc_dissect_lsa_SetTrustedDomainInfoByName_response(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_EnumTrustedDomainsEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_EnumTrustedDomainsEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1055, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_EnumTrustedDomainsEx_handle, align 4
@@ -11057,7 +11057,7 @@ define internal i32 @lsarpc_dissect_lsa_EnumTrustedDomainsEx_request(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_EnumTrustedDomainsEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_EnumTrustedDomainsEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1055, ptr %8, align 8
@@ -11085,7 +11085,7 @@ define internal i32 @lsarpc_dissect_lsa_EnumTrustedDomainsEx_response(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomainEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomainEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1056, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_CreateTrustedDomainEx_policy_handle, align 4
@@ -11104,7 +11104,7 @@ define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomainEx_request(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomainEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomainEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1056, ptr %8, align 8
@@ -11129,7 +11129,7 @@ define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomainEx_response(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CloseTrustedDomainEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CloseTrustedDomainEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1057, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_CloseTrustedDomainEx_handle, align 4
@@ -11139,7 +11139,7 @@ define internal i32 @lsarpc_dissect_lsa_CloseTrustedDomainEx_request(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CloseTrustedDomainEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CloseTrustedDomainEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1057, ptr %8, align 8
@@ -11164,7 +11164,7 @@ define internal i32 @lsarpc_dissect_lsa_CloseTrustedDomainEx_response(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_QueryDomainInformationPolicy_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_QueryDomainInformationPolicy_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1058, ptr %8, align 8
@@ -11181,7 +11181,7 @@ define internal i32 @lsarpc_dissect_lsa_QueryDomainInformationPolicy_request(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_QueryDomainInformationPolicy_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_QueryDomainInformationPolicy_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1058, ptr %8, align 8
@@ -11206,7 +11206,7 @@ define internal i32 @lsarpc_dissect_lsa_QueryDomainInformationPolicy_response(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_SetDomainInformationPolicy_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_SetDomainInformationPolicy_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1059, ptr %8, align 8
@@ -11226,7 +11226,7 @@ define internal i32 @lsarpc_dissect_lsa_SetDomainInformationPolicy_request(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_SetDomainInformationPolicy_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_SetDomainInformationPolicy_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1059, ptr %8, align 8
@@ -11248,7 +11248,7 @@ define internal i32 @lsarpc_dissect_lsa_SetDomainInformationPolicy_response(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_OpenTrustedDomainByName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_OpenTrustedDomainByName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1060, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_OpenTrustedDomainByName_handle, align 4
@@ -11264,7 +11264,7 @@ define internal i32 @lsarpc_dissect_lsa_OpenTrustedDomainByName_request(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_OpenTrustedDomainByName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_OpenTrustedDomainByName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1060, ptr %8, align 8
@@ -11289,14 +11289,14 @@ define internal i32 @lsarpc_dissect_lsa_OpenTrustedDomainByName_response(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_TestCall_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_TestCall_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1061, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_TestCall_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_TestCall_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1061, ptr %8, align 8
@@ -11318,7 +11318,7 @@ define internal i32 @lsarpc_dissect_lsa_TestCall_response(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LookupSids2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LookupSids2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -11358,7 +11358,7 @@ define internal i32 @lsarpc_dissect_lsa_LookupSids2_request(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LookupSids2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LookupSids2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1062, ptr %8, align 8
@@ -11389,7 +11389,7 @@ define internal i32 @lsarpc_dissect_lsa_LookupSids2_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LookupNames2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LookupNames2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -11432,7 +11432,7 @@ define internal i32 @lsarpc_dissect_lsa_LookupNames2_request(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LookupNames2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LookupNames2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1063, ptr %8, align 8
@@ -11463,7 +11463,7 @@ define internal i32 @lsarpc_dissect_lsa_LookupNames2_response(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomainEx2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomainEx2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1064, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_CreateTrustedDomainEx2_policy_handle, align 4
@@ -11482,7 +11482,7 @@ define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomainEx2_request(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomainEx2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomainEx2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1064, ptr %8, align 8
@@ -11507,14 +11507,14 @@ define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomainEx2_response(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_CREDRWRITE_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_CREDRWRITE_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1065, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CREDRWRITE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CREDRWRITE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1065, ptr %8, align 8
@@ -11536,14 +11536,14 @@ define internal i32 @lsarpc_dissect_lsa_CREDRWRITE_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_CREDRREAD_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_CREDRREAD_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1066, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CREDRREAD_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CREDRREAD_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1066, ptr %8, align 8
@@ -11565,14 +11565,14 @@ define internal i32 @lsarpc_dissect_lsa_CREDRREAD_response(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_CREDRENUMERATE_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_CREDRENUMERATE_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1067, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CREDRENUMERATE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CREDRENUMERATE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1067, ptr %8, align 8
@@ -11594,14 +11594,14 @@ define internal i32 @lsarpc_dissect_lsa_CREDRENUMERATE_response(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_CREDRWRITEDOMAINCREDENTIALS_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_CREDRWRITEDOMAINCREDENTIALS_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1068, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CREDRWRITEDOMAINCREDENTIALS_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CREDRWRITEDOMAINCREDENTIALS_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1068, ptr %8, align 8
@@ -11623,14 +11623,14 @@ define internal i32 @lsarpc_dissect_lsa_CREDRWRITEDOMAINCREDENTIALS_response(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_CREDRREADDOMAINCREDENTIALS_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_CREDRREADDOMAINCREDENTIALS_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1069, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CREDRREADDOMAINCREDENTIALS_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CREDRREADDOMAINCREDENTIALS_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1069, ptr %8, align 8
@@ -11652,14 +11652,14 @@ define internal i32 @lsarpc_dissect_lsa_CREDRREADDOMAINCREDENTIALS_response(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_CREDRDELETE_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_CREDRDELETE_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1070, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CREDRDELETE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CREDRDELETE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1070, ptr %8, align 8
@@ -11681,14 +11681,14 @@ define internal i32 @lsarpc_dissect_lsa_CREDRDELETE_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_CREDRGETTARGETINFO_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_CREDRGETTARGETINFO_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1071, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CREDRGETTARGETINFO_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CREDRGETTARGETINFO_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1071, ptr %8, align 8
@@ -11710,14 +11710,14 @@ define internal i32 @lsarpc_dissect_lsa_CREDRGETTARGETINFO_response(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_CREDRPROFILELOADED_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_CREDRPROFILELOADED_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1072, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CREDRPROFILELOADED_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CREDRPROFILELOADED_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1072, ptr %8, align 8
@@ -11739,7 +11739,7 @@ define internal i32 @lsarpc_dissect_lsa_CREDRPROFILELOADED_response(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LookupNames3_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LookupNames3_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -11782,7 +11782,7 @@ define internal i32 @lsarpc_dissect_lsa_LookupNames3_request(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LookupNames3_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LookupNames3_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1073, ptr %8, align 8
@@ -11813,14 +11813,14 @@ define internal i32 @lsarpc_dissect_lsa_LookupNames3_response(ptr noundef %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_CREDRGETSESSIONTYPES_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_CREDRGETSESSIONTYPES_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1074, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CREDRGETSESSIONTYPES_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CREDRGETSESSIONTYPES_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1074, ptr %8, align 8
@@ -11842,14 +11842,14 @@ define internal i32 @lsarpc_dissect_lsa_CREDRGETSESSIONTYPES_response(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_LSARREGISTERAUDITEVENT_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_LSARREGISTERAUDITEVENT_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1075, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LSARREGISTERAUDITEVENT_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LSARREGISTERAUDITEVENT_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1075, ptr %8, align 8
@@ -11871,14 +11871,14 @@ define internal i32 @lsarpc_dissect_lsa_LSARREGISTERAUDITEVENT_response(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_LSARGENAUDITEVENT_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_LSARGENAUDITEVENT_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1076, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LSARGENAUDITEVENT_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LSARGENAUDITEVENT_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1076, ptr %8, align 8
@@ -11900,14 +11900,14 @@ define internal i32 @lsarpc_dissect_lsa_LSARGENAUDITEVENT_response(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_LSARUNREGISTERAUDITEVENT_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_LSARUNREGISTERAUDITEVENT_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1077, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LSARUNREGISTERAUDITEVENT_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LSARUNREGISTERAUDITEVENT_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1077, ptr %8, align 8
@@ -11929,7 +11929,7 @@ define internal i32 @lsarpc_dissect_lsa_LSARUNREGISTERAUDITEVENT_response(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_lsaRQueryForestTrustInformation_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_lsaRQueryForestTrustInformation_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1078, ptr %8, align 8
@@ -11949,7 +11949,7 @@ define internal i32 @lsarpc_dissect_lsa_lsaRQueryForestTrustInformation_request(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_lsaRQueryForestTrustInformation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_lsaRQueryForestTrustInformation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1078, ptr %8, align 8
@@ -11974,7 +11974,7 @@ define internal i32 @lsarpc_dissect_lsa_lsaRQueryForestTrustInformation_response
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_lsaRSetForestTrustInformation_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_lsaRSetForestTrustInformation_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1079, ptr %8, align 8
@@ -12000,7 +12000,7 @@ define internal i32 @lsarpc_dissect_lsa_lsaRSetForestTrustInformation_request(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_lsaRSetForestTrustInformation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_lsaRSetForestTrustInformation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1079, ptr %8, align 8
@@ -12025,14 +12025,14 @@ define internal i32 @lsarpc_dissect_lsa_lsaRSetForestTrustInformation_response(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_CREDRRENAME_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_CREDRRENAME_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1080, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CREDRRENAME_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CREDRRENAME_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1080, ptr %8, align 8
@@ -12054,7 +12054,7 @@ define internal i32 @lsarpc_dissect_lsa_CREDRRENAME_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LookupSids3_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LookupSids3_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -12091,7 +12091,7 @@ define internal i32 @lsarpc_dissect_lsa_LookupSids3_request(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LookupSids3_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LookupSids3_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1081, ptr %8, align 8
@@ -12122,7 +12122,7 @@ define internal i32 @lsarpc_dissect_lsa_LookupSids3_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LookupNames4_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LookupNames4_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -12162,7 +12162,7 @@ define internal i32 @lsarpc_dissect_lsa_LookupNames4_request(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LookupNames4_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LookupNames4_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1082, ptr %8, align 8
@@ -12193,14 +12193,14 @@ define internal i32 @lsarpc_dissect_lsa_LookupNames4_response(ptr noundef %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_LSAROPENPOLICYSCE_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_LSAROPENPOLICYSCE_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1083, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LSAROPENPOLICYSCE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LSAROPENPOLICYSCE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1083, ptr %8, align 8
@@ -12222,14 +12222,14 @@ define internal i32 @lsarpc_dissect_lsa_LSAROPENPOLICYSCE_response(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_LSARADTREGISTERSECURITYEVENTSOURCE_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_LSARADTREGISTERSECURITYEVENTSOURCE_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1084, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LSARADTREGISTERSECURITYEVENTSOURCE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LSARADTREGISTERSECURITYEVENTSOURCE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1084, ptr %8, align 8
@@ -12251,14 +12251,14 @@ define internal i32 @lsarpc_dissect_lsa_LSARADTREGISTERSECURITYEVENTSOURCE_respo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_LSARADTUNREGISTERSECURITYEVENTSOURCE_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_LSARADTUNREGISTERSECURITYEVENTSOURCE_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1085, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LSARADTUNREGISTERSECURITYEVENTSOURCE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LSARADTUNREGISTERSECURITYEVENTSOURCE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1085, ptr %8, align 8
@@ -12280,14 +12280,14 @@ define internal i32 @lsarpc_dissect_lsa_LSARADTUNREGISTERSECURITYEVENTSOURCE_res
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_LSARADTREPORTSECURITYEVENT_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_LSARADTREPORTSECURITYEVENT_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1086, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_LSARADTREPORTSECURITYEVENT_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_LSARADTREPORTSECURITYEVENT_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1086, ptr %8, align 8
@@ -12309,665 +12309,665 @@ define internal i32 @lsarpc_dissect_lsa_LSARADTREPORTSECURITYEVENT_response(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum82NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum82NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1087, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum82NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum82NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1087, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum83NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum83NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1088, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum83NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum83NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1088, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum84NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum84NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1089, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum84NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum84NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1089, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum85NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum85NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1090, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum85NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum85NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1090, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum86NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum86NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1091, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum86NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum86NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1091, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum87NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum87NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1092, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum87NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum87NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1092, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum88NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum88NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1093, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum88NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum88NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1093, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum89NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum89NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1094, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum89NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum89NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1094, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum90NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum90NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1095, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum90NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum90NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1095, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum91NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum91NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1096, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum91NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum91NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1096, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum92NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum92NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1097, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum92NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum92NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1097, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum93NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum93NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1098, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum93NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum93NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1098, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum94NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum94NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1099, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum94NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum94NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1099, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum95NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum95NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1100, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum95NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum95NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1100, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum96NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum96NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1101, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum96NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum96NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1101, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum97NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum97NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1102, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum97NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum97NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1102, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum98NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum98NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1103, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum98NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum98NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1103, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum99NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum99NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1104, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum99NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum99NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1104, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum100NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum100NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1105, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum100NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum100NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1105, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum101NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum101NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1106, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum101NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum101NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1106, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum102NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum102NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1107, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum102NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum102NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1107, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum103NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum103NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1108, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum103NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum103NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1108, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum104NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum104NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1109, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum104NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum104NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1109, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum105NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum105NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1110, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum105NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum105NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1110, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum106NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum106NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1111, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum106NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum106NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1111, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum107NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum107NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1112, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum107NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum107NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1112, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum108NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum108NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1113, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum108NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum108NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1113, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum109NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum109NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1114, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum109NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum109NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1114, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum110NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum110NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1115, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum110NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum110NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1115, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum111NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum111NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1116, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum111NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum111NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1116, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum112NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum112NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1117, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum112NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum112NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1117, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum113NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum113NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1118, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum113NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum113NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1118, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum114NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum114NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1119, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum114NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum114NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1119, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum115NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum115NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1120, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum115NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum115NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1120, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum116NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum116NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1121, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum116NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum116NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1121, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum117NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum117NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1122, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum117NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum117NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1122, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum118NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum118NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1123, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum118NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum118NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1123, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum119NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum119NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1124, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum119NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum119NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1124, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum120NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum120NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1125, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum120NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum120NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1125, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum121NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum121NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1126, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum121NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum121NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1126, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum122NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum122NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1127, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum122NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum122NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1127, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum123NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum123NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1128, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum123NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum123NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1128, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum124NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum124NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1129, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum124NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum124NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1129, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum125NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum125NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1130, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum125NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum125NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1130, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum126NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum126NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1131, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum126NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum126NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1131, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum127NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum127NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1132, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum127NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum127NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1132, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum128NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum128NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1133, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum128NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum128NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1133, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomainEx3_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomainEx3_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1134, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_CreateTrustedDomainEx3_policy_handle, align 4
@@ -12986,7 +12986,7 @@ define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomainEx3_request(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomainEx3_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomainEx3_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1134, ptr %8, align 8
@@ -13011,7 +13011,7 @@ define internal i32 @lsarpc_dissect_lsa_CreateTrustedDomainEx3_response(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_OpenPolicy3_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_OpenPolicy3_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1135, ptr %7, align 8
   %8 = load i32, ptr @hf_lsarpc_lsa_OpenPolicy3_system_name, align 4
@@ -13033,7 +13033,7 @@ define internal i32 @lsarpc_dissect_lsa_OpenPolicy3_request(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_OpenPolicy3_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_OpenPolicy3_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1135, ptr %8, align 8
@@ -13064,21 +13064,21 @@ define internal i32 @lsarpc_dissect_lsa_OpenPolicy3_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum131NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum131NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1136, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lsarpc_dissect_lsa_Opnum131NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @lsarpc_dissect_lsa_Opnum131NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1136, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_lsaRQueryForestTrustInformation2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_lsaRQueryForestTrustInformation2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1137, ptr %8, align 8
@@ -13098,7 +13098,7 @@ define internal i32 @lsarpc_dissect_lsa_lsaRQueryForestTrustInformation2_request
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_lsaRQueryForestTrustInformation2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_lsaRQueryForestTrustInformation2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1137, ptr %8, align 8
@@ -13123,7 +13123,7 @@ define internal i32 @lsarpc_dissect_lsa_lsaRQueryForestTrustInformation2_respons
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_lsaRSetForestTrustInformation2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_lsaRSetForestTrustInformation2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1138, ptr %8, align 8
@@ -13149,7 +13149,7 @@ define internal i32 @lsarpc_dissect_lsa_lsaRSetForestTrustInformation2_request(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lsarpc_dissect_lsa_lsaRSetForestTrustInformation2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @lsarpc_dissect_lsa_lsaRSetForestTrustInformation2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1138, ptr %8, align 8

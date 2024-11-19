@@ -365,7 +365,7 @@ _ZTWN9Verilated3t_sE.exit5:                       ; preds = %18, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10Vmycpu_topD2Ev(ptr nocapture noundef nonnull align 64 dereferenceable(416) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN10Vmycpu_topD2Ev(ptr nocapture noundef nonnull align 64 dereferenceable(416) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV10Vmycpu_top, i64 16), ptr %0, align 64
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 16
@@ -388,7 +388,7 @@ declare void @_ZN16Vmycpu_top__SymsD1Ev(ptr noundef nonnull align 64 dereference
 declare void @_ZdlPvmSt11align_val_t(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10Vmycpu_topD0Ev(ptr noundef nonnull align 64 dereferenceable(416) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN10Vmycpu_topD0Ev(ptr noundef nonnull align 64 dereferenceable(416) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV10Vmycpu_top, i64 16), ptr %0, align 64
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 16

@@ -61,7 +61,7 @@ for.end:                                          ; preds = %for.body, %for.cond
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @clear_prio_queue(ptr nocapture noundef %queue) local_unnamed_addr #2 {
+define dso_local void @clear_prio_queue(ptr nocapture noundef initializes((8, 12), (24, 32)) %queue) local_unnamed_addr #2 {
 entry:
   %array = getelementptr inbounds i8, ptr %queue, i64 32
   %0 = load ptr, ptr %array, align 8

@@ -318,7 +318,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal13preprocessing21LearnedLiteralManager18getLearnedLiteralsEv(ptr noalias sret(%"class.std::vector.263") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal13preprocessing21LearnedLiteralManager18getLearnedLiteralsEv(ptr noalias sret(%"class.std::vector.263") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate.257", align 8
   %tlsNode = alloca %"class.cvc5::internal::NodeTemplate.257", align 8

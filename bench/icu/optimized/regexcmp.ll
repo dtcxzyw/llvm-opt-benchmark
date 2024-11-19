@@ -568,7 +568,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512RegexCompileC2EPNS_12RegexPatternER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) %this, ptr noundef %rxp, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512RegexCompileC2EPNS_12RegexPatternER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) initializes((0, 8), (296, 306)) %this, ptr noundef %rxp, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512RegexCompileE, i64 16), ptr %this, align 8
   %fLiteralChars = getelementptr inbounds i8, ptr %this, i64 296
@@ -701,7 +701,7 @@ declare void @_ZN6icu_759UVector32D1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7512RegexCompileD2Ev(ptr noundef nonnull align 8 dereferenceable(512) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7512RegexCompileD2Ev(ptr noundef nonnull align 8 dereferenceable(512) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512RegexCompileE, i64 16), ptr %this, align 8
   %fCaptureName = getelementptr inbounds i8, ptr %this, i64 504
@@ -794,7 +794,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 declare ptr @utext_openConstUnicodeString_75(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512RegexCompile7compileEP5UTextR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) %this, ptr noundef %pat, ptr noundef nonnull align 4 dereferenceable(72) %pp, ptr noundef nonnull align 4 dereferenceable(4) %e) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512RegexCompile7compileEP5UTextR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) initializes((8, 16), (24, 32), (80, 82), (280, 284)) %this, ptr noundef %pat, ptr noundef nonnull align 4 dereferenceable(72) %pp, ptr noundef nonnull align 4 dereferenceable(4) %e) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fStatus = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %e, ptr %fStatus, align 8
@@ -1134,7 +1134,7 @@ declare ptr @utext_clone_75(ptr noundef, ptr noundef, i8 noundef signext, i8 nou
 declare i64 @utext_nativeLength_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512RegexCompile8nextCharERNS0_16RegexPatternCharE(ptr noundef nonnull align 8 dereferenceable(512) %this, ptr nocapture noundef nonnull align 4 dereferenceable(8) %c) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7512RegexCompile8nextCharERNS0_16RegexPatternCharE(ptr noundef nonnull align 8 dereferenceable(512) initializes((32, 40)) %this, ptr nocapture noundef nonnull align 4 dereferenceable(8) initializes((0, 5)) %c) local_unnamed_addr #1 align 2 {
 entry:
   %endIndex = alloca i32, align 4
   %offset = alloca i32, align 4

@@ -28588,7 +28588,7 @@ define hidden void @"_ZN72_$LT$flume..async..SendFut$LT$T$GT$$u20$as$u20$core..o
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN75_$LT$p256..arithmetic..scalar..Scalar$u20$as$u20$core..default..Default$GT$7default17h7aec0aea8f96745cE.llvm.9153531805506995525"(ptr noalias nocapture noundef writeonly sret({ { [4 x i64] } }) align 8 dereferenceable(32) %0) unnamed_addr #14 {
+define hidden void @"_ZN75_$LT$p256..arithmetic..scalar..Scalar$u20$as$u20$core..default..Default$GT$7default17h7aec0aea8f96745cE.llvm.9153531805506995525"(ptr noalias nocapture noundef writeonly sret({ { [4 x i64] } }) align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #14 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }

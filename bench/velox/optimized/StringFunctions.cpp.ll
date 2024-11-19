@@ -10731,7 +10731,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114ConcatFunctionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114ConcatFunctionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_114ConcatFunctionE, i64 16), ptr %this, align 8
   %constantStringViews_ = getelementptr inbounds i8, ptr %this, i64 56
@@ -10786,7 +10786,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorINSt7__
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114ConcatFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_114ConcatFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_114ConcatFunctionE, i64 16), ptr %this, align 8
   %constantStringViews_.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -14243,7 +14243,7 @@ ehcleanup81:                                      ; preds = %lpad, %lpad.i24, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK8facebook5velox9functions12_GLOBAL__N_17Replace27propagateStringEncodingFromEv(ptr noalias nocapture writeonly sret(%"class.std::optional.61") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK8facebook5velox9functions12_GLOBAL__N_17Replace27propagateStringEncodingFromEv(ptr noalias nocapture writeonly sret(%"class.std::optional.61") align 8 initializes((0, 25)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16

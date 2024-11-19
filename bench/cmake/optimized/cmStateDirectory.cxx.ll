@@ -340,7 +340,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN16cmStateDirectoryC2EN12cmLinkedTreeIN13cmStateDetail29BuildsystemDirectoryStateTypeEE8iteratorERK15cmStateSnapshot(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN16cmStateDirectoryC2EN12cmLinkedTreeIN13cmStateDetail29BuildsystemDirectoryStateTypeEE8iteratorERK15cmStateSnapshot(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #5 align 2 {
   store ptr %1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8

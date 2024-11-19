@@ -91,7 +91,7 @@ $_ZN5clang11PPCallbacks18SourceRangeSkippedENS_11SourceRangeENS_14SourceLocation
 @_ZN5clang28PPConditionalDirectiveRecordC1ERNS_13SourceManagerE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5clang28PPConditionalDirectiveRecordC2ERNS_13SourceManagerE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang28PPConditionalDirectiveRecordC2ERNS_13SourceManagerE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(696) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang28PPConditionalDirectiveRecordC2ERNS_13SourceManagerE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(696) %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN5clang28PPConditionalDirectiveRecordE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8

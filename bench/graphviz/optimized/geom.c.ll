@@ -174,7 +174,7 @@ declare double @llvm.maxnum.f64(double, double) #1
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @rect2poly(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @rect2poly(ptr nocapture noundef initializes((32, 64)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load double, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -269,7 +269,7 @@ define { double, double } @ccwrotatepf(double %0, double %1, i32 noundef %2) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @flip_rec_boxf(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.boxf) align 8 %0, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %1, double %2, double %3) local_unnamed_addr #2 {
+define void @flip_rec_boxf(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.boxf) align 8 initializes((0, 32)) %0, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %1, double %2, double %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load double, ptr %6, align 8

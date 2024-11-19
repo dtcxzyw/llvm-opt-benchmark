@@ -2188,7 +2188,7 @@ veci_delete.exit110:                              ; preds = %57, %62
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define void @sat_solver3_restart(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @sat_solver3_restart(ptr nocapture noundef initializes((16, 24), (40, 48), (72, 76)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 20
@@ -2298,7 +2298,7 @@ clause_read.exit:                                 ; preds = %1, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zsat_solver3_restart_seed(ptr nocapture noundef %0, double noundef %1) local_unnamed_addr #2 {
+define void @zsat_solver3_restart_seed(ptr nocapture noundef initializes((16, 24), (40, 48), (72, 76)) %0, double noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 20
@@ -2546,7 +2546,7 @@ define range(i32 0, 2) i32 @sat_solver3_simplify(ptr nocapture noundef %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define void @sat_solver3_reducedb(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @sat_solver3_reducedb(ptr nocapture noundef initializes((464, 468)) %0) local_unnamed_addr #2 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -3802,7 +3802,7 @@ order_update.exit:                                ; preds = %.lr.ph.i98, %116, %
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @sat_solver3_addclause(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @sat_solver3_addclause(ptr nocapture noundef initializes((644, 648)) %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 640
   %5 = getelementptr inbounds i8, ptr %0, i64 644
   store i32 0, ptr %5, align 4
@@ -3998,7 +3998,7 @@ sat_solver3_enqueue.exit:                         ; preds = %32, %36, %._crit_ed
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @sat_solver3_solve_internal(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @sat_solver3_solve_internal(ptr noundef initializes((556, 560)) %0) local_unnamed_addr #2 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
@@ -6919,7 +6919,7 @@ sat_solver3_enqueue.exit:                         ; preds = %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sat_solver3_analyze_final(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
+define internal fastcc void @sat_solver3_analyze_final(ptr nocapture noundef initializes((340, 344)) %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
   %.not.i.i = icmp eq i32 %1, 0
   br i1 %.not.i.i, label %clause_read.exit, label %4
 
@@ -7215,7 +7215,7 @@ define void @sat_solver3_pop(ptr nocapture noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @sat_solver3_set_resource_limits(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #13 {
+define void @sat_solver3_set_resource_limits(ptr nocapture noundef initializes((488, 504), (536, 540)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #13 {
   %6 = getelementptr inbounds i8, ptr %0, i64 536
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 488

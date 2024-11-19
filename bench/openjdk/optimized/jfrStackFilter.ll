@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN14JfrStackFilterD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN14JfrStackFilterD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14JfrStackFilterC2EPP6SymbolS2_m(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN14JfrStackFilterC2EPP6SymbolS2_m(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
   store i64 %3, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8

@@ -125,7 +125,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__intel_wait_for_register_fw.__UNIQUE_ID___addressable___SCK__preempt_schedule946, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched142, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched5, ptr @trace_i915_reg_rw.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace777, ptr @trace_i915_reg_rw.__UNIQUE_ID___addressable___SCK__tp_func_i915_reg_rw776], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @intel_uncore_mmio_debug_init_early(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_uncore_mmio_debug_init_early(ptr noundef initializes((7720, 7728)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 7720
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 7724
@@ -1689,7 +1689,7 @@ define dso_local void @assert_forcewakes_active(ptr nocapture noundef readnone %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_uncore_setup_mmio(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local i32 @intel_uncore_setup_mmio(ptr nocapture noundef initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 7168
@@ -1763,7 +1763,7 @@ define internal void @uncore_unmap_mmio(ptr nocapture readnone %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @intel_uncore_init_early(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #7 align 16 {
+define dso_local void @intel_uncore_init_early(ptr nocapture noundef writeonly initializes((8, 36)) %0, ptr noundef %1) local_unnamed_addr #7 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %3, align 8
   %4 = load ptr, ptr %1, align 8

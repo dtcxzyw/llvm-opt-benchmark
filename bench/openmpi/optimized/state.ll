@@ -1143,7 +1143,7 @@ declare i32 @prte_event_assign(ptr noundef, ptr noundef, i32 noundef, i16 nounde
 declare void @event_active(ptr noundef, i32 noundef, i16 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @state_con(ptr nocapture noundef writeonly %0) #5 {
+define internal void @state_con(ptr nocapture noundef writeonly initializes((144, 148), (152, 160)) %0) #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 152

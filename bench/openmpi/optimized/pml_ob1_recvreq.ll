@@ -198,7 +198,7 @@ mca_pml_ob1_recv_request_schedule_exclusive.exit: ; preds = %66, %25, %30, %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_pml_ob1_recv_request_construct(ptr noundef %0) #0 {
+define internal void @mca_pml_ob1_recv_request_construct(ptr noundef initializes((112, 136), (568, 572), (584, 592), (656, 664)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr @mca_pml_ob1_start, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1580,7 +1580,7 @@ mca_pml_ob1_recv_request_schedule.exit:           ; preds = %.preheader.i, %mca_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_ob1_recv_request_progress_rget(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 %3) local_unnamed_addr #0 {
+define void @mca_pml_ob1_recv_request_progress_rget(ptr noundef initializes((64, 72), (512, 520), (552, 568), (578, 579)) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = load ptr, ptr %2, align 8
   store i64 0, ptr %5, align 8
@@ -2007,7 +2007,7 @@ mca_pml_ob1_recv_request_get_frag.exit.thread:    ; preds = %.thread.i101, %mca_
 declare i32 @mca_pml_ob1_accelerator_need_buffers(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mca_pml_ob1_recv_request_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @mca_pml_ob1_recv_request_ack(ptr noundef initializes((560, 568)) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 496
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 72

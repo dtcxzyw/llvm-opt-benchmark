@@ -555,7 +555,7 @@ _ZN13BootstrapInfo25resolve_bss_name_and_typeEP10JavaThread.exit: ; preds = %_ZN
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13BootstrapInfo25resolve_bss_name_and_typeEP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13BootstrapInfo25resolve_bss_name_and_typeEP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48

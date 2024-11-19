@@ -247,7 +247,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 dereferenceable(17), i1 noundef zeroext, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core21GrpcServerAuthzFilterC2ENS_13RefCountedPtrI17grpc_auth_contextEEP13grpc_endpointNS1_I34grpc_authorization_policy_providerEE(ptr noundef nonnull align 8 dereferenceable(504) %this, ptr nocapture noundef %auth_context, ptr noundef %endpoint, ptr nocapture noundef %provider) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core21GrpcServerAuthzFilterC2ENS_13RefCountedPtrI17grpc_auth_contextEEP13grpc_endpointNS1_I34grpc_authorization_policy_providerEE(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %this, ptr nocapture noundef %auth_context, ptr noundef %endpoint, ptr nocapture noundef %provider) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %event_engine_.i = getelementptr inbounds i8, ptr %this, i64 8

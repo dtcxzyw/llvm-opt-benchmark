@@ -668,7 +668,7 @@ define internal range(i32 0, 24) i32 @PCF_Size_Request(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @PCF_Size_Select(ptr nocapture noundef %0, i64 noundef %1) #1 {
+define internal noundef i32 @PCF_Size_Select(ptr nocapture noundef initializes((48, 64), (72, 80)) %0, i64 noundef %1) #1 {
   %3 = load ptr, ptr %0, align 8
   tail call void @FT_Select_Metrics(ptr noundef %3, i64 noundef %1) #15
   %4 = getelementptr inbounds i8, ptr %3, i64 384
@@ -694,7 +694,7 @@ define internal noundef i32 @PCF_Size_Select(ptr nocapture noundef %0, i64 nound
 declare hidden ptr @ft_service_list_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @pcf_get_charset_id(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #3 {
+define internal noundef i32 @pcf_get_charset_id(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 336
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8
@@ -2487,7 +2487,7 @@ pcf_seek_to_table_type.exit.thread:               ; preds = %11, %2, %22, %16, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pcf_interpret_style(ptr nocapture noundef %0) unnamed_addr #1 {
+define internal fastcc i32 @pcf_interpret_style(ptr nocapture noundef initializes((24, 32)) %0) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca [4 x ptr], align 16
   %4 = alloca [4 x i64], align 16
@@ -2897,7 +2897,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @pcf_cmap_init(ptr nocapture noundef %0, ptr nocapture readnone %1) #3 {
+define internal noundef i32 @pcf_cmap_init(ptr nocapture noundef initializes((24, 32)) %0, ptr nocapture readnone %1) #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 536
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2906,7 +2906,7 @@ define internal noundef i32 @pcf_cmap_init(ptr nocapture noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pcf_cmap_done(ptr nocapture noundef writeonly %0) #9 {
+define internal void @pcf_cmap_done(ptr nocapture noundef writeonly initializes((24, 32)) %0) #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %2, align 8
   ret void

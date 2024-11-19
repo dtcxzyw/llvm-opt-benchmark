@@ -297,7 +297,7 @@ define { i32, i32 } @"_ZN108_$LT$logos_codegen..graph..rope..Miss$u20$as$u20$cor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN13logos_codegen5graph4rope4Rope8miss_any17h6a12dcbd2b6e25b6E(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr nocapture align 8 %1, i32 %2) unnamed_addr #3 {
+define hidden void @_ZN13logos_codegen5graph4rope4Rope8miss_any17h6a12dcbd2b6e25b6E(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 40)) %0, ptr nocapture align 8 initializes((24, 32)) %1, i32 %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 2, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 28

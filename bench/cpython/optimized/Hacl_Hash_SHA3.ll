@@ -793,7 +793,7 @@ block_len.exit29:                                 ; preds = %block_len.exit21.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @Hacl_Streaming_Keccak_reset(ptr nocapture noundef %s) local_unnamed_addr #10 {
+define hidden void @Hacl_Streaming_Keccak_reset(ptr nocapture noundef initializes((24, 32)) %s) local_unnamed_addr #10 {
 entry:
   %scrut.sroa.0.0.copyload = load i64, ptr %s, align 8
   %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 8

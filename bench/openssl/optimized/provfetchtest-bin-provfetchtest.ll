@@ -152,7 +152,7 @@ declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local
 declare i32 @OSSL_PROVIDER_add_builtin(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dummy_provider_init(ptr noundef %handle, ptr noundef %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) #0 {
+define internal range(i32 0, 2) i32 @dummy_provider_init(ptr noundef %handle, ptr noundef %in, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 8)) %provctx) #0 {
 entry:
   %buf = alloca [32 x i8], align 16
   %call = tail call ptr @OSSL_LIB_CTX_new_child(ptr noundef %handle, ptr noundef %in) #5
@@ -191,7 +191,7 @@ declare void @OSSL_LIB_CTX_free(ptr noundef) #1
 declare ptr @OSSL_LIB_CTX_new_child(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef ptr @dummy_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr nocapture noundef writeonly %no_cache) #2 {
+define internal noundef ptr @dummy_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr nocapture noundef writeonly initializes((0, 4)) %no_cache) #2 {
 entry:
   store i32 0, ptr %no_cache, align 4
   switch i32 %operation_id, label %sw.epilog [

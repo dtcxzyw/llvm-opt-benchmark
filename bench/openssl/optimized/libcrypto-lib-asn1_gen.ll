@@ -727,7 +727,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_str2mask(ptr noundef %str, ptr noundef %pmask) local_unnamed_addr #0 {
+define i32 @ASN1_str2mask(ptr noundef %str, ptr noundef initializes((0, 8)) %pmask) local_unnamed_addr #0 {
 entry:
   store i64 0, ptr %pmask, align 8
   %call = tail call i32 @CONF_parse_list(ptr noundef %str, i32 noundef 124, i32 noundef 1, ptr noundef nonnull @mask_cb, ptr noundef nonnull %pmask) #7

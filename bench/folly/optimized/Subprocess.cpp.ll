@@ -949,7 +949,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly17ProcessReturnCodeC2EOS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %p) unnamed_addr #12 align 2 {
+define void @_ZN5folly17ProcessReturnCodeC2EOS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %p) unnamed_addr #12 align 2 {
 entry:
   %0 = load i32, ptr %p, align 4, !tbaa !17
   store i32 %0, ptr %this, align 4, !tbaa !17
@@ -958,7 +958,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5folly17ProcessReturnCodeaSEOS0_(ptr noundef nonnull returned writeonly align 4 dereferenceable(4) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %p) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5folly17ProcessReturnCodeaSEOS0_(ptr noundef nonnull returned writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %p) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load i32, ptr %p, align 4, !tbaa !17
   store i32 %0, ptr %this, align 4, !tbaa !17
@@ -2669,7 +2669,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly10SubprocessC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this) unnamed_addr #17 align 2 {
+define void @_ZN5folly10SubprocessC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this) unnamed_addr #17 align 2 {
 entry:
   store i32 -1, ptr %this, align 8, !tbaa !102
   %returnCode_ = getelementptr inbounds i8, ptr %this, i64 4
@@ -2682,7 +2682,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SubprocessC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EERKNS0_7OptionsEPKcPSA_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %argv, ptr noundef nonnull align 8 dereferenceable(240) %options, ptr noundef %executable, ptr noundef %env) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SubprocessC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EERKNS0_7OptionsEPKcPSA_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %argv, ptr noundef nonnull align 8 dereferenceable(240) %options, ptr noundef %executable, ptr noundef %env) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   store i32 -1, ptr %this, align 8, !tbaa !102
@@ -3152,7 +3152,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #11
 declare void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SubprocessC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsEPKSt6vectorIS6_SaIS6_EE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %cmd, ptr noundef nonnull align 8 dereferenceable(240) %options, ptr noundef %env) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SubprocessC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7OptionsEPKSt6vectorIS6_SaIS6_EE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %cmd, ptr noundef nonnull align 8 dereferenceable(240) %options, ptr noundef %env) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i65 = alloca i64, align 8
   %argv = alloca %"class.std::vector.15", align 8
@@ -10754,7 +10754,7 @@ _ZNSt6vectorIN5folly10Subprocess4PipeESaIS2_EE5eraseEN9__gnu_cxx17__normal_itera
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10Subprocess20takeOwnershipOfPipesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.141") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10Subprocess20takeOwnershipOfPipesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.141") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %pipes_ = getelementptr inbounds i8, ptr %this, i64 16

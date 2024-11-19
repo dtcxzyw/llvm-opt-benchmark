@@ -323,7 +323,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__15HdChangeTrackerC2Ev(ptr noundef nonnull align 8 dereferenceable(3328) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__15HdChangeTrackerC2Ev(ptr noundef nonnull align 8 dereferenceable(3328) initializes((0, 8), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15HdChangeTrackerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -602,7 +602,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPa
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__15HdChangeTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(3328) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__15HdChangeTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(3328) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15HdChangeTrackerE, i64 16), ptr %0, align 8
   %3 = load atomic i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector10_isEnabledE acquire, align 4
@@ -8906,7 +8906,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15HdChangeTracker13DumpDirtyBi
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__15HdChangeTracker20_SetTargetSceneIndexEPNS_20HdRetainedSceneIndexE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3328) %0, ptr noundef %1) local_unnamed_addr #12 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__15HdChangeTracker20_SetTargetSceneIndexEPNS_20HdRetainedSceneIndexE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3328) initializes((3320, 3328)) %0, ptr noundef %1) local_unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3320
   store ptr %1, ptr %3, align 8
   ret void

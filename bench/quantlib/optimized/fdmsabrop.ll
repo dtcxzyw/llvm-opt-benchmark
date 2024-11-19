@@ -185,7 +185,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib9FdmSabrOpC2ERKN5boost10shared_ptrINS_9FdmMesherEEENS2_INS_18YieldTermStructureEEEddddd(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, ptr nocapture noundef %rTS, double %f0, double %alpha, double noundef %beta, double noundef %nu, double noundef %rho) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib9FdmSabrOpC2ERKN5boost10shared_ptrINS_9FdmMesherEEENS2_INS_18YieldTermStructureEEEddddd(ptr noundef nonnull align 8 dereferenceable(600) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, ptr nocapture noundef %rTS, double %f0, double %alpha, double noundef %beta, double noundef %nu, double noundef %rho) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::SecondDerivativeOp", align 8
   %ref.tmp2 = alloca %"class.QuantLib::Array", align 8

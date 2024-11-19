@@ -77,7 +77,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @.str.27 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z10rd_nm2typeRKNSt10filesystem7__cxx114pathEPi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_Z10rd_nm2typeRKNSt10filesystem7__cxx114pathEPi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca [128 x i8], align 16
   %4 = alloca [128 x i8], align 16
   %5 = alloca [128 x i8], align 16

@@ -307,7 +307,7 @@ define internal fastcc i32 @iterateRawmidiDevices(i32 noundef %0, ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden noundef range(i32 -11115, 1) i32 @initMIDIDeviceDescription(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden noundef range(i32 -11115, 1) i32 @initMIDIDeviceDescription(ptr nocapture noundef writeonly initializes((0, 8), (16, 32)) %0, i32 noundef %1) local_unnamed_addr #2 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 200, ptr %3, align 4
@@ -489,7 +489,7 @@ define hidden noundef i32 @getMidiDeviceVersion(i32 noundef %0, ptr noundef %1, 
 declare void @getALSAVersion(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @openMidiDevice(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden i32 @openMidiDevice(i32 noundef %0, i32 noundef %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timeval, align 8
   %5 = alloca %struct.tag_ALSA_MIDIDeviceDescription, align 8
   %6 = alloca ptr, align 8

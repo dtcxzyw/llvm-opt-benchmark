@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.c725cbd2b9876dcebce3629452bceb4e.17 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.c725cbd2b9876dcebce3629452bceb4e.4, [16 x i8] c"$\00\00\00\00\00\00\00\0B\01\00\00\09\00\00\00" }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter3new17hbb3641677b5a7c30E(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 }, i64 }) align 8 %0) unnamed_addr #0 {
+define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter3new17hbb3641677b5a7c30E(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 }, i64 }) align 8 initializes((0, 32)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %2, align 8
   store i64 0, ptr %0, align 8

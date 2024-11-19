@@ -192,7 +192,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev27GradingPrimaryTransformImplC2ENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(200) %this, i32 noundef %style) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev27GradingPrimaryTransformImplC2ENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this, i32 noundef %style) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev27GradingPrimaryTransformImplE, i64 16), ptr %this, align 8
   %m_data = getelementptr inbounds i8, ptr %this, i64 8

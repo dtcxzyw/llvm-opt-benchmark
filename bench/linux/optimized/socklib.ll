@@ -377,7 +377,7 @@ define internal i64 @xdr_skb_read_bits(ptr nocapture noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @xprt_sock_sendmsg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @xprt_sock_sendmsg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef initializes((0, 4)) %5) local_unnamed_addr #0 align 16 {
   %7 = alloca i32, align 4
   %8 = alloca [2 x %struct.kvec], align 16
   %9 = icmp eq i32 %4, 0

@@ -390,7 +390,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i64 @lzf_decompress(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @quicklistGetLzf(ptr nocapture noundef readonly %node, ptr nocapture noundef writeonly %data) local_unnamed_addr #8 {
+define dso_local i64 @quicklistGetLzf(ptr nocapture noundef readonly %node, ptr nocapture noundef writeonly initializes((0, 8)) %data) local_unnamed_addr #8 {
 entry:
   %entry1 = getelementptr inbounds i8, ptr %node, i64 16
   %0 = load ptr, ptr %entry1, align 8
@@ -743,7 +743,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @quicklistNodeLimit(i32 noundef %fill, ptr nocapture noundef writeonly %size, ptr nocapture noundef writeonly %count) local_unnamed_addr #9 {
+define dso_local void @quicklistNodeLimit(i32 noundef %fill, ptr nocapture noundef writeonly initializes((0, 8)) %size, ptr nocapture noundef writeonly initializes((0, 4)) %count) local_unnamed_addr #9 {
 entry:
   store i64 -1, ptr %size, align 8
   store i32 -1, ptr %count, align 4
@@ -1472,7 +1472,7 @@ return:                                           ; preds = %if.end16, %if.then
 declare ptr @lpDelete(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @quicklistDelEntry(ptr nocapture noundef %iter, ptr noundef %entry1) local_unnamed_addr #1 {
+define dso_local void @quicklistDelEntry(ptr nocapture noundef initializes((16, 24)) %iter, ptr noundef %entry1) local_unnamed_addr #1 {
 entry:
   %node = getelementptr inbounds i8, ptr %entry1, i64 8
   %0 = load ptr, ptr %node, align 8
@@ -3535,7 +3535,7 @@ if.end5:                                          ; preds = %if.end5.sink.split,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @quicklistNext(ptr noundef %iter, ptr noundef %entry1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @quicklistNext(ptr noundef %iter, ptr noundef initializes((0, 52)) %entry1) local_unnamed_addr #1 {
 entry:
   %sz96 = alloca i32, align 4
   %value = getelementptr inbounds i8, ptr %entry1, i64 24
@@ -3759,7 +3759,7 @@ declare ptr @lpPrev(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare ptr @lpGetValue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @quicklistSetDirection(ptr nocapture noundef writeonly %iter, i32 noundef %direction) local_unnamed_addr #9 {
+define dso_local void @quicklistSetDirection(ptr nocapture noundef writeonly initializes((32, 36)) %iter, i32 noundef %direction) local_unnamed_addr #9 {
 entry:
   %direction1 = getelementptr inbounds i8, ptr %iter, i64 32
   store i32 %direction, ptr %direction1, align 8

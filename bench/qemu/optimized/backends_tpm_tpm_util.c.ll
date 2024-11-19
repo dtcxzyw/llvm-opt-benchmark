@@ -161,7 +161,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @tpm_util_test_tpmdev(i32 noundef %tpm_fd, ptr nocapture noundef writeonly %tpm_version) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tpm_util_test_tpmdev(i32 noundef %tpm_fd, ptr nocapture noundef writeonly initializes((0, 4)) %tpm_version) local_unnamed_addr #0 {
 entry:
   %buf.i6 = alloca [1024 x i8], align 16
   %buf.i = alloca [1024 x i8], align 16
@@ -579,7 +579,7 @@ return:                                           ; preds = %if.end27, %if.end20
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tpm_sized_buffer_reset(ptr nocapture noundef %tsb) local_unnamed_addr #0 {
+define dso_local void @tpm_sized_buffer_reset(ptr nocapture noundef initializes((0, 4)) %tsb) local_unnamed_addr #0 {
 entry:
   %buffer = getelementptr inbounds i8, ptr %tsb, i64 8
   %0 = load ptr, ptr %buffer, align 8

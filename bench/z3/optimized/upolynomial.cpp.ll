@@ -152,7 +152,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager7factorsC2ERS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(272) %upm) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11upolynomial12core_manager7factorsC2ERS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 28), (32, 48)) %this, ptr noundef nonnull align 8 dereferenceable(272) %upm) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont4:
   %m_upm = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
@@ -2084,7 +2084,7 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11upolynomial12core_managerC2ER8reslimitR11mpz_managerILb0EE(ptr nocapture noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(40) %lim, ptr noundef nonnull align 8 dereferenceable(600) %m) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11upolynomial12core_managerC2ER8reslimitR11mpz_managerILb0EE(ptr nocapture noundef nonnull align 8 dereferenceable(272) initializes((0, 17), (24, 28), (32, 44), (48, 60), (64, 72), (80, 84), (88, 100), (104, 116), (120, 132), (136, 272)) %this, ptr noundef nonnull align 8 dereferenceable(40) %lim, ptr noundef nonnull align 8 dereferenceable(600) %m) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %lim, ptr %this, align 8
   %m_manager = getelementptr inbounds i8, ptr %this, i64 8
@@ -6106,7 +6106,7 @@ return:                                           ; preds = %_ZN13mpzzp_manager3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager12div_rem_coreEjPK3mpzjS3_RjR7svectorIS1_jES7_(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %d, ptr noundef nonnull align 8 dereferenceable(8) %q, ptr noundef nonnull align 8 dereferenceable(8) %r) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11upolynomial12core_manager12div_rem_coreEjPK3mpzjS3_RjR7svectorIS1_jES7_(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %d, ptr noundef nonnull align 8 dereferenceable(8) %q, ptr noundef nonnull align 8 dereferenceable(8) %r) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a_m = alloca %class._scoped_numeral, align 8
   store i32 0, ptr %d, align 4
@@ -6906,7 +6906,7 @@ return:                                           ; preds = %invoke.cont18, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager7div_remEjPK3mpzjS3_RjR7svectorIS1_jES7_(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %d, ptr nocapture noundef nonnull align 8 dereferenceable(8) %q, ptr nocapture noundef nonnull align 8 dereferenceable(8) %r) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11upolynomial12core_manager7div_remEjPK3mpzjS3_RjR7svectorIS1_jES7_(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %d, ptr nocapture noundef nonnull align 8 dereferenceable(8) %q, ptr nocapture noundef nonnull align 8 dereferenceable(8) %r) local_unnamed_addr #3 align 2 {
 entry:
   %m_div_tmp1 = getelementptr inbounds i8, ptr %this, i64 152
   %m_div_tmp2 = getelementptr inbounds i8, ptr %this, i64 160
@@ -7018,7 +7018,7 @@ _ZN11upolynomial12core_manager5resetER7svectorI3mpzjE.exit: ; preds = %entry, %f
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager3remEjPK3mpzjS3_RjR7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %d, ptr noundef nonnull align 8 dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11upolynomial12core_manager3remEjPK3mpzjS3_RjR7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %d, ptr noundef nonnull align 8 dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a_m = alloca %class._scoped_numeral, align 8
   store i32 0, ptr %d, align 4
@@ -12075,7 +12075,7 @@ return:                                           ; preds = %if.end.i8, %_ZNK6ve
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager8mk_monicEjP3mpzRS1_S3_(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(16) %lc, ptr noundef nonnull align 8 dereferenceable(16) %lc_inv) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11upolynomial12core_manager8mk_monicEjP3mpzRS1_S3_(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 4)) %lc, ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 4)) %lc_inv) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 1, ptr %lc, align 8
@@ -13987,7 +13987,7 @@ for.end:                                          ; preds = %_ZN13mpzzp_manager3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11upolynomial21scoped_numeral_vectorC2ERNS_7managerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(312) %m) unnamed_addr #11 align 2 {
+define hidden void @_ZN11upolynomial21scoped_numeral_vectorC2ERNS_7managerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(312) %m) unnamed_addr #11 align 2 {
 entry:
   %m_manager.i = getelementptr inbounds i8, ptr %m, i64 8
   store ptr null, ptr %this, align 8

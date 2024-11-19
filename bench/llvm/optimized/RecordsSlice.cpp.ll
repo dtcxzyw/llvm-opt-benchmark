@@ -1053,7 +1053,7 @@ define dso_local noundef zeroext i8 @_ZNK4llvm5MachO19ObjCInterfaceRecord19getLi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm5MachO19ObjCInterfaceRecord23updateLinkageForSymbolsENS0_16ObjCIFSymbolKindENS0_13RecordLinkageE(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm5MachO19ObjCInterfaceRecord23updateLinkageForSymbolsENS0_16ObjCIFSymbolKindENS0_13RecordLinkageE(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((16, 17)) %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #5 align 2 {
   %4 = and i8 %1, 1
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %8, label %5
@@ -1651,7 +1651,7 @@ _ZNKSt14default_deleteIN4llvm5MachO18ObjCCategoryRecordEEclEPS2_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5MachO19ObjCContainerRecord12getObjCIVarsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5MachO19ObjCContainerRecord12getObjCIVarsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
@@ -1777,7 +1777,7 @@ _ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EE9push_backEOS3_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5MachO19ObjCInterfaceRecord17getObjCCategoriesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.96") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5MachO19ObjCInterfaceRecord17getObjCCategoriesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.96") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
@@ -2043,7 +2043,7 @@ define dso_local void @_ZNK4llvm5MachO12RecordsSlice5visitERNS0_13RecordVisitorE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm5MachO22convertToInterfaceFileERKNS_11SmallVectorISt10shared_ptrINS0_12RecordsSliceEELj4EEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::unique_ptr.109") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm5MachO22convertToInterfaceFileERKNS_11SmallVectorISt10shared_ptrINS0_12RecordsSliceEELj4EEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::unique_ptr.109") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #0 {
   %3 = alloca %"class.llvm::SetVector", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.std::unique_ptr.109", align 8

@@ -1632,7 +1632,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @_ZNK31grpc_channel_security_connector4typeEv(ptr sret(%"class.grpc_core::UniqueTypeName") align 8, ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_135grpc_ssl_channel_security_connector13CheckCallHostESt17basic_string_viewIcSt11char_traitsIcEEP17grpc_auth_context(ptr noalias nocapture writeonly sret(%"class.grpc_core::ArenaPromise") align 16 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, i64 %host.coerce0, ptr %host.coerce1, ptr noundef %auth_context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_135grpc_ssl_channel_security_connector13CheckCallHostESt17basic_string_viewIcSt11char_traitsIcEEP17grpc_auth_context(ptr noalias nocapture writeonly sret(%"class.grpc_core::ArenaPromise") align 16 initializes((0, 8), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, i64 %host.coerce0, ptr %host.coerce1, ptr noundef %auth_context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN9grpc_core14promise_detail9ImmediateIN4absl12lts_202308026StatusEED2Ev.exit:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp4 = alloca %"class.std::basic_string_view", align 8
@@ -2278,7 +2278,7 @@ declare void @_ZN9grpc_core24SecurityHandshakerCreateEP14tsi_handshakerP23grpc_s
 declare void @_ZN30grpc_server_security_connectorC2ESt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core13RefCountedPtrI23grpc_server_credentialsEE(ptr noundef nonnull align 8 dereferenceable(40), i64, ptr, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_134grpc_ssl_server_security_connectorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_134grpc_ssl_server_security_connectorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_134grpc_ssl_server_security_connectorE, i64 16), ptr %this, align 8
   %server_handshaker_factory_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -2320,7 +2320,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_134grpc_ssl_server_security_connectorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_134grpc_ssl_server_security_connectorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_134grpc_ssl_server_security_connectorE, i64 16), ptr %this, align 8
   %server_handshaker_factory_.i = getelementptr inbounds i8, ptr %this, i64 48

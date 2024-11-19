@@ -815,7 +815,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @cuddSlowTableGrowth(ptr noundef %0) local_unnamed_addr #1 {
+define void @cuddSlowTableGrowth(ptr noundef initializes((128, 136)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, -1

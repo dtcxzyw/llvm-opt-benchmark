@@ -33,7 +33,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6cineon6ReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(2080) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN6cineon6ReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(2080) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6cineon6ReaderE, i64 16), ptr %this, align 8
   %header = getelementptr inbounds i8, ptr %this, i64 8
@@ -46,7 +46,7 @@ entry:
 declare void @_ZN6cineon6HeaderC1Ev(ptr noundef nonnull align 4 dereferenceable(2048)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6cineon6ReaderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(2080) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6cineon6ReaderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(2080) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6cineon6ReaderE, i64 16), ptr %this, align 8
   %codec.i = getelementptr inbounds i8, ptr %this, i64 2064
@@ -189,7 +189,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6cineon6ReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(2080) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6cineon6ReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(2080) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6cineon6ReaderE, i64 16), ptr %this, align 8
   %codec.i.i = getelementptr inbounds i8, ptr %this, i64 2064
@@ -269,7 +269,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 declare void @_ZN6cineon17ElementReadStreamC1EPNS_8InStreamE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6cineon6Reader11SetInStreamEPNS_8InStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(2080) %this, ptr noundef %fd) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6cineon6Reader11SetInStreamEPNS_8InStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(2080) initializes((2056, 2064)) %this, ptr noundef %fd) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fd2 = getelementptr inbounds i8, ptr %this, i64 2056
   store ptr %fd, ptr %fd2, align 8

@@ -303,7 +303,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i64 @ZSTDv02_resetDCtx(ptr nocapture noundef writeonly %dctx) local_unnamed_addr #5 {
+define noundef i64 @ZSTDv02_resetDCtx(ptr nocapture noundef writeonly initializes((10256, 10280), (10284, 10288)) %dctx) local_unnamed_addr #5 {
 entry:
   %expected.i = getelementptr inbounds i8, ptr %dctx, i64 10272
   store i64 4, ptr %expected.i, align 8
@@ -6898,7 +6898,7 @@ return:                                           ; preds = %for.end59, %if.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture noundef nonnull writeonly %bitD, ptr noundef %srcBuffer, i64 noundef %srcSize) unnamed_addr #11 {
+define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture noundef nonnull writeonly initializes((0, 8), (16, 32)) %bitD, ptr noundef %srcBuffer, i64 noundef %srcSize) unnamed_addr #11 {
 entry:
   %cmp = icmp eq i64 %srcSize, 0
   br i1 %cmp, label %if.then, label %if.end

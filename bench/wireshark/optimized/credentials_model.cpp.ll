@@ -81,7 +81,7 @@ define void @_ZN16CredentialsModelC2EP7QObject(ptr noundef nonnull align 8 deref
 declare void @_ZN18QAbstractListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN16CredentialsModelD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16CredentialsModelD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16CredentialsModel, i64 16), ptr %0, align 8
   invoke void @_ZN16CredentialsModel5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %2 unwind label %8

@@ -329,7 +329,7 @@ define internal noundef nonnull ptr @_ZL35initializeInstructionSelectPassOnceRN4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm17InstructionSelectC2ENS_15CodeGenOptLevelERc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) %0, i32 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm17InstructionSelectC2ENS_15CodeGenOptLevelERc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((0, 28), (32, 92)) %0, i32 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16

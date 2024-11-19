@@ -5881,7 +5881,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN5QListIPvED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15RtpStreamDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(360) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpStreamDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 8), (16, 24)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV15RtpStreamDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV15RtpStreamDialog, i64 528), ptr %2, align 8
@@ -9677,7 +9677,7 @@ declare void @_ZN7QAction10setEnabledEb(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN15WiresharkDialog13updateWidgetsEv(ptr noundef nonnull align 8 dereferenceable(133)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK15RtpStreamDialog13streamRowDataEi(ptr dead_on_unwind noalias writable sret(%class.QList.29) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK15RtpStreamDialog13streamRowDataEi(ptr dead_on_unwind noalias writable sret(%class.QList.29) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QVariant, align 8
@@ -11381,7 +11381,7 @@ declare void @_ZN15RtpStreamDialog10goToPacketEi(ptr noundef nonnull align 8 der
 declare void @rtpstream_mark(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpStreamDialog17getSelectedRtpIdsEv(ptr dead_on_unwind noalias writable sret(%class.QList.22) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpStreamDialog17getSelectedRtpIdsEv(ptr dead_on_unwind noalias writable sret(%class.QList.22) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.QList.17, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)

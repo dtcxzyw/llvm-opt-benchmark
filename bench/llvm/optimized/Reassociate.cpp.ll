@@ -556,7 +556,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11reassociate7XorOpndC2EPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11reassociate7XorOpndC2EPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(37) initializes((0, 8), (16, 28), (32, 36)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -17856,7 +17856,7 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm21createReassociatePassEv(
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121ReassociateLegacyPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(624) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_121ReassociateLegacyPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(624) initializes((0, 28), (32, 52), (56, 76), (80, 100), (104, 184)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.411, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -21234,7 +21234,7 @@ declare void @_ZN4llvm12PassRegistry12registerPassERKNS_8PassInfoEb(ptr noundef 
 declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121ReassociateLegacyPassD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121ReassociateLegacyPassD2Ev(ptr noundef nonnull align 8 dereferenceable(624) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_121ReassociateLegacyPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm15ReassociatePassD2Ev(ptr noundef nonnull align 8 dereferenceable(585) %2) #23
@@ -21243,7 +21243,7 @@ define internal void @_ZN12_GLOBAL__N_121ReassociateLegacyPassD2Ev(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121ReassociateLegacyPassD0Ev(ptr noundef nonnull align 8 dereferenceable(624) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121ReassociateLegacyPassD0Ev(ptr noundef nonnull align 8 dereferenceable(624) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_121ReassociateLegacyPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm15ReassociatePassD2Ev(ptr noundef nonnull align 8 dereferenceable(585) %2) #23

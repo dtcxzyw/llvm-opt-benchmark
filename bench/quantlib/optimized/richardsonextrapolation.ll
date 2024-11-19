@@ -53,7 +53,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib23RichardsonExtrapolationC1ERKSt8functionIFddEEdd = unnamed_addr alias void (ptr, ptr, double, double), ptr @_ZN8QuantLib23RichardsonExtrapolationC2ERKSt8functionIFddEEdd
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23RichardsonExtrapolationC2ERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, double noundef %delta_h, double noundef %n) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23RichardsonExtrapolationC2ERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, double noundef %delta_h, double noundef %n) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i = alloca double, align 8
   store double %delta_h, ptr %this, align 8, !tbaa !3

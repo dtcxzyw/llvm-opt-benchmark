@@ -374,7 +374,7 @@ define internal range(i32 -1, 1) i32 @php_dom_iterator_valid(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_dom_iterator_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal void @php_dom_iterator_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16

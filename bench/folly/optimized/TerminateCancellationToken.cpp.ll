@@ -607,7 +607,7 @@ declare void @_ZN5folly21ScopedEventBaseThreadD1Ev(ptr noundef nonnull align 16 
 declare void @_ZN5folly18AsyncSignalHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #9
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerD2Ev(ptr noundef nonnull align 16 dereferenceable(712) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerD2Ev(ptr noundef nonnull align 16 dereferenceable(712) initializes((0, 8)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerE, i64 16), ptr %this, align 16, !tbaa !7
   %cancellationSource_ = getelementptr inbounds i8, ptr %this, i64 704
@@ -637,7 +637,7 @@ _ZN5folly18CancellationSourceD2Ev.exit:           ; preds = %delete.notnull.i.i.
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerD0Ev(ptr noundef nonnull align 16 dereferenceable(712) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerD0Ev(ptr noundef nonnull align 16 dereferenceable(712) initializes((0, 8)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_128ScopedTerminateSignalHandlerE, i64 16), ptr %this, align 16, !tbaa !7
   %cancellationSource_.i = getelementptr inbounds i8, ptr %this, i64 704
@@ -845,7 +845,7 @@ lpad:                                             ; preds = %cond.false.i.i.i
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly6detail15SingletonHolderINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEED2Ev(ptr noundef nonnull align 8 dereferenceable(2304) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly6detail15SingletonHolderINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEED2Ev(ptr noundef nonnull align 8 dereferenceable(2304) initializes((0, 8)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly6detail15SingletonHolderINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEEE, i64 16), ptr %this, align 8, !tbaa !7
   %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 2296
@@ -1211,7 +1211,7 @@ _ZN5folly19ReadMostlySharedPtrINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEN
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly6detail15SingletonHolderINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEE4ImplINS0_10DefaultTagES6_ED0Ev(ptr noundef nonnull align 8 dereferenceable(2304) %this) unnamed_addr #10 align 2 {
+define internal void @_ZN5folly6detail15SingletonHolderINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEE4ImplINS0_10DefaultTagES6_ED0Ev(ptr noundef nonnull align 8 dereferenceable(2304) initializes((0, 8)) %this) unnamed_addr #10 align 2 {
 entry:
   tail call void @_ZN5folly6detail15SingletonHolderINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEED2Ev(ptr noundef nonnull align 8 dereferenceable(2304) %this) #31
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -3769,7 +3769,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly6detail15SingletonHolderINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEED0Ev(ptr noundef nonnull align 8 dereferenceable(2304) %this) unnamed_addr #10 align 2 {
+define internal void @_ZN5folly6detail15SingletonHolderINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEED0Ev(ptr noundef nonnull align 8 dereferenceable(2304) initializes((0, 8)) %this) unnamed_addr #10 align 2 {
 entry:
   tail call void @_ZN5folly6detail15SingletonHolderINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerEED2Ev(ptr noundef nonnull align 8 dereferenceable(2304) %this) #31
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32

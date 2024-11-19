@@ -110,7 +110,7 @@ _ZN11inputStream18set_buffer_contentEmm.exit.thread: ; preds = %27, %18, %_ZN11i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN11inputStream18set_buffer_contentEmm(ptr nocapture noundef nonnull align 8 dereferenceable(320) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11inputStream18set_buffer_contentEmm(ptr nocapture noundef nonnull align 8 dereferenceable(320) initializes((20, 21), (40, 72)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %.not = icmp ult i64 %1, %2
   br i1 %.not, label %7, label %4
 
@@ -348,7 +348,7 @@ _ZN11inputStream18set_buffer_contentEmm.exit:     ; preds = %47, %54, %70
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11inputStream8set_doneEv(ptr nocapture noundef nonnull align 8 dereferenceable(320) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11inputStream8set_doneEv(ptr nocapture noundef nonnull align 8 dereferenceable(320) initializes((20, 21), (48, 72)) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -408,7 +408,7 @@ define hidden void @_ZN11inputStream9set_errorEb(ptr nocapture noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11inputStream12clear_bufferEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(320) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11inputStream12clear_bufferEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(320) initializes((20, 21), (40, 72)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   store i8 0, ptr %3, align 4
@@ -417,7 +417,7 @@ define hidden void @_ZN11inputStream12clear_bufferEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZNK11inputStream12next_contentERm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK11inputStream12next_contentERm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -434,7 +434,7 @@ define hidden noundef ptr @_ZNK11inputStream12next_contentERm(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11inputStream9set_inputEPNS_5InputE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(320) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11inputStream9set_inputEPNS_5InputE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(320) initializes((8, 21), (40, 72)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   store i8 0, ptr %4, align 4
@@ -626,7 +626,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef, i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11inputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN11inputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV11inputStream, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -645,7 +645,7 @@ define hidden void @_ZN11inputStreamD2Ev(ptr noundef nonnull align 8 dereference
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11inputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN11inputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV11inputStream, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8

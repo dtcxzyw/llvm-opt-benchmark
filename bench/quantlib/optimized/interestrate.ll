@@ -67,7 +67,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib12InterestRateC1EdNS_10DayCounterENS_11CompoundingENS_9FrequencyE = unnamed_addr alias void (ptr, double, ptr, i32, i32), ptr @_ZN8QuantLib12InterestRateC2EdNS_10DayCounterENS_11CompoundingENS_9FrequencyE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib12InterestRateC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib12InterestRateC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 24)) %this) unnamed_addr #0 align 2 {
 entry:
   store double 0x47EFFFFFE0000000, ptr %this, align 8, !tbaa !3
   %dc_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -82,7 +82,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12InterestRateC2EdNS_10DayCounterENS_11CompoundingENS_9FrequencyE(ptr noundef nonnull align 8 dereferenceable(40) %this, double noundef %r, ptr nocapture noundef %dc, i32 noundef %comp, i32 noundef %freq) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12InterestRateC2EdNS_10DayCounterENS_11CompoundingENS_9FrequencyE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 29)) %this, double noundef %r, ptr nocapture noundef %dc, i32 noundef %comp, i32 noundef %freq) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

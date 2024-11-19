@@ -4292,7 +4292,7 @@ define dso_local void @dg1_de_irq_postinstall(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_display_irq_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_display_irq_init(ptr noundef initializes((312, 313), (7936, 7937)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 312
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 7936

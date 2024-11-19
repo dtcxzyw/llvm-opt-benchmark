@@ -915,7 +915,7 @@ _ZNSt6vectorIPFvP9lua_StateiESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vec
 declare void @_Z14fatal_error_fnPKcS0_jS0_(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN11AsyncEngine10initializeEj(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %numEngines) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN11AsyncEngine10initializeEj(ptr noundef nonnull align 8 dereferenceable(408) initializes((0, 1)) %this, i32 noundef %numEngines) local_unnamed_addr #10 align 2 {
 entry:
   store i8 1, ptr %this, align 8, !tbaa !61
   %cmp = icmp eq i32 %numEngines, 0
@@ -4436,7 +4436,7 @@ declare void @_ZN13ScriptApiBaseC2E13ScriptingType(ptr noundef nonnull align 8 d
 declare void @_ZN13ScriptApiBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(137)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN17AsyncWorkerThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(161) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17AsyncWorkerThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(161) initializes((0, 8), (144, 152)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !16
@@ -4479,7 +4479,7 @@ terminate.lpad:                                   ; preds = %cond.false
 declare void @_Z15sanity_check_fnPKcS0_jS0_(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN17AsyncWorkerThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(161) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17AsyncWorkerThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(161) initializes((0, 8), (144, 152), (168, 176)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 24), ptr %this, align 8, !tbaa !16
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 168
@@ -4513,7 +4513,7 @@ _ZN17AsyncWorkerThreadD2Ev.exit:                  ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn144_N17AsyncWorkerThreadD1Ev(ptr noundef %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZThn144_N17AsyncWorkerThreadD1Ev(ptr noundef initializes((-144, -136), (0, 8), (24, 32)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -144
   store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 24), ptr %0, align 8, !tbaa !16
@@ -4585,7 +4585,7 @@ _ZN17AsyncWorkerThreadD1Ev.exit:                  ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN17AsyncWorkerThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(161) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17AsyncWorkerThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(161) initializes((0, 8), (144, 152), (168, 176)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 24), ptr %this, align 8, !tbaa !16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 168
@@ -4620,7 +4620,7 @@ _ZN17AsyncWorkerThreadD1Ev.exit:                  ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn144_N17AsyncWorkerThreadD0Ev(ptr noundef %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZThn144_N17AsyncWorkerThreadD0Ev(ptr noundef initializes((-144, -136), (0, 8), (24, 32)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -144
   store ptr getelementptr inbounds (i8, ptr @_ZTV17AsyncWorkerThread, i64 24), ptr %0, align 8, !tbaa !16

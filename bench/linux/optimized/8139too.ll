@@ -2780,7 +2780,7 @@ define internal i32 @rtl8139_get_msglevel(ptr nocapture noundef readonly %0) #9 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @rtl8139_set_msglevel(ptr nocapture noundef writeonly %0, i32 noundef %1) #10 align 16 {
+define internal void @rtl8139_set_msglevel(ptr nocapture noundef writeonly initializes((2328, 2332)) %0, i32 noundef %1) #10 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2328
   store i32 %1, ptr %3, align 8
   ret void
@@ -2801,13 +2801,13 @@ define internal i32 @rtl8139_get_link(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @rtl8139_get_strings(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef writeonly %2) #11 align 16 {
+define internal void @rtl8139_get_strings(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef writeonly initializes((0, 128)) %2) #11 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(128) %2, ptr noundef nonnull align 16 dereferenceable(128) @ethtool_stats_keys, i64 128, i1 false)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @rtl8139_get_ethtool_stats(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #11 align 16 {
+define internal void @rtl8139_get_ethtool_stats(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 32)) %2) #11 align 16 {
   %4 = getelementptr i8, ptr %0, i64 2896
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %2, align 8

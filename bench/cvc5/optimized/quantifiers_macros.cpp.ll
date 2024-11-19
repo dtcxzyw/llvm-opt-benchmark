@@ -3761,7 +3761,7 @@ ehcleanup91:                                      ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers17QuantifiersMacros11returnMacroENS0_12NodeTemplateILb1EEES5_(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %fdef, ptr nocapture noundef readonly %lit) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers17QuantifiersMacros11returnMacroENS0_12NodeTemplateILb1EEES5_(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %fdef, ptr nocapture noundef readonly %lit) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %0 = load ptr, ptr %fdef, align 8
   store ptr %0, ptr %agg.result, align 8

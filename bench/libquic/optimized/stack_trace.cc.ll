@@ -30,7 +30,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4base5debug10StackTraceC2EPKPKvm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(504) %this, ptr nocapture noundef readonly %trace, i64 noundef %count) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base5debug10StackTraceC2EPKPKvm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(504) initializes((496, 504)) %this, ptr nocapture noundef readonly %trace, i64 noundef %count) unnamed_addr #1 align 2 {
 entry:
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %count, i64 62)
   %tobool.not = icmp eq i64 %count, 0
@@ -63,7 +63,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK4base5debug10StackTrace9AddressesEPm(ptr noundef nonnull readonly align 8 dereferenceable(504) %this, ptr nocapture noundef writeonly %count) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZNK4base5debug10StackTrace9AddressesEPm(ptr noundef nonnull readonly align 8 dereferenceable(504) %this, ptr nocapture noundef writeonly initializes((0, 8)) %count) local_unnamed_addr #1 align 2 {
 entry:
   %count_ = getelementptr inbounds i8, ptr %this, i64 496
   %0 = load i64, ptr %count_, align 8

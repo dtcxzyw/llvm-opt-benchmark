@@ -933,7 +933,7 @@ $_ZTV17LogStreamImplBase = comdat any
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1RemSetC2EP15G1CollectedHeapP11G1CardTable(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1RemSetC2EP15G1CollectedHeapP11G1CardTable(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 72, i8 noundef zeroext 5, i32 noundef 0) #18
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 16, i1 false)
@@ -2031,7 +2031,7 @@ _ZN12G1HeapRegion37oops_on_memregion_seq_iterate_carefulILb0E28G1ConcurrentRefin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1RemSet24enqueue_for_reprocessingEPh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1RemSet24enqueue_for_reprocessingEPh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0, ptr noundef initializes((0, 1)) %1) local_unnamed_addr #1 align 2 {
   store i8 0, ptr %1, align 1
   %3 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1664

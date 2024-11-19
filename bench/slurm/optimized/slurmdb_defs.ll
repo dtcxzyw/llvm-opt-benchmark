@@ -5011,7 +5011,7 @@ define internal i32 @_sort_assoc_by_lineage_asc(ptr nocapture noundef readonly %
 declare ptr @xhash_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @_arch_hash_rec_id(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
+define internal void @_arch_hash_rec_id(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %4) #20
   %5 = load ptr, ptr %0, align 8
@@ -7185,7 +7185,7 @@ define noundef range(i32 -1, 1) i32 @slurmdb_add_cluster_accounting_to_tres_list
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_get_first_avail_cluster(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_get_first_avail_cluster(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = alloca [64 x i8], align 16
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
@@ -7544,7 +7544,7 @@ declare ptr @list_peek(ptr noundef) local_unnamed_addr #1
 declare ptr @list_remove(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_get_first_het_job_cluster(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_get_first_het_job_cluster(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca [64 x i8], align 16
@@ -7824,7 +7824,7 @@ _het_job_will_run.exit:                           ; preds = %64, %48, %54
 }
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_copy_assoc_rec_limits(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @slurmdb_copy_assoc_rec_limits(ptr noundef initializes((64, 76)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -7933,7 +7933,7 @@ define void @slurmdb_copy_assoc_rec_limits(ptr noundef %0, ptr nocapture noundef
 declare ptr @slurm_copy_char_list(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_copy_cluster_rec(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @slurmdb_copy_cluster_rec(ptr noundef initializes((8, 10)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i16, ptr %4, align 8
@@ -8163,7 +8163,7 @@ slurmdb_init_cluster_rec.exit:                    ; preds = %.lr.ph, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define void @slurmdb_copy_qos_rec_limits(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @slurmdb_copy_qos_rec_limits(ptr noundef initializes((12, 32)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 12

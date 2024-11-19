@@ -1190,7 +1190,7 @@ define dso_local i32 @lzma_lzma_encoder_init(ptr noundef %0, ptr noundef %1, ptr
 declare i32 @lzma_lz_encoder_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9) i32 @lzma_encoder_init(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 9) i32 @lzma_encoder_init(ptr nocapture noundef initializes((8, 16)) %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @lzma_encode, ptr %5, align 8
   %6 = tail call i32 @lzma_lzma_encoder_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)

@@ -100,7 +100,7 @@ define noundef range(i32 4128768, 0) i32 @_Z10duIntToColii(i32 noundef %0, i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z10duIntToColiPf(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
+define void @_Z10duIntToColiPf(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) local_unnamed_addr #3 {
   %3 = and i32 %0, 1
   %4 = lshr i32 %0, 2
   %5 = and i32 %4, 2
@@ -1560,7 +1560,7 @@ define void @_Z15appendArrowHeadP11duDebugDrawPKfS2_fj(ptr noundef %0, ptr nound
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13duDisplayListC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %0, i32 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13duDisplayListC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 41)) %0, i32 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV13duDisplayList, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1587,7 +1587,7 @@ define void @_ZN13duDisplayListC2Ei(ptr nocapture noundef nonnull writeonly alig
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13duDisplayList6resizeEi(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN13duDisplayList6resizeEi(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((28, 32)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = mul nsw i32 %1, 3
   %4 = sext i32 %3 to i64
   %5 = icmp slt i32 %1, 0
@@ -1654,7 +1654,7 @@ define void @_ZN13duDisplayList6resizeEi(ptr nocapture noundef nonnull align 8 d
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13duDisplayListD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #8 align 2 {
+define void @_ZN13duDisplayListD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV13duDisplayList, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -1692,14 +1692,14 @@ define void @_ZN13duDisplayListD0Ev(ptr nocapture nonnull readnone align 8 %0) u
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13duDisplayList5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN13duDisplayList5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((24, 28)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13duDisplayList9depthMaskEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
+define void @_ZN13duDisplayList9depthMaskEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((40, 41)) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 %3, ptr %4, align 8
@@ -1707,7 +1707,7 @@ define void @_ZN13duDisplayList9depthMaskEb(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13duDisplayList5beginE21duDebugDrawPrimitivesf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %0, i32 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define void @_ZN13duDisplayList5beginE21duDebugDrawPrimitivesf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((24, 28), (32, 40)) %0, i32 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32

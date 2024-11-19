@@ -140,7 +140,7 @@ define void @_ZN17PreferenceManagerC2EP7QObject(ptr noundef nonnull align 8 dere
 declare void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN17PreferenceManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17PreferenceManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV17PreferenceManager, i64 16), ptr %0, align 8
   %2 = load atomic i8, ptr @_ZGVZN17PreferenceManager9factoriesEvE4inst acquire, align 8
   %3 = icmp eq i8 %2, 0

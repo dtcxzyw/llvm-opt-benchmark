@@ -785,7 +785,7 @@ _ZNK4llvm9SourceMgr9SrcBuffer34getPointerForLineNumberSpecializedIhEEPKcj.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm9SourceMgr9SrcBufferC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm9SourceMgr9SrcBufferC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #5 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8
@@ -2818,7 +2818,7 @@ define dso_local void @_ZNK4llvm9SourceMgr12PrintMessageENS_5SMLocENS0_8DiagKind
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7SMFixItC2ENS_7SMRangeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(34) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7SMFixItC2ENS_7SMRangeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %0, ptr %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(34) %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %.sroa.2.0..sroa_idx, align 8
@@ -2828,7 +2828,7 @@ define dso_local void @_ZN4llvm7SMFixItC2ENS_7SMRangeERKNS_5TwineE(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12SMDiagnosticC2ERKNS_9SourceMgrENS_5SMLocENS_9StringRefEiiNS1_8DiagKindES5_S5_NS_8ArrayRefISt4pairIjjEEENS7_INS_7SMFixItEEE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %2, ptr %3, i64 %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %8, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %9, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.53") align 8 %10, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.34") align 8 %11) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12SMDiagnosticC2ERKNS_9SourceMgrENS_5SMLocENS_9StringRefEiiNS1_8DiagKindES5_S5_NS_8ArrayRefISt4pairIjjEEENS7_INS_7SMFixItEEE(ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %2, ptr %3, i64 %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %8, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %9, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.53") align 8 %10, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.34") align 8 %11) unnamed_addr #0 align 2 {
   %13 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %14 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %15 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8

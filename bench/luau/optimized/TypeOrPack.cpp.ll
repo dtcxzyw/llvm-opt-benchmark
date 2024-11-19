@@ -1171,7 +1171,7 @@ define dso_local noundef ptr @_ZN4Luau3ptrENS_7VariantIJPKNS_4TypeEPKNS_11TypePa
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau6followENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Luau::Variant") align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define dso_local void @_ZN4Luau6followENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Luau::Variant") align 8 initializes((0, 4), (8, 16)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %3, 0
   %4 = getelementptr inbounds i8, ptr %1, i64 8

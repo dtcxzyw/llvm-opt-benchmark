@@ -267,7 +267,7 @@ up_irq_restore.exit:                              ; preds = %22, %17, %16, %12, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 256) i32 @u16550_receive(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 0, 256) i32 @u16550_receive(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
   %.val = load i16, ptr %4, align 4

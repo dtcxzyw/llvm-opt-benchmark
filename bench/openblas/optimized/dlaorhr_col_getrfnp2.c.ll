@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @c_b19 = internal global double -1.000000e+00, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @dlaorhr_col_getrfnp2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define void @dlaorhr_col_getrfnp2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca double, align 8
   %9 = alloca i32, align 4

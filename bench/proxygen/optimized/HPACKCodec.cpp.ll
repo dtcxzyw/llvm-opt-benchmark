@@ -450,7 +450,7 @@ for.end:                                          ; preds = %_ZNSt6vectorIN8prox
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen10HPACKCodecC2ENS_18TransportDirectionE(ptr noundef nonnull align 8 dereferenceable(408) %this, i8 zeroext %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen10HPACKCodecC2ENS_18TransportDirectionE(ptr noundef nonnull align 8 dereferenceable(408) initializes((0, 40)) %this, i8 zeroext %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %encodedSize_.i = getelementptr inbounds i8, ptr %this, i64 8
   %maxUncompressed_.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -819,7 +819,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 declare void @_ZN8proxygen12HPACKEncoder6encodeERKSt6vectorINS_11HPACKHeaderESaIS2_EEj(ptr sret(%"class.std::unique_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen10HPACKCodec20recordCompressedSizeEPKN5folly5IOBufE(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef %stream) local_unnamed_addr #3 align 2 {
+define void @_ZN8proxygen10HPACKCodec20recordCompressedSizeEPKN5folly5IOBufE(ptr noundef nonnull align 8 dereferenceable(408) initializes((8, 12)) %this, ptr noundef %stream) local_unnamed_addr #3 align 2 {
 entry:
   %encodedSize_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %encodedSize_, align 8
@@ -1098,7 +1098,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 declare void @_ZN8proxygen12HPACKEncoder6encodeERKSt6vectorINS_11HPACKHeaderESaIS2_EERN5folly10IOBufQueueE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen10HPACKCodec20recordCompressedSizeEm(ptr noundef nonnull align 8 dereferenceable(408) %this, i64 noundef %size) local_unnamed_addr #3 align 2 {
+define void @_ZN8proxygen10HPACKCodec20recordCompressedSizeEm(ptr noundef nonnull align 8 dereferenceable(408) initializes((8, 12)) %this, i64 noundef %size) local_unnamed_addr #3 align 2 {
 entry:
   %conv = trunc i64 %size to i32
   %encodedSize_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1683,7 +1683,7 @@ declare void @_ZN8proxygen12HPACKEncoder14completeEncodeEv(ptr noundef nonnull a
 declare noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen10HPACKCodec15decodeStreamingERN5folly2io6CursorEjPNS_5HPACK17StreamingCallbackE(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(56) %cursor, i32 noundef %length, ptr noundef %streamingCb) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen10HPACKCodec15decodeStreamingERN5folly2io6CursorEjPNS_5HPACK17StreamingCallbackE(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(56) %cursor, i32 noundef %length, ptr noundef initializes((8, 16)) %streamingCb) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stats_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %stats_, align 8

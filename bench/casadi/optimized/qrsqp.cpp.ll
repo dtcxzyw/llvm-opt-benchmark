@@ -510,7 +510,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @casadi_register_nlpsol_qrsqp(ptr nocapture noundef writeonly %0) #4 {
+define noundef i32 @casadi_register_nlpsol_qrsqp(ptr nocapture noundef writeonly initializes((0, 28), (32, 40)) %0) #4 {
   store ptr @_ZN6casadi5Qrsqp7creatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FunctionE, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @.str.6, ptr %2, align 8
@@ -616,7 +616,7 @@ declare void @_ZN6casadi8FunctionD1Ev(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZN6casadi6NlpsolD2Ev(ptr noundef nonnull align 8 dereferenceable(1928)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi5QrsqpD2Ev(ptr noundef nonnull align 8 dereferenceable(2049) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi5QrsqpD2Ev(ptr noundef nonnull align 8 dereferenceable(2049) initializes((0, 8), (1520, 1528)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi5QrsqpE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1520
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi5QrsqpE, i64 976), ptr %2, align 8
@@ -3833,7 +3833,7 @@ define void @_ZNK6casadi5Qrsqp8set_workEPvRPPKdRPPdRPxRS6_(ptr noundef nonnull a
 declare void @_ZNK6casadi6Nlpsol8set_workEPvRPPKdRPPdRPxRS6_(ptr noundef nonnull align 8 dereferenceable(1928), ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZNK6casadi5Qrsqp5solveEPv(ptr noundef nonnull align 8 dereferenceable(2049) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZNK6casadi5Qrsqp5solveEPv(ptr noundef nonnull align 8 dereferenceable(2049) %0, ptr noundef initializes((448, 464), (472, 480), (488, 492)) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca double, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.0", align 1

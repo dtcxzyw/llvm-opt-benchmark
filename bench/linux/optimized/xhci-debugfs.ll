@@ -523,7 +523,7 @@ define dso_local void @xhci_debugfs_remove_slot(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xhci_debugfs_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @xhci_debugfs_init(ptr noundef initializes((2744, 2752)) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [8 x i8], align 8
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
@@ -840,7 +840,7 @@ define internal fastcc void @xhci_debugfs_extcap_regset(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xhci_debugfs_exit(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @xhci_debugfs_exit(ptr noundef initializes((2752, 2760)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2744
   %3 = load ptr, ptr %2, align 8
   tail call void @debugfs_remove(ptr noundef %3) #14

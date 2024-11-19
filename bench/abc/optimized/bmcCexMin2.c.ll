@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [65 x i8] c"Hard limit on the number of nodes (2^29) is reached. Quitting...\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Gia_ManAnnotateUnrolling(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Gia_ManAnnotateUnrolling(ptr noundef initializes((432, 440), (924, 928)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %4, align 8
   %5 = ashr i32 %.val, 4
@@ -1724,7 +1724,7 @@ declare ptr @Gia_ManCleanup(ptr noundef) local_unnamed_addr #1
 declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Gia_ManCexMin(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define noalias noundef ptr @Gia_ManCexMin(ptr noundef initializes((432, 440), (924, 928)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = tail call i32 @Gia_ManAnnotateUnrolling(ptr noundef %0, ptr noundef %1, i32 noundef %4)
   %9 = icmp sgt i32 %3, -1
   br i1 %9, label %10, label %15

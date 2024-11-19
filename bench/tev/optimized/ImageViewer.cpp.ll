@@ -12595,7 +12595,7 @@ _ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit300: ; preds = %496, %494
 declare noundef zeroext i1 @_ZN7nanogui6Screen14keyboard_eventEiiii(ptr noundef nonnull align 16 dereferenceable(384), i32 noundef, i32 noundef, i32 noundef, i32 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev11ImageViewer15nthVisibleImageEm(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::__1::shared_ptr.24") align 8 %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(972) %1, i64 noundef %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev11ImageViewer15nthVisibleImageEm(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::__1::shared_ptr.24") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(972) %1, i64 noundef %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 688
   %5 = getelementptr inbounds i8, ptr %1, i64 696
@@ -13387,7 +13387,7 @@ declare void @_ZN3tev5Image21decomposeChannelGroupERKNSt3__112basic_stringIcNS1_
 declare void @_ZN3tev11ImageCanvas14resetTransformEv(ptr noundef nonnull align 8 dereferenceable(376)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN3tev11ImageViewer12setUiVisibleEb(ptr nocapture noundef nonnull align 16 dereferenceable(972) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN3tev11ImageViewer12setUiVisibleEb(ptr nocapture noundef nonnull align 16 dereferenceable(972) initializes((521, 522)) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
   br i1 %1, label %8, label %3
 
 3:                                                ; preds = %2
@@ -14449,7 +14449,7 @@ define dso_local void @_ZN3tev11ImageViewer15toggleMaximizedEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev11ImageViewer14setPlayingBackEb(ptr noundef nonnull align 16 dereferenceable(972) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN3tev11ImageViewer14setPlayingBackEb(ptr noundef nonnull align 16 dereferenceable(972) initializes((840, 848)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 824
   %4 = load ptr, ptr %3, align 8
   %5 = zext i1 %1 to i8
@@ -14473,7 +14473,7 @@ define dso_local noundef zeroext i1 @_ZNK3tev11ImageViewer11playingBackEv(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3tev11ImageViewer9setFilterERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr nocapture noundef nonnull align 16 dereferenceable(972) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZN3tev11ImageViewer9setFilterERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr nocapture noundef nonnull align 16 dereferenceable(972) initializes((520, 521)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 744
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 136
@@ -21398,7 +21398,7 @@ _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit: ; preds = %_ZN3tev5Image
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN3tev11ImageViewer11imageByNameERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::__1::shared_ptr.24") align 8 %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(972) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #16 align 2 {
+define dso_local void @_ZN3tev11ImageViewer11imageByNameERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::__1::shared_ptr.24") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(972) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #16 align 2 {
   %4 = tail call noundef i32 @_ZNK3tev11ImageViewer7imageIdERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 16 dereferenceable(972) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.not = icmp eq i32 %4, -1
   br i1 %.not, label %17, label %5
@@ -21738,7 +21738,7 @@ define dso_local noundef zeroext i1 @_ZNK3tev11ImageViewer8useRegexEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN3tev11ImageViewer11setUseRegexEb(ptr nocapture noundef nonnull align 16 dereferenceable(972) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN3tev11ImageViewer11setUseRegexEb(ptr nocapture noundef nonnull align 16 dereferenceable(972) initializes((520, 521)) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 752
   %4 = load ptr, ptr %3, align 16
   %5 = zext i1 %1 to i8
@@ -28833,7 +28833,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_0NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -28900,7 +28900,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_1NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -28968,7 +28968,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_2NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -29036,7 +29036,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_3NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -29104,7 +29104,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_5NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -29171,7 +29171,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_6NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -29243,7 +29243,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_7NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -29315,7 +29315,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_8NS_9allocatorIS9_EEFvfEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -29398,7 +29398,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEE7__cloneEPNS0_6__baseISG_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEE7__cloneEPNS0_6__baseISG_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef writeonly initializes((0, 24)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE3$_9NS_9allocatorIS9_EEFvRKN7nanogui5ColorEEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -29484,7 +29484,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_11NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -29618,7 +29618,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_12NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -29743,7 +29743,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_13NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -29877,7 +29877,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_14NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -30011,7 +30011,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_16NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -30112,7 +30112,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_17NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -30213,7 +30213,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_18NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -30314,7 +30314,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_19NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -30415,7 +30415,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_20NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -30516,7 +30516,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEE7__cloneEPNS0_6__baseISJ_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEE7__cloneEPNS0_6__baseISJ_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_21NS_9allocatorIS9_EEFbRKNS_12basic_stringIcNS_11char_traitsIcEENSA_IcEEEEEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -64504,7 +64504,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_22NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -64574,7 +64574,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly %1) unnamed_addr #33 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) unnamed_addr #33 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_24NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   ret void
 }
@@ -64634,7 +64634,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_25NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -64710,7 +64710,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_26NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -64863,7 +64863,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_27NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -65408,7 +65408,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_29NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -65475,7 +65475,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_30NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -65542,7 +65542,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_31NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -65696,7 +65696,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_32NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -65763,7 +65763,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_33NS_9allocatorIS9_EEFvbEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -65835,7 +65835,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_34NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -65964,7 +65964,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEE7__cloneEPNS0_6__baseISF_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEE7__cloneEPNS0_6__baseISF_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_10shared_ptrINS2_22BackgroundImagesLoaderEEEbbbE4$_35NS_9allocatorIS9_EEFvN7nanogui5ArrayIiLm2EEEEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -66934,7 +66934,7 @@ _ZNSt3__111unique_lockINS_5mutexEED2B8ne190000Ev.exit4: ; preds = %27, %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
+define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.val = load ptr, ptr %2, align 8
@@ -66960,7 +66960,7 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
+define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %2, align 8
@@ -67015,7 +67015,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEE7__cloneEPNS0_6__baseISA_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly %1) unnamed_addr #35 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEE7__cloneEPNS0_6__baseISA_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) unnamed_addr #35 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_0NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -67117,7 +67117,7 @@ define internal noundef nonnull align 8 dereferenceable(16) ptr @"_ZNKSt3__110__
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
+define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.val = load ptr, ptr %2, align 8
@@ -67143,7 +67143,7 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
+define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %2, align 8
@@ -67198,7 +67198,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEE7__cloneEPNS0_6__baseISA_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly %1) unnamed_addr #35 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEE7__cloneEPNS0_6__baseISA_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) unnamed_addr #35 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_1NS_9allocatorIS7_EEFvbEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -67345,7 +67345,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEE7__cloneEPNS0_6__baseISA_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEE7__cloneEPNS0_6__baseISA_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11insertImageENS_10shared_ptrINS2_5ImageEEEmbE3$_2NS_9allocatorIS7_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -67390,7 +67390,7 @@ define internal noundef nonnull align 8 dereferenceable(16) ptr @"_ZNKSt3__110__
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 align 2 {
+define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #41
@@ -67398,7 +67398,7 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11selectI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 align 2 {
+define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #41
@@ -67430,7 +67430,7 @@ define internal noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3tev11Imag
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEE7__cloneEPNS0_6__baseISC_EE"(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef initializes((0, 16)) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer11selectImageERKNS_10shared_ptrINS2_5ImageEEEbE3$_0NS_9allocatorIS9_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -67519,7 +67519,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEE7__cloneEPNS0_6__baseIS7_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEE7__cloneEPNS0_6__baseIS7_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageViewer16toggleHelpWindowEvE3$_0NS_9allocatorIS4_EEFvvEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8

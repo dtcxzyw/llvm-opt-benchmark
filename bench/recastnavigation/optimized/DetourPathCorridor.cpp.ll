@@ -317,7 +317,7 @@ define noundef i32 @_Z28dtMergeCorridorStartShortcutPjiiPKji(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN14dtPathCorridorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) unnamed_addr #4 align 2 {
+define void @_ZN14dtPathCorridorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((24, 40)) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
@@ -393,7 +393,7 @@ define noundef zeroext i1 @_ZN14dtPathCorridor4initEi(ptr nocapture noundef nonn
 declare noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14dtPathCorridor5resetEjPKf(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 2 {
+define void @_ZN14dtPathCorridor5resetEjPKf(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 24), (32, 36)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 2 {
   %4 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %5 = icmp ne ptr %4, null
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1352,7 +1352,7 @@ _Z23dtMergeCorridorEndMovedPjiiPKji.exit:         ; preds = %30, %._crit_edge58.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14dtPathCorridor11setCorridorEPKfPKji(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
+define void @_ZN14dtPathCorridor11setCorridorEPKfPKji(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((12, 24), (32, 36)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %6 = icmp ne ptr %5, null
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1411,7 +1411,7 @@ define void @_ZN14dtPathCorridor11setCorridorEPKfPKji(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN14dtPathCorridor12fixPathStartEjPKf(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN14dtPathCorridor12fixPathStartEjPKf(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 12)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 2 {
   %4 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %5 = icmp ne ptr %4, null
   %6 = getelementptr inbounds i8, ptr %0, i64 24

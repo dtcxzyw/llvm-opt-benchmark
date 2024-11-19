@@ -462,7 +462,7 @@ if.end:                                           ; preds = %if.then, %_ZN4cvc58
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal3smt14ContextManager20notifyCheckSatResultEb(ptr noundef nonnull align 8 dereferenceable(61) %this, i1 noundef zeroext %hasAssumptions) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal3smt14ContextManager20notifyCheckSatResultEb(ptr noundef nonnull align 8 dereferenceable(61) initializes((60, 61)) %this, i1 noundef zeroext %hasAssumptions) local_unnamed_addr #3 align 2 {
 entry:
   %d_needPostsolve = getelementptr inbounds i8, ptr %this, i64 60
   store i8 1, ptr %d_needPostsolve, align 4
@@ -548,7 +548,7 @@ if.end8:                                          ; preds = %while.body.i, %if.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal3smt14ContextManager5setupEPNS1_9SmtDriverE(ptr noundef nonnull align 8 dereferenceable(61) %this, ptr noundef %smt) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal3smt14ContextManager5setupEPNS1_9SmtDriverE(ptr noundef nonnull align 8 dereferenceable(61) initializes((24, 32)) %this, ptr noundef %smt) local_unnamed_addr #3 align 2 {
 entry:
   %d_smt = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %smt, ptr %d_smt, align 8

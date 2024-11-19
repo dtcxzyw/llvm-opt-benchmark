@@ -7606,7 +7606,7 @@ declare ptr @mem_pool_strndup(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @handle_content_merge(ptr nocapture noundef readonly %opt, ptr noundef %path, ptr noundef %o, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %pathnames, i32 noundef %extra_marker_size, ptr noundef nonnull %result) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @handle_content_merge(ptr nocapture noundef readonly %opt, ptr noundef %path, ptr noundef %o, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %pathnames, i32 noundef %extra_marker_size, ptr noundef nonnull initializes((36, 38)) %result) unnamed_addr #0 {
 entry:
   %result_buf = alloca %struct.s_mmbuffer, align 8
   %mode = getelementptr inbounds i8, ptr %a, i64 36
@@ -8043,7 +8043,7 @@ if.end51:                                         ; preds = %if.then50, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @merge_submodule(ptr nocapture noundef readonly %opt, ptr noundef %path, ptr noundef %o, ptr noundef %a, ptr noundef %b, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @merge_submodule(ptr nocapture noundef readonly %opt, ptr noundef %path, ptr noundef %o, ptr noundef %a, ptr noundef %b, ptr nocapture noundef nonnull writeonly initializes((0, 36)) %result) unnamed_addr #0 {
 entry:
   %subrepo = alloca %struct.repository, align 8
   %sb = alloca %struct.strbuf, align 8
@@ -8574,7 +8574,7 @@ declare ptr @lookup_commit_reference(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @repo_in_merge_bases(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @find_first_merges(ptr noundef nonnull %repo, ptr noundef readnone %path, ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef nonnull %result) unnamed_addr #0 {
+define internal fastcc i32 @find_first_merges(ptr noundef nonnull %repo, ptr noundef readnone %path, ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef nonnull initializes((0, 16)) %result) unnamed_addr #0 {
 entry:
   %merges = alloca %struct.object_array, align 8
   %merged_revision = alloca [66 x i8], align 16

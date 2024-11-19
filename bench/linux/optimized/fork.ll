@@ -1315,7 +1315,7 @@ define dso_local noundef ptr @mm_alloc() local_unnamed_addr #1 align 16 {
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @mm_init(ptr noundef nonnull %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef ptr @mm_init(ptr noundef nonnull initializes((68, 72)) %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 771, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 72
@@ -3899,7 +3899,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @copy_signal(i64 noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @copy_mm(i64 noundef %0, ptr noundef nonnull %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @copy_mm(i64 noundef %0, ptr noundef nonnull initializes((1192, 1208), (1584, 1600), (1616, 1632)) %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.list_head, align 8
   %4 = alloca %struct.vma_iterator, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 1616
@@ -5770,7 +5770,7 @@ define dso_local void @proc_caches_init() local_unnamed_addr #6 section ".init.t
 declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @sighand_ctor(ptr noundef %0) #1 align 16 {
+define internal void @sighand_ctor(ptr noundef initializes((0, 4)) %0) #1 align 16 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @__init_waitqueue_head(ptr noundef %2, ptr noundef nonnull @.str.50, ptr noundef nonnull @sighand_ctor.__key) #18

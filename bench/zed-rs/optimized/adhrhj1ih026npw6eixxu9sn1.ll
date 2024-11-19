@@ -379,13 +379,13 @@ _ZN16html_to_markdown12html_element11HtmlElement9has_class17h8a168940c18b67f8E.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN16html_to_markdown9structure9wikipedia20WikipediaCodeHandler3new17h30ac942217af9b16E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #3 {
+define void @_ZN16html_to_markdown9structure9wikipedia20WikipediaCodeHandler3new17h30ac942217af9b16E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #3 {
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN103_$LT$html_to_markdown..structure..wikipedia..WikipediaCodeHandler$u20$as$u20$core..default..Default$GT$7default17h0ee34d1f4be8eeeeE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #3 {
+define void @"_ZN103_$LT$html_to_markdown..structure..wikipedia..WikipediaCodeHandler$u20$as$u20$core..default..Default$GT$7default17h0ee34d1f4be8eeeeE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #3 {
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !120
   ret void
 }

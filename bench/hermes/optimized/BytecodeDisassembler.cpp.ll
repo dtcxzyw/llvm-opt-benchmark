@@ -3416,7 +3416,7 @@ return:                                           ; preds = %if.then4.i.i154, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc15BytecodeVisitor27visitInstructionsInFunctionEj(ptr noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %funcId) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc15BytecodeVisitor27visitInstructionsInFunctionEj(ptr noundef nonnull align 8 dereferenceable(28) initializes((24, 28)) %this, i32 noundef %funcId) local_unnamed_addr #1 align 2 {
 entry:
   %funcId_ = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %funcId, ptr %funcId_, align 8
@@ -4900,7 +4900,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc24PrettyDisassembleVisitor11beforeStartEjPKh(ptr nocapture noundef nonnull align 8 dereferenceable(68) %this, i32 noundef %funcId, ptr noundef %bytecodeStart) unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc24PrettyDisassembleVisitor11beforeStartEjPKh(ptr nocapture noundef nonnull align 8 dereferenceable(68) initializes((40, 52)) %this, i32 noundef %funcId, ptr noundef %bytecodeStart) unnamed_addr #1 align 2 {
 entry:
   %bytecodeStart_ = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %bytecodeStart, ptr %bytecodeStart_, align 8
@@ -4915,7 +4915,7 @@ entry:
 declare noundef i32 @_ZNK6hermes3hbc14BCProviderBase27getVirtualOffsetForFunctionEj(ptr noundef nonnull align 8 dereferenceable(280), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc24PrettyDisassembleVisitor19preVisitInstructionENS_4inst6OpCodeEPKhi(ptr noundef nonnull align 8 dereferenceable(68) %this, i8 noundef zeroext %opcode, ptr noundef %ip, i32 %length) unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc24PrettyDisassembleVisitor19preVisitInstructionENS_4inst6OpCodeEPKhi(ptr noundef nonnull align 8 dereferenceable(68) initializes((28, 29)) %this, i8 noundef zeroext %opcode, ptr noundef %ip, i32 %length) unnamed_addr #1 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %ref.tmp14 = alloca %"class.llvh::FormattedString", align 8
@@ -5899,7 +5899,7 @@ declare void @_ZNK6hermes3hbc14BCProviderBase21getLocationForAddressEjj(ptr sret
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc21BytecodeSectionWalkerC2EPKhSt10shared_ptrINS0_20BCProviderFromBufferEERN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %bytecodeStart, ptr nocapture noundef readonly %bcProvider, ptr noundef nonnull align 8 dereferenceable(36) %os) unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc21BytecodeSectionWalkerC2EPKhSt10shared_ptrINS0_20BCProviderFromBufferEERN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 104)) %this, ptr noundef %bytecodeStart, ptr nocapture noundef readonly %bcProvider, ptr noundef nonnull align 8 dereferenceable(36) %os) unnamed_addr #1 align 2 {
 entry:
   store ptr %bytecodeStart, ptr %this, align 8
   %bcProvider_ = getelementptr inbounds i8, ptr %this, i64 8

@@ -139,7 +139,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear16ErrorInformationC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear16ErrorInformationC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((0, 4), (8, 22), (24, 44)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.true:
   %0 = load i32, ptr @_ZN4cvc58internal6theory5arith6linear17ARITHVAR_SENTINELE, align 4
   store i32 %0, ptr %this, align 8
@@ -197,7 +197,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear16ErrorInformationC2EjPNS3_10ConstraintEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %this, i32 noundef %var, ptr noundef %vio, i32 noundef %sgn) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear16ErrorInformationC2EjPNS3_10ConstraintEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((0, 4), (8, 22), (24, 44)) %this, i32 noundef %var, ptr noundef %vio, i32 noundef %sgn) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.true:
   store i32 %var, ptr %this, align 8
   %d_violated = getelementptr inbounds i8, ptr %this, i64 8
@@ -296,7 +296,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear16ErrorInformationC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %ei) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear16ErrorInformationC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 4), (8, 22), (24, 44)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %ei) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %ei, align 8
   store i32 %0, ptr %this, align 8
@@ -397,7 +397,7 @@ cond.true:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(44) ptr @_ZN4cvc58internal6theory5arith6linear16ErrorInformationaSERKS4_(ptr noundef nonnull returned align 8 dereferenceable(44) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %ei) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(44) ptr @_ZN4cvc58internal6theory5arith6linear16ErrorInformationaSERKS4_(ptr noundef nonnull returned align 8 dereferenceable(44) initializes((0, 4), (8, 22), (24, 32), (40, 44)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %ei) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %ei, align 8
   store i32 %0, ptr %this, align 8
@@ -533,7 +533,7 @@ if.end81:                                         ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear16ErrorInformation5resetEPNS3_10ConstraintEi(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, ptr noundef %c, i32 noundef %sgn) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear16ErrorInformation5resetEPNS3_10ConstraintEi(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((8, 20)) %this, ptr noundef %c, i32 noundef %sgn) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_violated = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %c, ptr %d_violated, align 8
@@ -930,7 +930,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear8ErrorSetC2ERNS0_18StatisticsRegistryERNS3_14ArithVariablesENS3_12TableauSizesENS3_19BoundCountingLookupE(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef nonnull align 8 dereferenceable(72) %sr, ptr noundef nonnull align 8 dereferenceable(568) %vars, ptr %tabSizes.coerce, ptr %lookups.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear8ErrorSetC2ERNS0_18StatisticsRegistryERNS3_14ArithVariablesENS3_12TableauSizesENS3_19BoundCountingLookupE(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 84), (88, 112)) %this, ptr noundef nonnull align 8 dereferenceable(72) %sr, ptr noundef nonnull align 8 dereferenceable(568) %vars, ptr %tabSizes.coerce, ptr %lookups.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %vars, ptr %this, align 8
   %d_errInfo = getelementptr inbounds i8, ptr %this, i64 8
@@ -1501,7 +1501,7 @@ _ZN4cvc58internal10BinaryHeapIjNS0_6theory5arith6linear19ComparatorPivotRuleEE7u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear19ComparatorPivotRuleC2EPKNS3_8ErrorSetENS0_7options18ErrorSelectionRuleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, ptr noundef %es, i32 noundef %r) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear19ComparatorPivotRuleC2EPKNS3_8ErrorSetENS0_7options18ErrorSelectionRuleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr noundef %es, i32 noundef %r) unnamed_addr #3 align 2 {
 entry:
   store ptr %es, ptr %this, align 8
   %d_rule = getelementptr inbounds i8, ptr %this, i64 8

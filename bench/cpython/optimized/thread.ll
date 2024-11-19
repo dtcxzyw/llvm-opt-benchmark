@@ -1117,7 +1117,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @PyThread_update_thread_after_fork(ptr nocapture noundef writeonly %ident, ptr nocapture noundef writeonly %handle) local_unnamed_addr #3 {
+define dso_local void @PyThread_update_thread_after_fork(ptr nocapture noundef writeonly initializes((0, 8)) %ident, ptr nocapture noundef writeonly initializes((0, 8)) %handle) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @pthread_self() #15
   store i64 %call, ptr %ident, align 8

@@ -156,7 +156,7 @@ define dso_local void @__intel_wakeref_put_last(ptr noundef %0, i64 noundef %1) 
 declare dso_local i32 @mutex_trylock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__intel_wakeref_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 align 16 {
+define dso_local void @__intel_wakeref_init(ptr noundef initializes((48, 64)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 56
@@ -327,7 +327,7 @@ declare dso_local void @schedule() local_unnamed_addr #2
 declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_wakeref_auto_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_wakeref_auto_init(ptr noundef initializes((56, 60)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

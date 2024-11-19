@@ -160,7 +160,7 @@ define hidden void @_ZN3ade17BackendExecutable8runAsyncEPv(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3ade15ExecutionEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN3ade15ExecutionEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 80)) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
@@ -1392,7 +1392,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14_Li
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3ade15ExecutionEngine10passStagesB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange") align 8 %0, ptr noundef nonnull align 8 dereferenceable(272) %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZNK3ade15ExecutionEngine10passStagesB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(272) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 192
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -1849,7 +1849,7 @@ _ZN3ade20ExecExceptionHandlerD2Ev.exit:           ; preds = %39
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3ade27ExecutionEngineSetupContextC2ERNS_15ExecutionEngineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(272) %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN3ade27ExecutionEngineSetupContextC2ERNS_15ExecutionEngineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(272) %1) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -2071,7 +2071,7 @@ define hidden void @_ZN3ade27ExecutionEngineSetupContext12addPassStageERKNSt7__c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZNK3ade27ExecutionEngineSetupContext10passStagesB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #7 align 2 {
+define hidden void @_ZNK3ade27ExecutionEngineSetupContext10passStagesB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ade::util::Range::MapRange") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #7 align 2 {
   %3 = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %4 = getelementptr inbounds i8, ptr %3, i64 192
@@ -2092,7 +2092,7 @@ define hidden noundef zeroext i1 @_ZNK3ade15ExecutionEngine12CallbackList5emptyE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3ade15ExecutionEngine15LazyPassWrapper5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3ade15ExecutionEngine15LazyPassWrapper5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((16, 17)) %0) local_unnamed_addr #3 align 2 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse, %1
@@ -2139,7 +2139,7 @@ define hidden noundef zeroext i1 @_ZNK3ade15ExecutionEngine15LazyPassWrapper7isF
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3ade15ExecutionEngine15LazyPassWrapperC2EPS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN3ade15ExecutionEngine15LazyPassWrapperC2EPS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN3ade15ExecutionEngine15LazyPassWrapperE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8

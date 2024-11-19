@@ -242,7 +242,7 @@ return:                                           ; preds = %if.end, %entry, %er
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssl_ec_point_compute_secret(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_secret, ptr nocapture noundef writeonly %out_secret_len, ptr nocapture noundef writeonly %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) #2 {
+define internal range(i32 0, 2) i32 @ssl_ec_point_compute_secret(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_secret, ptr nocapture noundef writeonly %out_secret_len, ptr nocapture noundef writeonly initializes((0, 1)) %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) #2 {
 entry:
   %data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -347,7 +347,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ssl_x25519_generate_keypair(ptr nocapture noundef writeonly %ctx, ptr noundef %out) #2 {
+define internal i32 @ssl_x25519_generate_keypair(ptr nocapture noundef writeonly initializes((8, 16)) %ctx, ptr noundef %out) #2 {
 entry:
   %public_key = alloca [32 x i8], align 16
   %call = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #8
@@ -371,7 +371,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssl_x25519_compute_secret(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_secret, ptr nocapture noundef writeonly %out_secret_len, ptr nocapture noundef writeonly %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) #2 {
+define internal range(i32 0, 2) i32 @ssl_x25519_compute_secret(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_secret, ptr nocapture noundef writeonly %out_secret_len, ptr nocapture noundef writeonly initializes((0, 1)) %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) #2 {
 entry:
   store i8 80, ptr %out_alert, align 1
   %call = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #8
@@ -494,7 +494,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssl_dhe_compute_secret(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_secret, ptr nocapture noundef writeonly %out_secret_len, ptr nocapture noundef writeonly %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) #2 {
+define internal range(i32 0, 2) i32 @ssl_dhe_compute_secret(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_secret, ptr nocapture noundef writeonly %out_secret_len, ptr nocapture noundef writeonly initializes((0, 1)) %out_alert, ptr noundef %peer_key, i64 noundef %peer_key_len) #2 {
 entry:
   %data = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %data, align 8

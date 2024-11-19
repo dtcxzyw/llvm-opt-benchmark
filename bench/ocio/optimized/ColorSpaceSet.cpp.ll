@@ -190,7 +190,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 {
+define void @_ZN19OpenColorIO_v2_4dev13ColorSpaceSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
@@ -774,7 +774,7 @@ _ZNK19OpenColorIO_v2_4dev13ColorSpaceSet4Impl7getNameEi.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet20getColorSpaceByIndexEi(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.0") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %index) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet20getColorSpaceByIndexEi(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.0") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %index) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
@@ -830,7 +830,7 @@ _ZNK19OpenColorIO_v2_4dev13ColorSpaceSet4Impl3getEi.exit: ; preds = %_ZNSt10shar
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet13getColorSpaceEPKc(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.0") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %name) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19OpenColorIO_v2_4dev13ColorSpaceSet13getColorSpaceEPKc(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.0") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %name) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)

@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [42 x i8] c"attempt to load a %s chunk (mode is '%s')\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaD_seterrorobj(ptr noundef %L, i32 noundef %errcode, ptr noundef %oldtop) local_unnamed_addr #0 {
+define hidden void @luaD_seterrorobj(ptr noundef %L, i32 noundef %errcode, ptr noundef initializes((8, 9)) %oldtop) local_unnamed_addr #0 {
 entry:
   switch i32 %errcode, label %sw.default [
     i32 4, label %sw.bb
@@ -734,7 +734,7 @@ if.end66:                                         ; preds = %if.end49, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaD_hookcall(ptr noundef %L, ptr nocapture noundef %ci) local_unnamed_addr #0 {
+define hidden void @luaD_hookcall(ptr noundef initializes((180, 184)) %L, ptr nocapture noundef %ci) local_unnamed_addr #0 {
 entry:
   %oldpc = getelementptr inbounds i8, ptr %L, i64 180
   store i32 0, ptr %oldpc, align 4

@@ -158,7 +158,7 @@ define internal noundef i32 @kernel_delayacct_sysctls_init() #3 section ".init.t
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__delayacct_tsk_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 align 16 {
+define dso_local void @__delayacct_tsk_init(ptr nocapture noundef writeonly initializes((2544, 2552)) %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr @delayacct_cache, align 8
   %3 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %2, i32 noundef 3520) #6
   %4 = getelementptr inbounds i8, ptr %0, i64 2544
@@ -470,7 +470,7 @@ define dso_local void @__delayacct_freepages_end() local_unnamed_addr #1 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__delayacct_thrashing_start(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 align 16 {
+define dso_local void @__delayacct_thrashing_start(ptr nocapture noundef writeonly initializes((0, 1)) %0) local_unnamed_addr #1 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !5
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 1248

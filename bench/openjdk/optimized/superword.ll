@@ -132,7 +132,7 @@ $_ZTV22EmptyAlignmentSolution = comdat any
 @_ZN9SuperWordC1ERK13VLoopAnalyzer = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN9SuperWordC2ERK13VLoopAnalyzer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9SuperWordC2ERK13VLoopAnalyzer(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(392) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN9SuperWordC2ERK13VLoopAnalyzer(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(392) %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %1, align 8

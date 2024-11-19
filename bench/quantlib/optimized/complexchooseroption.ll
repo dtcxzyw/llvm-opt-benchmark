@@ -1247,7 +1247,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20ComplexChooserOptionC1ENS_4DateEddRKN5boost10shared_ptrINS_8ExerciseEEES5_(ptr noundef nonnull align 8 dereferenceable(280) %this, i64 %choosingDate.coerce, double noundef %strikeCall, double noundef %strikePut, ptr noundef nonnull align 8 dereferenceable(16) %exerciseCall, ptr nocapture noundef %exercisePut) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20ComplexChooserOptionC1ENS_4DateEddRKN5boost10shared_ptrINS_8ExerciseEEES5_(ptr noundef nonnull align 8 dereferenceable(280) initializes((280, 288), (296, 300), (304, 312)) %this, i64 %choosingDate.coerce, double noundef %strikeCall, double noundef %strikePut, ptr noundef nonnull align 8 dereferenceable(16) %exerciseCall, ptr nocapture noundef %exercisePut) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %strikeCall.addr = alloca double, align 8
   %ref.tmp = alloca %"class.boost::shared_ptr.16", align 8

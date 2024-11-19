@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define void @ws_mempbrk_compile(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @ws_mempbrk_compile(ptr noundef initializes((0, 256)) %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %0, i8 0, i64 256, i1 false)
   %3 = load i8, ptr %1, align 1
   %.not9 = icmp eq i8 %3, 0

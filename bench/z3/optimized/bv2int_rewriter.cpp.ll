@@ -1572,7 +1572,7 @@ _ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit:        ; preds = %for.body.i.i.i, %fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15bv2int_rewriterC2ER11ast_managerR19bv2int_rewriter_ctx(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(64) %ctx) unnamed_addr #3 align 2 {
+define hidden void @_ZN15bv2int_rewriterC2ER11ast_managerR19bv2int_rewriter_ctx(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(64) %ctx) unnamed_addr #3 align 2 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_ctx = getelementptr inbounds i8, ptr %this, i64 8

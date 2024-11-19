@@ -495,7 +495,7 @@ $_ZTIN6duckdb19UnnestOperatorStateE = comdat any
 @_ZN6duckdb14PhysicalUnnestC1ENS_6vectorINS_11LogicalTypeELb1EEENS1_INS_10unique_ptrINS_10ExpressionESt14default_deleteIS5_ELb1EEELb1EEEmNS_20PhysicalOperatorTypeE = unnamed_addr alias void (ptr, ptr, ptr, i64, i8), ptr @_ZN6duckdb14PhysicalUnnestC2ENS_6vectorINS_11LogicalTypeELb1EEENS1_INS_10unique_ptrINS_10ExpressionESt14default_deleteIS5_ELb1EEELb1EEEmNS_20PhysicalOperatorTypeE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb18PhysicalProjectionC2ENS_6vectorINS_11LogicalTypeELb1EEENS1_INS_10unique_ptrINS_10ExpressionESt14default_deleteIS5_ELb1EEELb1EEEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %this, ptr nocapture noundef %types, ptr nocapture noundef %select_list, i64 noundef %estimated_cardinality) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18PhysicalProjectionC2ENS_6vectorINS_11LogicalTypeELb1EEENS1_INS_10unique_ptrINS_10ExpressionESt14default_deleteIS5_ELb1EEELb1EEEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((0, 9), (16, 152)) %this, ptr nocapture noundef %types, ptr nocapture noundef %select_list, i64 noundef %estimated_cardinality) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit:
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %types, i64 16
   %0 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8, !tbaa !3
@@ -2124,7 +2124,7 @@ _ZN6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EE13AssertNotNu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb26PhysicalTableInOutFunctionC2ENS_6vectorINS_11LogicalTypeELb1EEENS_13TableFunctionENS_10unique_ptrINS_12FunctionDataESt14default_deleteIS6_ELb1EEENS1_ImLb1EEEmSA_(ptr noundef nonnull align 8 dereferenceable(544) %this, ptr nocapture noundef %types, ptr noundef nonnull %function_p, ptr nocapture noundef %bind_data_p, ptr nocapture noundef %column_ids_p, i64 noundef %estimated_cardinality, ptr nocapture noundef %project_input_p) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb26PhysicalTableInOutFunctionC2ENS_6vectorINS_11LogicalTypeELb1EEENS_13TableFunctionENS_10unique_ptrINS_12FunctionDataESt14default_deleteIS6_ELb1EEENS1_ImLb1EEEmSA_(ptr noundef nonnull align 8 dereferenceable(544) initializes((0, 9), (16, 128)) %this, ptr nocapture noundef %types, ptr noundef nonnull %function_p, ptr nocapture noundef %bind_data_p, ptr nocapture noundef %column_ids_p, i64 noundef %estimated_cardinality, ptr nocapture noundef %project_input_p) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit:
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %types, i64 16
   %0 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8, !tbaa !3
@@ -5156,7 +5156,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN6duckdb6Vector8SetValueEmRKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(104), i64 noundef, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb19UnnestOperatorState5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) %this) local_unnamed_addr #11 align 2 {
+define void @_ZN6duckdb19UnnestOperatorState5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((8, 33)) %this) local_unnamed_addr #11 align 2 {
 entry:
   %current_row = getelementptr inbounds i8, ptr %this, i64 8
   %longest_list_length = getelementptr inbounds i8, ptr %this, i64 24
@@ -5168,7 +5168,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb19UnnestOperatorState20SetLongestListLengthEv(ptr noundef nonnull align 8 dereferenceable(216) %this) local_unnamed_addr #2 align 2 {
+define void @_ZN6duckdb19UnnestOperatorState20SetLongestListLengthEv(ptr noundef nonnull align 8 dereferenceable(216) initializes((24, 32)) %this) local_unnamed_addr #2 align 2 {
 entry:
   %longest_list_length = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %longest_list_length, align 8, !tbaa !324
@@ -5323,7 +5323,7 @@ _ZN6duckdb6vectorINS_19UnifiedVectorFormatELb1EE3getILb1EEERS1_m.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb14PhysicalUnnestC2ENS_6vectorINS_11LogicalTypeELb1EEENS1_INS_10unique_ptrINS_10ExpressionESt14default_deleteIS5_ELb1EEELb1EEEmNS_20PhysicalOperatorTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %this, ptr nocapture noundef %types, ptr nocapture noundef %select_list, i64 noundef %estimated_cardinality, i8 noundef zeroext %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb14PhysicalUnnestC2ENS_6vectorINS_11LogicalTypeELb1EEENS1_INS_10unique_ptrINS_10ExpressionESt14default_deleteIS5_ELb1EEELb1EEEmNS_20PhysicalOperatorTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((0, 9), (16, 152)) %this, ptr nocapture noundef %types, ptr nocapture noundef %select_list, i64 noundef %estimated_cardinality, i8 noundef zeroext %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit:
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %types, i64 16
   %0 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8, !tbaa !3

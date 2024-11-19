@@ -1918,7 +1918,7 @@ define dso_local noundef nonnull align 8 dereferenceable(44) ptr @_ZNK5clang7Bui
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7Builtin7Context16InitializeTargetERKNS_10TargetInfoEPS3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang7Builtin7Context16InitializeTargetERKNS_10TargetInfoEPS3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 264
   %6 = load ptr, ptr %5, align 8

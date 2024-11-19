@@ -1519,7 +1519,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg19find_unknown_fieldsB5cxx11ERKNS_13ConfigurationE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg19find_unknown_fieldsB5cxx11ERKNS_13ConfigurationE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 376
   invoke fastcc void @_ZN12_GLOBAL__N_124find_unknown_fields_implERKN5vcpkg4Json6ObjectERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EENS0_10StringViewE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.31, i64 1)
@@ -3068,7 +3068,7 @@ _ZNSt12_Vector_baseIN5vcpkg8RegistryESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK5vcpkg13Configuration9serializeEv(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Json::Object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK5vcpkg13Configuration9serializeEv(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Json::Object") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"struct.vcpkg::StringView", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4878,7 +4878,7 @@ define internal void @_ZNK12_GLOBAL__N_126RegistryConfigDeserializer9type_nameEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_126RegistryConfigDeserializer10visit_nullERN5vcpkg4Json6ReaderE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.35") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #6 align 2 {
+define internal void @_ZNK12_GLOBAL__N_126RegistryConfigDeserializer10visit_nullERN5vcpkg4Json6ReaderE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.35") align 8 initializes((0, 1)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #6 align 2 {
   %4 = alloca %"struct.vcpkg::RegistryConfig", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %4, i8 0, i64 344, i1 false)
   store i8 1, ptr %0, align 8

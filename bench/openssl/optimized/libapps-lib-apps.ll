@@ -246,7 +246,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.219 = private unnamed_addr constant [18 x i8] c"(doing something)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @chopup_args(ptr nocapture noundef %arg, ptr noundef %buf) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @chopup_args(ptr nocapture noundef initializes((4, 8)) %arg, ptr noundef %buf) local_unnamed_addr #0 {
 entry:
   %argc = getelementptr inbounds i8, ptr %arg, i64 4
   store i32 0, ptr %argc, align 4

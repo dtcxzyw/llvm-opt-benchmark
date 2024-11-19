@@ -596,7 +596,7 @@ define internal fastcc void @virtio_device_ready(ptr noundef %0) unnamed_addr #5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @virtio_gpu_get_capsets(ptr noundef nonnull %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @virtio_gpu_get_capsets(ptr noundef nonnull initializes((62488, 62496)) %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = sext i32 %1 to i64

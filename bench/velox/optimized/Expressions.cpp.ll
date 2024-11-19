@@ -1032,7 +1032,7 @@ $_ZTIPFSt10shared_ptrIKN8facebook5velox4core10ITypedExprEERKN5folly7dynamicEPvE 
 @_ZTIPFSt10shared_ptrIKN8facebook5velox4core10ITypedExprEERKN5folly7dynamicEPvE = linkonce_odr constant { ptr, ptr, i32, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv119__pointer_type_infoE, i64 2), ptr @_ZTSPFSt10shared_ptrIKN8facebook5velox4core10ITypedExprEERKN5folly7dynamicEPvE, i32 0, ptr @_ZTIFSt10shared_ptrIKN8facebook5velox4core10ITypedExprEERKN5folly7dynamicEPvE }, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox4core10ITypedExpr13serializeBaseESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"struct.folly::dynamic") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 %name.coerce0, ptr %name.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox4core10ITypedExpr13serializeBaseESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"struct.folly::dynamic") align 8 initializes((0, 4), (8, 40)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 %name.coerce0, ptr %name.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.0", align 1
   %ref.tmp = alloca %"struct.folly::dynamic", align 8
@@ -4378,7 +4378,7 @@ ehcleanup10:                                      ; preds = %lpad8.body, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox4core14InputTypedExpr9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox4core14InputTypedExpr9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 initializes((0, 4), (8, 40)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNK8facebook5velox4core10ITypedExpr13serializeBaseESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"struct.folly::dynamic") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 14, ptr nonnull @.str.9)
   ret void
@@ -4465,7 +4465,7 @@ _ZNSt12__shared_ptrIKN8facebook5velox4TypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox4core17ConstantTypedExpr9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox4core17ConstantTypedExpr9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 initializes((0, 4), (8, 40)) %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %out = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %serializedValue = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4731,7 +4731,7 @@ _ZNSt12__shared_ptrIN8facebook5velox10BaseVectorELN9__gnu_cxx12_Lock_policyE2EED
 declare void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox4core13CallTypedExpr9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox4core13CallTypedExpr9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 initializes((0, 4), (8, 40)) %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.folly::dynamic", align 8
   %agg.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4881,7 +4881,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIKN8facebook5velox4core10ITypedExprEESaIS6_EED
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox4core20FieldAccessTypedExpr9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(81) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox4core20FieldAccessTypedExpr9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 initializes((0, 4), (8, 40)) %agg.result, ptr noundef nonnull align 8 dereferenceable(81) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.folly::dynamic", align 8
   %agg.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4926,7 +4926,7 @@ ehcleanup10:                                      ; preds = %lpad6, %lpad
 declare void @llvm.trap() #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox4core20DereferenceTypedExpr9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox4core20DereferenceTypedExpr9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 initializes((0, 4), (8, 40)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"struct.folly::dynamic", align 8
   tail call void @_ZNK8facebook5velox4core10ITypedExpr13serializeBaseESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"struct.folly::dynamic") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 20, ptr nonnull @.str.7)
@@ -4953,14 +4953,14 @@ lpad3:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox4core15ConcatTypedExpr9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox4core15ConcatTypedExpr9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 initializes((0, 4), (8, 40)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNK8facebook5velox4core10ITypedExpr13serializeBaseESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"struct.folly::dynamic") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 15, ptr nonnull @.str.5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox4core15LambdaTypedExpr9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox4core15LambdaTypedExpr9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 initializes((0, 4), (8, 40)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.folly::dynamic", align 8
   %ref.tmp8 = alloca %"struct.folly::dynamic", align 8
@@ -5180,7 +5180,7 @@ _ZNSt12__shared_ptrIKN8facebook5velox4core10ITypedExprELN9__gnu_cxx12_Lock_polic
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox4core13CastTypedExpr9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox4core13CastTypedExpr9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 initializes((0, 4), (8, 40)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"struct.folly::dynamic", align 8
   tail call void @_ZNK8facebook5velox4core10ITypedExpr13serializeBaseESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"struct.folly::dynamic") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 13, ptr nonnull @.str.4)

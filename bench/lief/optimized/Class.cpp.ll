@@ -576,7 +576,7 @@ define noundef zeroext i1 @_ZNK4LIEF3DEX5Class3hasENS0_12ACCESS_FLAGSE(ptr nocap
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4LIEF3DEX5Class12access_flagsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.8") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4LIEF3DEX5Class12access_flagsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.8") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -724,7 +724,7 @@ define noundef ptr @_ZN4LIEF3DEX5Class6parentEv(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK4LIEF3DEX5Class7methodsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(140) %1) local_unnamed_addr #5 align 2 {
+define void @_ZNK4LIEF3DEX5Class7methodsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(140) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -736,7 +736,7 @@ define void @_ZNK4LIEF3DEX5Class7methodsEv(ptr dead_on_unwind noalias nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF3DEX5Class7methodsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.14") align 8 %0, ptr noundef nonnull align 8 dereferenceable(140) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN4LIEF3DEX5Class7methodsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.14") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(140) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -748,7 +748,7 @@ define void @_ZN4LIEF3DEX5Class7methodsEv(ptr dead_on_unwind noalias nocapture w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK4LIEF3DEX5Class6fieldsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(140) %1) local_unnamed_addr #5 align 2 {
+define void @_ZNK4LIEF3DEX5Class6fieldsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.16") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(140) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 80
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -760,7 +760,7 @@ define void @_ZNK4LIEF3DEX5Class6fieldsEv(ptr dead_on_unwind noalias nocapture w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF3DEX5Class6fieldsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.18") align 8 %0, ptr noundef nonnull align 8 dereferenceable(140) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN4LIEF3DEX5Class6fieldsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.18") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(140) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 80
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1748,7 +1748,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3decRS
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF3DEX5ClassD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF3DEX5ClassD2Ev(ptr noundef nonnull align 8 dereferenceable(140) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF3DEX5ClassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18

@@ -2416,7 +2416,7 @@ _ZN8QuantLib10InstrumentD2Ev.exit:                ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21EquityTotalReturnSwapC1EN5boost10shared_ptrINS_11EquityIndexEEENS2_INS_17InterestRateIndexEEENS_4Swap4TypeEdNS_8ScheduleENS_10DayCounterEddNS_8CalendarENS_21BusinessDayConventionEj(ptr noundef nonnull align 8 dereferenceable(496) %this, ptr nocapture noundef %equityIndex, ptr nocapture noundef %interestRateIndex, i32 noundef %type, double noundef %nominal, ptr nocapture noundef %schedule, ptr nocapture noundef %dayCounter, double noundef %margin, double noundef %gearing, ptr nocapture noundef %paymentCalendar, i32 noundef %paymentConvention, i32 noundef %paymentDelay) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21EquityTotalReturnSwapC1EN5boost10shared_ptrINS_11EquityIndexEEENS2_INS_17InterestRateIndexEEENS_4Swap4TypeEdNS_8ScheduleENS_10DayCounterEddNS_8CalendarENS_21BusinessDayConventionEj(ptr noundef nonnull align 8 dereferenceable(496) initializes((496, 504), (512, 516), (520, 528)) %this, ptr nocapture noundef %equityIndex, ptr nocapture noundef %interestRateIndex, i32 noundef %type, double noundef %nominal, ptr nocapture noundef %schedule, ptr nocapture noundef %dayCounter, double noundef %margin, double noundef %gearing, ptr nocapture noundef %paymentCalendar, i32 noundef %paymentConvention, i32 noundef %paymentDelay) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4837,7 +4837,7 @@ _ZN5boost10shared_ptrIN8QuantLib11EquityIndexEED2Ev.exit: ; preds = %_ZN5boost10
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21EquityTotalReturnSwapC1ENS_4Swap4TypeEdNS_8ScheduleEN5boost10shared_ptrINS_11EquityIndexEEERKNS5_INS_9IborIndexEEENS_10DayCounterEddNS_8CalendarENS_21BusinessDayConventionEj(ptr noundef nonnull align 8 dereferenceable(496) %this, i32 noundef %type, double noundef %nominal, ptr nocapture noundef %schedule, ptr nocapture noundef %equityIndex, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %interestRateIndex, ptr nocapture noundef %dayCounter, double noundef %margin, double noundef %gearing, ptr nocapture noundef %paymentCalendar, i32 noundef %paymentConvention, i32 noundef %paymentDelay) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21EquityTotalReturnSwapC1ENS_4Swap4TypeEdNS_8ScheduleEN5boost10shared_ptrINS_11EquityIndexEEERKNS5_INS_9IborIndexEEENS_10DayCounterEddNS_8CalendarENS_21BusinessDayConventionEj(ptr noundef nonnull align 8 dereferenceable(496) initializes((496, 504), (512, 516), (520, 528)) %this, i32 noundef %type, double noundef %nominal, ptr nocapture noundef %schedule, ptr nocapture noundef %equityIndex, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %interestRateIndex, ptr nocapture noundef %dayCounter, double noundef %margin, double noundef %gearing, ptr nocapture noundef %paymentCalendar, i32 noundef %paymentConvention, i32 noundef %paymentDelay) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.59", align 8
   %agg.tmp2 = alloca %"class.boost::shared_ptr.60", align 8
@@ -6949,7 +6949,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21EquityTotalReturnSwapC1ENS_4Swap4TypeEdNS_8ScheduleEN5boost10shared_ptrINS_11EquityIndexEEERKNS5_INS_14OvernightIndexEEENS_10DayCounterEddNS_8CalendarENS_21BusinessDayConventionEj(ptr noundef nonnull align 8 dereferenceable(496) %this, i32 noundef %type, double noundef %nominal, ptr nocapture noundef %schedule, ptr nocapture noundef %equityIndex, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %interestRateIndex, ptr nocapture noundef %dayCounter, double noundef %margin, double noundef %gearing, ptr nocapture noundef %paymentCalendar, i32 noundef %paymentConvention, i32 noundef %paymentDelay) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21EquityTotalReturnSwapC1ENS_4Swap4TypeEdNS_8ScheduleEN5boost10shared_ptrINS_11EquityIndexEEERKNS5_INS_14OvernightIndexEEENS_10DayCounterEddNS_8CalendarENS_21BusinessDayConventionEj(ptr noundef nonnull align 8 dereferenceable(496) initializes((496, 504), (512, 516), (520, 528)) %this, i32 noundef %type, double noundef %nominal, ptr nocapture noundef %schedule, ptr nocapture noundef %equityIndex, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %interestRateIndex, ptr nocapture noundef %dayCounter, double noundef %margin, double noundef %gearing, ptr nocapture noundef %paymentCalendar, i32 noundef %paymentConvention, i32 noundef %paymentDelay) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.59", align 8
   %agg.tmp2 = alloca %"class.boost::shared_ptr.60", align 8

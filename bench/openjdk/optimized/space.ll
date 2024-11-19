@@ -47,13 +47,13 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN15ContiguousSpaceC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN15ContiguousSpaceC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15ContiguousSpaceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN15ContiguousSpaceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15ContiguousSpace10initializeE9MemRegionbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ContiguousSpace10initializeE9MemRegionbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 16)) %0, ptr %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds ptr, ptr %1, i64 %2
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -70,7 +70,7 @@ define hidden void @_ZN15ContiguousSpace10initializeE9MemRegionbb(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN15ContiguousSpace5clearEb(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15ContiguousSpace5clearEb(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((16, 24)) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %3, ptr %4, align 8

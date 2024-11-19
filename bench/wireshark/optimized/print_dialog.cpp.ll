@@ -1751,7 +1751,7 @@ declare void @_ZN8QPrinterD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) 
 declare void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN11PrintDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(525) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11PrintDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(525) initializes((0, 8), (16, 24)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV11PrintDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV11PrintDialog, i64 488), ptr %2, align 8

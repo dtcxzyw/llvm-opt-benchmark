@@ -106,7 +106,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3sat4probD2Ev(ptr noundef nonnull align 8 dereferenceable(816) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3sat4probD2Ev(ptr noundef nonnull align 8 dereferenceable(816) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3sat4probE, i64 16), ptr %this, align 8
   %m_clause_db = getelementptr inbounds i8, ptr %this, i64 640
@@ -490,7 +490,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 declare void @_ZN3sat16clause_allocator10del_clauseEPNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(568), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3sat4probD0Ev(ptr noundef nonnull align 8 dereferenceable(816) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN3sat4probD0Ev(ptr noundef nonnull align 8 dereferenceable(816) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN3sat4probD2Ev(ptr noundef nonnull align 8 dereferenceable(816) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -1364,7 +1364,7 @@ for.end50:                                        ; preds = %sw.epilog45, %for.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat4prob16save_best_valuesEv(ptr noundef nonnull align 8 dereferenceable(816) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN3sat4prob16save_best_valuesEv(ptr noundef nonnull align 8 dereferenceable(816) initializes((672, 676)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_unsat = getelementptr inbounds i8, ptr %this, i64 720
   %0 = load i32, ptr %m_unsat, align 8
@@ -2606,7 +2606,7 @@ _ZN6vectorIjLb0EjE9push_backEOj.exit38:           ; preds = %lor.lhs.false.i25, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat4prob12init_clausesEv(ptr noundef nonnull align 8 dereferenceable(816) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN3sat4prob12init_clausesEv(ptr noundef nonnull align 8 dereferenceable(816) initializes((720, 724)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_breaks = getelementptr inbounds i8, ptr %this, i64 752
   %0 = load ptr, ptr %m_breaks, align 8

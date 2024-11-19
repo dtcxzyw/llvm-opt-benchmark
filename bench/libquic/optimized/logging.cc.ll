@@ -412,7 +412,7 @@ ehcleanup:                                        ; preds = %lpad11, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7logging15LoggingSettingsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZN7logging15LoggingSettingsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 4), (8, 24)) %this) unnamed_addr #5 align 2 {
 entry:
   store i32 2, ptr %this, align 8
   %log_file = getelementptr inbounds i8, ptr %this, i64 8
@@ -931,7 +931,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7logging10LogMessageC2EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %this, ptr noundef %file, i32 noundef %line, i32 noundef %severity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7logging10LogMessageC2EPKcii(ptr noundef nonnull align 8 dereferenceable(404) initializes((0, 4)) %this, ptr noundef %file, i32 noundef %line, i32 noundef %severity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %severity, ptr %this, align 8
   %stream_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1093,7 +1093,7 @@ if.end75:                                         ; preds = %if.else, %_ZN7loggi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7logging10LogMessageC2EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %this, ptr noundef %file, i32 noundef %line, ptr noundef %condition) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7logging10LogMessageC2EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) initializes((0, 4)) %this, ptr noundef %file, i32 noundef %line, ptr noundef %condition) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 3, ptr %this, align 8
   %stream_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1128,7 +1128,7 @@ lpad:                                             ; preds = %invoke.cont4, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7logging10LogMessageC2EPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404) %this, ptr noundef %file, i32 noundef %line, ptr noundef %result) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7logging10LogMessageC2EPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404) initializes((0, 4)) %this, ptr noundef %file, i32 noundef %line, ptr noundef %result) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 3, ptr %this, align 8
   %stream_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1163,7 +1163,7 @@ lpad:                                             ; preds = %invoke.cont3, %invo
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7logging10LogMessageC2EPKciiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404) %this, ptr noundef %file, i32 noundef %line, i32 noundef %severity, ptr noundef %result) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7logging10LogMessageC2EPKciiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404) initializes((0, 4)) %this, ptr noundef %file, i32 noundef %line, i32 noundef %severity, ptr noundef %result) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %severity, ptr %this, align 8
   %stream_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1483,7 +1483,7 @@ entry:
 declare void @_ZN4base13safe_strerrorB5cxx11Ei(ptr sret(%"class.std::__cxx11::basic_string") align 8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7logging15ErrnoLogMessageC2EPKciii(ptr noundef nonnull align 8 dereferenceable(416) %this, ptr noundef %file, i32 noundef %line, i32 noundef %severity, i32 noundef %err) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7logging15ErrnoLogMessageC2EPKciii(ptr noundef nonnull align 8 dereferenceable(416) initializes((0, 4), (8, 12)) %this, ptr noundef %file, i32 noundef %line, i32 noundef %severity, i32 noundef %err) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %err, ptr %this, align 8
   %log_message_ = getelementptr inbounds i8, ptr %this, i64 8

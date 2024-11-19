@@ -1252,7 +1252,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #12
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17HestonSLVFDMModelC2ENS_6HandleINS_21LocalVolTermStructureEEENS1_INS_11HestonModelEEERKNS_4DateENS_30HestonSLVFokkerPlanckFdmParamsEbSt6vectorIS6_SaIS6_EEd(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %localVol, ptr nocapture noundef %hestonModel, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %endDate, ptr nocapture noundef readonly byval(%"struct.QuantLib::HestonSLVFokkerPlanckFdmParams") align 8 %params, i1 noundef zeroext %logging, ptr nocapture noundef %mandatoryDates, double noundef %mixingFactor) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17HestonSLVFDMModelC2ENS_6HandleINS_21LocalVolTermStructureEEENS1_INS_11HestonModelEEERKNS_4DateENS_30HestonSLVFokkerPlanckFdmParamsEbSt6vectorIS6_SaIS6_EEd(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 12), (16, 273)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %localVol, ptr nocapture noundef %hestonModel, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %endDate, ptr nocapture noundef readonly byval(%"struct.QuantLib::HestonSLVFokkerPlanckFdmParams") align 8 %params, i1 noundef zeroext %logging, ptr nocapture noundef %mandatoryDates, double noundef %mixingFactor) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp19 = alloca %"class.boost::shared_ptr", align 8
@@ -1970,7 +1970,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_21LocalVolTermStructureEE4LinkEED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17HestonSLVFDMModelC1ENS_6HandleINS_21LocalVolTermStructureEEENS1_INS_11HestonModelEEERKNS_4DateENS_30HestonSLVFokkerPlanckFdmParamsEbSt6vectorIS6_SaIS6_EEd(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr nocapture noundef %localVol, ptr nocapture noundef %hestonModel, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %endDate, ptr nocapture noundef readonly byval(%"struct.QuantLib::HestonSLVFokkerPlanckFdmParams") align 8 %params, i1 noundef zeroext %logging, ptr nocapture noundef %mandatoryDates, double noundef %mixingFactor) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17HestonSLVFDMModelC1ENS_6HandleINS_21LocalVolTermStructureEEENS1_INS_11HestonModelEEERKNS_4DateENS_30HestonSLVFokkerPlanckFdmParamsEbSt6vectorIS6_SaIS6_EEd(ptr noundef nonnull align 8 dereferenceable(304) initializes((320, 324), (328, 336)) %this, ptr nocapture noundef %localVol, ptr nocapture noundef %hestonModel, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %endDate, ptr nocapture noundef readonly byval(%"struct.QuantLib::HestonSLVFokkerPlanckFdmParams") align 8 %params, i1 noundef zeroext %logging, ptr nocapture noundef %mandatoryDates, double noundef %mixingFactor) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp14 = alloca %"class.boost::shared_ptr", align 8
@@ -2501,7 +2501,7 @@ _ZNSt6vectorIN8QuantLib4DateESaIS1_EED2Ev.exit:   ; preds = %ehcleanup24, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib17HestonSLVFDMModel13hestonProcessEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.39") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib17HestonSLVFDMModel13hestonProcessEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.39") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hestonModel_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_11HestonModelEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %hestonModel_)
@@ -2726,7 +2726,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib17HestonSLVFDMModel8localVolEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.35") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib17HestonSLVFDMModel8localVolEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.35") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %localVol_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_21LocalVolTermStructureEE11currentLinkEv(ptr noundef nonnull align 8 dereferenceable(16) %localVol_)
@@ -2938,7 +2938,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib17HestonSLVFDMModel16leverageFunctionEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.35") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib17HestonSLVFDMModel16leverageFunctionEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.35") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !33
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
@@ -19129,7 +19129,7 @@ declare void @_ZN8QuantLib19ImplicitEulerSchemeC1EN5boost10shared_ptrINS_20FdmLi
 declare void @_ZN8QuantLib19ExplicitEulerSchemeC1EN5boost10shared_ptrINS_20FdmLinearOpCompositeEEERKSt6vectorINS2_INS_17BoundaryConditionINS_11FdmLinearOpEEEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_17HundsdorferSchemeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_17HundsdorferSchemeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_17HundsdorferSchemeEEE, i64 16), ptr %this, align 8, !tbaa !33
   %scheme_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19147,7 +19147,7 @@ _ZNSt10unique_ptrIN8QuantLib17HundsdorferSchemeESt14default_deleteIS1_EED2Ev.exi
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_17HundsdorferSchemeEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_17HundsdorferSchemeEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_17HundsdorferSchemeEEE, i64 16), ptr %this, align 8, !tbaa !33
   %scheme_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19355,7 +19355,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_13DouglasSchemeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_13DouglasSchemeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_13DouglasSchemeEEE, i64 16), ptr %this, align 8, !tbaa !33
   %scheme_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19373,7 +19373,7 @@ _ZNSt10unique_ptrIN8QuantLib13DouglasSchemeESt14default_deleteIS1_EED2Ev.exit: ;
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_13DouglasSchemeEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_13DouglasSchemeEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_13DouglasSchemeEEE, i64 16), ptr %this, align 8, !tbaa !33
   %scheme_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19581,7 +19581,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_16CraigSneydSchemeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_16CraigSneydSchemeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_16CraigSneydSchemeEEE, i64 16), ptr %this, align 8, !tbaa !33
   %scheme_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19599,7 +19599,7 @@ _ZNSt10unique_ptrIN8QuantLib16CraigSneydSchemeESt14default_deleteIS1_EED2Ev.exit
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_16CraigSneydSchemeEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_16CraigSneydSchemeEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_16CraigSneydSchemeEEE, i64 16), ptr %this, align 8, !tbaa !33
   %scheme_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19807,7 +19807,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_24ModifiedCraigSneydSchemeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_24ModifiedCraigSneydSchemeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_24ModifiedCraigSneydSchemeEEE, i64 16), ptr %this, align 8, !tbaa !33
   %scheme_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19825,7 +19825,7 @@ _ZNSt10unique_ptrIN8QuantLib24ModifiedCraigSneydSchemeESt14default_deleteIS1_EED
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_24ModifiedCraigSneydSchemeEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_24ModifiedCraigSneydSchemeEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_24ModifiedCraigSneydSchemeEEE, i64 16), ptr %this, align 8, !tbaa !33
   %scheme_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -20033,7 +20033,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_19ImplicitEulerSchemeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_19ImplicitEulerSchemeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_19ImplicitEulerSchemeEEE, i64 16), ptr %this, align 8, !tbaa !33
   %scheme_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -20052,7 +20052,7 @@ _ZNSt10unique_ptrIN8QuantLib19ImplicitEulerSchemeESt14default_deleteIS1_EED2Ev.e
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_19ImplicitEulerSchemeEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_19ImplicitEulerSchemeEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_19ImplicitEulerSchemeEEE, i64 16), ptr %this, align 8, !tbaa !33
   %scheme_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -20292,7 +20292,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_19ExplicitEulerSchemeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_19ExplicitEulerSchemeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_19ExplicitEulerSchemeEEE, i64 16), ptr %this, align 8, !tbaa !33
   %scheme_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -20310,7 +20310,7 @@ _ZNSt10unique_ptrIN8QuantLib19ExplicitEulerSchemeESt14default_deleteIS1_EED2Ev.e
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_19ExplicitEulerSchemeEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_19ExplicitEulerSchemeEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_116FdmSchemeWrapperINS_19ExplicitEulerSchemeEEE, i64 16), ptr %this, align 8, !tbaa !33
   %scheme_.i = getelementptr inbounds nuw i8, ptr %this, i64 8

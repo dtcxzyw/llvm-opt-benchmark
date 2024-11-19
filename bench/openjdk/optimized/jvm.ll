@@ -23995,7 +23995,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN16JvmtiThreadSta
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @JVM_GetMethodIxExceptionTableEntry(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define void @JVM_GetMethodIxExceptionTableEntry(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 16)) %4) local_unnamed_addr #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = add nsw i64 %6, -960
   %8 = inttoptr i64 %7 to ptr

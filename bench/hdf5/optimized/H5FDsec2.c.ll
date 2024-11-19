@@ -495,7 +495,7 @@ define internal i64 @H5FD__sec2_get_eoa(ptr nocapture noundef readonly %0, i32 %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5FD__sec2_set_eoa(ptr nocapture noundef writeonly %0, i32 %1, i64 noundef %2) #7 {
+define internal noundef i32 @H5FD__sec2_set_eoa(ptr nocapture noundef writeonly initializes((88, 96)) %0, i32 %1, i64 noundef %2) #7 {
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   store i64 %2, ptr %4, align 8
   ret i32 0

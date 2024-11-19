@@ -571,7 +571,7 @@ declare ptr @ssl_handshake_md(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ssl3_digest_master_key_set_params(ptr noundef %session, ptr nocapture noundef writeonly %params) local_unnamed_addr #0 {
+define void @ssl3_digest_master_key_set_params(ptr noundef %session, ptr nocapture noundef writeonly initializes((0, 80)) %params) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.ossl_param_st, align 8
   %tmp4 = alloca %struct.ossl_param_st, align 8

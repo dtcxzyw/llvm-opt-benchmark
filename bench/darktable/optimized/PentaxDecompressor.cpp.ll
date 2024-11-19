@@ -158,7 +158,7 @@ $_ZN8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE12MaxCodeValueE = c
 @_ZN8rawspeed18PentaxDecompressorC1ENS_8RawImageENS_8OptionalINS_10ByteStreamEEE = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN8rawspeed18PentaxDecompressorC2ENS_8RawImageENS_8OptionalINS_10ByteStreamEEE
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8rawspeed18PentaxDecompressorC2ENS_8RawImageENS_8OptionalINS_10ByteStreamEEE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef %1, ptr nocapture noundef readonly byval(%"class.rawspeed::Optional") align 8 %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8rawspeed18PentaxDecompressorC2ENS_8RawImageENS_8OptionalINS_10ByteStreamEEE(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 16)) %0, ptr nocapture noundef %1, ptr nocapture noundef readonly byval(%"class.rawspeed::Optional") align 8 %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8, !tbaa !6
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -666,7 +666,7 @@ define linkonce_odr hidden void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8rawspeed18PentaxDecompressor29SetupPrefixCodeDecoder_LegacyEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.rawspeed::HuffmanCode") align 8 %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8rawspeed18PentaxDecompressor29SetupPrefixCodeDecoder_LegacyEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.rawspeed::HuffmanCode") align 8 initializes((0, 48)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %2 = invoke noundef i32 @_ZN8rawspeed11HuffmanCodeINS_15BaselineCodeTagEE18setNCodesPerLengthENS_6BufferE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nonnull @_ZN8rawspeed18PentaxDecompressor11pentax_treeE, i32 16)
           to label %3 unwind label %5
@@ -1274,7 +1274,7 @@ define linkonce_odr hidden void @_ZN8rawspeed11HuffmanCodeINS_15BaselineCodeTagE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8rawspeed18PentaxDecompressor29SetupPrefixCodeDecoder_ModernENS_10ByteStreamE(ptr dead_on_unwind noalias writable sret(%"class.rawspeed::HuffmanCode") align 8 %0, ptr nocapture noundef byval(%"class.rawspeed::ByteStream") align 8 %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8rawspeed18PentaxDecompressor29SetupPrefixCodeDecoder_ModernENS_10ByteStreamE(ptr dead_on_unwind noalias writable sret(%"class.rawspeed::HuffmanCode") align 8 initializes((0, 48)) %0, ptr nocapture noundef byval(%"class.rawspeed::ByteStream") align 8 %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::array.73", align 4
   %4 = alloca %"struct.std::array.73", align 4
   %5 = alloca %"struct.std::array.73", align 4

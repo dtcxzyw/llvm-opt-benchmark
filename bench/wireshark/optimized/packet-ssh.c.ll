@@ -2822,7 +2822,7 @@ declare nonnull ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ssh_dissect_kex_dh(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6) #0 {
+define internal noundef i32 @ssh_dissect_kex_dh(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef writeonly initializes((0, 4)) %6) #0 {
   store i32 0, ptr %6, align 4
   %8 = load i32, ptr @hf_ssh2_kex_dh_msg_code, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %8, ptr noundef %1, i32 noundef %3, i32 noundef 1, i32 noundef 0) #21
@@ -7845,7 +7845,7 @@ declare ptr @g_compute_checksum_for_string(i32 noundef, ptr noundef, i64 noundef
 declare i64 @wmem_strbuf_get_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ssh_dissect_kex_dh_gex(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6) #0 {
+define internal noundef i32 @ssh_dissect_kex_dh_gex(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef writeonly initializes((0, 4)) %6) #0 {
   %8 = alloca [4 x i8], align 1
   %9 = alloca [4 x i8], align 1
   %10 = alloca [4 x i8], align 1

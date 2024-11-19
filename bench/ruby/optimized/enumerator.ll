@@ -7204,7 +7204,7 @@ define internal i64 @lazy_flat_map_i(i64 %0, i64 noundef %1, i32 noundef %2, ptr
 declare i64 @rb_check_array_type(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @lazy_yielder_yield(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @lazy_yielder_yield(ptr noundef initializes((24, 32)) %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr

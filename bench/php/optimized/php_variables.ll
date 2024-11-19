@@ -1384,7 +1384,7 @@ declare zeroext i1 @_php_stream_eof(ptr noundef) local_unnamed_addr #5
 declare i64 @_php_stream_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @add_post_vars(ptr noundef %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @add_post_vars(ptr noundef %0, ptr nocapture noundef nonnull initializes((16, 32)) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8

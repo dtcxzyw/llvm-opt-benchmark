@@ -248,7 +248,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @_RNvXs0_NtCslmLCWD9els8_8arr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_RNvXs0_NtCslmLCWD9els8_8arrayvec8arrayvecINtB5_8ArrayVechKj400_ENtNtB7_13arrayvec_impl12ArrayVecImpl7set_lenCs8mTrBI1stz4_15turborepo_vt100.llvm.10109814100354086291(ptr noalias nocapture noundef writeonly align 4 dereferenceable(1028) %0, i64 noundef %1) unnamed_addr #5 {
+define hidden void @_RNvXs0_NtCslmLCWD9els8_8arrayvec8arrayvecINtB5_8ArrayVechKj400_ENtNtB7_13arrayvec_impl12ArrayVecImpl7set_lenCs8mTrBI1stz4_15turborepo_vt100.llvm.10109814100354086291(ptr noalias nocapture noundef writeonly align 4 dereferenceable(1028) initializes((1024, 1028)) %0, i64 noundef %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1024
   %4 = trunc i64 %1 to i32
   store i32 %4, ptr %3, align 4
@@ -311,7 +311,7 @@ define hidden noundef i64 @_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4Ite
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_RNvXs2_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQNCNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtBT_4Grid15selection_cells0INtB7_6FnOnceTTjQNtNtBV_3row3RowEEE9call_onceBV_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3) unnamed_addr #8 {
+define void @_RNvXs2_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQNCNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtBT_4Grid15selection_cells0INtB7_6FnOnceTTjQNtNtBV_3row3RowEEE9call_onceBV_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3) unnamed_addr #8 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
@@ -414,7 +414,7 @@ define hidden noundef i64 @_RNvYNcNtINtNtCs1LoaDTb72WA_4core6result6ResultuINtNt
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RNCNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB4_4Grid15selection_cells0B6_.llvm.10109814100354086291(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3) unnamed_addr #7 {
+define hidden void @_RNCNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB4_4Grid15selection_cells0B6_.llvm.10109814100354086291(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3) unnamed_addr #7 {
   %5 = load i64, ptr %1, align 8, !noundef !5
   %6 = icmp eq i64 %2, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 8

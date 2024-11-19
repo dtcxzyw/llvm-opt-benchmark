@@ -321,7 +321,7 @@ declare dso_local i32 @register_filesystem(ptr noundef) local_unnamed_addr #4
 declare dso_local ptr @kthread_create_on_node(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 1, 0) i32 @devtmpfsd(ptr nocapture noundef writeonly %0) #6 section ".ref.text" align 16 {
+define internal range(i32 1, 0) i32 @devtmpfsd(ptr nocapture noundef writeonly initializes((0, 4)) %0) #6 section ".ref.text" align 16 {
   %2 = tail call fastcc i32 @devtmpfs_setup(ptr noundef %0) #11
   tail call void @complete(ptr noundef nonnull @setup_done) #9
   %3 = icmp eq i32 %2, 0
@@ -413,7 +413,7 @@ declare dso_local void @deactivate_locked_super(ptr noundef) local_unnamed_addr 
 declare dso_local void @lockref_get(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @devtmpfs_setup(ptr nocapture noundef writeonly %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc i32 @devtmpfs_setup(ptr nocapture noundef writeonly initializes((0, 4)) %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = tail call i32 @ksys_unshare(i64 noundef 131072) #9
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %10

@@ -5544,7 +5544,7 @@ declare void @hwloc_topology_destroy(ptr noundef) local_unnamed_addr #9
 declare i32 @lstopo_shmem_adopt(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @hwloc_utils_userdata_clear_recursive(ptr nocapture noundef %0) unnamed_addr #17 {
+define internal fastcc void @hwloc_utils_userdata_clear_recursive(ptr nocapture noundef initializes((232, 240)) %0) unnamed_addr #17 {
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 120

@@ -1061,7 +1061,7 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_ho_failed_ind(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dect_mitel_eth_mac_con_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_dect_mitel_eth_mac_con_ind(ptr noundef %0, ptr noundef initializes((348, 352)) %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 348
   store i32 1, ptr %5, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 7) %3) #3
@@ -1083,7 +1083,7 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_con_ind(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dect_mitel_eth_mac_info_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_dect_mitel_eth_mac_info_ind(ptr noundef %0, ptr noundef initializes((348, 352)) %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 348
   store i32 1, ptr %5, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 7) %3) #3

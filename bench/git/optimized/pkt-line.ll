@@ -401,7 +401,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @set_packet_header(ptr nocapture noundef writeonly %buf, i32 noundef %size) local_unnamed_addr #3 {
+define dso_local void @set_packet_header(ptr nocapture noundef writeonly initializes((0, 4)) %buf, i32 noundef %size) local_unnamed_addr #3 {
 entry:
   %shr = lshr i32 %size, 12
   %and = and i32 %shr, 15
@@ -1543,7 +1543,7 @@ declare i32 @demultiplex_sideband(ptr noundef, i32 noundef, ptr noundef, i32 nou
 declare void @write_or_die(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @packet_reader_init(ptr noundef %reader, i32 noundef %fd, ptr noundef %src_buffer, i64 noundef %src_len, i32 noundef %options) local_unnamed_addr #0 {
+define dso_local void @packet_reader_init(ptr noundef initializes((0, 104)) %reader, i32 noundef %fd, ptr noundef %src_buffer, i64 noundef %src_len, i32 noundef %options) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %reader, i8 0, i64 104, i1 false)
   store i32 %fd, ptr %reader, align 8
@@ -1681,7 +1681,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @packet_writer_init(ptr nocapture noundef %writer, i32 noundef %dest_fd) local_unnamed_addr #9 {
+define dso_local void @packet_writer_init(ptr nocapture noundef initializes((0, 4)) %writer, i32 noundef %dest_fd) local_unnamed_addr #9 {
 entry:
   store i32 %dest_fd, ptr %writer, align 4
   %use_sideband = getelementptr inbounds i8, ptr %writer, i64 4

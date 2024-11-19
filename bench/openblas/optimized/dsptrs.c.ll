@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @c_b19 = internal global double 1.000000e+00, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @dsptrs_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
+define void @dsptrs_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef initializes((0, 4)) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca double, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5

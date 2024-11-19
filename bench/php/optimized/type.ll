@@ -1461,7 +1461,7 @@ _zend_is_numeric.exit:                            ; preds = %6, %6, %15, %.crite
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zflf_is_numeric_1(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @zflf_is_numeric_1(ptr nocapture noundef writeonly initializes((8, 12)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i8, ptr %3, align 8
   switch i8 %4, label %15 [

@@ -4186,7 +4186,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_117ElementAtFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_117ElementAtFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions13SubscriptImplILb1ELb0ELb1ELb1EEE, i64 16), ptr %this, align 8
   %mapSubscript_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -4195,7 +4195,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_117ElementAtFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_117ElementAtFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions13SubscriptImplILb1ELb0ELb1ELb1EEE, i64 16), ptr %this, align 8
   %mapSubscript_.i.i = getelementptr inbounds i8, ptr %this, i64 8

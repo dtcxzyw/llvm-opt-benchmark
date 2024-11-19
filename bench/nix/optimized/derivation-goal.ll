@@ -6756,7 +6756,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3nix14DerivationGoalD2Ev(ptr noundef nonnull align 8 dereferenceable(1328) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix14DerivationGoalD2Ev(ptr noundef nonnull align 8 dereferenceable(1328) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14DerivationGoalE, i64 16), ptr %0, align 8
   invoke void @_ZN3nix14DerivationGoal12closeLogFileEv(ptr noundef nonnull align 8 dereferenceable(1328) %0)
           to label %7 unwind label %2
@@ -10026,7 +10026,7 @@ _ZN3nix9StorePathD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix14DerivationGoal20gaveUpOnSubstitutionEv(ptr noundef nonnull align 8 dereferenceable(1328) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix14DerivationGoal20gaveUpOnSubstitutionEv(ptr noundef nonnull align 8 dereferenceable(1328) initializes((880, 884)) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::_Rb_tree<nix::RealisedPath, nix::RealisedPath, std::_Identity<nix::RealisedPath>, std::less<nix::RealisedPath>>::_Alloc_node", align 8
   %3 = alloca %"struct.nix::OpaquePath", align 8
   %4 = alloca %"struct.nix::DerivedPathOpaque", align 8
@@ -25146,7 +25146,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3nix16runPostBuildHookERNS_5StoreERNS_6LoggerERKNS_9StorePathERKSt3setIS4_St4lessIS4_ESaIS4_EEEN7LogSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN3nix16runPostBuildHookERNS_5StoreERNS_6LoggerERKNS_9StorePathERKSt3setIS4_St4lessIS4_ESaIS4_EEEN7LogSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit:
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN3nix16runPostBuildHookERNS_5StoreERNS_6LoggerERKNS_9StorePathERKSt3setIS4_St4lessIS4_ESaIS4_EEE7LogSink, i64 16), ptr %0, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 16
@@ -26171,7 +26171,7 @@ _ZNSt12__shared_ptrIN3nix3PosELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds =
 declare void @_ZN3nix6FdSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(49)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix14DerivationGoal11openLogFileB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1328) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix14DerivationGoal11openLogFileB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1328) initializes((1072, 1080)) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -48837,7 +48837,7 @@ _ZN3nix11BaseSettingINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.e
 declare void @_ZN3nix14setCurActivityEm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3nix16runPostBuildHookERNS_5StoreERNS_6LoggerERKNS_9StorePathERKSt3setIS4_St4lessIS4_ESaIS4_EEEN7LogSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 align 2 {
+define internal void @_ZZN3nix16runPostBuildHookERNS_5StoreERNS_6LoggerERKNS_9StorePathERKSt3setIS4_St4lessIS4_ESaIS4_EEEN7LogSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
   tail call void @_ZZN3nix16runPostBuildHookERNS_5StoreERNS_6LoggerERKNS_9StorePathERKSt3setIS4_St4lessIS4_ESaIS4_EEEN7LogSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #32
   tail call void @_ZdlPv(ptr noundef nonnull %0) #35
   ret void

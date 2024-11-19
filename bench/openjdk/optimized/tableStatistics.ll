@@ -71,7 +71,7 @@ define hidden void @_ZN19TableRateStatistics6removeEv(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19TableRateStatistics5stampEv(ptr noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN19TableRateStatistics5stampEv(ptr noundef nonnull align 8 dereferenceable(64) initializes((40, 48), (56, 64)) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -135,7 +135,7 @@ define hidden noundef float @_ZN19TableRateStatistics15get_remove_rateEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15TableStatisticsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN15TableStatisticsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 44), (48, 96)) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %0, i8 0, i64 44, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
@@ -143,7 +143,7 @@ define hidden void @_ZN15TableStatisticsC2Ev(ptr nocapture noundef nonnull write
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15TableStatisticsC2E9NumberSeqmmm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #2 align 2 {
+define hidden void @_ZN15TableStatisticsC2E9NumberSeqmmm(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 44), (48, 96)) %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #2 align 2 {
   store i64 %2, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -219,7 +219,7 @@ declare noundef double @_ZNK6AbsSeq8varianceEv(ptr noundef nonnull align 8 deref
 declare noundef double @_ZNK6AbsSeq2sdEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15TableStatisticsC2ER19TableRateStatistics9NumberSeqmmm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #2 align 2 {
+define hidden void @_ZN15TableStatisticsC2ER19TableRateStatistics9NumberSeqmmm(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 44), (48, 96)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #2 align 2 {
   %7 = alloca %class.NumberSeq, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = getelementptr inbounds i8, ptr %2, i64 8

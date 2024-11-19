@@ -1883,7 +1883,7 @@ define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test27DNNTestNetwork_AlexNet_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test27DNNTestNetwork_AlexNet_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -2281,7 +2281,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test29DNNTestNetwork_GoogLeNet_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test29DNNTestNetwork_GoogLeNet_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -2539,7 +2539,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test29DNNTestNetwork_ResNet_50_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test29DNNTestNetwork_ResNet_50_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -2797,7 +2797,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test35DNNTestNetwork_SqueezeNet_v1_1_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test35DNNTestNetwork_SqueezeNet_v1_1_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -3055,7 +3055,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test32DNNTestNetwork_Inception_5h_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test32DNNTestNetwork_Inception_5h_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -3377,7 +3377,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test24DNNTestNetwork_ENet_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test24DNNTestNetwork_ENet_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -3696,7 +3696,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test23DNNTestNetwork_SSD_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test23DNNTestNetwork_SSD_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -3981,7 +3981,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test28DNNTestNetwork_OpenFace_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test28DNNTestNetwork_OpenFace_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -4290,7 +4290,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test39DNNTestNetwork_MobileNet_SSD_Caffe_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test39DNNTestNetwork_MobileNet_SSD_Caffe_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -4599,7 +4599,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test47DNNTestNetwork_MobileNet_SSD_v1_TensorFlow_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test47DNNTestNetwork_MobileNet_SSD_v1_TensorFlow_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -4908,7 +4908,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test47DNNTestNetwork_MobileNet_SSD_v2_TensorFlow_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test47DNNTestNetwork_MobileNet_SSD_v2_TensorFlow_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -5217,7 +5217,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test32DNNTestNetwork_DenseNet_121_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test32DNNTestNetwork_DenseNet_121_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -5526,7 +5526,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test53DNNTestNetwork_OpenPose_pose_mpi_faster_4_stages_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test53DNNTestNetwork_OpenPose_pose_mpi_faster_4_stages_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -5874,7 +5874,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test40DNNTestNetwork_opencv_face_detector_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test40DNNTestNetwork_opencv_face_detector_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -6183,7 +6183,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test47DNNTestNetwork_Inception_v2_SSD_TensorFlow_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test47DNNTestNetwork_Inception_v2_SSD_TensorFlow_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -6521,7 +6521,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test26DNNTestNetwork_YOLOv3_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test26DNNTestNetwork_YOLOv3_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -7132,7 +7132,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test26DNNTestNetwork_YOLOv4_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test26DNNTestNetwork_YOLOv4_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -7620,7 +7620,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test31DNNTestNetwork_YOLOv4_tiny_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test31DNNTestNetwork_YOLOv4_tiny_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -8007,7 +8007,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test26DNNTestNetwork_YOLOv5_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test26DNNTestNetwork_YOLOv5_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -8376,7 +8376,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test26DNNTestNetwork_YOLOv8_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test26DNNTestNetwork_YOLOv8_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -8773,7 +8773,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test25DNNTestNetwork_YOLOX_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test25DNNTestNetwork_YOLOX_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -9170,7 +9170,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test39DNNTestNetwork_EAST_text_detection_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test39DNNTestNetwork_EAST_text_detection_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -9508,7 +9508,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test42DNNTestNetwork_FastNeuralStyle_eccv16_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test42DNNTestNetwork_FastNeuralStyle_eccv16_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -9846,7 +9846,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test44DNNTestNetwork_Inception_v2_Faster_RCNN_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test44DNNTestNetwork_Inception_v2_Faster_RCNN_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -10200,7 +10200,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test32DNNTestNetwork_EfficientDet_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test32DNNTestNetwork_EfficientDet_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -10591,7 +10591,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test32DNNTestNetwork_EfficientNet_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test32DNNTestNetwork_EfficientNet_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -10999,7 +10999,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test25DNNTestNetwork_YuNet_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test25DNNTestNetwork_YuNet_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -11257,7 +11257,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test25DNNTestNetwork_SFace_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test25DNNTestNetwork_SFace_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -11515,7 +11515,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test26DNNTestNetwork_MPPalm_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test26DNNTestNetwork_MPPalm_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -11915,7 +11915,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test26DNNTestNetwork_MPHand_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test26DNNTestNetwork_MPHand_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -12309,7 +12309,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test26DNNTestNetwork_MPPose_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test26DNNTestNetwork_MPPose_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -12703,7 +12703,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test27DNNTestNetwork_PPOCRv3_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test27DNNTestNetwork_PPOCRv3_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -12986,7 +12986,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test30DNNTestNetwork_PPHumanSeg_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test30DNNTestNetwork_PPHumanSeg_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -13244,7 +13244,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test24DNNTestNetwork_CRNN_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test24DNNTestNetwork_CRNN_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -13576,7 +13576,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test28DNNTestNetwork_VitTrack_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test28DNNTestNetwork_VitTrack_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -14872,7 +14872,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test37DNNTestNetwork_EfficientDet_int8_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test37DNNTestNetwork_EfficientDet_int8_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -15277,7 +15277,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test28DNNTestNetwork_VIT_B_32_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test28DNNTestNetwork_VIT_B_32_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(281) initializes((280, 281)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)

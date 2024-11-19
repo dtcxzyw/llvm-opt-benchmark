@@ -2336,7 +2336,7 @@ declare void @_Z23log_Z3_mk_array_defaultP11_Z3_contextP7_Z3_ast(ptr noundef, pt
 declare noundef ptr @_ZN11ast_manager12mk_func_declEiijPK9parameterjPKP4exprP4sort(ptr noundef nonnull align 8 dereferenceable(976), i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @mk_app_array_core(ptr noundef %c, ptr noundef %domain, ptr noundef nonnull %v) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @mk_app_array_core(ptr noundef initializes((1560, 1564)) %c, ptr noundef %domain, ptr noundef nonnull %v) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 invoke.cont11:
   %_v = alloca ptr, align 8
   %_range = alloca ptr, align 8

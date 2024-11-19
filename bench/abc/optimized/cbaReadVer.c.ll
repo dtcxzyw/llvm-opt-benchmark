@@ -304,7 +304,7 @@ define void @Prs_NtkAddVerilogDirectives(ptr nocapture noundef readonly %0) loca
 declare i32 @Abc_NamStrFindOrAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Prs_ManReadSignalList(ptr noundef %0, ptr nocapture noundef %1, i8 noundef signext %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Prs_ManReadSignalList(ptr noundef %0, ptr nocapture noundef initializes((4, 8)) %1, i8 noundef signext %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %5, align 4
   %6 = tail call fastcc i32 @Prs_ManReadSignal(ptr noundef %0)
@@ -13881,7 +13881,7 @@ define internal fastcc i32 @Prs_ManIsKnownModule(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Prs_ManInitializeNtk(ptr nocapture noundef nonnull %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #0 {
+define internal fastcc void @Prs_ManInitializeNtk(ptr nocapture noundef nonnull initializes((56, 64)) %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(240) ptr @calloc(i64 noundef 1, i64 noundef 240) #32
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %3, ptr %4, align 8
@@ -16547,7 +16547,7 @@ Prs_ManUtilSkipName.exit:                         ; preds = %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Prs_ManReadExpression(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Prs_ManReadExpression(ptr noundef nonnull initializes((92, 96)) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = getelementptr inbounds i8, ptr %0, i64 92
   store i32 0, ptr %4, align 4
@@ -18359,7 +18359,7 @@ Prs_ManUtilSkipComments.exit.i179:                ; preds = %.lr.ph38.i.i181, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Prs_ManReadFunction(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Prs_ManReadFunction(ptr nocapture noundef nonnull initializes((208, 216)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 212
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 208

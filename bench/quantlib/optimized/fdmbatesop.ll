@@ -1469,7 +1469,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib10FdmBatesOpC2ERKN5boost10shared_ptrINS_9FdmMesherEEERKNS2_INS_12BatesProcessEEESt6vectorINS2_INS_17BoundaryConditionINS_11FdmLinearOpEEEEESaISF_EEmRKNS2_INS_15FdmQuantoHelperEEE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %batesProcess, ptr nocapture noundef %bcSet, i64 noundef %integroIntegrationOrder, ptr noundef nonnull align 8 dereferenceable(16) %quantoHelper) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib10FdmBatesOpC2ERKN5boost10shared_ptrINS_9FdmMesherEEERKNS2_INS_12BatesProcessEEESt6vectorINS2_INS_17BoundaryConditionINS_11FdmLinearOpEEEEESaISF_EEmRKNS2_INS_15FdmQuantoHelperEEE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 40)) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %batesProcess, ptr nocapture noundef %bcSet, i64 noundef %integroIntegrationOrder, ptr noundef nonnull align 8 dereferenceable(16) %quantoHelper) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %ref.tmp.i = alloca %"class.QuantLib::GaussHermitePolynomial", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr.58", align 8
@@ -3595,7 +3595,7 @@ _ZN8QuantLib5ArrayD2Ev.exit3:                     ; preds = %_ZN8QuantLib5ArrayD
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib10FdmBatesOp16IntegroIntegrandC2ERKN5boost10shared_ptrINS_19LinearInterpolationEEERKSt6vectorINS3_INS_17BoundaryConditionINS_11FdmLinearOpEEEEESaISC_EEddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %interpl, ptr noundef nonnull align 8 dereferenceable(24) %bcSet, double noundef %x, double noundef %delta, double noundef %nu) unnamed_addr #17 align 2 {
+define void @_ZN8QuantLib10FdmBatesOp16IntegroIntegrandC2ERKN5boost10shared_ptrINS_19LinearInterpolationEEERKSt6vectorINS3_INS_17BoundaryConditionINS_11FdmLinearOpEEEEESaISC_EEddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef nonnull align 8 dereferenceable(16) %interpl, ptr noundef nonnull align 8 dereferenceable(24) %bcSet, double noundef %x, double noundef %delta, double noundef %nu) unnamed_addr #17 align 2 {
 entry:
   store double %x, ptr %this, align 8, !tbaa !133
   %delta_ = getelementptr inbounds nuw i8, ptr %this, i64 8

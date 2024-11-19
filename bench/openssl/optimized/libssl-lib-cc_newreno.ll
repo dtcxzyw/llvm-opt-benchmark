@@ -146,7 +146,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @newreno_reset(ptr nocapture noundef %cc) #1 {
+define internal void @newreno_reset(ptr nocapture noundef initializes((32, 44), (56, 100), (104, 116)) %cc) #1 {
 entry:
   %k_loss_reduction_factor_num = getelementptr inbounds i8, ptr %cc, i64 32
   store i32 1, ptr %k_loss_reduction_factor_num, align 8
@@ -1050,7 +1050,7 @@ newreno_update_diag.exit:                         ; preds = %if.end13.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @newreno_on_ecn(ptr nocapture noundef %cc, ptr nocapture noundef readonly %info) #0 {
+define internal noundef i32 @newreno_on_ecn(ptr nocapture noundef initializes((80, 88), (96, 100), (104, 112)) %cc, ptr nocapture noundef readonly %info) #0 {
 entry:
   %processing_loss = getelementptr inbounds i8, ptr %cc, i64 96
   store i32 1, ptr %processing_loss, align 8

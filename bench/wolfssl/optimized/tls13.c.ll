@@ -949,7 +949,7 @@ while.end14:                                      ; preds = %while.body12, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @DecryptTls13(ptr nocapture noundef %ssl, ptr noundef %output, ptr noundef %input, i16 noundef zeroext %sz, ptr noundef %aad, i16 noundef zeroext %aadSz) local_unnamed_addr #0 {
+define i32 @DecryptTls13(ptr nocapture noundef initializes((328, 329)) %ssl, ptr noundef %output, ptr noundef %input, i16 noundef zeroext %sz, ptr noundef %aad, i16 noundef zeroext %aadSz) local_unnamed_addr #0 {
 entry:
   %tag.i = alloca [16 x i8], align 16
   %poly.i = alloca [32 x i8], align 16
@@ -1227,7 +1227,7 @@ declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #1
 declare i32 @wc_AesGcmDecrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @BuildTls13Message(ptr noundef %ssl, ptr noundef %output, i32 noundef %outSz, ptr noundef readonly %input, i32 noundef %inSz, i32 noundef %type, i32 noundef %hashOutput, i32 noundef %sizeOnly, i32 %asyncOkay) local_unnamed_addr #0 {
+define i32 @BuildTls13Message(ptr noundef initializes((1029, 1030)) %ssl, ptr noundef %output, i32 noundef %outSz, ptr noundef readonly %input, i32 noundef %inSz, i32 noundef %type, i32 noundef %hashOutput, i32 noundef %sizeOnly, i32 %asyncOkay) local_unnamed_addr #0 {
 sw.bb:
   %poly.i.i = alloca [32 x i8], align 16
   %buildMsgState = getelementptr inbounds i8, ptr %ssl, i64 1029
@@ -2524,7 +2524,7 @@ declare i32 @CompleteServerHello(ptr noundef) local_unnamed_addr #1
 declare i32 @SetCipherSpecs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @DoTls13ClientHello(ptr noundef %ssl, ptr noundef %input, ptr noundef %inOutIdx, i32 noundef %helloSz) local_unnamed_addr #0 {
+define i32 @DoTls13ClientHello(ptr noundef initializes((1028, 1029)) %ssl, ptr noundef %input, ptr noundef %inOutIdx, i32 noundef %helloSz) local_unnamed_addr #0 {
 entry:
   %foundVersion.i = alloca i32, align 4
   %asyncState = getelementptr inbounds i8, ptr %ssl, i64 1028
@@ -3153,7 +3153,7 @@ declare i32 @TLSX_GetResponseSize(ptr noundef, i8 noundef zeroext, ptr noundef) 
 declare i32 @TLSX_WriteResponse(ptr noundef, ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @CreateSigData(ptr nocapture noundef readonly %ssl, ptr noundef %sigData, ptr nocapture noundef writeonly %sigDataSz, i32 noundef %check) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @CreateSigData(ptr nocapture noundef readonly %ssl, ptr noundef initializes((0, 64)) %sigData, ptr nocapture noundef writeonly %sigDataSz, i32 noundef %check) local_unnamed_addr #0 {
 entry:
   %side1 = getelementptr inbounds i8, ptr %ssl, i64 1008
   %bf.load = load i64, ptr %side1, align 8
@@ -4371,7 +4371,7 @@ return:                                           ; preds = %if.then56, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @DoTls13CertificateVerify(ptr noundef %ssl, ptr noundef %input, ptr nocapture noundef %inOutIdx, i32 noundef %totalSz) unnamed_addr #0 {
+define internal fastcc i32 @DoTls13CertificateVerify(ptr noundef initializes((1028, 1029)) %ssl, ptr noundef %input, ptr nocapture noundef %inOutIdx, i32 noundef %totalSz) unnamed_addr #0 {
 sw.bb12:
   %sigData.i = alloca [162 x i8], align 16
   %hashType.i = alloca i32, align 4
@@ -5842,7 +5842,7 @@ return:                                           ; preds = %if.end218, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @SendTls13CertificateVerify(ptr noundef nonnull %ssl) unnamed_addr #0 {
+define internal fastcc i32 @SendTls13CertificateVerify(ptr noundef nonnull initializes((1028, 1029)) %ssl) unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.Scv13Args], align 16
   %sig1 = getelementptr inbounds i8, ptr %ssl, i64 432
@@ -7330,7 +7330,7 @@ declare i32 @wolfSSL_accept(ptr noundef) local_unnamed_addr #1
 declare i32 @TLSX_KeyShare_DeriveSecret(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @SendTls13EncryptedExtensions(ptr noundef nonnull %ssl) unnamed_addr #0 {
+define internal fastcc i32 @SendTls13EncryptedExtensions(ptr noundef nonnull initializes((996, 997)) %ssl) unnamed_addr #0 {
 entry:
   %key.i = alloca [64 x i8], align 16
   %length = alloca i16, align 2

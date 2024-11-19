@@ -7358,7 +7358,7 @@ _ZNSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Meta
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_123StreamingCreateFunctionEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_123StreamingCreateFunctionEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_123StreamingCreateFunctionEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -7382,7 +7382,7 @@ _ZN12_GLOBAL__N_123StreamingCreateFunctionD2Ev.exit: ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_123StreamingCreateFunctionEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_123StreamingCreateFunctionEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_123StreamingCreateFunctionEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -7539,7 +7539,7 @@ define internal fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ade15ConstTypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_123StreamingCreateFunctionEEEC2ERKNS_5GraphE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ade15ConstTypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_123StreamingCreateFunctionEEEC2ERKNS_5GraphE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.8", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7956,7 +7956,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_126GStreamingIntrinExecutab
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZNK12_GLOBAL__N_126GStreamingIntrinExecutable8allocateERKN2cv8GMatDescE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::RMat") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #18 align 2 {
+define internal void @_ZNK12_GLOBAL__N_126GStreamingIntrinExecutable8allocateERKN2cv8GMatDescE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::RMat") align 8 initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #18 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
@@ -12443,7 +12443,7 @@ _ZNSt8functionIFN2cv3MatERKNS0_10GFrameDescERKNS0_10MediaFrame4ViewEEEC2ERKSA_.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNSt17_Function_handlerIFN2cv8GMatDescERKNS0_10GFrameDescEEZN7GOCVBGR5Actor11extractRMatERKNS0_10MediaFrameERNS0_4RMatEE3$_0E9_M_invokeERKSt9_Any_dataS4_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::GMatDesc") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) #19 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFN2cv8GMatDescERKNS0_10GFrameDescEEZN7GOCVBGR5Actor11extractRMatERKNS0_10MediaFrameERNS0_4RMatEE3$_0E9_M_invokeERKSt9_Any_dataS4_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::GMatDesc") align 8 initializes((0, 17), (24, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) #19 align 2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   %.val = load i64, ptr %4, align 4
   store i32 0, ptr %0, align 8, !alias.scope !130
@@ -14031,7 +14031,7 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN5G
 declare void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNSt17_Function_handlerIFN2cv8GMatDescERKNS0_10GFrameDescEEZN5GOCVY5Actor11extractRMatERKNS0_10MediaFrameERNS0_4RMatEE3$_1E9_M_invokeERKSt9_Any_dataS4_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::GMatDesc") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) #19 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFN2cv8GMatDescERKNS0_10GFrameDescEEZN5GOCVY5Actor11extractRMatERKNS0_10MediaFrameERNS0_4RMatEE3$_1E9_M_invokeERKSt9_Any_dataS4_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::GMatDesc") align 8 initializes((0, 17), (24, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) #19 align 2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   %.val = load i64, ptr %4, align 4
   store i32 0, ptr %0, align 8, !alias.scope !147
@@ -14096,7 +14096,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN2cv3MatERKNS0_10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNSt17_Function_handlerIFN2cv8GMatDescERKNS0_10GFrameDescEEZN5GOCVY5Actor11extractRMatERKNS0_10MediaFrameERNS0_4RMatEE3$_3E9_M_invokeERKSt9_Any_dataS4_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::GMatDesc") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) #19 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFN2cv8GMatDescERKNS0_10GFrameDescEEZN5GOCVY5Actor11extractRMatERKNS0_10MediaFrameERNS0_4RMatEE3$_3E9_M_invokeERKSt9_Any_dataS4_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::GMatDesc") align 8 initializes((0, 17), (24, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) #19 align 2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   %.val = load i64, ptr %4, align 4
   store i32 0, ptr %0, align 8, !alias.scope !154
@@ -14227,7 +14227,7 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN6G
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNSt17_Function_handlerIFN2cv8GMatDescERKNS0_10GFrameDescEEZN6GOCVUV5Actor11extractRMatERKNS0_10MediaFrameERNS0_4RMatEE3$_1E9_M_invokeERKSt9_Any_dataS4_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::GMatDesc") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) #19 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFN2cv8GMatDescERKNS0_10GFrameDescEEZN6GOCVUV5Actor11extractRMatERKNS0_10MediaFrameERNS0_4RMatEE3$_1E9_M_invokeERKSt9_Any_dataS4_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::GMatDesc") align 8 initializes((0, 17), (24, 48)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) #19 align 2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   %.val = load i64, ptr %4, align 4
   %.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %.val to i32

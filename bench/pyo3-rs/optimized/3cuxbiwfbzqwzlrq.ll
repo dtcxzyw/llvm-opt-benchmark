@@ -447,7 +447,7 @@ define void @"_ZN107_$LT$pyo3_macros_backend..attributes..TextSignatureAttribute
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN19pyo3_macros_backend10pyfunction9signature179_$LT$impl$u20$pyo3_macros_backend..attributes..KeywordAttribute$LT$pyo3_macros_backend..attributes..kw..constructor$C$pyo3_macros_backend..pyfunction..signature..Signature$GT$$GT$14into_signature17h99d5d851ba1518a9E"(ptr nocapture writeonly sret([56 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define void @"_ZN19pyo3_macros_backend10pyfunction9signature179_$LT$impl$u20$pyo3_macros_backend..attributes..KeywordAttribute$LT$pyo3_macros_backend..attributes..kw..constructor$C$pyo3_macros_backend..pyfunction..signature..Signature$GT$$GT$14into_signature17h99d5d851ba1518a9E"(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 52)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = alloca [48 x i8], align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load i32, ptr %4, align 8
@@ -459,7 +459,7 @@ define void @"_ZN19pyo3_macros_backend10pyfunction9signature179_$LT$impl$u20$pyo
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN82_$LT$pyo3_macros_backend..attributes..NameLitStr$u20$as$u20$core..clone..Clone$GT$5clone17h09e2cd17f28f07b4E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #2 {
+define hidden void @"_ZN82_$LT$pyo3_macros_backend..attributes..NameLitStr$u20$as$u20$core..clone..Clone$GT$5clone17h09e2cd17f28f07b4E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca [24 x i8], align 8
   call void @"_ZN62_$LT$proc_macro2..imp..Ident$u20$as$u20$core..clone..Clone$GT$5clone17h2066379f348653c4E"(ptr nonnull sret([24 x i8]) align 8 %3, ptr align 8 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)

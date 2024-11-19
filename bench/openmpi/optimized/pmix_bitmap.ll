@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_bitmap_t_class = local_unnamed_addr global %struct.pmix_class_t { ptr @.str, ptr @pmix_object_t_class, ptr @pmix_bitmap_construct, ptr @pmix_bitmap_destruct, i32 0, i32 0, ptr null, ptr null, i64 136 }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pmix_bitmap_construct(ptr nocapture noundef writeonly %0) #0 {
+define internal void @pmix_bitmap_construct(ptr nocapture noundef writeonly initializes((120, 136)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 128

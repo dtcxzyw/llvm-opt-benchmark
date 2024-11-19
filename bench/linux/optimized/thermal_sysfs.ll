@@ -352,7 +352,7 @@ define dso_local void @thermal_zone_destroy_device_groups(ptr noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @thermal_cooling_device_setup_sysfs(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 align 16 {
+define dso_local void @thermal_cooling_device_setup_sysfs(ptr nocapture noundef writeonly initializes((704, 712)) %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 704
   store ptr @cooling_device_attr_groups, ptr %2, align 8
   ret void

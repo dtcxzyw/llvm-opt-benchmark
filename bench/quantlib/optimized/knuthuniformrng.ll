@@ -20,7 +20,7 @@ $_ZGVZN8QuantLib9SingletonINS_13SeedGeneratorESt17integral_constantIbLb0EEE8inst
 @_ZN8QuantLib15KnuthUniformRngC1El = unnamed_addr alias void (ptr, i64), ptr @_ZN8QuantLib15KnuthUniformRngC2El
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15KnuthUniformRngC2El(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %seed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15KnuthUniformRngC2El(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 24), (40, 64)) %this, i64 noundef %seed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i4 = tail call noalias noundef nonnull dereferenceable(8072) ptr @_Znwm(i64 noundef 8072) #8

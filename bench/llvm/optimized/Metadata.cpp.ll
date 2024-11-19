@@ -5977,7 +5977,7 @@ define dso_local void @_ZN4llvm6MDNodedlEPv(ptr noundef %0) local_unnamed_addr #
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6MDNodeC2ERNS_11LLVMContextEjNS_8Metadata11StorageTypeENS_8ArrayRefIPS3_EES7_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2, i32 noundef %3, ptr readonly %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6MDNodeC2ERNS_11LLVMContextEjNS_8Metadata11StorageTypeENS_8ArrayRefIPS3_EES7_(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2, i32 noundef %3, ptr readonly %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %6) unnamed_addr #0 align 2 {
   %8 = trunc i32 %2 to i8
   store i8 %8, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -11376,7 +11376,7 @@ _ZNK4llvm17DIGenericSubrange12getRawStrideEv.exit: ; preds = %50, %54
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6MDNode6HeaderC2EmNS_8Metadata11StorageTypeE(ptr noundef nonnull align 8 dereferenceable(12) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6MDNode6HeaderC2EmNS_8Metadata11StorageTypeE(ptr noundef nonnull align 8 dereferenceable(12) initializes((8, 12)) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   %5 = icmp ult i64 %1, 16
@@ -12285,7 +12285,7 @@ _ZNSt6vectorIPN4llvm6MDNodeESaIS2_EE9push_backEOS2_.exit: ; preds = %22, %_ZNSt6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6MDNode7resolveEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6MDNode7resolveEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((-8, -4)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -23705,7 +23705,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit14:            ; preds = %24, %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11NamedMDNodeC2ERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(34) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11NamedMDNodeC2ERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(34) %1) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(34) %1) #23
@@ -27732,7 +27732,7 @@ _ZN4llvm11SmallVectorIPNS_8MetadataELj4EED2Ev.exit: ; preds = %_ZN4llvm11Instruc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm11Instruction13getAAMetadataEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::AAMDNodes") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm11Instruction13getAAMetadataEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::AAMDNodes") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4

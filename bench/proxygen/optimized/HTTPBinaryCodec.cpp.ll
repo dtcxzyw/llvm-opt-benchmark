@@ -619,7 +619,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPBinaryCodecC2ENS_18TransportDirectionE(ptr noundef nonnull align 8 dereferenceable(353) %this, i8 noundef zeroext %direction) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPBinaryCodecC2ENS_18TransportDirectionE(ptr noundef nonnull align 8 dereferenceable(353) initializes((0, 10), (48, 49), (56, 64)) %this, i8 noundef zeroext %direction) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"struct.folly::IOBufQueue::Options", align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen15HTTPBinaryCodecE, i64 16), ptr %this, align 8
@@ -728,7 +728,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 declare void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen15HTTPBinaryCodecD2Ev(ptr noundef nonnull align 8 dereferenceable(353) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPBinaryCodecD2Ev(ptr noundef nonnull align 8 dereferenceable(353) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen15HTTPBinaryCodecE, i64 16), ptr %this, align 8
   %userAgent_ = getelementptr inbounds i8, ptr %this, i64 320
@@ -4501,7 +4501,7 @@ for.inc.i24:                                      ; preds = %"_ZZN8proxygen15HTT
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, i64 noundef %i, ptr noundef nonnull align 8 dereferenceable(40) %appender) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8proxygen12_GLOBAL__N_113encodeIntegerEmRN5folly2io13QueueAppenderE(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 1), (8, 24)) %agg.result, i64 noundef %i, ptr noundef nonnull align 8 dereferenceable(40) %appender) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %cmp.i = icmp ult i64 %i, 64

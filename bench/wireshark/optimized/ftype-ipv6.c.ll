@@ -152,7 +152,7 @@ define internal noalias ptr @ipv6_to_repr(ptr noundef %0, ptr noundef %1, i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @ipv6_set(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @ipv6_set(ptr nocapture noundef writeonly initializes((8, 28)) %0, ptr nocapture noundef readonly %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %1, i64 20, i1 false)
   ret void

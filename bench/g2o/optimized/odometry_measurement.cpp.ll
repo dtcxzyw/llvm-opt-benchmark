@@ -23,13 +23,13 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN3g2o17MotionMeasurementC1ERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEd = unnamed_addr alias void (ptr, ptr, double), ptr @_ZN3g2o17MotionMeasurementC2ERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEd
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o19VelocityMeasurementC2Ev(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define void @_ZN3g2o19VelocityMeasurementC2Ev(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o19VelocityMeasurementC2Eddd(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(24) %0, double noundef %1, double noundef %2, double noundef %3) unnamed_addr #0 align 2 {
+define void @_ZN3g2o19VelocityMeasurementC2Eddd(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(24) initializes((0, 24)) %0, double noundef %1, double noundef %2, double noundef %3) unnamed_addr #0 align 2 {
   store double %1, ptr %0, align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store double %2, ptr %5, align 8
@@ -39,13 +39,13 @@ define void @_ZN3g2o19VelocityMeasurementC2Eddd(ptr nocapture noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o17MotionMeasurementC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
+define void @_ZN3g2o17MotionMeasurementC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o17MotionMeasurementC2Edddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) unnamed_addr #0 align 2 {
+define void @_ZN3g2o17MotionMeasurementC2Edddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) unnamed_addr #0 align 2 {
   store double %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store double %2, ptr %6, align 8
@@ -57,7 +57,7 @@ define void @_ZN3g2o17MotionMeasurementC2Edddd(ptr nocapture noundef nonnull wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3g2o17MotionMeasurementC2ERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, double noundef %2) unnamed_addr #1 align 2 {
+define void @_ZN3g2o17MotionMeasurementC2ERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, double noundef %2) unnamed_addr #1 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %2, ptr %4, align 8

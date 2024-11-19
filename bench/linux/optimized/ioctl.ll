@@ -197,7 +197,7 @@ define dso_local i32 @fiemap_prep(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @fileattr_fill_xflags(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 align 16 {
+define dso_local void @fileattr_fill_xflags(ptr nocapture noundef writeonly initializes((0, 28)) %0, i32 noundef %1) #3 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(28) %0, i8 0, i64 28, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 2, ptr %3, align 4
@@ -233,7 +233,7 @@ define dso_local void @fileattr_fill_xflags(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @fileattr_fill_flags(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 align 16 {
+define dso_local void @fileattr_fill_flags(ptr nocapture noundef writeonly initializes((0, 28)) %0, i32 noundef %1) #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(28) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 24

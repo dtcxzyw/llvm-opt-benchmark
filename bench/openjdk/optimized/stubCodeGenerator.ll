@@ -167,7 +167,7 @@ define hidden void @_ZNK12StubCodeDesc5printEv(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17StubCodeGeneratorC2EP10CodeBufferb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 {
+define hidden void @_ZN17StubCodeGeneratorC2EP10CodeBufferb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 9), (16, 24)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV17StubCodeGenerator, i64 16), ptr %0, align 8
   %4 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #8
   tail call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %1) #8
@@ -289,7 +289,7 @@ declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 derefe
 declare void @_ZN12Disassembler6decodeEPhS0_P12outputStream(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12StubCodeMarkC2EP17StubCodeGeneratorPKcS3_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 align 2 {
+define hidden void @_ZN12StubCodeMarkC2EP17StubCodeGeneratorPKcS3_(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 4, i32 noundef 0) #8
   %6 = load ptr, ptr %0, align 8

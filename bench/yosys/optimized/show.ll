@@ -41521,7 +41521,7 @@ declare noundef zeroext i1 @_ZNK5Yosys5RTLIL6Design21selected_whole_moduleERKNS0
 declare noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110ShowWorker13handle_moduleEv(ptr noundef nonnull align 8 dereferenceable(340) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110ShowWorker13handle_moduleEv(ptr noundef nonnull align 8 dereferenceable(340) initializes((176, 180)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [75 x i32], align 4
   %3 = alloca %"class.std::allocator.15", align 1
   %4 = alloca [75 x i32], align 4

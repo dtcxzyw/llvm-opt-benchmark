@@ -147,7 +147,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8), float noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_halfrsERSiRNS0_4halfE(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %1) local_unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_halfrsERSiRNS0_4halfE(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %1) local_unnamed_addr #1 {
   %3 = alloca float, align 4
   %4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %5 = load float, ptr %3, align 4

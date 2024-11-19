@@ -620,7 +620,7 @@ define internal fastcc void @yenta_interrogate(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @yenta_get_socket_capabilities(ptr nocapture noundef nonnull %0) unnamed_addr #2 align 16 {
+define internal fastcc void @yenta_get_socket_capabilities(ptr nocapture noundef nonnull initializes((396, 400)) %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 396
@@ -959,7 +959,7 @@ define internal noundef i32 @yenta_sock_suspend(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @yenta_get_status(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define internal noundef i32 @yenta_get_status(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 8
@@ -2075,7 +2075,7 @@ define internal noundef i32 @ti_override(ptr nocapture noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ti_save_state(ptr nocapture noundef %0) #2 align 16 {
+define internal void @ti_save_state(ptr nocapture noundef initializes((1384, 1404)) %0) #2 align 16 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
@@ -2941,7 +2941,7 @@ define internal noundef i32 @ricoh_override(ptr nocapture noundef %0) #2 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ricoh_save_state(ptr nocapture noundef %0) #2 align 16 {
+define internal void @ricoh_save_state(ptr nocapture noundef initializes((1384, 1404)) %0) #2 align 16 {
   %2 = alloca i16, align 2
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
@@ -3113,7 +3113,7 @@ define internal noundef i32 @topic95_override(ptr nocapture noundef %0) #2 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @topic97_override(ptr nocapture noundef writeonly %0) #7 align 16 {
+define internal noundef i32 @topic97_override(ptr nocapture noundef writeonly initializes((440, 448)) %0) #7 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 440
   store ptr @topic97_zoom_video, ptr %2, align 8
   ret i32 0
@@ -3227,7 +3227,7 @@ define internal void @o2micro_restore_state(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ene_override(ptr noundef %0) #2 align 16 {
+define internal noundef i32 @ene_override(ptr noundef initializes((456, 464)) %0) #2 align 16 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 456
   store ptr @ene_tune_bridge, ptr %3, align 8
@@ -3733,7 +3733,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ti12xx_tie_interrupts(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ti12xx_untie_interrupts(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @ti12xx_untie_interrupts(ptr nocapture noundef initializes((8, 12)) %0, i32 noundef %1) unnamed_addr #2 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
   store i32 0, ptr %3, align 4, !annotation !9

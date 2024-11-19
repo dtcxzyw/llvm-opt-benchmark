@@ -22,7 +22,7 @@ $__clang_call_terminate = comdat any
 @_ZN7Imf_3_214FastHufDecoderD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN7Imf_3_214FastHufDecoderD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_214FastHufDecoderC2ERPKciiii(ptr nocapture noundef nonnull align 8 dereferenceable(21456) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %table, i32 noundef %numBytes, i32 noundef %minSymbol, i32 noundef %maxSymbol, i32 noundef %rleSymbol) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7Imf_3_214FastHufDecoderC2ERPKciiii(ptr nocapture noundef nonnull align 8 dereferenceable(21456) initializes((0, 10), (16, 24)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %table, i32 noundef %numBytes, i32 noundef %minSymbol, i32 noundef %maxSymbol, i32 noundef %rleSymbol) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %base = alloca [59 x i64], align 16
   %offset = alloca [59 x i64], align 16

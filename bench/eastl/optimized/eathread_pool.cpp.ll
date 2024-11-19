@@ -31,7 +31,7 @@ $__clang_call_terminate = comdat any
 @_ZN2EA6Thread10ThreadPoolD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN2EA6Thread10ThreadPoolD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2EA6Thread20ThreadPoolParametersC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA6Thread20ThreadPoolParametersC2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 12), (16, 36)) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %mnMaxCount = getelementptr inbounds i8, ptr %this, i64 4
@@ -52,7 +52,7 @@ entry:
 declare void @_ZN2EA6Thread16ThreadParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(41)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2EA6Thread10ThreadPool3JobC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 {
+define dso_local void @_ZN2EA6Thread10ThreadPool3JobC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((8, 32)) %this) unnamed_addr #2 align 2 {
 entry:
   %mpRunnable = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpRunnable, i8 0, i64 24, i1 false)
@@ -73,7 +73,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2EA6Thread10ThreadPoolC2EPKNS0_20ThreadPoolParametersEb(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %pThreadPoolParameters, i1 noundef zeroext %bDefaultParameters) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2EA6Thread10ThreadPoolC2EPKNS0_20ThreadPoolParametersEb(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 1), (4, 12)) %this, ptr noundef %pThreadPoolParameters, i1 noundef zeroext %bDefaultParameters) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parameters = alloca %"struct.EA::Thread::ThreadPoolParameters", align 8
   store i8 0, ptr %this, align 8
@@ -2282,7 +2282,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN2EA6Thread17ThreadPoolFactory19ConstructThreadPoolEPv(ptr noundef nonnull returned %pMemory) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull ptr @_ZN2EA6Thread17ThreadPoolFactory19ConstructThreadPoolEPv(ptr noundef nonnull returned initializes((0, 1), (4, 12)) %pMemory) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN2EA6Thread10ThreadPoolC2EPKNS0_20ThreadPoolParametersEb(ptr noundef nonnull align 8 dereferenceable(272) %pMemory, ptr noundef null, i1 noundef zeroext true)
   ret ptr %pMemory

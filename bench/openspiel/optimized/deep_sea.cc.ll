@@ -1530,7 +1530,7 @@ define noundef range(i32 -4, 1) i32 @_ZNK10open_spiel8deep_sea12DeepSeaState13Cu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel8deep_sea12DeepSeaState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel8deep_sea12DeepSeaState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.16") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -1823,7 +1823,7 @@ define noundef zeroext i1 @_ZNK10open_spiel8deep_sea12DeepSeaState10IsTerminalEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel8deep_sea12DeepSeaState7RewardsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.22") align 8 %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel8deep_sea12DeepSeaState7RewardsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.22") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -2397,7 +2397,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10open_spiel8deep_sea12DeepSeaState10UndoActionEil(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0, i32 %1, i64 %2) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel8deep_sea12DeepSeaState10UndoActionEil(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((112, 120)) %0, i32 %1, i64 %2) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load i32, ptr %5, align 8

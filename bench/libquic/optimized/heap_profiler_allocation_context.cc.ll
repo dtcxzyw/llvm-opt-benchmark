@@ -43,7 +43,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base11trace_event9BacktraceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(776) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base11trace_event9BacktraceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(776) initializes((768, 776)) %this) unnamed_addr #1 align 2 {
 entry:
   %frame_count = getelementptr inbounds i8, ptr %this, i64 768
   store i64 0, ptr %frame_count, align 8
@@ -119,7 +119,7 @@ _ZN4base11trace_eventeqERKNS0_9BacktraceES3_.exit: ; preds = %for.body.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base11trace_event17AllocationContextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(784) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base11trace_event17AllocationContextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(784) initializes((768, 784)) %this) unnamed_addr #1 align 2 {
 entry:
   %frame_count.i = getelementptr inbounds i8, ptr %this, i64 768
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %frame_count.i, i8 0, i64 16, i1 false)
@@ -127,7 +127,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4base11trace_event17AllocationContextC2ERKNS0_9BacktraceEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(784) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %backtrace, ptr noundef %type_name) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4base11trace_event17AllocationContextC2ERKNS0_9BacktraceEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(784) initializes((0, 784)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %backtrace, ptr noundef %type_name) unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef nonnull align 8 dereferenceable(776) %backtrace, i64 776, i1 false)
   %type_name3 = getelementptr inbounds i8, ptr %this, i64 776

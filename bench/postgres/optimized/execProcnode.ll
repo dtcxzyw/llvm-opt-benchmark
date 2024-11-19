@@ -391,7 +391,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @ExecSetExecProcNode(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define dso_local void @ExecSetExecProcNode(ptr nocapture noundef writeonly initializes((24, 40)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -406,7 +406,7 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @InstrAlloc(i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ExecProcNodeFirst(ptr noundef %0) #0 {
+define internal ptr @ExecProcNodeFirst(ptr noundef initializes((24, 32)) %0) #0 {
   tail call void @check_stack_depth() #6
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8

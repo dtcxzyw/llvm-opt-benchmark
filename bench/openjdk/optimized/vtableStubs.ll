@@ -671,7 +671,7 @@ declare noundef ptr @_ZN11VtableStubs18create_vtable_stubEi(i32 noundef) local_u
 declare noundef ptr @_ZN11VtableStubs18create_itable_stubEi(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11VtableStubs5enterEbiP10VtableStub(i1 noundef zeroext %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11VtableStubs5enterEbiP10VtableStub(i1 noundef zeroext %0, i32 noundef %1, ptr noundef initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
   %4 = shl i32 %1, 2
   %5 = load ptr, ptr @_ZN10VtableStub18_receiver_locationE, align 8
   %6 = ptrtoint ptr %5 to i64

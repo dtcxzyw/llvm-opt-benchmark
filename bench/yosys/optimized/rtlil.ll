@@ -10134,7 +10134,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL5ConstC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL5ConstC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 32)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   store i32 1, ptr %0, align 8
@@ -10323,7 +10323,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL5ConstC2Eii(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL5ConstC2Eii(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 32)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i32 0, ptr %0, align 8
@@ -10458,7 +10458,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit: ; preds = %44, %46
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL5ConstC2ENS0_5StateEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, i8 noundef zeroext %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL5ConstC2ENS0_5StateEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 32)) %0, i8 noundef zeroext %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i32 0, ptr %0, align 8
@@ -10589,7 +10589,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit: ; preds = %41, %43
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL5ConstC2ERKSt6vectorIbSaIbEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL5ConstC2ERKSt6vectorIbSaIbEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   store i32 0, ptr %0, align 8
@@ -11047,7 +11047,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL5Const11from_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Yosys::RTLIL::Const") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL5Const11from_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Yosys::RTLIL::Const") align 8 initializes((0, 4), (8, 32)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::reverse_iterator", align 8
   %4 = alloca %"class.std::reverse_iterator", align 8
   store i32 0, ptr %0, align 8
@@ -12865,7 +12865,7 @@ _ZN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys5RTLIL10AttrObject21get_strpool_attributeB5cxx11ERKNS0_8IdStringE(ptr dead_on_unwind noalias writable sret(%"class.Yosys::hashlib::pool.333") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys5RTLIL10AttrObject21get_strpool_attributeB5cxx11ERKNS0_8IdStringE(ptr dead_on_unwind noalias writable sret(%"class.Yosys::hashlib::pool.333") align 8 initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::vector.340", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13374,7 +13374,7 @@ declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys5RTLIL10AttrObject20get_intvec_attributeERKNS0_8IdStringE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys5RTLIL10AttrObject20get_intvec_attributeERKNS0_8IdStringE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.0") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.340", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca ptr, align 8
@@ -17492,7 +17492,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL8IdStringESaIS2_EED2Ev.exit: ; preds = %_ZSt8_D
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL6DesignC2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL6DesignC2Ev(ptr noundef nonnull align 8 dereferenceable(376) initializes((8, 56), (64, 112), (128, 176), (184, 256)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.Yosys::RTLIL::Selection", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %3, i8 0, i64 48, i1 false)
@@ -18782,7 +18782,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit16: ; preds = %_ZNK5Yosys5RT
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys5RTLIL6Design16selected_modulesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.461") align 8 %0, ptr noundef nonnull align 8 dereferenceable(376) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys5RTLIL6Design16selected_modulesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.461") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(376) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 152
   %4 = getelementptr inbounds i8, ptr %1, i64 160
@@ -20752,7 +20752,7 @@ _ZNK5Yosys5RTLIL10AttrObject18get_bool_attributeERKNS0_8IdStringE.exit11: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys5RTLIL6Design22selected_whole_modulesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.461") align 8 %0, ptr noundef nonnull align 8 dereferenceable(376) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys5RTLIL6Design22selected_whole_modulesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.461") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(376) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 152
   %4 = getelementptr inbounds i8, ptr %1, i64 160
@@ -20933,7 +20933,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys5RTLIL6Design27selected_whole_modules_warnEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.461") align 8 %0, ptr noundef nonnull align 8 dereferenceable(376) %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys5RTLIL6Design27selected_whole_modules_warnEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.461") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(376) %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 152
   %5 = getelementptr inbounds i8, ptr %1, i64 160
@@ -21175,7 +21175,7 @@ declare void @_ZN5Yosys11log_warningEPKcz(ptr noundef, ...) local_unnamed_addr #
 declare noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define void @_ZN5Yosys5RTLIL6ModuleC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(560) %0) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL6ModuleC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(560) initializes((0, 56), (64, 68), (72, 128), (136, 192), (200, 248), (256, 308), (312, 360), (368, 416), (424, 472), (480, 528), (536, 560)) %0) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys5RTLIL6ModuleE, i64 16), ptr %0, align 8
@@ -21297,7 +21297,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN5Yosy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Yosys5RTLIL6ModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(560) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL6ModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(560) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys5RTLIL6ModuleE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = getelementptr inbounds i8, ptr %0, i64 168
@@ -29709,7 +29709,7 @@ define noundef zeroext i1 @_ZNK5Yosys5RTLIL6Module18has_processes_warnEv(ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys5RTLIL6Module14selected_wiresEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.526") align 8 %0, ptr noundef nonnull align 8 dereferenceable(560) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys5RTLIL6Module14selected_wiresEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.526") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(560) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 168
   %4 = getelementptr inbounds i8, ptr %1, i64 176
@@ -29927,7 +29927,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL4WireESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNK5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys5RTLIL6Module14selected_cellsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.531") align 8 %0, ptr noundef nonnull align 8 dereferenceable(560) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys5RTLIL6Module14selected_cellsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.531") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(560) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 224
   %4 = getelementptr inbounds i8, ptr %1, i64 232
@@ -100185,7 +100185,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit48:               ; preds = %_ZSt8_DestroyIPN5Yo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define void @_ZN5Yosys5RTLIL4WireC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) %0) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL4WireC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((0, 48), (56, 60), (64, 92)) %0) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 48, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %2, align 8
@@ -100245,7 +100245,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %1, %7, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define void @_ZN5Yosys5RTLIL6MemoryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) %0) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL6MemoryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) initializes((0, 48), (56, 76)) %0) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 48, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 0, ptr %2, align 4
@@ -100269,7 +100269,7 @@ define void @_ZN5Yosys5RTLIL6MemoryC2Ev(ptr nocapture noundef nonnull writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define void @_ZN5Yosys5RTLIL7ProcessC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) %0) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL7ProcessC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((0, 48), (56, 120), (128, 224)) %0) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 48, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 60
   %3 = getelementptr inbounds i8, ptr %0, i64 128
@@ -100289,7 +100289,7 @@ define void @_ZN5Yosys5RTLIL7ProcessC2Ev(ptr nocapture noundef nonnull writeonly
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL4CellC2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL4CellC2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 48), (56, 60), (64, 128), (136, 184)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 48, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = getelementptr inbounds i8, ptr %0, i64 136
@@ -105169,7 +105169,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit7:               ; preds = %_ZN5Yosys5RTLIL8IdS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL8SigChunkC2ERKNS0_6SigBitE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL8SigChunkC2ERKNS0_6SigBitE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 32), (36, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::Const", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -105239,7 +105239,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %11, %21, %_ZNSt6vec
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys5RTLIL8SigChunk7extractEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Yosys::RTLIL::SigChunk") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys5RTLIL8SigChunk7extractEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Yosys::RTLIL::SigChunk") align 8 initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %5 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %5, null
@@ -105616,7 +105616,7 @@ _ZNK5Yosys5RTLIL8SigChunkeqERKS1_.exit:           ; preds = %.lr.ph.i.i.i.i.i.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL7SigSpecC2ESt16initializer_listIS1_E(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL7SigSpecC2ESt16initializer_listIS1_E(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 4), (8, 64)) %0, ptr %1, i64 %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
@@ -105913,7 +105913,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL8SigChunkESaIS2_EED2Ev.exit: ; preds = %_ZSt8_D
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL7SigSpecC2ERKNS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL7SigSpecC2ERKNS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(64) initializes((16, 64)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
@@ -105966,7 +105966,7 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit: ; preds = %19, %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL7SigSpecC2EONS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL7SigSpecC2EONS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(64) initializes((16, 64)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
@@ -106019,7 +106019,7 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit: ; preds = %19, %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL7SigSpecC2ERKNS0_8SigChunkE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL7SigSpecC2ERKNS0_8SigChunkE(ptr noundef nonnull align 8 dereferenceable(64) initializes((16, 64)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
@@ -106066,7 +106066,7 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit: ; preds = %13, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL7SigSpecC2EONS0_8SigChunkE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL7SigSpecC2EONS0_8SigChunkE(ptr noundef nonnull align 8 dereferenceable(64) initializes((16, 64)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
@@ -106113,7 +106113,7 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit: ; preds = %13, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL7SigSpecC2EPNS0_4WireE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL7SigSpecC2EPNS0_4WireE(ptr noundef nonnull align 8 dereferenceable(64) initializes((16, 64)) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -106162,7 +106162,7 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit: ; preds = %14, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL7SigSpecC2EPNS0_4WireEii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL7SigSpecC2EPNS0_4WireEii(ptr noundef nonnull align 8 dereferenceable(64) initializes((16, 64)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -106213,7 +106213,7 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit: ; preds = %16, %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL7SigSpecC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL7SigSpecC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((16, 64)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::Const", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -106304,7 +106304,7 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit: ; preds = %36, %39
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL7SigSpecC2Eii(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL7SigSpecC2Eii(ptr noundef nonnull align 8 dereferenceable(64) initializes((16, 64)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 %1, ptr %4, align 4
@@ -106350,7 +106350,7 @@ _ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EE12emplace_backIJRiS6_EEEvDpOT_.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL7SigSpecC2ENS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 noundef zeroext %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL7SigSpecC2ENS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(64) initializes((16, 64)) %0, i8 noundef zeroext %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   store i8 %1, ptr %4, align 1
@@ -106396,7 +106396,7 @@ _ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EE12emplace_backIJRNS1_5StateERiEEEvDp
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL7SigSpecC2ERKNS0_6SigBitEi(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL7SigSpecC2ERKNS0_6SigBitEi(ptr noundef nonnull align 8 dereferenceable(64) initializes((16, 64)) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"struct.Yosys::RTLIL::SigChunk", align 8
   store i32 %2, ptr %4, align 4
@@ -106530,7 +106530,7 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit: ; preds = %_ZN5Yosys5RTLIL8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL7SigSpecC2ERKSt6vectorINS0_8SigChunkESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL7SigSpecC2ERKSt6vectorINS0_8SigChunkESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 4), (8, 64)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -106643,7 +106643,7 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit: ; preds = %.body, %34
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL7SigSpecC2ERKSt6vectorINS0_6SigBitESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL7SigSpecC2ERKSt6vectorINS0_6SigBitESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 4), (8, 64)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
@@ -106689,7 +106689,7 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit: ; preds = %13, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL7SigSpecC2ERKNS_7hashlib4poolINS0_6SigBitENS2_8hash_opsIS4_EEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL7SigSpecC2ERKNS_7hashlib4poolINS0_6SigBitENS2_8hash_opsIS4_EEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 4), (8, 64)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
@@ -106743,7 +106743,7 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit: ; preds = %22, %25
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL7SigSpecC2ERKSt3setINS0_6SigBitESt4lessIS3_ESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL7SigSpecC2ERKSt3setINS0_6SigBitESt4lessIS3_ESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 4), (8, 64)) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
@@ -106790,7 +106790,7 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit: ; preds = %14, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL7SigSpecC2Eb(ptr noundef nonnull align 8 dereferenceable(64) %0, i1 noundef zeroext %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL7SigSpecC2Eb(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 4), (8, 64)) %0, i1 noundef zeroext %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
@@ -109844,7 +109844,7 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4WireENS0_8hash_opsIS4_EEE5countERKS4_.exit.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys5RTLIL7SigSpec7extractERKS1_PS2_(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys5RTLIL7SigSpec7extractERKS1_PS2_(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 initializes((0, 4), (8, 64)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %5
 
@@ -110153,7 +110153,7 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit62: ; preds = %_ZNSt6vectorIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys5RTLIL7SigSpec16to_sigbit_vectorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.521") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys5RTLIL7SigSpec16to_sigbit_vectorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.521") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZNK5Yosys5RTLIL7SigSpec16to_sigbit_vectorEvE3__d, i64 28), align 1
   %4 = add nsw i32 %3, 1
   store i32 %4, ptr getelementptr inbounds (i8, ptr @_ZZNK5Yosys5RTLIL7SigSpec16to_sigbit_vectorEvE3__d, i64 28), align 1
@@ -111168,7 +111168,7 @@ _ZN5Yosys5RTLIL7SigSpecixEi.exit:                 ; preds = %_ZNK5Yosys5RTLIL7Si
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys5RTLIL7SigSpec6repeatEi(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys5RTLIL7SigSpec6repeatEi(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 initializes((0, 4), (8, 64)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZNK5Yosys5RTLIL7SigSpec6repeatEiE3__d, i64 28), align 1
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr getelementptr inbounds (i8, ptr @_ZZNK5Yosys5RTLIL7SigSpec6repeatEiE3__d, i64 28), align 1
@@ -112485,7 +112485,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit18:                 ; preds = %.loopexit, %.loopex
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys5RTLIL7SigSpec8as_constEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Yosys::RTLIL::Const") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys5RTLIL7SigSpec8as_constEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Yosys::RTLIL::Const") align 8 initializes((8, 32)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZNK5Yosys5RTLIL7SigSpec8as_constEvE3__d, i64 28), align 1
   %4 = add nsw i32 %3, 1
   store i32 %4, ptr getelementptr inbounds (i8, ptr @_ZZNK5Yosys5RTLIL7SigSpec8as_constEvE3__d, i64 28), align 1
@@ -112563,7 +112563,7 @@ define noundef ptr @_ZNK5Yosys5RTLIL7SigSpec7as_wireEv(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys5RTLIL7SigSpec8as_chunkEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Yosys::RTLIL::SigChunk") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys5RTLIL7SigSpec8as_chunkEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Yosys::RTLIL::SigChunk") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZNK5Yosys5RTLIL7SigSpec8as_chunkEvE3__d, i64 28), align 1
   %4 = add nsw i32 %3, 1
   store i32 %4, ptr getelementptr inbounds (i8, ptr @_ZZNK5Yosys5RTLIL7SigSpec8as_chunkEvE3__d, i64 28), align 1
@@ -112747,7 +112747,7 @@ _ZNK5Yosys5RTLIL6SigBitneERKS1_.exit11.thread:    ; preds = %_ZNK5Yosys5RTLIL6Si
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys5RTLIL7SigSpec13to_sigbit_setEv(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys5RTLIL7SigSpec13to_sigbit_setEv(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZNK5Yosys5RTLIL7SigSpec13to_sigbit_setEvE3__d, i64 28), align 1
   %4 = add nsw i32 %3, 1
   store i32 %4, ptr getelementptr inbounds (i8, ptr @_ZZNK5Yosys5RTLIL7SigSpec13to_sigbit_setEvE3__d, i64 28), align 1
@@ -113051,7 +113051,7 @@ _ZNSt8_Rb_treeIN5Yosys5RTLIL6SigBitES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys5RTLIL7SigSpec14to_sigbit_poolEv(ptr dead_on_unwind noalias writable sret(%"class.Yosys::hashlib::pool.792") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys5RTLIL7SigSpec14to_sigbit_poolEv(ptr dead_on_unwind noalias writable sret(%"class.Yosys::hashlib::pool.792") align 8 initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [75 x i32], align 4
   %4 = alloca %"class.std::allocator.2", align 1
   %5 = alloca i32, align 4
@@ -113586,7 +113586,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN5Yosy
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys5RTLIL7SigSpec13to_sigbit_mapERKS1_(ptr dead_on_unwind noalias writable sret(%"class.std::map.832") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys5RTLIL7SigSpec13to_sigbit_mapERKS1_(ptr dead_on_unwind noalias writable sret(%"class.std::map.832") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZNK5Yosys5RTLIL7SigSpec13to_sigbit_mapERKS1_E3__d, i64 28), align 1
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr getelementptr inbounds (i8, ptr @_ZZNK5Yosys5RTLIL7SigSpec13to_sigbit_mapERKS1_E3__d, i64 28), align 1
@@ -113793,7 +113793,7 @@ _ZNSt8_Rb_treeIN5Yosys5RTLIL6SigBitESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys5RTLIL7SigSpec14to_sigbit_dictERKS1_(ptr dead_on_unwind noalias writable sret(%"class.Yosys::hashlib::dict.823") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys5RTLIL7SigSpec14to_sigbit_dictERKS1_(ptr dead_on_unwind noalias writable sret(%"class.Yosys::hashlib::dict.823") align 8 initializes((0, 48)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(64) %1, ptr nocapture noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZNK5Yosys5RTLIL7SigSpec14to_sigbit_dictERKS1_E3__d, i64 28), align 1
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr getelementptr inbounds (i8, ptr @_ZZNK5Yosys5RTLIL7SigSpec14to_sigbit_dictERKS1_E3__d, i64 28), align 1

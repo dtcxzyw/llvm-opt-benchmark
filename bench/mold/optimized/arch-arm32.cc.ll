@@ -618,7 +618,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb30, %s
 }
 
 ; Function Attrs: mustprogress nofree nounwind
-define dso_local void @_ZN4mold3elf16write_plt_headerINS0_5ARM32EEEvRNS0_7ContextIT_EEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4568) %ctx, ptr nocapture noundef writeonly %buf) local_unnamed_addr #7 {
+define dso_local void @_ZN4mold3elf16write_plt_headerINS0_5ARM32EEEvRNS0_7ContextIT_EEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4568) %ctx, ptr nocapture noundef writeonly initializes((0, 32)) %buf) local_unnamed_addr #7 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN4mold3elf16write_plt_headerINS0_5ARM32EEEvRNS0_7ContextIT_EEPhE4insn acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
@@ -659,7 +659,7 @@ init.end:                                         ; preds = %init, %init.check, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @_ZN4mold3elf15write_plt_entryINS0_5ARM32EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4568) %ctx, ptr nocapture noundef writeonly %buf, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %sym) local_unnamed_addr #9 {
+define dso_local void @_ZN4mold3elf15write_plt_entryINS0_5ARM32EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4568) %ctx, ptr nocapture noundef writeonly initializes((0, 16)) %buf, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %sym) local_unnamed_addr #9 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %buf, ptr noundef nonnull align 16 dereferenceable(16) @_ZN4mold3elfL9plt_entryE, i64 16, i1 false)
   %gotplt.i = getelementptr inbounds i8, ptr %ctx, i64 4032
@@ -724,7 +724,7 @@ _ZNK4mold3elf6SymbolINS0_5ARM32EE12get_plt_addrERNS0_7ContextIS2_EE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @_ZN4mold3elf18write_pltgot_entryINS0_5ARM32EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4568) %ctx, ptr nocapture noundef writeonly %buf, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %sym) local_unnamed_addr #9 {
+define dso_local void @_ZN4mold3elf18write_pltgot_entryINS0_5ARM32EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4568) %ctx, ptr nocapture noundef writeonly initializes((0, 16)) %buf, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %sym) local_unnamed_addr #9 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %buf, ptr noundef nonnull align 16 dereferenceable(16) @_ZN4mold3elfL9plt_entryE, i64 16, i1 false)
   %0 = load ptr, ptr %sym, align 8
@@ -3316,7 +3316,7 @@ _ZN4mold7SyncOutINS_3elf7ContextINS1_5ARM32EEEElsIRKNS1_6ElfRelIS3_EEEERS5_OT_.e
 }
 
 ; Function Attrs: mustprogress nounwind
-define dso_local void @_ZN4mold3elf12InputSectionINS0_5ARM32EE16scan_relocationsERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(118) %this, ptr noundef nonnull align 8 dereferenceable(4568) %ctx) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4mold3elf12InputSectionINS0_5ARM32EE16scan_relocationsERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(118) initializes((88, 92)) %this, ptr noundef nonnull align 8 dereferenceable(4568) %ctx) local_unnamed_addr #4 align 2 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp36 = alloca %"class.mold::Error", align 8
@@ -7244,7 +7244,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @"_ZN3tbb6detail2d116quick_sort_rangeIPZN4mold3elf23fixup_arm_exidx_sectionERNS4_7ContextINS4_5ARM32EEEE5EntryZNS4_23fixup_arm_exidx_sectionES8_E3$_1EC2ERSC_NS0_2d05splitE"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %range) unnamed_addr #20 align 2 {
+define internal fastcc void @"_ZN3tbb6detail2d116quick_sort_rangeIPZN4mold3elf23fixup_arm_exidx_sectionERNS4_7ContextINS4_5ARM32EEEE5EntryZNS4_23fixup_arm_exidx_sectionES8_E3$_1EC2ERSC_NS0_2d05splitE"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 8)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %range) unnamed_addr #20 align 2 {
 entry:
   %0 = load ptr, ptr %range, align 8
   store ptr %0, ptr %this, align 8

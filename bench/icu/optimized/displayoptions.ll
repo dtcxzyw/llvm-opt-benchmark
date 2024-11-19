@@ -56,7 +56,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7514DisplayOptionsC2ERKNS0_7BuilderE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %builder) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7514DisplayOptionsC2ERKNS0_7BuilderE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) initializes((0, 28)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %builder) unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %builder, align 4
   store i32 %0, ptr %this, align 4
@@ -88,14 +88,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7514DisplayOptions7BuilderC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) %this) unnamed_addr #2 align 2 {
+define void @_ZN6icu_7514DisplayOptions7BuilderC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) initializes((0, 28)) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %this, i8 0, i64 28, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7514DisplayOptions7BuilderC2ERKS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %displayOptions) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7514DisplayOptions7BuilderC2ERKS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) initializes((0, 28)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %displayOptions) unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %displayOptions, align 4
   store i32 %0, ptr %this, align 4

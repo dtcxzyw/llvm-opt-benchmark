@@ -397,7 +397,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord12PopulateIovsEPmS2_S2_P5iovec(ptr nocapture noundef nonnull align 8 dereferenceable(288) %this, ptr nocapture noundef writeonly %unwind_slice_idx, ptr nocapture noundef writeonly %unwind_byte_idx, ptr nocapture noundef %sending_length, ptr nocapture noundef writeonly %iov) local_unnamed_addr #3 align 2 {
+define noundef i64 @_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord12PopulateIovsEPmS2_S2_P5iovec(ptr nocapture noundef nonnull align 8 dereferenceable(288) %this, ptr nocapture noundef writeonly initializes((0, 8)) %unwind_slice_idx, ptr nocapture noundef writeonly initializes((0, 8)) %unwind_byte_idx, ptr nocapture noundef %sending_length, ptr nocapture noundef writeonly %iov) local_unnamed_addr #3 align 2 {
 entry:
   %out_offset_ = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load i64, ptr %out_offset_, align 8
@@ -5973,7 +5973,7 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental8internal19MemoryAllocatorIm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN17grpc_event_engine12experimental17PosixEndpointImplD2Ev(ptr noundef nonnull align 16 dereferenceable(936) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental17PosixEndpointImplD2Ev(ptr noundef nonnull align 16 dereferenceable(936) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %release_fd = alloca i32, align 4
   %agg.tmp5 = alloca %"class.absl::lts_20230802::AnyInvocable.37", align 16
@@ -6967,7 +6967,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental17PosixEndpointImplC2EPNS0_11EventHandleEPNS0_18PosixEngineClosureESt10shared_ptrINS0_11EventEngineEEONS0_15MemoryAllocatorERKNS0_15PosixTcpOptionsE(ptr noundef nonnull align 16 dereferenceable(936) %this, ptr noundef %handle, ptr noundef %on_done, ptr nocapture noundef readonly %engine, ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %options) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental17PosixEndpointImplC2EPNS0_11EventHandleEPNS0_18PosixEngineClosureESt10shared_ptrINS0_11EventEngineEEONS0_15MemoryAllocatorERKNS0_15PosixTcpOptionsE(ptr noundef nonnull align 16 dereferenceable(936) initializes((0, 24)) %this, ptr noundef %handle, ptr noundef %on_done, ptr nocapture noundef readonly %engine, ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %options) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::shared_ptr.3", align 8
   %sock = alloca %"class.grpc_event_engine::experimental::PosixSocketWrapper", align 4

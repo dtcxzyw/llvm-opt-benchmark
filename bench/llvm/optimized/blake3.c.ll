@@ -16,7 +16,7 @@ define dso_local noundef nonnull ptr @llvm_blake3_version() local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @llvm_blake3_hasher_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
+define dso_local void @llvm_blake3_hasher_init(ptr nocapture noundef writeonly initializes((0, 139), (144, 145)) %0) local_unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) @IV, i64 32, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) @IV, i64 32, i1 false)
@@ -28,7 +28,7 @@ define dso_local void @llvm_blake3_hasher_init(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @llvm_blake3_hasher_init_keyed(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define dso_local void @llvm_blake3_hasher_init_keyed(ptr nocapture noundef writeonly initializes((0, 139), (144, 145)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = load i16, ptr %1, align 1
   %4 = zext i16 %3 to i32
   %5 = getelementptr inbounds i8, ptr %1, i64 2
@@ -173,7 +173,7 @@ define dso_local void @llvm_blake3_hasher_init_keyed(ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_blake3_hasher_init_derive_key_raw(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define dso_local void @llvm_blake3_hasher_init_derive_key_raw(ptr nocapture noundef writeonly initializes((0, 139), (144, 145)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.llvm_blake3_hasher, align 8
   %5 = alloca [32 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) @IV, i64 32, i1 false)
@@ -1918,7 +1918,7 @@ define dso_local void @llvm_blake3_hasher_finalize(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_blake3_hasher_init_derive_key(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @llvm_blake3_hasher_init_derive_key(ptr nocapture noundef writeonly initializes((0, 139), (144, 145)) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
   tail call void @llvm_blake3_hasher_init_derive_key_raw(ptr noundef %0, ptr noundef %1, i64 noundef %3)
   ret void

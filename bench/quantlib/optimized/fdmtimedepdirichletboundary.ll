@@ -83,7 +83,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib27FdmTimeDepDirichletBoundaryC2ERKN5boost10shared_ptrINS_9FdmMesherEEESt8functionIFddEEmNS_17BoundaryConditionINS_11FdmLinearOpEE4SideE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %mesher, ptr nocapture noundef %valueOnBoundary, i64 noundef %direction, i32 noundef %side) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib27FdmTimeDepDirichletBoundaryC2ERKN5boost10shared_ptrINS_9FdmMesherEEESt8functionIFddEEmNS_17BoundaryConditionINS_11FdmLinearOpEE4SideE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %mesher, ptr nocapture noundef %valueOnBoundary, i64 noundef %direction, i32 noundef %side) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::FdmIndicesOnBoundary", align 8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib27FdmTimeDepDirichletBoundaryE, i64 16), ptr %this, align 8, !tbaa !3
@@ -301,7 +301,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib20FdmIndic
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib27FdmTimeDepDirichletBoundaryC2ERKN5boost10shared_ptrINS_9FdmMesherEEESt8functionIFNS_5ArrayEdEEmNS_17BoundaryConditionINS_11FdmLinearOpEE4SideE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %mesher, ptr nocapture noundef %valuesOnBoundary, i64 noundef %direction, i32 noundef %side) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib27FdmTimeDepDirichletBoundaryC2ERKN5boost10shared_ptrINS_9FdmMesherEEESt8functionIFNS_5ArrayEdEEmNS_17BoundaryConditionINS_11FdmLinearOpEE4SideE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %mesher, ptr nocapture noundef %valuesOnBoundary, i64 noundef %direction, i32 noundef %side) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::FdmIndicesOnBoundary", align 8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib27FdmTimeDepDirichletBoundaryE, i64 16), ptr %this, align 8, !tbaa !3

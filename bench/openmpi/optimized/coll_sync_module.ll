@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @mca_coll_sync_module_construct(ptr nocapture noundef writeonly %0) #0 {
+define internal void @mca_coll_sync_module_construct(ptr nocapture noundef writeonly initializes((592, 1713)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 592
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1121) %2, i8 0, i64 1121, i1 false)
   ret void
@@ -613,7 +613,7 @@ opal_obj_new.exit.thread:                         ; preds = %13, %2, %opal_obj_n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -13, 1) i32 @mca_coll_sync_module_enable(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #1 {
+define range(i32 -13, 1) i32 @mca_coll_sync_module_enable(ptr nocapture noundef initializes((592, 1704)) %0, ptr nocapture noundef readonly %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 592
   %4 = getelementptr inbounds i8, ptr %1, i64 328
   %5 = load ptr, ptr %4, align 8

@@ -2862,7 +2862,7 @@ ehcleanup31:                                      ; preds = %if.then.i.i.i242, %
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib13MultiStepTarn21possibleCashFlowTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib13MultiStepTarn21possibleCashFlowTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %allPaymentTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 256
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 264
@@ -2920,7 +2920,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib13MultiStepTarn5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) %this) unnamed_addr #11 align 2 {
+define void @_ZN8QuantLib13MultiStepTarn5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) initializes((368, 384)) %this) unnamed_addr #11 align 2 {
 entry:
   %couponPaid_ = getelementptr inbounds nuw i8, ptr %this, i64 368
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %couponPaid_, i8 0, i64 16, i1 false)

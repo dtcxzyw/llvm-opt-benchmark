@@ -30,7 +30,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_inetpeer_inv
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable_inet_getpeer742, ptr @__UNIQUE_ID___addressable_inet_peer_base_init732, ptr @__UNIQUE_ID___addressable_inet_peer_xrlim_allow745, ptr @__UNIQUE_ID___addressable_inet_putpeer744, ptr @__UNIQUE_ID___addressable_inetpeer_invalidate_tree746, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched203], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @inet_peer_base_init(ptr nocapture noundef writeonly %0) #0 align 16 {
+define dso_local void @inet_peer_base_init(ptr nocapture noundef writeonly initializes((0, 20)) %0) #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   ret void
 }

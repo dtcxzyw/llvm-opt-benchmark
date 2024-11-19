@@ -3076,7 +3076,7 @@ _ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE12emplace_backIJRKNS0_5SliceES7_EEERS
 }
 
 ; Function Attrs: uwtable
-define noundef zeroext i1 @_ZN7rocksdb6DBIter25FindNextUserEntryInternalEbPKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(808) %this, i1 noundef zeroext %skipping_saved_key, ptr noundef readonly %prefix) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb6DBIter25FindNextUserEntryInternalEbPKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(808) initializes((578, 579)) %this, i1 noundef zeroext %skipping_saved_key, ptr noundef readonly %prefix) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %user_key_without_ts = alloca %"class.rocksdb::Slice", align 8
   %ts = alloca %"class.rocksdb::Slice", align 8
@@ -10112,7 +10112,7 @@ _ZNSt7variantIJSt9monostateN7rocksdb5SliceESt6vectorINS1_10WideColumnESaIS4_EEEE
 }
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb6DBIter23SetSavedKeyToSeekTargetERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(808) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %target) local_unnamed_addr #5 align 2 {
+define void @_ZN7rocksdb6DBIter23SetSavedKeyToSeekTargetERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(808) initializes((168, 176), (579, 580)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %target) local_unnamed_addr #5 align 2 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8
   %is_key_seqnum_zero_ = getelementptr inbounds i8, ptr %this, i64 579
@@ -10278,7 +10278,7 @@ if.end:                                           ; preds = %_ZN7rocksdb7IterKey
 }
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb6DBIter30SetSavedKeyToSeekForPrevTargetERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(808) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %target) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBIter30SetSavedKeyToSeekForPrevTargetERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(808) initializes((168, 176), (579, 580)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %target) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %kTsMin = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator.0", align 1

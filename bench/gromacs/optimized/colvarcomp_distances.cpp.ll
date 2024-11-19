@@ -455,7 +455,7 @@ declare void @_ZN6colvar3cvc14get_atom_listsEv(ptr dead_on_unwind writable sret(
 declare void @_ZN6colvar3cvc9read_dataEv(ptr noundef nonnull align 8 dereferenceable(1648)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar8distance10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1688) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar8distance10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1688) initializes((640, 648), (1664, 1688)) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8
@@ -575,7 +575,7 @@ declare void @_ZN6colvar3cvc15debug_gradientsEv(ptr noundef nonnull align 8 dere
 declare void @_ZN6colvar3cvc17collect_gradientsERKSt6vectorIiSaIiEERS1_IN12colvarmodule7rvectorESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(1648), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar8distance19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1688) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar8distance19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1688) initializes((976, 984)) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8
@@ -672,7 +672,7 @@ define void @_ZN6colvar8distance19calc_force_invgradsEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6colvar8distance24calc_Jacobian_derivativeEv(ptr nocapture noundef nonnull align 8 dereferenceable(1688) %0) unnamed_addr #3 align 2 {
+define void @_ZN6colvar8distance24calc_Jacobian_derivativeEv(ptr nocapture noundef nonnull align 8 dereferenceable(1688) initializes((1144, 1152)) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 640
   %3 = load double, ptr %2, align 8
   %4 = fcmp une double %3, 0.000000e+00
@@ -798,7 +798,7 @@ define linkonce_odr void @_ZN6colvar12distance_vecD0Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar12distance_vec10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1688) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar12distance_vec10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1688) initializes((648, 672)) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8
@@ -1002,7 +1002,7 @@ define linkonce_odr void @_ZN6colvar12distance_dirD0Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar12distance_dir10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1688) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar12distance_dir10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1688) initializes((648, 672), (1664, 1688)) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8
@@ -1262,7 +1262,7 @@ define linkonce_odr void @_ZN6colvar10distance_zD0Ev(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar10distance_z10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(1729) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar10distance_z10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(1729) initializes((640, 648), (1704, 1728)) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8
@@ -1697,7 +1697,7 @@ define void @_ZN6colvar10distance_z14calc_gradientsEv(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar10distance_z19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1729) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar10distance_z19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1729) initializes((976, 984)) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8
@@ -1777,7 +1777,7 @@ define void @_ZN6colvar10distance_z19calc_force_invgradsEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6colvar10distance_z24calc_Jacobian_derivativeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1729) %0) unnamed_addr #8 align 2 {
+define void @_ZN6colvar10distance_z24calc_Jacobian_derivativeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1729) initializes((1144, 1152)) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1144
   store double 0.000000e+00, ptr %2, align 8
   ret void
@@ -1985,7 +1985,7 @@ define linkonce_odr void @_ZN6colvar11distance_xyD0Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar11distance_xy10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1808) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar11distance_xy10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1808) initializes((640, 648), (1704, 1728), (1736, 1760)) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8
@@ -2356,7 +2356,7 @@ define void @_ZN6colvar11distance_xy14calc_gradientsEv(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar11distance_xy19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1808) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar11distance_xy19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1808) initializes((976, 984)) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8
@@ -2445,7 +2445,7 @@ define void @_ZN6colvar11distance_xy19calc_force_invgradsEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6colvar11distance_xy24calc_Jacobian_derivativeEv(ptr nocapture noundef nonnull align 8 dereferenceable(1808) %0) unnamed_addr #3 align 2 {
+define void @_ZN6colvar11distance_xy24calc_Jacobian_derivativeEv(ptr nocapture noundef nonnull align 8 dereferenceable(1808) initializes((1144, 1152)) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 640
   %3 = load double, ptr %2, align 8
   %4 = fcmp une double %3, 0.000000e+00
@@ -2567,7 +2567,7 @@ define linkonce_odr void @_ZN6colvar12distance_invD0Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar12distance_inv10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1668) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar12distance_inv10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1668) initializes((640, 648)) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 640
   store double 0.000000e+00, ptr %3, align 8
@@ -4615,7 +4615,7 @@ define linkonce_odr void @_ZN6colvar16dipole_magnitudeD0Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar16dipole_magnitude10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar16dipole_magnitude10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1680) initializes((640, 648), (1656, 1680)) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1648
   %4 = load ptr, ptr %3, align 8
@@ -4785,7 +4785,7 @@ define linkonce_odr void @_ZN6colvar8gyrationD0Ev(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN6colvar8gyration10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1656) %0) unnamed_addr #12 align 2 {
+define void @_ZN6colvar8gyration10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1656) initializes((640, 648)) %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 640
   store double 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1648
@@ -4884,7 +4884,7 @@ define void @_ZN6colvar8gyration14calc_gradientsEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar8gyration19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1656) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar8gyration19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1656) initializes((976, 984)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1648
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN12colvarmodule10atom_group17read_total_forcesEv(ptr noundef nonnull align 8 dereferenceable(1440) %3)
@@ -5107,7 +5107,7 @@ define linkonce_odr void @_ZN6colvar7inertiaD0Ev(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6colvar7inertia10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1656) %0) unnamed_addr #13 align 2 {
+define void @_ZN6colvar7inertia10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1656) initializes((640, 648)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 640
   store double 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1648
@@ -5262,7 +5262,7 @@ define linkonce_odr void @_ZN6colvar9inertia_zD0Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6colvar9inertia_z10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #13 align 2 {
+define void @_ZN6colvar9inertia_z10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1680) initializes((640, 648)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 640
   store double 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1648
@@ -5485,7 +5485,7 @@ _ZN6colvar11eigenvectorD2Ev.exit:                 ; preds = %_ZNSt6vectorIN12col
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6colvar11eigenvector10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1712) %0) unnamed_addr #13 align 2 {
+define void @_ZN6colvar11eigenvector10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1712) initializes((640, 648)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 640
   store double 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1648
@@ -5588,7 +5588,7 @@ define void @_ZN6colvar11eigenvector14calc_gradientsEv(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar11eigenvector19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1712) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar11eigenvector19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1712) initializes((976, 984)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1648
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN12colvarmodule10atom_group17read_total_forcesEv(ptr noundef nonnull align 8 dereferenceable(1440) %3)
@@ -6394,7 +6394,7 @@ _ZN6colvar4rmsdD2Ev.exit:                         ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN6colvar4rmsd10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1696) %0) unnamed_addr #12 align 2 {
+define void @_ZN6colvar4rmsd10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1696) initializes((640, 648)) %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 640
   store double 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1648
@@ -6650,7 +6650,7 @@ define void @_ZN6colvar4rmsd14calc_gradientsEv(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar4rmsd19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1696) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar4rmsd19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1696) initializes((976, 984)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1648
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN12colvarmodule10atom_group17read_total_forcesEv(ptr noundef nonnull align 8 dereferenceable(1440) %3)

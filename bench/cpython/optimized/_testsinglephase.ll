@@ -384,7 +384,7 @@ return:                                           ; preds = %if.end8, %if.end4, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @clear_state(ptr nocapture noundef %state) unnamed_addr #0 {
+define internal fastcc void @clear_state(ptr nocapture noundef initializes((0, 8)) %state) unnamed_addr #0 {
 entry:
   store i64 0, ptr %state, align 8
   %error = getelementptr inbounds i8, ptr %state, i64 8

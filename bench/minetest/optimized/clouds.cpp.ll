@@ -1393,7 +1393,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6CloudsC1EPN3irr5scene13ISceneManagerEP13IShaderSourceij(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %mgr, ptr noundef %ssrc, i32 noundef %id, i32 noundef %seed) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6CloudsC1EPN3irr5scene13ISceneManagerEP13IShaderSourceij(ptr noundef nonnull align 8 dereferenceable(540) initializes((544, 564)) %this, ptr noundef %mgr, ptr noundef %ssrc, i32 noundef %id, i32 noundef %seed) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i167 = alloca i64, align 8
   %ref.tmp = alloca %"class.irr::core::vector3d", align 8
@@ -1953,7 +1953,7 @@ _ZN7irr_ptrIN3irr5scene11CMeshBufferINS0_5video9S3DVertexEEEvED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6CloudsD2Ev(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6CloudsD2Ev(ptr noundef nonnull align 8 dereferenceable(540) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2157,7 +2157,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6CloudsD1Ev(ptr noundef nonnull align 8 dereferenceable(540) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZN6CloudsD1Ev(ptr noundef nonnull align 8 dereferenceable(540) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN6CloudsD2Ev(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull @_ZTT6Clouds) #23
   ret void
@@ -2175,7 +2175,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6CloudsD0Ev(ptr noundef nonnull align 8 dereferenceable(540) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZN6CloudsD0Ev(ptr noundef nonnull align 8 dereferenceable(540) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN6CloudsD2Ev(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull @_ZTT6Clouds) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -4551,7 +4551,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6Clouds6updateERKN3irr4core8vector3dIfEERKNS0_5video7SColorfE(ptr nocapture noundef nonnull align 8 dereferenceable(540) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %camera_p, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %color_diffuse) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN6Clouds6updateERKN3irr4core8vector3dIfEERKNS0_5video7SColorfE(ptr nocapture noundef nonnull align 8 dereferenceable(540) initializes((472, 484), (490, 491), (496, 512)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %camera_p, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %color_diffuse) local_unnamed_addr #3 align 2 {
 entry:
   %color_ambient = getelementptr inbounds i8, ptr %this, i64 520
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %color_ambient, align 8, !tbaa !76

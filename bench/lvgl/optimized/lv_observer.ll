@@ -421,7 +421,7 @@ define i24 @lv_subject_get_previous_color(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_subject_init_group(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lv_subject_init_group(ptr noundef initializes((24, 28)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = shl i32 %2, 4
   %6 = or disjoint i32 %5, 5

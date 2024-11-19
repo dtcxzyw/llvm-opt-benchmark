@@ -1662,7 +1662,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL10_UTF32OpenP10UConverterP18UConverterLoadArgsP10UErrorCode(ptr nocapture noundef writeonly %cnv, ptr nocapture readnone %pArgs, ptr nocapture readnone %pErrorCode) #5 {
+define internal void @_ZL10_UTF32OpenP10UConverterP18UConverterLoadArgsP10UErrorCode(ptr nocapture noundef writeonly initializes((76, 84)) %cnv, ptr nocapture readnone %pArgs, ptr nocapture readnone %pErrorCode) #5 {
 entry:
   %mode.i = getelementptr inbounds i8, ptr %cnv, i64 76
   store i32 0, ptr %mode.i, align 4

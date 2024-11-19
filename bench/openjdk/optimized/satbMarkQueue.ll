@@ -82,7 +82,7 @@ declare void @_ZN11PtrQueueSetC2EPN10BufferNode9AllocatorE(ptr noundef nonnull a
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16SATBMarkQueueSetD2Ev(ptr noundef nonnull align 8 dereferenceable(393) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16SATBMarkQueueSetD2Ev(ptr noundef nonnull align 8 dereferenceable(393) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV16SATBMarkQueueSet, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   store volatile i64 0, ptr %2, align 8
@@ -131,7 +131,7 @@ define hidden void @_ZN16SATBMarkQueueSet25abandon_completed_buffersEv(ptr nound
 declare void @_ZN11PtrQueueSetD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16SATBMarkQueueSet39set_process_completed_buffers_thresholdEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(393) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN16SATBMarkQueueSet39set_process_completed_buffers_thresholdEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(393) initializes((280, 288)) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = shl nuw i64 %1, 1
   %.not = icmp sgt i64 %1, -1
   %4 = or disjoint i64 %3, 1
@@ -142,7 +142,7 @@ define hidden void @_ZN16SATBMarkQueueSet39set_process_completed_buffers_thresho
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16SATBMarkQueueSet39set_buffer_enqueue_threshold_percentageEj(ptr nocapture noundef nonnull align 8 dereferenceable(393) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN16SATBMarkQueueSet39set_buffer_enqueue_threshold_percentageEj(ptr nocapture noundef nonnull align 8 dereferenceable(393) initializes((288, 296)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -158,7 +158,7 @@ define hidden void @_ZN16SATBMarkQueueSet39set_buffer_enqueue_threshold_percenta
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16SATBMarkQueueSet22set_active_all_threadsEbb(ptr noundef nonnull align 8 dereferenceable(393) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16SATBMarkQueueSet22set_active_all_threadsEbb(ptr noundef nonnull align 8 dereferenceable(393) initializes((296, 297)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.SetThreadActiveClosure, align 8
   %5 = zext i1 %1 to i8
   %6 = load ptr, ptr @NonJavaThreadsList_lock, align 8

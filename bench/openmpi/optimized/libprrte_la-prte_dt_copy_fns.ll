@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_class_init_epoch = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_job_copy(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @prte_job_copy(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 {
   store ptr %1, ptr %0, align 8
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef %1) #10
   %4 = icmp eq i32 %3, 35
@@ -117,7 +117,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %8, %9
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_proc_copy(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @prte_proc_copy(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 {
   store ptr %1, ptr %0, align 8
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef %1) #10
   %4 = icmp eq i32 %3, 35

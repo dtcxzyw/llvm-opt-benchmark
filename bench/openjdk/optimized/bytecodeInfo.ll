@@ -108,7 +108,7 @@ $_ZN26GrowableArrayWithAllocatorIP10InlineTree13GrowableArrayIS1_EE9expand_toEi 
 @_ZN10InlineTreeC1EP7CompilePKS_P8ciMethodP8JVMStateii = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, i32, i32), ptr @_ZN10InlineTreeC2EP7CompilePKS_P8ciMethodP8JVMStateii
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10InlineTreeC2EP7CompilePKS_P8ciMethodP8JVMStateii(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef readonly %4, i32 %5, i32 noundef %6) unnamed_addr #0 align 2 {
+define hidden void @_ZN10InlineTreeC2EP7CompilePKS_P8ciMethodP8JVMStateii(ptr nocapture noundef nonnull align 8 dereferenceable(81) initializes((0, 25), (32, 80)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef readonly %4, i32 %5, i32 noundef %6) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %8, align 8

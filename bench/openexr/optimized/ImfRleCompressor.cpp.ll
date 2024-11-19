@@ -110,7 +110,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #5
 declare void @_ZN7Imf_3_210CompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Imf_3_213RleCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN7Imf_3_213RleCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213RleCompressorE, i64 16), ptr %this, align 8
   %_tmpBuffer = getelementptr inbounds i8, ptr %this, i64 24
@@ -141,7 +141,7 @@ delete.end4:                                      ; preds = %delete.notnull3, %d
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Imf_3_213RleCompressorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN7Imf_3_213RleCompressorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213RleCompressorE, i64 16), ptr %this, align 8
   %_tmpBuffer.i = getelementptr inbounds i8, ptr %this, i64 24

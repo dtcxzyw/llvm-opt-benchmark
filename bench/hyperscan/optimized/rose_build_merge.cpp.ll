@@ -12815,7 +12815,7 @@ _ZN3ue221insertion_ordered_mapINS_7left_idESt6vectorINS_12graph_detail17vertex_d
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L13get_eng_vertsERNS_9RoseGraphE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(56) %g) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L13get_eng_vertsERNS_9RoseGraphE(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(56) %g) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %ref.tmp8.i = alloca %"struct.std::pair.261", align 8
   %ref.tmp15 = alloca %"struct.ue2::left_id", align 8
@@ -25746,7 +25746,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt5dequeIN3ue212_GLOBAL__N_17BouquetINS0_9suffix_idEEESaIS4_EEC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt5dequeIN3ue212_GLOBAL__N_17BouquetINS0_9suffix_idEEESaIS4_EEC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 80)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %this, i8 0, i64 80, i1 false)
   %_M_map_size.i.i = getelementptr inbounds i8, ptr %this, i64 8

@@ -2642,7 +2642,7 @@ define internal ptr @acpi_fwnode_get_parent(ptr noundef readonly %0) #6 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_fwnode_graph_parse_endpoint(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef i32 @acpi_fwnode_graph_parse_endpoint(ptr noundef %0, ptr noundef initializes((8, 16)) %1) #0 align 16 {
   %3 = tail call ptr @fwnode_get_parent(ptr noundef %0) #15
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %4, align 8

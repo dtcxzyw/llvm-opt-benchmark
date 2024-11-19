@@ -224,7 +224,7 @@ define internal fastcc noundef zeroext i1 @match_ssl_primary_config(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @Curl_ssl_easy_config_complete(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local noundef i32 @Curl_ssl_easy_config_complete(ptr noundef initializes((1272, 1368), (1408, 1448), (1456, 1544), (1592, 1632)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1760
   %3 = getelementptr inbounds i8, ptr %0, i64 1968
   %4 = load ptr, ptr %3, align 8
@@ -361,7 +361,7 @@ define dso_local noundef i32 @Curl_ssl_easy_config_complete(ptr noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 28) i32 @Curl_ssl_conn_config_init(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define dso_local range(i32 0, 28) i32 @Curl_ssl_conn_config_init(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((544, 545), (548, 553)) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1272
   %4 = getelementptr inbounds i8, ptr %1, i64 448
   %5 = tail call fastcc zeroext i1 @clone_ssl_primary_config(ptr noundef nonnull %3, ptr noundef nonnull %4)
@@ -380,7 +380,7 @@ define dso_local range(i32 0, 28) i32 @Curl_ssl_conn_config_init(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @clone_ssl_primary_config(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @clone_ssl_primary_config(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((96, 97), (100, 105)) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load i8, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 104
@@ -981,7 +981,7 @@ define dso_local void @Curl_ssl_sessionid_unlock(ptr noundef %0) local_unnamed_a
 declare i32 @Curl_share_unlock(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @Curl_ssl_getsessionid(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @Curl_ssl_getsessionid(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr noundef writeonly %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
@@ -3058,7 +3058,7 @@ define internal zeroext i1 @ssl_cf_data_pending(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ssl_cf_send(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #2 {
+define internal i64 @ssl_cf_send(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef initializes((0, 4)) %4) #2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 56
@@ -3076,7 +3076,7 @@ define internal i64 @ssl_cf_send(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ssl_cf_recv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #2 {
+define internal i64 @ssl_cf_recv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef initializes((0, 4)) %4) #2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 56
@@ -3609,7 +3609,7 @@ define dso_local range(i32 0, 81) i32 @Curl_ssl_cfilter_remove(ptr noundef %0, i
 declare zeroext i1 @Curl_conn_cf_discard_sub(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 3) i32 @Curl_alpn_to_proto_buf(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #10 {
+define dso_local range(i32 0, 3) i32 @Curl_alpn_to_proto_buf(ptr nocapture noundef writeonly initializes((0, 40)) %0, ptr noundef readonly %1) local_unnamed_addr #10 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -3664,7 +3664,7 @@ define dso_local range(i32 0, 3) i32 @Curl_alpn_to_proto_buf(ptr nocapture nound
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 3) i32 @Curl_alpn_to_proto_str(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #10 {
+define dso_local range(i32 0, 3) i32 @Curl_alpn_to_proto_str(ptr nocapture noundef writeonly initializes((0, 40)) %0, ptr noundef readonly %1) local_unnamed_addr #10 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %.lr.ph

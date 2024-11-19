@@ -710,7 +710,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7516SimpleDateFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(832) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516SimpleDateFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(832) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516SimpleDateFormatE, i64 16), ptr %this, align 8
   %fSymbols = getelementptr inbounds i8, ptr %this, i64 768
@@ -5122,7 +5122,7 @@ declare noundef ptr @_ZN6icu_758Calendar14createInstanceEPNS_8TimeZoneERKNS_6Loc
 declare noundef ptr @_ZN6icu_758TimeZone18forLocaleOrDefaultERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7516SimpleDateFormat12parsePatternEv(ptr nocapture noundef nonnull align 8 dereferenceable(832) %this) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_7516SimpleDateFormat12parsePatternEv(ptr nocapture noundef nonnull align 8 dereferenceable(832) initializes((792, 795)) %this) local_unnamed_addr #11 align 2 {
 entry:
   %fHasMinute = getelementptr inbounds i8, ptr %this, i64 792
   store i8 0, ptr %fHasMinute, align 8

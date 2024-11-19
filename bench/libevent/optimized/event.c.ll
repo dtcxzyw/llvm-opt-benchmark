@@ -387,7 +387,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @event_debug_map_HT_CLEAR(ptr nocapture noundef %head) local_unnamed_addr #0 {
+define dso_local void @event_debug_map_HT_CLEAR(ptr nocapture noundef initializes((8, 24)) %head) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %head, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -5041,7 +5041,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @event_config_set_max_dispatch_interval(ptr nocapture noundef writeonly %cfg, ptr noundef readonly %max_interval, i32 noundef %max_callbacks, i32 noundef %min_priority) local_unnamed_addr #9 {
+define dso_local noundef i32 @event_config_set_max_dispatch_interval(ptr nocapture noundef writeonly initializes((24, 32), (40, 48)) %cfg, ptr noundef readonly %max_interval, i32 noundef %max_callbacks, i32 noundef %min_priority) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %max_interval, null
   %max_dispatch_interval1 = getelementptr inbounds i8, ptr %cfg, i64 24
@@ -6937,7 +6937,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @event_loopexit_cb(i32 %fd, i16 signext %what, ptr nocapture noundef writeonly %arg) #10 {
+define internal void @event_loopexit_cb(i32 %fd, i16 signext %what, ptr nocapture noundef writeonly initializes((736, 740)) %arg) #10 {
 entry:
   %event_gotterm = getelementptr inbounds i8, ptr %arg, i64 736
   store i32 1, ptr %event_gotterm, align 8
@@ -10099,7 +10099,7 @@ do.end14:                                         ; preds = %if.then9, %do.end3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @event_callback_init_(ptr nocapture noundef readonly %base, ptr nocapture noundef writeonly %cb) local_unnamed_addr #9 {
+define dso_local void @event_callback_init_(ptr nocapture noundef readonly %base, ptr nocapture noundef writeonly initializes((0, 40)) %cb) local_unnamed_addr #9 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %cb, i8 0, i64 40, i1 false)
   %nactivequeues = getelementptr inbounds i8, ptr %base, i64 768
@@ -10140,7 +10140,7 @@ do.end14:                                         ; preds = %if.then9, %do.end3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @event_deferred_cb_init_(ptr nocapture noundef writeonly %cb, i8 noundef zeroext %priority, ptr noundef %fn, ptr noundef %arg) local_unnamed_addr #10 {
+define dso_local void @event_deferred_cb_init_(ptr nocapture noundef writeonly initializes((0, 40)) %cb, i8 noundef zeroext %priority, ptr noundef %fn, ptr noundef %arg) local_unnamed_addr #10 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %cb, i8 0, i64 24, i1 false)
   %evcb_cb_union = getelementptr inbounds i8, ptr %cb, i64 24
@@ -10155,7 +10155,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @event_deferred_cb_set_priority_(ptr nocapture noundef writeonly %cb, i8 noundef zeroext %priority) local_unnamed_addr #10 {
+define dso_local void @event_deferred_cb_set_priority_(ptr nocapture noundef writeonly initializes((18, 19)) %cb, i8 noundef zeroext %priority) local_unnamed_addr #10 {
 entry:
   %evcb_pri = getelementptr inbounds i8, ptr %cb, i64 18
   store i8 %priority, ptr %evcb_pri, align 2
@@ -12171,7 +12171,7 @@ do.end:                                           ; preds = %do.body, %land.rhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @evthread_notify_drain_eventfd(i32 noundef %fd, i16 signext %what, ptr nocapture noundef %arg) #0 {
+define internal void @evthread_notify_drain_eventfd(i32 noundef %fd, i16 signext %what, ptr nocapture noundef initializes((1016, 1020)) %arg) #0 {
 entry:
   %msg = alloca i64, align 8
   %call = call i64 @read(i32 noundef %fd, ptr noundef nonnull %msg, i64 noundef 8) #26

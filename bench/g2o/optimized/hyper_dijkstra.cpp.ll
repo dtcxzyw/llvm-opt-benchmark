@@ -111,7 +111,7 @@ define noundef double @_ZN3g2o13HyperDijkstra10TreeAction7performEPNS_10HyperGra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EPNS_10HyperGraph6VertexES4_PNS2_4EdgeEd(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, double noundef %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EPNS_10HyperGraph6VertexES4_PNS2_4EdgeEd(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 32), (40, 44), (48, 56)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, double noundef %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
@@ -133,7 +133,7 @@ define void @_ZN3g2o13HyperDijkstra17AdjacencyMapEntryC2EPNS_10HyperGraph6Vertex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3g2o13HyperDijkstraC2EPNS_10HyperGraphE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o13HyperDijkstraC2EPNS_10HyperGraphE(ptr noundef nonnull align 8 dereferenceable(104) initializes((8, 12), (16, 24)) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<g2o::HyperGraph::Vertex *, g2o::HyperGraph::Vertex *, std::_Identity<g2o::HyperGraph::Vertex *>, std::less<g2o::HyperGraph::Vertex *>>::_Alloc_node", align 8
   %4 = alloca %"struct.g2o::HyperDijkstra::AdjacencyMapEntry", align 8
   %5 = alloca %"struct.std::pair.17", align 8

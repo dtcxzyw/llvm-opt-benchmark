@@ -588,7 +588,7 @@ start_progress_engine.exit:                       ; preds = %19, %2, %17, %12, %
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @tracker_constructor(ptr noundef %0) #6 {
+define internal void @tracker_constructor(ptr noundef initializes((40, 44), (48, 64)) %0) #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48

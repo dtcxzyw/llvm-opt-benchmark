@@ -2669,7 +2669,7 @@ Vec_IntFree.exit:                                 ; preds = %Abc_IsopVerify.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_IsopTest(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define noundef i32 @Abc_IsopTest(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8

@@ -512,7 +512,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513StringMatcherC2ERKNS_13UnicodeStringEiiiRKNS_23TransliterationRuleDataE(ptr noundef nonnull align 8 dereferenceable(108) %this, ptr noundef nonnull align 8 dereferenceable(64) %theString, i32 noundef %start, i32 noundef %limit, i32 noundef %segmentNum, ptr noundef nonnull align 8 dereferenceable(1168) %theData) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513StringMatcherC2ERKNS_13UnicodeStringEiiiRKNS_23TransliterationRuleDataE(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 34), (88, 108)) %this, ptr noundef nonnull align 8 dereferenceable(64) %theString, i32 noundef %start, i32 noundef %limit, i32 noundef %segmentNum, ptr noundef nonnull align 8 dereferenceable(1168) %theData) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
@@ -563,7 +563,7 @@ declare void @_ZN6icu_7514UnicodeMatcherD2Ev(ptr noundef nonnull align 8 derefer
 declare void @_ZN6icu_7514UnicodeFunctorD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513StringMatcherC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(108) %this, ptr noundef nonnull align 8 dereferenceable(108) %o) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513StringMatcherC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(108) %o) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
@@ -606,7 +606,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7513StringMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7513StringMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 24)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513StringMatcherE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
@@ -1521,7 +1521,7 @@ _ZNK6icu_7513StringMatcher17toReplacerPatternERNS_13UnicodeStringEa.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7513StringMatcher10resetMatchEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) %this) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_7513StringMatcher10resetMatchEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) initializes((100, 108)) %this) local_unnamed_addr #11 align 2 {
 entry:
   %matchLimit = getelementptr inbounds i8, ptr %this, i64 104
   store i32 -1, ptr %matchLimit, align 8
@@ -1543,7 +1543,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513StringMatcher7setDataEPKNS_23TransliterationRuleDataE(ptr noundef nonnull align 8 dereferenceable(108) %this, ptr noundef %d) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7513StringMatcher7setDataEPKNS_23TransliterationRuleDataE(ptr noundef nonnull align 8 dereferenceable(108) initializes((88, 96)) %this, ptr noundef %d) unnamed_addr #1 align 2 {
 entry:
   %data = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %d, ptr %data, align 8

@@ -99,7 +99,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8QuantLib6IssuerC2ESt6vectorISt4pairINS_14DefaultProbKeyENS_6HandleINS_31DefaultProbabilityTermStructureEEEESaIS7_EESt3setIN5boost10shared_ptrINS_12DefaultEventEEENS_12earlier_thanISE_EESaISE_EE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef %probabilities, ptr noundef %events) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib6IssuerC2ESt6vectorISt4pairINS_14DefaultProbKeyENS_6HandleINS_31DefaultProbabilityTermStructureEEEESaIS7_EESt3setIN5boost10shared_ptrINS_12DefaultEventEEENS_12earlier_thanISE_EESaISE_EE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24), (40, 48)) %this, ptr nocapture noundef %probabilities, ptr noundef %events) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %probabilities, align 8, !tbaa !3
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -161,7 +161,7 @@ _ZNSt3setIN5boost10shared_ptrIN8QuantLib12DefaultEventEEENS2_12earlier_thanIS4_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib6IssuerC2ERKSt6vectorIS1_IN5boost10shared_ptrINS_11DefaultTypeEEESaIS5_EESaIS7_EERKS1_INS_8CurrencyESaISC_EERKS1_INS_9SeniorityESaISH_EERKS1_INS_6HandleINS_31DefaultProbabilityTermStructureEEESaISO_EESt3setINS3_INS_12DefaultEventEEENS_12earlier_thanISV_EESaISV_EE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %eventTypes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %currencies, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %seniorities, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %curves, ptr noundef %events) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib6IssuerC2ERKSt6vectorIS1_IN5boost10shared_ptrINS_11DefaultTypeEEESaIS5_EESaIS7_EERKS1_INS_8CurrencyESaISC_EERKS1_INS_9SeniorityESaISH_EERKS1_INS_6HandleINS_31DefaultProbabilityTermStructureEEESaISO_EESt3setINS3_INS_12DefaultEventEEENS_12earlier_thanISV_EESaISV_EE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24), (40, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %eventTypes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %currencies, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %seniorities, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %curves, ptr noundef %events) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1629,7 +1629,7 @@ return:                                           ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib6Issuer15defaultsBetweenERKNS_4DateES3_RKNS_14DefaultProbKeyEb(ptr dead_on_unwind noalias writable sret(%"class.std::vector.70") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(44) %contractKey, i1 noundef zeroext %includeRefDate) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib6Issuer15defaultsBetweenERKNS_4DateES3_RKNS_14DefaultProbKeyEb(ptr dead_on_unwind noalias writable sret(%"class.std::vector.70") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end, ptr noundef nonnull align 8 dereferenceable(44) %contractKey, i1 noundef zeroext %includeRefDate) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 48

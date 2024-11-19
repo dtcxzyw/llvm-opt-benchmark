@@ -111,7 +111,7 @@ $_ZTV20FormatStringEventLogILm256EE = comdat any
 @_ZN13EventMarkBaseC1EPFvP6ThreadPKczE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN13EventMarkBaseC2EPFvP6ThreadPKczE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8EventLogC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN8EventLogC2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.ThreadCritical, align 1
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV8EventLog, i64 16), ptr %0, align 8
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #10
@@ -839,7 +839,7 @@ define hidden void @_Z13eventlog_initv() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13EventMarkBaseC2EPFvP6ThreadPKczE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13EventMarkBaseC2EPFvP6ThreadPKczE(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 8), (16, 272)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

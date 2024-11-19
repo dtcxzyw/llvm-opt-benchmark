@@ -52,7 +52,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb11FileIndexerC2EPKNS_10ComparatorE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef %ucmp) unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb11FileIndexerC2EPKNS_10ComparatorE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 24)) %this, ptr noundef %ucmp) unnamed_addr #2 align 2 {
 entry:
   store i64 0, ptr %this, align 8
   %ucmp_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -118,7 +118,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK7rocksdb11FileIndexer17GetNextLevelIndexEmmiiPiS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, i64 noundef %level, i64 noundef %file_index, i32 noundef %cmp_smallest, i32 noundef %cmp_largest, ptr nocapture noundef writeonly %left_bound, ptr nocapture noundef writeonly %right_bound) local_unnamed_addr #5 align 2 {
+define void @_ZNK7rocksdb11FileIndexer17GetNextLevelIndexEmmiiPiS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, i64 noundef %level, i64 noundef %file_index, i32 noundef %cmp_smallest, i32 noundef %cmp_largest, ptr nocapture noundef writeonly initializes((0, 4)) %left_bound, ptr nocapture noundef writeonly initializes((0, 4)) %right_bound) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %sub = add i64 %0, -1

@@ -642,7 +642,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceIN5arrow7compute15KernelSignatureESaIvELN9__gnu_
 @_ZN5arrow7compute15KernelSignatureC1ESt6vectorINS0_9InputTypeESaIS3_EENS0_10OutputTypeEb = unnamed_addr alias void (ptr, ptr, ptr, i1), ptr @_ZN5arrow7compute15KernelSignatureC2ESt6vectorINS0_9InputTypeESaIS3_EENS0_10OutputTypeEb
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute13KernelContext8AllocateEl(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %nbytes) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute13KernelContext8AllocateEl(ptr noalias sret(%"class.arrow::Result") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %nbytes) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   %ref.tmp = alloca %"class.arrow::Result.2", align 8
@@ -1289,7 +1289,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.then.i, %_ZN5arr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute21ScalarAggregateKernel8MergeAllEPKS1_PNS0_13KernelContextESt6vectorISt10unique_ptrINS0_11KernelStateESt14default_deleteIS8_EESaISB_EE(ptr noalias sret(%"class.arrow::Result.23") align 8 %agg.result, ptr nocapture noundef readonly %kernel, ptr noundef %ctx, ptr nocapture noundef %states) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute21ScalarAggregateKernel8MergeAllEPKS1_PNS0_13KernelContextESt6vectorISt10unique_ptrINS0_11KernelStateESt14default_deleteIS8_EESaISB_EE(ptr noalias sret(%"class.arrow::Result.23") align 8 %agg.result, ptr nocapture noundef readonly %kernel, ptr noundef initializes((8, 16)) %ctx, ptr nocapture noundef %states) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__s = alloca %"class.arrow::Status", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -1607,7 +1607,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute5match10SameTypeIdENS_4Type4typeE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 %agg.result, i32 noundef %type_id) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute5match10SameTypeIdENS_4Type4typeE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 initializes((0, 16)) %agg.result, i32 noundef %type_id) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN5arrow7compute5match17SameTypeIdMatcherEED2Ev.exit:
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21, !noalias !34
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
@@ -1626,7 +1626,7 @@ _ZNSt10shared_ptrIN5arrow7compute5match17SameTypeIdMatcherEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute5match17TimestampTypeUnitENS_8TimeUnit4typeE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 %agg.result, i32 noundef %unit) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute5match17TimestampTypeUnitENS_8TimeUnit4typeE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 initializes((0, 16)) %agg.result, i32 noundef %unit) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN5arrow7compute5match15TimeUnitMatcherINS0_13TimestampTypeEEEED2Ev.exit:
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21, !noalias !37
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
@@ -1645,7 +1645,7 @@ _ZNSt10shared_ptrIN5arrow7compute5match15TimeUnitMatcherINS0_13TimestampTypeEEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute5match14Time32TypeUnitENS_8TimeUnit4typeE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 %agg.result, i32 noundef %unit) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute5match14Time32TypeUnitENS_8TimeUnit4typeE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 initializes((0, 16)) %agg.result, i32 noundef %unit) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN5arrow7compute5match15TimeUnitMatcherINS0_10Time32TypeEEEED2Ev.exit:
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21, !noalias !40
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
@@ -1664,7 +1664,7 @@ _ZNSt10shared_ptrIN5arrow7compute5match15TimeUnitMatcherINS0_10Time32TypeEEEED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute5match14Time64TypeUnitENS_8TimeUnit4typeE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 %agg.result, i32 noundef %unit) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute5match14Time64TypeUnitENS_8TimeUnit4typeE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 initializes((0, 16)) %agg.result, i32 noundef %unit) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN5arrow7compute5match15TimeUnitMatcherINS0_10Time64TypeEEEED2Ev.exit:
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21, !noalias !43
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
@@ -1683,7 +1683,7 @@ _ZNSt10shared_ptrIN5arrow7compute5match15TimeUnitMatcherINS0_10Time64TypeEEEED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute5match16DurationTypeUnitENS_8TimeUnit4typeE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 %agg.result, i32 noundef %unit) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute5match16DurationTypeUnitENS_8TimeUnit4typeE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 initializes((0, 16)) %agg.result, i32 noundef %unit) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN5arrow7compute5match15TimeUnitMatcherINS0_12DurationTypeEEEED2Ev.exit:
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21, !noalias !46
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
@@ -1702,7 +1702,7 @@ _ZNSt10shared_ptrIN5arrow7compute5match15TimeUnitMatcherINS0_12DurationTypeEEEED
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute5match7IntegerEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute5match7IntegerEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN5arrow7compute5match14IntegerMatcherEED2Ev.exit:
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !49
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
@@ -1719,7 +1719,7 @@ _ZNSt10shared_ptrIN5arrow7compute5match14IntegerMatcherEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute5match9PrimitiveEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute5match9PrimitiveEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN5arrow7compute5match16PrimitiveMatcherEED2Ev.exit:
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !52
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
@@ -1736,7 +1736,7 @@ _ZNSt10shared_ptrIN5arrow7compute5match16PrimitiveMatcherEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute5match10BinaryLikeEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute5match10BinaryLikeEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN5arrow7compute5match17BinaryLikeMatcherEED2Ev.exit:
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !55
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
@@ -1753,7 +1753,7 @@ _ZNSt10shared_ptrIN5arrow7compute5match17BinaryLikeMatcherEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute5match15LargeBinaryLikeEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute5match15LargeBinaryLikeEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN5arrow7compute5match22LargeBinaryLikeMatcherEED2Ev.exit:
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !58
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
@@ -1770,7 +1770,7 @@ _ZNSt10shared_ptrIN5arrow7compute5match22LargeBinaryLikeMatcherEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute5match19FixedSizeBinaryLikeEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute5match19FixedSizeBinaryLikeEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN5arrow7compute5match26FixedSizeBinaryLikeMatcherEED2Ev.exit:
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !61
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
@@ -1787,7 +1787,7 @@ _ZNSt10shared_ptrIN5arrow7compute5match26FixedSizeBinaryLikeMatcherEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute5match13RunEndIntegerEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute5match13RunEndIntegerEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN5arrow7compute5match20RunEndIntegerMatcherEED2Ev.exit:
   %call5.i.i.i2.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !64
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i, i64 8
@@ -2013,7 +2013,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute5match13RunEndEncodedESt10shared_ptrINS0_11TypeMatcherEES4_(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 %agg.result, ptr nocapture noundef %run_end_type_matcher, ptr nocapture noundef %value_type_matcher) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute5match13RunEndEncodedESt10shared_ptrINS0_11TypeMatcherEES4_(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef %run_end_type_matcher, ptr nocapture noundef %value_type_matcher) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN5arrow7compute5match20RunEndEncodedMatcherEED2Ev.exit:
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21, !noalias !94
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
@@ -2415,7 +2415,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute15KernelSignatureC2ESt6vectorINS0_9InputTypeESaIS3_EENS0_10OutputTypeEb(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef %in_types, ptr noundef nonnull %out_type, i1 noundef zeroext %is_varargs) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute15KernelSignatureC2ESt6vectorINS0_9InputTypeESaIS3_EENS0_10OutputTypeEb(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 24)) %this, ptr nocapture noundef %in_types, ptr noundef nonnull %out_type, i1 noundef zeroext %is_varargs) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %in_types, align 8
   store ptr %0, ptr %this, align 8
@@ -2666,7 +2666,7 @@ _ZNSt12_Vector_baseIN5arrow7compute9InputTypeESaIS2_EED2Ev.exit: ; preds = %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute15KernelSignature4MakeESt6vectorINS0_9InputTypeESaIS3_EENS0_10OutputTypeEb(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr noundef %in_types, ptr noundef %out_type, i1 noundef zeroext %is_varargs) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute15KernelSignature4MakeESt6vectorINS0_9InputTypeESaIS3_EENS0_10OutputTypeEb(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 initializes((0, 8)) %agg.result, ptr noundef %in_types, ptr noundef %out_type, i1 noundef zeroext %is_varargs) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %is_varargs.addr = alloca i8, align 1
   %frombool = zext i1 %is_varargs to i8

@@ -1746,7 +1746,7 @@ declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local
 declare void @prefs_register_static_text_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @nat64_prefix_uat_fld_ip_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly %5) #0 {
+define internal noundef zeroext i1 @nat64_prefix_uat_fld_ip_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
   %7 = alloca %struct.e_in6_addr, align 1
   %8 = call zeroext i1 @ws_inet_pton6(ptr noundef %1, ptr noundef nonnull %7) #13
   br i1 %8, label %11, label %9
@@ -1772,7 +1772,7 @@ define internal void @nat64_prefix_uats_ipaddr_set_cb(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nat64_prefix_uats_ipaddr_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @nat64_prefix_uats_ipaddr_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -1799,7 +1799,7 @@ define internal void @nat64_prefix_uats_ipaddr_tostr_cb(ptr nocapture noundef re
 declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @nat64_prefix_uats_prefix_len_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @nat64_prefix_uats_prefix_len_set_cb(ptr nocapture noundef writeonly initializes((8, 9)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1891,7 +1891,7 @@ define internal void @nat64_prefix_uats_prefix_len_tostr_cb(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nat64_prefix_uats_prefix_wildcard_len_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @nat64_prefix_uats_prefix_wildcard_len_set_cb(ptr nocapture noundef writeonly initializes((12, 16)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds i8, ptr %0, i64 12
@@ -1984,7 +1984,7 @@ define internal void @nat64_prefix_uats_prefix_wildcard_len_tostr_cb(ptr nocaptu
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @nat64_prefix_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @nat64_prefix_copy_cb(ptr noundef returned writeonly initializes((0, 9), (12, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #13
   store ptr %5, ptr %0, align 8
@@ -2713,7 +2713,7 @@ declare void @register_decode_as(ptr noundef) local_unnamed_addr #1
 declare void @register_conversation_table(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ipv6_conversation_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
+define internal noundef i32 @ipv6_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 16
@@ -2731,7 +2731,7 @@ define internal noundef i32 @ipv6_conversation_packet(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ipv6_endpoint_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
+define internal noundef i32 @ipv6_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 16

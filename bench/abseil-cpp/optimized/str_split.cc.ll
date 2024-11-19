@@ -318,7 +318,7 @@ _ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl8ByLengthC2El(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, i64 noundef %length) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4absl8ByLengthC2El(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, i64 noundef %length) unnamed_addr #0 align 2 {
 entry:
   store i64 %length, ptr %this, align 8
   %cmp = icmp slt i64 %length, 1

@@ -299,7 +299,7 @@ $_ZN4llvm17PreservedAnalyses11preserveSetEPNS_14AnalysisSetKeyE = comdat any
 @switch.table.LLVMGetMetadataKind = private unnamed_addr constant [36 x i32] [i32 0, i32 1, i32 2, i32 3, i32 34, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 35, i32 29, i32 30, i32 31, i32 32, i32 33], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15findDbgDeclaresEPNS_5ValueE(ptr dead_on_unwind noalias writable sret(%"class.llvm::TinyPtrVector") align 8 %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm15findDbgDeclaresEPNS_5ValueE(ptr dead_on_unwind noalias writable sret(%"class.llvm::TinyPtrVector") align 8 initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 134217728
@@ -469,7 +469,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14DbgDeclareInstELb1EE9push_backES2_.exit7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15findDVRDeclaresEPNS_5ValueE(ptr dead_on_unwind noalias writable sret(%"class.llvm::TinyPtrVector.2") align 8 %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm15findDVRDeclaresEPNS_5ValueE(ptr dead_on_unwind noalias writable sret(%"class.llvm::TinyPtrVector.2") align 8 initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %"class.llvm::SmallVector", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -608,7 +608,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17DbgVariableRecordELb1EE9push_backES2_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13findDVRValuesEPNS_5ValueE(ptr dead_on_unwind noalias writable sret(%"class.llvm::TinyPtrVector.2") align 8 %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm13findDVRValuesEPNS_5ValueE(ptr dead_on_unwind noalias writable sret(%"class.llvm::TinyPtrVector.2") align 8 initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %"class.llvm::SmallVector", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -7848,7 +7848,7 @@ _ZNK4llvm7DIScope7getFileEv.exit:                 ; preds = %1, %_ZNK4llvm6MDNod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @LLVMDIFileGetDirectory(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local ptr @LLVMDIFileGetDirectory(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 2
@@ -7890,7 +7890,7 @@ _ZNK4llvm6DIFile12getDirectoryEv.exit:            ; preds = %_ZNK4llvm6DINode12g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @LLVMDIFileGetFilename(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local ptr @LLVMDIFileGetFilename(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 2
@@ -7931,7 +7931,7 @@ _ZNK4llvm6DIFile11getFilenameEv.exit:             ; preds = %_ZNK4llvm6DINode12g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @LLVMDIFileGetSource(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local ptr @LLVMDIFileGetSource(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !noalias !97
   %.not.i = icmp eq ptr %4, null
@@ -8237,7 +8237,7 @@ define dso_local noundef zeroext i16 @LLVMGetDINodeTag(ptr noundef nonnull %0) l
 declare noundef zeroext i16 @_ZNK4llvm6DINode6getTagEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @LLVMDITypeGetName(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local ptr @LLVMDITypeGetName(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 2
@@ -9647,7 +9647,7 @@ declare noundef ptr @_ZNK4llvm17DbgVariableRecord11getAssignIDEv(ptr noundef non
 declare void @_ZN4llvm18DbgAssignIntrinsic11setAssignIdEPNS_10DIAssignIDE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2at17getAssignmentInfoERKNS_10DataLayoutEPKNS_12MemIntrinsicE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.722") align 8 %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm2at17getAssignmentInfoERKNS_10DataLayoutEPKNS_12MemIntrinsicE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.722") align 8 initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 134217727
@@ -9683,7 +9683,7 @@ define dso_local void @_ZN4llvm2at17getAssignmentInfoERKNS_10DataLayoutEPKNS_12M
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21getAssignmentInfoImplRKN4llvm10DataLayoutEPKNS_5ValueENS_8TypeSizeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef %2, i64 %3, i8 %4) unnamed_addr #0 {
+define internal fastcc void @_ZL21getAssignmentInfoImplRKN4llvm10DataLayoutEPKNS_5ValueENS_8TypeSizeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef %2, i64 %3, i8 %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::TypeSize", align 8
   %7 = alloca %"class.llvm::TypeSize", align 8
   %8 = alloca %"class.llvm::APInt", align 8
@@ -9829,7 +9829,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %67, %64, %61, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2at17getAssignmentInfoERKNS_10DataLayoutEPKNS_9StoreInstE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.722") align 8 %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm2at17getAssignmentInfoERKNS_10DataLayoutEPKNS_9StoreInstE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.722") align 8 initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 -64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -9965,7 +9965,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2at17getAssignmentInfoERKNS_10DataLayoutEPKNS_10AllocaInstE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.722") align 8 %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm2at17getAssignmentInfoERKNS_10DataLayoutEPKNS_10AllocaInstE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.722") align 8 initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = tail call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef %5)

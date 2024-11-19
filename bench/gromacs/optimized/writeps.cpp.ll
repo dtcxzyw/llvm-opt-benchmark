@@ -108,7 +108,7 @@ define noundef ptr @_Z17enumValueToString5Fonts(i32 noundef %0) local_unnamed_ad
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z7ps_openRKNSt10filesystem7__cxx114pathEffff(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.t_psdata) align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_Z7ps_openRKNSt10filesystem7__cxx114pathEffff(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.t_psdata) align 8 initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::allocator.0", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
@@ -375,7 +375,7 @@ define void @_Z6ps_rgbP8t_psdataPK5t_rgb(ptr nocapture noundef %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z16ps_init_rgb_nboxP8t_psdataff(ptr nocapture noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #7 {
+define void @_Z16ps_init_rgb_nboxP8t_psdataff(ptr nocapture noundef initializes((32, 36)) %0, float noundef %1, float noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store float %2, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8

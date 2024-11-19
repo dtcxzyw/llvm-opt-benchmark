@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [25 x i8] c"aligned buffer too large\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @mca_allocator_bucket_init(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define noundef ptr @mca_allocator_bucket_init(ptr noundef initializes((48, 56)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %1, 1
   %spec.store.select = select i1 %5, i32 30, i32 %1
   %6 = add nsw i32 %spec.store.select, -1
@@ -477,7 +477,7 @@ mca_allocator_bucket_free.exit:                   ; preds = %33, %24, %10, %3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define void @mca_allocator_bucket_free(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @mca_allocator_bucket_free(ptr nocapture noundef readonly %0, ptr noundef initializes((-4, 0)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -16
   %4 = getelementptr inbounds i8, ptr %1, i64 -8
   %5 = load i32, ptr %4, align 8

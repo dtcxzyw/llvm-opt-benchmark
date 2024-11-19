@@ -300,7 +300,7 @@ _ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers27QuantifiersInferenceManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers27QuantifiersInferenceManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(376) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers27QuantifiersInferenceManagerE, i64 16), ptr %this, align 8
   %d_skolemize = getelementptr inbounds i8, ptr %this, i64 368
@@ -336,7 +336,7 @@ _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers11InstantiateESt14default_d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers27QuantifiersInferenceManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers27QuantifiersInferenceManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(376) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers27QuantifiersInferenceManagerE, i64 16), ptr %this, align 8
   %d_skolemize.i = getelementptr inbounds i8, ptr %this, i64 368

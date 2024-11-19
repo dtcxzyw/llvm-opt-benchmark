@@ -535,7 +535,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost4urls11params_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(51) %0) unnamed_addr #3 align 2 {
+define void @_ZN5boost4urls11params_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(51) initializes((0, 41)) %0) unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 0, i64 41, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZN5boost4urls13encoding_optsC1Ebbb(ptr noundef nonnull align 1 dereferenceable(3) %2, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false) #15
@@ -862,7 +862,7 @@ define void @_ZNK5boost4urls11params_base9find_lastENS1_8iteratorENS_4core17basi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5boost4urls11params_baseC2ERKNS0_6detail9query_refENS0_13encoding_optsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(51) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %1, i24 %2) unnamed_addr #9 align 2 {
+define void @_ZN5boost4urls11params_baseC2ERKNS0_6detail9query_refENS0_13encoding_optsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(51) initializes((0, 51)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %1, i24 %2) unnamed_addr #9 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i24 %2, ptr %4, align 8

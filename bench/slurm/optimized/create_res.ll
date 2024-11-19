@@ -107,7 +107,7 @@ define dso_local i32 @scontrol_update_res(i32 noundef %0, ptr nocapture noundef 
 declare void @slurm_init_resv_desc_msg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull initializes((0, 4)) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8

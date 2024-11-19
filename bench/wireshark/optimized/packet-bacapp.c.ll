@@ -5460,7 +5460,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 3, 7) i32 @fStartConfirmed(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 2) %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 3, 7) i32 @fStartConfirmed(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 2) %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %4) unnamed_addr #0 {
   %6 = tail call signext i8 @tvb_get_gint8(ptr noundef %0, i32 noundef 0) #7
   %7 = and i8 %6, 15
   store i8 %7, ptr @bacapp_flags, align 1
@@ -6885,7 +6885,7 @@ define internal fastcc noundef i32 @fObjectIdentifier(ptr noundef nonnull %0, pt
 declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull initializes((0, 1)) %4, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %5, ptr nocapture noundef nonnull initializes((0, 4)) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %3) #7

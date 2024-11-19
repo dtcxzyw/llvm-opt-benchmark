@@ -892,7 +892,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @CmdHistorySubstitution(ptr nocapture noundef readnone %0, ptr noundef readnone returned %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #10 {
+define noundef ptr @CmdHistorySubstitution(ptr nocapture noundef readnone %0, ptr noundef readnone returned %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #10 {
   store i32 0, ptr %2, align 4
   ret ptr %1
 }

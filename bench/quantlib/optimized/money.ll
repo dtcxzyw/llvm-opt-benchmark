@@ -4495,7 +4495,7 @@ _ZN8QuantLib8CurrencyaSERKS0_.exit:               ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZNK8QuantLib5Money17BaseCurrencyProxycvNS_8CurrencyEEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Currency") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib5Money17BaseCurrencyProxycvNS_8CurrencyEEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Currency") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN8QuantLib9SingletonINS_5Money8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0

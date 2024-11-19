@@ -1049,7 +1049,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel13BotRegisterer14RegisteredBotsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector.72") align 8 %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel13BotRegisterer14RegisteredBotsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector.72") align 8 initializes((0, 24)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = load atomic i8, ptr @_ZGVZN10open_spiel13BotRegisterer9factoriesB5cxx11EvE4implB5cxx11 acquire, align 8
   %3 = icmp eq i8 %2, 0
@@ -1234,7 +1234,7 @@ _ZNSt12__shared_ptrIKN10open_spiel4GameELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel13BotRegisterer19BotsThatCanPlayGameB5cxx11ERKNS_4GameEi(ptr dead_on_unwind noalias writable sret(%"class.std::vector.72") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel13BotRegisterer19BotsThatCanPlayGameB5cxx11ERKNS_4GameEi(ptr dead_on_unwind noalias writable sret(%"class.std::vector.72") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = load atomic i8, ptr @_ZGVZN10open_spiel13BotRegisterer9factoriesB5cxx11EvE4implB5cxx11 acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -1315,7 +1315,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel13BotRegisterer19BotsThatCanPlayGameB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.72") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel13BotRegisterer19BotsThatCanPlayGameB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.72") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(280) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = load atomic i8, ptr @_ZGVZN10open_spiel13BotRegisterer9factoriesB5cxx11EvE4implB5cxx11 acquire, align 8
   %4 = icmp eq i8 %3, 0
@@ -1486,7 +1486,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel14RegisteredBotsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector.72") align 8 %0) local_unnamed_addr #3 {
+define void @_ZN10open_spiel14RegisteredBotsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector.72") align 8 initializes((0, 24)) %0) local_unnamed_addr #3 {
   tail call void @_ZN10open_spiel13BotRegisterer14RegisteredBotsB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::vector.72") align 8 %0)
   ret void
 }
@@ -1952,13 +1952,13 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 declare void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel19BotsThatCanPlayGameB5cxx11ERKNS_4GameEi(ptr dead_on_unwind noalias writable sret(%"class.std::vector.72") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %2) local_unnamed_addr #3 {
+define void @_ZN10open_spiel19BotsThatCanPlayGameB5cxx11ERKNS_4GameEi(ptr dead_on_unwind noalias writable sret(%"class.std::vector.72") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %2) local_unnamed_addr #3 {
   tail call void @_ZN10open_spiel13BotRegisterer19BotsThatCanPlayGameB5cxx11ERKNS_4GameEi(ptr dead_on_unwind writable sret(%"class.std::vector.72") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel19BotsThatCanPlayGameB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.72") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1) local_unnamed_addr #3 {
+define void @_ZN10open_spiel19BotsThatCanPlayGameB5cxx11ERKNS_4GameE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.72") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(280) %1) local_unnamed_addr #3 {
   tail call void @_ZN10open_spiel13BotRegisterer19BotsThatCanPlayGameB5cxx11ERKNS_4GameE(ptr dead_on_unwind writable sret(%"class.std::vector.72") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1)
   ret void
 }
@@ -2418,7 +2418,7 @@ define internal noundef zeroext i1 @_ZN10open_spiel12_GLOBAL__N_116UniformRandom
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN10open_spiel12_GLOBAL__N_116UniformRandomBot9GetPolicyERKNS_5StateE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.101") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(5016) %1, ptr noundef nonnull align 8 dereferenceable(60) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN10open_spiel12_GLOBAL__N_116UniformRandomBot9GetPolicyERKNS_5StateE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.101") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(5016) %1, ptr noundef nonnull align 8 dereferenceable(60) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2760,7 +2760,7 @@ define internal noundef zeroext i1 @_ZNK10open_spiel12_GLOBAL__N_116UniformRando
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN10open_spiel12_GLOBAL__N_116UniformRandomBot5CloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(5016) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN10open_spiel12_GLOBAL__N_116UniformRandomBot5CloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(5016) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_116UniformRandomBotESt14default_deleteIS2_EED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(5016) ptr @_Znwm(i64 noundef 5016) #21, !noalias !49
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_116UniformRandomBotE, i64 16), ptr %2, align 8, !noalias !49
@@ -3454,7 +3454,7 @@ declare void @_ZN4absl7debian215random_internal11RandenHwAes8GenerateEPKvPv(ptr 
 declare void @_ZN4absl7debian215random_internal10RandenSlow8GenerateEPKvPv(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN10open_spiel12_GLOBAL__N_19PolicyBotD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(5024) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN10open_spiel12_GLOBAL__N_19PolicyBotD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(5024) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_19PolicyBotE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5016
   %3 = load ptr, ptr %2, align 8
@@ -3534,7 +3534,7 @@ _ZNSt10shared_ptrIN10open_spiel6PolicyEED2Ev.exit: ; preds = %1, %20, %33, %_ZNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN10open_spiel12_GLOBAL__N_19PolicyBotD0Ev(ptr noundef nonnull align 8 dereferenceable(5024) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN10open_spiel12_GLOBAL__N_19PolicyBotD0Ev(ptr noundef nonnull align 8 dereferenceable(5024) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_19PolicyBotE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5016
   %3 = load ptr, ptr %2, align 8
@@ -3778,7 +3778,7 @@ define internal noundef zeroext i1 @_ZNK10open_spiel12_GLOBAL__N_19PolicyBot10Is
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN10open_spiel12_GLOBAL__N_19PolicyBot5CloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(5024) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN10open_spiel12_GLOBAL__N_19PolicyBot5CloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(5024) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(5024) ptr @_Znwm(i64 noundef 5024) #21, !noalias !63
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_19PolicyBotE, i64 16), ptr %3, align 8, !noalias !63
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3834,7 +3834,7 @@ define linkonce_odr noundef i64 @_ZN4absl7debian29BitGenRef6ImplFnISt23mersenne_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -3855,7 +3855,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -4140,7 +4140,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit16:                  ; preds = %88, %90
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBot14StepWithPolicyERKNS_5StateE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.106") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(60) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBot14StepWithPolicyERKNS_5StateE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.106") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(60) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.101", align 8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 88
@@ -5581,7 +5581,7 @@ declare { ptr, i64 } @_ZNK4absl7debian28ByString4FindENS0_11string_viewEm(ptr no
 declare void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN10open_spiel12_GLOBAL__N_117StatefulRandomBotD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(5024) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN10open_spiel12_GLOBAL__N_117StatefulRandomBotD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(5024) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_117StatefulRandomBotE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5016
   %3 = load ptr, ptr %2, align 8
@@ -5601,7 +5601,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN10open_spiel12_GLOBAL__N_117StatefulRandomBotD0Ev(ptr noundef nonnull align 8 dereferenceable(5024) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN10open_spiel12_GLOBAL__N_117StatefulRandomBotD0Ev(ptr noundef nonnull align 8 dereferenceable(5024) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_117StatefulRandomBotE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5016
   %3 = load ptr, ptr %2, align 8
@@ -5819,7 +5819,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN10open_spiel12_GLOBAL__N_117StatefulRandomBot9GetPolicyERKNS_5StateE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.101") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(5024) %1, ptr noundef nonnull align 8 dereferenceable(60) %2) unnamed_addr #3 align 2 {
+define internal void @_ZN10open_spiel12_GLOBAL__N_117StatefulRandomBot9GetPolicyERKNS_5StateE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.101") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(5024) %1, ptr noundef nonnull align 8 dereferenceable(60) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 5016
   %5 = load ptr, ptr %4, align 8
   tail call fastcc void @_ZNK10open_spiel12_GLOBAL__N_117StatefulRandomBot16CheckStatesEqualERKNS_5StateES4_(ptr noundef nonnull align 8 dereferenceable(60) %2, ptr noundef nonnull align 8 dereferenceable(60) %5)

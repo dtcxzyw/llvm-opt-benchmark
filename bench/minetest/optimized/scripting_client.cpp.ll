@@ -348,7 +348,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15ClientScriptingC2EP6Client(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %vtt, ptr noundef %client) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15ClientScriptingC2EP6Client(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %client) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stack_unroller = alloca %class.StackUnroller, align 8
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8

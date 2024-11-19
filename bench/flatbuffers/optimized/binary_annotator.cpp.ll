@@ -6461,7 +6461,7 @@ _ZNSt6vectorIN11flatbuffers12BinaryRegionESaIS1_EE12emplace_backIJS1_EEERS1_DpOT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_116MakeBinaryRegionEmmNS_16BinaryRegionTypeEmmNS_19BinaryRegionCommentE(ptr noalias nonnull align 8 %agg.result, i64 noundef %offset, i64 noundef %length, i32 noundef range(i32 0, 19) %type, i64 noundef %array_length, i64 noundef %points_to_offset, ptr noundef nonnull %comment) unnamed_addr #5 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_116MakeBinaryRegionEmmNS_16BinaryRegionTypeEmmNS_19BinaryRegionCommentE(ptr noalias nonnull align 8 initializes((0, 20), (24, 44)) %agg.result, i64 noundef %offset, i64 noundef %length, i32 noundef range(i32 0, 19) %type, i64 noundef %array_length, i64 noundef %points_to_offset, ptr noundef nonnull %comment) unnamed_addr #5 {
 entry:
   %array_length.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %status_message.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48

@@ -274,7 +274,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @blk_log_writes_refresh_limits(ptr nocapture noundef %bs, ptr nocapture readnone %errp) #2 {
+define internal void @blk_log_writes_refresh_limits(ptr nocapture noundef initializes((16464, 16468)) %bs, ptr nocapture readnone %errp) #2 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -627,7 +627,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_log_writes_co_do_log(ptr nocapture noundef %lr) #0 {
+define internal void @blk_log_writes_co_do_log(ptr nocapture noundef initializes((56, 60)) %lr) #0 {
 entry:
   %super = alloca %struct.log_write_super, align 8
   %qiov58 = alloca %struct.QEMUIOVector, align 8

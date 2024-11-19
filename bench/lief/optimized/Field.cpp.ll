@@ -223,7 +223,7 @@ define noundef zeroext i1 @_ZNK4LIEF3DEX5Field9is_staticEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF3DEX5Field10set_staticEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(65) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF3DEX5Field10set_staticEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(65) initializes((64, 65)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store i8 %3, ptr %4, align 8
@@ -240,7 +240,7 @@ define noundef zeroext i1 @_ZNK4LIEF3DEX5Field3hasENS0_12ACCESS_FLAGSE(ptr nocap
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4LIEF3DEX5Field12access_flagsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.39") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4LIEF3DEX5Field12access_flagsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.39") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -744,7 +744,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsI
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF3DEX5FieldD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %0) unnamed_addr #8 align 2 {
+define void @_ZN4LIEF3DEX5FieldD2Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8)) %0) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF3DEX5FieldE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19

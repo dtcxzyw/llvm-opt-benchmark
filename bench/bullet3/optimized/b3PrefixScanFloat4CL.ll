@@ -67,7 +67,7 @@ $_ZTI13b3OpenCLArrayI9b3Vector3E = comdat any
 @_ZN20b3PrefixScanFloat4CLD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN20b3PrefixScanFloat4CLD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20b3PrefixScanFloat4CLC2EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %queue, i32 noundef %size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN20b3PrefixScanFloat4CLC2EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 16)) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %queue, i32 noundef %size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pErrNum = alloca i32, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTV20b3PrefixScanFloat4CL, i64 16), ptr %this, align 8
@@ -125,7 +125,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN20b3PrefixScanFloat4CLD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN20b3PrefixScanFloat4CLD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV20b3PrefixScanFloat4CL, i64 16), ptr %this, align 8
   %m_workBuffer = getelementptr inbounds i8, ptr %this, i64 40
@@ -185,7 +185,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN20b3PrefixScanFloat4CLD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN20b3PrefixScanFloat4CLD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV20b3PrefixScanFloat4CL, i64 16), ptr %this, align 8
   %m_workBuffer.i = getelementptr inbounds i8, ptr %this, i64 40

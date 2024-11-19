@@ -152,7 +152,7 @@ cleanup_part_content.exit:                        ; preds = %2, %5
 declare void @curl_slist_free_all(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @Curl_mime_initpart(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
+define dso_local void @Curl_mime_initpart(ptr nocapture noundef writeonly initializes((0, 440)) %0) local_unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(440) %0, i8 0, i64 432, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 432
   store i64 1, ptr %2, align 8
@@ -2127,7 +2127,7 @@ read_encoded_part_content.exit.thread:            ; preds = %89, %read_encoded_p
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 66) i32 @Curl_mime_rewind(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 66) i32 @Curl_mime_rewind(ptr nocapture noundef initializes((152, 176), (432, 440)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = shl i32 %3, 1

@@ -4014,7 +4014,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24_
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L31_GetFormatArgumentForFileFormatERKNS_9TfWeakPtrIKNS_13SdfFileFormatEEE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L31_GetFormatArgumentForFileFormatERKNS_9TfWeakPtrIKNS_13SdfFileFormatEEE(ptr dead_on_unwind noalias nocapture writable align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8

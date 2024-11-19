@@ -67,7 +67,7 @@ $_ZTINSt6thread11_State_implINS_8_InvokerISt5tupleIJMN32pxrInternal_v0_24__pxrRe
 @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThreadD1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThreadD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 68), (72, 112)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -792,7 +792,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread15LockFramebufferEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_lock") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread15LockFramebufferEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_lock") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store ptr %3, ptr %0, align 8
   %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #15

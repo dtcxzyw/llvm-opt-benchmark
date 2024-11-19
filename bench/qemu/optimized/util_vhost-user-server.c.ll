@@ -253,7 +253,7 @@ declare void @qio_net_listener_disconnect(ptr noundef) local_unnamed_addr #2
 declare void @object_unref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vhost_user_server_attach_aio_context(ptr noundef %server, ptr noundef %ctx) local_unnamed_addr #0 {
+define dso_local void @vhost_user_server_attach_aio_context(ptr noundef initializes((16, 24)) %server, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %ctx1 = getelementptr inbounds i8, ptr %server, i64 16
   store ptr %ctx, ptr %ctx1, align 8

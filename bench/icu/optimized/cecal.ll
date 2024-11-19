@@ -175,7 +175,7 @@ entry:
 declare noundef i32 @_ZN6icu_759ClockMath11floorDivideEii(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7510CECalendar6jdToCEEiiRiS1_S1_(i32 noundef %julianDay, i32 noundef %jdEpochOffset, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %year, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %month, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %day) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7510CECalendar6jdToCEEiiRiS1_S1_(i32 noundef %julianDay, i32 noundef %jdEpochOffset, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %year, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %month, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %day) local_unnamed_addr #0 align 2 {
 entry:
   %r4 = alloca i32, align 4
   %sub = sub nsw i32 %julianDay, %jdEpochOffset

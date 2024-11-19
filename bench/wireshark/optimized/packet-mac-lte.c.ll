@@ -2197,7 +2197,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dissect_mac_lte_context_fields = private unnamed_addr constant [10 x i16] [i16 -2, i16 1, i16 1, i16 -1, i16 1, i16 -3, i16 -5, i16 1, i16 -5, i16 1], align 2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @dissect_mac_lte_context_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @dissect_mac_lte_context_fields(ptr noundef initializes((0, 3), (12, 16), (72, 73)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
   %6 = load i32, ptr %4, align 4
   %7 = add i32 %6, 1
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %6) #16
@@ -3101,7 +3101,7 @@ define hidden void @proto_register_mac_lte() local_unnamed_addr #0 {
 declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @lcid_drb_mappings_lcid_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @lcid_drb_mappings_lcid_set_cb(ptr nocapture noundef writeonly initializes((0, 2)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #16
   store i16 3, ptr %0, align 4
@@ -3203,7 +3203,7 @@ define internal void @lcid_drb_mappings_drbid_set_cb(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lcid_drb_mappings_drbid_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @lcid_drb_mappings_drbid_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1411, i32 noundef %7) #16
@@ -3215,7 +3215,7 @@ define internal void @lcid_drb_mappings_drbid_tostr_cb(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lcid_drb_mappings_channel_type_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @lcid_drb_mappings_channel_type_set_cb(ptr nocapture noundef writeonly initializes((8, 12)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #16
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4953,7 +4953,7 @@ declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @lcid_drb_mapping_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #4 {
+define internal noundef ptr @lcid_drb_mapping_copy_cb(ptr noundef returned writeonly initializes((0, 2), (4, 12)) %0, ptr nocapture noundef readonly %1, i64 %2) #4 {
   %4 = load i16, ptr %1, align 4
   store i16 %4, ptr %0, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -6541,7 +6541,7 @@ proto_item_set_generated.exit210:                 ; preds = %258, %263, %266
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_pch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_pch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef writeonly initializes((309, 310)) %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #16
   tail call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %3, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.1484, i32 noundef %7)
   %8 = load i32, ptr @hf_mac_lte_pch_pdu, align 4
@@ -7092,7 +7092,7 @@ proto_item_set_generated.exit122:                 ; preds = %270, %277, %280
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ulsch_or_dlsch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc void @dissect_ulsch_or_dlsch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr nocapture noundef initializes((18, 20), (312, 314)) %5, ptr noundef %6, ptr noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8

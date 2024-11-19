@@ -101,7 +101,7 @@ $_ZN4llvm15SmallVectorImplIiE10resizeImplILb0EEEvm = comdat any
 @.str.1 = private unnamed_addr constant [134 x i8] c"Possible incorrect use of LLT::getNumElements() for scalable vector. Scalable flag may be dropped, use LLT::getElementCount() instead\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MachineIRBuilder5setMFERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16MachineIRBuilder5setMFERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(88) initializes((8, 32), (56, 64)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::DebugLoc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -1187,7 +1187,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildPtrAddERKNS_5Dst
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MachineIRBuilder17materializePtrAddERNS_8RegisterES1_NS_3LLTEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.189") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, i32 %3, i64 %4, i64 noundef %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16MachineIRBuilder17materializePtrAddERNS_8RegisterES1_NS_3LLTEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.189") align 8 initializes((16, 17)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2, i32 %3, i64 %4, i64 noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca [1 x %"class.llvm::DstOp"], align 8
   %8 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %9 = alloca %"class.llvm::DstOp", align 8

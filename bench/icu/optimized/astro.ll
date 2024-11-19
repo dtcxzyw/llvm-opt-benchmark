@@ -77,7 +77,7 @@ $_ZTIN6icu_757UMemoryE = comdat any
 @_ZN6icu_7513CalendarCacheD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7513CalendarCacheD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518CalendarAstronomerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(129) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7518CalendarAstronomerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(129) initializes((0, 129)) %this) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef double @_ZN6icu_758Calendar6getNowEv()
   store double %call, ptr %this, align 8
@@ -114,7 +114,7 @@ entry:
 declare noundef double @_ZN6icu_758Calendar6getNowEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518CalendarAstronomer10clearCacheEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(129) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7518CalendarAstronomer10clearCacheEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(129) initializes((32, 112), (128, 129)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call double @uprv_getNaN_75()
   %julianDay = getelementptr inbounds i8, ptr %this, i64 32
@@ -143,7 +143,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518CalendarAstronomerC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(129) %this, double noundef %d) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7518CalendarAstronomerC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(129) initializes((0, 129)) %this, double noundef %d) unnamed_addr #0 align 2 {
 entry:
   store double %d, ptr %this, align 8
   %fLongitude = getelementptr inbounds i8, ptr %this, i64 8
@@ -177,7 +177,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518CalendarAstronomerC2Edd(ptr nocapture noundef nonnull align 8 dereferenceable(129) %this, double noundef %longitude, double noundef %latitude) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7518CalendarAstronomerC2Edd(ptr nocapture noundef nonnull align 8 dereferenceable(129) initializes((0, 129)) %this, double noundef %longitude, double noundef %latitude) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef double @_ZN6icu_758Calendar6getNowEv()
   store double %call, ptr %this, align 8
@@ -238,7 +238,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518CalendarAstronomer7setTimeEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(129) %this, double noundef %aTime) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7518CalendarAstronomer7setTimeEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(129) initializes((0, 8), (32, 112), (128, 129)) %this, double noundef %aTime) local_unnamed_addr #0 align 2 {
 entry:
   store double %aTime, ptr %this, align 8
   %call.i = tail call double @uprv_getNaN_75()
@@ -268,7 +268,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518CalendarAstronomer12setJulianDayEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(129) %this, double noundef %jdn) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7518CalendarAstronomer12setJulianDayEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(129) initializes((0, 8), (32, 112), (128, 129)) %this, double noundef %jdn) local_unnamed_addr #0 align 2 {
 entry:
   %0 = tail call double @llvm.fmuladd.f64(double %jdn, double 8.640000e+07, double 0xC2E7F907CA644000)
   store double %0, ptr %this, align 8
@@ -592,7 +592,7 @@ _ZN6icu_7518CalendarAstronomer17getSiderealOffsetEv.exit: ; preds = %entry.if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialERKNS0_8EclipticE(ptr nocapture noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull returned writeonly align 8 dereferenceable(16) %result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ecliptic) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialERKNS0_8EclipticE(ptr nocapture noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull returned writeonly align 8 dereferenceable(16) initializes((0, 16)) %result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ecliptic) local_unnamed_addr #0 align 2 {
 entry:
   %longitude = getelementptr inbounds i8, ptr %ecliptic, i64 8
   %0 = load double, ptr %longitude, align 8
@@ -663,7 +663,7 @@ _ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd(ptr nocapture noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull returned writeonly align 8 dereferenceable(16) %result, double noundef %eclipLong, double noundef %eclipLat) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd(ptr nocapture noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull returned writeonly align 8 dereferenceable(16) initializes((0, 16)) %result, double noundef %eclipLong, double noundef %eclipLat) local_unnamed_addr #0 align 2 {
 entry:
   %eclipObliquity.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load double, ptr %eclipObliquity.i, align 8
@@ -796,7 +796,7 @@ declare double @atan2(double noundef, double noundef) local_unnamed_addr #5
 declare double @asin(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEd(ptr nocapture noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull returned writeonly align 8 dereferenceable(16) %result, double noundef %eclipLong) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEd(ptr nocapture noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull returned writeonly align 8 dereferenceable(16) initializes((0, 16)) %result, double noundef %eclipLong) local_unnamed_addr #0 align 2 {
 entry:
   %eclipObliquity.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load double, ptr %eclipObliquity.i.i, align 8
@@ -859,7 +859,7 @@ _ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer17eclipticToHorizonERNS0_7HorizonEd(ptr nocapture noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull returned writeonly align 8 dereferenceable(16) %result, double noundef %eclipLong) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer17eclipticToHorizonERNS0_7HorizonEd(ptr nocapture noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull returned writeonly align 8 dereferenceable(16) initializes((0, 16)) %result, double noundef %eclipLong) local_unnamed_addr #0 align 2 {
 entry:
   %eclipObliquity.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load double, ptr %eclipObliquity.i.i.i, align 8
@@ -1031,7 +1031,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518CalendarAstronomer15getSunLongitudeEdRdS1_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(129) %this, double noundef %jDay, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %longitude, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %meanAnomaly) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7518CalendarAstronomer15getSunLongitudeEdRdS1_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(129) %this, double noundef %jDay, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %longitude, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %meanAnomaly) local_unnamed_addr #0 align 2 {
 entry:
   %sub = fadd double %jDay, 0xC142AD09C0000000
   %mul = fmul double %sub, 0x3F919D9BCDD8AC02
@@ -1074,7 +1074,7 @@ _ZN6icu_75L11trueAnomalyEdd.exit:                 ; preds = %do.body.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer14getSunPositionERNS0_10EquatorialE(ptr nocapture noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull returned writeonly align 8 dereferenceable(16) %result) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer14getSunPositionERNS0_10EquatorialE(ptr nocapture noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull returned writeonly align 8 dereferenceable(16) initializes((0, 16)) %result) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef double @_ZN6icu_7518CalendarAstronomer15getSunLongitudeEv(ptr noundef nonnull align 8 dereferenceable(129) %this)
   %eclipObliquity.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -1352,7 +1352,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN6icu_7518CalendarAstronomer13getSunRiseSetEa(ptr noundef nonnull align 8 dereferenceable(129) %this, i8 noundef signext %rise) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN6icu_7518CalendarAstronomer13getSunRiseSetEa(ptr noundef nonnull align 8 dereferenceable(129) initializes((32, 112), (128, 129)) %this, i8 noundef signext %rise) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %func = alloca %"class.icu_75::RiseSetCoordFunc", align 8
   %0 = load double, ptr %this, align 8
@@ -1864,7 +1864,7 @@ declare double @acos(double noundef) local_unnamed_addr #5
 declare double @uprv_getNaN_75() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK6icu_7518CalendarAstronomer8Ecliptic8toStringEv(ptr noalias nocapture writeonly sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this) local_unnamed_addr #10 align 2 {
+define void @_ZNK6icu_7518CalendarAstronomer8Ecliptic8toStringEv(ptr noalias nocapture writeonly sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this) local_unnamed_addr #10 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1873,7 +1873,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK6icu_7518CalendarAstronomer10Equatorial8toStringEv(ptr noalias nocapture writeonly sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this) local_unnamed_addr #10 align 2 {
+define void @_ZNK6icu_7518CalendarAstronomer10Equatorial8toStringEv(ptr noalias nocapture writeonly sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this) local_unnamed_addr #10 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1882,7 +1882,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK6icu_7518CalendarAstronomer7Horizon8toStringEv(ptr noalias nocapture writeonly sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this) local_unnamed_addr #10 align 2 {
+define void @_ZNK6icu_7518CalendarAstronomer7Horizon8toStringEv(ptr noalias nocapture writeonly sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this) local_unnamed_addr #10 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2107,7 +2107,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @uhash_iputi_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513CalendarCacheC2EiR10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i32 noundef %size, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7513CalendarCacheC2EiR10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, i32 noundef %size, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513CalendarCacheE, i64 16), ptr %this, align 8
   %call = tail call ptr @uhash_openSize_75(ptr noundef nonnull @uhash_hashLong_75, ptr noundef nonnull @uhash_compareLong_75, ptr noundef null, i32 noundef %size, ptr noundef nonnull %status)
@@ -2123,7 +2123,7 @@ declare i32 @uhash_hashLong_75(ptr) #1
 declare signext i8 @uhash_compareLong_75(ptr, ptr) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7513CalendarCacheD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513CalendarCacheD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513CalendarCacheE, i64 16), ptr %this, align 8
   %fTable = getelementptr inbounds i8, ptr %this, i64 8

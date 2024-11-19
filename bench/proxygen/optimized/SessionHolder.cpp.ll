@@ -124,7 +124,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen13SessionHolderC2EPNS_15HTTPSessionBaseEPNS0_8CallbackEPNS0_5StatsENS_8EndpointE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %sess, ptr noundef %parent, ptr noundef %stats, ptr noundef %endpoint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen13SessionHolderC2EPNS_15HTTPSessionBaseEPNS0_8CallbackEPNS0_5StatsENS_8EndpointE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 72)) %this, ptr noundef %sess, ptr noundef %parent, ptr noundef %stats, ptr noundef %endpoint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.folly::ThreadLocalPRNG", align 1
   %sess.addr = alloca ptr, align 8
@@ -298,7 +298,7 @@ eh.resume:                                        ; preds = %lpad, %cleanup.acti
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen13SessionHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen13SessionHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   %ref.tmp15 = alloca %"class.google::LogMessageFatal", align 8

@@ -3325,7 +3325,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node24InitializeOncePerProcessERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EENS_26ProcessInitializationFlags5FlagsE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.366") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %args, i32 noundef %flags) local_unnamed_addr #4 {
+define dso_local void @_ZN4node24InitializeOncePerProcessERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EENS_26ProcessInitializationFlags5FlagsE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.366") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %args, i32 noundef %flags) local_unnamed_addr #4 {
 _ZNSt10unique_ptrIN4node24InitializationResultImplESt14default_deleteIS1_EED2Ev.exit:
   %ref.tmp = alloca %"class.std::unique_ptr.374", align 8
   call fastcc void @_ZN4nodeL32InitializeOncePerProcessInternalERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EENS_26ProcessInitializationFlags5FlagsE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %args, i32 noundef %flags)
@@ -3335,7 +3335,7 @@ _ZNSt10unique_ptrIN4node24InitializationResultImplESt14default_deleteIS1_EED2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4nodeL32InitializeOncePerProcessInternalERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EENS_26ProcessInitializationFlags5FlagsE(ptr noalias nocapture nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %args, i32 noundef %flags) unnamed_addr #4 {
+define internal fastcc void @_ZN4nodeL32InitializeOncePerProcessInternalERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EENS_26ProcessInitializationFlags5FlagsE(ptr noalias nocapture nonnull align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %args, i32 noundef %flags) unnamed_addr #4 {
 entry:
   %sa.i37.i = alloca %struct.sigaction, align 8
   %sa.i.i = alloca %struct.sigaction, align 8

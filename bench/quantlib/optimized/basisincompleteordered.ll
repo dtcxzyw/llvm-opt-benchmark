@@ -51,7 +51,7 @@ $_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__nor
 @_ZN8QuantLib21OrthogonalProjectionsC1ERKNS_6MatrixEdd = unnamed_addr alias void (ptr, ptr, double, double), ptr @_ZN8QuantLib21OrthogonalProjectionsC2ERKNS_6MatrixEdd
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib22BasisIncompleteOrderedC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i64 noundef %euclideanDimension) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22BasisIncompleteOrderedC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this, i64 noundef %euclideanDimension) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %euclideanDimension_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -586,7 +586,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib22BasisIncompleteOrdered22getBasisAsRowsInMatrixEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib22BasisIncompleteOrdered22getBasisAsRowsInMatrixEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !36
@@ -652,7 +652,7 @@ nrvo.skipdtor:                                    ; preds = %for.cond3.for.cond.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21OrthogonalProjectionsC2ERKNS_6MatrixEdd(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %originalVectors, double noundef %multiplierCutoff, double noundef %tolerance) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21OrthogonalProjectionsC2ERKNS_6MatrixEdd(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 40), (48, 64)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %originalVectors, double noundef %multiplierCutoff, double noundef %tolerance) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %currentVector = alloca %"class.std::vector.10", align 8
   %rows_.i.i = getelementptr inbounds nuw i8, ptr %originalVectors, i64 8

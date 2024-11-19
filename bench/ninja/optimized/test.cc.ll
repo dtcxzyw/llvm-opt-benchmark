@@ -2634,7 +2634,7 @@ define dso_local void @_ZN14ScopedFilePathD2Ev(ptr noundef nonnull align 8 deref
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN14ScopedFilePath7ReleaseEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) %0) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN14ScopedFilePath7ReleaseEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((32, 33)) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %2, align 8
   ret void

@@ -7257,7 +7257,7 @@ return:                                           ; preds = %if.then27, %_ZN6her
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl37parseFunctionTypeAnnotationParamsFlowERN4llvh12simple_ilistINS_6ESTree4NodeEJEEERPS6_(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr noundef nonnull align 8 dereferenceable(16) %params, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %thisConstraint) local_unnamed_addr #0 align 2 {
+define hidden { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl37parseFunctionTypeAnnotationParamsFlowERN4llvh12simple_ilistINS_6ESTree4NodeEJEEERPS6_(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr noundef nonnull align 8 dereferenceable(16) %params, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %thisConstraint) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp32 = alloca %"class.llvh::Twine", align 8
   %tok_.i = getelementptr inbounds i8, ptr %this, i64 1144

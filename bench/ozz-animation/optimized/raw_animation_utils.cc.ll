@@ -572,7 +572,7 @@ define dso_local noundef zeroext i1 @_ZN3ozz9animation7offline15SampleAnimationE
 declare noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8ValidateEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3ozz9animation7offline17ExtractTimePointsERKNS1_12RawAnimationE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.14") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3ozz9animation7offline17ExtractTimePointsERKNS1_12RawAnimationE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.14") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = invoke noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8ValidateEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
           to label %4 unwind label %.loopexit.split-lp
@@ -1121,7 +1121,7 @@ _ZNSt12_Vector_baseIfN3ozz12StdAllocatorIfEEED2Ev.exit: ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3ozz9animation7offline21FixedRateSamplingTimeC2Eff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, float noundef %1, float noundef %2) unnamed_addr #6 align 2 {
+define dso_local void @_ZN3ozz9animation7offline21FixedRateSamplingTimeC2Eff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, float noundef %1, float noundef %2) unnamed_addr #6 align 2 {
   store float %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = fdiv float 1.000000e+00, %2

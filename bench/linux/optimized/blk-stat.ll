@@ -27,7 +27,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_blk_stat_ena
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_blk_stat_disable_accounting436, ptr @__UNIQUE_ID___addressable_blk_stat_enable_accounting437, ptr @blk_stat_add.__UNIQUE_ID___addressable___SCK__preempt_schedule435], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @blk_rq_stat_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @blk_rq_stat_init(ptr nocapture noundef writeonly initializes((0, 28), (32, 40)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 -1, ptr %2, align 8
   store i64 0, ptr %0, align 8

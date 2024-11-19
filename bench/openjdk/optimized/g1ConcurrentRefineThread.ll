@@ -143,7 +143,7 @@ declare void @_ZN23G1ConcurrentRefineStatsC1Ev(ptr noundef nonnull align 8 deref
 declare void @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(916), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24G1ConcurrentRefineThread11run_serviceEv(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN24G1ConcurrentRefineThread11run_serviceEv(ptr noundef nonnull align 8 dereferenceable(1104) initializes((920, 928)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.G1ConcurrentRefineStats, align 8
   %3 = alloca %class.G1ConcurrentRefineStats, align 8
   %4 = alloca %class.G1ConcurrentRefineStats, align 8
@@ -550,7 +550,7 @@ declare noundef zeroext i1 @_ZN18G1ConcurrentRefine27adjust_threads_periodically
 declare void @_ZN18G1ConcurrentRefine21reduce_threads_wantedEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN31G1PrimaryConcurrentRefineThread11track_usageEv(ptr nocapture noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN31G1PrimaryConcurrentRefineThread11track_usageEv(ptr nocapture noundef nonnull align 8 dereferenceable(1104) initializes((928, 936)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.ThreadTotalCPUTimeClosure, align 8
   %3 = tail call noundef zeroext i1 @_ZN2os14supports_vtimeEv() #9
   br i1 %3, label %4, label %_ZN24G1ConcurrentRefineThread11track_usageEv.exit

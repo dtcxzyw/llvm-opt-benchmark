@@ -1094,7 +1094,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_202308024
 declare void @_ZN4absl12lts_202308024Cord5ClearEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %zcis) local_unnamed_addr #4 align 2 {
+define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) initializes((28, 40)) %this, ptr noundef %zcis) local_unnamed_addr #4 align 2 {
 entry:
   %data = alloca ptr, align 8
   %size = alloca i32, align 4

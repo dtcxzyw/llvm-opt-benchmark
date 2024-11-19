@@ -408,7 +408,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui14CGUIStaticTextC1EPKwbPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiRKNS_4core4rectIiEEb(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef readonly %text, i1 noundef zeroext %border, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rectangle, i1 noundef zeroext %background) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui14CGUIStaticTextC1EPKwbPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiRKNS_4core4rectIiEEb(ptr noundef nonnull align 8 dereferenceable(384) initializes((384, 404)) %this, ptr noundef readonly %text, i1 noundef zeroext %border, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rectangle, i1 noundef zeroext %background) unnamed_addr #0 align 2 {
 entry:
   %text20 = ptrtoint ptr %text to i64
   %empty.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -600,7 +600,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui14CGUIStaticTextD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui14CGUIStaticTextD2Ev(ptr noundef nonnull align 8 dereferenceable(384) initializes((0, 8)) %this, ptr noundef %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -685,7 +685,7 @@ _ZN3irr4core5arrayINS0_6stringIwEEED2Ev.exit:     ; preds = %if.then.i.i.i.i, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui14CGUIStaticTextD1Ev(ptr noundef nonnull align 8 dereferenceable(384) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui14CGUIStaticTextD1Ev(ptr noundef nonnull align 8 dereferenceable(384) initializes((0, 8), (384, 392)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui14CGUIStaticTextE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 384
@@ -847,7 +847,7 @@ _ZN3irr3gui14CGUIStaticTextD1Ev.exit:             ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui14CGUIStaticTextD0Ev(ptr noundef nonnull align 8 dereferenceable(384) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui14CGUIStaticTextD0Ev(ptr noundef nonnull align 8 dereferenceable(384) initializes((0, 8), (384, 392)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui14CGUIStaticTextE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 384
@@ -2940,7 +2940,7 @@ return:                                           ; preds = %if.then4, %if.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui14CGUIStaticText16setOverrideColorENS_5video6SColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) %this, i32 %color.coerce) unnamed_addr #6 align 2 {
+define void @_ZN3irr3gui14CGUIStaticText16setOverrideColorENS_5video6SColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) initializes((317, 318), (324, 328)) %this, i32 %color.coerce) unnamed_addr #6 align 2 {
 entry:
   %OverrideColor = getelementptr inbounds i8, ptr %this, i64 324
   store i32 %color.coerce, ptr %OverrideColor, align 4, !tbaa !64
@@ -2950,7 +2950,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui14CGUIStaticText18setBackgroundColorENS_5video6SColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) %this, i32 %color.coerce) unnamed_addr #6 align 2 {
+define void @_ZN3irr3gui14CGUIStaticText18setBackgroundColorENS_5video6SColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) initializes((318, 319), (320, 321), (328, 332)) %this, i32 %color.coerce) unnamed_addr #6 align 2 {
 entry:
   %BGColor = getelementptr inbounds i8, ptr %this, i64 328
   store i32 %color.coerce, ptr %BGColor, align 8, !tbaa !64
@@ -2962,7 +2962,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui14CGUIStaticText17setDrawBackgroundEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) %this, i1 noundef zeroext %draw) unnamed_addr #6 align 2 {
+define void @_ZN3irr3gui14CGUIStaticText17setDrawBackgroundEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) initializes((320, 321)) %this, i1 noundef zeroext %draw) unnamed_addr #6 align 2 {
 entry:
   %frombool = zext i1 %draw to i8
   %Background = getelementptr inbounds i8, ptr %this, i64 320
@@ -2988,7 +2988,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui14CGUIStaticText13setDrawBorderEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) %this, i1 noundef zeroext %draw) unnamed_addr #6 align 2 {
+define void @_ZN3irr3gui14CGUIStaticText13setDrawBorderEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) initializes((316, 317)) %this, i1 noundef zeroext %draw) unnamed_addr #6 align 2 {
 entry:
   %frombool = zext i1 %draw to i8
   %Border = getelementptr inbounds i8, ptr %this, i64 316
@@ -3006,7 +3006,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui14CGUIStaticText23setTextRestrainedInsideEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) %this, i1 noundef zeroext %restrainTextInside) unnamed_addr #6 align 2 {
+define void @_ZN3irr3gui14CGUIStaticText23setTextRestrainedInsideEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) initializes((321, 322)) %this, i1 noundef zeroext %restrainTextInside) unnamed_addr #6 align 2 {
 entry:
   %frombool = zext i1 %restrainTextInside to i8
   %RestrainTextInside = getelementptr inbounds i8, ptr %this, i64 321
@@ -3024,7 +3024,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui14CGUIStaticText16setTextAlignmentENS0_14EGUI_ALIGNMENTES2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) %this, i32 noundef %horizontal, i32 noundef %vertical) unnamed_addr #6 align 2 {
+define void @_ZN3irr3gui14CGUIStaticText16setTextAlignmentENS0_14EGUI_ALIGNMENTES2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) initializes((308, 316)) %this, i32 noundef %horizontal, i32 noundef %vertical) unnamed_addr #6 align 2 {
 entry:
   %HAlign = getelementptr inbounds i8, ptr %this, i64 308
   store i32 %horizontal, ptr %HAlign, align 4, !tbaa !6
@@ -3096,7 +3096,7 @@ return:                                           ; preds = %if.end13, %cond.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui14CGUIStaticText19enableOverrideColorEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) %this, i1 noundef zeroext %enable) unnamed_addr #6 align 2 {
+define void @_ZN3irr3gui14CGUIStaticText19enableOverrideColorEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) initializes((317, 318)) %this, i1 noundef zeroext %enable) unnamed_addr #6 align 2 {
 entry:
   %frombool = zext i1 %enable to i8
   %OverrideColorEnabled = getelementptr inbounds i8, ptr %this, i64 317
@@ -3114,7 +3114,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui14CGUIStaticText11setWordWrapEb(ptr noundef nonnull align 8 dereferenceable(384) %this, i1 noundef zeroext %enable) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui14CGUIStaticText11setWordWrapEb(ptr noundef nonnull align 8 dereferenceable(384) initializes((319, 320)) %this, i1 noundef zeroext %enable) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %enable to i8
   %WordWrap = getelementptr inbounds i8, ptr %this, i64 319

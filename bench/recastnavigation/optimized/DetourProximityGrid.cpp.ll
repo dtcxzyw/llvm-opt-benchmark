@@ -47,7 +47,7 @@ define void @_Z19dtFreeProximityGridP15dtProximityGrid(ptr noundef %0) local_unn
 declare void @_Z6dtFreePv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15dtProximityGridC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %0) unnamed_addr #2 align 2 {
+define void @_ZN15dtProximityGridC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((0, 36)) %0) unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 0, i64 36, i1 false)
   ret void
 }
@@ -91,7 +91,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN15dtProximityGrid4initEif(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN15dtProximityGrid4initEif(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 8), (24, 36)) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %5 = icmp eq ptr %4, null
   %6 = icmp sgt i32 %1, 0
@@ -178,7 +178,7 @@ define noundef zeroext i1 @_ZN15dtProximityGrid4initEif(ptr nocapture noundef no
 declare noundef ptr @_Z21dtAssertFailGetCustomv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN15dtProximityGrid5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN15dtProximityGrid5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((16, 20), (36, 52)) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32

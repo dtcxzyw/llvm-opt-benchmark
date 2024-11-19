@@ -5835,7 +5835,7 @@ _ZNSt8functionIFbRN12_GLOBAL__N_112CMakeVersionEPKN4Json5ValueEP11cmJSONStateEED
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_112CMakeVersionEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_112CMakeVersionEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.val.i = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %.val9.i = load ptr, ptr %3, align 8
@@ -6403,7 +6403,7 @@ _ZNSt8functionIFvPKN4Json5ValueEP11cmJSONStateEEC2ERKS7_.exit: ; preds = %2, %10
 declare void @_ZN20cmCMakePresetsErrors12INVALID_ROOTEPKN4Json5ValueEP11cmJSONState(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN27cmCMakePresetsGraphInternal12SchemaHelperEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.74") align 8 %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN27cmCMakePresetsGraphInternal12SchemaHelperEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.74") align 8 initializes((0, 32)) %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)

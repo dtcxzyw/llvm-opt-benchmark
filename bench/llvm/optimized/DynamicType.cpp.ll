@@ -750,7 +750,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_121DynamicClassObjectMapEEENS0_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento18setDynamicTypeInfoEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_9MemRegionENS0_15DynamicTypeInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0, ptr nocapture noundef %1, ptr noundef nonnull %2, i64 %3, i8 %4) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang4ento18setDynamicTypeInfoEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_9MemRegionENS0_15DynamicTypeInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 initializes((0, 8)) %0, ptr nocapture noundef %1, ptr noundef nonnull %2, i64 %3, i8 %4) local_unnamed_addr #0 {
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %7 = load ptr, ptr %1, align 8
   %8 = tail call noundef nonnull ptr @_ZNK5clang4ento9MemRegion10StripCastsEb(ptr noundef nonnull align 8 dereferenceable(48) %2, i1 noundef zeroext true) #14
@@ -910,7 +910,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento18setDynamicTypeInfoEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_9MemRegionENS_8QualTypeEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang4ento18setDynamicTypeInfoEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_9MemRegionENS_8QualTypeEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %7 = load ptr, ptr %1, align 8
   %.not.i.i = icmp eq ptr %7, null
@@ -1542,7 +1542,7 @@ _ZN4llvm12ImmutableSetIN5clang4ento15DynamicCastInfoENS_17ImutContainerInfoIS3_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento29setClassObjectDynamicTypeInfoEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_7SymExprENS0_15DynamicTypeInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0, ptr nocapture noundef %1, ptr noundef %2, i64 %3, i8 %4) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang4ento29setClassObjectDynamicTypeInfoEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_7SymExprENS0_15DynamicTypeInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 initializes((0, 8)) %0, ptr nocapture noundef %1, ptr noundef %2, i64 %3, i8 %4) local_unnamed_addr #0 {
   %6 = alloca %"class.clang::ento::DynamicTypeInfo", align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"class.llvm::ImmutableMap.73", align 8
@@ -1695,7 +1695,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento29setClassObjectDynamicTypeInfoEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_7SymExprENS_8QualTypeEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang4ento29setClassObjectDynamicTypeInfoEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_7SymExprENS_8QualTypeEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %7 = load ptr, ptr %1, align 8
   store ptr %7, ptr %6, align 8

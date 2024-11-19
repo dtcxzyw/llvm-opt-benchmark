@@ -379,7 +379,7 @@ _ZN6vectorIN3sat7literalELb0EjED2Ev.exit:         ; preds = %entry, %if.then.i.i
 declare void @_ZN3smt6theoryD2Ev(ptr noundef nonnull align 8 dereferenceable(53)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt22theory_user_propagatorD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt22theory_user_propagatorD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8), (56, 64)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3smt22theory_user_propagatorE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
@@ -911,7 +911,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn56_N3smt22theory_user_propagatorD1Ev(ptr noundef %this) unnamed_addr #7 align 2 {
+define hidden void @_ZThn56_N3smt22theory_user_propagatorD1Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN3smt22theory_user_propagatorD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) #22
@@ -919,7 +919,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt22theory_user_propagatorD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN3smt22theory_user_propagatorD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8), (56, 64)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN3smt22theory_user_propagatorD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -930,7 +930,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn56_N3smt22theory_user_propagatorD0Ev(ptr noundef %this) unnamed_addr #7 align 2 {
+define hidden void @_ZThn56_N3smt22theory_user_propagatorD0Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN3smt22theory_user_propagatorD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) #22

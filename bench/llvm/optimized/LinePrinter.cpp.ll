@@ -209,7 +209,7 @@ $_ZTVN4llvm7support6detail23provider_format_adapterIRNS_9StringRefEEE = comdat a
 @_ZN4llvm3pdb9WithColorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm3pdb9WithColorD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb11LinePrinterC2EibRNS_11raw_ostreamERK13FilterOptions(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(185) %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb11LinePrinterC2EibRNS_11raw_ostreamERK13FilterOptions(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 17), (24, 32)) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(185) %4) unnamed_addr #0 align 2 {
   %6 = zext i1 %2 to i8
   store ptr %3, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2894,7 +2894,7 @@ _ZN12_GLOBAL__N_114IsItemExcludedEN4llvm9StringRefERNSt7__cxx114listINS0_5RegexE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb9WithColorC2ERNS0_11LinePrinterENS0_13PDB_ColorItemE(ptr nocapture noundef nonnull align 8 dereferenceable(9) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb9WithColorC2ERNS0_11LinePrinterENS0_13PDB_ColorItemE(ptr nocapture noundef nonnull align 8 dereferenceable(9) initializes((0, 9)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

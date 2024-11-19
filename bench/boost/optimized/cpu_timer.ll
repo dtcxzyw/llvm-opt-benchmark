@@ -356,7 +356,7 @@ define void @_ZN5boost5timer6formatB5cxx11ERKNS0_9cpu_timesEs(ptr dead_on_unwind
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost5timer9cpu_timer5startEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost5timer9cpu_timer5startEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %2, align 8, !tbaa !45
   tail call fastcc void @_ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesE(ptr noundef nonnull align 8 dereferenceable(24) %0)
@@ -364,7 +364,7 @@ define void @_ZN5boost5timer9cpu_timer5startEv(ptr nocapture noundef nonnull wri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.tms, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -537,7 +537,7 @@ _ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesE.exit: ; preds = %37, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK5boost5timer9cpu_timer7elapsedEv(ptr dead_on_unwind noalias nocapture writable sret(%"struct.boost::timer::cpu_times") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5boost5timer9cpu_timer7elapsedEv(ptr dead_on_unwind noalias nocapture writable sret(%"struct.boost::timer::cpu_times") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i8, ptr %3, align 8, !tbaa !45, !range !55, !noundef !56
   %5 = trunc nuw i8 %4 to i1
@@ -605,7 +605,7 @@ define void @_ZN5boost5timer9cpu_timer6resumeEv(ptr nocapture noundef nonnull al
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost5timer14auto_cpu_timerC2ERSos(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i16 noundef signext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost5timer14auto_cpu_timerC2ERSos(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 25), (26, 28), (32, 40)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i16 noundef signext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %5, align 8, !tbaa !45

@@ -6968,7 +6968,7 @@ ehcleanup:                                        ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16CreateSchemaInfo11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.87") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb16CreateSchemaInfo11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.87") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN6duckdb16CreateSchemaInfoESt14default_deleteIS1_EED2Ev.exit:
   %call = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #26
   %info_type2.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
@@ -37391,7 +37391,7 @@ _ZN6duckdb10Serializer24WritePropertyWithDefaultINS_10unique_ptrINS_10Expression
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb14BoundCaseCheck11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundCaseCheck") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb14BoundCaseCheck11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundCaseCheck") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i53 = alloca %"class.duckdb::unique_ptr.241", align 8
   %ref.tmp.i26 = alloca %"class.duckdb::unique_ptr.241", align 8
@@ -38359,7 +38359,7 @@ _ZN6duckdb10Serializer24WritePropertyWithDefaultINS_6vectorINSt7__cxx1112basic_s
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb14BoundPivotInfo11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundPivotInfo") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb14BoundPivotInfo11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundPivotInfo") align 8 initializes((8, 80)) %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %types.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %types.i, i8 0, i64 72, i1 false)
@@ -42965,7 +42965,7 @@ _ZN6duckdb10Serializer24WritePropertyWithDefaultINS_10unique_ptrINS_16ParsedExpr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb9CaseCheck11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::CaseCheck") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb9CaseCheck11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::CaseCheck") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i53 = alloca %"class.duckdb::unique_ptr.33", align 8
   %ref.tmp.i26 = alloca %"class.duckdb::unique_ptr.33", align 8
@@ -44146,7 +44146,7 @@ _ZN6duckdb10Serializer24WritePropertyWithDefaultINS_6vectorINSt7__cxx1112basic_s
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb10ColumnInfo11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias nonnull writable sret(%"struct.duckdb::ColumnInfo") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb10ColumnInfo11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias nonnull writable sret(%"struct.duckdb::ColumnInfo") align 8 initializes((0, 48)) %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, i8 0, i64 48, i1 false)
   invoke void @_ZN6duckdb12Deserializer23ReadPropertyWithDefaultINS_6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEEEEvtPKcRT_(ptr noundef nonnull align 8 dereferenceable(416) %deserializer, i16 noundef zeroext 100, ptr noundef nonnull @.str.23, ptr noundef nonnull align 8 dereferenceable(24) %agg.result)
@@ -44780,7 +44780,7 @@ _ZN6duckdb10Serializer13WritePropertyINS_14CTEMaterializeEEEvtPKcRKT_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb25CommonTableExpressionInfo11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.1085") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb25CommonTableExpressionInfo11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.1085") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.duckdb::unique_ptr.187", align 8
   %str.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -45901,7 +45901,7 @@ _ZN6duckdb10Serializer13WritePropertyINS_14ExpressionTypeEEEvtPKcRKT_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb13JoinCondition11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::JoinCondition") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb13JoinCondition11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::JoinCondition") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %str.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i.i11 = alloca %"class.duckdb::unique_ptr.241", align 8
@@ -46672,7 +46672,7 @@ _ZN6duckdb10Serializer24WritePropertyWithDefaultINS_6vectorINS_21HivePartitionin
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb23MultiFileReaderBindData11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::MultiFileReaderBindData") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb23MultiFileReaderBindData11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::MultiFileReaderBindData") align 8 initializes((0, 40)) %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 -1, ptr %agg.result, align 8, !tbaa !906
   %hive_partitioning_indexes.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -47109,7 +47109,7 @@ _ZN6duckdb10Serializer24WritePropertyWithDefaultISt13unordered_mapINSt7__cxx1112
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb22MultiFileReaderOptions11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::MultiFileReaderOptions") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb22MultiFileReaderOptions11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::MultiFileReaderOptions") align 8 initializes((0, 5)) %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hive_partitioning.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   %auto_detect_hive_partitioning.i = getelementptr inbounds i8, ptr %agg.result, i64 2
@@ -48053,7 +48053,7 @@ return:                                           ; preds = %_ZN6duckdb10Seriali
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11PivotColumn11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::PivotColumn") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11PivotColumn11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::PivotColumn") align 8 initializes((0, 72)) %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i11 = alloca %"class.duckdb::vector.1114", align 8
   %ref.tmp5.i12 = alloca %"class.duckdb::vector.1114", align 8
@@ -48722,7 +48722,7 @@ return:                                           ; preds = %_ZN6duckdb10Seriali
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16PivotColumnEntry11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias nonnull writable sret(%"struct.duckdb::PivotColumnEntry") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb16PivotColumnEntry11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias nonnull writable sret(%"struct.duckdb::PivotColumnEntry") align 8 initializes((0, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i10 = alloca %"class.duckdb::unique_ptr.33", align 8
   %alias.i = getelementptr inbounds i8, ptr %agg.result, i64 32
@@ -76307,7 +76307,7 @@ _ZN6duckdb10Serializer24WritePropertyWithDefaultINS_10unique_ptrINS_9QueryNodeES
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb15SelectStatement11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.187") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb15SelectStatement11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.187") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i15 = alloca %"class.duckdb::unique_ptr.1029", align 8
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #26
@@ -78749,7 +78749,7 @@ _ZNSt10unique_ptrIN6duckdb12BaseTableRefESt14default_deleteIS1_EED2Ev.exit23: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb13EmptyTableRef11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.1636") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb13EmptyTableRef11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.1636") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN6duckdb13EmptyTableRefESt14default_deleteIS1_EED2Ev.exit:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26
   %type2.i.i = getelementptr inbounds i8, ptr %call, i64 8
@@ -86319,7 +86319,7 @@ _ZN6duckdb10Serializer24WritePropertyWithDefaultINS_6vectorImLb1EEEEEvtPKcRKT_.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb22FixedSizeAllocatorInfo11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::FixedSizeAllocatorInfo") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb22FixedSizeAllocatorInfo11DeserializeERNS_12DeserializerE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::FixedSizeAllocatorInfo") align 8 initializes((8, 128)) %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5.i105 = alloca %"class.duckdb::vector.101", align 16
   %ref.tmp5.i76 = alloca %"class.duckdb::vector.101", align 16

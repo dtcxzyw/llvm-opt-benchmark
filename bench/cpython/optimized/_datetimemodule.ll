@@ -4111,7 +4111,7 @@ normalize_y_m_d.exit:                             ; preds = %if.else22.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @ord_to_ymd(i32 noundef %ordinal, ptr nocapture noundef nonnull %year, ptr nocapture noundef nonnull writeonly %month, ptr nocapture noundef nonnull writeonly %day) unnamed_addr #4 {
+define internal fastcc void @ord_to_ymd(i32 noundef %ordinal, ptr nocapture noundef nonnull initializes((0, 4)) %year, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %month, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %day) unnamed_addr #4 {
 entry:
   %dec = add i32 %ordinal, -1
   %div = sdiv i32 %dec, 146097
@@ -13103,7 +13103,7 @@ declare ptr @_PyUnicode_Copy(ptr noundef) local_unnamed_addr #1
 declare i32 @PyUnicode_WriteChar(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -4, 2) i32 @parse_hh_mm_ss_ff(ptr noundef %tstr, ptr noundef %tstr_end, ptr noundef nonnull %hour, ptr noundef nonnull %minute, ptr noundef nonnull %second, ptr nocapture noundef nonnull %microsecond) unnamed_addr #8 {
+define internal fastcc range(i32 -4, 2) i32 @parse_hh_mm_ss_ff(ptr noundef %tstr, ptr noundef %tstr_end, ptr noundef nonnull initializes((0, 4)) %hour, ptr noundef nonnull initializes((0, 4)) %minute, ptr noundef nonnull initializes((0, 4)) %second, ptr nocapture noundef nonnull initializes((0, 4)) %microsecond) unnamed_addr #8 {
 entry:
   %vals = alloca [3 x ptr], align 16
   store i32 0, ptr %microsecond, align 4

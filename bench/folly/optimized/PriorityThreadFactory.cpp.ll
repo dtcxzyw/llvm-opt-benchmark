@@ -127,7 +127,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZN5folly21PriorityThreadFactoryC1ESt10shared_ptrINS_13ThreadFactoryEEi = unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN5folly21PriorityThreadFactoryC2ESt10shared_ptrINS_13ThreadFactoryEEi
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly21PriorityThreadFactoryC2ESt10shared_ptrINS_13ThreadFactoryEEi(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef %factory, i32 noundef %priority) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21PriorityThreadFactoryC2ESt10shared_ptrINS_13ThreadFactoryEEi(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 32)) %this, ptr nocapture noundef %factory, i32 noundef %priority) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8

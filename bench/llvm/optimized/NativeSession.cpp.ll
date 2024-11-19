@@ -318,7 +318,7 @@ $_ZTVN4llvm22MemoryBufferByteStreamE = comdat any
 @_ZN4llvm3pdb13NativeSessionD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm3pdb13NativeSessionD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb13NativeSessionC2ESt10unique_ptrINS0_7PDBFileESt14default_deleteIS3_EES2_INS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEES4_IS9_EE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb13NativeSessionC2ESt10unique_ptrINS0_7PDBFileESt14default_deleteIS3_EES2_INS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEES4_IS9_EE(ptr noundef nonnull align 8 dereferenceable(584) initializes((0, 24)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %class.anon, align 1
@@ -424,7 +424,7 @@ _ZL15getDbiStreamPtrRN4llvm3pdb7PDBFileE.exit:    ; preds = %27, %30, %_ZNKSt14d
 declare void @_ZN4llvm3pdb11SymbolCacheC1ERNS0_13NativeSessionEPNS0_9DbiStreamE(ptr noundef nonnull align 8 dereferenceable(280), ptr noundef nonnull align 8 dereferenceable(584), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb13NativeSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb13NativeSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(584) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN4llvm3pdb13NativeSessionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %3 = load i32, ptr %2, align 8
@@ -836,7 +836,7 @@ declare void @_ZN4llvm3pdb7PDBFile16parseFileHeadersEv(ptr dead_on_unwind writab
 declare void @_ZN4llvm3pdb7PDBFile15parseStreamDataEv(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8, ptr noundef nonnull align 8 dereferenceable(280)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb13NativeSession17createFromPdbPathENS_9StringRefERSt10unique_ptrINS0_11IPDBSessionESt14default_deleteIS4_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr %1, i64 %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb13NativeSession17createFromPdbPathENS_9StringRefERSt10unique_ptrINS0_11IPDBSessionESt14default_deleteIS4_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = alloca %"class.std::unique_ptr.2", align 8
   %7 = alloca %"class.std::unique_ptr.2", align 8
@@ -923,7 +923,7 @@ _ZNSt10unique_ptrIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11loadPdbFileN4llvm9StringRefERSt10unique_ptrINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS4_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL11loadPdbFileN4llvm9StringRefERSt10unique_ptrINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS4_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 8)) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #0 {
   %5 = alloca %"class.std::unique_ptr.46", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -1118,7 +1118,7 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb13NativeSession13createFromExeENS_9StringRefERSt10unique_ptrINS0_11IPDBSessionESt14default_deleteIS4_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr %1, i64 %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb13NativeSession13createFromExeENS_9StringRefERSt10unique_ptrINS0_11IPDBSessionESt14default_deleteIS4_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = alloca %"class.std::unique_ptr.2", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -1681,14 +1681,14 @@ define dso_local noundef i64 @_ZNK4llvm3pdb13NativeSession14getLoadAddressEv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm3pdb13NativeSession14setLoadAddressEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(584) %0, i64 noundef %1) unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm3pdb13NativeSession14setLoadAddressEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(584) initializes((312, 320)) %0, i64 noundef %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i64 %1, ptr %3, align 8
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb13NativeSession14getGlobalScopeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.180") align 8 %0, ptr noundef nonnull align 8 dereferenceable(584) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb13NativeSession14getGlobalScopeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.180") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(584) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::unique_ptr.188", align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4llvm3pdb13NativeSession20getNativeGlobalScopeEv(ptr noundef nonnull align 8 dereferenceable(584) %1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
@@ -1823,7 +1823,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeSession12addressForVAE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeSession13addressForRVAEjRjS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(584) %0, i32 noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeSession13addressForRVAEjRjS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(584) %0, i32 noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %class.anon, align 1
@@ -2275,7 +2275,7 @@ _ZN4llvm8ExpectedIRNS_3pdb9DbiStreamEED2Ev.exit:  ; preds = %17, %_ZNKSt14defaul
 declare void @_ZN4llvm3pdb11SymbolCache22findSymbolBySectOffsetEjjNS0_11PDB_SymTypeE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.188") align 8, ptr noundef nonnull align 8 dereferenceable(280), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm3pdb13NativeSession15findLineNumbersERKNS0_18PDBSymbolCompilandERKNS0_14IPDBSourceFileE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.211") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #6 align 2 {
+define dso_local void @_ZNK4llvm3pdb13NativeSession15findLineNumbersERKNS0_18PDBSymbolCompilandERKNS0_14IPDBSourceFileE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.211") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #6 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -2325,37 +2325,37 @@ define dso_local noundef i64 @_ZNK4llvm3pdb13NativeSession19getVAFromSectOffsetE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm3pdb13NativeSession15findSourceFilesEPKNS0_18PDBSymbolCompilandENS_9StringRefENS0_19PDB_NameSearchFlagsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.219") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i64 %4, i32 %5) unnamed_addr #6 align 2 {
+define dso_local void @_ZNK4llvm3pdb13NativeSession15findSourceFilesEPKNS0_18PDBSymbolCompilandENS_9StringRefENS0_19PDB_NameSearchFlagsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.219") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i64 %4, i32 %5) unnamed_addr #6 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm3pdb13NativeSession17findOneSourceFileEPKNS0_18PDBSymbolCompilandENS_9StringRefENS0_19PDB_NameSearchFlagsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.227") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i64 %4, i32 %5) unnamed_addr #6 align 2 {
+define dso_local void @_ZNK4llvm3pdb13NativeSession17findOneSourceFileEPKNS0_18PDBSymbolCompilandENS_9StringRefENS0_19PDB_NameSearchFlagsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.227") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i64 %4, i32 %5) unnamed_addr #6 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm3pdb13NativeSession27findCompilandsForSourceFileENS_9StringRefENS0_19PDB_NameSearchFlagsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.235") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture readnone %2, i64 %3, i32 %4) unnamed_addr #6 align 2 {
+define dso_local void @_ZNK4llvm3pdb13NativeSession27findCompilandsForSourceFileENS_9StringRefENS0_19PDB_NameSearchFlagsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.235") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture readnone %2, i64 %3, i32 %4) unnamed_addr #6 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm3pdb13NativeSession29findOneCompilandForSourceFileENS_9StringRefENS0_19PDB_NameSearchFlagsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.243") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture readnone %2, i64 %3, i32 %4) unnamed_addr #6 align 2 {
+define dso_local void @_ZNK4llvm3pdb13NativeSession29findOneCompilandForSourceFileENS_9StringRefENS0_19PDB_NameSearchFlagsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.243") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture readnone %2, i64 %3, i32 %4) unnamed_addr #6 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm3pdb13NativeSession17getAllSourceFilesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.219") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #6 align 2 {
+define dso_local void @_ZNK4llvm3pdb13NativeSession17getAllSourceFilesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.219") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #6 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm3pdb13NativeSession26getSourceFilesForCompilandERKNS0_18PDBSymbolCompilandE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.219") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #6 align 2 {
+define dso_local void @_ZNK4llvm3pdb13NativeSession26getSourceFilesForCompilandERKNS0_18PDBSymbolCompilandE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.219") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #6 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -2370,13 +2370,13 @@ define dso_local void @_ZNK4llvm3pdb13NativeSession17getSourceFileByIdEj(ptr dea
 declare void @_ZNK4llvm3pdb11SymbolCache17getSourceFileByIdEj(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.227") align 8, ptr noundef nonnull align 8 dereferenceable(280), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm3pdb13NativeSession15getDebugStreamsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.251") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #6 align 2 {
+define dso_local void @_ZNK4llvm3pdb13NativeSession15getDebugStreamsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.251") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #6 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm3pdb13NativeSession13getEnumTablesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.259") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #6 align 2 {
+define dso_local void @_ZNK4llvm3pdb13NativeSession13getEnumTablesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.259") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #6 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -2523,13 +2523,13 @@ declare void @_ZN4llvm3pdb7PDBFile23getInjectedSourceStreamEv(ptr dead_on_unwind
 declare void @_ZN4llvm3pdb7PDBFile14getStringTableEv(ptr dead_on_unwind writable sret(%"class.llvm::Expected.279") align 8, ptr noundef nonnull align 8 dereferenceable(280)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm3pdb13NativeSession18getSectionContribsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.299") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #6 align 2 {
+define dso_local void @_ZNK4llvm3pdb13NativeSession18getSectionContribsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.299") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #6 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm3pdb13NativeSession12getFrameDataEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.307") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #6 align 2 {
+define dso_local void @_ZNK4llvm3pdb13NativeSession12getFrameDataEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.307") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #6 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -2930,7 +2930,7 @@ _ZN4llvm16FixedStreamArrayINS_6object12coff_sectionEED2Ev.exit22: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeSession16moduleIndexForVAEmRt(ptr noundef nonnull align 8 dereferenceable(584) %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeSession16moduleIndexForVAEmRt(ptr noundef nonnull align 8 dereferenceable(584) %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::IntervalMap<unsigned long, unsigned short, 8, llvm::IntervalMapHalfOpenInfo<unsigned long>>::const_iterator", align 8
   %5 = alloca %"class.llvm::IntervalMap<unsigned long, unsigned short, 8, llvm::IntervalMapHalfOpenInfo<unsigned long>>::const_iterator", align 8
   store i16 0, ptr %2, align 2
@@ -3069,7 +3069,7 @@ _ZNK4llvm11IntervalMapImtLj8ENS_23IntervalMapHalfOpenInfoImEEE14const_iterator5v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeSession24moduleIndexForSectOffsetEjjRt(ptr noundef nonnull align 8 dereferenceable(584) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeSession24moduleIndexForSectOffsetEjjRt(ptr noundef nonnull align 8 dereferenceable(584) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::IntervalMap<unsigned long, unsigned short, 8, llvm::IntervalMapHalfOpenInfo<unsigned long>>::const_iterator", align 8
   %6 = alloca %"class.llvm::IntervalMap<unsigned long, unsigned short, 8, llvm::IntervalMapHalfOpenInfo<unsigned long>>::const_iterator", align 8
   store i16 0, ptr %3, align 2
@@ -3158,7 +3158,7 @@ define internal void @_ZZN4llvm3pdb13NativeSession20parseSectionContribsEvEN7Vis
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb13NativeSession20getModuleDebugStreamEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.320") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(584) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3pdb13NativeSession20getModuleDebugStreamEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.320") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(584) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %"class.llvm::Error", align 8

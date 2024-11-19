@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [9 x i8] c"%d %d %d\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local range(i32 0, 16) i32 @mm_read_banner(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 16) i32 @mm_read_banner(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = alloca [100025 x i8], align 16
   %4 = alloca [64 x i8], align 16
   %5 = alloca [64 x i8], align 16
@@ -190,7 +190,7 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 declare i32 @tolower(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 13) i32 @mm_read_mtx_crd_size(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define dso_local range(i32 0, 13) i32 @mm_read_mtx_crd_size(ptr noundef %0, ptr noundef initializes((0, 4)) %1, ptr noundef initializes((0, 4)) %2, ptr noundef initializes((0, 4)) %3) local_unnamed_addr #3 {
   %5 = alloca [100025 x i8], align 16
   store i32 0, ptr %3, align 4
   store i32 0, ptr %2, align 4

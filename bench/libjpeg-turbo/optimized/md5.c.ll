@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @MD5Init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local void @MD5Init(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #0 {
   store i32 1732584193, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 -271733879, ptr %2, align 4
@@ -644,7 +644,7 @@ define dso_local void @MD5Transform(ptr nocapture noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @MD5Final(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
+define dso_local void @MD5Final(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4

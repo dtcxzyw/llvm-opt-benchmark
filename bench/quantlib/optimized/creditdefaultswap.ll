@@ -3261,7 +3261,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5boost3anyESt4les
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17CreditDefaultSwapC1ENS_10Protection4SideEddRKNS_8ScheduleENS_21BusinessDayConventionERKNS_10DayCounterEbbRKNS_4DateEN5boost10shared_ptrINS_5ClaimEEES9_bSC_j(ptr noundef nonnull align 8 dereferenceable(320) %this, i32 noundef %side, double noundef %notional, double noundef %spread, ptr noundef nonnull align 8 dereferenceable(136) %schedule, i32 noundef %convention, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter, i1 noundef zeroext %settlesAccrual, i1 noundef zeroext %paysAtDefaultTime, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %protectionStart, ptr nocapture noundef %claim, ptr noundef nonnull align 8 dereferenceable(16) %lastPeriodDayCounter, i1 noundef zeroext %rebatesAccrual, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %tradeDate, i32 noundef %cashSettlementDays) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17CreditDefaultSwapC1ENS_10Protection4SideEddRKNS_8ScheduleENS_21BusinessDayConventionERKNS_10DayCounterEbbRKNS_4DateEN5boost10shared_ptrINS_5ClaimEEES9_bSC_j(ptr noundef nonnull align 8 dereferenceable(320) initializes((320, 328), (336, 340), (344, 352)) %this, i32 noundef %side, double noundef %notional, double noundef %spread, ptr noundef nonnull align 8 dereferenceable(136) %schedule, i32 noundef %convention, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter, i1 noundef zeroext %settlesAccrual, i1 noundef zeroext %paysAtDefaultTime, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %protectionStart, ptr nocapture noundef %claim, ptr noundef nonnull align 8 dereferenceable(16) %lastPeriodDayCounter, i1 noundef zeroext %rebatesAccrual, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %tradeDate, i32 noundef %cashSettlementDays) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %"class.QuantLib::Date", align 8
   %ref.tmp18 = alloca %"class.QuantLib::Date", align 8
@@ -3497,7 +3497,7 @@ ehcleanup:                                        ; preds = %lpad19, %lpad13
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17CreditDefaultSwapC1ENS_10Protection4SideEdddRKNS_8ScheduleENS_21BusinessDayConventionERKNS_10DayCounterEbbRKNS_4DateESC_N5boost10shared_ptrINS_5ClaimEEES9_bSC_j(ptr noundef nonnull align 8 dereferenceable(320) %this, i32 noundef %side, double noundef %notional, double noundef %upfront, double noundef %runningSpread, ptr noundef nonnull align 8 dereferenceable(136) %schedule, i32 noundef %convention, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter, i1 noundef zeroext %settlesAccrual, i1 noundef zeroext %paysAtDefaultTime, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %protectionStart, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %upfrontDate, ptr nocapture noundef %claim, ptr noundef nonnull align 8 dereferenceable(16) %lastPeriodDayCounter, i1 noundef zeroext %rebatesAccrual, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %tradeDate, i32 noundef %cashSettlementDays) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17CreditDefaultSwapC1ENS_10Protection4SideEdddRKNS_8ScheduleENS_21BusinessDayConventionERKNS_10DayCounterEbbRKNS_4DateESC_N5boost10shared_ptrINS_5ClaimEEES9_bSC_j(ptr noundef nonnull align 8 dereferenceable(320) initializes((320, 328), (336, 340), (344, 352)) %this, i32 noundef %side, double noundef %notional, double noundef %upfront, double noundef %runningSpread, ptr noundef nonnull align 8 dereferenceable(136) %schedule, i32 noundef %convention, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter, i1 noundef zeroext %settlesAccrual, i1 noundef zeroext %paysAtDefaultTime, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %protectionStart, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %upfrontDate, ptr nocapture noundef %claim, ptr noundef nonnull align 8 dereferenceable(16) %lastPeriodDayCounter, i1 noundef zeroext %rebatesAccrual, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %tradeDate, i32 noundef %cashSettlementDays) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %"class.QuantLib::Date", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 320
@@ -4776,7 +4776,7 @@ cleanup:                                          ; preds = %_ZNK5boost10shared_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib17CreditDefaultSwap12setupExpiredEv(ptr noundef nonnull align 8 dereferenceable(320) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib17CreditDefaultSwap12setupExpiredEv(ptr noundef nonnull align 8 dereferenceable(320) initializes((16, 40)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %NPV_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11894,7 +11894,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17CreditDefaultSwap9argumentsC2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17CreditDefaultSwap9argumentsC2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 12), (16, 25), (40, 104), (112, 128)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !33
@@ -11941,7 +11941,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17CreditDefaultSwap9argumentsC1Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17CreditDefaultSwap9argumentsC1Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 12), (16, 25), (40, 104), (112, 128)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont4:
   store ptr getelementptr inbounds inrange(-40, 24) (i8, ptr @_ZTVN8QuantLib17CreditDefaultSwap9argumentsE, i64 40), ptr %this, align 8, !tbaa !33
   %side = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -13527,7 +13527,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17CreditDefaultSwap7results5resetEv(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17CreditDefaultSwap7results5resetEv(ptr noundef nonnull align 8 dereferenceable(144) initializes((8, 32)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.QuantLib::Date", align 8
   %errorEstimate.i = getelementptr inbounds nuw i8, ptr %this, i64 16

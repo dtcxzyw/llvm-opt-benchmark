@@ -3223,7 +3223,7 @@ _ZNSt10unique_ptrIN5clang13PragmaHandlerESt14default_deleteIS1_EE5resetEPS1_.exi
 declare void @_ZN5clang12Preprocessor19RemovePragmaHandlerEN4llvm9StringRefEPNS_13PragmaHandlerE(ptr noundef nonnull align 8 dereferenceable(3288), ptr, i64, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser18HandlePragmaUnusedEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser18HandlePragmaUnusedEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -3253,7 +3253,7 @@ declare void @_ZN5clang4Sema17ActOnPragmaUnusedERKNS_5TokenEPNS_5ScopeENS_14Sour
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser22HandlePragmaVisibilityEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser22HandlePragmaVisibilityEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -3276,7 +3276,7 @@ define dso_local void @_ZN5clang6Parser22HandlePragmaVisibilityEv(ptr noundef no
 declare void @_ZN5clang4Sema21ActOnPragmaVisibilityEPKNS_14IdentifierInfoENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17560), ptr noundef, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser16HandlePragmaPackEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser16HandlePragmaPackEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -3327,7 +3327,7 @@ declare i64 @_ZN5clang4Sema20ActOnNumericConstantERKNS_5TokenEPNS_5ScopeE(ptr no
 declare void @_ZN5clang4Sema15ActOnPragmaPackENS_14SourceLocationENS0_19PragmaMsStackActionEN4llvm9StringRefEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(17560), i32, i32 noundef, ptr, i64, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser20HandlePragmaMSStructEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser20HandlePragmaMSStructEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -3352,7 +3352,7 @@ define dso_local void @_ZN5clang6Parser20HandlePragmaMSStructEv(ptr noundef nonn
 declare void @_ZN5clang4Sema19ActOnPragmaMSStructENS_18PragmaMSStructKindE(ptr noundef nonnull align 8 dereferenceable(17560), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser17HandlePragmaAlignEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser17HandlePragmaAlignEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -3378,7 +3378,7 @@ define dso_local void @_ZN5clang6Parser17HandlePragmaAlignEv(ptr noundef nonnull
 declare void @_ZN5clang4Sema23ActOnPragmaOptionsAlignENS0_22PragmaOptionsAlignKindENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17560), i32 noundef, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser16HandlePragmaDumpEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser16HandlePragmaDumpEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i16, align 2
   %3 = alloca %"class.clang::CharSourceRange", align 8
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8
@@ -4052,7 +4052,7 @@ _ZN5clanglsIbEENSt9enable_ifIXsr3std7is_sameIT_bEE5valueERKNS_19StreamingDiagnos
 declare void @_ZN5clang4Sema15ActOnPragmaDumpEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(17560), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser16HandlePragmaWeakEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser16HandlePragmaWeakEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -4097,7 +4097,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
 declare void @_ZN5clang4Sema17ActOnPragmaWeakIDEPNS_14IdentifierInfoENS_14SourceLocationES3_(ptr noundef nonnull align 8 dereferenceable(17560), ptr noundef, i32, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser21HandlePragmaWeakAliasEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser21HandlePragmaWeakAliasEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -4163,7 +4163,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit11:     ; preds = %switch.hole_check14
 declare void @_ZN5clang4Sema20ActOnPragmaWeakAliasEPNS_14IdentifierInfoES2_NS_14SourceLocationES3_S3_(ptr noundef nonnull align 8 dereferenceable(17560), ptr noundef, ptr noundef, i32, i32, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser27HandlePragmaRedefineExtnameEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser27HandlePragmaRedefineExtnameEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -4229,7 +4229,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit11:     ; preds = %switch.hole_check14
 declare void @_ZN5clang4Sema26ActOnPragmaRedefineExtnameEPNS_14IdentifierInfoES2_NS_14SourceLocationES3_S3_(ptr noundef nonnull align 8 dereferenceable(17560), ptr noundef, ptr noundef, i32, i32, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser22HandlePragmaFPContractEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser22HandlePragmaFPContractEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -4276,7 +4276,7 @@ define dso_local void @_ZN5clang6Parser22HandlePragmaFPContractEv(ptr noundef no
 declare void @_ZN5clang4Sema21ActOnPragmaFPContractENS_14SourceLocationENS_15LangOptionsBase10FPModeKindE(ptr noundef nonnull align 8 dereferenceable(17560), i32, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser24HandlePragmaFloatControlEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser24HandlePragmaFloatControlEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -4303,7 +4303,7 @@ define dso_local void @_ZN5clang6Parser24HandlePragmaFloatControlEv(ptr noundef 
 declare void @_ZN5clang4Sema23ActOnPragmaFloatControlENS_14SourceLocationENS0_19PragmaMsStackActionENS_22PragmaFloatControlKindE(ptr noundef nonnull align 8 dereferenceable(17560), i32, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser22HandlePragmaFEnvAccessEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser22HandlePragmaFEnvAccessEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -4330,7 +4330,7 @@ define dso_local void @_ZN5clang6Parser22HandlePragmaFEnvAccessEv(ptr noundef no
 declare void @_ZN5clang4Sema21ActOnPragmaFEnvAccessENS_14SourceLocationEb(ptr noundef nonnull align 8 dereferenceable(17560), i32, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser21HandlePragmaFEnvRoundEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser21HandlePragmaFEnvRoundEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -4355,7 +4355,7 @@ define dso_local void @_ZN5clang6Parser21HandlePragmaFEnvRoundEv(ptr noundef non
 declare void @_ZN5clang4Sema20ActOnPragmaFEnvRoundENS_14SourceLocationEN4llvm12RoundingModeE(ptr noundef nonnull align 8 dereferenceable(17560), i32, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser26HandlePragmaCXLimitedRangeEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser26HandlePragmaCXLimitedRangeEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -4402,7 +4402,7 @@ define dso_local void @_ZN5clang6Parser26HandlePragmaCXLimitedRangeEv(ptr nounde
 declare void @_ZN5clang4Sema25ActOnPragmaCXLimitedRangeENS_14SourceLocationENS_15LangOptionsBase16ComplexRangeKindE(ptr noundef nonnull align 8 dereferenceable(17560), i32, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang6Parser20HandlePragmaCapturedEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang6Parser20HandlePragmaCapturedEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -4508,7 +4508,7 @@ declare void @_ZN5clang4Sema24ActOnCapturedRegionErrorEv(ptr noundef nonnull ali
 declare i64 @_ZN5clang4Sema22ActOnCapturedRegionEndEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(17560), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser27HandlePragmaOpenCLExtensionEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser27HandlePragmaOpenCLExtensionEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::DiagnosticBuilder", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4789,7 +4789,7 @@ declare void @_ZN5clang13OpenCLOptions6enableEN4llvm9StringRefEb(ptr noundef non
 declare noundef zeroext i1 @_ZNK5clang13OpenCLOptions29isSupportedCoreOrOptionalCoreEN4llvm9StringRefERKNS_11LangOptionsE(ptr noundef nonnull align 8 dereferenceable(24), ptr, i64, ptr noundef nonnull align 8 dereferenceable(841)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser31HandlePragmaMSPointersToMembersEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser31HandlePragmaMSPointersToMembersEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -4814,7 +4814,7 @@ define dso_local void @_ZN5clang6Parser31HandlePragmaMSPointersToMembersEv(ptr n
 declare void @_ZN5clang4Sema30ActOnPragmaMSPointersToMembersENS_15LangOptionsBase29PragmaMSPointersToMembersKindENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17560), i32 noundef, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser22HandlePragmaMSVtorDispEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser22HandlePragmaMSVtorDispEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -4841,7 +4841,7 @@ define dso_local void @_ZN5clang6Parser22HandlePragmaMSVtorDispEv(ptr noundef no
 declare void @_ZN5clang4Sema21ActOnPragmaMSVtorDispENS0_19PragmaMsStackActionENS_14SourceLocationENS_14MSVtorDispModeE(ptr noundef nonnull align 8 dereferenceable(17560), i32 noundef, i32, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser20HandlePragmaMSPragmaEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser20HandlePragmaMSPragmaEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
 _ZNSt10unique_ptrIA_N5clang5TokenESt14default_deleteIS2_EED2Ev.exit:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7894,7 +7894,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4
 declare void @_ZN5clang4Sema22ActOnPragmaMSAllocTextENS_14SourceLocationEN4llvm9StringRefERKNS2_11SmallVectorISt5tupleIJPNS_14IdentifierInfoES1_EELj3EEE(ptr noundef nonnull align 8 dereferenceable(17560), i32, ptr, i64, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang6Parser20HandlePragmaLoopHintERNS_8LoopHintE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang6Parser20HandlePragmaLoopHintERNS_8LoopHintE(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((8, 24)) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
@@ -10596,7 +10596,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZN5clang17Diagnost
 declare noundef ptr @_ZN5clang4attr27getSubjectMatchRuleSpellingENS0_16SubjectMatchRuleE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser21HandlePragmaAttributeEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser21HandlePragmaAttributeEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i16, align 2
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
@@ -12051,7 +12051,7 @@ _ZN4llvm9BitVectorD2Ev.exit74:                    ; preds = %207, %.critedge, %_
 declare void @_ZN5clang4Sema29ActOnPragmaAttributeAttributeERNS_10ParsedAttrENS_14SourceLocationEN4llvm8DenseMapIiNS_11SourceRangeENS4_12DenseMapInfoIivEENS4_6detail12DenseMapPairIiS6_EEEE(ptr noundef nonnull align 8 dereferenceable(17560), ptr noundef nonnull align 8 dereferenceable(72), i32, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser14HandlePragmaFPEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser14HandlePragmaFPEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -25151,7 +25151,7 @@ _ZN5clanglsERKNS_19StreamingDiagnosticEi.exit:    ; preds = %2, %_ZNK5clang19Str
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122PragmaAttributeHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_122PragmaAttributeHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_122PragmaAttributeHandlerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -25185,7 +25185,7 @@ _ZN5clang16ParsedAttributesD2Ev.exit:             ; preds = %_ZN5clang13Attribut
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122PragmaAttributeHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_122PragmaAttributeHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_122PragmaAttributeHandlerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8

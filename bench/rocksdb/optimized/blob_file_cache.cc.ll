@@ -43,7 +43,7 @@ $_ZGVZN7rocksdb21BasicTypedCacheHelperINS_14BlobFileReaderELNS_14CacheEntryRoleE
 @_ZN7rocksdb13BlobFileCacheC1EPNS_5CacheEPKNS_16ImmutableOptionsEPKNS_11FileOptionsEjPNS_13HistogramImplERKSt10shared_ptrINS_8IOTracerEE = unnamed_addr alias void (ptr, ptr, ptr, ptr, i32, ptr, ptr), ptr @_ZN7rocksdb13BlobFileCacheC2EPNS_5CacheEPKNS_16ImmutableOptionsEPKNS_11FileOptionsEjPNS_13HistogramImplERKSt10shared_ptrINS_8IOTracerEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13BlobFileCacheC2EPNS_5CacheEPKNS_16ImmutableOptionsEPKNS_11FileOptionsEjPNS_13HistogramImplERKSt10shared_ptrINS_8IOTracerEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this, ptr noundef %cache, ptr noundef %immutable_options, ptr noundef %file_options, i32 noundef %column_family_id, ptr noundef %blob_file_read_hist, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %io_tracer) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13BlobFileCacheC2EPNS_5CacheEPKNS_16ImmutableOptionsEPKNS_11FileOptionsEjPNS_13HistogramImplERKSt10shared_ptrINS_8IOTracerEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 16)) %this, ptr noundef %cache, ptr noundef %immutable_options, ptr noundef %file_options, i32 noundef %column_family_id, ptr noundef %blob_file_read_hist, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %io_tracer) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %cache, ptr %this, align 8
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 8

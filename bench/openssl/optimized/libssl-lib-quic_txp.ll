@@ -518,7 +518,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @BIO_ADDR_clear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_quic_tx_packetiser_set_ack_tx_cb(ptr nocapture noundef writeonly %txp, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #3 {
+define void @ossl_quic_tx_packetiser_set_ack_tx_cb(ptr nocapture noundef writeonly initializes((656, 672)) %txp, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #3 {
 entry:
   %ack_tx_cb = getelementptr inbounds i8, ptr %txp, i64 656
   store ptr %cb, ptr %ack_tx_cb, align 8
@@ -3783,7 +3783,7 @@ return:                                           ; preds = %if.then5, %entry, %
 declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_quic_tx_packetiser_set_msg_callback(ptr nocapture noundef writeonly %txp, ptr noundef %msg_callback, ptr noundef %msg_callback_ssl) local_unnamed_addr #3 {
+define void @ossl_quic_tx_packetiser_set_msg_callback(ptr nocapture noundef writeonly initializes((632, 640), (648, 656)) %txp, ptr noundef %msg_callback, ptr noundef %msg_callback_ssl) local_unnamed_addr #3 {
 entry:
   %msg_callback1 = getelementptr inbounds i8, ptr %txp, i64 632
   store ptr %msg_callback, ptr %msg_callback1, align 8
@@ -3793,7 +3793,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_quic_tx_packetiser_set_msg_callback_arg(ptr nocapture noundef writeonly %txp, ptr noundef %msg_callback_arg) local_unnamed_addr #3 {
+define void @ossl_quic_tx_packetiser_set_msg_callback_arg(ptr nocapture noundef writeonly initializes((640, 648)) %txp, ptr noundef %msg_callback_arg) local_unnamed_addr #3 {
 entry:
   %msg_callback_arg1 = getelementptr inbounds i8, ptr %txp, i64 640
   store ptr %msg_callback_arg, ptr %msg_callback_arg1, align 8

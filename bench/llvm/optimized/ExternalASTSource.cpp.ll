@@ -43,7 +43,7 @@ define dso_local void @_ZN5clang17ExternalASTSourceD0Ev(ptr noundef nonnull alig
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang17ExternalASTSource19getSourceDescriptorEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang17ExternalASTSource19getSourceDescriptorEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 initializes((80, 81)) %0, ptr nocapture nonnull readnone align 8 %1, i32 %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 0, ptr %4, align 8
   ret void

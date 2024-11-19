@@ -2252,7 +2252,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyFloat_InitTypes(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %interp) local_unnamed_addr #1 {
+define hidden void @_PyFloat_InitTypes(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %interp) local_unnamed_addr #1 {
 entry:
   %call.i = tail call i32 @_PyStructSequence_InitBuiltinWithFlags(ptr noundef %interp, ptr noundef nonnull @FloatInfoType, ptr noundef nonnull @floatinfo_desc, i64 noundef 0) #17
   %cmp = icmp slt i32 %call.i, 0

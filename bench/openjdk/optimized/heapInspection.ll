@@ -689,7 +689,7 @@ _ZN14KlassInfoEntryD2Ev.exit:                     ; preds = %.lr.ph, %_ZN13Growa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14KlassInfoTableC2Eb(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN14KlassInfoTableC2Eb(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.NativeCallStack, align 8
   %4 = alloca %"class.KlassInfoTable::AllClassesFinder", align 8
   store i64 0, ptr %0, align 8
@@ -1322,7 +1322,7 @@ define hidden noundef i32 @_ZN14KlassInfoHisto11sort_helperEPP14KlassInfoEntryS2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14KlassInfoHistoC2EP14KlassInfoTable(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN14KlassInfoHistoC2EP14KlassInfoTable(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 23) #15
   %4 = icmp eq ptr %3, null

@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN8UCaseMapD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8UCaseMapD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8UCaseMapC2EPKcjP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %localeID, i32 noundef %opts, ptr noundef %pErrorCode) unnamed_addr #0 align 2 {
+define void @_ZN8UCaseMapC2EPKcjP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (40, 48)) %this, ptr noundef %localeID, i32 noundef %opts, ptr noundef %pErrorCode) unnamed_addr #0 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   %caseLocale = getelementptr inbounds i8, ptr %this, i64 40

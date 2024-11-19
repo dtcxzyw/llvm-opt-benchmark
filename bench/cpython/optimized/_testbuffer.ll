@@ -6251,7 +6251,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @staticarray_getbuf(ptr noundef %self, ptr nocapture noundef writeonly %view, i32 %flags) #9 {
+define internal noundef i32 @staticarray_getbuf(ptr noundef %self, ptr nocapture noundef writeonly initializes((0, 80)) %view, i32 %flags) #9 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %view, ptr noundef nonnull align 8 dereferenceable(80) @static_buffer, i64 80, i1 false)
   %legacy_mode = getelementptr inbounds i8, ptr %self, i64 16

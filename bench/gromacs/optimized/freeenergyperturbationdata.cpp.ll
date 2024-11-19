@@ -749,7 +749,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN3gmx26FreeEnergyPertu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx26FreeEnergyPerturbationData7Element22registerDomDecCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx26FreeEnergyPerturbationData7Element22registerDomDecCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -847,7 +847,7 @@ define linkonce_odr void @_ZThn16_N3gmx26FreeEnergyPerturbationData7ElementD0Ev(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZThn16_N3gmx26FreeEnergyPerturbationData7Element22registerDomDecCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn16_N3gmx26FreeEnergyPerturbationData7Element22registerDomDecCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -16
   %4 = ptrtoint ptr %3 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1020,7 +1020,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN3gmx26FreeEn
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx26FreeEnergyPerturbationData13updateLambdasEl(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN3gmx26FreeEnergyPerturbationData13updateLambdasEl(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 36)) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.gmx::EnumerationArray", align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -1095,7 +1095,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN3gmx26FreeEn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx26FreeEnergyPerturbationData14setLambdaStateEli(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN3gmx26FreeEnergyPerturbationData14setLambdaStateEli(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 40)) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.gmx::EnumerationArray", align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %2, ptr %5, align 4
@@ -4778,7 +4778,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN3gmx26FreeEn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx26FreeEnergyPerturbationData7ElementC2EPS0_d(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr noundef %1, double noundef %2) unnamed_addr #2 align 2 {
+define void @_ZN3gmx26FreeEnergyPerturbationData7ElementC2EPS0_d(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 33), (64, 65), (72, 77)) %0, ptr noundef %1, double noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx26FreeEnergyPerturbationData7ElementE, i64 16), ptr %0, align 8
@@ -4806,13 +4806,13 @@ define noundef ptr @_ZN3gmx26FreeEnergyPerturbationData7elementEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx15FepStateSetting17signalSettingStepEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN3gmx15FepStateSetting17signalSettingStepEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   store i64 %1, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx15FepStateSetting11setNewStateEil(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define void @_ZN3gmx15FepStateSetting11setNewStateEil(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 12), (16, 24)) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16

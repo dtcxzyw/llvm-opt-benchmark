@@ -202,7 +202,7 @@ zend_hash_find.exit:                              ; preds = %.critedge.i, %8, %.
 declare void @zval_ptr_dtor(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define void @_zend_hash_init(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define void @_zend_hash_init(ptr nocapture noundef writeonly initializes((0, 32), (36, 56)) %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   store i32 1, ptr %0, align 4
   %5 = select i1 %3, i32 151, i32 7
   %6 = getelementptr inbounds i8, ptr %0, i64 4
@@ -440,7 +440,7 @@ declare ptr @__zend_realloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare ptr @_erealloc2(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @zend_hash_real_init(ptr nocapture noundef %0, i1 noundef zeroext %1) local_unnamed_addr #5 {
+define void @zend_hash_real_init(ptr nocapture noundef initializes((16, 24)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 8
@@ -573,7 +573,7 @@ define void @zend_hash_real_init(ptr nocapture noundef %0, i1 noundef zeroext %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_hash_real_init_packed(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @zend_hash_real_init_packed(ptr nocapture noundef initializes((8, 9), (16, 24)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 128
@@ -624,7 +624,7 @@ define void @zend_hash_real_init_packed(ptr nocapture noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_hash_real_init_mixed(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @zend_hash_real_init_mixed(ptr nocapture noundef initializes((8, 9), (12, 24)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = shl i32 %3, 1

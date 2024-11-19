@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [2 x i8] c"\\\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dict_do(ptr noundef %data, ptr nocapture noundef writeonly %done) #0 {
+define internal i32 @dict_do(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %done) #0 {
 entry:
   %out.i = alloca %struct.dynbuf, align 8
   %path = alloca ptr, align 8

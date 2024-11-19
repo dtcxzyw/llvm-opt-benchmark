@@ -314,7 +314,7 @@ declare void @_ZN10model_core13register_declEP9func_declP11func_interp(ptr nound
 declare void @_ZN11func_interp8set_elseEP4expr(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17base_macro_solverclER10model_coreR10ptr_vectorI10quantifierES5_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(96) %m, ptr noundef nonnull align 8 dereferenceable(8) %qs, ptr noundef nonnull align 8 dereferenceable(8) %residue) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17base_macro_solverclER10model_coreR10ptr_vectorI10quantifierES5_(ptr noundef nonnull align 8 dereferenceable(32) initializes((24, 32)) %this, ptr noundef nonnull align 8 dereferenceable(96) %m, ptr noundef nonnull align 8 dereferenceable(8) %qs, ptr noundef nonnull align 8 dereferenceable(8) %residue) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %curr_qs = alloca %class.ptr_vector.40, align 8
   %new_qs = alloca %class.ptr_vector.40, align 8
@@ -7097,7 +7097,7 @@ return:                                           ; preds = %for.end, %while.bod
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN17hint_macro_solver10is_acyclicEP4expr(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef %def) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN17hint_macro_solver10is_acyclicEP4expr(ptr noundef nonnull align 8 dereferenceable(328) initializes((288, 292)) %this, ptr noundef %def) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oc = alloca %"struct.hint_macro_solver::occurs_check", align 8
   %m_visited = getelementptr inbounds i8, ptr %this, i64 280

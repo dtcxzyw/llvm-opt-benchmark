@@ -51,7 +51,7 @@ define ptr @osqp_error_message(i64 noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @osqp_get_dimensions(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define void @osqp_get_dimensions(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %4
 
@@ -2675,7 +2675,7 @@ declare i64 @codegen_example(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @codegen_defines(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @csc_set_data(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #5 {
+define void @csc_set_data(ptr nocapture noundef writeonly initializes((0, 56)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #5 {
   store i64 %1, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %8, align 8

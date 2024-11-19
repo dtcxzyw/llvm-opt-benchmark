@@ -652,7 +652,7 @@ _ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6Tag
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg10ParserBaseC2ENS_10StringViewES1_NS_10TextRowColE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr %1, i64 %2, ptr %3, i64 %4, i64 %5) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5vcpkg10ParserBaseC2ENS_10StringViewES1_NS_10TextRowColE(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 4), (8, 32)) %0, ptr %1, i64 %2, ptr %3, i64 %4, i64 %5) unnamed_addr #3 align 2 {
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   store i32 0, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8

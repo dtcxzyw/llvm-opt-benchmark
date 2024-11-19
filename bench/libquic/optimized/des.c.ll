@@ -2033,7 +2033,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @DES_ecb_encrypt(ptr nocapture noundef readonly %in_block, ptr nocapture noundef writeonly %out_block, ptr noundef %schedule, i32 noundef %is_encrypt) local_unnamed_addr #1 {
+define hidden void @DES_ecb_encrypt(ptr nocapture noundef readonly %in_block, ptr nocapture noundef writeonly initializes((0, 8)) %out_block, ptr noundef %schedule, i32 noundef %is_encrypt) local_unnamed_addr #1 {
 entry:
   %ll = alloca [2 x i32], align 4
   %0 = load i32, ptr %in_block, align 1
@@ -4268,7 +4268,7 @@ if.end405:                                        ; preds = %if.end372, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @DES_ecb3_encrypt(ptr nocapture noundef readonly %input, ptr nocapture noundef writeonly %output, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3, i32 noundef %enc) local_unnamed_addr #1 {
+define hidden void @DES_ecb3_encrypt(ptr nocapture noundef readonly %input, ptr nocapture noundef writeonly initializes((0, 8)) %output, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3, i32 noundef %enc) local_unnamed_addr #1 {
 entry:
   %ll = alloca [2 x i32], align 4
   %0 = load i32, ptr %input, align 1

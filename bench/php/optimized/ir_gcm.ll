@@ -2521,7 +2521,7 @@ declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #6
 declare void @ir_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ir_build_prev_refs(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @ir_build_prev_refs(ptr nocapture noundef initializes((240, 248)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64

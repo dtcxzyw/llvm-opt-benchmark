@@ -14,13 +14,13 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN21BufferedReadWriteFileD1Ev = unnamed_addr alias void (ptr), ptr @_ZN21BufferedReadWriteFileD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN17TriangulationEdgeC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define void @_ZN17TriangulationEdgeC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 -1, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN21TriangulationTriangleC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0) unnamed_addr #0 align 2 {
+define void @_ZN21TriangulationTriangleC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -30,7 +30,7 @@ define void @_ZN21TriangulationTriangleC2Ev(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21BufferedReadWriteFileC2EPci(ptr noundef nonnull align 8 dereferenceable(1064) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #1 align 2 {
+define void @_ZN21BufferedReadWriteFileC2EPci(ptr noundef nonnull align 8 dereferenceable(1064) initializes((1048, 1064)) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1048
   store i64 0, ptr %4, align 8
   %5 = sext i32 %2 to i64

@@ -3024,7 +3024,7 @@ _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %if.end, %invoke.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2qe15prop_mbi_pluginC2EP6solver(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2qe15prop_mbi_pluginC2EP6solver(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 32)) %this, ptr noundef %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %s, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
@@ -3696,7 +3696,7 @@ declare void @_Z6mk_notRK7obj_refI4expr11ast_managerE(ptr sret(%class.obj_ref) a
 declare void @_ZN6solver11assert_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2qe9uflia_mbiC2EP6solverS2_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %s, ptr noundef %sNot) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2qe9uflia_mbiC2EP6solverS2_(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 32)) %this, ptr noundef %s, ptr noundef %sNot) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca %class.params_ref, align 8
   %vtable = load ptr, ptr %s, align 8
@@ -4507,7 +4507,7 @@ declare noundef zeroext i1 @_ZN5model7is_trueEP4expr(ptr noundef nonnull align 8
 declare noundef zeroext i1 @_ZN5model8is_falseEP4expr(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2qe9uflia_mbi14get_arith_varsERK10ref_vectorI4expr11ast_managerE(ptr noalias sret(%class.ref_vector.66) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %lits) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2qe9uflia_mbi14get_arith_varsERK10ref_vectorI4expr11ast_managerE(ptr noalias sret(%class.ref_vector.66) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %lits) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator", align 1

@@ -157,7 +157,7 @@ define noundef zeroext i1 @_ZN8xml5ever9tokenizer9interface3Tag23equiv_modulo_at
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN8xml5ever9tokenizer9interface7Doctype3new17h1cb4df74f286f977E(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }) align 8 dereferenceable(72) %0) unnamed_addr #1 {
+define void @_ZN8xml5ever9tokenizer9interface7Doctype3new17h1cb4df74f286f977E(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }) align 8 dereferenceable(72) initializes((0, 8), (24, 32), (48, 56)) %0) unnamed_addr #1 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %2, align 8
@@ -167,7 +167,7 @@ define void @_ZN8xml5ever9tokenizer9interface7Doctype3new17h1cb4df74f286f977E(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN8xml5ever9tokenizer5qname17QualNameTokenizer3new17h6eadf2267fd2066eE(ptr noalias nocapture noundef writeonly sret({ { i32, i32 }, { ptr, i64 }, i64, i8, [7 x i8] }) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define hidden void @_ZN8xml5ever9tokenizer5qname17QualNameTokenizer3new17h6eadf2267fd2066eE(ptr noalias nocapture noundef writeonly sret({ { i32, i32 }, { ptr, i64 }, i64, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 4), (8, 33)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8

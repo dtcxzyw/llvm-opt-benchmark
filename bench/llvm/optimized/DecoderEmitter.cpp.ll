@@ -15548,7 +15548,7 @@ _ZSt4fillIP11bit_value_tS0_EvT_S2_RKT0_.exit:     ; preds = %.lr.ph.i.i.i55, %.l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16FilterC2ERNS_13FilterChooserEjjb(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_16FilterC2ERNS_13FilterChooserEjjb(ptr noundef nonnull align 8 dereferenceable(156) initializes((0, 17), (32, 36), (40, 48)) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::vector.206", align 8
   %7 = zext i1 %4 to i8
   store ptr %1, ptr %0, align 8
@@ -16562,7 +16562,7 @@ _ZNSt3mapImSt10unique_ptrIKN12_GLOBAL__N_113FilterChooserESt14default_deleteIS3_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113FilterChooserC2EN4llvm8ArrayRefINS_15EncodingAndInstEEERKSt6vectorINS_19EncodingIDAndOpcodeESaIS6_EERKSt3mapIjS5_INS_11OperandInfoESaISC_EESt4lessIjESaISt4pairIKjSE_EEERKS5_I11bit_value_tSaISO_EERKS0_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(104) %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_113FilterChooserC2EN4llvm8ArrayRefINS_15EncodingAndInstEEERKSt6vectorINS_19EncodingIDAndOpcodeESaIS6_EERKSt3mapIjS5_INS_11OperandInfoESaISC_EESt4lessIjESaISt4pairIKjSE_EEERKS5_I11bit_value_tSaISO_EERKS0_(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 80)) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(104) %6) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8

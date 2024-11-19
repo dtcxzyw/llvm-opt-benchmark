@@ -202,7 +202,7 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17ForwardValueQuoteC2EN5boost10shared_ptrINS_5IndexEEERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %fixingDate) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17ForwardValueQuoteC2EN5boost10shared_ptrINS_5IndexEEERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16), (24, 28), (32, 40)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %fixingDate) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
@@ -543,7 +543,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17ForwardValueQuoteC1EN5boost10shared_ptrINS_5IndexEEERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %fixingDate) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17ForwardValueQuoteC1EN5boost10shared_ptrINS_5IndexEEERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(88) initializes((104, 108), (112, 120)) %this, ptr nocapture noundef %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %fixingDate) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 88

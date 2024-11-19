@@ -1426,7 +1426,7 @@ define dso_local void @scsi_eh_done(ptr nocapture noundef readonly %0) local_unn
 declare dso_local void @complete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @scsi_eh_prep_cmnd(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local void @scsi_eh_prep_cmnd(ptr nocapture noundef %0, ptr noundef initializes((0, 54), (56, 80)) %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 156
   %8 = load i16, ptr %7, align 4
@@ -1556,7 +1556,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare dso_local void @sg_init_one(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @scsi_eh_restore_cmnd(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define dso_local void @scsi_eh_restore_cmnd(ptr nocapture noundef writeonly initializes((128, 132), (152, 153), (156, 158), (160, 196), (200, 224), (232, 236), (240, 244), (288, 292)) %0, ptr nocapture noundef readonly %1) #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 20
   %4 = load i8, ptr %3, align 4
   %5 = zext i8 %4 to i16

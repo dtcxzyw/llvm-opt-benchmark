@@ -46,7 +46,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6icu_7517ResourceDataValueD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7517ResourceDataValueD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @res_read_75(ptr nocapture noundef %pResData, ptr nocapture noundef readonly %pInfo, ptr noundef %inBytes, i32 noundef %length, ptr nocapture noundef %errorCode) local_unnamed_addr #0 {
+define void @res_read_75(ptr nocapture noundef initializes((0, 64)) %pResData, ptr nocapture noundef readonly %pInfo, ptr noundef %inBytes, i32 noundef %length, ptr nocapture noundef %errorCode) local_unnamed_addr #0 {
 entry:
   %formatVersion = alloca [4 x i8], align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %pResData, i8 0, i64 64, i1 false)
@@ -124,7 +124,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL12isAcceptablePvPKcS1_PK9UDataInfo(ptr nocapture noundef writeonly %context, ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %pInfo) #2 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL12isAcceptablePvPKcS1_PK9UDataInfo(ptr nocapture noundef writeonly initializes((0, 4)) %context, ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %pInfo) #2 {
 entry:
   %formatVersion = getelementptr inbounds i8, ptr %pInfo, i64 12
   %2 = load i32, ptr %formatVersion, align 2
@@ -191,7 +191,7 @@ land.end37:                                       ; preds = %land.rhs, %land.rhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL8res_initP12ResourceDataPhPKviP10UErrorCode(ptr nocapture noundef %pResData, ptr nocapture noundef nonnull readonly %formatVersion, ptr noundef %inBytes, i32 noundef %length, ptr nocapture noundef writeonly %errorCode) unnamed_addr #0 {
+define internal fastcc void @_ZL8res_initP12ResourceDataPhPKviP10UErrorCode(ptr nocapture noundef initializes((8, 24), (32, 36)) %pResData, ptr nocapture noundef nonnull readonly %formatVersion, ptr noundef %inBytes, i32 noundef %length, ptr nocapture noundef writeonly %errorCode) unnamed_addr #0 {
 entry:
   %pRoot = getelementptr inbounds i8, ptr %pResData, i64 8
   store ptr %inBytes, ptr %pRoot, align 8
@@ -429,7 +429,7 @@ if.end92:                                         ; preds = %if.then.i71, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @res_load_75(ptr nocapture noundef %pResData, ptr noundef %path, ptr noundef %name, ptr noundef %errorCode) local_unnamed_addr #0 {
+define void @res_load_75(ptr nocapture noundef initializes((0, 64)) %pResData, ptr noundef %path, ptr noundef %name, ptr noundef %errorCode) local_unnamed_addr #0 {
 entry:
   %formatVersion = alloca [4 x i8], align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %pResData, i8 0, i64 64, i1 false)
@@ -1099,7 +1099,7 @@ return:                                           ; preds = %_ZN6icu_7513res_get
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6icu_7517ResourceDataValue8getArrayER10UErrorCode(ptr noalias nocapture writeonly sret(%"class.icu_75::ResourceArray") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #5 align 2 {
+define void @_ZNK6icu_7517ResourceDataValue8getArrayER10UErrorCode(ptr noalias nocapture writeonly sret(%"class.icu_75::ResourceArray") align 8 initializes((0, 20)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #5 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1167,7 +1167,7 @@ return:                                           ; preds = %sw.epilog, %sw.defa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6icu_7517ResourceDataValue8getTableER10UErrorCode(ptr noalias nocapture writeonly sret(%"class.icu_75::ResourceTable") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #5 align 2 {
+define void @_ZNK6icu_7517ResourceDataValue8getTableER10UErrorCode(ptr noalias nocapture writeonly sret(%"class.icu_75::ResourceTable") align 8 initializes((0, 36)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #5 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1743,7 +1743,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7517ResourceDataValue23getStringOrFirstOfArrayER10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(29) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7517ResourceDataValue23getStringOrFirstOfArrayER10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr noundef nonnull align 8 dereferenceable(29) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %array = alloca %"class.icu_75::ResourceArray", align 8

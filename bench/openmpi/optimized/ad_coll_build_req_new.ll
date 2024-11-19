@@ -257,7 +257,7 @@ view_state_add_region.exit:                       ; preds = %.loopexit.i, %107
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @view_state_add_region(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @view_state_add_region(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2, ptr nocapture noundef nonnull writeonly %3, i32 noundef %4) unnamed_addr #0 {
   switch i32 %4, label %10 [
     i32 0, label %6
     i32 1, label %8

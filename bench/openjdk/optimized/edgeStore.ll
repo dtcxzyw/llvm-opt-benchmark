@@ -66,7 +66,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN10StoredEdgeC2ERK4Edge(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN10StoredEdgeC2ERK4Edge(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -74,7 +74,7 @@ define hidden void @_ZN10StoredEdgeC2ERK4Edge(ptr nocapture noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN10StoredEdgeC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN10StoredEdgeC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 16
@@ -97,7 +97,7 @@ define hidden noundef zeroext i1 @_ZNK9EdgeStore8is_emptyEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN9EdgeStore7on_linkEP17JfrHashtableEntryI10StoredEdgemE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN9EdgeStore7on_linkEP17JfrHashtableEntryI10StoredEdgemE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr nocapture noundef writeonly initializes((48, 56)) %1) local_unnamed_addr #5 align 2 {
   %3 = load i64, ptr @_ZN9EdgeStore16_edge_id_counterE, align 8
   %4 = add i64 %3, 1
   store i64 %4, ptr @_ZN9EdgeStore16_edge_id_counterE, align 8

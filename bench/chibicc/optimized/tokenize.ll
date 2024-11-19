@@ -317,7 +317,7 @@ if.end:                                           ; preds = %equal.exit
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @consume(ptr nocapture noundef writeonly %rest, ptr noundef %tok, ptr nocapture noundef readonly %str) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @consume(ptr nocapture noundef writeonly initializes((0, 8)) %rest, ptr noundef %tok, ptr nocapture noundef readonly %str) local_unnamed_addr #7 {
 entry:
   %loc.i = getelementptr inbounds i8, ptr %tok, i64 48
   %0 = load ptr, ptr %loc.i, align 16

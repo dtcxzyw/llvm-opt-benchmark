@@ -74,7 +74,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN27WeakProcessorParTimeTrackerD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN27WeakProcessorParTimeTrackerD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18WeakProcessorTimesC2Ej(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN18WeakProcessorTimesC2Ej(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 96)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %3, align 4
@@ -254,14 +254,14 @@ define hidden noundef i32 @_ZNK18WeakProcessorTimes14active_workersEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18WeakProcessorTimes18set_active_workersEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN18WeakProcessorTimes18set_active_workersEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((4, 8)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18WeakProcessorTimes5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18WeakProcessorTimes5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((4, 16)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -327,7 +327,7 @@ define hidden noundef double @_ZNK18WeakProcessorTimes14total_time_secEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18WeakProcessorTimes21record_total_time_secEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, double noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN18WeakProcessorTimes21record_total_time_secEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((8, 16)) %0, double noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store double %1, ptr %3, align 8
   ret void
@@ -423,7 +423,7 @@ _ZN15WorkerDataArrayIdE27set_or_add_thread_work_itemEjmj.exit8: ; preds = %_ZN15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24WeakProcessorTimeTrackerC2EP18WeakProcessorTimes(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN24WeakProcessorTimeTrackerC2EP18WeakProcessorTimes(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #13
@@ -462,7 +462,7 @@ define hidden void @_ZN24WeakProcessorTimeTrackerD2Ev(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27WeakProcessorParTimeTrackerC2EP18WeakProcessorTimesN13OopStorageSet6WeakIdEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN27WeakProcessorParTimeTrackerC2EP18WeakProcessorTimesN13OopStorageSet6WeakIdEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %2, ptr %5, align 8

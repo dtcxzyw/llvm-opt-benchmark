@@ -60,7 +60,7 @@ $_ZTV13SystemProcess = comdat any
 @_ZN27NetworkPerformanceInterfaceD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN27NetworkPerformanceInterfaceD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23CPUPerformanceInterface14CPUPerformanceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN23CPUPerformanceInterface14CPUPerformanceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 4), (48, 56)) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef i32 @_ZN2os22active_processor_countEv() #18
   store i32 %2, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -71,7 +71,7 @@ define hidden void @_ZN23CPUPerformanceInterface14CPUPerformanceC2Ev(ptr nocaptu
 declare noundef i32 @_ZN2os22active_processor_countEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN23CPUPerformanceInterface14CPUPerformance10initializeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN23CPUPerformanceInterface14CPUPerformance10initializeEv(ptr noundef nonnull align 8 dereferenceable(56) initializes((48, 56)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca double, align 8
@@ -283,7 +283,7 @@ define hidden void @_ZN23CPUPerformanceInterface14CPUPerformanceD2Ev(ptr nocaptu
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 1) i32 @_ZN23CPUPerformanceInterface14CPUPerformance8cpu_loadEiPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 1) i32 @_ZN23CPUPerformanceInterface14CPUPerformance8cpu_loadEiPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
   %4 = icmp eq i32 %1, -1
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -345,7 +345,7 @@ _ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget.exit: ; preds = %3, %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef double @_ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget(i32 noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc noundef double @_ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget(i32 noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   store double 0.000000e+00, ptr %2, align 8
@@ -470,7 +470,7 @@ _ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit: ; preds = %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 1) i32 @_ZN23CPUPerformanceInterface14CPUPerformance22cpu_load_total_processEPd(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 1) i32 @_ZN23CPUPerformanceInterface14CPUPerformance22cpu_load_total_processEPd(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca double, align 8
   %4 = call fastcc noundef double @_ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget(i32 noundef -1, ptr noundef %0, ptr noundef %3, i32 noundef 0)
   %5 = fcmp olt double %4, 0.000000e+00
@@ -483,7 +483,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN23CPUPerformanceInterface14CPUPer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 1) i32 @_ZN23CPUPerformanceInterface14CPUPerformance17cpu_loads_processEPdS1_S1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 1) i32 @_ZN23CPUPerformanceInterface14CPUPerformance17cpu_loads_processEPdS1_S1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca double, align 8
   %6 = call fastcc noundef double @_ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget(i32 noundef -1, ptr noundef %0, ptr noundef %5, i32 noundef 0)
   %7 = fcmp olt double %6, 0.000000e+00
@@ -569,13 +569,13 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN23CPUPerformanceInterface14CPUPer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN23CPUPerformanceInterfaceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN23CPUPerformanceInterfaceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN23CPUPerformanceInterface10initializeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN23CPUPerformanceInterface10initializeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 9, i32 noundef 0) #18
   %3 = tail call noundef i32 @_ZN2os22active_processor_countEv() #18
   store i32 %3, ptr %2, align 8
@@ -611,7 +611,7 @@ _ZN23CPUPerformanceInterface14CPUPerformanceD2Ev.exit: ; preds = %3, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 1) i32 @_ZNK23CPUPerformanceInterface8cpu_loadEiPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 1) i32 @_ZNK23CPUPerformanceInterface8cpu_loadEiPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq i32 %1, -1
   %6 = getelementptr inbounds i8, ptr %4, i64 48
@@ -674,7 +674,7 @@ _ZN23CPUPerformanceInterface14CPUPerformance8cpu_loadEiPd.exit: ; preds = %3, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 1) i32 @_ZNK23CPUPerformanceInterface22cpu_load_total_processEPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 1) i32 @_ZNK23CPUPerformanceInterface22cpu_load_total_processEPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca double, align 8
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -690,7 +690,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZNK23CPUPerformanceInterface22cpu_l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 1) i32 @_ZNK23CPUPerformanceInterface17cpu_loads_processEPdS0_S0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 1) i32 @_ZNK23CPUPerformanceInterface17cpu_loads_processEPdS0_S0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %0, align 8
   %6 = tail call noundef i32 @_ZN23CPUPerformanceInterface14CPUPerformance17cpu_loads_processEPdS1_S1_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %6
@@ -719,7 +719,7 @@ define hidden noundef zeroext i1 @_ZNK22SystemProcessInterface15SystemProcesses1
 declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef range(i32 -1, 1) i32 @_ZNK22SystemProcessInterface15SystemProcesses15ProcessIterator5fsizeEPKcRm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8209) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 -1, 1) i32 @_ZNK22SystemProcessInterface15SystemProcesses15ProcessIterator5fsizeEPKcRm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8209) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #4 align 2 {
   %4 = alloca %struct.stat, align 8
   store i64 0, ptr %2, align 8
   %5 = call i32 @stat64(ptr noundef %1, ptr noundef nonnull %4) #18
@@ -1091,13 +1091,13 @@ _ZNK22SystemProcessInterface15SystemProcesses15ProcessIterator14is_valid_entryEP
 declare noundef ptr @_ZN2os7readdirEP11__dirstream(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22SystemProcessInterface15SystemProcesses15ProcessIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8209) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN22SystemProcessInterface15SystemProcesses15ProcessIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8209) initializes((0, 17)) %0) unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, i8 0, i64 17, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN22SystemProcessInterface15SystemProcesses15ProcessIterator10initializeEv(ptr nocapture noundef nonnull align 8 dereferenceable(8209) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN22SystemProcessInterface15SystemProcesses15ProcessIterator10initializeEv(ptr nocapture noundef nonnull align 8 dereferenceable(8209) initializes((0, 17)) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN2os7opendirEPKc(ptr noundef nonnull @.str.8) #18
   store ptr %2, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1129,13 +1129,13 @@ define hidden void @_ZN22SystemProcessInterface15SystemProcesses15ProcessIterato
 declare noundef i32 @_ZN2os8closedirEP11__dirstream(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22SystemProcessInterface15SystemProcessesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN22SystemProcessInterface15SystemProcessesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN22SystemProcessInterface15SystemProcesses10initializeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN22SystemProcessInterface15SystemProcesses10initializeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8216, i8 noundef zeroext 9, i32 noundef 0) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8209) %2, i8 0, i64 17, i1 false)
   store ptr %2, ptr %0, align 8
@@ -1175,7 +1175,7 @@ _ZN22SystemProcessInterface15SystemProcesses15ProcessIteratorD2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK22SystemProcessInterface15SystemProcesses16system_processesEPP13SystemProcessPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK22SystemProcessInterface15SystemProcesses16system_processesEPP13SystemProcessPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef initializes((0, 4)) %2) local_unnamed_addr #0 align 2 {
   store i32 0, ptr %2, align 4
   store ptr null, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
@@ -1220,7 +1220,7 @@ define hidden noundef i32 @_ZNK22SystemProcessInterface15SystemProcesses16system
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK22SystemProcessInterface16system_processesEPP13SystemProcessPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK22SystemProcessInterface16system_processesEPP13SystemProcessPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef initializes((0, 4)) %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   store i32 0, ptr %2, align 4
   store ptr null, ptr %1, align 8
@@ -1266,13 +1266,13 @@ _ZNK22SystemProcessInterface15SystemProcesses16system_processesEPP13SystemProces
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22SystemProcessInterfaceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN22SystemProcessInterfaceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN22SystemProcessInterface10initializeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN22SystemProcessInterface10initializeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 9, i32 noundef 0) #18
   store ptr null, ptr %2, align 8
   store ptr %2, ptr %0, align 8
@@ -1324,13 +1324,13 @@ _ZN22SystemProcessInterface15SystemProcessesD2Ev.exit: ; preds = %3, %_ZN22Syste
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN23CPUInformationInterfaceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN23CPUInformationInterfaceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN23CPUInformationInterface10initializeEv(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN23CPUInformationInterface10initializeEv(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #18
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 4
@@ -1609,7 +1609,7 @@ declare i32 @getifaddrs(ptr noundef) local_unnamed_addr #13
 declare void @freeifaddrs(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN27NetworkPerformanceInterfaceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN27NetworkPerformanceInterfaceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -1629,7 +1629,7 @@ define hidden void @_ZN27NetworkPerformanceInterfaceD2Ev(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN27NetworkPerformanceInterface10initializeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN27NetworkPerformanceInterface10initializeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 1, i8 noundef zeroext 9, i32 noundef 0) #18
   store ptr %2, ptr %0, align 8
   ret i1 true

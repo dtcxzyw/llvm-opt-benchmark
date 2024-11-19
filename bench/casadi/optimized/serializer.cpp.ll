@@ -374,7 +374,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi14SerializerBaseC2ESt10unique_ptrISoSt14default_deleteISoEERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessISB_ESaISt4pairIKSB_SC_EEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi14SerializerBaseC2ESt10unique_ptrISoSt14default_deleteISoEERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessISB_ESaISt4pairIKSB_SC_EEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %0, align 8
   store ptr null, ptr %1, align 8
@@ -2109,7 +2109,7 @@ _ZN6casadi14SerializerBaseD2Ev.exit:              ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi16DeserializerBaseC2ESt10unique_ptrISiSt14default_deleteISiEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi16DeserializerBaseC2ESt10unique_ptrISiSt14default_deleteISiEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8
@@ -5866,7 +5866,7 @@ _ZN6casadi17SerializingStream4packINS_8SparsityEEEvRKSt6vectorIT_SaIS4_EE.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi16DeserializerBase28blind_unpack_sparsity_vectorEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.72") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi16DeserializerBase28blind_unpack_sparsity_vectorEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.72") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %4 unwind label %5
@@ -6587,7 +6587,7 @@ _ZN6casadi17SerializingStream4packINS_6MatrixIdEEEEvRKSt6vectorIT_SaIS5_EE.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi16DeserializerBase22blind_unpack_dm_vectorEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.87") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi16DeserializerBase22blind_unpack_dm_vectorEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.87") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %4 unwind label %5
@@ -7330,7 +7330,7 @@ _ZN6casadi17SerializingStream4packINS_6LinsolEEEvRKSt6vectorIT_SaIS4_EE.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi16DeserializerBase26blind_unpack_linsol_vectorEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.93") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi16DeserializerBase26blind_unpack_linsol_vectorEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.93") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %4 unwind label %5
@@ -8017,7 +8017,7 @@ _ZN6casadi17SerializingStream4packINS_8FunctionEEEvRKSt6vectorIT_SaIS4_EE.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi16DeserializerBase28blind_unpack_function_vectorEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.98") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi16DeserializerBase28blind_unpack_function_vectorEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.98") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %4 unwind label %5
@@ -8710,7 +8710,7 @@ _ZN6casadi17SerializingStream4packINS_11GenericTypeEEEvRKSt6vectorIT_SaIS4_EE.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi16DeserializerBase31blind_unpack_generictype_vectorEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.103") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi16DeserializerBase31blind_unpack_generictype_vectorEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.103") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %4 unwind label %5
@@ -9383,7 +9383,7 @@ _ZN6casadi17SerializingStream4packIxEEvRKSt6vectorIT_SaIS3_EE.exit: ; preds = %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi16DeserializerBase23blind_unpack_int_vectorEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.108") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi16DeserializerBase23blind_unpack_int_vectorEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.108") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
@@ -10000,7 +10000,7 @@ _ZN6casadi17SerializingStream4packIdEEvRKSt6vectorIT_SaIS3_EE.exit: ; preds = %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi16DeserializerBase26blind_unpack_double_vectorEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.82") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi16DeserializerBase26blind_unpack_double_vectorEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.82") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
@@ -10638,7 +10638,7 @@ _ZN6casadi17SerializingStream4packINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi16DeserializerBase26blind_unpack_string_vectorB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi16DeserializerBase26blind_unpack_string_vectorB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %4 unwind label %5

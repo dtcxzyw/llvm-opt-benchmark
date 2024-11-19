@@ -168,7 +168,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp11X3DImporter40PostprocessHelper_Matrix_GlobalToCurrentEv(ptr noalias nocapture writeonly sret(%class.aiMatrix4x4t) align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp11X3DImporter40PostprocessHelper_Matrix_GlobalToCurrentEv(ptr noalias nocapture writeonly sret(%class.aiMatrix4x4t) align 4 initializes((0, 64)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %matr = alloca %"class.std::__cxx11::list", align 8
   %_M_prev.i.i.i.i.i = getelementptr inbounds i8, ptr %matr, i64 8

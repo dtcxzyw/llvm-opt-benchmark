@@ -3190,7 +3190,7 @@ declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef,
 declare ptr @get_gsm_a_msg_string(i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden void @bssgp_suspend_ack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define hidden void @bssgp_suspend_ack(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -3523,7 +3523,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #0
 declare ptr @try_val_to_str_idx_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_dl_unitdata(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_dl_unitdata(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -3786,7 +3786,7 @@ define internal void @bssgp_dl_unitdata(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_ul_unitdata(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_ul_unitdata(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -3963,7 +3963,7 @@ define internal void @bssgp_ul_unitdata(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_ra_cap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_ra_cap(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -4022,7 +4022,7 @@ define internal void @bssgp_ra_cap(ptr noundef %0, ptr noundef %1, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_dl_mbms_unitdata(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_dl_mbms_unitdata(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -4119,7 +4119,7 @@ define internal void @bssgp_dl_mbms_unitdata(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_ul_mbms_unitdata(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_ul_mbms_unitdata(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -4194,7 +4194,7 @@ define internal void @bssgp_ul_mbms_unitdata(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_paging_ps(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_paging_ps(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -4357,7 +4357,7 @@ define internal void @bssgp_paging_ps(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_paging_cs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_paging_cs(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -4488,7 +4488,7 @@ define internal void @bssgp_paging_cs(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_ra_cap_upd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_ra_cap_upd(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -4547,7 +4547,7 @@ define internal void @bssgp_ra_cap_upd(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_ra_cap_upd_ack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_ra_cap_upd_ack(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -4630,7 +4630,7 @@ define internal void @bssgp_ra_cap_upd_ack(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_ra_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_ra_status(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
@@ -4691,7 +4691,7 @@ define internal void @bssgp_ra_status(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_suspend(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_suspend(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -4750,7 +4750,7 @@ define internal void @bssgp_suspend(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_suspend_nack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_suspend_nack(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -4817,7 +4817,7 @@ define internal void @bssgp_suspend_nack(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_resume(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_resume(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -4898,7 +4898,7 @@ define internal void @bssgp_resume(ptr noundef %0, ptr noundef %1, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_resume_ack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_resume_ack(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -4957,7 +4957,7 @@ define internal void @bssgp_resume_ack(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_resume_nack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_resume_nack(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -5024,7 +5024,7 @@ define internal void @bssgp_resume_nack(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_paging_ps_reject(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_paging_ps_reject(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -5091,7 +5091,7 @@ define internal void @bssgp_paging_ps_reject(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_dummy_paging_ps(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_dummy_paging_ps(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -5144,7 +5144,7 @@ define internal void @bssgp_dummy_paging_ps(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_dummy_paging_ps_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_dummy_paging_ps_response(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -5203,7 +5203,7 @@ define internal void @bssgp_dummy_paging_ps_response(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_bvc_block(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_bvc_block(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -5262,7 +5262,7 @@ define internal void @bssgp_bvc_block(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_bvc_block_ack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_bvc_block_ack(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -5439,7 +5439,7 @@ define internal void @bssgp_bvc_reset_ack(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_bvc_un_block(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_bvc_un_block(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -5476,7 +5476,7 @@ define internal void @bssgp_bvc_un_block(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_bvc_un_block_ack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_bvc_un_block_ack(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -5513,7 +5513,7 @@ define internal void @bssgp_bvc_un_block_ack(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_flow_control_bvc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_flow_control_bvc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -5662,7 +5662,7 @@ define internal void @bssgp_flow_control_bvc(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_flow_control_bvc_ack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_flow_control_bvc_ack(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -5699,7 +5699,7 @@ define internal void @bssgp_flow_control_bvc_ack(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_flow_control_ms(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_flow_control_ms(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -5818,7 +5818,7 @@ define internal void @bssgp_flow_control_ms(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_flow_control_ms_ack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_flow_control_ms_ack(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -5877,7 +5877,7 @@ define internal void @bssgp_flow_control_ms_ack(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_flush_ll(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_flush_ll(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -5952,7 +5952,7 @@ define internal void @bssgp_flush_ll(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_flush_ll_ack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_flush_ll_ack(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -6049,7 +6049,7 @@ define internal void @bssgp_flush_ll_ack(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_llc_discarded(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_llc_discarded(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -6160,7 +6160,7 @@ define internal void @bssgp_llc_discarded(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_flow_cntrl_pfc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_flow_cntrl_pfc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -6273,7 +6273,7 @@ define internal void @bssgp_flow_cntrl_pfc(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_flow_cntrl_pfc_ack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_flow_cntrl_pfc_ack(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -6332,7 +6332,7 @@ define internal void @bssgp_flow_cntrl_pfc_ack(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_sgsn_invoke_trace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_sgsn_invoke_trace(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -6499,7 +6499,7 @@ define internal void @bssgp_overload(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_download_bss_pfc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_download_bss_pfc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -6558,7 +6558,7 @@ define internal void @bssgp_download_bss_pfc(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_create_bss_pfc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_create_bss_pfc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -6725,7 +6725,7 @@ define internal void @bssgp_create_bss_pfc(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_create_bss_pfc_ack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_create_bss_pfc_ack(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -6814,7 +6814,7 @@ define internal void @bssgp_create_bss_pfc_ack(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_create_bss_pfc_nack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_create_bss_pfc_nack(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -6895,7 +6895,7 @@ define internal void @bssgp_create_bss_pfc_nack(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_modify_bss_pfc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_modify_bss_pfc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -6976,7 +6976,7 @@ define internal void @bssgp_modify_bss_pfc(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_modify_bss_pfc_ack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_modify_bss_pfc_ack(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -7079,7 +7079,7 @@ define internal void @bssgp_modify_bss_pfc_ack(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_delete_bss_pfc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_delete_bss_pfc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -7138,7 +7138,7 @@ define internal void @bssgp_delete_bss_pfc(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_delete_bss_pfc_ack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_delete_bss_pfc_ack(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -7197,7 +7197,7 @@ define internal void @bssgp_delete_bss_pfc_ack(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_delete_bss_pfc_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_delete_bss_pfc_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -7278,7 +7278,7 @@ define internal void @bssgp_delete_bss_pfc_req(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_ps_ho_required(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_ps_ho_required(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -7431,7 +7431,7 @@ define internal void @bssgp_ps_ho_required(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_ps_ho_required_ack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_ps_ho_required_ack(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -7506,7 +7506,7 @@ define internal void @bssgp_ps_ho_required_ack(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_ps_ho_required_nack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_ps_ho_required_nack(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -7565,7 +7565,7 @@ define internal void @bssgp_ps_ho_required_nack(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_ps_ho_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_ps_ho_request(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -7718,7 +7718,7 @@ define internal void @bssgp_ps_ho_request(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_ps_ho_request_ack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_ps_ho_request_ack(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -7799,7 +7799,7 @@ define internal void @bssgp_ps_ho_request_ack(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_ps_ho_request_nack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_ps_ho_request_nack(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -7858,7 +7858,7 @@ define internal void @bssgp_ps_ho_request_nack(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_perform_loc_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_perform_loc_request(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -8097,7 +8097,7 @@ define internal void @bssgp_perform_loc_request(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_perform_loc_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_perform_loc_response(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -8204,7 +8204,7 @@ define internal void @bssgp_perform_loc_response(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_perform_loc_response_abort(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_perform_loc_response_abort(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -8285,7 +8285,7 @@ define internal void @bssgp_perform_loc_response_abort(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_pos_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_pos_cmd(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -8388,7 +8388,7 @@ define internal void @bssgp_pos_cmd(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_pos_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_pos_resp(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -8860,7 +8860,7 @@ define internal void @bssgp_ran_inf_app_err(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_mbms_session_start_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_mbms_session_start_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -9053,7 +9053,7 @@ define internal void @bssgp_mbms_session_start_req(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_mbms_session_start_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_mbms_session_start_resp(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -9106,7 +9106,7 @@ define internal void @bssgp_mbms_session_start_resp(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_mbms_session_stop_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_mbms_session_stop_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -9159,7 +9159,7 @@ define internal void @bssgp_mbms_session_stop_req(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_mbms_session_stop_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_mbms_session_stop_resp(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -9212,7 +9212,7 @@ define internal void @bssgp_mbms_session_stop_resp(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_mbms_session_update_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_mbms_session_update_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -9405,7 +9405,7 @@ define internal void @bssgp_mbms_session_update_req(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_mbms_session_uptate_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_mbms_session_uptate_resp(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -9458,7 +9458,7 @@ define internal void @bssgp_mbms_session_uptate_resp(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_ps_ho_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_ps_ho_complete(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -9533,7 +9533,7 @@ define internal void @bssgp_ps_ho_complete(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_ps_ho_cancel(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_ps_ho_cancel(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -9620,7 +9620,7 @@ define internal void @bssgp_ps_ho_cancel(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bssgp_ps_ho_complete_ack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
+define internal void @bssgp_ps_ho_complete_ack(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0

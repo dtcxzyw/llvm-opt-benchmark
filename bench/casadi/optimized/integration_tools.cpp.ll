@@ -12017,7 +12017,7 @@ _ZNSt6vectorIPN6casadi13IndexRecution14EquationStructESaIS3_EE9push_backEOS3_.ex
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6casadi13IndexRecution20dfs_match_pantelidesEPNS0_14EquationStructE(ptr noundef %0) local_unnamed_addr #8 {
+define hidden noundef zeroext i1 @_ZN6casadi13IndexRecution20dfs_match_pantelidesEPNS0_14EquationStructE(ptr noundef initializes((80, 81)) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store i8 1, ptr %2, align 8
   %3 = load ptr, ptr %0, align 8
@@ -14237,7 +14237,7 @@ _ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6casadi4pathERKSt6vectorIxSaIxEEx(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.56") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6casadi4pathERKSt6vectorIxSaIxEEx(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.56") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i64, ptr %4, i64 %2

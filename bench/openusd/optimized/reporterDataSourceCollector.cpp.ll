@@ -155,7 +155,7 @@ $_ZTSN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_32TraceReporterDataSourceC
 @_ZN32pxrInternal_v0_24__pxrReserved__32TraceReporterDataSourceCollectorC1ESt8functionIFbvEE = unnamed_addr alias void (ptr, ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__32TraceReporterDataSourceCollectorC2ESt8functionIFbvEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__32TraceReporterDataSourceCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__32TraceReporterDataSourceCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 48), (56, 64)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::function", align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -214,7 +214,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L13_Alw
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__32TraceReporterDataSourceCollectorC2ESt8functionIFbvEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__32TraceReporterDataSourceCollectorC2ESt8functionIFbvEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 48), (56, 64)) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfNotice::Key", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.0", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -629,7 +629,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEED2Ev.exit: ; pre
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__27TraceReporterDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__32TraceReporterDataSourceCollector11ConsumeDataEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__32TraceReporterDataSourceCollector11ConsumeDataEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.9", align 8
   %4 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_14TraceCollectorEE9_instanceE seq_cst, align 8
   %.0.i.i.i = inttoptr i64 %4 to ptr

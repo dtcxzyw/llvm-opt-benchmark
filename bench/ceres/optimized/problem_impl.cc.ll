@@ -1930,7 +1930,7 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit7: ; preds = %_ZNSt10uniqu
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal11ProblemImplC2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal11ProblemImplC2Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 32), (56, 60), (64, 72)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
   store i32 1, ptr %0, align 8
@@ -2174,7 +2174,7 @@ _ZNSt8_Rb_treeIPdSt4pairIKS0_PN5ceres8internal14ParameterBlockEESt10_Select1stIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal11ProblemImplC2ERKNS_7Problem7OptionsE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal11ProblemImplC2ERKNS_7Problem7OptionsE(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 32), (56, 60), (64, 72)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 0, ptr %3, align 8

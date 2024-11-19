@@ -6151,7 +6151,7 @@ define internal noundef nonnull ptr @_ZL53initializeMachinePostDominatorTreeWrap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm35MachinePostDominatorTreeWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm35MachinePostDominatorTreeWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((0, 28), (32, 56), (208, 209)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.356, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6240,7 +6240,7 @@ _ZNSt8optionalIN4llvm24MachinePostDominatorTreeEEaSIS1_EENSt9enable_ifIX7__and_v
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm35MachinePostDominatorTreeWrapperPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(161) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm35MachinePostDominatorTreeWrapperPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i8 1, ptr %3, align 8
   tail call void @_ZNK4llvm19MachineFunctionPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(161) %1) #14

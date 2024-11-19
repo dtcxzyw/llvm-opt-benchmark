@@ -2733,7 +2733,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112SDiagsWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112SDiagsWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_112SDiagsWriterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %.val = load ptr, ptr %2, align 8
@@ -2814,7 +2814,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_112SDiagsWriter11SharedStateEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112SDiagsWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112SDiagsWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_112SDiagsWriterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %.val.i = load ptr, ptr %2, align 8
@@ -2905,7 +2905,7 @@ define linkonce_odr hidden void @_ZN5clang18DiagnosticConsumer5clearEv(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_112SDiagsWriter15BeginSourceFileERKN5clang11LangOptionsEPKNS1_12PreprocessorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(841) %1, ptr nocapture readnone %2) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_112SDiagsWriter15BeginSourceFileERKN5clang11LangOptionsEPKNS1_12PreprocessorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(841) %1, ptr nocapture readnone %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
   ret void
@@ -2917,7 +2917,7 @@ define linkonce_odr hidden void @_ZN5clang18DiagnosticConsumer13EndSourceFileEv(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112SDiagsWriter6finishEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112SDiagsWriter6finishEv(ptr noundef nonnull align 8 dereferenceable(48) initializes((26, 27)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::Twine", align 8
   %3 = alloca %"class.(anonymous namespace)::SDiagsMerger", align 8
   %4 = alloca %"class.std::error_code", align 8
@@ -9660,7 +9660,7 @@ declare void @_ZN5clang18DiagnosticConsumerD2Ev(ptr noundef nonnull align 8 dere
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112SDiagsMergerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112SDiagsMergerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN12_GLOBAL__N_112SDiagsMergerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
@@ -9689,7 +9689,7 @@ define internal void @_ZN12_GLOBAL__N_112SDiagsMergerD2Ev(ptr nocapture noundef 
 declare { i32, ptr } @_ZN4llvm3sys2fs6accessERKNS_5TwineENS1_10AccessModeE(ptr noundef nonnull align 8 dereferenceable(34), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112SDiagsMergerD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112SDiagsMergerD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN12_GLOBAL__N_112SDiagsMergerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8

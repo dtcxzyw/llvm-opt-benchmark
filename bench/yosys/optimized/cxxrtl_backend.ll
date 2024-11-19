@@ -9275,7 +9275,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 declare void @_ZN5Yosys8log_pushEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112CxxrtlWorker12check_designEPN5Yosys5RTLIL6DesignERb(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112CxxrtlWorker12check_designEPN5Yosys5RTLIL6DesignERb(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   store i8 0, ptr %1, align 1
   %4 = tail call { ptr, ptr } @_ZN5Yosys5RTLIL6Design7modulesEv(ptr noundef nonnull align 8 dereferenceable(376) %0)
@@ -63278,7 +63278,7 @@ _ZNK5Yosys7hashlib4dictIPKNS_5RTLIL6ModuleESt6vectorIN12_GLOBAL__N_19FlowGraph4N
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19FlowGraph4NodeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef nonnull align 8 dereferenceable(188) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19FlowGraph4NodeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(188) initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(188) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

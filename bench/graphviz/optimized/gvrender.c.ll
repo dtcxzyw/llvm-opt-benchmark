@@ -876,7 +876,7 @@ define void @gvrender_set_pencolor(ptr noundef %0, ptr noundef %1) local_unnamed
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gvrender_resolve_color(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @gvrender_resolve_color(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef initializes((0, 8), (32, 36)) %2) unnamed_addr #0 {
   %4 = alloca %struct.agxbuf, align 8
   store ptr %1, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 32

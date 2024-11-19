@@ -342,7 +342,7 @@ declare void @_ZN6colvar3cvc14get_atom_listsEv(ptr dead_on_unwind writable sret(
 declare void @_ZN6colvar3cvc9read_dataEv(ptr noundef nonnull align 8 dereferenceable(1648)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar17orientation_angle10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(2336) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6colvar17orientation_angle10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(2336) initializes((1656, 1680), (1712, 1728)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.59", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1648
@@ -878,7 +878,7 @@ define noundef i32 @_ZN6colvar16orientation_proj4initERKNSt7__cxx1112basic_strin
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar16orientation_proj10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(2336) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6colvar16orientation_proj10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(2336) initializes((1656, 1680), (1712, 1728)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.59", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1648
@@ -1446,7 +1446,7 @@ define noundef i32 @_ZN6colvar4tilt4initERKNSt7__cxx1112basic_stringIcSt11char_t
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar4tilt10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(2360) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6colvar4tilt10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(2360) initializes((1656, 1680), (1712, 1728)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.59", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1648
@@ -2129,7 +2129,7 @@ define noundef i32 @_ZN6colvar10spin_angle4initERKNSt7__cxx1112basic_stringIcSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar10spin_angle10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(2360) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6colvar10spin_angle10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(2360) initializes((1656, 1680), (1712, 1728)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.59", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1648
@@ -2824,7 +2824,7 @@ define noundef i32 @_ZN6colvar9euler_phi4initERKNSt7__cxx1112basic_stringIcSt11c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar9euler_phi10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(2336) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6colvar9euler_phi10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(2336) initializes((1656, 1680), (1712, 1728)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.59", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1648
@@ -3476,7 +3476,7 @@ define noundef i32 @_ZN6colvar9euler_psi4initERKNSt7__cxx1112basic_stringIcSt11c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar9euler_psi10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(2336) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6colvar9euler_psi10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(2336) initializes((1656, 1680), (1712, 1728)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.59", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1648
@@ -4128,7 +4128,7 @@ define noundef i32 @_ZN6colvar11euler_theta4initERKNSt7__cxx1112basic_stringIcSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar11euler_theta10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(2336) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6colvar11euler_theta10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(2336) initializes((1656, 1680), (1712, 1728)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.59", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1648
@@ -5185,7 +5185,7 @@ _ZNSt10unique_ptrIN6colvar11orientation25rotation_derivative_impl_ESt14default_d
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar11orientation10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(2336) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6colvar11orientation10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(2336) initializes((1656, 1680), (1712, 1728)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.59", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1648
@@ -6075,7 +6075,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6colvar11orientationD2Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6colvar11orientationD2Ev(ptr noundef nonnull align 8 dereferenceable(2336) initializes((0, 8), (320, 328)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar11orientationE, i64 248), ptr %2, align 8

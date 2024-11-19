@@ -773,7 +773,7 @@ $_ZTSN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS4_INS4_INS4_IN
 @_ZN5boost7archive17basic_xml_grammarIcEC1Ev = weak_odr unnamed_addr alias void (ptr), ptr @_ZN5boost7archive17basic_xml_grammarIcEC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost7archive17basic_xml_grammarIcE10init_chsetEv(ptr noundef nonnull align 8 dereferenceable(576) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost7archive17basic_xml_grammarIcE10init_chsetEv(ptr noundef nonnull align 8 dereferenceable(576) initializes((352, 360)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.boost::spirit::classic::chset", align 8
   %3 = alloca %"class.boost::spirit::classic::chset", align 8
   %4 = alloca %"class.boost::spirit::classic::chset", align 8

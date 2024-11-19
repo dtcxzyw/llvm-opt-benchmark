@@ -1578,7 +1578,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix17stringsToCharPtrsERKNSt7__cxx114listINS0_12basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.34") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix17stringsToCharPtrsERKNSt7__cxx114listINS0_12basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.34") align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.sroa.021.026 = load ptr, ptr %1, align 8
   %3 = icmp eq ptr %.sroa.021.026, %1

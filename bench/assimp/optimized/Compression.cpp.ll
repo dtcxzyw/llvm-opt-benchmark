@@ -61,7 +61,7 @@ $_ZTV17DeadlyImportError = comdat any
 @_ZN6Assimp11CompressionD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6Assimp11CompressionD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11CompressionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11CompressionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #16
   store i8 0, ptr %call, align 8

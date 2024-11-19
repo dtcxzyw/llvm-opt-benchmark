@@ -3440,7 +3440,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @storeEdge(ptr nocapture noundef nonnull writeonly %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i8 noundef zeroext range(i8 0, 2) %8) unnamed_addr #6 {
+define internal fastcc zeroext range(i8 0, 2) i8 @storeEdge(ptr nocapture noundef nonnull writeonly initializes((0, 32), (48, 81)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i8 noundef zeroext range(i8 0, 2) %8) unnamed_addr #6 {
   %10 = fadd double %1, %3
   %11 = fadd double %2, %4
   store double %1, ptr %0, align 8

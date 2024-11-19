@@ -722,7 +722,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Bmc_MnaCollect(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Bmc_MnaCollect(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef initializes((4, 8)) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr i8, ptr %0, i64 32
@@ -932,7 +932,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %17, %tailrecurse, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Bmc_MnaSelect(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define void @Bmc_MnaSelect(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr i8, ptr %0, i64 32
@@ -1418,7 +1418,7 @@ define void @Bmc_MnaBuild(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Gia_ManBmcUnroll(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define ptr @Gia_ManBmcUnroll(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef initializes((0, 8)) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   tail call void @Gia_ManCleanPhase(ptr noundef %0) #18
   %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19

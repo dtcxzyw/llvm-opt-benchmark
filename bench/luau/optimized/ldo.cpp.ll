@@ -902,7 +902,7 @@ _ZL15resume_continueP9lua_State.exit:             ; preds = %63, %51, %41, %35, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL13resume_handleP9lua_StatePv(ptr noundef %0, ptr noundef %1) #0 {
+define internal void @_ZL13resume_handleP9lua_StatePv(ptr noundef initializes((80, 82)) %0, ptr noundef initializes((16, 24)) %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8

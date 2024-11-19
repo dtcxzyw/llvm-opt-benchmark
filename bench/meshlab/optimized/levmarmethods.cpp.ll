@@ -53,7 +53,7 @@ _ZN13LevmarMethods11Shot2LevmarEPN3vcg4ShotIfNS0_8Matrix44IfEEEEPdb.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN13LevmarMethods11Shot2LevmarEPN3vcg4ShotIfNS0_8Matrix44IfEEEEPdb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13LevmarMethods11Shot2LevmarEPN3vcg4ShotIfNS0_8Matrix44IfEEEEPdb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   br i1 %2, label %21, label %4
 
 4:                                                ; preds = %3

@@ -1400,7 +1400,7 @@ opal_convertor_cleanup.exit:                      ; preds = %94, %opal_convertor
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mca_pml_ob1_send_request_start_seq(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 -32768, 32768) %2) unnamed_addr #0 {
+define internal fastcc i32 @mca_pml_ob1_send_request_start_seq(ptr noundef nonnull initializes((536, 544)) %0, ptr noundef nonnull %1, i32 noundef range(i32 -32768, 32768) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 536
   store ptr %1, ptr %5, align 8

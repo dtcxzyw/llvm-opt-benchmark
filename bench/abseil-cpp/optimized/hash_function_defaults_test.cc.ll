@@ -930,7 +930,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIPKiJPiSt10unique_ptrIS4_St14default_deleteIS4_EES7_IS4_N4absl18container_internal12_GLOBAL__N_19NoDeleterEES7_IiS8_IiEES7_IiSE_ESt10shared_ptrIS4_ESJ_IiEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEv(ptr noalias nonnull align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIPKiJPiSt10unique_ptrIS4_St14default_deleteIS4_EES7_IS4_N4absl18container_internal12_GLOBAL__N_19NoDeleterEES7_IiS8_IiEES7_IiSE_ESt10shared_ptrIS4_ESJ_IiEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEv(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i.i.i = alloca %"class.testing::Message", align 8
   %ref.tmp.i.i3.i.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8

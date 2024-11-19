@@ -122,7 +122,7 @@ $_ZZN4llvm10FoldingSetINS_18UniqueMachineInstrEE17getFoldingSetInfoEvE4Info = co
 @_ZN4llvm12GISelCSEInfoD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm12GISelCSEInfoD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm27GISelCSEAnalysisWrapperPassC2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm27GISelCSEAnalysisWrapperPassC2Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 28), (32, 56)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -367,7 +367,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21CSEConfigConstantOnly12shouldCSEO
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm26getStandardCSEConfigForOptENS_15CodeGenOptLevelE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm26getStandardCSEConfigForOptENS_15CodeGenOptLevelE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i32 %1, 0
   %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19, !noalias !4
   %. = select i1 %3, ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm21CSEConfigConstantOnlyE, i64 16), ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm13CSEConfigFullE, i64 16)
@@ -377,7 +377,7 @@ define dso_local void @_ZN4llvm26getStandardCSEConfigForOptENS_15CodeGenOptLevel
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm12GISelCSEInfo5setMFERNS_15MachineFunctionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(361) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm12GISelCSEInfo5setMFERNS_15MachineFunctionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(361) initializes((184, 200)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -388,7 +388,7 @@ define dso_local void @_ZN4llvm12GISelCSEInfo5setMFERNS_15MachineFunctionE(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12GISelCSEInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(361) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12GISelCSEInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(361) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm12GISelCSEInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
@@ -1592,7 +1592,7 @@ define dso_local void @_ZN4llvm12GISelCSEInfo12changedInstrERNS_12MachineInstrE(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12GISelCSEInfo7analyzeERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(361) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12GISelCSEInfo7analyzeERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(361) initializes((184, 200)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2032,7 +2032,7 @@ _ZN4llvm15SmallVectorImplIPvE5eraseEPKS1_S4_.exit: ; preds = %_ZN4llvm20BumpPtrA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm12GISelCSEInfo6verifyEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(361) %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm12GISelCSEInfo6verifyEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(361) %1) local_unnamed_addr #5 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   store ptr null, ptr %0, align 8
   ret void
@@ -2435,7 +2435,7 @@ _ZNSt10unique_ptrIN4llvm13CSEConfigBaseESt14default_deleteIS1_EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm27GISelCSEAnalysisWrapperPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull align 8 dereferenceable(161) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm27GISelCSEAnalysisWrapperPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull align 8 dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i8 1, ptr %3, align 8
   tail call void @_ZNK4llvm19MachineFunctionPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(161) %1) #17

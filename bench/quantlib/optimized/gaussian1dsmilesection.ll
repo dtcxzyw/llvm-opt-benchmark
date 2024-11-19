@@ -2014,7 +2014,7 @@ _ZN8QuantLib10DayCounterD2Ev.exit:                ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22Gaussian1dSmileSectionC1ERKNS_4DateEN5boost10shared_ptrINS_9SwapIndexEEERKNS5_INS_15Gaussian1dModelEEERKNS_10DayCounterERKNS5_INS_24Gaussian1dSwaptionEngineEEE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(8) %fixingDate, ptr nocapture noundef %swapIndex, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %model, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %swaptionEngine) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22Gaussian1dSmileSectionC1ERKNS_4DateEN5boost10shared_ptrINS_9SwapIndexEEERKNS5_INS_15Gaussian1dModelEEERKNS_10DayCounterERKNS5_INS_24Gaussian1dSwaptionEngineEEE(ptr noundef nonnull align 8 dereferenceable(160) initializes((160, 168), (176, 180), (184, 192)) %this, ptr noundef nonnull align 8 dereferenceable(8) %fixingDate, ptr nocapture noundef %swapIndex, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %model, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %swaptionEngine) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i51 = alloca %"class.QuantLib::Date", align 8
   %retval.i = alloca %"class.QuantLib::Date", align 8
@@ -3885,7 +3885,7 @@ _ZN8QuantLib10ObservableD2Ev.exit:                ; preds = %_ZN8QuantLib8Observ
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22Gaussian1dSmileSectionC1ERKNS_4DateEN5boost10shared_ptrINS_9IborIndexEEERKNS5_INS_15Gaussian1dModelEEERKNS_10DayCounterERKNS5_INS_24Gaussian1dCapFloorEngineEEE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(8) %fixingDate, ptr nocapture noundef %iborIndex, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %model, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %capEngine) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22Gaussian1dSmileSectionC1ERKNS_4DateEN5boost10shared_ptrINS_9IborIndexEEERKNS5_INS_15Gaussian1dModelEEERKNS_10DayCounterERKNS5_INS_24Gaussian1dCapFloorEngineEEE(ptr noundef nonnull align 8 dereferenceable(160) initializes((160, 168), (176, 180), (184, 192)) %this, ptr noundef nonnull align 8 dereferenceable(8) %fixingDate, ptr nocapture noundef %iborIndex, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %model, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %capEngine) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::shared_ptr.44", align 8
   %retval.i73 = alloca %"class.QuantLib::Date", align 8

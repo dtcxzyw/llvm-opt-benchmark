@@ -543,7 +543,7 @@ define hidden i32 @av1_fast_palette_color_index_context(ptr nocapture noundef re
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @av1_init_mode_probs(ptr noundef writeonly %0) local_unnamed_addr #3 {
+define hidden void @av1_init_mode_probs(ptr noundef writeonly initializes((8090, 11912), (12484, 21258)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 9720
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %2, ptr noundef nonnull align 16 dereferenceable(112) @default_palette_y_size_cdf, i64 112, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9832
@@ -654,7 +654,7 @@ define hidden void @av1_init_mode_probs(ptr noundef writeonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @av1_set_default_ref_deltas(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
+define hidden void @av1_set_default_ref_deltas(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #4 {
   store i8 1, ptr %0, align 1
   %2 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 0, ptr %2, align 1
@@ -674,7 +674,7 @@ define hidden void @av1_set_default_ref_deltas(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @av1_set_default_mode_deltas(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
+define hidden void @av1_set_default_mode_deltas(ptr nocapture noundef writeonly initializes((0, 2)) %0) local_unnamed_addr #4 {
   store i8 0, ptr %0, align 1
   %2 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 0, ptr %2, align 1

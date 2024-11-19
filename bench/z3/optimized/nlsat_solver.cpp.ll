@@ -634,7 +634,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5nlsat6solverC2ER8reslimitRK10params_refb(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(40) %rlim, ptr noundef nonnull align 8 dereferenceable(8) %p, i1 noundef zeroext %incremental) unnamed_addr #4 align 2 {
+define hidden void @_ZN5nlsat6solverC2ER8reslimitRK10params_refb(ptr noundef nonnull align 8 dereferenceable(16) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(40) %rlim, ptr noundef nonnull align 8 dereferenceable(8) %p, i1 noundef zeroext %incremental) unnamed_addr #4 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 1304)
   tail call void @_ZN5nlsat6solver3ctxC2ER8reslimitRK10params_refb(ptr noundef nonnull align 8 dereferenceable(1297) %call, ptr noundef nonnull align 8 dereferenceable(40) %rlim, ptr noundef nonnull align 8 dereferenceable(8) %p, i1 noundef zeroext %incremental)
@@ -1083,7 +1083,7 @@ ehcleanup137:                                     ; preds = %ehcleanup136, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5nlsat6solverC2ERNS0_3ctxE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(1297) %ctx) unnamed_addr #4 align 2 {
+define hidden void @_ZN5nlsat6solverC2ERNS0_3ctxE(ptr noundef nonnull align 8 dereferenceable(16) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(1297) %ctx) unnamed_addr #4 align 2 {
 entry:
   %m_ctx = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %m_ctx, align 8

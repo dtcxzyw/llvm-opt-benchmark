@@ -490,13 +490,13 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm15StackSafetyInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm15StackSafetyInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15StackSafetyInfoC2EPNS_8FunctionESt8functionIFRNS_15ScalarEvolutionEvEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15StackSafetyInfoC2EPNS_8FunctionESt8functionIFRNS_15ScalarEvolutionEvEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 40)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -523,7 +523,7 @@ _ZNSt8functionIFRN4llvm15ScalarEvolutionEvEEC2ERKS4_.exit: ; preds = %3, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm15StackSafetyInfoC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm15StackSafetyInfoC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -556,7 +556,7 @@ _ZNSt8functionIFRN4llvm15ScalarEvolutionEvEEC2EOS4_.exit: ; preds = %2, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm15StackSafetyInfoaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm15StackSafetyInfoaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(48) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %3 = alloca %"class.std::function.14", align 8
   %4 = load ptr, ptr %1, align 8
@@ -4991,7 +4991,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit47:               ; preds = %168, %166, %18
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm15StackSafetyInfo16getParamAccessesERNS_18ModuleSummaryIndexE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(488) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm15StackSafetyInfo16getParamAccessesERNS_18ModuleSummaryIndexE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(488) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"struct.llvm::ValueInfo", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -5644,13 +5644,13 @@ _ZNSt12_Vector_baseIN4llvm15FunctionSummary11ParamAccess4CallESaIS3_EE13_M_deall
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm21StackSafetyGlobalInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm21StackSafetyGlobalInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %0) unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21StackSafetyGlobalInfoC2EPNS_6ModuleESt8functionIFRKNS_15StackSafetyInfoERNS_8FunctionEEEPKNS_18ModuleSummaryIndexE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm21StackSafetyGlobalInfoC2EPNS_6ModuleESt8functionIFRKNS_15StackSafetyInfoERNS_8FunctionEEEPKNS_18ModuleSummaryIndexE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 40)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -5688,7 +5688,7 @@ _ZNSt8functionIFRKN4llvm15StackSafetyInfoERNS0_8FunctionEEEC2ERKS7_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm21StackSafetyGlobalInfoC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm21StackSafetyGlobalInfoC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5725,7 +5725,7 @@ _ZNSt8functionIFRKN4llvm15StackSafetyInfoERNS0_8FunctionEEEC2EOS7_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm21StackSafetyGlobalInfoaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm21StackSafetyGlobalInfoaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(56) initializes((0, 8), (40, 48)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %3 = alloca %"class.std::function.112", align 8
   %4 = load ptr, ptr %1, align 8
@@ -6134,7 +6134,7 @@ _ZNK4llvm15StackSafetyInfo5printERNS_11raw_ostreamE.exit: ; preds = %63, %65
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm26StackSafetyInfoWrapperPassC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm26StackSafetyInfoWrapperPassC2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 28)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.795, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6504,7 +6504,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6:                ; preds = %43, %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm32StackSafetyGlobalInfoWrapperPassC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm32StackSafetyGlobalInfoWrapperPassC2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 28)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.795, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6572,7 +6572,7 @@ _ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9on
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm32StackSafetyGlobalInfoWrapperPassD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm32StackSafetyGlobalInfoWrapperPassD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN4llvm32StackSafetyGlobalInfoWrapperPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm21StackSafetyGlobalInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #25
@@ -6601,7 +6601,7 @@ define dso_local void @_ZNK4llvm32StackSafetyGlobalInfoWrapperPass5printERNS_11r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm32StackSafetyGlobalInfoWrapperPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(161) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm32StackSafetyGlobalInfoWrapperPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i8 1, ptr %3, align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(161) ptr @_ZN4llvm13AnalysisUsage13addRequiredIDERc(ptr noundef nonnull align 8 dereferenceable(161) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZN4llvm26StackSafetyInfoWrapperPass2IDE) #25
@@ -14186,7 +14186,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPKN4llvm10AllocaInstE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_17UseInfoIN4llvm11GlobalValueEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_17UseInfoIN4llvm11GlobalValueEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(128) initializes((8, 12)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::_Rb_tree<const llvm::Instruction *, const llvm::Instruction *, std::_Identity<const llvm::Instruction *>, std::less<const llvm::Instruction *>>::_Alloc_node", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8

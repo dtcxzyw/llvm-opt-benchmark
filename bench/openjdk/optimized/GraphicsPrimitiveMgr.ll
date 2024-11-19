@@ -1146,7 +1146,7 @@ define i32 @GrPrim_Sg2dGetLCDTextContrast(ptr noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Transform_GetInfo(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden void @Transform_GetInfo(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 48)) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 824
   %6 = load ptr, ptr %5, align 8
@@ -1255,7 +1255,7 @@ declare i32 @PixelForFourByteAbgr(ptr noundef, i32 noundef) #1
 declare i32 @PixelForFourByteAbgrPre(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @GrPrim_CompGetAlphaInfo(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #0 {
+define internal void @GrPrim_CompGetAlphaInfo(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 800
   %6 = load ptr, ptr %5, align 8
@@ -1273,7 +1273,7 @@ define internal void @GrPrim_CompGetAlphaInfo(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @GrPrim_CompGetXorInfo(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #0 {
+define internal void @GrPrim_CompGetXorInfo(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr noundef %2) #0 {
   store i32 0, ptr %1, align 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 800

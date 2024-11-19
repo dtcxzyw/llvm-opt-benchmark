@@ -195,7 +195,7 @@ declare i32 @object_init_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @zend_update_property(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @randomizer_common_init(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @randomizer_common_init(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 8

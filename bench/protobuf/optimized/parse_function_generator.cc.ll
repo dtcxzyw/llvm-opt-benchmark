@@ -537,7 +537,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler3cpp22ParseFunctionGeneratorC2EPKNS0_10DescriptorEiRKSt6vectorIiSaIiEESB_RKNS2_7OptionsEPNS2_18MessageSCCAnalyzerERKN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcSM_SaIcEEENSI_18container_internal10StringHashENSS_8StringEqESaISt4pairIKSN_SR_EEEE(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr noundef %descriptor, i32 noundef %max_has_bit_index, ptr noundef nonnull align 8 dereferenceable(24) %has_bit_indices, ptr noundef nonnull align 8 dereferenceable(24) %inlined_string_indices, ptr noundef nonnull align 8 dereferenceable(206) %options, ptr noundef %scc_analyzer, ptr noundef nonnull align 8 dereferenceable(32) %vars) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler3cpp22ParseFunctionGeneratorC2EPKNS0_10DescriptorEiRKSt6vectorIiSaIiEESB_RKNS2_7OptionsEPNS2_18MessageSCCAnalyzerERKN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcSM_SaIcEEENSI_18container_internal10StringHashENSS_8StringEqESaISt4pairIKSN_SR_EEEE(ptr noundef nonnull align 8 dereferenceable(116) initializes((0, 24)) %this, ptr noundef %descriptor, i32 noundef %max_has_bit_index, ptr noundef nonnull align 8 dereferenceable(24) %has_bit_indices, ptr noundef nonnull align 8 dereferenceable(24) %inlined_string_indices, ptr noundef nonnull align 8 dereferenceable(206) %options, ptr noundef %scc_analyzer, ptr noundef nonnull align 8 dereferenceable(32) %vars) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i.i.i = alloca %"class.std::allocator", align 1
@@ -2315,7 +2315,7 @@ lpad:                                             ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3cppL19MakeNumToEntryTableERKSt6vectorIPKNS0_15FieldDescriptorESaIS6_EE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %field_descriptors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3cppL19MakeNumToEntryTableERKSt6vectorIPKNS0_15FieldDescriptorESaIS6_EE(ptr noalias nonnull align 8 initializes((0, 4), (8, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %field_descriptors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp33 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp48 = alloca %"struct.google::protobuf::compiler::cpp::SkipEntryBlock", align 8

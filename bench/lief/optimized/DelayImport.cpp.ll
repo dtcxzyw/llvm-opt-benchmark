@@ -580,7 +580,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF2PE11DelayImportD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF2PE11DelayImportD2Ev(ptr noundef nonnull align 8 dereferenceable(98) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE11DelayImportE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -1290,7 +1290,7 @@ define void @_ZN4LIEF2PE11DelayImport4nameENSt7__cxx1112basic_stringIcSt11char_t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF2PE11DelayImport7entriesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(98) %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF2PE11DelayImport7entriesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(98) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1302,7 +1302,7 @@ define void @_ZN4LIEF2PE11DelayImport7entriesEv(ptr dead_on_unwind noalias nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK4LIEF2PE11DelayImport7entriesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(98) %1) local_unnamed_addr #7 align 2 {
+define void @_ZNK4LIEF2PE11DelayImport7entriesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.44") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(98) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1321,7 +1321,7 @@ define noundef i32 @_ZNK4LIEF2PE11DelayImport9attributeEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE11DelayImport9attributeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(98) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define void @_ZN4LIEF2PE11DelayImport9attributeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(98) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
@@ -1335,7 +1335,7 @@ define noundef i32 @_ZNK4LIEF2PE11DelayImport6handleEv(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE11DelayImport6handleEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(98) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define void @_ZN4LIEF2PE11DelayImport6handleEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(98) initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %3, align 8
   ret void
@@ -1349,7 +1349,7 @@ define noundef i32 @_ZNK4LIEF2PE11DelayImport3iatEv(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE11DelayImport3iatEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(98) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define void @_ZN4LIEF2PE11DelayImport3iatEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(98) initializes((52, 56)) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 52
   store i32 %1, ptr %3, align 4
   ret void
@@ -1363,7 +1363,7 @@ define noundef i32 @_ZNK4LIEF2PE11DelayImport11names_tableEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE11DelayImport11names_tableEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(98) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define void @_ZN4LIEF2PE11DelayImport11names_tableEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(98) initializes((56, 60)) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %1, ptr %3, align 8
   ret void
@@ -1377,7 +1377,7 @@ define noundef i32 @_ZNK4LIEF2PE11DelayImport4biatEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE11DelayImport4biatEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(98) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define void @_ZN4LIEF2PE11DelayImport4biatEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(98) initializes((60, 64)) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 %1, ptr %3, align 4
   ret void
@@ -1391,7 +1391,7 @@ define noundef i32 @_ZNK4LIEF2PE11DelayImport4uiatEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE11DelayImport4uiatEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(98) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define void @_ZN4LIEF2PE11DelayImport4uiatEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(98) initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8
   ret void
@@ -1414,7 +1414,7 @@ define noundef i32 @_ZNK4LIEF2PE11DelayImport9timestampEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE11DelayImport9timestampEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(98) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define void @_ZN4LIEF2PE11DelayImport9timestampEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(98) initializes((68, 72)) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 %1, ptr %3, align 4
   ret void

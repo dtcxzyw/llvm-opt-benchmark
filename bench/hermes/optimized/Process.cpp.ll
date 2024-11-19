@@ -93,7 +93,7 @@ $_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed = comdat any
 @.str.16 = private unnamed_addr constant [10 x i8] c"/dev/null\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh3sys7Process13FindInEnvPathB5cxx11ENS_9StringRefES2_(ptr noalias sret(%"class.llvh::Optional") align 8 %agg.result, ptr %EnvName.coerce0, i64 %EnvName.coerce1, ptr %FileName.coerce0, i64 %FileName.coerce1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh3sys7Process13FindInEnvPathB5cxx11ENS_9StringRefES2_(ptr noalias sret(%"class.llvh::Optional") align 8 initializes((32, 33)) %agg.result, ptr %EnvName.coerce0, i64 %EnvName.coerce1, ptr %FileName.coerce0, i64 %FileName.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp2 = alloca %"class.llvh::ArrayRef", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, i8 0, i64 16, i1 false)
@@ -102,7 +102,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh3sys7Process13FindInEnvPathENS_9StringRefES2_NS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noalias sret(%"class.llvh::Optional") align 8 %agg.result, ptr %EnvName.coerce0, i64 %EnvName.coerce1, ptr %FileName.coerce0, i64 %FileName.coerce1, ptr nocapture noundef readonly byval(%"class.llvh::ArrayRef") align 8 %IgnoreList) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh3sys7Process13FindInEnvPathENS_9StringRefES2_NS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noalias sret(%"class.llvh::Optional") align 8 initializes((32, 33)) %agg.result, ptr %EnvName.coerce0, i64 %EnvName.coerce1, ptr %FileName.coerce0, i64 %FileName.coerce1, ptr nocapture noundef readonly byval(%"class.llvh::ArrayRef") align 8 %IgnoreList) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
   %result.i.i.i96.i.i.i.i.i.i = alloca i8, align 1
@@ -613,7 +613,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh3sys7Process6GetEnvB5cxx11ENS_9StringRefE(ptr noalias sret(%"class.llvh::Optional") align 8 %agg.result, ptr %Name.coerce0, i64 %Name.coerce1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh3sys7Process6GetEnvB5cxx11ENS_9StringRefE(ptr noalias sret(%"class.llvh::Optional") align 8 initializes((32, 33)) %agg.result, ptr %Name.coerce0, i64 %Name.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %NameStr = alloca %"class.std::__cxx11::basic_string", align 8
@@ -724,7 +724,7 @@ entry:
 declare void @mallinfo(ptr sret(%struct.mallinfo) align 4) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh3sys7Process12GetTimeUsageERNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERS9_SC_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %elapsed, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %user_time, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %sys_time) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh3sys7Process12GetTimeUsageERNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERS9_SC_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %elapsed, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %user_time, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %sys_time) local_unnamed_addr #0 align 2 {
 entry:
   %RU.i = alloca %struct.rusage, align 8
   %call = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #18

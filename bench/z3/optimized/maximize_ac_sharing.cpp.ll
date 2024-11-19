@@ -1203,7 +1203,7 @@ _ZN6bufferIP4exprLb0ELj128EED2Ev.exit:            ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19maximize_ac_sharingC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19maximize_ac_sharingC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 17)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV19maximize_ac_sharing, i64 16), ptr %this, align 8
   %m2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -1242,7 +1242,7 @@ declare void @_ZN6regionC1Ev(ptr noundef nonnull align 8 dereferenceable(40)) un
 declare void @_ZN6regionD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19maximize_ac_sharingD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19maximize_ac_sharingD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV19maximize_ac_sharing, i64 16), ptr %this, align 8
   invoke void @_ZN19maximize_ac_sharing15restore_entriesEj(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef 0)
@@ -1993,7 +1993,7 @@ _ZNK14bv_recognizers10is_numeralEPK4expr.exit:    ; preds = %entry, %land.rhs.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19maximize_bv_sharingC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19maximize_bv_sharingC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 17)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV19maximize_ac_sharing, i64 16), ptr %this, align 8
   %m2.i = getelementptr inbounds i8, ptr %this, i64 8

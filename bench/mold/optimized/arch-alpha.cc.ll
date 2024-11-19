@@ -1598,7 +1598,7 @@ _ZN4mold7SyncOutINS_3elf7ContextINS1_5ALPHAEEEElsIRA50_KcEERS5_OT_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind
-define dso_local void @_ZN4mold3elf12InputSectionINS0_5ALPHAEE16scan_relocationsERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(94) %this, ptr noundef nonnull align 8 dereferenceable(4576) %ctx) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4mold3elf12InputSectionINS0_5ALPHAEE16scan_relocationsERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(94) initializes((64, 68)) %this, ptr noundef nonnull align 8 dereferenceable(4576) %ctx) local_unnamed_addr #4 align 2 {
 entry:
   %ref.tmp13 = alloca %"class.mold::Error", align 8
   %ref.tmp41 = alloca %"class.mold::Fatal", align 8

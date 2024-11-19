@@ -567,7 +567,7 @@ define internal range(i32 -1, 1) i32 @_msg_accept(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_handle_close(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @_handle_close(ptr nocapture noundef writeonly initializes((24, 25)) %0, ptr nocapture readnone %1) #0 {
   %3 = tail call i32 @get_log_level() #11
   %4 = icmp sgt i32 %3, 6
   br i1 %4, label %5, label %6
@@ -2001,7 +2001,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @xhash_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_resp_map_key_id(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #8 {
+define internal void @_resp_map_key_id(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8
@@ -3572,7 +3572,7 @@ declare i64 @pthread_self() local_unnamed_addr #3
 declare ptr @env_array_copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_run_script(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
+define internal fastcc i32 @_run_script(ptr noundef nonnull initializes((12, 16), (48, 56)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %5, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   store i32 -1, ptr %8, align 4

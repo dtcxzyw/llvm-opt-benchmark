@@ -6592,7 +6592,7 @@ select.unfold:                                    ; preds = %"_ZN2OT7ArrayOfINS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN2OT8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EE19serialize_serializeIJR13hb_map_iter_tI13hb_zip_iter_tI17hb_sorted_array_tINS_11HBGlyphID16EE10hb_array_tISB_EERK3$_5L24hb_function_sortedness_t1ELPv0EEEEEbP22hb_serialize_context_tDpOT_"(ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN2OT8OffsetToINS_6Layout6Common8CoverageENS_7IntTypeItLj2EEELb1EE19serialize_serializeIJR13hb_map_iter_tI13hb_zip_iter_tI17hb_sorted_array_tINS_11HBGlyphID16EE10hb_array_tISB_EERK3$_5L24hb_function_sortedness_t1ELPv0EEEEEbP22hb_serialize_context_tDpOT_"(ptr noundef nonnull align 1 dereferenceable(2) initializes((0, 2)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) unnamed_addr #4 align 2 {
   store i16 0, ptr %0, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 44
   %5 = load i32, ptr %4, align 4

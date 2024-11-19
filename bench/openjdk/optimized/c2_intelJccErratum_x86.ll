@@ -328,7 +328,7 @@ define hidden noundef i64 @_ZN24IntelJccErratumAlignment2pcEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24IntelJccErratumAlignmentC2EP14MacroAssembleri(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define hidden void @_ZN24IntelJccErratumAlignmentC2EP14MacroAssembleri(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8

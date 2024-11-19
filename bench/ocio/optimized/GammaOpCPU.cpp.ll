@@ -1004,7 +1004,7 @@ declare void @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev(ptr noundef nonnull align 8
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15GammaBasicOpCPUE, i64 16), ptr %this, align 8
   %m_redGamma = getelementptr inbounds i8, ptr %this, i64 8
@@ -1120,7 +1120,7 @@ invoke.cont:                                      ; preds = %cond.false42.i, %co
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPU6updateERSt10shared_ptrIKNS_11GammaOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev15GammaBasicOpCPU6updateERSt10shared_ptrIKNS_11GammaOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %gamma, align 8
   %m_style.i = getelementptr inbounds i8, ptr %0, i64 168
@@ -1399,7 +1399,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev21GammaBasicMirrorOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev21GammaBasicMirrorOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15GammaBasicOpCPUE, i64 16), ptr %this, align 8
   %m_redGamma.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1689,7 +1689,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev23GammaBasicPassThruOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15GammaBasicOpCPUE, i64 16), ptr %this, align 8
   %m_redGamma.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1997,7 +1997,7 @@ for.end:                                          ; preds = %cond.end39, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev21GammaMoncurveOpCPUFwdC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 88)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_red.i = getelementptr inbounds i8, ptr %this, i64 8
   store float 1.000000e+00, ptr %m_red.i, align 8
@@ -2331,7 +2331,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare float @llvm.fmuladd.f32(float, float, float) #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev21GammaMoncurveOpCPURevC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 88)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_red.i = getelementptr inbounds i8, ptr %this, i64 8
   store float 1.000000e+00, ptr %m_red.i, align 8
@@ -2669,7 +2669,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPUFwdC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 88)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_red.i = getelementptr inbounds i8, ptr %this, i64 8
   store float 1.000000e+00, ptr %m_red.i, align 8
@@ -3018,7 +3018,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev27GammaMoncurveMirrorOpCPURevC2ERSt10shared_ptrIKNS_11GammaOpDataEE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 88)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gamma) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_red.i = getelementptr inbounds i8, ptr %this, i64 8
   store float 1.000000e+00, ptr %m_red.i, align 8

@@ -36875,7 +36875,7 @@ if.end60:                                         ; preds = %if.end, %_ZN5eastl1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117AntMetaDataRecordC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_117AntMetaDataRecordC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %x.val.i = load ptr, ptr %0, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 8

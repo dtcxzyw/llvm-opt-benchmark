@@ -3919,7 +3919,7 @@ declare void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull ali
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly13DynamicParser11ParserStack4pushERKNS_7dynamicES4_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.folly::DynamicParser::ParserStack::PopGuard") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(40) %k, ptr noundef nonnull align 8 dereferenceable(40) %v) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13DynamicParser11ParserStack4pushERKNS_7dynamicES4_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.folly::DynamicParser::ParserStack::PopGuard") align 8 initializes((0, 25)) %agg.result, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(40) %k, ptr noundef nonnull align 8 dereferenceable(40) %v) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %value_3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8

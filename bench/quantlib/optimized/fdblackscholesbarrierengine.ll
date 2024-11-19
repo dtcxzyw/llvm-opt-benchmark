@@ -1451,7 +1451,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib27FdBlackScholesBarrierEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEEmmmRKNS_13FdmSchemeDescEbd(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr nocapture noundef %process, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %dampingSteps, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, i1 noundef zeroext %localVol, double noundef %illegalLocalVolOverwrite) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib27FdBlackScholesBarrierEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEEmmmRKNS_13FdmSchemeDescEbd(ptr noundef nonnull align 8 dereferenceable(464) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %process, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %dampingSteps, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, i1 noundef zeroext %localVol, double noundef %illegalLocalVolOverwrite) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %storedv = zext i1 %localVol to i8
@@ -1929,7 +1929,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib27FdBlackScholesBarrierEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEESt6vectorINS2_INS_8DividendEEESaIS7_EEmmmRKNS_13FdmSchemeDescEbd(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr nocapture noundef %process, ptr nocapture noundef %dividends, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %dampingSteps, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, i1 noundef zeroext %localVol, double noundef %illegalLocalVolOverwrite) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib27FdBlackScholesBarrierEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEESt6vectorINS2_INS_8DividendEEESaIS7_EEmmmRKNS_13FdmSchemeDescEbd(ptr noundef nonnull align 8 dereferenceable(464) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %process, ptr nocapture noundef %dividends, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %dampingSteps, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, i1 noundef zeroext %localVol, double noundef %illegalLocalVolOverwrite) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %storedv = zext i1 %localVol to i8

@@ -182,7 +182,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen21RequestHandlerAdaptorC2EPNS_14RequestHandlerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %this, ptr noundef %requestHandler) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen21RequestHandlerAdaptorC2EPNS_14RequestHandlerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %this, ptr noundef %requestHandler) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %upstream.addr.i = alloca ptr, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22HTTPTransactionHandlerE, i64 16), ptr %this, align 8
@@ -207,7 +207,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen21RequestHandlerAdaptor14setTransactionEPNS_15HTTPTransactionE(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %txn) unnamed_addr #4 align 2 {
+define void @_ZN8proxygen21RequestHandlerAdaptor14setTransactionEPNS_15HTTPTransactionE(ptr noundef nonnull align 8 dereferenceable(36) initializes((24, 32)) %this, ptr noundef %txn) unnamed_addr #4 align 2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
   %txn_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -568,7 +568,7 @@ declare noundef zeroext i1 @_ZNK8proxygen11HTTPHeaders6existsENS_14HTTPHeaderCod
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen21RequestHandlerAdaptor8setErrorENS_13ProxygenErrorE(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %err) local_unnamed_addr #4 align 2 {
+define void @_ZN8proxygen21RequestHandlerAdaptor8setErrorENS_13ProxygenErrorE(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((32, 36)) %this, i32 noundef %err) local_unnamed_addr #4 align 2 {
 entry:
   %err_ = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %err, ptr %err_, align 8

@@ -139,7 +139,7 @@ declare void @_ZN3zmq11io_object_tD2Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN3zmq5own_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1444)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq23stream_connecter_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1544) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq23stream_connecter_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1544) initializes((0, 8), (1448, 1456)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq23stream_connecter_base_tE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 1448
@@ -659,7 +659,7 @@ declare void @_ZN3zmq5own_t9terminateEv(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN3zmq13socket_base_t15event_connectedERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825), ptr noundef nonnull align 8 dereferenceable(68), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq23stream_connecter_base_t11timer_eventEi(ptr noundef nonnull align 8 dereferenceable(1544) %this, i32 noundef %id_) unnamed_addr #0 align 2 {
+define void @_ZN3zmq23stream_connecter_base_t11timer_eventEi(ptr noundef nonnull align 8 dereferenceable(1544) initializes((1529, 1530)) %this, i32 noundef %id_) unnamed_addr #0 align 2 {
 entry:
   %cmp.not = icmp eq i32 %id_, 1
   br i1 %cmp.not, label %do.end, label %if.then
@@ -683,7 +683,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn1448_N3zmq23stream_connecter_base_t11timer_eventEi(ptr noundef %this, i32 noundef %id_) unnamed_addr #12 align 2 {
+define void @_ZThn1448_N3zmq23stream_connecter_base_t11timer_eventEi(ptr noundef initializes((81, 82)) %this, i32 noundef %id_) unnamed_addr #12 align 2 {
 entry:
   %cmp.not.i = icmp eq i32 %id_, 1
   br i1 %cmp.not.i, label %_ZN3zmq23stream_connecter_base_t11timer_eventEi.exit, label %if.then.i

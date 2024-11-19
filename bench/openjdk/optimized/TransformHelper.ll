@@ -1138,7 +1138,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @checkOverflow(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #2 {
+define internal fastcc zeroext range(i8 0, 2) i8 @checkOverflow(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %4, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %5) unnamed_addr #2 {
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %9 = load i32, ptr %2, align 4
@@ -1244,7 +1244,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @checkOverflow(i32 noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr nocapture noundef readonly %5, ptr noundef readonly %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr nocapture noundef nonnull %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14) unnamed_addr #2 {
+define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr nocapture noundef readonly %5, ptr noundef readonly %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr nocapture noundef nonnull initializes((0, 8)) %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14) unnamed_addr #2 {
   %16 = alloca %struct.SurfaceDataBounds, align 4
   %17 = alloca double, align 8
   %18 = alloca double, align 8
@@ -1443,7 +1443,7 @@ define internal fastcc void @Transform_SafeHelper(ptr noundef %0, ptr noundef no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @calculateEdges(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @calculateEdges(ptr nocapture noundef nonnull writeonly initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = load double, ptr %2, align 8
   %9 = fmul double %8, 0x41F0000000000000
   %10 = fptosi double %9 to i64

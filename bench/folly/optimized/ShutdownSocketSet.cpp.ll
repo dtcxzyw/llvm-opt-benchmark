@@ -43,7 +43,7 @@ $_ZN6google17MakeCheckOpStringIhN5folly17ShutdownSocketSet5StateEEEPNSt7__cxx111
 @_ZN5folly17ShutdownSocketSetC1Em = unnamed_addr alias void (ptr, i64), ptr @_ZN5folly17ShutdownSocketSetC2Em
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly17ShutdownSocketSetC2Em(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %capacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly17ShutdownSocketSetC2Em(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this, i64 noundef %capacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.i = icmp eq i64 %capacity, -1
   %0 = tail call i64 @llvm.umin.i64(i64 %capacity, i64 2147483647)

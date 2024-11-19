@@ -717,7 +717,7 @@ declare void @_ZN3gmx29PositionCalculationCollectionD1Ev(ptr noundef nonnull ali
 declare void @_ZN3gmx8internal13SelectionDataD1Ev(ptr noundef nonnull align 8 dereferenceable(294)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3gmx19SelectionCollection4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx19SelectionCollection4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((8, 16)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   store ptr null, ptr %2, align 8

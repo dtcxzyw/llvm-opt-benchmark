@@ -128,7 +128,7 @@ if.end8:                                          ; preds = %if.then.i, %if.else
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @hid_idle_timer(ptr noundef %opaque) #1 {
+define internal void @hid_idle_timer(ptr noundef initializes((277, 278)) %opaque) #1 {
 entry:
   %idle_pending = getelementptr inbounds i8, ptr %opaque, i64 277
   store i8 1, ptr %idle_pending, align 1
@@ -162,7 +162,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @qemu_input_handler_activate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 7) i32 @hid_pointer_poll(ptr nocapture noundef %hs, ptr nocapture noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #1 {
+define dso_local range(i32 0, 7) i32 @hid_pointer_poll(ptr nocapture noundef initializes((277, 278)) %hs, ptr nocapture noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %idle_pending = getelementptr inbounds i8, ptr %hs, i64 277
   store i8 0, ptr %idle_pending, align 1
@@ -353,7 +353,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 9) i32 @hid_keyboard_poll(ptr nocapture noundef %hs, ptr nocapture noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #1 {
+define dso_local range(i32 0, 9) i32 @hid_keyboard_poll(ptr nocapture noundef initializes((277, 278)) %hs, ptr nocapture noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %idle_pending = getelementptr inbounds i8, ptr %hs, i64 277
@@ -624,7 +624,7 @@ if.end17:                                         ; preds = %if.then, %entry
 declare void @kbd_put_ledstate(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hid_reset(ptr nocapture noundef %hs) local_unnamed_addr #1 {
+define dso_local void @hid_reset(ptr nocapture noundef initializes((260, 268), (272, 278)) %hs) local_unnamed_addr #1 {
 entry:
   %kind = getelementptr inbounds i8, ptr %hs, i64 268
   %0 = load i32, ptr %kind, align 4
@@ -696,7 +696,7 @@ hid_del_idle_timer.exit:                          ; preds = %entry, %if.then.i
 declare void @qemu_input_handler_unregister(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hid_init(ptr noundef %hs, i32 noundef %kind, ptr noundef %event) local_unnamed_addr #1 {
+define dso_local void @hid_init(ptr noundef initializes((268, 272), (288, 296)) %hs, i32 noundef %kind, ptr noundef %event) local_unnamed_addr #1 {
 entry:
   %kind1 = getelementptr inbounds i8, ptr %hs, i64 268
   store i32 %kind, ptr %kind1, align 4

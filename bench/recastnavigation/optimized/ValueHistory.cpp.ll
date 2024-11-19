@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN12ValueHistoryC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN12ValueHistoryC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN12ValueHistoryC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(1028) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN12ValueHistoryC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(1028) initializes((0, 1028)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %0, i8 0, i64 1028, i1 false)
   ret void
 }
@@ -73,7 +73,7 @@ define dso_local noundef float @_ZNK12ValueHistory10getAverageEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN11GraphParams7setRectEiiiii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN11GraphParams7setRectEiiiii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) initializes((0, 20)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %7, align 4
@@ -87,7 +87,7 @@ define dso_local void @_ZN11GraphParams7setRectEiiiii(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN11GraphParams13setValueRangeEffiPKc(ptr noundef nonnull align 4 dereferenceable(48) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN11GraphParams13setValueRangeEffiPKc(ptr noundef nonnull align 4 dereferenceable(48) initializes((20, 32)) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #2 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   store float %1, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 24

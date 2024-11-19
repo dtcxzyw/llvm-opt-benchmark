@@ -45,7 +45,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3vcg10RubberbandC2ENS_6Color4IhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0, i32 %1) unnamed_addr #3 align 2 {
+define void @_ZN3vcg10RubberbandC2ENS_6Color4IhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 49)) %0, i32 %1) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg10RubberbandE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
@@ -58,7 +58,7 @@ define void @_ZN3vcg10RubberbandC2ENS_6Color4IhEE(ptr nocapture noundef nonnull 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3vcg10Rubberband5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN3vcg10Rubberband5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((12, 49)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %2, i8 0, i64 37, i1 false)
   ret void
@@ -558,7 +558,7 @@ define noundef zeroext i1 @_ZN3vcg10Rubberband7IsReadyEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3vcg10Rubberband9GetPointsERNS_6Point3IfEES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %2) local_unnamed_addr #10 align 2 {
+define void @_ZN3vcg10Rubberband9GetPointsERNS_6Point3IfEES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %2) local_unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 36

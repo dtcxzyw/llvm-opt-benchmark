@@ -278,7 +278,7 @@ define hidden { ptr, i8 } @"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new28_$u7b$$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3std4sync6poison10map_result17hb0a526ff559f6861E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, i1 noundef zeroext %1, i8 noundef %2, ptr noundef nonnull align 4 %3) unnamed_addr #4 {
+define hidden void @_ZN3std4sync6poison10map_result17hb0a526ff559f6861E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 17)) %0, i1 noundef zeroext %1, i8 noundef %2, ptr noundef nonnull align 4 %3) unnamed_addr #4 {
   %spec.select = zext i1 %1 to i64
   %.sink = and i8 %2, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -822,7 +822,7 @@ _ZN10rayon_core8registry8Registry19current_num_threads17h93e80127727376cbE.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN72_$LT$rayon_core..ThreadPoolBuilder$u20$as$u20$core..default..Default$GT$7default17h981617e4cf037b06E"(ptr noalias nocapture noundef writeonly sret({ { i64, i64 }, i64, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, {}, [6 x i8] }) align 8 dereferenceable(96) %0) unnamed_addr #4 {
+define void @"_ZN72_$LT$rayon_core..ThreadPoolBuilder$u20$as$u20$core..default..Default$GT$7default17h981617e4cf037b06E"(ptr noalias nocapture noundef writeonly sret({ { i64, i64 }, i64, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, {}, [6 x i8] }) align 8 dereferenceable(96) initializes((0, 8), (16, 32), (40, 48), (56, 64), (72, 80), (88, 90)) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   store i8 0, ptr %3, align 8
@@ -840,7 +840,7 @@ define void @"_ZN72_$LT$rayon_core..ThreadPoolBuilder$u20$as$u20$core..default..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN10rayon_core17ThreadPoolBuilder3new17h53d32402ed6f1c1dE(ptr noalias nocapture noundef writeonly sret({ { i64, i64 }, i64, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, {}, [6 x i8] }) align 8 dereferenceable(96) %0) unnamed_addr #4 {
+define void @_ZN10rayon_core17ThreadPoolBuilder3new17h53d32402ed6f1c1dE(ptr noalias nocapture noundef writeonly sret({ { i64, i64 }, i64, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, {}, [6 x i8] }) align 8 dereferenceable(96) initializes((0, 8), (16, 32), (40, 48), (56, 64), (72, 80), (88, 90)) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   store i8 0, ptr %3, align 8, !alias.scope !21
@@ -858,7 +858,7 @@ define void @_ZN10rayon_core17ThreadPoolBuilder3new17h53d32402ed6f1c1dE(ptr noal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10rayon_core13Configuration3new17h9767e0aa9e049915E(ptr noalias nocapture noundef writeonly sret({ { { i64, i64 }, i64, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, {}, [6 x i8] } }) align 8 dereferenceable(96) %0) unnamed_addr #7 {
+define void @_ZN10rayon_core13Configuration3new17h9767e0aa9e049915E(ptr noalias nocapture noundef writeonly sret({ { { i64, i64 }, i64, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, {}, [6 x i8] } }) align 8 dereferenceable(96) initializes((0, 32), (40, 48), (56, 64), (72, 80), (88, 90)) %0) unnamed_addr #7 {
   %.sroa.4 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.4)
   %.sroa.4.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.4, i64 8
@@ -956,7 +956,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha69dc50a72a6dd05E.exit.i: ; preds = %.n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10rayon_core13Configuration11num_threads17h6e0a649caab43b09E(ptr noalias nocapture noundef writeonly sret({ { { i64, i64 }, i64, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, {}, [6 x i8] } }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(96) %1, i64 noundef %2) unnamed_addr #7 {
+define void @_ZN10rayon_core13Configuration11num_threads17h6e0a649caab43b09E(ptr noalias nocapture noundef writeonly sret({ { { i64, i64 }, i64, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, {}, [6 x i8] } }) align 8 dereferenceable(96) initializes((0, 96)) %0, ptr noalias nocapture noundef align 8 dereferenceable(96) initializes((16, 24)) %1, i64 noundef %2) unnamed_addr #7 {
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 96, i1 false)
@@ -964,7 +964,7 @@ define void @_ZN10rayon_core13Configuration11num_threads17h6e0a649caab43b09E(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10rayon_core13Configuration10stack_size17hfe367d9c700cb9b7E(ptr noalias nocapture noundef writeonly sret({ { { i64, i64 }, i64, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, {}, [6 x i8] } }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(96) %1, i64 noundef %2) unnamed_addr #7 {
+define void @_ZN10rayon_core13Configuration10stack_size17hfe367d9c700cb9b7E(ptr noalias nocapture noundef writeonly sret({ { { i64, i64 }, i64, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, {}, [6 x i8] } }) align 8 dereferenceable(96) initializes((0, 96)) %0, ptr noalias nocapture noundef align 8 dereferenceable(96) initializes((0, 16)) %1, i64 noundef %2) unnamed_addr #7 {
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   store i64 1, ptr %1, align 8
   store i64 %2, ptr %.sroa.3.0..sroa_idx, align 8
@@ -973,7 +973,7 @@ define void @_ZN10rayon_core13Configuration10stack_size17hfe367d9c700cb9b7E(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10rayon_core13Configuration13breadth_first17hdf636ea271d28a57E(ptr noalias nocapture noundef writeonly sret({ { { i64, i64 }, i64, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, {}, [6 x i8] } }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(96) %1) unnamed_addr #7 {
+define void @_ZN10rayon_core13Configuration13breadth_first17hdf636ea271d28a57E(ptr noalias nocapture noundef writeonly sret({ { { i64, i64 }, i64, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, {}, [6 x i8] } }) align 8 dereferenceable(96) initializes((0, 96)) %0, ptr noalias nocapture noundef align 8 dereferenceable(96) initializes((89, 90)) %1) unnamed_addr #7 {
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 89
   store i8 1, ptr %.sroa.2.0..sroa_idx, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 96, i1 false)

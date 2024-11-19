@@ -3066,7 +3066,7 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fEPS1_ET0_T_S6_S5_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapperC2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapperC2Ev(ptr noundef nonnull align 8 dereferenceable(60) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2)
@@ -3078,7 +3078,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapperC2Ev(ptr no
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEC1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapperC2Em(ptr noundef nonnull align 8 dereferenceable(60) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapperC2Em(ptr noundef nonnull align 8 dereferenceable(60) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   store i64 %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
@@ -3090,7 +3090,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapperC2Em(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapperC2ERKNS_7VtArrayINS_7TfTokenEEES5_(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapperC2ERKNS_7VtArrayINS_7TfTokenEEES5_(ptr noundef nonnull align 8 dereferenceable(60) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE5cdataEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   %5 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   %6 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE5cdataEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
@@ -3104,7 +3104,7 @@ declare noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenE
 declare noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapperC2EPKNS_7TfTokenEmS3_m(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapperC2EPKNS_7TfTokenEmS3_m(ptr noundef nonnull align 8 dereferenceable(60) initializes((0, 16)) %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::unordered_map", align 8
   store i64 %4, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8

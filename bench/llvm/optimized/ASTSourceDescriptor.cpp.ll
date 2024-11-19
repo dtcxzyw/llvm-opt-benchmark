@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5clang19ASTSourceDescriptorC1ERNS_6ModuleE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5clang19ASTSourceDescriptorC2ERNS_6ModuleE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang19ASTSourceDescriptorC2ERNS_6ModuleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(2392) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang19ASTSourceDescriptorC2ERNS_6ModuleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 68), (72, 80)) %0, ptr noundef nonnull align 8 dereferenceable(2392) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 104

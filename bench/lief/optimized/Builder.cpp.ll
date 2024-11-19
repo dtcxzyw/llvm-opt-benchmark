@@ -1081,7 +1081,7 @@ _ZNSt6vectorIPN4LIEF5MachO6BinaryESaIS3_EED2Ev.exit: ; preds = %_ZN4LIEF15vector
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4LIEF5MachO7BuilderC2ERNS0_6BinaryENS1_8config_tE(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull align 8 dereferenceable(384) %1, i8 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF5MachO7BuilderC2ERNS0_6BinaryENS1_8config_tE(ptr noundef nonnull align 8 dereferenceable(137) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(384) %1, i8 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
@@ -1238,7 +1238,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN4LIEF15vector_iostream7reserveEm(ptr noundef nonnull align 8 dereferenceable(41), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4LIEF5MachO7BuilderC2ESt6vectorIPNS0_6BinaryESaIS4_EENS1_8config_tE(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr nocapture noundef %1, i8 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF5MachO7BuilderC2ESt6vectorIPNS0_6BinaryESaIS4_EENS1_8config_tE(ptr noundef nonnull align 8 dereferenceable(137) initializes((0, 32)) %0, ptr nocapture noundef %1, i8 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2554,7 +2554,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit4:                   ; preds = %17, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN4LIEF5MachO7Builder5writeERNS0_6BinaryERSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN4LIEF5MachO7Builder5writeERNS0_6BinaryERSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 24)) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.45", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @_ZN4LIEF5MachO7Builder9build_rawERNS0_6BinaryENS1_8config_tE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.45") align 8 %3, ptr noundef nonnull align 8 dereferenceable(384) %0, i8 1)
@@ -2582,7 +2582,7 @@ _ZN4LIEF5MachO7Builder5writeERNS0_6BinaryERSt6vectorIhSaIhEENS1_8config_tE.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN4LIEF5MachO7Builder5writeERNS0_6BinaryERSt6vectorIhSaIhEENS1_8config_tE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, i8 %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN4LIEF5MachO7Builder5writeERNS0_6BinaryERSt6vectorIhSaIhEENS1_8config_tE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 24)) %1, i8 %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.45", align 8
   call void @_ZN4LIEF5MachO7Builder9build_rawERNS0_6BinaryENS1_8config_tE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.45") align 8 %4, ptr noundef nonnull align 8 dereferenceable(384) %0, i8 %2)
   %5 = load ptr, ptr %1, align 8

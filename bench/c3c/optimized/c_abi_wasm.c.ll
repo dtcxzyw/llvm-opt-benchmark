@@ -200,7 +200,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @c_abi_func_create_wasm(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @c_abi_func_create_wasm(ptr nocapture noundef initializes((56, 64), (72, 88)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc ptr @type_lowering(ptr noundef %3)

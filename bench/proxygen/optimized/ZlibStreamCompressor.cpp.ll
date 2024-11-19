@@ -147,7 +147,7 @@ declare void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 derefer
 declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen20ZlibStreamCompressorC2ENS_15CompressionTypeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(133) %this, i32 noundef %type, i32 noundef %level) unnamed_addr #4 align 2 {
+define void @_ZN8proxygen20ZlibStreamCompressorC2ENS_15CompressionTypeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(133) initializes((0, 16), (128, 133)) %this, i32 noundef %type, i32 noundef %level) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen20ZlibStreamCompressorE, i64 16), ptr %this, align 8
   %type_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -162,7 +162,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen20ZlibStreamCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen20ZlibStreamCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(133) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen20ZlibStreamCompressorE, i64 16), ptr %this, align 8
   %init_ = getelementptr inbounds i8, ptr %this, i64 132

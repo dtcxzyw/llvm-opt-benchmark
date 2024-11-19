@@ -1553,7 +1553,7 @@ declare noundef i32 @_ZNK6hermes2vm9CodeBlock16getVirtualOffsetEv(ptr noundef no
 declare void @_ZN6hermes2vm8JSObject17preventExtensionsEPS1_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm45hermesInternalSetPromiseRejectionTrackingHookEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr nocapture readnone %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args) #8 {
+define hidden { i32, i64 } @_ZN6hermes2vm45hermesInternalSetPromiseRejectionTrackingHookEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr nocapture readnone %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9832) initializes((720, 728)) %runtime, ptr nocapture noundef readonly %args) #8 {
 entry:
   %argCount_.i = getelementptr inbounds i8, ptr %args, i64 8
   %1 = load i32, ptr %argCount_.i, align 8

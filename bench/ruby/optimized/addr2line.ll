@@ -3599,7 +3599,7 @@ uleb128.exit28:                                   ; preds = %191, %._crit_edge.l
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @addr_header_init(ptr %.168.val, ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef %1) unnamed_addr #11 {
+define internal fastcc noundef zeroext i1 @addr_header_init(ptr %.168.val, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %0, ptr nocapture noundef %1) unnamed_addr #11 {
   store ptr %.168.val, ptr %0, align 8
   %.not = icmp eq ptr %.168.val, null
   br i1 %.not, label %21, label %3
@@ -3644,7 +3644,7 @@ define internal fastcc noundef zeroext i1 @addr_header_init(ptr %.168.val, ptr n
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @parse_debug_line_header(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef %3) unnamed_addr #11 {
+define internal fastcc range(i32 -1, 1) i32 @parse_debug_line_header(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull initializes((0, 11), (56, 64)) %2, ptr nocapture noundef %3) unnamed_addr #11 {
   %5 = load ptr, ptr %1, align 8
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64

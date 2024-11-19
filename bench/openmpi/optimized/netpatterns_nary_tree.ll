@@ -475,7 +475,7 @@ define i32 @ompi_roundup_to_power_radix(i32 noundef %0, i32 noundef %1, ptr noca
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -2, 1) i32 @ompi_netpatterns_setup_narray_tree_contigous_ranks(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
+define range(i32 -2, 1) i32 @ompi_netpatterns_setup_narray_tree_contigous_ranks(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #6 {
   %4 = sext i32 %1 to i64
   %5 = shl nsw i64 %4, 5
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #9

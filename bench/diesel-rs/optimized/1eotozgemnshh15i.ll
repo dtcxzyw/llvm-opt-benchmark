@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.957b9859b5be8bca09ccd99e02c720b5.4 = private unnamed_addr constant <{ [31 x i8] }> <{ [31 x i8] c"Invalid type suffix for literal" }>, align 1
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define void @"_ZN49_$LT$F$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h8227398b0e531cf6E"(ptr nocapture writeonly sret({ { { ptr, i64 }, { { ptr, ptr }, i64 }, {} } }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
+define void @"_ZN49_$LT$F$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h8227398b0e531cf6E"(ptr nocapture writeonly sret({ { { ptr, i64 }, { { ptr, ptr }, i64 }, {} } }) align 8 initializes((0, 40)) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -26,7 +26,7 @@ define void @"_ZN49_$LT$F$u20$as$u20$core..str..pattern..Pattern$GT$13into_searc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9a4114637911d36eE"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1, ptr %2) unnamed_addr #1 {
+define void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9a4114637911d36eE"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 initializes((0, 8)) %0, ptr nocapture readonly align 8 %1, ptr %2) unnamed_addr #1 {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
@@ -65,7 +65,7 @@ define noalias noundef align 8 ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h4753eb534226b3f3E"(ptr nocapture writeonly sret({ i64, [40 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #1 {
+define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h4753eb534226b3f3E"(ptr nocapture writeonly sret({ i64, [40 x i64] }) align 8 initializes((0, 240)) %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #1 {
   %4 = alloca { i64, [28 x i64] }, align 8
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
@@ -181,7 +181,7 @@ define zeroext i1 @"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7m
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN13dsl_auto_type9auto_type25expression_type_inference21infer_expression_type28_$u7b$$u7b$closure$u7d$$u7d$17h0238a3c7d707c4aaE"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, ptr nocapture readnone align 1 %1, ptr %2) unnamed_addr #4 {
+define hidden void @"_ZN13dsl_auto_type9auto_type25expression_type_inference21infer_expression_type28_$u7b$$u7b$closure$u7d$$u7d$17h0238a3c7d707c4aaE"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 initializes((0, 8)) %0, ptr nocapture readnone align 1 %1, ptr %2) unnamed_addr #4 {
   %4 = alloca { i64, [2 x i64] }, align 8
   call void @"_ZN5alloc2rc15Rc$LT$T$C$A$GT$10try_unwrap17hea465d03da1e4ef1E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, ptr %2)
   %5 = load i64, ptr %4, align 8, !range !3, !noundef !4

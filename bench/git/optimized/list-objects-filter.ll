@@ -139,7 +139,7 @@ return:                                           ; preds = %entry, %if.end6
 declare void @free(ptr allocptr nocapture noundef) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @filter_blobs_none__init(ptr nocapture readnone %filter_options, ptr nocapture noundef writeonly %filter) #4 {
+define internal void @filter_blobs_none__init(ptr nocapture readnone %filter_options, ptr nocapture noundef writeonly initializes((0, 8), (16, 24)) %filter) #4 {
 entry:
   store ptr @filter_blobs_none, ptr %filter, align 8
   %free_fn = getelementptr inbounds i8, ptr %filter, i64 16
@@ -148,7 +148,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @filter_blobs_limit__init(ptr nocapture noundef readonly %filter_options, ptr nocapture noundef writeonly %filter) #0 {
+define internal void @filter_blobs_limit__init(ptr nocapture noundef readonly %filter_options, ptr nocapture noundef writeonly initializes((0, 8), (16, 32)) %filter) #0 {
 entry:
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 8) #11
   %blob_limit_value = getelementptr inbounds i8, ptr %filter_options, i64 40
@@ -163,7 +163,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @filter_trees_depth__init(ptr nocapture noundef readonly %filter_options, ptr nocapture noundef writeonly %filter) #0 {
+define internal void @filter_trees_depth__init(ptr nocapture noundef readonly %filter_options, ptr nocapture noundef writeonly initializes((0, 8), (16, 32)) %filter) #0 {
 entry:
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 64) #11
   tail call void @oidmap_init(ptr noundef %call, i64 noundef 0) #11
@@ -271,7 +271,7 @@ do.end:                                           ; preds = %do.body.do.end_crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @filter_object_type__init(ptr nocapture noundef readonly %filter_options, ptr nocapture noundef writeonly %filter) #0 {
+define internal void @filter_object_type__init(ptr nocapture noundef readonly %filter_options, ptr nocapture noundef writeonly initializes((0, 8), (16, 32)) %filter) #0 {
 entry:
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 4) #11
   %object_type = getelementptr inbounds i8, ptr %filter_options, i64 56

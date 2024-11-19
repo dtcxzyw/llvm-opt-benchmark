@@ -1178,7 +1178,7 @@ define internal void @_ZN5clang4ento14CheckerManager8destructIN12_GLOBAL__N_119G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119GenericTaintCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_119GenericTaintCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_119GenericTaintCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -1349,7 +1349,7 @@ _ZNSt8optionalIN5clang4ento7BugTypeEED2Ev.exit:   ; preds = %_ZNSt8optionalIN5cl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119GenericTaintCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_119GenericTaintCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_119GenericTaintCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #20
   ret void
@@ -26924,7 +26924,7 @@ _ZN12_GLOBAL__N_16ArgSetD2Ev.exit2:               ; preds = %_ZN12_GLOBAL__N_16A
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EEC2ESt16initializer_listIS6_ERKS7_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_116GenericTaintRuleEESaIS6_EEC2ESt16initializer_listIS6_ERKS7_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds %"struct.std::pair.147", ptr %1, i64 %2
   %.idx = mul nsw i64 %2, 216
@@ -29983,7 +29983,7 @@ declare i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dere
 declare i64 @_ZNK5clang10ASTContext19getTypeDeclTypeSlowEPKNS_8TypeDeclE(ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_126getTaintedPointeeOrPointerEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_4SValE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly %1, ptr %2, i8 %3) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_126getTaintedPointeeOrPointerEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_4SValE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((16, 17)) %0, ptr nocapture noundef nonnull readonly %1, ptr %2, i8 %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %7 = load ptr, ptr %1, align 8
@@ -30071,7 +30071,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit15: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112getPointeeOfEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_4SValE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr %1, i8 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112getPointeeOfEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_4SValE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((16, 17)) %0, ptr %.0.val, ptr %1, i8 %2) unnamed_addr #0 {
   %4 = alloca %"class.clang::ento::Loc", align 8
   %5 = add i8 %2, -2
   %spec.select.i.i.i.i.i = icmp ult i8 %5, 3

@@ -2037,7 +2037,7 @@ define internal fastcc void @"_ZN87_$LT$num_bigint_dig..biguint..BigUint$u20$as$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN92_$LT$block_buffer..BlockBuffer$LT$BlockSize$C$Kind$GT$$u20$as$u20$core..default..Default$GT$7default17h2163422950d31554E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([65 x i8]) align 1 dereferenceable(65) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN92_$LT$block_buffer..BlockBuffer$LT$BlockSize$C$Kind$GT$$u20$as$u20$core..default..Default$GT$7default17h2163422950d31554E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([65 x i8]) align 1 dereferenceable(65) initializes((0, 65)) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca [0 x i8], align 1
   %3 = alloca [24 x i8], align 8
   %4 = alloca [8 x i8], align 8

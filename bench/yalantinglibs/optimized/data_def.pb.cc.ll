@@ -469,7 +469,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN6mygame4Vec3C2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %arena) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6mygame4Vec3C2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %arena) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
@@ -482,7 +482,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6mygame4Vec3C2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6mygame4Vec3C2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
@@ -681,7 +681,7 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6mygame4Vec35ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6mygame4Vec35ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 28)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %x_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %x_, i8 0, i64 12, i1 false)
@@ -1423,7 +1423,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6mygame6WeaponC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6mygame6WeaponC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
@@ -1447,7 +1447,7 @@ invoke.cont:                                      ; preds = %if.then.i.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6mygame6WeaponC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6mygame6WeaponC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24), (28, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
@@ -1687,7 +1687,7 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6mygame6Weapon5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6mygame6Weapon5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((24, 28)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name_ = getelementptr inbounds i8, ptr %this, i64 16
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2584,7 +2584,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6mygame7MonsterC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6mygame7MonsterC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 64), (108, 112)) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
@@ -2687,7 +2687,7 @@ invoke.cont:                                      ; preds = %for.end.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6mygame7MonsterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6mygame7MonsterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 40)) %this, ptr noundef nonnull align 8 dereferenceable(112) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
@@ -5986,7 +5986,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6mygame8MonstersC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6mygame8MonstersC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 44)) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
@@ -6066,7 +6066,7 @@ invoke.cont:                                      ; preds = %for.end.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6mygame8MonstersC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6mygame8MonstersC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 40)) %this, ptr noundef nonnull align 8 dereferenceable(48) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
@@ -7174,7 +7174,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN6mygame6rect32C2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef %arena) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6mygame6rect32C2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 36)) %this, ptr noundef %arena) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
@@ -7185,7 +7185,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6mygame6rect32C2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6mygame6rect32C2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 36)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
@@ -7366,7 +7366,7 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6mygame6rect325ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6mygame6rect325ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((16, 32)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %x_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_, i8 0, i64 16, i1 false)
@@ -8507,7 +8507,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6mygame7rect32sC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6mygame7rect32sC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 44)) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
@@ -8545,7 +8545,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EED2Ev.exit: ; preds = %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6mygame7rect32sC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6mygame7rect32sC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 40)) %this, ptr noundef nonnull align 8 dereferenceable(48) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
@@ -9640,7 +9640,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6mygame6personC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6mygame6personC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 44)) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
@@ -9664,7 +9664,7 @@ invoke.cont:                                      ; preds = %if.then.i.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6mygame6personC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6mygame6personC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24), (40, 44)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
@@ -9853,7 +9853,7 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6mygame6person5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6mygame6person5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((24, 40)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name_ = getelementptr inbounds i8, ptr %this, i64 16
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -10930,7 +10930,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6mygame7personsC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6mygame7personsC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 44)) %this, ptr noundef %arena) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
@@ -11010,7 +11010,7 @@ invoke.cont:                                      ; preds = %for.end.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6mygame7personsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6mygame7personsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 40)) %this, ptr noundef nonnull align 8 dereferenceable(48) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8

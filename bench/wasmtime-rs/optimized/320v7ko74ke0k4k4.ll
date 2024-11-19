@@ -116,7 +116,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN13wasmtime_wasi4host10filesystem106_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$6advise28_$u7b$$u7b$closure$u7d$$u7d$17hf6bdf174c1ff076eE.llvm.10002545943538650143" = private unnamed_addr constant [6 x i32] [i32 0, i32 2, i32 1, i32 3, i32 4, i32 5], align 4
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(192) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %1) unnamed_addr #0 {
+define internal fastcc void @_ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(192) initializes((0, 12)) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %1) unnamed_addr #0 {
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [15 x i8] }, align 8
@@ -7177,7 +7177,7 @@ define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..o
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN13wasmtime_wasi4host6clocks97_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..clocks..wall_clock..Host$u20$for$u20$T$GT$3now17hf307ea49076eb168E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(320) %1) unnamed_addr #2 {
+define hidden void @"_ZN13wasmtime_wasi4host6clocks97_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..clocks..wall_clock..Host$u20$for$u20$T$GT$3now17hf307ea49076eb168E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 20)) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(320) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 16, !nonnull !5, !align !829, !noundef !5
   %5 = getelementptr inbounds i8, ptr %1, i64 56
@@ -7196,7 +7196,7 @@ define hidden void @"_ZN13wasmtime_wasi4host6clocks97_$LT$impl$u20$wasmtime_wasi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN13wasmtime_wasi4host6clocks97_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..clocks..wall_clock..Host$u20$for$u20$T$GT$10resolution17h002a2d5ffb501d69E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(320) %1) unnamed_addr #2 {
+define hidden void @"_ZN13wasmtime_wasi4host6clocks97_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..clocks..wall_clock..Host$u20$for$u20$T$GT$10resolution17h002a2d5ffb501d69E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 20)) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(320) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 16, !nonnull !5, !align !829, !noundef !5
   %5 = getelementptr inbounds i8, ptr %1, i64 56
@@ -7215,7 +7215,7 @@ define hidden void @"_ZN13wasmtime_wasi4host6clocks97_$LT$impl$u20$wasmtime_wasi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN13wasmtime_wasi4host6clocks102_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..clocks..monotonic_clock..Host$u20$for$u20$T$GT$3now17h145fca2736de7958E"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(320) %1) unnamed_addr #2 {
+define hidden void @"_ZN13wasmtime_wasi4host6clocks102_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..clocks..monotonic_clock..Host$u20$for$u20$T$GT$3now17h145fca2736de7958E"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(320) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 16, !nonnull !5, !align !829, !noundef !5
   %5 = getelementptr inbounds i8, ptr %1, i64 72
@@ -7230,7 +7230,7 @@ define hidden void @"_ZN13wasmtime_wasi4host6clocks102_$LT$impl$u20$wasmtime_was
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN13wasmtime_wasi4host6clocks102_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..clocks..monotonic_clock..Host$u20$for$u20$T$GT$10resolution17h4cd922600bc054e3E"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(320) %1) unnamed_addr #2 {
+define hidden void @"_ZN13wasmtime_wasi4host6clocks102_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..clocks..monotonic_clock..Host$u20$for$u20$T$GT$10resolution17h4cd922600bc054e3E"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(320) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 16, !nonnull !5, !align !829, !noundef !5
   %5 = getelementptr inbounds i8, ptr %1, i64 72
@@ -7286,7 +7286,7 @@ _ZN4core4time8Duration3new17h2b271a0fd6558ad7E.llvm.10002545943538650143.exit:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN13wasmtime_wasi4host3env95_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..cli..environment..Host$u20$for$u20$T$GT$15get_environment17h7bcd896b150223fbE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(320) %1) unnamed_addr #2 {
+define hidden void @"_ZN13wasmtime_wasi4host3env95_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..cli..environment..Host$u20$for$u20$T$GT$15get_environment17h7bcd896b150223fbE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(320) %1) unnamed_addr #2 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1234)
@@ -7301,7 +7301,7 @@ define hidden void @"_ZN13wasmtime_wasi4host3env95_$LT$impl$u20$wasmtime_wasi..b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN13wasmtime_wasi4host3env95_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..cli..environment..Host$u20$for$u20$T$GT$13get_arguments17h55c60a029af82be5E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(320) %1) unnamed_addr #2 {
+define hidden void @"_ZN13wasmtime_wasi4host3env95_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..cli..environment..Host$u20$for$u20$T$GT$13get_arguments17h55c60a029af82be5E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(320) %1) unnamed_addr #2 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1239)
@@ -7534,7 +7534,7 @@ define internal fastcc void @"_ZN13wasmtime_wasi4host10filesystem99_$LT$impl$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN13wasmtime_wasi4host6random93_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..random..random..Host$u20$for$u20$T$GT$16get_random_bytes17h25609d2a3a0da2aeE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef align 16 dereferenceable(320) %1, i64 noundef %2) unnamed_addr #2 {
+define hidden void @"_ZN13wasmtime_wasi4host6random93_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..random..random..Host$u20$for$u20$T$GT$16get_random_bytes17h25609d2a3a0da2aeE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef align 16 dereferenceable(320) %1, i64 noundef %2) unnamed_addr #2 {
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -7545,7 +7545,7 @@ define hidden void @"_ZN13wasmtime_wasi4host6random93_$LT$impl$u20$wasmtime_wasi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN13wasmtime_wasi8preview112BlockingMode4read17hd28a476655f0c625E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, { { { i64 } }, i32, {}, [4 x i8] }, i64, i8, [23 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 1 dereferenceable(1) %1, ptr noalias noundef align 16 dereferenceable(320) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %3, i64 noundef %4) unnamed_addr #6 {
+define hidden void @_ZN13wasmtime_wasi8preview112BlockingMode4read17hd28a476655f0c625E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, { { { i64 } }, i32, {}, [4 x i8] }, i64, i8, [23 x i8] }) align 8 dereferenceable(64) initializes((0, 41)) %0, ptr noalias noundef readonly align 1 dereferenceable(1) %1, ptr noalias noundef align 16 dereferenceable(320) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %3, i64 noundef %4) unnamed_addr #6 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
@@ -7559,7 +7559,7 @@ define hidden void @_ZN13wasmtime_wasi8preview112BlockingMode4read17hd28a476655f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN13wasmtime_wasi8preview112BlockingMode5write17he077da8255bdd9e2E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, { { ptr, ptr }, { i32, i32 } }, { { { i64 } }, i32, {}, [4 x i8] }, [96 x i8], i8, [31 x i8] }) align 8 dereferenceable(184) %0, ptr noalias noundef readonly align 1 dereferenceable(1) %1, ptr noalias noundef align 16 dereferenceable(320) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #6 {
+define hidden void @_ZN13wasmtime_wasi8preview112BlockingMode5write17he077da8255bdd9e2E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, { { ptr, ptr }, { i32, i32 } }, { { { i64 } }, i32, {}, [4 x i8] }, [96 x i8], i8, [31 x i8] }) align 8 dereferenceable(184) initializes((0, 56), (152, 153)) %0, ptr noalias noundef readonly align 1 dereferenceable(1) %1, ptr noalias noundef align 16 dereferenceable(320) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #6 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
@@ -8300,7 +8300,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10298849200982743166.e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13wasmtime_wasi8preview111write_bytes17h5f8c12ebaf7dd370E(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN13wasmtime_wasi8preview111write_bytes17h5f8c12ebaf7dd370E(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, { ptr, ptr }, { i32, i32 } }, align 8
   %6 = alloca { i32, [15 x i32] }, align 8
   %.sroa.7.i = alloca [11 x i32], align 4
@@ -8415,7 +8415,7 @@ define hidden void @_ZN13wasmtime_wasi8preview111write_bytes17h5f8c12ebaf7dd370E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13wasmtime_wasi8preview111write_bytes17ha934c89a21ef3e67E(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN13wasmtime_wasi8preview111write_bytes17ha934c89a21ef3e67E(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, { ptr, ptr }, { i32, i32 } }, align 8
   %6 = alloca { i32, [15 x i32] }, align 8
   %.sroa.7.i = alloca [11 x i32], align 4
@@ -8648,7 +8648,7 @@ define hidden void @_ZN13wasmtime_wasi8preview110write_byte17h7853c10784216477E(
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13wasmtime_wasi8preview18read_str17h2e13d394093d574dE.llvm.10002545943538650143(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN13wasmtime_wasi8preview18read_str17h2e13d394093d574dE.llvm.10002545943538650143(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = alloca { ptr, [3 x i64] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
@@ -8830,7 +8830,7 @@ define hidden void @"_ZN13wasmtime_wasi8preview111read_string28_$u7b$$u7b$closur
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN13wasmtime_wasi5stdio90_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..cli..stderr..Host$u20$for$u20$T$GT$10get_stderr17hc8ba9b0ac3e161e1E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 16 dereferenceable(320) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN13wasmtime_wasi5stdio90_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..cli..stderr..Host$u20$for$u20$T$GT$10get_stderr17hc8ba9b0ac3e161e1E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias noundef nonnull align 16 dereferenceable(320) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [23 x i8] }, align 8
   %.sroa.8 = alloca [22 x i8], align 2
   %4 = getelementptr inbounds i8, ptr %1, i64 112
@@ -25559,7 +25559,7 @@ define hidden noundef ptr @"_ZN13wasmtime_wasi4host2io102_$LT$impl$u20$wasmtime_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN13wasmtime_wasi4host2io102_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..io..streams..HostOutputStream$u20$for$u20$T$GT$11check_write17hccaddaeaf9966e81E"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias noundef align 16 dereferenceable(320) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #2 {
+define hidden void @"_ZN13wasmtime_wasi4host2io102_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..io..streams..HostOutputStream$u20$for$u20$T$GT$11check_write17hccaddaeaf9966e81E"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef align 16 dereferenceable(320) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #2 {
   %4 = alloca { ptr, [1 x i64] }, align 8
   %5 = alloca { i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -25727,7 +25727,7 @@ define hidden { i64, ptr } @"_ZN13wasmtime_wasi4host2io102_$LT$impl$u20$wasmtime
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN13wasmtime_wasi4host2io102_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..io..streams..HostOutputStream$u20$for$u20$T$GT$9subscribe17he106125759a97ffdE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef align 16 dereferenceable(320) %1, ptr noalias nocapture noundef align 8 dereferenceable(16) %2) unnamed_addr #2 {
+define hidden void @"_ZN13wasmtime_wasi4host2io102_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..io..streams..HostOutputStream$u20$for$u20$T$GT$9subscribe17he106125759a97ffdE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias noundef align 16 dereferenceable(320) %1, ptr noalias nocapture noundef align 8 dereferenceable(16) %2) unnamed_addr #2 {
   %4 = alloca { i8, [23 x i8] }, align 8
   %.sroa.8.i = alloca [22 x i8], align 2
   %5 = alloca { ptr, ptr, i32, [1 x i32] }, align 8
@@ -27887,7 +27887,7 @@ common.ret:                                       ; preds = %116, %89, %"_ZN153_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN13wasmtime_wasi4host2io101_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..io..streams..HostInputStream$u20$for$u20$T$GT$9subscribe17h6f28ef0742071daeE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef align 16 dereferenceable(320) %1, ptr noalias nocapture noundef align 8 dereferenceable(16) %2) unnamed_addr #2 {
+define hidden void @"_ZN13wasmtime_wasi4host2io101_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..io..streams..HostInputStream$u20$for$u20$T$GT$9subscribe17h6f28ef0742071daeE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias noundef align 16 dereferenceable(320) %1, ptr noalias nocapture noundef align 8 dereferenceable(16) %2) unnamed_addr #2 {
   %4 = alloca { i8, [23 x i8] }, align 8
   %.sroa.8.i = alloca [22 x i8], align 2
   %5 = alloca { ptr, ptr, i32, [1 x i32] }, align 8

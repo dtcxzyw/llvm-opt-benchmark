@@ -935,7 +935,7 @@ define internal void @_ZN4core5error5Error7provide17hee97dda254b67e25E(ptr noali
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h94642b2b89feb6a7E.llvm.4766490671745005879"(ptr noalias nocapture noundef writeonly sret({ i64, [10 x i64] }) align 8 dereferenceable(88) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
+define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h94642b2b89feb6a7E.llvm.4766490671745005879"(ptr noalias nocapture noundef writeonly sret({ i64, [10 x i64] }) align 8 dereferenceable(88) initializes((0, 40)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
   %.sroa.4 = alloca [3 x i64], align 8
   %5 = load i64, ptr %1, align 8, !range !88, !noundef !4
   %6 = icmp eq i64 %5, -9223372036854775808
@@ -1361,7 +1361,7 @@ define hidden void @"_ZN15deltalake_mount4file23MountFileStorageBackend16path_to
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN15deltalake_mount4file23MountFileStorageBackend16path_to_root_url28_$u7b$$u7b$closure$u7d$$u7d$17h61744ef50cc1b6e4E.llvm.4766490671745005879"(ptr noalias nocapture noundef writeonly sret({ i64, [9 x i64] }) align 8 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
+define hidden void @"_ZN15deltalake_mount4file23MountFileStorageBackend16path_to_root_url28_$u7b$$u7b$closure$u7d$$u7d$17h61744ef50cc1b6e4E.llvm.4766490671745005879"(ptr noalias nocapture noundef writeonly sret({ i64, [9 x i64] }) align 8 dereferenceable(80) initializes((0, 32)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
   %.sroa.4 = alloca [3 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.4)
   call void @_ZN3std3sys6os_str5bytes5Slice8to_owned17had945b6c4cd6e040E(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %.sroa.4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)

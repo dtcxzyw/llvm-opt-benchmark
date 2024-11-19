@@ -261,7 +261,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_9iostreams11bzip2
 declare void @_ZNSt8ios_base7failureB5cxx11D2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams6detail10bzip2_baseC2ERKNS0_12bzip2_paramsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #0 align 2 {
+define void @_ZN5boost9iostreams6detail10bzip2_baseC2ERKNS0_12bzip2_paramsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #0 align 2 {
   %3 = load i64, ptr %1, align 4
   store i64 %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -321,7 +321,7 @@ define void @_ZN5boost9iostreams6detail10bzip2_base6beforeERPKcS4_RPcS6_(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost9iostreams6detail10bzip2_base5afterERPKcRPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) local_unnamed_addr #10 align 2 {
+define void @_ZN5boost9iostreams6detail10bzip2_base5afterERPKcRPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !23
   %6 = load ptr, ptr %5, align 8, !tbaa !28

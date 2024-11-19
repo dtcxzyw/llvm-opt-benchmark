@@ -54,7 +54,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib20CMSMMDriftCalculatorC1ERKNS_6MatrixERKSt6vectorIdSaIdEES8_mmm = unnamed_addr alias void (ptr, ptr, ptr, ptr, i64, i64, i64), ptr @_ZN8QuantLib20CMSMMDriftCalculatorC2ERKNS_6MatrixERKSt6vectorIdSaIdEES8_mmm
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20CMSMMDriftCalculatorC2ERKNS_6MatrixERKSt6vectorIdSaIdEES8_mmm(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pseudo, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %displacements, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %taus, i64 noundef %numeraire, i64 noundef %alive, i64 noundef %spanningFwds) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20CMSMMDriftCalculatorC2ERKNS_6MatrixERKSt6vectorIdSaIdEES8_mmm(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 56)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pseudo, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %displacements, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %taus, i64 noundef %numeraire, i64 noundef %alive, i64 noundef %spanningFwds) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp39 = alloca %"class.std::__cxx11::basic_string", align 8

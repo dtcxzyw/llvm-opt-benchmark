@@ -67,7 +67,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv6xphoto23grayDctDenoisingInvokerC2ERKNS_3MatERSt6vectorIS2_SaIS2_EEdi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, double noundef %3, i32 noundef %4) unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv6xphoto23grayDctDenoisingInvokerC2ERKNS_3MatERSt6vectorIS2_SaIS2_EEdi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 28), (32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, double noundef %3, i32 noundef %4) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6xphoto23grayDctDenoisingInvokerE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8

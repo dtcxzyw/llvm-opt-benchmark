@@ -808,7 +808,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18FdCIRVanillaEngineC2EN5boost10shared_ptrINS_23CoxIngersollRossProcessEEENS2_INS_30GeneralizedBlackScholesProcessEEEmmmmdRKNS_13FdmSchemeDescENS2_INS_15FdmQuantoHelperEEE(ptr noundef nonnull align 8 dereferenceable(472) %this, ptr nocapture noundef %cirProcess, ptr nocapture noundef %bsProcess, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %rGrid, i64 noundef %dampingSteps, double noundef %rho, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, ptr nocapture noundef %quantoHelper) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18FdCIRVanillaEngineC2EN5boost10shared_ptrINS_23CoxIngersollRossProcessEEENS2_INS_30GeneralizedBlackScholesProcessEEEmmmmdRKNS_13FdmSchemeDescENS2_INS_15FdmQuantoHelperEEE(ptr noundef nonnull align 8 dereferenceable(472) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %cirProcess, ptr nocapture noundef %bsProcess, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %rGrid, i64 noundef %dampingSteps, double noundef %rho, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, ptr nocapture noundef %quantoHelper) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !8
@@ -914,7 +914,7 @@ _ZN8QuantLib14OneAssetOption6engineC2Ev.exit:     ; preds = %entry
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18FdCIRVanillaEngineC2EN5boost10shared_ptrINS_23CoxIngersollRossProcessEEENS2_INS_30GeneralizedBlackScholesProcessEEESt6vectorINS2_INS_8DividendEEESaIS9_EEmmmmdRKNS_13FdmSchemeDescENS2_INS_15FdmQuantoHelperEEE(ptr noundef nonnull align 8 dereferenceable(472) %this, ptr nocapture noundef %cirProcess, ptr nocapture noundef %bsProcess, ptr nocapture noundef %dividends, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %rGrid, i64 noundef %dampingSteps, double noundef %rho, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, ptr nocapture noundef %quantoHelper) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18FdCIRVanillaEngineC2EN5boost10shared_ptrINS_23CoxIngersollRossProcessEEENS2_INS_30GeneralizedBlackScholesProcessEEESt6vectorINS2_INS_8DividendEEESaIS9_EEmmmmdRKNS_13FdmSchemeDescENS2_INS_15FdmQuantoHelperEEE(ptr noundef nonnull align 8 dereferenceable(472) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %cirProcess, ptr nocapture noundef %bsProcess, ptr nocapture noundef %dividends, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %rGrid, i64 noundef %dampingSteps, double noundef %rho, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, ptr nocapture noundef %quantoHelper) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !8
@@ -3421,7 +3421,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22MakeFdCIRVanillaEngineC2EN5boost10shared_ptrINS_23CoxIngersollRossProcessEEENS2_INS_30GeneralizedBlackScholesProcessEEEd(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef %cirProcess, ptr nocapture noundef %bsProcess, double noundef %rho) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22MakeFdCIRVanillaEngineC2EN5boost10shared_ptrINS_23CoxIngersollRossProcessEEENS2_INS_30GeneralizedBlackScholesProcessEEEd(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 96)) %this, ptr nocapture noundef %cirProcess, ptr nocapture noundef %bsProcess, double noundef %rho) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.QuantLib::FdmSchemeDesc", align 8
   %0 = load ptr, ptr %cirProcess, align 8, !tbaa !41
@@ -3728,7 +3728,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine16withQuantoHelperERKN5boost10shared_ptrINS_15FdmQuantoHelperEEE(ptr noundef nonnull returned align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %quantoHelper) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine16withQuantoHelperERKN5boost10shared_ptrINS_15FdmQuantoHelperEEE(ptr noundef nonnull returned align 8 dereferenceable(128) initializes((112, 120)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %quantoHelper) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %quantoHelper_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %quantoHelper, align 8, !tbaa !43
@@ -3788,7 +3788,7 @@ _ZN5boost10shared_ptrIN8QuantLib15FdmQuantoHelperEEaSERKS3_.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine9withTGridEm(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) %this, i64 noundef %tGrid) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine9withTGridEm(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((64, 72)) %this, i64 noundef %tGrid) local_unnamed_addr #16 align 2 {
 entry:
   %tGrid_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i64 %tGrid, ptr %tGrid_, align 8, !tbaa !164
@@ -3796,7 +3796,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine9withXGridEm(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) %this, i64 noundef %xGrid) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine9withXGridEm(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((72, 80)) %this, i64 noundef %xGrid) local_unnamed_addr #16 align 2 {
 entry:
   %xGrid_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i64 %xGrid, ptr %xGrid_, align 8, !tbaa !165
@@ -3804,7 +3804,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine9withRGridEm(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) %this, i64 noundef %rGrid) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine9withRGridEm(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((80, 88)) %this, i64 noundef %rGrid) local_unnamed_addr #16 align 2 {
 entry:
   %rGrid_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i64 %rGrid, ptr %rGrid_, align 8, !tbaa !166
@@ -3812,7 +3812,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine16withDampingStepsEm(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) %this, i64 noundef %dampingSteps) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine16withDampingStepsEm(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((88, 96)) %this, i64 noundef %dampingSteps) local_unnamed_addr #16 align 2 {
 entry:
   %dampingSteps_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i64 %dampingSteps, ptr %dampingSteps_, align 8, !tbaa !167
@@ -3820,7 +3820,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine17withFdmSchemeDescERKNS_13FdmSchemeDescE(ptr noundef nonnull returned align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(24) %schemeDesc) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN8QuantLib22MakeFdCIRVanillaEngine17withFdmSchemeDescERKNS_13FdmSchemeDescE(ptr noundef nonnull returned align 8 dereferenceable(128) initializes((96, 104)) %this, ptr noundef nonnull align 8 dereferenceable(24) %schemeDesc) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.81", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #25
@@ -4152,7 +4152,7 @@ _ZNSt6vectorIN5boost10shared_ptrIN8QuantLib8DividendEEESaIS4_EED2Ev.exit: ; pred
 declare void @_ZN8QuantLib14DividendVectorERKSt6vectorINS_4DateESaIS1_EERKS0_IdSaIdEE(ptr dead_on_unwind writable sret(%"class.std::vector.35") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib22MakeFdCIRVanillaEnginecvN5boost10shared_ptrINS_13PricingEngineEEEEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.15") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib22MakeFdCIRVanillaEnginecvN5boost10shared_ptrINS_13PricingEngineEEEEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.15") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.82", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #25

@@ -9411,7 +9411,7 @@ _ZN2EA4StdC8StrnicmpEPKDiS2_m.exit:               ; preds = %while.cond.i, %if.e
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZN2EA4StdC7EcvtBufEdiPiS1_Pc(double noundef %dValue, i32 noundef %nDigitCount, ptr nocapture noundef %decimalPos, ptr nocapture noundef writeonly %sign, ptr noundef returned %buffer) local_unnamed_addr #12 {
+define dso_local noundef ptr @_ZN2EA4StdC7EcvtBufEdiPiS1_Pc(double noundef %dValue, i32 noundef %nDigitCount, ptr nocapture noundef initializes((0, 4)) %decimalPos, ptr nocapture noundef writeonly %sign, ptr noundef returned %buffer) local_unnamed_addr #12 {
 entry:
   %integer = alloca double, align 8
   %tmp = alloca double, align 8
@@ -9725,7 +9725,7 @@ declare double @modf(double noundef, ptr nocapture noundef) local_unnamed_addr #
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZN2EA4StdC7FcvtBufEdiPiS1_Pc(double noundef %dValue, i32 noundef %nDigitCountAfterDecimal, ptr nocapture noundef %decimalPos, ptr nocapture noundef writeonly %sign, ptr noundef returned %buffer) local_unnamed_addr #12 {
+define dso_local noundef ptr @_ZN2EA4StdC7FcvtBufEdiPiS1_Pc(double noundef %dValue, i32 noundef %nDigitCountAfterDecimal, ptr nocapture noundef initializes((0, 4)) %decimalPos, ptr nocapture noundef writeonly %sign, ptr noundef returned %buffer) local_unnamed_addr #12 {
 entry:
   %integer = alloca double, align 8
   %tmp = alloca double, align 8
@@ -9969,7 +9969,7 @@ return:                                           ; preds = %if.end111, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZN2EA4StdC7EcvtBufEdiPiS1_PDs(double noundef %dValue, i32 noundef %nDigitCount, ptr nocapture noundef %decimalPos, ptr nocapture noundef writeonly %sign, ptr noundef returned writeonly %buffer) local_unnamed_addr #12 {
+define dso_local noundef ptr @_ZN2EA4StdC7EcvtBufEdiPiS1_PDs(double noundef %dValue, i32 noundef %nDigitCount, ptr nocapture noundef initializes((0, 4)) %decimalPos, ptr nocapture noundef writeonly %sign, ptr noundef returned writeonly %buffer) local_unnamed_addr #12 {
 entry:
   %pBufferCvt8 = alloca [350 x i8], align 16
   %call = call noundef ptr @_ZN2EA4StdC7EcvtBufEdiPiS1_Pc(double noundef %dValue, i32 noundef %nDigitCount, ptr noundef %decimalPos, ptr noundef %sign, ptr noundef nonnull %pBufferCvt8)
@@ -9996,7 +9996,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZN2EA4StdC7EcvtBufEdiPiS1_PDi(double noundef %dValue, i32 noundef %nDigitCount, ptr nocapture noundef %decimalPos, ptr nocapture noundef writeonly %sign, ptr noundef returned writeonly %buffer) local_unnamed_addr #12 {
+define dso_local noundef ptr @_ZN2EA4StdC7EcvtBufEdiPiS1_PDi(double noundef %dValue, i32 noundef %nDigitCount, ptr nocapture noundef initializes((0, 4)) %decimalPos, ptr nocapture noundef writeonly %sign, ptr noundef returned writeonly %buffer) local_unnamed_addr #12 {
 entry:
   %pBufferCvt8 = alloca [350 x i8], align 16
   %call = call noundef ptr @_ZN2EA4StdC7EcvtBufEdiPiS1_Pc(double noundef %dValue, i32 noundef %nDigitCount, ptr noundef %decimalPos, ptr noundef %sign, ptr noundef nonnull %pBufferCvt8)
@@ -10023,7 +10023,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZN2EA4StdC7FcvtBufEdiPiS1_PDs(double noundef %dValue, i32 noundef %nDigitCountAfterDecimal, ptr nocapture noundef %decimalPos, ptr nocapture noundef writeonly %sign, ptr noundef returned writeonly %buffer) local_unnamed_addr #12 {
+define dso_local noundef ptr @_ZN2EA4StdC7FcvtBufEdiPiS1_PDs(double noundef %dValue, i32 noundef %nDigitCountAfterDecimal, ptr nocapture noundef initializes((0, 4)) %decimalPos, ptr nocapture noundef writeonly %sign, ptr noundef returned writeonly %buffer) local_unnamed_addr #12 {
 entry:
   %pBufferCvt8 = alloca [350 x i8], align 16
   %call = call noundef ptr @_ZN2EA4StdC7FcvtBufEdiPiS1_Pc(double noundef %dValue, i32 noundef %nDigitCountAfterDecimal, ptr noundef %decimalPos, ptr noundef %sign, ptr noundef nonnull %pBufferCvt8)
@@ -10050,7 +10050,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZN2EA4StdC7FcvtBufEdiPiS1_PDi(double noundef %dValue, i32 noundef %nDigitCountAfterDecimal, ptr nocapture noundef %decimalPos, ptr nocapture noundef writeonly %sign, ptr noundef returned writeonly %buffer) local_unnamed_addr #12 {
+define dso_local noundef ptr @_ZN2EA4StdC7FcvtBufEdiPiS1_PDi(double noundef %dValue, i32 noundef %nDigitCountAfterDecimal, ptr nocapture noundef initializes((0, 4)) %decimalPos, ptr nocapture noundef writeonly %sign, ptr noundef returned writeonly %buffer) local_unnamed_addr #12 {
 entry:
   %pBufferCvt8 = alloca [350 x i8], align 16
   %call = call noundef ptr @_ZN2EA4StdC7FcvtBufEdiPiS1_Pc(double noundef %dValue, i32 noundef %nDigitCountAfterDecimal, ptr noundef %decimalPos, ptr noundef %sign, ptr noundef nonnull %pBufferCvt8)

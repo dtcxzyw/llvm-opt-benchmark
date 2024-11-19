@@ -1970,7 +1970,7 @@ define hidden void @zim_SQLite3_querySingle(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sqlite_value_to_zval(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc void @sqlite_value_to_zval(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((8, 12)) %2) unnamed_addr #0 {
   %4 = tail call i32 @sqlite3_column_type(ptr noundef %0, i32 noundef %1) #17
   switch i32 %4, label %20 [
     i32 1, label %5
@@ -8057,7 +8057,7 @@ declare void @php_info_print_table_end() local_unnamed_addr #1
 declare void @display_ini_entries(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @zm_globals_ctor_sqlite3(ptr nocapture noundef writeonly %0) #8 {
+define internal void @zm_globals_ctor_sqlite3(ptr nocapture noundef writeonly initializes((0, 16)) %0) #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
@@ -8576,7 +8576,7 @@ define internal noundef i32 @php_sqlite3_stream_flush(ptr nocapture readnone %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 1) i32 @php_sqlite3_stream_seek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #11 {
+define internal range(i32 -1, 1) i32 @php_sqlite3_stream_seek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #11 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   switch i32 %2, label %57 [
@@ -8704,7 +8704,7 @@ define internal noundef i32 @php_sqlite3_stream_cast(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @php_sqlite3_stream_stat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #12 {
+define internal noundef i32 @php_sqlite3_stream_stat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((48, 56)) %1) #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16

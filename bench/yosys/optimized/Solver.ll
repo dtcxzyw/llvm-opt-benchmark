@@ -270,7 +270,7 @@ define linkonce_odr void @_ZN7Minisat10BoolOptionD2Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Minisat6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(857) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Minisat6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(857) initializes((0, 40), (48, 68), (72, 105), (108, 118), (120, 164), (168, 176), (384, 400), (408, 424), (432, 448), (456, 472), (480, 496), (504, 520), (528, 544), (552, 568)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Minisat6SolverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -723,7 +723,7 @@ _ZN7Minisat6IntSetINS_3LitENS_10MkIndexLitEED2Ev.exit: ; preds = %_ZN7Minisat3ve
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Minisat6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(857) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Minisat6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(857) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Minisat6SolverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 800
   %3 = load ptr, ptr %2, align 8

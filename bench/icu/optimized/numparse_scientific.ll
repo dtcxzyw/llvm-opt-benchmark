@@ -39,7 +39,7 @@ $_ZTIN6icu_757UMemoryE = comdat any
 @_ZN6icu_758numparse4impl17ScientificMatcherC1ERKNS_20DecimalFormatSymbolsERKNS_6number4impl7GrouperE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN6icu_758numparse4impl17ScientificMatcherC2ERKNS_20DecimalFormatSymbolsERKNS_6number4impl7GrouperE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758numparse4impl17ScientificMatcherC2ERKNS_20DecimalFormatSymbolsERKNS_6number4impl7GrouperE(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef nonnull align 8 dereferenceable(2883) %dfs, ptr noundef nonnull align 4 dereferenceable(12) %grouper) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758numparse4impl17ScientificMatcherC2ERKNS_20DecimalFormatSymbolsERKNS_6number4impl7GrouperE(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(2883) %dfs, ptr noundef nonnull align 4 dereferenceable(12) %grouper) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl17ScientificMatcherE, i64 16), ptr %this, align 8
   %fExponentSeparatorString = getelementptr inbounds i8, ptr %this, i64 8

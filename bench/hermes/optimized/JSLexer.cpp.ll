@@ -566,7 +566,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes6parser7JSLexerC2EjRNS_18SourceErrorManagerERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableEbb(ptr noundef nonnull align 8 dereferenceable(1128) %this, i32 noundef %bufId, ptr noundef nonnull align 8 dereferenceable(464) %sm, ptr noundef nonnull align 8 dereferenceable(32) %allocator, ptr noundef %strTab, i1 noundef zeroext %strictMode, i1 noundef zeroext %convertSurrogates) unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes6parser7JSLexerC2EjRNS_18SourceErrorManagerERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableEbb(ptr noundef nonnull align 8 dereferenceable(1128) initializes((0, 16), (24, 52), (56, 60), (64, 121), (128, 136), (160, 161)) %this, i32 noundef %bufId, ptr noundef nonnull align 8 dereferenceable(464) %sm, ptr noundef nonnull align 8 dereferenceable(32) %allocator, ptr noundef %strTab, i1 noundef zeroext %strictMode, i1 noundef zeroext %convertSurrogates) unnamed_addr #1 align 2 {
 entry:
   store ptr %sm, ptr %this, align 8
   %allocator_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -669,7 +669,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes6parser7JSLexer22initializeWithBufferIdEj(ptr nocapture noundef nonnull align 8 dereferenceable(1128) %this, i32 noundef %bufId) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes6parser7JSLexer22initializeWithBufferIdEj(ptr nocapture noundef nonnull align 8 dereferenceable(1128) initializes((16, 20), (136, 160)) %this, i32 noundef %bufId) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %sub.i.i = add i32 %bufId, -1
@@ -693,7 +693,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes6parser7JSLexer29initializeReservedIdentifiersEv(ptr noundef nonnull align 8 dereferenceable(1128) %this) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes6parser7JSLexer29initializeReservedIdentifiersEv(ptr noundef nonnull align 8 dereferenceable(1128) initializes((720, 1072)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %strTab_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %strTab_.i, align 8
@@ -876,7 +876,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes6parser7JSLexerC2ESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS4_EERNS_18SourceErrorManagerERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableEbb(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr nocapture noundef %input, ptr noundef nonnull align 8 dereferenceable(464) %sm, ptr noundef nonnull align 8 dereferenceable(32) %allocator, ptr noundef %strTab, i1 noundef zeroext %strictMode, i1 noundef zeroext %convertSurrogates) unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes6parser7JSLexerC2ESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS4_EERNS_18SourceErrorManagerERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableEbb(ptr noundef nonnull align 8 dereferenceable(1128) initializes((0, 16), (24, 52), (56, 60), (64, 121), (128, 136), (160, 161)) %this, ptr nocapture noundef %input, ptr noundef nonnull align 8 dereferenceable(464) %sm, ptr noundef nonnull align 8 dereferenceable(32) %allocator, ptr noundef %strTab, i1 noundef zeroext %strictMode, i1 noundef zeroext %convertSurrogates) unnamed_addr #1 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.41", align 8
   store ptr %sm, ptr %this, align 8
@@ -994,7 +994,7 @@ _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
 declare noundef i32 @_ZN6hermes18SourceErrorManager18addNewSourceBufferESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(464), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %this, i32 noundef %grammarContext) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) initializes((160, 161)) %this, i32 noundef %grammarContext) local_unnamed_addr #1 align 2 {
 entry:
   %buf.i.i = alloca [8 x i8], align 1
   %d.i.i = alloca ptr, align 8
@@ -2722,7 +2722,7 @@ if.end43:                                         ; preds = %_ZNSt6vectorIN6herm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes6parser7JSLexer10scanRegExpEv(ptr noundef nonnull align 8 dereferenceable(1128) %this) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes6parser7JSLexer10scanRegExpEv(ptr noundef nonnull align 8 dereferenceable(1128) initializes((176, 180)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %buf.i.i = alloca [8 x i8], align 1
   %d.i.i = alloca ptr, align 8
@@ -4414,7 +4414,7 @@ if.end5:                                          ; preds = %if.then3, %if.else4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes6parser7JSLexer19scanTemplateLiteralEv(ptr noundef nonnull align 8 dereferenceable(1128) %this) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes6parser7JSLexer19scanTemplateLiteralEv(ptr noundef nonnull align 8 dereferenceable(1128) initializes((176, 180), (448, 452)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %buf.i419 = alloca [8 x i8], align 1
   %d.i420 = alloca ptr, align 8
@@ -5715,7 +5715,7 @@ declare noundef zeroext i1 @_ZN6hermes19isUnicodeOnlyLetterEj(i32 noundef) local
 declare noundef zeroext i1 @_ZN6hermes18isUnicodeOnlySpaceEj(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes6parser7JSLexer17advanceInJSXChildEv(ptr noundef nonnull align 8 dereferenceable(1128) %this) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes6parser7JSLexer17advanceInJSXChildEv(ptr noundef nonnull align 8 dereferenceable(1128) initializes((64, 72)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %buf.i.i13 = alloca [8 x i8], align 1
   %d.i.i14 = alloca ptr, align 8
@@ -6508,7 +6508,7 @@ return:                                           ; preds = %for.cond, %for.cond
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes6parser7JSLexer29rescanRBraceInTemplateLiteralEv(ptr noundef nonnull align 8 dereferenceable(1128) %this) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes6parser7JSLexer29rescanRBraceInTemplateLiteralEv(ptr noundef nonnull align 8 dereferenceable(1128) initializes((64, 72), (176, 180), (448, 452)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %curCharPtr_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %curCharPtr_, align 8
@@ -6550,7 +6550,7 @@ _ZN6hermes6parser7JSLexer11finishTokenEPKc.exit:  ; preds = %if.end, %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i64 0, 8589934592) i64 @_ZN6hermes6parser7JSLexer10lookahead1ENS_8OptValueINS0_9TokenKindEEE(ptr noundef nonnull align 8 dereferenceable(1128) %this, i64 %expectedToken.coerce) local_unnamed_addr #1 align 2 {
+define hidden range(i64 0, 8589934592) i64 @_ZN6hermes6parser7JSLexer10lookahead1ENS_8OptValueINS0_9TokenKindEEE(ptr noundef nonnull align 8 dereferenceable(1128) initializes((160, 161)) %this, i64 %expectedToken.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %token_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %token_, align 8

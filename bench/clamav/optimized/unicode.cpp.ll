@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i32 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef %0, ptr noundef initializes((0, 1)) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.__mbstate_t, align 8
   %5 = alloca %struct.__mbstate_t, align 8
   %6 = alloca ptr, align 8
@@ -175,7 +175,7 @@ declare i64 @wcsrtombs(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef %0, ptr noundef initializes((0, 4)) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.__mbstate_t, align 8
   %5 = alloca %struct.__mbstate_t, align 8
   %6 = alloca ptr, align 8

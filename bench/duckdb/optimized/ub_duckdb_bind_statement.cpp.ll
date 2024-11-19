@@ -1800,7 +1800,7 @@ $_ZTIN6duckdb13LogicalExportE = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_ub_duckdb_bind_statement.cpp, ptr null }]
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb6Binder4BindERNS_15AttachStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(752) %this, ptr nocapture noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb6Binder4BindERNS_15AttachStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 initializes((0, 56)) %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(752) %this, ptr nocapture noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca [1 x %"struct.duckdb::LogicalType"], align 8
   %ref.tmp21 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
@@ -2188,7 +2188,7 @@ _ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb6Binder4BindERNS_13CallStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr nocapture noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb6Binder4BindERNS_13CallStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 initializes((0, 56)) %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr nocapture noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref = alloca %"class.duckdb::TableFunctionRef", align 8
   %bound_func = alloca %"class.duckdb::unique_ptr.220", align 8
@@ -3080,7 +3080,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb14GetUniqueNamesERKNS_6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.duckdb::vector.2") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %original_names) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb14GetUniqueNamesERKNS_6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.duckdb::vector.2") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %original_names) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i156 = alloca i64, align 8
   %values.i = alloca %"class.std::vector.1757", align 8
@@ -17865,7 +17865,7 @@ _ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb6Binder4BindERNS_21CopyDatabaseStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(196) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb6Binder4BindERNS_21CopyDatabaseStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 initializes((0, 56)) %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(196) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode.2200", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -20467,7 +20467,7 @@ unreachable:                                      ; preds = %invoke.cont22
 declare void @_ZN6duckdb6Binder12CreateBinderERNS_13ClientContextENS_12optional_ptrIS0_EEb(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.156") align 8, ptr noundef nonnull align 8 dereferenceable(592), ptr, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb6Binder4BindERNS_15SelectStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 {
+define void @_ZN6duckdb6Binder4BindERNS_15SelectStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(752) initializes((505, 506), (507, 508)) %this, ptr noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 {
 entry:
   %allow_stream_result = getelementptr inbounds i8, ptr %this, i64 505
   store i8 1, ptr %allow_stream_result, align 1, !tbaa !27
@@ -25960,7 +25960,7 @@ _ZN6duckdb10unique_ptrINS_18LogicalCreateIndexESt14default_deleteIS1_ELb1EE13Ass
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb6Binder4BindERNS_15CreateStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb6Binder4BindERNS_15CreateStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 initializes((0, 56)) %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i1538 = alloca i64, align 8
   %agg.tmp.i1415 = alloca %"class.duckdb::vector.235", align 16
@@ -40869,7 +40869,7 @@ _ZN6duckdb10unique_ptrINS_8TableRefESt14default_deleteIS1_ELb1EE13AssertNotNullE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb6Binder4BindERNS_15DetachStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(752) %this, ptr nocapture noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb6Binder4BindERNS_15DetachStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 initializes((0, 56)) %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(752) %this, ptr nocapture noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
   %ref.tmp31 = alloca [1 x %"struct.duckdb::LogicalType"], align 8
@@ -41068,7 +41068,7 @@ ehcleanup68:                                      ; preds = %ehcleanup65, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb6Binder4BindERNS_13DropStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb6Binder4BindERNS_13DropStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 initializes((0, 56)) %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i243 = alloca %"struct.std::__detail::_AllocNode.2200", align 8
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode.2200", align 8
@@ -44114,7 +44114,7 @@ _ZN6duckdb10unique_ptrINS_14LogicalExecuteESt14default_deleteIS1_ELb1EE13AssertN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb6Binder4BindERNS_16ExplainStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(137) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb6Binder4BindERNS_16ExplainStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 initializes((0, 56)) %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(137) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.duckdb::unique_ptr", align 8
   %plan = alloca %"struct.duckdb::BoundStatement", align 8
@@ -52004,7 +52004,7 @@ _ZNSt6vectorIN6duckdb17ExportedTableInfoESaIS1_EED2Ev.exit: ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb6Binder4BindERNS_18ExtensionStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr nocapture noundef nonnull align 8 dereferenceable(168) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb6Binder4BindERNS_18ExtensionStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 initializes((0, 56)) %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr nocapture noundef nonnull align 8 dereferenceable(168) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parse_result = alloca %"struct.duckdb::ParserExtensionPlanResult", align 8
   %agg.tmp = alloca %"class.duckdb::unique_ptr.1445", align 8
@@ -59572,7 +59572,7 @@ _ZN6duckdb10unique_ptrINS_13LogicalInsertESt14default_deleteIS1_ELb1EE13AssertNo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb6Binder4BindERNS_13LoadStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(752) %this, ptr nocapture noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb6Binder4BindERNS_13LoadStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 initializes((0, 56)) %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(752) %this, ptr nocapture noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca [1 x %"struct.duckdb::LogicalType"], align 8
   %ref.tmp21 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
@@ -59899,7 +59899,7 @@ _ZN6duckdb10unique_ptrINS_15LogicalOperatorESt14default_deleteIS1_ELb1EE13Assert
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb6Binder4BindERNS_20LogicalPlanStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb6Binder4BindERNS_20LogicalPlanStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 initializes((0, 56)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %values.i.i = alloca %"class.std::vector.1757", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -62415,7 +62415,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb6Binder4BindERNS_20SetVariableStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(176) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb6Binder4BindERNS_20SetVariableStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 initializes((0, 56)) %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(176) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca [1 x %"struct.duckdb::LogicalType"], align 8
   %ref.tmp21 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
@@ -62834,7 +62834,7 @@ cleanup.action:                                   ; preds = %if.then.i.i13, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb6Binder4BindERNS_22ResetVariableStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(162) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb6Binder4BindERNS_22ResetVariableStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 initializes((0, 56)) %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(162) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca [1 x %"struct.duckdb::LogicalType"], align 8
   %ref.tmp21 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
@@ -63397,7 +63397,7 @@ unreachable:                                      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb6Binder4BindERNS_14AlterStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb6Binder4BindERNS_14AlterStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 initializes((0, 56)) %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode.2200", align 8
   %ref.tmp2 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
@@ -63824,7 +63824,7 @@ _ZN6duckdb10unique_ptrINS_9AlterInfoESt14default_deleteIS1_ELb1EE13AssertNotNull
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb6Binder4BindERNS_20TransactionStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb6Binder4BindERNS_20TransactionStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 initializes((0, 56)) %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(752) initializes((504, 505)) %this, ptr noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
   %ref.tmp26 = alloca [1 x %"struct.duckdb::LogicalType"], align 8
@@ -78855,7 +78855,7 @@ _ZN6duckdb10unique_ptrINS_17LogicalProjectionESt14default_deleteIS1_ELb1EE13Asse
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb6Binder4BindERNS_15VacuumStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb6Binder4BindERNS_15VacuumStatementE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::BoundStatement") align 8 initializes((0, 56)) %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(136) %stmt) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.duckdb::vector.235", align 8
   %__dnew.i.i443 = alloca i64, align 8

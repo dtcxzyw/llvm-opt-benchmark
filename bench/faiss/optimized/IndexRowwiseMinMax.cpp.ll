@@ -2483,7 +2483,7 @@ _ZN5faiss12_GLOBAL__N_118train_inplace_implINS0_17StorageMinMaxFP32EEEvPNS_22Ind
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5faiss22IndexRowwiseMinMaxBaseC2EPNS_5IndexE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define void @_ZN5faiss22IndexRowwiseMinMaxBaseC2EPNS_5IndexE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 12), (16, 26), (28, 36), (40, 49)) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 28
@@ -2509,7 +2509,7 @@ define void @_ZN5faiss22IndexRowwiseMinMaxBaseC2EPNS_5IndexE(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss22IndexRowwiseMinMaxBaseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0) unnamed_addr #6 align 2 {
+define void @_ZN5faiss22IndexRowwiseMinMaxBaseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 12), (16, 26), (28, 36), (40, 49)) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2531,7 +2531,7 @@ define void @_ZN5faiss22IndexRowwiseMinMaxBaseC2Ev(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5faiss22IndexRowwiseMinMaxBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #3 align 2 {
+define void @_ZN5faiss22IndexRowwiseMinMaxBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss22IndexRowwiseMinMaxBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
@@ -2705,7 +2705,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5faiss22IndexRowwiseMinMaxFP16C2EPNS_5IndexE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define void @_ZN5faiss22IndexRowwiseMinMaxFP16C2EPNS_5IndexE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 12), (16, 26), (28, 36), (40, 49)) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 28
@@ -2731,7 +2731,7 @@ define void @_ZN5faiss22IndexRowwiseMinMaxFP16C2EPNS_5IndexE(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss22IndexRowwiseMinMaxFP16C2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0) unnamed_addr #6 align 2 {
+define void @_ZN5faiss22IndexRowwiseMinMaxFP16C2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 12), (16, 26), (28, 36), (40, 49)) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2786,7 +2786,7 @@ declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #18
 declare void @__kmpc_barrier(ptr, i32) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5faiss18IndexRowwiseMinMaxC2EPNS_5IndexE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define void @_ZN5faiss18IndexRowwiseMinMaxC2EPNS_5IndexE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 12), (16, 26), (28, 36), (40, 49)) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 28
@@ -2812,7 +2812,7 @@ define void @_ZN5faiss18IndexRowwiseMinMaxC2EPNS_5IndexE(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss18IndexRowwiseMinMaxC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0) unnamed_addr #6 align 2 {
+define void @_ZN5faiss18IndexRowwiseMinMaxC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 12), (16, 26), (28, 36), (40, 49)) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16

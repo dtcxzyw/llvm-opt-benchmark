@@ -838,7 +838,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #11 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14NormalCLVModelC2ERKN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEENS2_INS_24OrnsteinUhlenbeckProcessEEERKSt6vectorINS_4DateESaISA_EEmdd(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef readonly %vtt, ptr noundef nonnull align 8 dereferenceable(16) %bsProcess, ptr nocapture noundef %ouProcess, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %maturityDates, i64 noundef %lagrangeOrder, double noundef %pMax, double noundef %pMin) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14NormalCLVModelC2ERKN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEENS2_INS_24OrnsteinUhlenbeckProcessEEERKSt6vectorINS_4DateESaISA_EEmdd(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 12)) %this, ptr nocapture noundef readonly %vtt, ptr noundef nonnull align 8 dereferenceable(16) %bsProcess, ptr nocapture noundef %ouProcess, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %maturityDates, i64 noundef %lagrangeOrder, double noundef %pMax, double noundef %pMin) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::GaussHermitePolynomial", align 8
   %ref.tmp = alloca %"class.QuantLib::GaussHermiteIntegration", align 8
@@ -2374,7 +2374,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14NormalCLVModelC1ERKN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEENS2_INS_24OrnsteinUhlenbeckProcessEEERKSt6vectorINS_4DateESaISA_EEmdd(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(16) %bsProcess, ptr nocapture noundef %ouProcess, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %maturityDates, i64 noundef %lagrangeOrder, double noundef %pMax, double noundef %pMin) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14NormalCLVModelC1ERKN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEENS2_INS_24OrnsteinUhlenbeckProcessEEERKSt6vectorINS_4DateESaISA_EEmdd(ptr noundef nonnull align 8 dereferenceable(168) initializes((184, 188), (192, 200)) %this, ptr noundef nonnull align 8 dereferenceable(16) %bsProcess, ptr nocapture noundef %ouProcess, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %maturityDates, i64 noundef %lagrangeOrder, double noundef %pMax, double noundef %pMin) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i = alloca %"class.QuantLib::GaussHermitePolynomial", align 8
   %ref.tmp = alloca %"class.QuantLib::GaussHermiteIntegration", align 8
@@ -3735,7 +3735,7 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %for.body.i.i19, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib14NormalCLVModel18collocationPointsYERKNS_4DateE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(8) %d) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib14NormalCLVModel18collocationPointsYERKNS_4DateE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(8) %d) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %N = alloca %"class.QuantLib::CumulativeNormalDistribution", align 8
   %x_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -3860,7 +3860,7 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %lpad2, %_ZNKSt14def
 declare noundef double @_ZNK8QuantLib28CumulativeNormalDistributionclEd(ptr noundef nonnull align 8 dereferenceable(57), double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib14NormalCLVModel1gEv(ptr dead_on_unwind noalias writable sret(%"class.std::function") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib14NormalCLVModel1gEv(ptr dead_on_unwind noalias writable sret(%"class.std::function") align 8 initializes((0, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !33
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
@@ -3913,7 +3913,7 @@ _ZNSt8functionIFdddEEC2ERKS1_.exit:               ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14NormalCLVModel15MappingFunctionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(168) %model) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14NormalCLVModel15MappingFunctionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 40)) %this, ptr noundef nonnull align 8 dereferenceable(168) %model) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %y = alloca %"class.QuantLib::Array", align 8
   %ref.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8

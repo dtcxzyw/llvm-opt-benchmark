@@ -7902,7 +7902,7 @@ _ZNSt6vectorISt4pairI10aiVector2tIdES2_ESaIS3_EED2Ev.exit16: ; preds = %invoke.c
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3IFC16ProjectOntoPlaneERSt6vectorI10aiVector2tIdESaIS3_EERKNS0_8TempMeshERbR10aiVector3tIdE(ptr noalias nocapture writeonly sret(%class.aiMatrix4x4t) align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %out_contour, ptr noundef nonnull align 8 dereferenceable(48) %in_mesh, ptr noundef nonnull align 1 dereferenceable(1) %ok, ptr noundef nonnull align 8 dereferenceable(24) %nor_out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3IFC16ProjectOntoPlaneERSt6vectorI10aiVector2tIdESaIS3_EERKNS0_8TempMeshERbR10aiVector3tIdE(ptr noalias nocapture writeonly sret(%class.aiMatrix4x4t) align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %out_contour, ptr noundef nonnull align 8 dereferenceable(48) %in_mesh, ptr noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %ok, ptr noundef nonnull align 8 dereferenceable(24) %nor_out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.aiMatrix3x3t, align 8
   %0 = load ptr, ptr %in_mesh, align 8
@@ -12598,7 +12598,7 @@ _ZNSt12_Vector_baseISt6vectorIPN6Assimp3IFC11TempOpeningESaIS4_EESaIS6_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3IFC19GetContourInPlane2DERKSt10shared_ptrINS0_8TempMeshEE12aiMatrix3x3tIdE10aiVector3tIdEdS9_RS9_RbSB_(ptr noalias nocapture sret(%"class.std::vector.5") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %mesh, ptr nocapture noundef readonly byval(%class.aiMatrix3x3t) align 8 %planeSpace, ptr nocapture noundef readonly byval(%class.aiVector3t) align 8 %planeNor, double noundef %planeOffset, ptr nocapture noundef readonly byval(%class.aiVector3t) align 8 %extrusionDir, ptr nocapture noundef nonnull align 8 dereferenceable(24) %wall_extrusion, ptr nocapture noundef nonnull align 1 dereferenceable(1) %first, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %ok) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3IFC19GetContourInPlane2DERKSt10shared_ptrINS0_8TempMeshEE12aiMatrix3x3tIdE10aiVector3tIdEdS9_RS9_RbSB_(ptr noalias nocapture sret(%"class.std::vector.5") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %mesh, ptr nocapture noundef readonly byval(%class.aiMatrix3x3t) align 8 %planeSpace, ptr nocapture noundef readonly byval(%class.aiVector3t) align 8 %planeNor, double noundef %planeOffset, ptr nocapture noundef readonly byval(%class.aiVector3t) align 8 %extrusionDir, ptr nocapture noundef nonnull align 8 dereferenceable(24) %wall_extrusion, ptr nocapture noundef nonnull align 1 dereferenceable(1) %first, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %ok) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont14:
   %ref.tmp.i51 = alloca ptr, align 8
   %ref.tmp.i = alloca ptr, align 8

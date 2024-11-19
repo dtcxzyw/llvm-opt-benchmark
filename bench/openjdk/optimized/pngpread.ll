@@ -90,7 +90,7 @@ png_process_some_data.exit:                       ; preds = %18, %19, %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @png_push_restore_buffer(ptr noalias nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define hidden void @png_push_restore_buffer(ptr noalias nocapture noundef initializes((712, 728), (752, 768)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 720
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 760

@@ -449,7 +449,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @aria_fo_xor(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #3 {
+define internal fastcc void @aria_fo_xor(ptr nocapture noundef nonnull writeonly initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #3 {
   %5 = load i32, ptr %1, align 4
   %6 = load i32, ptr %2, align 4
   %7 = xor i32 %6, %5
@@ -1164,7 +1164,7 @@ define hidden noundef i32 @mbedtls_aria_crypt_ecb(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_aria_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
+define hidden void @mbedtls_aria_init(ptr nocapture noundef writeonly initializes((0, 276)) %0) local_unnamed_addr #5 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(276) %0, i8 0, i64 276, i1 false)
   ret void
 }

@@ -832,7 +832,7 @@ define internal range(i32 -1, 1) i32 @hwloc__libxml_import_next_attr(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @hwloc__libxml_import_find_child(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #1 {
+define internal range(i32 0, 2) i32 @hwloc__libxml_import_find_child(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1, ptr nocapture noundef writeonly %2) #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1042,7 +1042,7 @@ declare ptr @xmlDocSetRootElement(ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @xmlCreateIntSubset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @hwloc__libxml_export_new_child(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #1 {
+define internal void @hwloc__libxml_export_new_child(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 56)) %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = getelementptr inbounds i8, ptr %1, i64 48
   store ptr %0, ptr %1, align 8

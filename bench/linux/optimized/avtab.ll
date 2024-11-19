@@ -499,7 +499,7 @@ declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @avtab_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 align 16 {
+define dso_local void @avtab_init(ptr nocapture noundef writeonly initializes((0, 20)) %0) local_unnamed_addr #6 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   ret void
 }

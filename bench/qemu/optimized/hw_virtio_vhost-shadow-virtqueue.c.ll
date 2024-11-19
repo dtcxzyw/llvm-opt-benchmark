@@ -529,7 +529,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare void @event_notifier_init_fd(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @vhost_svq_get_vring_addr(ptr nocapture noundef readonly %svq, ptr nocapture noundef writeonly %addr) local_unnamed_addr #4 {
+define dso_local void @vhost_svq_get_vring_addr(ptr nocapture noundef readonly %svq, ptr nocapture noundef writeonly initializes((8, 32)) %addr) local_unnamed_addr #4 {
 entry:
   %desc = getelementptr inbounds i8, ptr %svq, i64 8
   %0 = load ptr, ptr %desc, align 8

@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [67 x i8] c"Tried to mix edge-triggered and non-edge-triggered events on fd %d\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @evmap_io_initmap_(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #0 {
+define dso_local void @evmap_io_initmap_(ptr nocapture noundef writeonly initializes((0, 12)) %ctx) local_unnamed_addr #0 {
 entry:
   %nentries.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store i32 0, ptr %nentries.i, align 8
@@ -19,7 +19,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @evmap_signal_initmap_(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #0 {
+define dso_local void @evmap_signal_initmap_(ptr nocapture noundef writeonly initializes((0, 12)) %ctx) local_unnamed_addr #0 {
 entry:
   %nentries = getelementptr inbounds i8, ptr %ctx, i64 8
   store i32 0, ptr %nentries, align 8
@@ -979,7 +979,7 @@ evmap_io_foreach_fd.exit:                         ; preds = %for.inc.i13, %evmap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @event_changelist_init_(ptr nocapture noundef writeonly %changelist) local_unnamed_addr #0 {
+define dso_local void @event_changelist_init_(ptr nocapture noundef writeonly initializes((0, 16)) %changelist) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %changelist, i8 0, i64 16, i1 false)
   ret void
@@ -1023,7 +1023,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @event_changelist_freemem_(ptr nocapture noundef %changelist) local_unnamed_addr #1 {
+define dso_local void @event_changelist_freemem_(ptr nocapture noundef initializes((8, 16)) %changelist) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %changelist, align 8
   %tobool.not = icmp eq ptr %0, null

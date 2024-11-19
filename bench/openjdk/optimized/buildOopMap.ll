@@ -691,7 +691,7 @@ define hidden void @_ZN7OopFlow5mergeEPS_i(ptr nocapture noundef nonnull readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7OopFlow5cloneEPS_i(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7OopFlow5cloneEPS_i(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((16, 24)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16

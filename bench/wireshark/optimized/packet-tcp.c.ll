@@ -5230,7 +5230,7 @@ desegment_tcp.exit:                               ; preds = %205, %708, %.split3
 declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_tcp_payload(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef range(i32 0, 2) %9, ptr noundef %10, ptr noundef %11) unnamed_addr #0 {
+define internal fastcc void @process_tcp_payload(ptr noundef %0, i32 noundef %1, ptr noundef initializes((340, 342)) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef range(i32 0, 2) %9, ptr noundef %10, ptr noundef %11) unnamed_addr #0 {
   %13 = alloca %struct.nstime_t, align 8
   %14 = alloca i32, align 4
   %15 = alloca ptr, align 8
@@ -11988,7 +11988,7 @@ declare void @register_decode_as(ptr noundef) local_unnamed_addr #1
 declare void @register_conversation_table(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tcpip_conversation_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
+define internal noundef i32 @tcpip_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 48
@@ -12012,7 +12012,7 @@ define internal noundef i32 @tcpip_conversation_packet(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tcpip_endpoint_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
+define internal noundef i32 @tcpip_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 48
@@ -12175,7 +12175,7 @@ define internal range(i32 0, 2) i32 @tcp_seq_analysis_packet(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mptcpip_conversation_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) #0 {
+define internal noundef i32 @mptcpip_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 208
@@ -15450,7 +15450,7 @@ define internal noundef i32 @exp_pdu_tcp_dissector_data_size(ptr nocapture readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @exp_pdu_tcp_dissector_data_populate_data(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 %3) #12 {
+define internal noundef i32 @exp_pdu_tcp_dissector_data_populate_data(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 23)) %2, i32 %3) #12 {
   store i8 0, ptr %2, align 1
   %5 = getelementptr i8, ptr %2, i64 1
   store i8 34, ptr %5, align 1

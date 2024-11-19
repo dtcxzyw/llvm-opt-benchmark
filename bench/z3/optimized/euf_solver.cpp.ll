@@ -568,7 +568,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf6solverC2ER11ast_managerRN3sat16sat_internalizerERK10params_ref(ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %si, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3euf6solverC2ER11ast_managerRN3sat16sat_internalizerERK10params_ref(ptr noundef nonnull align 8 dereferenceable(9136) initializes((0, 9), (12, 152)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %si, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %__tmp.sroa.0.i.i.i.i40 = alloca { i64, i64 }, align 8
   %ref.tmp.i.i41 = alloca %"class.std::function.41", align 8
@@ -11436,7 +11436,7 @@ return:                                           ; preds = %for.body, %entry, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf6solver18register_on_clauseEPvRSt8functionIFvS1_P4exprjPKjjPKS4_EE(ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %on_clause) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3euf6solver18register_on_clauseEPvRSt8functionIFvS1_P4exprjPKjjPKS4_EE(ptr noundef nonnull align 8 dereferenceable(9136) initializes((2320, 2328)) %this, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(32) %on_clause) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function.3", align 8

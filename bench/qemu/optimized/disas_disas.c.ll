@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.13 = private unnamed_addr constant [7 x i8] c"OBJD-H\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @disas_initialize_debug_target(ptr noundef %s, ptr noundef %cpu) local_unnamed_addr #0 {
+define dso_local void @disas_initialize_debug_target(ptr noundef initializes((0, 216)) %s, ptr noundef %cpu) local_unnamed_addr #0 {
 entry:
   %cap_arch.i = getelementptr inbounds i8, ptr %s, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %s, i8 0, i64 200, i1 false)

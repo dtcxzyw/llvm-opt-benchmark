@@ -830,7 +830,7 @@ _ZN4llvm11SmallVectorIjLj2EED2Ev.exit:            ; preds = %_ZN4llvm20extractBr
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm22extractProfTotalWeightEPKNS_6MDNodeERm(ptr noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm22extractProfTotalWeightEPKNS_6MDNodeERm(ptr noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 {
   store i64 0, ptr %1, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit35.thread54, label %3
@@ -1061,7 +1061,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit35.thread54:     ; preds = %_ZNK4llvm6MDNode14g
 declare { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm22extractProfTotalWeightERKNS_11InstructionERm(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm22extractProfTotalWeightERKNS_11InstructionERm(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 536870912

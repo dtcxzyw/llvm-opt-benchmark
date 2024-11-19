@@ -66,7 +66,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18StringTableBuilderC2ENS0_4KindENS_5AlignE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(38) %0, i32 noundef %1, i8 %2) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm18StringTableBuilderC2ENS0_4KindENS_5AlignE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(38) initializes((0, 20), (24, 38)) %0, i32 noundef %1, i8 %2) unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %4, align 8
@@ -246,13 +246,13 @@ _ZN4llvm16DenseMapIteratorINS_19CachedHashStringRefEmNS_12DenseMapInfoIS1_vEENS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18StringTableBuilder8finalizeEv(ptr noundef nonnull align 8 dereferenceable(38) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18StringTableBuilder8finalizeEv(ptr noundef nonnull align 8 dereferenceable(38) initializes((37, 38)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm18StringTableBuilder19finalizeStringTableEb(ptr noundef nonnull align 8 dereferenceable(38) %0, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18StringTableBuilder19finalizeStringTableEb(ptr noundef nonnull align 8 dereferenceable(38) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18StringTableBuilder19finalizeStringTableEb(ptr noundef nonnull align 8 dereferenceable(38) initializes((37, 38)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::CachedHashStringRef", align 8
@@ -631,7 +631,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_19CachedHashStringRefEmNS_12DenseMapInfoI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18StringTableBuilder15finalizeInOrderEv(ptr noundef nonnull align 8 dereferenceable(38) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18StringTableBuilder15finalizeInOrderEv(ptr noundef nonnull align 8 dereferenceable(38) initializes((37, 38)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm18StringTableBuilder19finalizeStringTableEb(ptr noundef nonnull align 8 dereferenceable(38) %0, i1 noundef zeroext false)
   ret void
 }
@@ -745,7 +745,7 @@ _ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.exit39.thread: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18StringTableBuilder5clearEv(ptr noundef nonnull align 8 dereferenceable(38) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18StringTableBuilder5clearEv(ptr noundef nonnull align 8 dereferenceable(38) initializes((37, 38)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 37
   store i8 0, ptr %2, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -1171,7 +1171,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_logger_log_evictions(ptr nocapture noundef writeonly %e, ptr nocapture readnone %d, ptr nocapture noundef readonly %entry1, ptr nocapture readnone %ap) #11 {
+define internal void @_logger_log_evictions(ptr nocapture noundef writeonly initializes((32, 56)) %e, ptr nocapture readnone %d, ptr nocapture noundef readonly %entry1, ptr nocapture readnone %ap) #11 {
 entry:
   %exptime = getelementptr inbounds i8, ptr %entry1, i64 28
   %0 = load i32, ptr %exptime, align 4
@@ -1266,7 +1266,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_logger_log_item_get(ptr nocapture noundef writeonly %e, ptr nocapture readnone %d, ptr nocapture readnone %entry1, ptr nocapture noundef %ap) #12 {
+define internal void @_logger_log_item_get(ptr nocapture noundef writeonly initializes((32, 39), (40, 48)) %e, ptr nocapture readnone %d, ptr nocapture readnone %entry1, ptr nocapture noundef %ap) #12 {
 entry:
   %gp_offset = load i32, ptr %ap, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
@@ -1463,7 +1463,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_logger_log_item_store(ptr nocapture noundef writeonly %e, ptr nocapture readnone %d, ptr nocapture readnone %entry1, ptr nocapture noundef %ap) #11 {
+define internal void @_logger_log_item_store(ptr nocapture noundef writeonly initializes((32, 50), (52, 60)) %e, ptr nocapture readnone %d, ptr nocapture readnone %entry1, ptr nocapture noundef %ap) #11 {
 entry:
   %gp_offset = load i32, ptr %ap, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
@@ -1697,7 +1697,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_logger_log_conn_event(ptr nocapture noundef writeonly %e, ptr nocapture readnone %d, ptr nocapture readnone %entry1, ptr nocapture noundef %ap) #12 {
+define internal void @_logger_log_conn_event(ptr nocapture noundef writeonly initializes((32, 48)) %e, ptr nocapture readnone %d, ptr nocapture readnone %entry1, ptr nocapture noundef %ap) #12 {
 entry:
   %gp_offset = load i32, ptr %ap, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
@@ -1942,7 +1942,7 @@ _logger_util_addr_endpoint.exit:                  ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_logger_log_item_deleted(ptr nocapture noundef writeonly %e, ptr nocapture readnone %d, ptr nocapture noundef readonly %entry1, ptr nocapture noundef %ap) #13 {
+define internal void @_logger_log_item_deleted(ptr nocapture noundef writeonly initializes((32, 46)) %e, ptr nocapture readnone %d, ptr nocapture noundef readonly %entry1, ptr nocapture noundef %ap) #13 {
 entry:
   %gp_offset = load i32, ptr %ap, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
@@ -2043,7 +2043,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_logger_log_ext_write(ptr nocapture noundef writeonly %e, ptr nocapture readnone %d, ptr nocapture noundef readonly %entry1, ptr nocapture noundef %ap) #11 {
+define internal void @_logger_log_ext_write(ptr nocapture noundef writeonly initializes((32, 53)) %e, ptr nocapture readnone %d, ptr nocapture noundef readonly %entry1, ptr nocapture noundef %ap) #11 {
 entry:
   %gp_offset = load i32, ptr %ap, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41

@@ -18160,7 +18160,7 @@ _ZN4llvm15SmallVectorImplIN5clang10TargetInfo14ConstraintInfoEED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction18InitCapturedStructERKNS_12CapturedStmtE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::LValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull readonly align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction18InitCapturedStructERKNS_12CapturedStmtE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::LValue") align 8 initializes((0, 4), (8, 56), (64, 80), (84, 136)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull readonly align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CodeGen::RValue", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.clang::CodeGen::LValue", align 8
@@ -18995,7 +18995,7 @@ _ZN5clang7CodeGen15FunctionArgListD2Ev.exit:      ; preds = %196, %207
 declare void @_ZN5clang7CodeGen15CodeGenFunctionD1Ev(ptr noundef nonnull align 8 dereferenceable(6488)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction28GenerateCapturedStmtArgumentERKNS_12CapturedStmtE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::Address") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction28GenerateCapturedStmtArgumentERKNS_12CapturedStmtE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::Address") align 8 initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CodeGen::LValue", align 8
   call void @_ZN5clang7CodeGen15CodeGenFunction18InitCapturedStructERKNS_12CapturedStmtE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::LValue") align 8 %4, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8

@@ -45,7 +45,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5logos5PointC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN5logos5PointC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 41), (44, 48)) %0) unnamed_addr #3 align 2 {
   store float 0.000000e+00, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %2, align 4
@@ -64,7 +64,7 @@ define hidden void @_ZN5logos5PointC2Ev(ptr nocapture noundef nonnull writeonly 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5logos5PointC2Effffi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5) unnamed_addr #3 align 2 {
+define hidden void @_ZN5logos5PointC2Effffi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 41), (44, 48)) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5) unnamed_addr #3 align 2 {
   store float %1, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   store float %2, ptr %7, align 4

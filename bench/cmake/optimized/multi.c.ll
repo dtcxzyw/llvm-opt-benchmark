@@ -1840,7 +1840,7 @@ define dso_local zeroext i1 @Curl_multiplex_wanted(ptr noundef readonly %0) loca
 declare void @Curl_conn_ev_data_detach(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_attach_connection(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @Curl_attach_connection(ptr noundef initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 720
@@ -5174,7 +5174,7 @@ declare void @Curl_conncache_close_all_connections(ptr noundef) local_unnamed_ad
 declare void @Curl_free_multi_ssl_backend_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @curl_multi_info_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local ptr @curl_multi_info_read(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
   store i32 0, ptr %1, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3

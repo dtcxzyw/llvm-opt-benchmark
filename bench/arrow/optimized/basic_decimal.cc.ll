@@ -3427,7 +3427,7 @@ return:                                           ; preds = %_ZN5arrowL25Rescale
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK5arrow15BasicDecimal25615IncreaseScaleByEi(ptr noalias nonnull sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %increase_by) local_unnamed_addr #6 align 2 {
+define void @_ZNK5arrow15BasicDecimal25615IncreaseScaleByEi(ptr noalias nonnull sret(%"class.arrow::BasicDecimal256") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %increase_by) local_unnamed_addr #6 align 2 {
 entry:
   %idxprom = sext i32 %increase_by to i64
   %arrayidx = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %idxprom
@@ -3437,7 +3437,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrowmlERKNS_15BasicDecimal256ES2_(ptr noalias nonnull sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #6 {
+define void @_ZN5arrowmlERKNS_15BasicDecimal256ES2_(ptr noalias nonnull sret(%"class.arrow::BasicDecimal256") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #6 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %left, i64 32, i1 false)
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %right)
@@ -3445,7 +3445,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr noalias nocapture sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %reduce_by, i1 noundef zeroext %round) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr noalias nocapture sret(%"class.arrow::BasicDecimal256") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %reduce_by, i1 noundef zeroext %round) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %remainder = alloca %"class.arrow::BasicDecimal256", align 8
   %ref.tmp = alloca %"class.arrow::BasicDecimal256", align 8
@@ -3677,7 +3677,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN5arrow15BasicDecimal25611GetMaxValueEi(ptr noalias nocapture sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, i32 noundef %precision) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow15BasicDecimal25611GetMaxValueEi(ptr noalias nocapture sret(%"class.arrow::BasicDecimal256") align 8 initializes((0, 32)) %agg.result, i32 noundef %precision) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::BasicDecimal256", align 8
   %idxprom = sext i32 %precision to i64
@@ -3711,7 +3711,7 @@ _ZN5arrowplERKNS_15BasicDecimal256ES2_.exit:      ; preds = %for.body.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrowplERKNS_15BasicDecimal256ES2_(ptr noalias nocapture sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #6 {
+define void @_ZN5arrowplERKNS_15BasicDecimal256ES2_(ptr noalias nocapture sret(%"class.arrow::BasicDecimal256") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #6 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %left, i64 32, i1 false)
   br label %for.body.i
@@ -3740,7 +3740,7 @@ _ZN5arrow15BasicDecimal256pLERKS0_.exit:          ; preds = %for.body.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5arrowcoERKNS_15BasicDecimal256E(ptr noalias nocapture writeonly sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %operand) local_unnamed_addr #4 {
+define void @_ZN5arrowcoERKNS_15BasicDecimal256E(ptr noalias nocapture writeonly sret(%"class.arrow::BasicDecimal256") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %operand) local_unnamed_addr #4 {
 entry:
   %0 = load i64, ptr %operand, align 8
   %not = xor i64 %0, -1
@@ -3773,7 +3773,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrowdvERKNS_15BasicDecimal256ES2_(ptr noalias nocapture sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #6 {
+define void @_ZN5arrowdvERKNS_15BasicDecimal256ES2_(ptr noalias nocapture sret(%"class.arrow::BasicDecimal256") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #6 {
 entry:
   %remainder = alloca %"class.arrow::BasicDecimal256", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %remainder, i8 0, i64 32, i1 false)

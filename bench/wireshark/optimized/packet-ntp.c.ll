@@ -1351,7 +1351,7 @@ declare ptr @wmem_packet_scope() local_unnamed_addr #1
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ntp_to_nstime(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden void @ntp_to_nstime(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 12)) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1) #6
   %.not = icmp eq i32 %4, 0
   %5 = add i32 %4, 2085978496

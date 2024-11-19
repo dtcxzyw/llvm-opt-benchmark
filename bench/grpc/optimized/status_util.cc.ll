@@ -113,7 +113,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_Z25grpc_status_code_from_intiP16grpc_status_code(i32 noundef %status_int, ptr nocapture noundef writeonly %status) local_unnamed_addr #6 {
+define noundef zeroext i1 @_Z25grpc_status_code_from_intiP16grpc_status_code(i32 noundef %status_int, ptr nocapture noundef writeonly initializes((0, 4)) %status) local_unnamed_addr #6 {
 entry:
   %or.cond = icmp ult i32 %status_int, 17
   %status_int. = select i1 %or.cond, i32 %status_int, i32 2

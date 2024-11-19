@@ -28,7 +28,7 @@ $_ZTIN3zmq9i_decoderE = comdat any
 @_ZN3zmq13raw_decoder_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq13raw_decoder_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq13raw_decoder_tC2Em(ptr noundef nonnull align 8 dereferenceable(112) %this, i64 noundef %bufsize_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq13raw_decoder_tC2Em(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this, i64 noundef %bufsize_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq13raw_decoder_tE, i64 16), ptr %this, align 8
   %_allocator = getelementptr inbounds i8, ptr %this, i64 72
@@ -146,7 +146,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq13raw_decoder_t10get_bufferEPPhPm(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef writeonly %data_, ptr nocapture noundef writeonly %size_) unnamed_addr #0 align 2 {
+define void @_ZN3zmq13raw_decoder_t10get_bufferEPPhPm(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef writeonly initializes((0, 8)) %data_, ptr nocapture noundef writeonly initializes((0, 8)) %size_) unnamed_addr #0 align 2 {
 entry:
   %_allocator = getelementptr inbounds i8, ptr %this, i64 72
   %call = tail call noundef ptr @_ZN3zmq31shared_message_memory_allocator8allocateEv(ptr noundef nonnull align 8 dereferenceable(40) %_allocator)
@@ -161,7 +161,7 @@ declare noundef ptr @_ZN3zmq31shared_message_memory_allocator8allocateEv(ptr nou
 declare noundef i64 @_ZNK3zmq31shared_message_memory_allocator4sizeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq13raw_decoder_t6decodeEPKhmRm(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %data_, i64 noundef %size_, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %bytes_used_) unnamed_addr #0 align 2 {
+define noundef i32 @_ZN3zmq13raw_decoder_t6decodeEPKhmRm(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %data_, i64 noundef %size_, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %bytes_used_) unnamed_addr #0 align 2 {
 entry:
   %_in_progress = getelementptr inbounds i8, ptr %this, i64 8
   %_allocator = getelementptr inbounds i8, ptr %this, i64 72

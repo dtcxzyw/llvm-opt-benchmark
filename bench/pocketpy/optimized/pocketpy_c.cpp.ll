@@ -6302,14 +6302,14 @@ _ZNK4pkpy7StrName5c_strEv.exit:                   ; preds = %14, %.critedge.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @pkpy_set_output_handler(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #19 {
+define void @pkpy_set_output_handler(ptr nocapture noundef writeonly initializes((264888, 264896)) %0, ptr noundef %1) local_unnamed_addr #19 {
   %3 = getelementptr inbounds i8, ptr %0, i64 264888
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @pkpy_set_import_handler(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #19 {
+define void @pkpy_set_import_handler(ptr nocapture noundef writeonly initializes((264904, 264912)) %0, ptr noundef %1) local_unnamed_addr #19 {
   %3 = getelementptr inbounds i8, ptr %0, i64 264904
   store ptr %1, ptr %3, align 8
   ret void

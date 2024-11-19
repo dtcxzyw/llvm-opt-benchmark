@@ -413,7 +413,7 @@ define internal void @crypto_lskcipher_exit_tfm_sg(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @crypto_grab_lskcipher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local i32 @crypto_grab_lskcipher(ptr noundef initializes((32, 40)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr @crypto_lskcipher_type, ptr %6, align 8
   %7 = tail call i32 @crypto_grab_spawn(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #12

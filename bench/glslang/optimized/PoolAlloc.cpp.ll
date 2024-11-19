@@ -56,7 +56,7 @@ define void @_ZN7glslang22SetThreadPoolAllocatorEPNS_14TPoolAllocatorE(ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang14TPoolAllocatorC2Eii(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN7glslang14TPoolAllocatorC2Eii(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (32, 84)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = sext i32 %1 to i64
   store i64 %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40

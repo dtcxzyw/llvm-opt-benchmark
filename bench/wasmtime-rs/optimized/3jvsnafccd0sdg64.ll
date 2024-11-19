@@ -486,7 +486,7 @@ define hidden { ptr, ptr } @_ZN14cranelift_isle5error5Error6source17h5318c056b83
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN14cranelift_isle5error4Span10new_single17h2a3162c379302a8aE(ptr nocapture writeonly sret({ { i64, i64, i64, i64 }, { i64, i64, i64, i64 } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
+define void @_ZN14cranelift_isle5error4Span10new_single17h2a3162c379302a8aE(ptr nocapture writeonly sret({ { i64, i64, i64, i64 }, { i64, i64, i64, i64 } }) align 8 initializes((0, 64)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
   %3 = load i64, ptr %1, align 8, !noundef !3
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !3

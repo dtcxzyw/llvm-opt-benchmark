@@ -1192,7 +1192,7 @@ _ZN4cvc58internal7Minisat3vecINS2_IjEEED2Ev.exit: ; preds = %_ZN4cvc58internal7M
 declare void @_ZN4cvc58internal7Minisat6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(850)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal7Minisat10SimpSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1108) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal7Minisat10SimpSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1108) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal7Minisat10SimpSolverE, i64 16), ptr %this, align 8
   %eliminated = getelementptr inbounds i8, ptr %this, i64 1080
@@ -1322,7 +1322,7 @@ _ZN4cvc58internal7Minisat3vecIjED2Ev.exit:        ; preds = %_ZN4cvc58internal7M
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal7Minisat10SimpSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(1108) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal7Minisat10SimpSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(1108) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4cvc58internal7Minisat10SimpSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1108) %this) #27
   tail call void @_ZdlPv(ptr noundef nonnull %this) #30
@@ -3670,7 +3670,7 @@ return:                                           ; preds = %if.then29, %for.inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat10SimpSolver5mergeERKNS1_6ClauseES5_iRi(ptr nocapture noundef nonnull align 8 dereferenceable(1108) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %_ps, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %_qs, i32 noundef %v, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %size) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat10SimpSolver5mergeERKNS1_6ClauseES5_iRi(ptr nocapture noundef nonnull align 8 dereferenceable(1108) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %_ps, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %_qs, i32 noundef %v, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %size) local_unnamed_addr #8 align 2 {
 entry:
   %merges = getelementptr inbounds i8, ptr %this, i64 876
   %0 = load i32, ptr %merges, align 4

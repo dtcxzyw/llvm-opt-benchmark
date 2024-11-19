@@ -154,7 +154,7 @@ _ZNSt12_Vector_baseIPN4mold7CounterESaIS2_EED2Ev.exit: ; preds = %entry, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind
-define dso_local void @_ZN4mold9TarWriter4openENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef readonly %output_path, ptr noundef %basedir) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4mold9TarWriter4openENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef readonly %output_path, ptr noundef %basedir) local_unnamed_addr #4 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %output_path, align 8

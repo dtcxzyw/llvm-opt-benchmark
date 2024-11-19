@@ -1871,7 +1871,7 @@ define hidden void @_ZN6parser9token_set8TokenSet3new17h7314c434172fc72dE(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6parser9token_set8TokenSet5union17h941af2fd20b79124E(ptr noalias nocapture noundef writeonly sret({ [3 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #4 {
+define hidden void @_ZN6parser9token_set8TokenSet5union17h941af2fd20b79124E(ptr noalias nocapture noundef writeonly sret({ [3 x i64] }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #4 {
   %4 = load i64, ptr %1, align 8, !noundef !4
   %5 = load i64, ptr %2, align 8, !noundef !4
   %6 = or i64 %5, %4

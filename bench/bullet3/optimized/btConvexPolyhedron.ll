@@ -33,7 +33,7 @@ $_ZN9btHashMapI20btInternalVertexPair14btInternalEdgeE10growTablesERKS0_ = comda
 @_ZN18btConvexPolyhedronD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN18btConvexPolyhedronD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN18btConvexPolyhedronC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(172) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18btConvexPolyhedronC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(172) initializes((0, 8), (12, 20), (24, 33), (44, 52), (56, 65), (76, 84), (88, 97)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   store ptr getelementptr inbounds (i8, ptr @_ZTV18btConvexPolyhedron, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -66,7 +66,7 @@ invoke.cont3:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN18btConvexPolyhedronD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(172) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18btConvexPolyhedronD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(172) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV18btConvexPolyhedron, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -211,7 +211,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit20: ; preds = %_ZN20btAlignedObjec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN18btConvexPolyhedronD0Ev(ptr noundef nonnull align 8 dereferenceable(172) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18btConvexPolyhedronD0Ev(ptr noundef nonnull align 8 dereferenceable(172) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN18btConvexPolyhedronD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %this) #15
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
@@ -972,7 +972,7 @@ return:                                           ; preds = %if.end20, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN18btConvexPolyhedron11initialize2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(172) %this) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN18btConvexPolyhedron11initialize2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(172) initializes((104, 120)) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_localCenter = getelementptr inbounds i8, ptr %this, i64 104
   %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 108
@@ -1615,7 +1615,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit31:          ; preds = %_ZN20btAlignedObjec
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK18btConvexPolyhedron7projectERK11btTransformRK9btVector3RfS6_RS3_S7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %trans, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dir, ptr nocapture noundef nonnull align 4 dereferenceable(4) %minProj, ptr nocapture noundef nonnull align 4 dereferenceable(4) %maxProj, ptr nocapture noundef nonnull align 4 dereferenceable(16) %witnesPtMin, ptr nocapture noundef nonnull align 4 dereferenceable(16) %witnesPtMax) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZNK18btConvexPolyhedron7projectERK11btTransformRK9btVector3RfS6_RS3_S7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %trans, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dir, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %minProj, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %maxProj, ptr nocapture noundef nonnull align 4 dereferenceable(16) %witnesPtMin, ptr nocapture noundef nonnull align 4 dereferenceable(16) %witnesPtMax) local_unnamed_addr #6 align 2 {
 entry:
   %tmp.sroa.0.i = alloca [4 x float], align 4
   store float 0x47EFFFFFE0000000, ptr %minProj, align 4

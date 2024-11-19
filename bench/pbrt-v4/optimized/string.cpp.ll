@@ -588,7 +588,7 @@ return:                                           ; preds = %invoke.cont4, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt26SplitStringsFromWhitespaceB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.std::vector") align 8 %agg.result, i64 %str.coerce0, ptr %str.coerce1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt26SplitStringsFromWhitespaceB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, i64 %str.coerce0, ptr %str.coerce1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %str.coerce135 = ptrtoint ptr %str.coerce1 to i64
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -758,7 +758,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt11SplitStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEc(ptr noalias sret(%"class.std::vector") align 8 %agg.result, i64 %str.coerce0, ptr %str.coerce1, i8 noundef signext %ch) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt11SplitStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEc(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, i64 %str.coerce0, ptr %str.coerce1, i8 noundef signext %ch) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::allocator", align 1

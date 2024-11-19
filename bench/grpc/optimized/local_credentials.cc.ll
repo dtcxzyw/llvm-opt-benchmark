@@ -384,7 +384,7 @@ lpad:                                             ; preds = %init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN22grpc_local_credentialsC2E23grpc_local_connect_type(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i32 noundef %connect_type) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22grpc_local_credentialsC2E23grpc_local_connect_type(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 20)) %this, i32 noundef %connect_type) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8
@@ -418,7 +418,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN29grpc_local_server_credentialsC2E23grpc_local_connect_type(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %connect_type) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN29grpc_local_server_credentialsC2E23grpc_local_connect_type(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 44)) %this, i32 noundef %connect_type) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8

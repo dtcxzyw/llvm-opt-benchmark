@@ -64,7 +64,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfLayerTreeC2ERKNS_9TfWeakPtrINS_8SdfLayerEEERKSt6vectorINS_8TfRefPtrIS0_EESaIS8_EERKNS_14SdfLayerOffsetE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfLayerTreeC2ERKNS_9TfWeakPtrINS_8SdfLayerEEERKSt6vectorINS_8TfRefPtrIS0_EESaIS8_EERKNS_14SdfLayerOffsetE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 12), (16, 80)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16

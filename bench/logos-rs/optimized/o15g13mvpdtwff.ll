@@ -53,7 +53,7 @@ define hidden void @_ZN13logos_codegen5graph4meta8MetaItem10loop_entry17h9889c3b
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN79_$LT$logos_codegen..graph..meta..MetaItem$u20$as$u20$core..default..Default$GT$7default17hfbccdebef2042205E"(ptr nocapture writeonly sret([48 x i8]) align 8 %0) unnamed_addr #1 {
+define hidden void @"_ZN79_$LT$logos_codegen..graph..meta..MetaItem$u20$as$u20$core..default..Default$GT$7default17hfbccdebef2042205E"(ptr nocapture writeonly sret([48 x i8]) align 8 initializes((0, 41)) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8

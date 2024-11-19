@@ -1099,7 +1099,7 @@ return:                                           ; preds = %for.body, %if.end14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4llvh3sys11ProcessInfoC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN4llvh3sys11ProcessInfoC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 4), (8, 12)) %this) unnamed_addr #2 align 2 {
 entry:
   store i32 0, ptr %this, align 4
   %ReturnCode = getelementptr inbounds i8, ptr %this, i64 8
@@ -1621,7 +1621,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL28toNullTerminatedCStringArrayN4llvh8ArrayRefINS_9StringRefEEERNS_11StringSaverE(ptr noalias nocapture nonnull align 8 %agg.result, ptr readonly %Strings.coerce0, i64 %Strings.coerce1, ptr noundef nonnull align 8 dereferenceable(8) %Saver) unnamed_addr #0 {
+define internal fastcc void @_ZL28toNullTerminatedCStringArrayN4llvh8ArrayRefINS_9StringRefEEERNS_11StringSaverE(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result, ptr readonly %Strings.coerce0, i64 %Strings.coerce1, ptr noundef nonnull align 8 dereferenceable(8) %Saver) unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %add.ptr.i = getelementptr inbounds %"class.llvh::StringRef", ptr %Strings.coerce0, i64 %Strings.coerce1

@@ -121,7 +121,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK7MapNode8getColorERK15ContentFeaturesPN3irr5video6SColorE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3706) %f, ptr nocapture noundef writeonly %color) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK7MapNode8getColorERK15ContentFeaturesPN3irr5video6SColorE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3706) %f, ptr nocapture noundef writeonly initializes((0, 4)) %color) local_unnamed_addr #3 align 2 {
 entry:
   %palette = getelementptr inbounds i8, ptr %f, i64 2968
   %0 = load ptr, ptr %palette, align 8, !tbaa !4
@@ -4897,7 +4897,7 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7MapNode17deSerialize_pre22EPKhh(ptr nocapture noundef nonnull align 4 dereferenceable(4) %this, ptr nocapture noundef readonly %source, i8 noundef zeroext %version) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN7MapNode17deSerialize_pre22EPKhh(ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 2)) %this, ptr nocapture noundef readonly %source, i8 noundef zeroext %version) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ult i8 %version, 2
   br i1 %cmp, label %if.then, label %if.else

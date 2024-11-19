@@ -1983,7 +1983,7 @@ declare void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp11MD3ImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN6Assimp11MD3ImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11MD3ImporterE, i64 16), ptr %this, align 8
   %filename = getelementptr inbounds i8, ptr %this, i64 248
@@ -2004,7 +2004,7 @@ entry:
 declare void @_ZN6Assimp12BaseImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp11MD3ImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN6Assimp11MD3ImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11MD3ImporterE, i64 16), ptr %this, align 8
   %filename.i = getelementptr inbounds i8, ptr %this, i64 248
@@ -2363,7 +2363,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11MD3Importer15SetupPropertiesEPKNS_8ImporterE(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef nonnull %pImp) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11MD3Importer15SetupPropertiesEPKNS_8ImporterE(ptr noundef nonnull align 8 dereferenceable(296) initializes((72, 77)) %this, ptr noundef nonnull %pImp) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8

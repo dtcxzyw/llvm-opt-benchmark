@@ -25,7 +25,7 @@ $_ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_default_appendEm = comdat any
 @_ZN6Assimp11KeyIteratorC1EPKSt6vectorI11aiVectorKeySaIS2_EES6_PK10aiVector3tIfESA_ = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr), ptr @_ZN6Assimp11KeyIteratorC2EPKSt6vectorI11aiVectorKeySaIS2_EES6_PK10aiVector3tIfESA_
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11KeyIteratorC2EPKSt6vectorI11aiVectorKeySaIS2_EES6_PK10aiVector3tIfESA_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %_objPos, ptr noundef %_targetObjPos, ptr noundef readonly %defaultObjectPos, ptr noundef readonly %defaultTargetPos) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11KeyIteratorC2EPKSt6vectorI11aiVectorKeySaIS2_EES6_PK10aiVector3tIfESA_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 1), (4, 28), (32, 112)) %this, ptr noundef %_objPos, ptr noundef %_targetObjPos, ptr noundef readonly %defaultObjectPos, ptr noundef readonly %defaultTargetPos) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %this, align 8
   %curPosition = getelementptr inbounds i8, ptr %this, i64 4
@@ -524,14 +524,14 @@ if.end156:                                        ; preds = %entry, %if.then154,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp21TargetAnimationHelper25SetTargetAnimationChannelEPKSt6vectorI11aiVectorKeySaIS2_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef %_targetPositions) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN6Assimp21TargetAnimationHelper25SetTargetAnimationChannelEPKSt6vectorI11aiVectorKeySaIS2_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 8)) %this, ptr noundef %_targetPositions) local_unnamed_addr #3 align 2 {
 entry:
   store ptr %_targetPositions, ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp21TargetAnimationHelper23SetMainAnimationChannelEPKSt6vectorI11aiVectorKeySaIS2_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef %_objectPositions) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN6Assimp21TargetAnimationHelper23SetMainAnimationChannelEPKSt6vectorI11aiVectorKeySaIS2_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((8, 16)) %this, ptr noundef %_objectPositions) local_unnamed_addr #3 align 2 {
 entry:
   %objectPositions = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %_objectPositions, ptr %objectPositions, align 8
@@ -539,7 +539,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6Assimp21TargetAnimationHelper28SetFixedMainAnimationChannelERK10aiVector3tIfE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %fixed) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6Assimp21TargetAnimationHelper28SetFixedMainAnimationChannelERK10aiVector3tIfE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((8, 28)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %fixed) local_unnamed_addr #4 align 2 {
 entry:
   %objectPositions = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %objectPositions, align 8

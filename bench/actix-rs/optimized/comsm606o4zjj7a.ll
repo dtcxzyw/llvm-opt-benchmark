@@ -1447,7 +1447,7 @@ define hidden noundef nonnull ptr @"_ZN65_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN65_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$zstd_safe..WriteBuf$GT$12filled_until17h75d1b4789d531244E.llvm.3706446735560306221"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #6 {
+define hidden void @"_ZN65_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$zstd_safe..WriteBuf$GT$12filled_until17h75d1b4789d531244E.llvm.3706446735560306221"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) initializes((16, 24)) %0, i64 noundef %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %1, ptr %3, align 8
   ret void
@@ -13890,7 +13890,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream27BrotliStoreMetaBlockTrivi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN6brotli3enc17brotli_bit_stream27MetaBlockSplit$LT$Alloc$GT$7destroy17h0274c366185f8e94E"(ptr noalias nocapture noundef align 8 dereferenceable(264) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN6brotli3enc17brotli_bit_stream27MetaBlockSplit$LT$Alloc$GT$7destroy17h0274c366185f8e94E"(ptr noalias nocapture noundef align 8 dereferenceable(264) initializes((32, 48), (80, 96), (128, 144), (224, 264)) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { { { ptr, i64 } }, {} }, {} } }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -15660,7 +15660,7 @@ define hidden noundef i64 @"_ZN9zstd_safe18OutBuffer$LT$C$GT$3pos17h7979844b3e0f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN9zstd_safe18OutBuffer$LT$C$GT$4wrap17h0a92c11985879755E.llvm.3706446735560306221"(ptr noalias nocapture noundef writeonly sret({ ptr, { ptr, i64, i64 } }) align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(16) %1) unnamed_addr #7 {
+define hidden void @"_ZN9zstd_safe18OutBuffer$LT$C$GT$4wrap17h0a92c11985879755E.llvm.3706446735560306221"(ptr noalias nocapture noundef writeonly sret({ ptr, { ptr, i64, i64 } }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef align 8 dereferenceable(16) %1) unnamed_addr #7 {
   %3 = load ptr, ptr %1, align 8, !nonnull !62, !align !64, !noundef !62
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !1999, !nonnull !62, !noundef !62

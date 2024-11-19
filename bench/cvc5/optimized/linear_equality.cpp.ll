@@ -863,7 +863,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoR
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal6theory5arith6linearlsERSoPNS3_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModuleC2ERNS0_18StatisticsRegistryERNS3_14ArithVariablesERNS3_7TableauERNS0_8DenseMapINS3_10BoundsInfoEEENS3_27BasicVarModelUpdateCallBackE(ptr noundef nonnull align 8 dereferenceable(456) %this, ptr noundef nonnull align 8 dereferenceable(72) %sr, ptr noundef nonnull align 8 dereferenceable(568) %vars, ptr noundef nonnull align 8 dereferenceable(496) %t, ptr noundef nonnull align 8 dereferenceable(72) %boundsTracking, ptr nocapture noundef readonly %f) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModuleC2ERNS0_18StatisticsRegistryERNS3_14ArithVariablesERNS3_7TableauERNS0_8DenseMapINS3_10BoundsInfoEEENS3_27BasicVarModelUpdateCallBackE(ptr noundef nonnull align 8 dereferenceable(456) initializes((0, 144), (208, 209), (280, 281)) %this, ptr noundef nonnull align 8 dereferenceable(72) %sr, ptr noundef nonnull align 8 dereferenceable(568) %vars, ptr noundef nonnull align 8 dereferenceable(496) %t, ptr noundef nonnull align 8 dereferenceable(72) %boundsTracking, ptr nocapture noundef readonly %f) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   store ptr %vars, ptr %this, align 8
   %d_tableau = getelementptr inbounds i8, ptr %this, i64 8
@@ -6484,7 +6484,7 @@ return:                                           ; preds = %_ZNK4cvc58internal6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule24startTrackingBoundCountsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(456) %this) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule24startTrackingBoundCountsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(456) initializes((360, 361)) %this) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %d_areTracking = getelementptr inbounds i8, ptr %this, i64 360
   store i8 1, ptr %d_areTracking, align 8
@@ -6492,7 +6492,7 @@ if.end:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule23stopTrackingBoundCountsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(456) %this) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule23stopTrackingBoundCountsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(456) initializes((360, 361)) %this) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %d_areTracking = getelementptr inbounds i8, ptr %this, i64 360
   store i8 0, ptr %d_areTracking, align 8
@@ -8327,7 +8327,7 @@ eh.resume:                                        ; preds = %lpad116, %lpad74, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule16clearSpeculativeEv(ptr noundef nonnull align 8 dereferenceable(456) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule16clearSpeculativeEv(ptr noundef nonnull align 8 dereferenceable(456) initializes((80, 88)) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_possibleFixes.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 0, ptr %d_possibleFixes.i, align 8

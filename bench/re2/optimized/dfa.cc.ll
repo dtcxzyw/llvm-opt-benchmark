@@ -158,7 +158,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re23DFAC2EPNS_4ProgENS1_9MatchKindEl(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %prog, i32 noundef %kind, i64 noundef %max_mem) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re23DFAC2EPNS_4ProgENS1_9MatchKindEl(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 13), (16, 72), (80, 184)) %this, ptr noundef %prog, i32 noundef %kind, i64 noundef %max_mem) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %prog, ptr %this, align 8
   %kind_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1654,7 +1654,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re23DFA12StateToWorkqEPNS0_5StateEPNS0_5WorkqE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, ptr nocapture noundef readonly %s, ptr nocapture noundef %q) local_unnamed_addr #1 align 2 {
+define void @_ZN3re23DFA12StateToWorkqEPNS0_5StateEPNS0_5WorkqE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, ptr nocapture noundef readonly %s, ptr nocapture noundef initializes((0, 4), (48, 52)) %q) local_unnamed_addr #1 align 2 {
 entry:
   store i32 0, ptr %q, align 8
   %n_.i = getelementptr inbounds i8, ptr %q, i64 40
@@ -2079,7 +2079,7 @@ terminate.lpad:                                   ; preds = %call2.i.noexc, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re23DFA21RunWorkqOnEmptyStringEPNS0_5WorkqES2_j(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, ptr nocapture noundef readonly %oldq, ptr nocapture noundef %newq, i32 noundef %flag) local_unnamed_addr #1 align 2 {
+define void @_ZN3re23DFA21RunWorkqOnEmptyStringEPNS0_5WorkqES2_j(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, ptr nocapture noundef readonly %oldq, ptr nocapture noundef initializes((0, 4), (48, 52)) %newq, i32 noundef %flag) local_unnamed_addr #1 align 2 {
 entry:
   store i32 0, ptr %newq, align 8
   %n_.i = getelementptr inbounds i8, ptr %newq, i64 40
@@ -2116,7 +2116,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re23DFA14RunWorkqOnByteEPNS0_5WorkqES2_ijPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, ptr nocapture noundef readonly %oldq, ptr nocapture noundef %newq, i32 noundef %c, i32 noundef %flag, ptr nocapture noundef %ismatch) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re23DFA14RunWorkqOnByteEPNS0_5WorkqES2_ijPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, ptr nocapture noundef readonly %oldq, ptr nocapture noundef initializes((0, 4), (48, 52)) %newq, i32 noundef %c, i32 noundef %flag, ptr nocapture noundef %ismatch) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.LogMessage, align 8
   store i32 0, ptr %newq, align 8
@@ -2750,7 +2750,7 @@ return:                                           ; preds = %_ZN3re23DFA7ByteMap
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re23DFA8RWLockerC2EPN4absl7debian25MutexE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %this, ptr noundef nonnull %mu) unnamed_addr #1 align 2 {
+define void @_ZN3re23DFA8RWLockerC2EPN4absl7debian25MutexE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %this, ptr noundef nonnull %mu) unnamed_addr #1 align 2 {
 entry:
   store ptr %mu, ptr %this, align 8
   %writing_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2860,7 +2860,7 @@ for.end:                                          ; preds = %for.body
 declare noundef ptr @_ZN3re25hooks25GetDFAStateCacheResetHookEv() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re23DFA10StateSaverC2EPS0_PNS0_5StateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef %dfa, ptr noundef %state) unnamed_addr #1 align 2 {
+define void @_ZN3re23DFA10StateSaverC2EPS0_PNS0_5StateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 25), (32, 40)) %this, ptr noundef %dfa, ptr noundef %state) unnamed_addr #1 align 2 {
 entry:
   store ptr %dfa, ptr %this, align 8
   %cmp.not = icmp ugt ptr %state, inttoptr (i64 2 to ptr)
@@ -9744,7 +9744,7 @@ return:                                           ; preds = %cleanup, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3re23DFA6SearchEN4absl7debian211string_viewES3_bbbPbPPKcPNS_10SparseSetTIvEE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr %text.coerce0, i64 %text.coerce1, ptr %context.coerce0, i64 %context.coerce1, i1 noundef zeroext %anchored, i1 noundef zeroext %want_earliest_match, i1 noundef zeroext %run_forward, ptr nocapture noundef writeonly %failed, ptr nocapture noundef writeonly %epp, ptr noundef %matches) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3re23DFA6SearchEN4absl7debian211string_viewES3_bbbPbPPKcPNS_10SparseSetTIvEE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr %text.coerce0, i64 %text.coerce1, ptr %context.coerce0, i64 %context.coerce1, i1 noundef zeroext %anchored, i1 noundef zeroext %want_earliest_match, i1 noundef zeroext %run_forward, ptr nocapture noundef writeonly initializes((0, 1)) %failed, ptr nocapture noundef writeonly initializes((0, 8)) %epp, ptr noundef %matches) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %l = alloca %"class.re2::DFA::RWLocker", align 8
   %params = alloca %"struct.re2::DFA::SearchParams", align 8
@@ -10044,7 +10044,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3re24Prog9SearchDFAEN4absl7debian211string_viewES3_NS0_6AnchorENS0_9MatchKindEPS3_PbPNS_10SparseSetTIvEE(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr %text.coerce0, i64 %text.coerce1, ptr %context.coerce0, i64 %context.coerce1, i32 noundef %anchor, i32 noundef %kind, ptr noundef writeonly %match0, ptr nocapture noundef %failed, ptr noundef %matches) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN3re24Prog9SearchDFAEN4absl7debian211string_viewES3_NS0_6AnchorENS0_9MatchKindEPS3_PbPNS_10SparseSetTIvEE(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr %text.coerce0, i64 %text.coerce1, ptr %context.coerce0, i64 %context.coerce1, i32 noundef %anchor, i32 noundef %kind, ptr noundef writeonly %match0, ptr nocapture noundef initializes((0, 1)) %failed, ptr noundef %matches) local_unnamed_addr #1 align 2 {
 entry:
   %ep = alloca ptr, align 8
   %ref.tmp = alloca %"struct.re2::hooks::DFASearchFailure", align 1

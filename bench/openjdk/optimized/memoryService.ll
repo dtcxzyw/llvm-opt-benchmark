@@ -871,7 +871,7 @@ declare noundef ptr @_ZN10Management38java_lang_management_MemoryUsage_klassEP10
 declare ptr @_ZN9JavaCalls22construct_new_instanceEP13InstanceKlassP6SymbolP17JavaCallArgumentsP10JavaThread(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23TraceMemoryManagerStatsC2EP15GCMemoryManagerN7GCCause5CauseEPKcbbbbbbbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11) unnamed_addr #2 align 2 {
+define hidden void @_ZN23TraceMemoryManagerStatsC2EP15GCMemoryManagerN7GCCause5CauseEPKcbbbbbbbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 12), (16, 32)) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11) unnamed_addr #2 align 2 {
   %13 = zext i1 %4 to i8
   %14 = zext i1 %5 to i8
   %15 = zext i1 %6 to i8
@@ -930,7 +930,7 @@ _ZN23TraceMemoryManagerStats10initializeEP15GCMemoryManagerN7GCCause5CauseEPKcbb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23TraceMemoryManagerStats10initializeEP15GCMemoryManagerN7GCCause5CauseEPKcbbbbbbbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN23TraceMemoryManagerStats10initializeEP15GCMemoryManagerN7GCCause5CauseEPKcbbbbbbbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 12), (16, 32)) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11) local_unnamed_addr #2 align 2 {
   %13 = zext i1 %4 to i8
   %14 = zext i1 %5 to i8
   %15 = zext i1 %6 to i8

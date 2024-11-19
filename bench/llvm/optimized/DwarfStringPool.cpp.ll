@@ -33,7 +33,7 @@ $_ZN4llvm15SmallVectorImplIPKNS_14StringMapEntryINS_20DwarfStringPoolEntryEEEE10
 @_ZN4llvm15DwarfStringPoolC1ERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEERNS_10AsmPrinterENS_9StringRefE = unnamed_addr alias void (ptr, ptr, ptr, ptr, i64), ptr @_ZN4llvm15DwarfStringPoolC2ERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEERNS_10AsmPrinterENS_9StringRefE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm15DwarfStringPoolC2ERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEERNS_10AsmPrinterENS_9StringRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(61) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(785) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15DwarfStringPoolC2ERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEERNS_10AsmPrinterENS_9StringRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(61) initializes((0, 61)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(785) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 20, i1 false)
   store i32 32, ptr %6, align 4

@@ -2698,7 +2698,7 @@ terminate.lpad:                                   ; preds = %invoke.cont11, %cat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_010Filesystem16searchpath_splitB5cxx11ENS_17basic_string_viewIcSt11char_traitsIcEEEb(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr noundef %searchpath, i1 noundef zeroext %validonly) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_010Filesystem16searchpath_splitB5cxx11ENS_17basic_string_viewIcSt11char_traitsIcEEEb(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef %searchpath, i1 noundef zeroext %validonly) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %path = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10866,7 +10866,7 @@ if.end:                                           ; preds = %invoke.cont7, %entr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18OpenImageIO_v2_6_010Filesystem6IOFileD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_010Filesystem6IOFileD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_010Filesystem6IOFileE, i64 16), ptr %this, align 8
   %m_auto_close = getelementptr inbounds i8, ptr %this, i64 104
@@ -10908,7 +10908,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN18OpenImageIO_v2_6_010Filesystem6IOFile5closeEv(ptr nocapture noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #11 align 2 {
+define void @_ZN18OpenImageIO_v2_6_010Filesystem6IOFile5closeEv(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((48, 52)) %this) unnamed_addr #11 align 2 {
 entry:
   %m_file = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_file, align 8

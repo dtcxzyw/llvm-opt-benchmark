@@ -850,7 +850,7 @@ declare void @OSSL_PARAM_BLD_free(ptr noundef) local_unnamed_addr #2
 declare void @BN_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_STORE_load(ptr noundef %ctx) local_unnamed_addr #0 {
+define ptr @OSSL_STORE_load(ptr noundef initializes((56, 60)) %ctx) local_unnamed_addr #0 {
 entry:
   %load_data = alloca %struct.ossl_load_result_data_st, align 8
   %loading = getelementptr inbounds i8, ptr %ctx, i64 56
@@ -1966,7 +1966,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @OSSL_STORE_SEARCH_get0_bytes(ptr nocapture noundef readonly %criterion, ptr nocapture noundef writeonly %length) local_unnamed_addr #6 {
+define ptr @OSSL_STORE_SEARCH_get0_bytes(ptr nocapture noundef readonly %criterion, ptr nocapture noundef writeonly initializes((0, 8)) %length) local_unnamed_addr #6 {
 entry:
   %stringlength = getelementptr inbounds i8, ptr %criterion, i64 40
   %0 = load i64, ptr %stringlength, align 8

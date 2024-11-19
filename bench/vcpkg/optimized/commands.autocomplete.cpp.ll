@@ -1819,7 +1819,7 @@ _ZNSt6vectorIN5vcpkg11TripletFileESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_126combine_port_with_tripletsB5cxx11EN5vcpkg10StringViewENS0_4SpanIKNS0_11TripletFileEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_126combine_port_with_tripletsB5cxx11EN5vcpkg10StringViewENS0_4SpanIKNS0_11TripletFileEEE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.fmt::v10::format_arg_store", align 16
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"struct.vcpkg::StringView", align 8

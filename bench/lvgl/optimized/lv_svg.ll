@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_svg_node_class = constant { ptr, i32, [4 x i8], ptr, ptr } { ptr @lv_tree_node_class, i32 80, [4 x i8] zeroinitializer, ptr @lv_svg_node_constructor, ptr @lv_svg_node_destructor }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_svg_node_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_svg_node_constructor(ptr nocapture readnone %0, ptr noundef initializes((32, 41)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr null, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40

@@ -2632,7 +2632,7 @@ select_poll_impl.exit:                            ; preds = %entry, %if.end.i.i,
 declare i32 @_PyTime_AsTimeval(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1025) i32 @seq2set(ptr noundef %seq, ptr nocapture noundef nonnull %set, ptr nocapture noundef nonnull writeonly %fd2obj) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1025) i32 @seq2set(ptr noundef %seq, ptr nocapture noundef nonnull initializes((0, 128)) %set, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %fd2obj) unnamed_addr #0 {
 entry:
   store ptr null, ptr %fd2obj, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %set, i8 0, i64 128, i1 false)

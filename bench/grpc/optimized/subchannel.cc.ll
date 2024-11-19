@@ -411,7 +411,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 dereferenceable(17), i1 noundef zeroext, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core19ConnectedSubchannelC2EP18grpc_channel_stackRKNS_11ChannelArgsENS_13RefCountedPtrINS_8channelz14SubchannelNodeEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %channel_stack, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr nocapture noundef %channelz_subchannel) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core19ConnectedSubchannelC2EP18grpc_channel_stackRKNS_11ChannelArgsENS_13RefCountedPtrINS_8channelz14SubchannelNodeEEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %this, ptr noundef %channel_stack, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr nocapture noundef %channelz_subchannel) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i, align 8
@@ -433,7 +433,7 @@ declare void @_ZN9grpc_core11ChannelArgsC1ERKS0_(ptr noundef nonnull align 8 der
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core19ConnectedSubchannelD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core19ConnectedSubchannelD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core19ConnectedSubchannelE, i64 16), ptr %this, align 8
   %channel_stack_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -1395,7 +1395,7 @@ _ZN9grpc_core13RefCountedPtrINS_19ConnectedSubchannelEED2Ev.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core14SubchannelCallC2ENS0_4ArgsEPN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %args, ptr noundef %error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core14SubchannelCallC2ENS0_4ArgsEPN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 16), (48, 72)) %this, ptr noundef %args, ptr noundef %error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call_args = alloca %struct.grpc_call_element_args, align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -1818,7 +1818,7 @@ do.end7:                                          ; preds = %do.body2
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core14SubchannelCall3RefEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr.22") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #14 align 2 {
+define void @_ZN9grpc_core14SubchannelCall3RefEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr.22") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #14 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = atomicrmw add ptr %add.ptr.i, i64 1 monotonic, align 8
@@ -1835,7 +1835,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core14SubchannelCall3RefERKNS_13DebugLocationEPKc(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr.22") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %location, ptr nocapture noundef readnone %reason) local_unnamed_addr #14 align 2 {
+define void @_ZN9grpc_core14SubchannelCall3RefERKNS_13DebugLocationEPKc(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr.22") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %location, ptr nocapture noundef readnone %reason) local_unnamed_addr #14 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = atomicrmw add ptr %add.ptr.i, i64 1 monotonic, align 8
@@ -2468,7 +2468,7 @@ _ZN9grpc_core13RefCountedPtrINS_10Subchannel33ConnectivityStateWatcherInterfaceE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core10SubchannelC2ENS_13SubchannelKeyESt10unique_ptrINS_19SubchannelConnectorENS_16OrphanableDeleteEERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(928) %this, ptr noundef %key, ptr nocapture noundef %connector, ptr noundef nonnull align 8 dereferenceable(8) %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core10SubchannelC2ENS_13SubchannelKeyESt10unique_ptrINS_19SubchannelConnectorENS_16OrphanableDeleteEERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(928) initializes((0, 156)) %this, ptr noundef %key, ptr nocapture noundef %connector, ptr noundef nonnull align 8 dereferenceable(8) %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
@@ -3482,7 +3482,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core10SubchannelD2Ev(ptr noundef nonnull align 8 dereferenceable(928) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core10SubchannelD2Ev(ptr noundef nonnull align 8 dereferenceable(928) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.grpc_slice, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core10SubchannelE, i64 16), ptr %this, align 8
@@ -5450,7 +5450,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit4:       ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core10Subchannel26SetConnectivityStateLockedE23grpc_connectivity_stateRKN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(928) %this, i32 noundef %state, ptr noundef nonnull align 8 dereferenceable(8) %status) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core10Subchannel26SetConnectivityStateLockedE23grpc_connectivity_stateRKN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(928) initializes((412, 416)) %this, i32 noundef %state, ptr noundef nonnull align 8 dereferenceable(8) %status) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8

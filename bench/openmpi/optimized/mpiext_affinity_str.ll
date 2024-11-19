@@ -45,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [2 x i8] c"]\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OMPI_Affinity_str(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @OMPI_Affinity_str(i32 noundef %0, ptr noundef initializes((0, 1024)) %1, ptr noundef initializes((0, 1024)) %2, ptr noundef initializes((0, 1024)) %3) local_unnamed_addr #0 {
   %5 = alloca [1023 x i8], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1024) %1, i8 0, i64 1024, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1024) %2, i8 0, i64 1024, i1 false)
@@ -983,7 +983,7 @@ declare noalias ptr @hwloc_bitmap_alloc() local_unnamed_addr #2
 declare i32 @hwloc_bitmap_list_sscanf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -45, 40) i32 @cset2str(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -45, 40) i32 @cset2str(ptr noundef initializes((0, 1)) %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca [1023 x i8], align 16
   %5 = alloca [1023 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1023) %5, i8 0, i64 1023, i1 false)
@@ -1410,7 +1410,7 @@ declare i32 @hwloc_bitmap_last(ptr noundef) local_unnamed_addr #4
 declare i32 @hwloc_bitmap_isset(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -45, 1) i32 @cset2mapstr(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -45, 1) i32 @cset2mapstr(ptr noundef initializes((0, 1)) %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   store i8 0, ptr %0, align 1
   %4 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %2) #15
   %.not = icmp eq i32 %4, 0

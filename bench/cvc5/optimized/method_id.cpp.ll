@@ -257,7 +257,7 @@ return:                                           ; preds = %entry, %if.end
 declare noundef zeroext i1 @_ZN4cvc58internal16ProofRuleChecker9getUInt32ENS0_12NodeTemplateILb0EEERj(ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal12getMethodIdsERKSt6vectorINS0_12NodeTemplateILb1EEESaIS3_EERNS0_8MethodIdES9_S9_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %ids, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %ida, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %idr, i64 noundef %index) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal12getMethodIdsERKSt6vectorINS0_12NodeTemplateILb1EEESaIS3_EERNS0_8MethodIdES9_S9_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %ids, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %ida, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %idr, i64 noundef %index) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %index.i = alloca i32, align 4
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.60", align 8

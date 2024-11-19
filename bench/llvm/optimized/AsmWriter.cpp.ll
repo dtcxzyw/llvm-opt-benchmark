@@ -1019,7 +1019,7 @@ define dso_local void @_ZN4llvm26AbstractSlotTrackerStorageD0Ev(ptr nocapture no
 declare void @llvm.trap() #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm17ModuleSlotTrackerC2ERNS_11SlotTrackerEPKNS_6ModuleEPKNS_8FunctionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(356) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #8 align 2 {
+define dso_local void @_ZN4llvm17ModuleSlotTrackerC2ERNS_11SlotTrackerEPKNS_6ModuleEPKNS_8FunctionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 18), (24, 112)) %0, ptr noundef nonnull align 8 dereferenceable(356) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm17ModuleSlotTrackerE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
@@ -1039,7 +1039,7 @@ define dso_local void @_ZN4llvm17ModuleSlotTrackerC2ERNS_11SlotTrackerEPKNS_6Mod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm17ModuleSlotTrackerC2EPKNS_6ModuleEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #8 align 2 {
+define dso_local void @_ZN4llvm17ModuleSlotTrackerC2EPKNS_6ModuleEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 18), (24, 112)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #8 align 2 {
   %4 = zext i1 %2 to i8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm17ModuleSlotTrackerE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1058,7 +1058,7 @@ define dso_local void @_ZN4llvm17ModuleSlotTrackerC2EPKNS_6ModuleEb(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17ModuleSlotTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm17ModuleSlotTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm17ModuleSlotTrackerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
@@ -1797,7 +1797,7 @@ _ZNSt8functionIFvPN4llvm26AbstractSlotTrackerStorageEPKNS0_8FunctionEbEEaSERKS7_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm11SlotTrackerC2EPKNS_6ModuleEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(356) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #8 align 2 {
+define dso_local void @_ZN4llvm11SlotTrackerC2EPKNS_6ModuleEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(356) initializes((0, 26), (32, 124), (128, 132), (136, 156), (160, 164), (168, 188), (192, 196), (200, 220), (224, 228), (232, 260), (264, 284), (288, 292), (296, 324), (328, 356)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #8 align 2 {
   %4 = zext i1 %2 to i8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm11SlotTrackerE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1850,7 +1850,7 @@ define dso_local void @_ZN4llvm11SlotTrackerC2EPKNS_6ModuleEb(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm11SlotTrackerC2EPKNS_8FunctionEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(356) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #9 align 2 {
+define dso_local void @_ZN4llvm11SlotTrackerC2EPKNS_8FunctionEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(356) initializes((0, 26), (32, 124), (128, 132), (136, 156), (160, 164), (168, 188), (192, 196), (200, 220), (224, 228), (232, 260), (264, 284), (288, 292), (296, 324), (328, 356)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #9 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm11SlotTrackerE, i64 16), ptr %0, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
@@ -1913,7 +1913,7 @@ define dso_local void @_ZN4llvm11SlotTrackerC2EPKNS_8FunctionEb(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm11SlotTrackerC2EPKNS_18ModuleSummaryIndexE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(356) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define dso_local void @_ZN4llvm11SlotTrackerC2EPKNS_18ModuleSummaryIndexE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(356) initializes((0, 26), (32, 124), (128, 132), (136, 156), (160, 164), (168, 188), (192, 196), (200, 220), (224, 228), (232, 260), (264, 284), (288, 292), (296, 324), (328, 356)) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm11SlotTrackerE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3453,7 +3453,7 @@ _ZN4llvm11SlotTracker24processDbgRecordMetadataERKNS_9DbgRecordE.exit: ; preds =
 declare ptr @_ZNK4llvm13AttributeList10getFnAttrsEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11SlotTracker15processFunctionEv(ptr noundef nonnull align 8 dereferenceable(356) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm11SlotTracker15processFunctionEv(ptr noundef nonnull align 8 dereferenceable(356) initializes((160, 164)) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
@@ -5302,7 +5302,7 @@ _ZN4llvm21formatted_raw_ostreamD2Ev.exit:         ; preds = %_ZN4llvm11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114AssemblyWriterC2ERN4llvm21formatted_raw_ostreamERNS1_11SlotTrackerEPKNS1_6ModuleEPNS1_24AssemblyAnnotationWriterEbb(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef nonnull align 8 dereferenceable(356) %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114AssemblyWriterC2ERN4llvm21formatted_raw_ostreamERNS1_11SlotTrackerEPKNS1_6ModuleEPNS1_24AssemblyAnnotationWriterEbb(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 68), (72, 92), (96, 116), (120, 140), (144, 169), (176, 196), (200, 252)) %0, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef nonnull align 8 dereferenceable(356) %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #1 align 2 {
   %8 = alloca %"class.llvm::iterator_range.341", align 8
   %9 = alloca %"class.llvm::concat_iterator", align 8
   %10 = alloca ptr, align 8
@@ -44073,7 +44073,7 @@ _ZL20printMetadataImplRecRN4llvm11raw_ostreamERKNS_8MetadataERN12_GLOBAL__N_116A
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122MDTreeAsmWriterContextD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #1 align 2 {
+define internal void @_ZN12_GLOBAL__N_122MDTreeAsmWriterContextD2Ev(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_122MDTreeAsmWriterContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -44165,7 +44165,7 @@ _ZN4llvm11SmallVectorISt4pairIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122MDTreeAsmWriterContextD0Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #1 align 2 {
+define internal void @_ZN12_GLOBAL__N_122MDTreeAsmWriterContextD0Ev(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN12_GLOBAL__N_122MDTreeAsmWriterContextD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) #25
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 288) #26
   ret void

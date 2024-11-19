@@ -1798,7 +1798,7 @@ declare i32 @sapi_header_op(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @sapi_send_headers() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -128, 128) i32 @phar_file_type(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -128, 128) i32 @phar_file_type(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1) unnamed_addr #0 {
   %3 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #21
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5

@@ -47,7 +47,7 @@ $__clang_call_terminate = comdat any
 @switch.table._ZN4base4File18OSErrorToFileErrorEi = private unnamed_addr constant [30 x i32] [i32 -5, i32 -4, i32 -5, i32 -5, i32 -16, i32 -5, i32 -5, i32 -5, i32 -5, i32 -5, i32 -5, i32 -7, i32 -5, i32 -5, i32 -5, i32 -2, i32 -3, i32 -5, i32 -5, i32 -9, i32 -5, i32 -5, i32 -5, i32 -6, i32 -5, i32 -2, i32 -5, i32 -8, i32 -5, i32 -5], align 4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base4File4Info8FromStatERK6stat64(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %stat_info) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base4File4Info8FromStatERK6stat64(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 10), (16, 40)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %stat_info) local_unnamed_addr #0 align 2 {
 entry:
   %st_mode = getelementptr inbounds i8, ptr %stat_info, i64 24
   %0 = load i32, ptr %st_mode, align 8
@@ -1279,7 +1279,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base4File12DoInitializeERKNS_8FilePathEj(ptr nocapture noundef nonnull align 8 dereferenceable(50) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, i32 noundef %flags) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base4File12DoInitializeERKNS_8FilePathEj(ptr nocapture noundef nonnull align 8 dereferenceable(50) initializes((48, 49)) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, i32 noundef %flags) local_unnamed_addr #0 align 2 {
 entry:
   %and = and i32 %flags, 2
   %tobool.not = icmp eq i32 %and, 0

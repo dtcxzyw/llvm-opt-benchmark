@@ -4061,7 +4061,7 @@ Gia_PolynMergeConst.exit:                         ; preds = %Gia_PolynMergeConst
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @Gia_PolynHandleOne(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @Gia_PolynHandleOne(ptr nocapture noundef initializes((24, 40)) %0, ptr nocapture noundef initializes((24, 40)) %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef initializes((4, 8)) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 {
   %11 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %11, align 8
   %12 = sext i32 %6 to i64

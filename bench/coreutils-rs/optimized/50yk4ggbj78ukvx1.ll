@@ -172,7 +172,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN31_$LT$dyn$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN3nix3sys4stat4stat17h68910774c389b4f2E(ptr noalias nocapture noundef writeonly sret({ i32, [37 x i32] }) align 8 dereferenceable(152) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN3nix3sys4stat4stat17h68910774c389b4f2E(ptr noalias nocapture noundef writeonly sret({ i32, [37 x i32] }) align 8 dereferenceable(152) initializes((0, 4)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [18 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   %5 = call { i32, i32 } @"_ZN45_$LT$$u5b$u8$u5d$$u20$as$u20$nix..NixPath$GT$13with_nix_path17h42c5437b9c2ba741E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(144) %4)
@@ -208,7 +208,7 @@ define hidden void @_ZN3nix3sys4stat4stat17h68910774c389b4f2E(ptr noalias nocapt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN3nix3sys4stat5lstat17h2d630f90425de626E(ptr noalias nocapture noundef writeonly sret({ i32, [37 x i32] }) align 8 dereferenceable(152) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN3nix3sys4stat5lstat17h2d630f90425de626E(ptr noalias nocapture noundef writeonly sret({ i32, [37 x i32] }) align 8 dereferenceable(152) initializes((0, 4)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [18 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   %5 = call { i32, i32 } @"_ZN45_$LT$$u5b$u8$u5d$$u20$as$u20$nix..NixPath$GT$13with_nix_path17h2d4e22e462e8a952E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(144) %4)

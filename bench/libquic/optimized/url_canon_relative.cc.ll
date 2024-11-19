@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3url17kFileSystemSchemeE = external constant [0 x i8], align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url13IsRelativeURLEPKcRKNS_6ParsedES1_ibPbPNS_9ComponentE(ptr nocapture noundef readonly %base, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %base_parsed, ptr noundef %fragment, i32 noundef %fragment_len, i1 noundef zeroext %is_base_hierarchical, ptr nocapture noundef writeonly %is_relative, ptr nocapture noundef writeonly %relative_component) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url13IsRelativeURLEPKcRKNS_6ParsedES1_ibPbPNS_9ComponentE(ptr nocapture noundef readonly %base, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %base_parsed, ptr noundef %fragment, i32 noundef %fragment_len, i1 noundef zeroext %is_base_hierarchical, ptr nocapture noundef writeonly initializes((0, 1)) %is_relative, ptr nocapture noundef writeonly %relative_component) local_unnamed_addr #0 {
 entry:
   %scheme.i = alloca %"struct.url::Component", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %scheme.i)
@@ -262,7 +262,7 @@ _ZN3url12_GLOBAL__N_115DoIsRelativeURLIcEEbPKcRKNS_6ParsedEPKT_ibPbPNS_9Componen
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url13IsRelativeURLEPKcRKNS_6ParsedEPKtibPbPNS_9ComponentE(ptr nocapture noundef readonly %base, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %base_parsed, ptr noundef %fragment, i32 noundef %fragment_len, i1 noundef zeroext %is_base_hierarchical, ptr nocapture noundef writeonly %is_relative, ptr nocapture noundef writeonly %relative_component) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url13IsRelativeURLEPKcRKNS_6ParsedEPKtibPbPNS_9ComponentE(ptr nocapture noundef readonly %base, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %base_parsed, ptr noundef %fragment, i32 noundef %fragment_len, i1 noundef zeroext %is_base_hierarchical, ptr nocapture noundef writeonly initializes((0, 1)) %is_relative, ptr nocapture noundef writeonly %relative_component) local_unnamed_addr #0 {
 entry:
   %scheme.i = alloca %"struct.url::Component", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %scheme.i)

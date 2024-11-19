@@ -393,7 +393,7 @@ declare ptr @__errno_location() local_unnamed_addr #4
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bioSubmitJob(i32 noundef %type, ptr noundef %job) local_unnamed_addr #0 {
+define dso_local void @bioSubmitJob(i32 noundef %type, ptr noundef initializes((0, 4)) %job) local_unnamed_addr #0 {
 entry:
   store i32 %type, ptr %job, align 8
   %idxprom = sext i32 %type to i64

@@ -638,7 +638,7 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_3log11v2_mt_posix5sinks4sinkEEESaIS6_EED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix4core3getEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.9") align 8 %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix4core3getEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.9") align 8 initializes((0, 16)) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_4core14implementationENS_10shared_ptrIS4_EEE3getEv()
   %3 = load ptr, ptr %2, align 8, !tbaa !60
   store ptr %3, ptr %0, align 8, !tbaa !60

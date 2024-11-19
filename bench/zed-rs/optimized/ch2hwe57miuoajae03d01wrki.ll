@@ -1947,7 +1947,7 @@ define void @_ZN4rope4Rope10push_front17h6b64f2af3f9a985fE(ptr noalias noundef a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4rope4Rope7summary17hc1bee5d9e352c0ceE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 {
+define void @_ZN4rope4Rope7summary17hc1bee5d9e352c0ceE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 44)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 {
   %3 = load ptr, ptr %1, align 8, !nonnull !7, !noundef !7
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i8, ptr %4, align 8, !range !17, !noundef !7
@@ -2056,7 +2056,7 @@ define { i32, i32 } @_ZN4rope4Rope15max_point_utf1617h0b8de5b16c43aa3aE(ptr noal
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN4rope4Rope6cursor17hff1198b1a25408bbE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([432 x i8]) align 8 dereferenceable(432) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN4rope4Rope6cursor17hff1198b1a25408bbE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([432 x i8]) align 8 dereferenceable(432) initializes((0, 432)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [0 x i8], align 1
   %5 = alloca [416 x i8], align 8
   %6 = alloca [8 x i8], align 8
@@ -2103,7 +2103,7 @@ define void @_ZN4rope4Rope6cursor17hff1198b1a25408bbE(ptr dead_on_unwind noalias
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN4rope4Rope5chars17hbb1c5a71e80f8acdE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([480 x i8]) align 8 dereferenceable(480) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN4rope4Rope5chars17hbb1c5a71e80f8acdE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([480 x i8]) align 8 dereferenceable(480) initializes((0, 8), (16, 24), (32, 473)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [0 x i8], align 1
   %4 = alloca [416 x i8], align 8
   %5 = alloca [16 x i8], align 8
@@ -2163,7 +2163,7 @@ _ZN4rope4Rope8chars_at17h346a9620fadfab67E.exit:  ; preds = %2, %"_ZN8sum_tree6c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN4rope4Rope8chars_at17h346a9620fadfab67E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([480 x i8]) align 8 dereferenceable(480) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN4rope4Rope8chars_at17h346a9620fadfab67E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([480 x i8]) align 8 dereferenceable(480) initializes((0, 8), (16, 24), (32, 473)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [0 x i8], align 1
   %5 = alloca [416 x i8], align 8
   %6 = alloca [16 x i8], align 8
@@ -2221,7 +2221,7 @@ _ZN4rope4Rope15chunks_in_range17h24309e1dc9ed5cd9E.exit: ; preds = %3, %"_ZN8sum
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN4rope4Rope17reversed_chars_at17hfeb8ee57e7aa989bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([480 x i8]) align 8 dereferenceable(480) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN4rope4Rope17reversed_chars_at17hfeb8ee57e7aa989bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([480 x i8]) align 8 dereferenceable(480) initializes((0, 8), (16, 24), (32, 473)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [0 x i8], align 1
   %5 = alloca [416 x i8], align 8
   %6 = alloca [16 x i8], align 8
@@ -2278,7 +2278,7 @@ _ZN4rope4Rope24reversed_chunks_in_range17hcb5ff346217d92e8E.exit: ; preds = %3, 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN4rope4Rope14bytes_in_range17h9d4f1e4f45fd5f60E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([440 x i8]) align 8 dereferenceable(440) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN4rope4Rope14bytes_in_range17h9d4f1e4f45fd5f60E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([440 x i8]) align 8 dereferenceable(440) initializes((0, 433)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [0 x i8], align 1
   %6 = alloca [416 x i8], align 8
   %7 = alloca [16 x i8], align 8
@@ -2329,7 +2329,7 @@ define void @_ZN4rope4Rope14bytes_in_range17h9d4f1e4f45fd5f60E(ptr dead_on_unwin
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN4rope4Rope23reversed_bytes_in_range17h3cb58c64b62c72d7E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([440 x i8]) align 8 dereferenceable(440) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN4rope4Rope23reversed_bytes_in_range17h3cb58c64b62c72d7E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([440 x i8]) align 8 dereferenceable(440) initializes((0, 433)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [0 x i8], align 1
   %6 = alloca [416 x i8], align 8
   %7 = alloca [16 x i8], align 8
@@ -2380,7 +2380,7 @@ define void @_ZN4rope4Rope23reversed_bytes_in_range17h3cb58c64b62c72d7E(ptr dead
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN4rope4Rope6chunks17h035c60fcb173acb5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([448 x i8]) align 8 dereferenceable(448) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN4rope4Rope6chunks17h035c60fcb173acb5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([448 x i8]) align 8 dereferenceable(448) initializes((0, 441)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [0 x i8], align 1
   %4 = alloca [416 x i8], align 8
   %5 = alloca [16 x i8], align 8
@@ -2436,7 +2436,7 @@ _ZN4rope4Rope15chunks_in_range17h24309e1dc9ed5cd9E.exit: ; preds = %2, %"_ZN8sum
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN4rope4Rope15chunks_in_range17h24309e1dc9ed5cd9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([448 x i8]) align 8 dereferenceable(448) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN4rope4Rope15chunks_in_range17h24309e1dc9ed5cd9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([448 x i8]) align 8 dereferenceable(448) initializes((0, 441)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [0 x i8], align 1
   %6 = alloca [416 x i8], align 8
   %7 = alloca [16 x i8], align 8
@@ -2489,7 +2489,7 @@ define void @_ZN4rope4Rope15chunks_in_range17h24309e1dc9ed5cd9E(ptr dead_on_unwi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN4rope4Rope24reversed_chunks_in_range17hcb5ff346217d92e8E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([448 x i8]) align 8 dereferenceable(448) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN4rope4Rope24reversed_chunks_in_range17hcb5ff346217d92e8E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([448 x i8]) align 8 dereferenceable(448) initializes((0, 441)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [0 x i8], align 1
   %6 = alloca [416 x i8], align 8
   %7 = alloca [16 x i8], align 8
@@ -8056,7 +8056,7 @@ _ZN4core3cmp3Ord5clamp17hcfc68fb06896f5a4E.exit:  ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN4rope6Chunks9set_range17h37d4ff2689bb70deE(ptr noalias noundef align 8 dereferenceable(448) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN4rope6Chunks9set_range17h37d4ff2689bb70deE(ptr noalias noundef align 8 dereferenceable(448) initializes((0, 16)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   store i64 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -8934,7 +8934,7 @@ _ZN4rope6Chunks15offset_is_valid17hbdf90f0a1799b285E.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4rope6Chunks5lines17hc82acea11fb9a749E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([480 x i8]) align 8 dereferenceable(480) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(448) %1) unnamed_addr #5 {
+define void @_ZN4rope6Chunks5lines17hc82acea11fb9a749E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([480 x i8]) align 8 dereferenceable(480) initializes((0, 474)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(448) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %1, i64 440
   %4 = load i8, ptr %3, align 8, !range !17, !noundef !7
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9953,7 +9953,7 @@ define void @"_ZN73_$LT$rope..ChunkSummary$u20$as$u20$core..convert..From$LT$$RF
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN56_$LT$rope..ChunkSummary$u20$as$u20$sum_tree..Summary$GT$4zero17h70448c335d6bd7cfE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #7 {
+define void @"_ZN56_$LT$rope..ChunkSummary$u20$as$u20$sum_tree..Summary$GT$4zero17h70448c335d6bd7cfE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 44)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #7 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %0, i8 0, i64 44, i1 false)
   ret void
 }
@@ -10237,7 +10237,7 @@ define void @"_ZN72_$LT$rope..TextSummary$u20$as$u20$core..convert..From$LT$$RF$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN55_$LT$rope..TextSummary$u20$as$u20$sum_tree..Summary$GT$4zero17h0592e8220f1a41a9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #7 {
+define void @"_ZN55_$LT$rope..TextSummary$u20$as$u20$sum_tree..Summary$GT$4zero17h0592e8220f1a41a9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 44)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #7 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %0, i8 0, i64 44, i1 false)
   ret void
 }
@@ -10352,7 +10352,7 @@ define void @"_ZN55_$LT$rope..TextSummary$u20$as$u20$sum_tree..Summary$GT$11add_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @"_ZN59_$LT$rope..TextSummary$u20$as$u20$core..ops..arith..Add$GT$3add17hd7358184ecfe66e6E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %2) unnamed_addr #8 {
+define void @"_ZN59_$LT$rope..TextSummary$u20$as$u20$core..ops..arith..Add$GT$3add17hd7358184ecfe66e6E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %2) unnamed_addr #8 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1894)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1897)
   %4 = getelementptr inbounds i8, ptr %1, i64 28
@@ -10680,7 +10680,7 @@ define void @"_ZN65_$LT$rope..TextSummary$u20$as$u20$core..ops..arith..AddAssign
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN83_$LT$rope..TextSummary$u20$as$u20$sum_tree..Dimension$LT$rope..ChunkSummary$GT$$GT$4zero17ha12553e2185f2b4dE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #7 {
+define void @"_ZN83_$LT$rope..TextSummary$u20$as$u20$sum_tree..Dimension$LT$rope..ChunkSummary$GT$$GT$4zero17ha12553e2185f2b4dE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 44)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #7 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %0, i8 0, i64 44, i1 false)
   ret void
 }
@@ -10795,7 +10795,7 @@ define void @"_ZN83_$LT$rope..TextSummary$u20$as$u20$sum_tree..Dimension$LT$rope
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN57_$LT$rope..TextSummary$u20$as$u20$rope..TextDimension$GT$17from_text_summary17hfbccdf49c0a46f92E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #5 {
+define void @"_ZN57_$LT$rope..TextSummary$u20$as$u20$rope..TextDimension$GT$17from_text_summary17hfbccdf49c0a46f92E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 44)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #5 {
   %3 = load i64, ptr %1, align 8, !noundef !7
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !7

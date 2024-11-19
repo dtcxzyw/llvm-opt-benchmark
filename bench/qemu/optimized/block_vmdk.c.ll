@@ -3103,7 +3103,7 @@ return:                                           ; preds = %if.end36, %if.then6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @vmdk_init_tables(ptr nocapture noundef %extent, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @vmdk_init_tables(ptr nocapture noundef initializes((80, 88)) %extent, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %l1_size1 = getelementptr inbounds i8, ptr %extent, i64 96
   %0 = load i32, ptr %l1_size1, align 8

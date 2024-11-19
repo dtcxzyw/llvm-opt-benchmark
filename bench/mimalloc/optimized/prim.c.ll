@@ -36,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @environ = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_prim_mem_init(ptr nocapture noundef writeonly %config) local_unnamed_addr #0 {
+define hidden void @_mi_prim_mem_init(ptr nocapture noundef writeonly initializes((8, 16), (24, 27)) %config) local_unnamed_addr #0 {
 entry:
   %buf.i = alloca [32 x i8], align 16
   %call = tail call i64 @sysconf(i32 noundef 30) #8
@@ -110,7 +110,7 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_mi_prim_alloc(i64 noundef %size, i64 noundef %try_alignment, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr nocapture noundef writeonly %is_large, ptr nocapture noundef writeonly %is_zero, ptr nocapture noundef writeonly %addr) local_unnamed_addr #0 {
+define hidden i32 @_mi_prim_alloc(i64 noundef %size, i64 noundef %try_alignment, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr nocapture noundef writeonly initializes((0, 1)) %is_large, ptr nocapture noundef writeonly initializes((0, 1)) %is_zero, ptr nocapture noundef writeonly initializes((0, 8)) %addr) local_unnamed_addr #0 {
 entry:
   store i8 1, ptr %is_zero, align 1
   %cond = select i1 %commit, i32 3, i32 0
@@ -130,7 +130,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @unix_mmap(ptr noundef %addr, i64 noundef %size, i64 noundef %try_alignment, i32 noundef range(i32 0, 4) %protect_flags, i1 noundef zeroext %large_only, i1 noundef zeroext %allow_large, ptr nocapture noundef writeonly %is_large) unnamed_addr #0 {
+define internal fastcc ptr @unix_mmap(ptr noundef %addr, i64 noundef %size, i64 noundef %try_alignment, i32 noundef range(i32 0, 4) %protect_flags, i1 noundef zeroext %large_only, i1 noundef zeroext %allow_large, ptr nocapture noundef writeonly initializes((0, 1)) %is_large) unnamed_addr #0 {
 entry:
   %call2 = tail call zeroext i1 @_mi_os_has_overcommit() #8
   %spec.select = select i1 %call2, i32 16418, i32 34
@@ -217,7 +217,7 @@ return:                                           ; preds = %if.end19, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_mi_prim_commit(ptr noundef %start, i64 noundef %size, ptr nocapture noundef writeonly %is_zero) local_unnamed_addr #0 {
+define hidden i32 @_mi_prim_commit(ptr noundef %start, i64 noundef %size, ptr nocapture noundef writeonly initializes((0, 1)) %is_zero) local_unnamed_addr #0 {
 entry:
   store i8 0, ptr %is_zero, align 1
   %call = tail call i32 @mprotect(ptr noundef %start, i64 noundef %size, i32 noundef 3) #8
@@ -238,7 +238,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_mi_prim_decommit(ptr noundef %start, i64 noundef %size, ptr nocapture noundef writeonly %needs_recommit) local_unnamed_addr #0 {
+define hidden i32 @_mi_prim_decommit(ptr noundef %start, i64 noundef %size, ptr nocapture noundef writeonly initializes((0, 1)) %needs_recommit) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @madvise(ptr noundef %start, i64 noundef %size, i32 noundef 4) #8
   store i8 0, ptr %needs_recommit, align 1
@@ -308,7 +308,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_mi_prim_alloc_huge_os_pages(ptr noundef %hint_addr, i64 noundef %size, i32 noundef %numa_node, ptr nocapture noundef writeonly %is_zero, ptr nocapture noundef %addr) local_unnamed_addr #0 {
+define hidden i32 @_mi_prim_alloc_huge_os_pages(ptr noundef %hint_addr, i64 noundef %size, i32 noundef %numa_node, ptr nocapture noundef writeonly initializes((0, 1)) %is_zero, ptr nocapture noundef initializes((0, 8)) %addr) local_unnamed_addr #0 {
 entry:
   %numa_mask = alloca i64, align 8
   store i8 1, ptr %is_zero, align 1
@@ -450,7 +450,7 @@ entry:
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_prim_process_info(ptr nocapture noundef writeonly %pinfo) local_unnamed_addr #0 {
+define hidden void @_mi_prim_process_info(ptr nocapture noundef writeonly initializes((8, 24), (32, 40), (56, 64)) %pinfo) local_unnamed_addr #0 {
 entry:
   %rusage = alloca %struct.rusage, align 8
   %call = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %rusage) #8

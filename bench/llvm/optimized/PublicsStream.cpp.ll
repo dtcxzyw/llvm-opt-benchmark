@@ -88,7 +88,7 @@ $_ZTVN4llvm3pdb8RawErrorE = comdat any
 @_ZN4llvm3pdb13PublicsStreamD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm3pdb13PublicsStreamD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm3pdb13PublicsStreamC2ESt10unique_ptrINS_3msf17MappedBlockStreamESt14default_deleteIS4_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16704) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb13PublicsStreamC2ESt10unique_ptrINS_3msf17MappedBlockStreamESt14default_deleteIS4_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16704) initializes((0, 8), (16, 48), (56, 57), (64, 96), (104, 105), (112, 144), (152, 153), (16552, 16584), (16592, 16593), (16600, 16632), (16640, 16641), (16648, 16680), (16688, 16689)) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8

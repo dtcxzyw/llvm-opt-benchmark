@@ -99,7 +99,7 @@ define internal range(i32 0, 49) i32 @xz_bidder_bid(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @xz_bidder_init(ptr nocapture noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @xz_bidder_init(ptr nocapture noundef initializes((48, 60)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 6, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -679,7 +679,7 @@ define internal range(i32 0, 105) i32 @lzma_bidder_bid(ptr nocapture readnone %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @lzma_bidder_init(ptr nocapture noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @lzma_bidder_init(ptr nocapture noundef initializes((48, 60)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 5, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -723,7 +723,7 @@ lzip_has_member.exit:                             ; preds = %2, %6, %7, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @lzip_bidder_init(ptr nocapture noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @lzip_bidder_init(ptr nocapture noundef initializes((48, 60)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 9, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48

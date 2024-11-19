@@ -88,7 +88,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.56 = private unnamed_addr constant [8 x i8] c"Present\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dissect_oer_boolean(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define noundef i32 @dissect_oer_boolean(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((24, 32)) %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   store i32 0, ptr %7, align 4
   %8 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #8
@@ -327,7 +327,7 @@ define i32 @dissect_oer_constrained_integer_64b_no_ub(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %5) unnamed_addr #0 {
   store i32 0, ptr %5, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #8
   %8 = icmp sgt i8 %7, -1

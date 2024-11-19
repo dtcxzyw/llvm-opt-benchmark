@@ -2258,7 +2258,7 @@ define dso_local void @intel_gt_fini_reset(ptr noundef %0) local_unnamed_addr #0
 declare dso_local void @cleanup_srcu_struct(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__intel_init_wedge(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local void @__intel_init_wedge(ptr noundef initializes((0, 8), (88, 104)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 96

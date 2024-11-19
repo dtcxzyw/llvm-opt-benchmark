@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.18 = private unnamed_addr constant [6 x i8] c"UTF-7\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ucbuf_autodetect_fs(ptr noundef %in, ptr nocapture noundef %cp, ptr nocapture noundef writeonly %conv, ptr noundef %signatureLength, ptr noundef %error) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ucbuf_autodetect_fs(ptr noundef %in, ptr nocapture noundef initializes((0, 8)) %cp, ptr nocapture noundef writeonly initializes((0, 8)) %conv, ptr noundef %signatureLength, ptr noundef %error) local_unnamed_addr #0 {
 entry:
   %start = alloca [8 x i8], align 1
   %target = alloca [1 x i16], align 2

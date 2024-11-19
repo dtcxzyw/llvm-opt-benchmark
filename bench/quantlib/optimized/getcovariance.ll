@@ -38,7 +38,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib23CovarianceDecompositionC1ERKNS_6MatrixEd = unnamed_addr alias void (ptr, ptr, double), ptr @_ZN8QuantLib23CovarianceDecompositionC2ERKNS_6MatrixEd
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23CovarianceDecompositionC2ERKNS_6MatrixEd(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %cov, double noundef %tolerance) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23CovarianceDecompositionC2ERKNS_6MatrixEd(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %cov, double noundef %tolerance) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

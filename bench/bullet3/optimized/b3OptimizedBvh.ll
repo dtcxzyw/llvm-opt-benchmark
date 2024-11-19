@@ -84,7 +84,7 @@ _ZN14b3OptimizedBvhdlEPv.exit:                    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14b3OptimizedBvh5buildEP23b3StridingMeshInterfacebRK9b3Vector3S4_(ptr noundef nonnull align 16 dereferenceable(252) %this, ptr noundef %triangles, i1 noundef zeroext %useQuantizedAabbCompression, ptr noundef nonnull align 16 dereferenceable(16) %bvhAabbMin, ptr noundef nonnull align 16 dereferenceable(16) %bvhAabbMax) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14b3OptimizedBvh5buildEP23b3StridingMeshInterfacebRK9b3Vector3S4_(ptr noundef nonnull align 16 dereferenceable(252) initializes((72, 73)) %this, ptr noundef %triangles, i1 noundef zeroext %useQuantizedAabbCompression, ptr noundef nonnull align 16 dereferenceable(16) %bvhAabbMin, ptr noundef nonnull align 16 dereferenceable(16) %bvhAabbMax) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %callback = alloca %struct.QuantizedNodeTriangleCallback, align 8
   %callback8 = alloca %struct.NodeTriangleCallback, align 8

@@ -2327,7 +2327,7 @@ declare void @_Z10push_v3s16P9lua_StateN3irr4core8vector3dIsEE(ptr noundef, i48)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6InvRefC2ERK17InventoryLocation(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(46) %loc) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6InvRefC2ERK17InventoryLocation(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 4)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(46) %loc) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %0 = load i32, ptr %loc, align 8, !tbaa !56

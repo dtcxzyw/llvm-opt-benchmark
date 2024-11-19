@@ -1114,7 +1114,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb22BlockBasedTableBuilderC2ERKNS_22BlockBasedTableOptionsERKNS_19TableBuilderOptionsEPNS_18WritableFileWriterE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(248) %table_options, ptr noundef nonnull align 8 dereferenceable(176) %tbo, ptr noundef %file) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb22BlockBasedTableBuilderC2ERKNS_22BlockBasedTableOptionsERKNS_19TableBuilderOptionsEPNS_18WritableFileWriterE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(248) %table_options, ptr noundef nonnull align 8 dereferenceable(176) %tbo, ptr noundef %file) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sanitized_table_options = alloca %"struct.rocksdb::BlockBasedTableOptions", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22BlockBasedTableBuilderE, i64 16), ptr %this, align 8
@@ -3741,7 +3741,7 @@ _ZNSt10shared_ptrIN7rocksdb23FlushBlockPolicyFactoryEED2Ev.exit: ; preds = %_ZNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb22BlockBasedTableBuilderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 {
+define void @_ZN7rocksdb22BlockBasedTableBuilderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22BlockBasedTableBuilderE, i64 16), ptr %this, align 8
   %rep_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -6945,7 +6945,7 @@ _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit11: ; preds = %lpad, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb22BlockBasedTableBuilder25WriteMaybeCompressedBlockERKNS_5SliceENS_15CompressionTypeEPNS_11BlockHandleENS_9BlockTypeEPS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %block_contents, i8 noundef zeroext %comp_type, ptr noundef %handle, i8 noundef zeroext %block_type, ptr noundef %uncompressed_block_data) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb22BlockBasedTableBuilder25WriteMaybeCompressedBlockERKNS_5SliceENS_15CompressionTypeEPNS_11BlockHandleENS_9BlockTypeEPS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %block_contents, i8 noundef zeroext %comp_type, ptr noundef initializes((0, 16)) %handle, i8 noundef zeroext %block_type, ptr noundef %uncompressed_block_data) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i248 = alloca %"class.std::unique_ptr.165", align 8
   %ref.tmp.i190 = alloca %"class.std::unique_ptr.165", align 8
@@ -8362,7 +8362,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %lpad, %_ZNKSt14defa
 declare noundef i32 @_ZN7rocksdb34ComputeBuiltinChecksumWithLastByteENS_12ChecksumTypeEPKcmc(i8 noundef signext, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb22BlockBasedTableBuilder24InsertBlockInCacheHelperERKNS_5SliceEPKNS_11BlockHandleENS_9BlockTypeE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %block_contents, ptr noundef %handle, i8 noundef zeroext %block_type) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb22BlockBasedTableBuilder24InsertBlockInCacheHelperERKNS_5SliceEPKNS_11BlockHandleENS_9BlockTypeE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %block_contents, ptr noundef %handle, i8 noundef zeroext %block_type) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %key = alloca %"class.rocksdb::CacheKey", align 8
   %charge = alloca i64, align 8

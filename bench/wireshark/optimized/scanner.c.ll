@@ -2791,7 +2791,7 @@ df_yy_init_buffer.exit:                           ; preds = %45, %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_lval_simple(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 0, 15) %2) unnamed_addr #0 {
+define internal fastcc void @set_lval_simple(ptr nocapture noundef initializes((32, 40)) %0, ptr noundef %1, i32 noundef range(i32 0, 15) %2) unnamed_addr #0 {
   %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #33
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
@@ -2813,7 +2813,7 @@ declare ptr @g_string_new(ptr noundef) local_unnamed_addr #2
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_lval_quoted_string(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @set_lval_quoted_string(ptr nocapture noundef initializes((32, 40)) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
@@ -3417,7 +3417,7 @@ define internal fastcc range(i32 -1, 27) i32 @set_lval_charconst(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_lval_literal(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_lval_literal(ptr nocapture noundef initializes((32, 40)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #33
   %5 = tail call noalias ptr @g_strdup(ptr noundef %2) #33
   %6 = getelementptr inbounds i8, ptr %0, i64 72
@@ -3433,7 +3433,7 @@ define internal fastcc void @set_lval_literal(ptr nocapture noundef %0, ptr noun
 declare ptr @dfilter_resolve_unparsed(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_lval_field(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_lval_field(ptr nocapture noundef initializes((32, 40)) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call noalias ptr @g_strdup(ptr noundef %2) #33
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
@@ -3446,7 +3446,7 @@ define internal fastcc void @set_lval_field(ptr nocapture noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 27, 29) i32 @set_lval_integer(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 27, 29) i32 @set_lval_integer(ptr nocapture noundef initializes((32, 40)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = tail call ptr @__errno_location() #34
@@ -3604,7 +3604,7 @@ parse_double.exit.thread:                         ; preds = %11, %26, %25, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_lval_identifier(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_lval_identifier(ptr nocapture noundef initializes((32, 40)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #33
   %5 = tail call noalias ptr @g_strdup(ptr noundef %2) #33
   %6 = getelementptr inbounds i8, ptr %0, i64 72
@@ -3619,7 +3619,7 @@ define internal fastcc void @set_lval_identifier(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_lval_unparsed(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_lval_unparsed(ptr nocapture noundef initializes((32, 40)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #33
   %5 = tail call noalias ptr @g_strdup(ptr noundef %2) #33
   %6 = getelementptr inbounds i8, ptr %0, i64 72
@@ -4687,7 +4687,7 @@ define hidden ptr @df_yyget_text(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @df_yyset_extra(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #16 {
+define hidden void @df_yyset_extra(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #16 {
   store ptr %0, ptr %1, align 8
   ret void
 }
@@ -4743,14 +4743,14 @@ define hidden void @df_yyset_column(i32 noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @df_yyset_in(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #16 {
+define hidden void @df_yyset_in(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @df_yyset_out(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #16 {
+define hidden void @df_yyset_out(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
@@ -4764,7 +4764,7 @@ define hidden i32 @df_yyget_debug(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @df_yyset_debug(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #16 {
+define hidden void @df_yyset_debug(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void

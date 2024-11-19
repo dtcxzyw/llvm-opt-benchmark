@@ -1018,7 +1018,7 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @OPENSSL_INIT_set_config_file_flags(ptr nocapture noundef writeonly %settings, i64 noundef %flags) local_unnamed_addr #10 {
+define void @OPENSSL_INIT_set_config_file_flags(ptr nocapture noundef writeonly initializes((16, 24)) %settings, i64 noundef %flags) local_unnamed_addr #10 {
 entry:
   %flags1 = getelementptr inbounds i8, ptr %settings, i64 16
   store i64 %flags, ptr %flags1, align 8

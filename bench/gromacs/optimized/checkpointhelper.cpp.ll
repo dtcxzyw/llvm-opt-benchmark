@@ -238,7 +238,7 @@ _ZN3gmx16CheckpointHelperD2Ev.exit:               ; preds = %_ZSt8_DestroyIPSt5t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx16CheckpointHelper24registerLastStepCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx16CheckpointHelper24registerLastStepCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 initializes((0, 33)) %0, ptr noundef nonnull align 8 dereferenceable(120) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -459,7 +459,7 @@ _ZN3gmx16CheckpointHelperD0Ev.exit:               ; preds = %_ZSt8_DestroyIPSt5t
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx16CheckpointHelperC2EOSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_23ICheckpointHelperClientEEESaISB_EESt10unique_ptrINS_17CheckpointHandlerESt14default_deleteISG_EEiPNS_17TrajectoryElementEP8_IO_FILEP9t_commrecP18ObservablesHistoryP23gmx_walltime_accountingP7t_stateb(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i1 noundef zeroext %10) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx16CheckpointHelperC2EOSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_23ICheckpointHelperClientEEESaISB_EESt10unique_ptrINS_17CheckpointHandlerESt14default_deleteISG_EEiPNS_17TrajectoryElementEP8_IO_FILEP9t_commrecP18ObservablesHistoryP23gmx_walltime_accountingP7t_stateb(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 65), (72, 120)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i1 noundef zeroext %10) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %12 = zext i1 %10 to i8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16CheckpointHelperE, i64 16), ptr %0, align 8
@@ -985,7 +985,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvldEZN3gmx16Check
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx23CheckpointHelperBuilderC2ESt10unique_ptrINS_24ReadCheckpointDataHolderESt14default_deleteIS2_EENS_16StartingBehaviorEP9t_commrec(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx23CheckpointHelperBuilderC2ESt10unique_ptrINS_24ReadCheckpointDataHolderESt14default_deleteIS2_EENS_16StartingBehaviorEP9t_commrec(ptr noundef nonnull align 8 dereferenceable(84) initializes((8, 12), (16, 24)) %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16

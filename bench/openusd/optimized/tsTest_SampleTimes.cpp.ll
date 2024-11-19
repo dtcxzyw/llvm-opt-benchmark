@@ -50,7 +50,7 @@ $_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleT
 @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimesC1ERKNS_17TsTest_SplineDataE = unnamed_addr alias void (ptr, ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimesC2ERKNS_17TsTest_SplineDataE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0) unnamed_addr #0 align 2 {
   store double 0.000000e+00, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %2, align 8
@@ -58,7 +58,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, double noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, double noundef %1) unnamed_addr #0 align 2 {
   store double %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %3, align 8
@@ -66,7 +66,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeC2Edb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, double noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeC2Edb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, double noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   store double %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -75,7 +75,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1) unnamed_addr #1 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1) unnamed_addr #1 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i64 9, i1 false)
   ret void
 }
@@ -84,13 +84,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTi
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(9) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeaSERKS1_(ptr noundef nonnull returned writeonly align 8 dereferenceable(9) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(9) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeaSERKS1_(ptr noundef nonnull returned writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1) local_unnamed_addr #1 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i64 9, i1 false)
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(9) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeaSEd(ptr noundef nonnull returned writeonly align 8 dereferenceable(9) %0, double noundef %1) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(9) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeaSEd(ptr noundef nonnull returned writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, double noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::TsTest_SampleTimes::SampleTime", align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeC1Ed(ptr noundef nonnull align 8 dereferenceable(9) %3, double noundef %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull readonly align 8 dereferenceable(9) %3, i64 9, i1 false)
@@ -171,7 +171,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeeqERKS1_.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes13_GetKnotTimesEv(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes13_GetKnotTimesEv(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::TsTest_SampleTimes::SampleTime", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::TsTest_SampleTimes::SampleTime", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -275,7 +275,7 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimesC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimesC2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 1)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store i8 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineDataC1Ev(ptr noundef nonnull align 8 dereferenceable(160) %2)
@@ -295,7 +295,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimesC2Ev(ptr n
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineDataC1Ev(ptr noundef nonnull align 8 dereferenceable(160)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimesC2ERKNS_17TsTest_SplineDataE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimesC2ERKNS_17TsTest_SplineDataE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 1)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store i8 1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineDataC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef nonnull align 8 dereferenceable(160) %1)

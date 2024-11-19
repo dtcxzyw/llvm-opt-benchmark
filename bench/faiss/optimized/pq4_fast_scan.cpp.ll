@@ -737,7 +737,7 @@ define void @_ZN5faiss22pq4_set_packed_elementEPhhmmmm(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss13CodePackerPQ4C2Emm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #11 align 2 {
+define void @_ZN5faiss13CodePackerPQ4C2Emm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #11 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss13CodePackerPQ4E, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %1, ptr %4, align 8

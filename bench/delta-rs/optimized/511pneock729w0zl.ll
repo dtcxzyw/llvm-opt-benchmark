@@ -6963,25 +6963,25 @@ define internal noundef zeroext i1 @"_ZN91_$LT$sqlparser..dialect..generic..Gene
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define internal void @_ZN9sqlparser7dialect7Dialect11parse_infix17hbb80cd61930d09a2E(ptr noalias nocapture noundef writeonly sret({ i64, [21 x i64] }) align 8 dereferenceable(176) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noalias nocapture readnone align 8 %2, ptr noalias nocapture readonly align 8 %3, i8 %4) unnamed_addr #4 {
+define internal void @_ZN9sqlparser7dialect7Dialect11parse_infix17hbb80cd61930d09a2E(ptr noalias nocapture noundef writeonly sret({ i64, [21 x i64] }) align 8 dereferenceable(176) initializes((0, 8)) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noalias nocapture readnone align 8 %2, ptr noalias nocapture readonly align 8 %3, i8 %4) unnamed_addr #4 {
   store i64 71, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define internal void @_ZN9sqlparser7dialect7Dialect12parse_prefix17h93d8e7bdafb339ddE(ptr noalias nocapture noundef writeonly sret({ i64, [21 x i64] }) align 8 dereferenceable(176) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noalias nocapture readnone align 8 %2) unnamed_addr #4 {
+define internal void @_ZN9sqlparser7dialect7Dialect12parse_prefix17h93d8e7bdafb339ddE(ptr noalias nocapture noundef writeonly sret({ i64, [21 x i64] }) align 8 dereferenceable(176) initializes((0, 8)) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noalias nocapture readnone align 8 %2) unnamed_addr #4 {
   store i64 71, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define internal void @_ZN9sqlparser7dialect7Dialect15parse_statement17heda5f65dadebc20dE(ptr noalias nocapture noundef writeonly sret({ i64, [115 x i64] }) align 8 dereferenceable(928) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noalias nocapture readnone align 8 %2) unnamed_addr #4 {
+define internal void @_ZN9sqlparser7dialect7Dialect15parse_statement17heda5f65dadebc20dE(ptr noalias nocapture noundef writeonly sret({ i64, [115 x i64] }) align 8 dereferenceable(928) initializes((0, 8)) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noalias nocapture readnone align 8 %2) unnamed_addr #4 {
   store i64 144, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define internal void @_ZN9sqlparser7dialect7Dialect19get_next_precedence17h77bb76d7c127f973E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noalias nocapture readonly align 8 %2) unnamed_addr #4 {
+define internal void @_ZN9sqlparser7dialect7Dialect19get_next_precedence17h77bb76d7c127f973E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noalias nocapture readonly align 8 %2) unnamed_addr #4 {
   store i64 4, ptr %0, align 8
   ret void
 }
@@ -7017,7 +7017,7 @@ define internal noundef zeroext i1 @_ZN9sqlparser7dialect7Dialect39supports_with
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN113_$LT$deltalake_sql..parser..Statement$u20$as$u20$core..convert..From$LT$datafusion_sql..parser..Statement$GT$$GT$4from17hd719c58bc64240ccE"(ptr noalias nocapture noundef writeonly sret({ i64, [95 x i64] }) align 8 dereferenceable(768) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(768) %1) unnamed_addr #5 {
+define void @"_ZN113_$LT$deltalake_sql..parser..Statement$u20$as$u20$core..convert..From$LT$datafusion_sql..parser..Statement$GT$$GT$4from17hd719c58bc64240ccE"(ptr noalias nocapture noundef writeonly sret({ i64, [95 x i64] }) align 8 dereferenceable(768) initializes((0, 768)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(768) %1) unnamed_addr #5 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(768) %0, ptr noundef nonnull align 8 dereferenceable(768) %1, i64 768, i1 false)
   ret void
 }

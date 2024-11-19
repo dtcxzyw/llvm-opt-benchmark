@@ -1134,7 +1134,7 @@ declare dso_local void @wiphy_work_queue(ptr noundef, ptr noundef) local_unnamed
 declare dso_local void @wiphy_delayed_work_timer(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_set_vif_links_bitmaps(ptr nocapture noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_set_vif_links_bitmaps(ptr nocapture noundef initializes((5056, 5058), (5060, 5062)) %0, i16 noundef zeroext %1, i16 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4056
   %5 = getelementptr inbounds i8, ptr %0, i64 5056
   store i16 %1, ptr %5, align 8

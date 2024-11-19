@@ -56,7 +56,7 @@ define void @_Z32dtFreeObstacleAvoidanceDebugDataP28dtObstacleAvoidanceDebugData
 declare void @_Z6dtFreePv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN28dtObstacleAvoidanceDebugDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #2 align 2 {
+define void @_ZN28dtObstacleAvoidanceDebugDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0) unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   ret void
 }
@@ -130,7 +130,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN28dtObstacleAvoidanceDebugData4initEi(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN28dtObstacleAvoidanceDebugData4initEi(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((4, 16)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %4 = icmp eq ptr %3, null
   %5 = icmp ne i32 %1, 0
@@ -220,7 +220,7 @@ define noundef zeroext i1 @_ZN28dtObstacleAvoidanceDebugData4initEi(ptr nocaptur
 declare noundef ptr @_Z21dtAssertFailGetCustomv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN28dtObstacleAvoidanceDebugData5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) local_unnamed_addr #2 align 2 {
+define void @_ZN28dtObstacleAvoidanceDebugData5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 4)) %0) local_unnamed_addr #2 align 2 {
   store i32 0, ptr %0, align 8
   ret void
 }
@@ -648,7 +648,7 @@ define void @_Z28dtFreeObstacleAvoidanceQueryP24dtObstacleAvoidanceQuery(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN24dtObstacleAvoidanceQueryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) %0) unnamed_addr #2 align 2 {
+define void @_ZN24dtObstacleAvoidanceQueryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) initializes((28, 44), (48, 76)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -681,7 +681,7 @@ define void @_ZN24dtObstacleAvoidanceQueryD2Ev(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN24dtObstacleAvoidanceQuery4initEii(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN24dtObstacleAvoidanceQuery4initEii(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((40, 44), (48, 60)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -727,7 +727,7 @@ define noundef zeroext i1 @_ZN24dtObstacleAvoidanceQuery4initEii(ptr nocapture n
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN24dtObstacleAvoidanceQuery5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) %0) local_unnamed_addr #2 align 2 {
+define void @_ZN24dtObstacleAvoidanceQuery5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) initializes((56, 60), (72, 76)) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 72
@@ -1223,7 +1223,7 @@ _ZL11isectRaySegPKfS0_S0_S0_Rf.exit.thread:       ; preds = %168, %159, %183, %1
 declare float @llvm.fmuladd.f32(float, float, float) #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN24dtObstacleAvoidanceQuery18sampleVelocityGridEPKfffS1_S1_PfPK25dtObstacleAvoidanceParamsP28dtObstacleAvoidanceDebugData(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1, float noundef %2, float noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef readonly %7, ptr noundef %8) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN24dtObstacleAvoidanceQuery18sampleVelocityGridEPKfffS1_S1_PfPK25dtObstacleAvoidanceParamsP28dtObstacleAvoidanceDebugData(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1, float noundef %2, float noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 12)) %6, ptr nocapture noundef readonly %7, ptr noundef %8) local_unnamed_addr #0 align 2 {
   %10 = alloca [3 x float], align 4
   tail call void @_ZN24dtObstacleAvoidanceQuery7prepareEPKfS1_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1, ptr noundef %5)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %7, i64 28, i1 false)
@@ -1349,7 +1349,7 @@ define noundef i32 @_ZN24dtObstacleAvoidanceQuery18sampleVelocityGridEPKfffS1_S1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN24dtObstacleAvoidanceQuery22sampleVelocityAdaptiveEPKfffS1_S1_PfPK25dtObstacleAvoidanceParamsP28dtObstacleAvoidanceDebugData(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1, float noundef %2, float noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef readonly %7, ptr noundef %8) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN24dtObstacleAvoidanceQuery22sampleVelocityAdaptiveEPKfffS1_S1_PfPK25dtObstacleAvoidanceParamsP28dtObstacleAvoidanceDebugData(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1, float noundef %2, float noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 12)) %6, ptr nocapture noundef readonly %7, ptr noundef %8) local_unnamed_addr #0 align 2 {
   %10 = alloca [258 x float], align 16
   %11 = alloca [6 x float], align 16
   %12 = alloca [3 x float], align 4

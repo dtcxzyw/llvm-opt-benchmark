@@ -341,7 +341,7 @@ declare dso_local ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnam
 declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @autofs_dev_ioctl_version(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #7 align 16 {
+define internal noundef i32 @autofs_dev_ioctl_version(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #7 align 16 {
   store i32 1, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 1, ptr %4, align 4
@@ -349,7 +349,7 @@ define internal noundef i32 @autofs_dev_ioctl_version(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @autofs_dev_ioctl_protover(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #8 align 16 {
+define internal noundef i32 @autofs_dev_ioctl_protover(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((16, 20)) %2) #8 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 16
@@ -358,7 +358,7 @@ define internal noundef i32 @autofs_dev_ioctl_protover(ptr nocapture readnone %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @autofs_dev_ioctl_protosubver(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #8 align 16 {
+define internal noundef i32 @autofs_dev_ioctl_protosubver(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((16, 20)) %2) #8 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 16
@@ -647,7 +647,7 @@ define internal noundef i32 @autofs_dev_ioctl_timeout(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @autofs_dev_ioctl_requester(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #4 align 16 {
+define internal i32 @autofs_dev_ioctl_requester(ptr nocapture readnone %0, ptr noundef %1, ptr noundef initializes((16, 24)) %2) #4 align 16 {
   %4 = alloca %struct.path, align 8
   %5 = alloca %struct.path, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
@@ -759,7 +759,7 @@ define internal i32 @autofs_dev_ioctl_expire(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @autofs_dev_ioctl_askumount(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #4 align 16 {
+define internal noundef i32 @autofs_dev_ioctl_askumount(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((16, 20)) %2) #4 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 152
@@ -777,7 +777,7 @@ define internal noundef i32 @autofs_dev_ioctl_askumount(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #4 align 16 {
+define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef initializes((20, 24)) %2) #4 align 16 {
   %4 = alloca %struct.path, align 8
   %5 = alloca %struct.path, align 8
   %6 = alloca %struct.path, align 8

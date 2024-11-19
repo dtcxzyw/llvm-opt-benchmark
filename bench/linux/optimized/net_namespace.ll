@@ -845,7 +845,7 @@ declare dso_local void @up_read(ptr noundef) local_unnamed_addr #2
 declare dso_local void @key_remove_domain(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @net_ns_get_ownership(ptr nocapture readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #4 align 16 {
+define dso_local void @net_ns_get_ownership(ptr nocapture readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #4 align 16 {
   store i32 0, ptr %1, align 4
   store i32 0, ptr %2, align 4
   ret void
@@ -2460,7 +2460,7 @@ declare dso_local void @__rcu_read_lock() local_unnamed_addr #2
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @net_defaults_init_net(ptr nocapture noundef writeonly %0) #4 align 16 {
+define internal noundef i32 @net_defaults_init_net(ptr nocapture noundef writeonly initializes((376, 385)) %0) #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 376
   store i32 4096, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 380
@@ -3119,7 +3119,7 @@ declare dso_local void @skb_trim(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare dso_local void @kfree_skb_reason(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @net_ns_net_init(ptr noundef %0) #0 align 16 {
+define internal i32 @net_ns_net_init(ptr noundef initializes((128, 136)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr @netns_operations, ptr %3, align 8

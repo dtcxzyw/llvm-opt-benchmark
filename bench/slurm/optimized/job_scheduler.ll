@@ -8833,7 +8833,7 @@ declare i32 @job_limits_check(ptr noundef, i1 noundef zeroext) local_unnamed_add
 declare zeroext i1 @job_state_reason_check(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_queue_resv_list(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal noundef i32 @_queue_resv_list(ptr noundef %0, ptr nocapture noundef initializes((32, 40)) %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %1, align 8

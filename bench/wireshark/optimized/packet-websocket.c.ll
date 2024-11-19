@@ -1297,7 +1297,7 @@ declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare ptr @dissector_get_string_handle(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @websocket_uncompress(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @websocket_uncompress(ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 12), (24, 36)) %2, ptr nocapture noundef nonnull writeonly %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %7 = add i32 %6, 4
   %8 = getelementptr inbounds i8, ptr %1, i64 408

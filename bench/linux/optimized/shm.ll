@@ -91,7 +91,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_ipc_ns_init500], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @shm_init_ns(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @shm_init_ns(ptr noundef initializes((760, 792)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 760
   store i64 -16777217, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 768
@@ -2670,7 +2670,7 @@ define internal fastcc i32 @shmctl_shm_info(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @shmctl_stat(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @shmctl_stat(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef initializes((0, 112)) %3) unnamed_addr #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(112) %3, i8 0, i64 112, i1 false)
   tail call void @__rcu_read_lock() #12
   %5 = icmp eq i32 %2, 15

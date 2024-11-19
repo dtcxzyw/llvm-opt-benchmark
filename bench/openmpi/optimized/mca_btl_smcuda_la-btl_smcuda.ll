@@ -1391,7 +1391,7 @@ opal_free_list_return.exit:                       ; preds = %opal_free_list_retu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mca_btl_smcuda_send(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2, i8 noundef zeroext %3) #0 {
+define range(i32 0, 2) i32 @mca_btl_smcuda_send(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef initializes((120, 128)) %2, i8 noundef zeroext %3) #0 {
   %5 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 2272), align 16
   %6 = shl nsw i32 %5, 1
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 464), align 16
@@ -1955,7 +1955,7 @@ define internal noundef i32 @mca_btl_smcuda_deregister_mem(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @mca_btl_smcuda_register_error_cb(ptr nocapture noundef writeonly %0, ptr noundef %1) #3 {
+define noundef i32 @mca_btl_smcuda_register_error_cb(ptr nocapture noundef writeonly initializes((568, 576)) %0, ptr noundef %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 568
   store ptr %1, ptr %3, align 8
   ret i32 0

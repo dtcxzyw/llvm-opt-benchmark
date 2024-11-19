@@ -96,7 +96,7 @@ $_ZN26GrowableArrayWithAllocatorIP8DCmdInfo13GrowableArrayIS1_EE9expand_toEi = c
 @_ZN7CmdLineC1EPKcmb = hidden unnamed_addr alias void (ptr, ptr, i64, i1), ptr @_ZN7CmdLineC2EPKcmb
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define hidden void @_ZN7CmdLineC2EPKcmb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN7CmdLineC2EPKcmb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store ptr %1, ptr %0, align 8
@@ -2265,7 +2265,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %.loopexit, %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef %0) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef initializes((8, 16)) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr @DCmdFactory_lock, align 8
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %3

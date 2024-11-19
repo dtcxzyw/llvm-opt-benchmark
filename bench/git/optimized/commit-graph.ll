@@ -325,7 +325,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @open_commit_graph(ptr noundef %graph_file, ptr nocapture noundef %fd, ptr nocapture noundef %st) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @open_commit_graph(ptr noundef %graph_file, ptr nocapture noundef initializes((0, 4)) %fd, ptr nocapture noundef %st) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @git_open_cloexec(ptr noundef %graph_file, i32 noundef 0) #22
   store i32 %call, ptr %fd, align 4
@@ -810,7 +810,7 @@ return:                                           ; preds = %for.cond, %return.s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @graph_read_oid_lookup(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr nocapture noundef %data) #0 {
+define internal range(i32 -1, 1) i32 @graph_read_oid_lookup(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr nocapture noundef initializes((104, 112)) %data) #0 {
 entry:
   %chunk_oid_lookup = getelementptr inbounds i8, ptr %data, i64 104
   store ptr %chunk_start, ptr %chunk_oid_lookup, align 8
@@ -1060,7 +1060,7 @@ declare void @init_bloom_filters() local_unnamed_addr #1
 declare void @free_chunkfile(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @open_commit_graph_chain(ptr noundef %chain_file, ptr nocapture noundef %fd, ptr nocapture noundef %st) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @open_commit_graph_chain(ptr noundef %chain_file, ptr nocapture noundef initializes((0, 4)) %fd, ptr nocapture noundef %st) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @git_open_cloexec(ptr noundef %chain_file, i32 noundef 0) #22
   store i32 %call, ptr %fd, align 4
@@ -7320,7 +7320,7 @@ entry:
 declare ptr @start_progress(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @disable_commit_graph(ptr nocapture noundef writeonly %r) local_unnamed_addr #12 {
+define dso_local void @disable_commit_graph(ptr nocapture noundef writeonly initializes((272, 276)) %r) local_unnamed_addr #12 {
 entry:
   %commit_graph_disabled = getelementptr inbounds i8, ptr %r, i64 272
   store i32 1, ptr %commit_graph_disabled, align 8

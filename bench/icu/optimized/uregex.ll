@@ -24,7 +24,7 @@ $_ZN6icu_7510RegexCImpl5splitEPNS_17RegularExpressionEPDsiPiPS3_iP10UErrorCode =
 @_ZN6icu_7517RegularExpressionD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7517RegularExpressionD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7517RegularExpressionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(61) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7517RegularExpressionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(61) initializes((0, 4), (8, 36), (40, 61)) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 1919252592, ptr %this, align 8
   %fPat = getelementptr inbounds i8, ptr %this, i64 8

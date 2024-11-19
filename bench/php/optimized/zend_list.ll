@@ -421,7 +421,7 @@ zend_fetch_resource2.exit:                        ; preds = %27, %32, %35, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @list_entry_destructor(ptr nocapture noundef %0) #0 {
+define hidden void @list_entry_destructor(ptr nocapture noundef initializes((8, 12)) %0) #0 {
   %2 = alloca %struct._zend_resource, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

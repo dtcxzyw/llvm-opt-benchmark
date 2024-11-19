@@ -157,7 +157,7 @@ $_ZTVN4llvm18BinaryStreamWriterE = comdat any
 @_ZN4llvm8codeview16SymbolSerializerC1ERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEENS0_17CodeViewContainerE = unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN4llvm8codeview16SymbolSerializerC2ERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEENS0_17CodeViewContainerE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8codeview16SymbolSerializerC2ERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEENS0_17CodeViewContainerE(ptr noundef nonnull align 8 dereferenceable(65516) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8codeview16SymbolSerializerC2ERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEENS0_17CodeViewContainerE(ptr noundef nonnull align 8 dereferenceable(65516) initializes((0, 16), (65296, 65304)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 376) (i8, ptr @_ZTVN4llvm8codeview16SymbolSerializerE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -201,7 +201,7 @@ define dso_local void @_ZN4llvm8codeview16SymbolSerializerC2ERNS_20BumpPtrAlloca
 declare void @_ZN4llvm18BinaryStreamWriterC1ERNS_20WritableBinaryStreamE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8codeview16SymbolSerializer16visitSymbolBeginERNS0_8CVRecordINS0_10SymbolKindEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(65516) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8codeview16SymbolSerializer16visitSymbolBeginERNS0_8CVRecordINS0_10SymbolKindEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(65516) initializes((65408, 65416)) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::codeview::RecordPrefix", align 2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 65352
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 65408

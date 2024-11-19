@@ -575,7 +575,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10ThreadPoolC2Em(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10ThreadPoolC2Em(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 9), (16, 136)) %0, i64 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::io::detail::put_holder", align 8
   %4 = alloca %"class.boost::basic_format", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

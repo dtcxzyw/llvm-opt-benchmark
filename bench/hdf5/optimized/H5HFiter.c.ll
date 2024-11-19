@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @LogTable256 = internal unnamed_addr constant [256 x i8] c"\00\00\01\01\02\02\02\02\03\03\03\03\03\03\03\03\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @H5HF__man_iter_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define noundef i32 @H5HF__man_iter_init(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret i32 0
 }
@@ -38,7 +38,7 @@ define noundef i32 @H5HF__man_iter_init(ptr nocapture noundef writeonly %0) loca
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr nocapture noundef initializes((8, 16)) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca i8, align 1
   %5 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5HF_block_loc_t_reg_free_list) #8
   %6 = getelementptr inbounds i8, ptr %1, i64 8

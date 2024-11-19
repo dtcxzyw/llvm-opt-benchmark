@@ -2013,7 +2013,7 @@ _ZN5clang12OMPMapClause13used_childrenEv.exit:    ; preds = %67, %60, %122, %121
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14OMPFinalClause13used_childrenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang14OMPFinalClause13used_childrenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range") align 8 initializes((0, 16), (24, 40)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -2062,7 +2062,7 @@ _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread: ; preds = %5, %7, %2, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang18OMPGrainsizeClause13used_childrenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang18OMPGrainsizeClause13used_childrenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range") align 8 initializes((0, 16), (24, 40)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -2112,7 +2112,7 @@ _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread: ; preds = %5, %7, %2, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang11OMPIfClause13used_childrenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range") align 8 %0, ptr noundef nonnull align 8 dereferenceable(52) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang11OMPIfClause13used_childrenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range") align 8 initializes((0, 16), (24, 40)) %0, ptr noundef nonnull align 8 dereferenceable(52) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -2287,7 +2287,7 @@ _ZN4llvm4findINS_15MutableArrayRefIPN5clang4ExprEEEDnEEDaOT_RKT0_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang18OMPNocontextClause13used_childrenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang18OMPNocontextClause13used_childrenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range") align 8 initializes((0, 16), (24, 40)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -2336,7 +2336,7 @@ _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread: ; preds = %5, %7, %2, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang19OMPNovariantsClause13used_childrenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang19OMPNovariantsClause13used_childrenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range") align 8 initializes((0, 16), (24, 40)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -2385,7 +2385,7 @@ _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread: ; preds = %5, %7, %2, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang17OMPNumTasksClause13used_childrenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang17OMPNumTasksClause13used_childrenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range") align 8 initializes((0, 16), (24, 40)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -2435,7 +2435,7 @@ _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread: ; preds = %5, %7, %2, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang17OMPPriorityClause13used_childrenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang17OMPPriorityClause13used_childrenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range") align 8 initializes((0, 16), (24, 40)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -10161,7 +10161,7 @@ define dso_local void @_ZN5clang23OMPUsesAllocatorsClause17setAllocatorsDataEN4l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5clang23OMPUsesAllocatorsClause16getAllocatorDataEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.clang::OMPUsesAllocatorsClause::Data") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZNK5clang23OMPUsesAllocatorsClause16getAllocatorDataEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.clang::OMPUsesAllocatorsClause::Data") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = shl i32 %2, 1
   %6 = zext i32 %5 to i64

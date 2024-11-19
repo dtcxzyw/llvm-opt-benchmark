@@ -880,7 +880,7 @@ declare i64 @tliSwitchPoint(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 declare void @list_free_deep(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @wal_segment_open(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @wal_segment_open(ptr nocapture noundef initializes((1208, 1212)) %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = load i32, ptr %2, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 1204

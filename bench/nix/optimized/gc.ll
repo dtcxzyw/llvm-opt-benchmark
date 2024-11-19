@@ -71443,7 +71443,7 @@ _ZNSt3mapIiSt6threadSt4lessIiESaISt4pairIKiS0_EEED2Ev.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN3nix10LocalStore14collectGarbageERKNS3_9GCOptionsERNS3_9GCResultsEENK3$_0clEvEUlvE0_EEEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 align 2 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN3nix10LocalStore14collectGarbageERKNS3_9GCOptionsERNS3_9GCResultsEENK3$_0clEvEUlvE0_EEEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN3nix10LocalStore14collectGarbageERKNS3_9GCOptionsERNS3_9GCResultsEENK3$_0clEvEUlvE0_EEEEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN3nix11AutoCloseFDD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #34
@@ -71452,7 +71452,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN3nix1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN3nix10LocalStore14collectGarbageERKNS3_9GCOptionsERNS3_9GCResultsEENK3$_0clEvEUlvE0_EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 align 2 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN3nix10LocalStore14collectGarbageERKNS3_9GCOptionsERNS3_9GCResultsEENK3$_0clEvEUlvE0_EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZN3nix10LocalStore14collectGarbageERKNS3_9GCOptionsERNS3_9GCResultsEENK3$_0clEvEUlvE0_EEEEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN3nix11AutoCloseFDD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #34
@@ -74580,7 +74580,7 @@ define linkonce_odr void @_ZN5boost2io6detail13call_put_lastIcSt11char_traitsIcE
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3nix10LocalStore6autoGCEbE3$_1EEEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 align 2 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3nix10LocalStore6autoGCEbE3$_1EEEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3nix10LocalStore6autoGCEbE3$_1EEEEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7promiseIvED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #34
@@ -74589,7 +74589,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3nix10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3nix10LocalStore6autoGCEbE3$_1EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 align 2 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3nix10LocalStore6autoGCEbE3$_1EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3nix10LocalStore6autoGCEbE3$_1EEEEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7promiseIvED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #34

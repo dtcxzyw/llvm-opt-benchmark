@@ -4071,7 +4071,7 @@ define internal fastcc i64 @record_print_text(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @console_flush_all(i1 noundef zeroext %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc zeroext i1 @console_flush_all(i1 noundef zeroext %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef initializes((0, 1)) %2) unnamed_addr #1 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca %struct.printk_message, align 8
   store i64 0, ptr %1, align 8
@@ -5312,7 +5312,7 @@ define internal fastcc i32 @try_enable_preferred_console(ptr noundef %0, i1 noun
 declare dso_local void @nbcon_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @console_init_seq(ptr nocapture noundef %0, i1 noundef zeroext %1) unnamed_addr #1 align 16 {
+define internal fastcc void @console_init_seq(ptr nocapture noundef initializes((88, 96)) %0, i1 noundef zeroext %1) unnamed_addr #1 align 16 {
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #27
   %4 = getelementptr inbounds i8, ptr %0, i64 72

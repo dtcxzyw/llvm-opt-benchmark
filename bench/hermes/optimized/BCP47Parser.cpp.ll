@@ -225,7 +225,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEESaIS5_EED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes13platform_intl12_GLOBAL__N_116splitIntoSubtagsERKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE(ptr noalias nonnull align 8 %agg.result, ptr %locale.0.val, i64 %locale.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZN6hermes13platform_intl12_GLOBAL__N_116splitIntoSubtagsERKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result, ptr %locale.0.val, i64 %locale.8.val) unnamed_addr #0 {
 entry:
   %s = alloca %"class.__gnu_cxx::__normal_iterator.32", align 8
   %tagEnd = alloca %"class.__gnu_cxx::__normal_iterator.32", align 8

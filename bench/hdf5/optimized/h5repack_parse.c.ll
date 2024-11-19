@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.36 = private unnamed_addr constant [52 x i8] c"in parse layout, <%s> conversion to number in <%s>\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef initializes((0, 96)) %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #0 {
   %6 = alloca [256 x i8], align 16
   %7 = alloca [16 x i8], align 16
   %8 = alloca [16 x i8], align 16

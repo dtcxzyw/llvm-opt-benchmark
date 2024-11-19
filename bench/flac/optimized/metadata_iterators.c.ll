@@ -158,7 +158,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @FLAC__metadata_object_delete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_get_tags(ptr noundef %filename, ptr nocapture noundef writeonly %tags) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FLAC__metadata_get_tags(ptr noundef %filename, ptr nocapture noundef writeonly initializes((0, 8)) %tags) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @get_one_metadata_block_(ptr noundef %filename, i32 noundef 4)
   store ptr %call, ptr %tags, align 8
@@ -168,7 +168,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_get_cuesheet(ptr noundef %filename, ptr nocapture noundef writeonly %cuesheet) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FLAC__metadata_get_cuesheet(ptr noundef %filename, ptr nocapture noundef writeonly initializes((0, 8)) %cuesheet) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @get_one_metadata_block_(ptr noundef %filename, i32 noundef 5)
   store ptr %call, ptr %cuesheet, align 8
@@ -178,7 +178,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define range(i32 0, 2) i32 @FLAC__metadata_get_picture(ptr nocapture noundef readonly %filename, ptr nocapture noundef %picture, i32 noundef %type, ptr noundef readonly %mime_type, ptr noundef readonly %description, i32 noundef %max_width, i32 noundef %max_height, i32 noundef %max_depth, i32 noundef %max_colors) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FLAC__metadata_get_picture(ptr nocapture noundef readonly %filename, ptr nocapture noundef initializes((0, 8)) %picture, i32 noundef %type, ptr noundef readonly %mime_type, ptr noundef readonly %description, i32 noundef %max_width, i32 noundef %max_height, i32 noundef %max_depth, i32 noundef %max_colors) local_unnamed_addr #0 {
 entry:
   %raw_header.i.i.i = alloca [4 x i8], align 1
   store ptr null, ptr %picture, align 8
@@ -2158,7 +2158,7 @@ entry:
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @simple_iterator_prime_input_(ptr nocapture noundef %iterator, i32 noundef %read_only) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @simple_iterator_prime_input_(ptr nocapture noundef initializes((0, 8), (172, 176)) %iterator, i32 noundef %read_only) unnamed_addr #6 {
 entry:
   %raw_header.i.i = alloca [4 x i8], align 1
   %buffer.i.i = alloca [4 x i8], align 1
@@ -7423,7 +7423,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define void @FLAC__metadata_iterator_init(ptr nocapture noundef writeonly %iterator, ptr noundef %chain) local_unnamed_addr #9 {
+define void @FLAC__metadata_iterator_init(ptr nocapture noundef writeonly initializes((0, 16)) %iterator, ptr noundef %chain) local_unnamed_addr #9 {
 entry:
   store ptr %chain, ptr %iterator, align 8
   %head = getelementptr inbounds i8, ptr %chain, i64 16
@@ -7929,7 +7929,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @chain_read_ogg_cb_(ptr noundef %chain, ptr noundef %handle, ptr noundef %read_cb) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @chain_read_ogg_cb_(ptr noundef initializes((64, 80)) %chain, ptr noundef %handle, ptr noundef %read_cb) unnamed_addr #0 {
 entry:
   %handle1 = getelementptr inbounds i8, ptr %chain, i64 64
   store ptr %handle, ptr %handle1, align 8
@@ -9521,7 +9521,7 @@ return:                                           ; preds = %chain_append_node_.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @chain_read_ogg_error_cb_(ptr nocapture readnone %decoder, i32 %status, ptr nocapture noundef writeonly %client_data) #19 {
+define internal void @chain_read_ogg_error_cb_(ptr nocapture readnone %decoder, i32 %status, ptr nocapture noundef writeonly initializes((36, 40)) %client_data) #19 {
 entry:
   %status1 = getelementptr inbounds i8, ptr %client_data, i64 36
   store i32 12, ptr %status1, align 4
@@ -9731,7 +9731,7 @@ return:                                           ; preds = %if.then21, %if.end1
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @open_tempfile_(ptr noundef %filename, ptr noundef %tempfile_path_prefix, ptr nocapture noundef nonnull writeonly %tempfile, ptr nocapture noundef nonnull %tempfilename, ptr nocapture noundef writeonly %status) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @open_tempfile_(ptr noundef %filename, ptr noundef %tempfile_path_prefix, ptr nocapture noundef nonnull writeonly %tempfile, ptr nocapture noundef nonnull initializes((0, 8)) %tempfilename, ptr nocapture noundef writeonly %status) unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %tempfile_path_prefix, null
   br i1 %cmp, label %if.then, label %if.else

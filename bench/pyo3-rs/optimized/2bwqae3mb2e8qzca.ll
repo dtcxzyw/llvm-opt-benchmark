@@ -3663,7 +3663,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend12frompyobject9Container20b
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend12frompyobject22ContainerPyO3Attribute15ErrorAnnotation17h2d3a3b56739049d3E(ptr nocapture writeonly sret([56 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define hidden void @_ZN19pyo3_macros_backend12frompyobject22ContainerPyO3Attribute15ErrorAnnotation17h2d3a3b56739049d3E(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 16)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store i64 -9223372036854775806, ptr %0, align 8
@@ -3671,7 +3671,7 @@ define hidden void @_ZN19pyo3_macros_backend12frompyobject22ContainerPyO3Attribu
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19pyo3_macros_backend12frompyobject22ContainerPyO3Attribute5Crate17hb4ffaa01b63f4b00E(ptr nocapture writeonly sret([56 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend12frompyobject22ContainerPyO3Attribute5Crate17hb4ffaa01b63f4b00E(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 56)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   ret void
 }
@@ -4208,7 +4208,7 @@ default.unreachable:                              ; preds = %47
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19pyo3_macros_backend12frompyobject18FieldPyO3Attribute10FromPyWith17h4f9affb9f96400a3E(ptr nocapture writeonly sret([112 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend12frompyobject18FieldPyO3Attribute10FromPyWith17h4f9affb9f96400a3E(ptr nocapture writeonly sret([112 x i8]) align 8 initializes((0, 112)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false)
   ret void
 }

@@ -12706,7 +12706,7 @@ define dso_local ptr @huge_pte_offset(ptr nocapture noundef readonly %0, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -16, 2) i32 @get_hwpoison_hugetlb_folio(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -16, 2) i32 @get_hwpoison_hugetlb_folio(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   store i8 0, ptr %1, align 1
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @hugetlb_lock) #22
   %4 = load volatile i64, ptr %0, align 8
@@ -13239,7 +13239,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local void @hugetlb_cgroup_uncharge_file_region(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @copy_hugetlb_cgroup_uncharge_info(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @copy_hugetlb_cgroup_uncharge_info(ptr nocapture noundef nonnull writeonly initializes((32, 48)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32

@@ -4774,7 +4774,7 @@ define hidden void @_ZN2cv12ppf_match_3d7shuffleEPim(ptr nocapture noundef %0, i
 declare i32 @rand() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv12ppf_match_3d14computeBboxStdENS_3MatERNS_3VecIfLi2EEES4_S4_(ptr noundef nonnull %0, ptr nocapture noundef nonnull align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull align 4 dereferenceable(8) %2, ptr nocapture noundef nonnull align 4 dereferenceable(8) %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv12ppf_match_3d14computeBboxStdENS_3MatERNS_3VecIfLi2EEES4_S4_(ptr noundef nonnull %0, ptr nocapture noundef nonnull align 4 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef nonnull align 4 dereferenceable(8) initializes((0, 8)) %2, ptr nocapture noundef nonnull align 4 dereferenceable(8) initializes((0, 8)) %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::Range", align 8
   %6 = alloca %"class.cv::Range", align 4
   %7 = alloca %"class.cv::Mat", align 8
@@ -6675,7 +6675,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #1
 declare void @_ZN2cv3RNG4fillERKNS_17_InputOutputArrayEiRKNS_11_InputArrayES6_b(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv12ppf_match_3d11getRandQuatERNS_3VecIdLi4EEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 {
+define hidden void @_ZN2cv12ppf_match_3d11getRandQuatERNS_3VecIdLi4EEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %0) local_unnamed_addr #6 {
   %2 = tail call i32 @rand() #32
   %3 = sitofp i32 %2 to float
   %4 = fmul float %3, 0x3E00000000000000
@@ -7075,7 +7075,7 @@ _ZN2cvmLIdLi3ELi3EEERNS_4MatxIT_XT0_EXT1_EEES4_d.exit: ; preds = %23
 declare void @_ZN2cv15calcCovarMatrixERKNS_11_InputArrayERKNS_12_OutputArrayERKNS_17_InputOutputArrayEii(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv12ppf_match_3d17meanCovLocalPCIndERKNS_3MatEPKiiRNS_4MatxIdLi3ELi3EEERNS_3VecIdLi3EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef nonnull align 8 dereferenceable(72) %3, ptr nocapture noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #13 {
+define hidden void @_ZN2cv12ppf_match_3d17meanCovLocalPCIndERKNS_3MatEPKiiRNS_4MatxIdLi3ELi3EEERNS_3VecIdLi3EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 72)) %3, ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %4) local_unnamed_addr #13 {
 _ZN2cv4MatxIdLi3ELi3EE3allEd.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)

@@ -3348,7 +3348,7 @@ define internal range(i32 -1, 2) i32 @iomap_ioend_compare(ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @iomap_writepages(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local i32 @iomap_writepages(ptr noundef %0, ptr noundef %1, ptr noundef initializes((88, 96)) %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 88
   store ptr %3, ptr %5, align 8
   %6 = tail call i32 @write_cache_pages(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @iomap_do_writepage, ptr noundef %2) #16
@@ -4927,7 +4927,7 @@ declare dso_local ptr @bio_alloc_bioset(ptr noundef, i16 noundef zeroext, i32 no
 declare dso_local i32 @blk_status_to_errno(i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @bio_next_folio(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #11 align 16 {
+define internal fastcc void @bio_next_folio(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #11 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32

@@ -30,7 +30,7 @@ $__clang_call_terminate = comdat any
 @_ZN9CryptDataC1Ev = unnamed_addr alias void (ptr), ptr @_ZN9CryptDataC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9CryptData8SetKey13EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2516) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define void @_ZN9CryptData8SetKey13EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2516) initializes((2504, 2507)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2504
   %4 = getelementptr inbounds i8, ptr %0, i64 2506
   store i8 0, ptr %4, align 2
@@ -138,7 +138,7 @@ define void @_ZN9CryptData17SetAV15EncryptionEv(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9CryptData18SetCmt13EncryptionEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2516) %0) local_unnamed_addr #4 align 2 {
+define void @_ZN9CryptData18SetCmt13EncryptionEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2516) initializes((940, 944), (2504, 2507)) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 940
   store i32 1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 2504

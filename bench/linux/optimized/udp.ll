@@ -104,7 +104,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_udp6_seq_ops
 @llvm.compiler.used = appending global [7 x ptr] [ptr @__UNIQUE_ID___addressable___udp6_lib_lookup1018, ptr @__UNIQUE_ID___addressable_udp6_seq_ops1063, ptr @__UNIQUE_ID___addressable_udpv6_encap_enable1020, ptr @__UNIQUE_ID___addressable_udpv6_sendmsg1060, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched209, ptr @trace_udp_fail_queue_rcv_skb.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace857, ptr @trace_udp_fail_queue_rcv_skb.__UNIQUE_ID___addressable___SCK__tp_func_udp_fail_queue_rcv_skb856], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @udpv6_init_sock(ptr noundef %0) #0 align 16 {
+define dso_local noundef i32 @udpv6_init_sock(ptr noundef initializes((1108, 1112)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1088
   %3 = getelementptr inbounds i8, ptr %0, i64 1108
   store i32 0, ptr %3, align 4

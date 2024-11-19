@@ -90,7 +90,7 @@ $_ZTSPFvPN19OpenColorIO_v2_4dev16BuiltinTransformEE = comdat any
 @_ZTSPFvPN19OpenColorIO_v2_4dev16BuiltinTransformEE = linkonce_odr constant [47 x i8] c"PFvPN19OpenColorIO_v2_4dev16BuiltinTransformEE\00", comdat, align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev16BuiltinTransform6CreateEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev16BuiltinTransform6CreateEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call, i8 0, i64 16, i1 false)
@@ -351,7 +351,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20BuiltinTransformImpl12setDirectionENS_18TransformDirectionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i32 noundef %dir) unnamed_addr #5 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20BuiltinTransformImpl12setDirectionENS_18TransformDirectionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 12)) %this, i32 noundef %dir) unnamed_addr #5 align 2 {
 entry:
   %m_direction = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %dir, ptr %m_direction, align 8

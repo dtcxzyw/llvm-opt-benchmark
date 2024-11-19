@@ -63,7 +63,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK10bit_matrix3row5beginEv(ptr noalias nocapture sret(%"class.bit_matrix::col_iterator") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK10bit_matrix3row5beginEv(ptr noalias nocapture sret(%"class.bit_matrix::col_iterator") align 8 initializes((0, 20)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
   %m_column.i = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -135,7 +135,7 @@ _ZN10bit_matrix12col_iteratorC2ERKNS_3rowEb.exit: ; preds = %land.rhs.i.i, %whil
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK10bit_matrix3row3endEv(ptr noalias nocapture writeonly sret(%"class.bit_matrix::col_iterator") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
+define hidden void @_ZNK10bit_matrix3row3endEv(ptr noalias nocapture writeonly sret(%"class.bit_matrix::col_iterator") align 8 initializes((0, 20)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
   %m_column.i = getelementptr inbounds i8, ptr %agg.result, i64 16

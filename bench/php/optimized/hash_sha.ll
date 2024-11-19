@@ -39,7 +39,7 @@ declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #0
 declare i32 @php_hash_unserialize(ptr noundef, i64 noundef, ptr noundef) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_SHA256InitArgs(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #1 {
+define void @PHP_SHA256InitArgs(ptr nocapture noundef writeonly initializes((0, 40)) %0, ptr nocapture readnone %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4
@@ -281,7 +281,7 @@ SHAEncode32.exit:                                 ; preds = %77
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_SHA224InitArgs(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #1 {
+define void @PHP_SHA224InitArgs(ptr nocapture noundef writeonly initializes((0, 40)) %0, ptr nocapture readnone %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4
@@ -681,7 +681,7 @@ SHADecode32.exit.preheader:                       ; preds = %20
 declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_SHA384InitArgs(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #1 {
+define void @PHP_SHA384InitArgs(ptr nocapture noundef writeonly initializes((0, 80)) %0, ptr nocapture readnone %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i64 -3766243637369397544, ptr %0, align 8
@@ -1143,7 +1143,7 @@ SHAEncode64.exit:                                 ; preds = %99
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_SHA512InitArgs(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #1 {
+define void @PHP_SHA512InitArgs(ptr nocapture noundef writeonly initializes((0, 80)) %0, ptr nocapture readnone %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i64 7640891576956012808, ptr %0, align 8
@@ -1165,7 +1165,7 @@ define void @PHP_SHA512InitArgs(ptr nocapture noundef writeonly %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_SHA512_256InitArgs(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #1 {
+define void @PHP_SHA512_256InitArgs(ptr nocapture noundef writeonly initializes((0, 80)) %0, ptr nocapture readnone %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i64 2463787394917988140, ptr %0, align 8
@@ -1187,7 +1187,7 @@ define void @PHP_SHA512_256InitArgs(ptr nocapture noundef writeonly %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_SHA512_224InitArgs(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #1 {
+define void @PHP_SHA512_224InitArgs(ptr nocapture noundef writeonly initializes((0, 80)) %0, ptr nocapture readnone %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i64 -8341449602262348382, ptr %0, align 8
@@ -1482,7 +1482,7 @@ SHAEncode64.exit:                                 ; preds = %101
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_SHA512_256Final(ptr nocapture noundef writeonly %0, ptr noundef %1) #2 {
+define void @PHP_SHA512_256Final(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr noundef %1) #2 {
   %3 = alloca [64 x i8], align 16
   call void @PHP_SHA512Final(ptr noundef nonnull %3, ptr noundef %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %3, i64 32, i1 false)
@@ -1490,7 +1490,7 @@ define void @PHP_SHA512_256Final(ptr nocapture noundef writeonly %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_SHA512_224Final(ptr nocapture noundef writeonly %0, ptr noundef %1) #2 {
+define void @PHP_SHA512_224Final(ptr nocapture noundef writeonly initializes((0, 28)) %0, ptr noundef %1) #2 {
   %3 = alloca [64 x i8], align 16
   call void @PHP_SHA512Final(ptr noundef nonnull %3, ptr noundef %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %0, ptr noundef nonnull align 16 dereferenceable(28) %3, i64 28, i1 false)

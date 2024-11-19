@@ -62,7 +62,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook4yoga4NodeC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this) unnamed_addr #3 align 2 {
+define void @_ZN8facebook4yoga4NodeC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(640) initializes((8, 252)) %this) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN8facebook4yoga6Config10getDefaultEv()
   tail call void @_ZN8facebook4yoga4NodeC2EPKNS0_6ConfigE(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull %call)
@@ -72,7 +72,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN8facebook4yoga6Config10getDefaultEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook4yoga4NodeC2EPKNS0_6ConfigE(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this, ptr noundef %config) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook4yoga4NodeC2EPKNS0_6ConfigE(ptr nocapture noundef nonnull align 8 dereferenceable(640) initializes((8, 252)) %this, ptr noundef %config) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bf.load = load i8, ptr %this, align 8
   %bf.set = and i8 %bf.load, -16
@@ -277,7 +277,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef zeroext i1 @_ZNK8facebook4yoga6Config14useWebDefaultsEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8facebook4yoga4NodeC2EOS1_(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr nocapture noundef nonnull align 8 dereferenceable(640) %node) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook4yoga4NodeC2EOS1_(ptr noundef nonnull align 8 dereferenceable(640) initializes((8, 252)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(640) %node) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bf.load = load i8, ptr %this, align 8
   %bf.set = and i8 %bf.load, -16
@@ -4680,7 +4680,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook4yoga4Node27setLayoutLastOwnerDirectionENS0_9DirectionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this, i8 noundef zeroext %direction) local_unnamed_addr #12 align 2 {
+define void @_ZN8facebook4yoga4Node27setLayoutLastOwnerDirectionENS0_9DirectionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) initializes((264, 265)) %this, i8 noundef zeroext %direction) local_unnamed_addr #12 align 2 {
 entry:
   %lastOwnerDirection = getelementptr inbounds i8, ptr %this, i64 264
   store i8 %direction, ptr %lastOwnerDirection, align 8
@@ -4688,7 +4688,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook4yoga4Node26setLayoutComputedFlexBasisENS0_13FloatOptionalE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this, float %computedFlexBasis.coerce) local_unnamed_addr #12 align 2 {
+define void @_ZN8facebook4yoga4Node26setLayoutComputedFlexBasisENS0_13FloatOptionalE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) initializes((256, 260)) %this, float %computedFlexBasis.coerce) local_unnamed_addr #12 align 2 {
 entry:
   %computedFlexBasis2 = getelementptr inbounds i8, ptr %this, i64 256
   store float %computedFlexBasis.coerce, ptr %computedFlexBasis2, align 8
@@ -4708,7 +4708,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook4yoga4Node36setLayoutComputedFlexBasisGenerationEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this, i32 noundef %computedFlexBasisGeneration) local_unnamed_addr #12 align 2 {
+define void @_ZN8facebook4yoga4Node36setLayoutComputedFlexBasisGenerationEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) initializes((252, 256)) %this, i32 noundef %computedFlexBasisGeneration) local_unnamed_addr #12 align 2 {
 entry:
   %layout_ = getelementptr inbounds i8, ptr %this, i64 252
   store i32 %computedFlexBasisGeneration, ptr %layout_, align 4

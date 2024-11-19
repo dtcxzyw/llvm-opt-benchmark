@@ -120,7 +120,7 @@ declare void @policy_data_free(ptr noundef) #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2, 2) i32 @X509_policy_check(ptr nocapture noundef writeonly %ptree, ptr nocapture noundef %pexplicit_policy, ptr noundef %certs, ptr noundef %policy_oids, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden range(i32 -2, 2) i32 @X509_policy_check(ptr nocapture noundef writeonly initializes((0, 8)) %ptree, ptr nocapture noundef initializes((0, 4)) %pexplicit_policy, ptr noundef %certs, ptr noundef %policy_oids, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %auth_nodes = alloca ptr, align 8
   store ptr null, ptr %auth_nodes, align 8

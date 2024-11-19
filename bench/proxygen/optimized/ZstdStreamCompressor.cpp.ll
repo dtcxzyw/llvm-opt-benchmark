@@ -46,7 +46,7 @@ $_ZTIN8proxygen16StreamCompressorE = comdat any
 @_ZN8proxygen20ZstdStreamCompressorC1Eib = unnamed_addr alias void (ptr, i32, i1), ptr @_ZN8proxygen20ZstdStreamCompressorC2Eib
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen20ZstdStreamCompressorC2Eib(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(22) %this, i32 noundef %compressionLevel, i1 noundef zeroext %independentChunks) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen20ZstdStreamCompressorC2Eib(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(22) initializes((0, 22)) %this, i32 noundef %compressionLevel, i1 noundef zeroext %independentChunks) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %independentChunks to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen20ZstdStreamCompressorE, i64 16), ptr %this, align 8

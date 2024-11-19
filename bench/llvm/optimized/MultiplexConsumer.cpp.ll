@@ -30,7 +30,7 @@ $_ZN5clang28MultiplexASTMutationListenerD0Ev = comdat any
 @_ZN5clang17MultiplexConsumerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang17MultiplexConsumerD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang35MultiplexASTDeserializationListenerC2ERKSt6vectorIPNS_26ASTDeserializationListenerESaIS3_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang35MultiplexASTDeserializationListenerC2ERKSt6vectorIPNS_26ASTDeserializationListenerESaIS3_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN5clang35MultiplexASTDeserializationListenerE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -365,7 +365,7 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener16ModuleImp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang28MultiplexASTMutationListenerC2EN4llvm8ArrayRefIPNS_19ASTMutationListenerEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr nocapture readonly %1, i64 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang28MultiplexASTMutationListenerC2EN4llvm8ArrayRefIPNS_19ASTMutationListenerEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture readonly %1, i64 %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTVN5clang28MultiplexASTMutationListenerE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -1119,7 +1119,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener23AddedAnonymousNa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang17MultiplexConsumerC2ESt6vectorISt10unique_ptrINS_11ASTConsumerESt14default_deleteIS3_EESaIS6_EE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang17MultiplexConsumerC2ESt6vectorISt10unique_ptrINS_11ASTConsumerESt14default_deleteIS3_EESaIS6_EE(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 9), (16, 56)) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::vector", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %4, align 8
@@ -1388,7 +1388,7 @@ _ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EED2Ev.exit: ; preds = %_ZNSt6v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang17MultiplexConsumerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang17MultiplexConsumerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTVN5clang17MultiplexConsumerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8

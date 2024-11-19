@@ -28,7 +28,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4toku8treenode4initEPKNS_10comparatorE(ptr noundef nonnull align 8 dereferenceable(202) %this, ptr noundef %cmp) local_unnamed_addr #0 align 2 {
+define void @_ZN4toku8treenode4initEPKNS_10comparatorE(ptr noundef nonnull align 8 dereferenceable(202) initializes((0, 48), (136, 145), (152, 160), (192, 202)) %this, ptr noundef %cmp) local_unnamed_addr #0 align 2 {
 entry:
   %attr = alloca %union.pthread_mutexattr_t, align 4
   %m_txnid = getelementptr inbounds i8, ptr %this, i64 136
@@ -63,7 +63,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4toku8treenode9child_ptr3setEPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %node) local_unnamed_addr #2 align 2 {
+define void @_ZN4toku8treenode9child_ptr3setEPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 12)) %this, ptr noundef %node) local_unnamed_addr #2 align 2 {
 entry:
   store ptr %node, ptr %this, align 8
   %tobool.not = icmp eq ptr %node, null
@@ -86,7 +86,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4toku8treenode11create_rootEPKNS_10comparatorE(ptr noundef nonnull align 8 dereferenceable(202) %this, ptr noundef %cmp) local_unnamed_addr #0 align 2 {
+define void @_ZN4toku8treenode11create_rootEPKNS_10comparatorE(ptr noundef nonnull align 8 dereferenceable(202) initializes((0, 48), (136, 145), (152, 160), (192, 202)) %this, ptr noundef %cmp) local_unnamed_addr #0 align 2 {
 entry:
   %attr.i = alloca %union.pthread_mutexattr_t, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i)
@@ -1112,7 +1112,7 @@ return:                                           ; preds = %if.else.i40, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku8treenode16recursive_removeEv(ptr noundef nonnull align 8 dereferenceable(202) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4toku8treenode16recursive_removeEv(ptr noundef nonnull align 8 dereferenceable(202) initializes((168, 172), (184, 188)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_left_child = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %m_left_child, align 8

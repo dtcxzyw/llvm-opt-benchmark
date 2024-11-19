@@ -631,7 +631,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel7mancala12MancalaState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.6") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel7mancala12MancalaState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.6") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(120) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -919,7 +919,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10open_spiel7mancala12MancalaState8SetBoardERKSt5arrayIiLm14EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(56) %1) local_unnamed_addr #8 align 2 {
+define void @_ZN10open_spiel7mancala12MancalaState8SetBoardERKSt5arrayIiLm14EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((60, 116)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(56) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %3, ptr noundef nonnull align 4 dereferenceable(56) %1, i64 56, i1 false)
   ret void

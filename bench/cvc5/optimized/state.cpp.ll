@@ -2021,7 +2021,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers5ieval5State16setEvaluatorModeENS3_17TermEvaluatorModeE(ptr nocapture noundef nonnull align 8 dereferenceable(424) %this, i32 noundef %tev) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers5ieval5State16setEvaluatorModeENS3_17TermEvaluatorModeE(ptr nocapture noundef nonnull align 8 dereferenceable(424) initializes((40, 44)) %this, i32 noundef %tev) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_tevMode = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %tev, ptr %d_tevMode, align 8
@@ -5137,7 +5137,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 declare void @_ZN4cvc58internal6theory11quantifiers5ieval9QuantInfo9setActiveEb(ptr noundef nonnull align 8 dereferenceable(280), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers5ieval5State7getNoneEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate.489") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(424) %this) local_unnamed_addr #9 align 2 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers5ieval5State7getNoneEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate.489") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(424) %this) local_unnamed_addr #9 align 2 {
 entry:
   %d_none = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %d_none, align 8
@@ -5146,7 +5146,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers5ieval5State7getSomeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate.489") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(424) %this) local_unnamed_addr #9 align 2 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers5ieval5State7getSomeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate.489") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(424) %this) local_unnamed_addr #9 align 2 {
 entry:
   %d_some = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %d_some, align 8

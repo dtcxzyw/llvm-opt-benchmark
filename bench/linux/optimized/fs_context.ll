@@ -1531,7 +1531,7 @@ define dso_local i32 @finish_clean_context(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -12, 1) i32 @legacy_init_fs_context(ptr nocapture noundef writeonly %0) unnamed_addr #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @legacy_init_fs_context(ptr nocapture noundef writeonly initializes((48, 56)) %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 4197824, i64 noundef 24) #13
   %4 = getelementptr inbounds i8, ptr %0, i64 48

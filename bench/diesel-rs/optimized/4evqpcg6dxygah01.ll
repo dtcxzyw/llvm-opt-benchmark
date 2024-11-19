@@ -2779,7 +2779,7 @@ define void @"_ZN17all_about_updates1_121_$LT$impl$u20$diesel..query_builder..up
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN17all_about_updates18update_with_option1_141_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$all_about_updates..update_with_option..PostForm$GT$12as_changeset17h1ef7a5fe6bd57aafE"(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { ptr, i64 } }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN17all_about_updates18update_with_option1_141_$LT$impl$u20$diesel..query_builder..update_statement..changeset..AsChangeset$u20$for$u20$all_about_updates..update_with_option..PostForm$GT$12as_changeset17h1ef7a5fe6bd57aafE"(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { ptr, i64 } }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %1, align 8, !align !168, !noundef !9
   %4 = icmp eq ptr %3, null
   br i1 %4, label %12, label %5

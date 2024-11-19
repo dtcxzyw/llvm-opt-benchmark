@@ -2057,7 +2057,7 @@ common.resume:                                    ; preds = %.body, %57, %18
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7uu_sort14GlobalSettings16parse_byte_count17hd5e16db863e4d191E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @_ZN7uu_sort14GlobalSettings16parse_byte_count17hd5e16db863e4d191E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 16)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
   %.sroa.4.i = alloca [3 x i64], align 8
@@ -2234,7 +2234,7 @@ define void @_ZN7uu_sort14GlobalSettings16init_precomputed17h4afa389121559b16E(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN66_$LT$uu_sort..GlobalSettings$u20$as$u20$core..default..Default$GT$7default17h299a7f8cb2623143E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, i64, i64, i8, [7 x i8] }, i64, i64, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, { i8, [16 x i8] }, i8, i8, [6 x i8] }) align 8 dereferenceable(160) %0) unnamed_addr #12 {
+define void @"_ZN66_$LT$uu_sort..GlobalSettings$u20$as$u20$core..default..Default$GT$7default17h299a7f8cb2623143E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, i64, i64, i8, [7 x i8] }, i64, i64, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, { i8, [16 x i8] }, i8, i8, [6 x i8] }) align 8 dereferenceable(160) initializes((0, 56), (72, 97), (104, 136), (152, 154)) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   store i8 6, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 124
@@ -2509,7 +2509,7 @@ define noundef range(i48 6597069766656, 6605659701248) i48 @"_ZN63_$LT$uu_sort..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN7uu_sort4Line6create17h6e7d43b1085c22bdE(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, ptr noalias noundef align 8 dereferenceable(72) %4, ptr noalias noundef align 8 dereferenceable(24) %5, ptr noalias nocapture noundef readonly align 8 dereferenceable(160) %6) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN7uu_sort4Line6create17h6e7d43b1085c22bdE(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, i64 }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, ptr noalias noundef align 8 dereferenceable(72) %4, ptr noalias noundef align 8 dereferenceable(24) initializes((16, 24)) %5, ptr noalias nocapture noundef readonly align 8 dereferenceable(160) %6) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.4.i = alloca { [24 x i8], i8, [7 x i8] }, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8
@@ -3380,7 +3380,7 @@ define internal fastcc void @_ZN7uu_sort11KeyPosition3new17h1b6633e9f10c9b8eE(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN63_$LT$uu_sort..KeyPosition$u20$as$u20$core..default..Default$GT$7default17ha039d782da276470E"(ptr noalias nocapture noundef writeonly sret({ i64, i64, i8, [7 x i8] }) align 8 dereferenceable(24) %0) unnamed_addr #12 {
+define void @"_ZN63_$LT$uu_sort..KeyPosition$u20$as$u20$core..default..Default$GT$7default17ha039d782da276470E"(ptr noalias nocapture noundef writeonly sret({ i64, i64, i8, [7 x i8] }) align 8 dereferenceable(24) initializes((0, 17)) %0) unnamed_addr #12 {
   store i64 1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %2, align 8
@@ -4463,7 +4463,7 @@ switch.lookup:                                    ; preds = %74
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7uu_sort13FieldSelector3new17hebe188195e28d027E(ptr noalias nocapture noundef writeonly sret({ [55 x i8], i8 }) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i48 %3) unnamed_addr #2 {
+define void @_ZN7uu_sort13FieldSelector3new17hebe188195e28d027E(ptr noalias nocapture noundef writeonly sret({ [55 x i8], i8 }) align 8 dereferenceable(56) initializes((0, 24), (55, 56)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i48 %3) unnamed_addr #2 {
   %.sroa.05 = alloca { { [16 x i8], i8, [7 x i8] }, { i64, i64, i8, [7 x i8] } }, align 8
   %.sroa.04.0.extract.trunc = trunc i48 %3 to i40
   %.sroa.4.0.extract.shift = lshr i48 %3, 40

@@ -11187,7 +11187,7 @@ sw.epilog:                                        ; preds = %entry, %"_ZZ22Z3_si
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZ22Z3_simplifier_and_thenEN3$_0C2ERKS_"(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZ22Z3_simplifier_and_thenEN3$_0C2ERKS_"(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 24

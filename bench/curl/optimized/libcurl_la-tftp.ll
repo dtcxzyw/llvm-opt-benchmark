@@ -57,7 +57,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.45 = private unnamed_addr constant [7 x i8] c";mode=\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tftp_setup_connection(ptr nocapture noundef %data, ptr nocapture noundef %conn) #0 {
+define internal noundef i32 @tftp_setup_connection(ptr nocapture noundef %data, ptr nocapture noundef initializes((1166, 1167)) %conn) #0 {
 entry:
   %transport = getelementptr inbounds i8, ptr %conn, i64 1166
   store i8 4, ptr %transport, align 2
@@ -104,7 +104,7 @@ if.end12:                                         ; preds = %sw.bb, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tftp_do(ptr noundef %data, ptr nocapture noundef writeonly %done) #0 {
+define internal i32 @tftp_do(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %done) #0 {
 entry:
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
@@ -292,7 +292,7 @@ return:                                           ; preds = %if.then26, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tftp_multi_statemach(ptr noundef %data, ptr nocapture noundef writeonly %done) #0 {
+define internal i32 @tftp_multi_statemach(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %done) #0 {
 entry:
   %fromaddr.i = alloca %struct.Curl_sockaddr_storage, align 8
   %fromlen.i = alloca i32, align 4
@@ -700,7 +700,7 @@ return:                                           ; preds = %tftp_receive_packet
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tftp_doing(ptr noundef %data, ptr nocapture noundef %dophase_done) #0 {
+define internal i32 @tftp_doing(ptr noundef %data, ptr nocapture noundef initializes((0, 1)) %dophase_done) #0 {
 entry:
   %call = tail call i32 @tftp_multi_statemach(ptr noundef %data, ptr noundef %dophase_done)
   %0 = load i8, ptr %dophase_done, align 1
@@ -727,7 +727,7 @@ if.end10:                                         ; preds = %if.then2, %if.else6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @tftp_getsock(ptr nocapture readnone %data, ptr nocapture noundef readonly %conn, ptr nocapture noundef writeonly %socks) #1 {
+define internal noundef i32 @tftp_getsock(ptr nocapture readnone %data, ptr nocapture noundef readonly %conn, ptr nocapture noundef writeonly initializes((0, 4)) %socks) #1 {
 entry:
   %sock = getelementptr inbounds i8, ptr %conn, i64 392
   %0 = load i32, ptr %sock, align 8

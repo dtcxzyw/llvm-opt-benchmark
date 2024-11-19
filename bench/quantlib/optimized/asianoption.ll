@@ -1449,7 +1449,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib28DiscreteAveragingAsianOptionC1ENS_7Average4TypeEdmSt6vectorINS_4DateESaIS4_EERKN5boost10shared_ptrINS_17StrikedTypePayoffEEERKNS8_INS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(304) %this, i32 noundef %averageType, double noundef %runningAccumulator, i64 noundef %pastFixings, ptr nocapture noundef %fixingDates, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, ptr noundef nonnull align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib28DiscreteAveragingAsianOptionC1ENS_7Average4TypeEdmSt6vectorINS_4DateESaIS4_EERKN5boost10shared_ptrINS_17StrikedTypePayoffEEERKNS8_INS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(304) initializes((304, 312), (320, 324), (328, 336)) %this, i32 noundef %averageType, double noundef %runningAccumulator, i64 noundef %pastFixings, ptr nocapture noundef %fixingDates, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, ptr noundef nonnull align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.16", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -2060,7 +2060,7 @@ lpad:                                             ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib28DiscreteAveragingAsianOptionC1ENS_7Average4TypeESt6vectorINS_4DateESaIS4_EERKN5boost10shared_ptrINS_17StrikedTypePayoffEEERKNS8_INS_8ExerciseEEES3_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(304) %this, i32 noundef %averageType, ptr nocapture noundef %fixingDates, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, ptr noundef nonnull align 8 dereferenceable(16) %exercise, ptr nocapture noundef %allPastFixings) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib28DiscreteAveragingAsianOptionC1ENS_7Average4TypeESt6vectorINS_4DateESaIS4_EERKN5boost10shared_ptrINS_17StrikedTypePayoffEEERKNS8_INS_8ExerciseEEES3_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(304) initializes((304, 312), (320, 324), (328, 336)) %this, i32 noundef %averageType, ptr nocapture noundef %fixingDates, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, ptr noundef nonnull align 8 dereferenceable(16) %exercise, ptr nocapture noundef %allPastFixings) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.16", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 304
@@ -4728,7 +4728,7 @@ lpad:                                             ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30ContinuousAveragingAsianOptionC1ENS_7Average4TypeERKN5boost10shared_ptrINS_17StrikedTypePayoffEEERKNS4_INS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(228) %this, i32 noundef %averageType, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, ptr noundef nonnull align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30ContinuousAveragingAsianOptionC1ENS_7Average4TypeERKN5boost10shared_ptrINS_17StrikedTypePayoffEEERKNS4_INS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(228) initializes((232, 240), (248, 252), (256, 264)) %this, i32 noundef %averageType, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, ptr noundef nonnull align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.16", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 232

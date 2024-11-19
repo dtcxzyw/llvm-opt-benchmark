@@ -367,7 +367,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6google8protobuf2io9Tokenizer21set_report_whitespaceEb(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this, i1 noundef zeroext %report) local_unnamed_addr #11 align 2 {
+define void @_ZN6google8protobuf2io9Tokenizer21set_report_whitespaceEb(ptr nocapture noundef nonnull align 8 dereferenceable(192) initializes((190, 191)) %this, i1 noundef zeroext %report) local_unnamed_addr #11 align 2 {
 entry:
   %frombool = zext i1 %report to i8
   %report_whitespace_ = getelementptr inbounds i8, ptr %this, i64 190
@@ -392,7 +392,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6google8protobuf2io9Tokenizer19set_report_newlinesEb(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this, i1 noundef zeroext %report) local_unnamed_addr #11 align 2 {
+define void @_ZN6google8protobuf2io9Tokenizer19set_report_newlinesEb(ptr nocapture noundef nonnull align 8 dereferenceable(192) initializes((191, 192)) %this, i1 noundef zeroext %report) local_unnamed_addr #11 align 2 {
 entry:
   %frombool = zext i1 %report to i8
   %report_newlines_ = getelementptr inbounds i8, ptr %this, i64 191
@@ -2597,7 +2597,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf2io9Tokenizer4NextEv(ptr noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6google8protobuf2io9Tokenizer4NextEv(ptr noundef nonnull align 8 dereferenceable(192) initializes((56, 60)) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data.i.i102 = alloca ptr, align 8
   %data.i.i = alloca ptr, align 8
@@ -4974,7 +4974,7 @@ if.end19.i:                                       ; preds = %if.then17.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf2io9Tokenizer13TryParseFloatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPd(ptr noundef nonnull align 8 dereferenceable(32) %text, ptr nocapture noundef writeonly %result) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN6google8protobuf2io9Tokenizer13TryParseFloatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPd(ptr noundef nonnull align 8 dereferenceable(32) %text, ptr nocapture noundef writeonly initializes((0, 8)) %result) local_unnamed_addr #6 align 2 {
 entry:
   %end = alloca ptr, align 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %text) #22

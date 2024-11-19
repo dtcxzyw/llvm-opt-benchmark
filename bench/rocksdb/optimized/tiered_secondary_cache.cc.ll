@@ -199,7 +199,7 @@ if.end:                                           ; preds = %if.then.i16, %if.el
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20TieredSecondaryCache6LookupERKNS_5SliceEPKNS_5Cache15CacheItemHelperEPNS4_13CreateContextEbbPNS_10StatisticsERb(ptr noalias sret(%"class.std::unique_ptr.2") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef %helper, ptr noundef %create_context, i1 noundef zeroext %wait, i1 noundef zeroext %advise_erase, ptr noundef %stats, ptr noundef nonnull align 1 dereferenceable(1) %kept_in_sec_cache) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20TieredSecondaryCache6LookupERKNS_5SliceEPKNS_5Cache15CacheItemHelperEPNS4_13CreateContextEbbPNS_10StatisticsERb(ptr noalias sret(%"class.std::unique_ptr.2") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef %helper, ptr noundef %create_context, i1 noundef zeroext %wait, i1 noundef zeroext %advise_erase, ptr noundef %stats, ptr noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %kept_in_sec_cache) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dummy = alloca i8, align 1
   %result = alloca %"class.std::unique_ptr.2", align 8

@@ -6746,7 +6746,7 @@ declare void @_ZN13SubprocessSetC1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_114SubprocessTestD2Ev(ptr noundef nonnull align 8 dereferenceable(704) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_114SubprocessTestD2Ev(ptr noundef nonnull align 8 dereferenceable(704) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_114SubprocessTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN13SubprocessSetD1Ev(ptr noundef nonnull align 8 dereferenceable(688) %2) #18

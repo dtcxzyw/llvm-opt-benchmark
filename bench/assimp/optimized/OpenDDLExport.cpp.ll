@@ -48,7 +48,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @_ZN10ODDLParser13OpenDDLExportD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN10ODDLParser13OpenDDLExportD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10ODDLParser13OpenDDLExportC2EPNS_12IOStreamBaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef %stream) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10ODDLParser13OpenDDLExportC2EPNS_12IOStreamBaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %stream) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %stream, ptr %this, align 8
   %cmp = icmp eq ptr %stream, null

@@ -58,7 +58,7 @@ define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef initializes((416, 424)) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @gtk_event_box_new() #7
   %3 = getelementptr inbounds i8, ptr %0, i64 416
   store ptr %2, ptr %3, align 8, !tbaa !6

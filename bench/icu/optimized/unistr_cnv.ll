@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6icu_7513UnicodeStringC1EPKciP10UConverterR10UErrorCode = unnamed_addr alias void (ptr, ptr, i32, ptr, ptr), ptr @_ZN6icu_7513UnicodeStringC2EPKciP10UConverterR10UErrorCode
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513UnicodeStringC2EPKcS2_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %codepageData, ptr noundef %codepage) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513UnicodeStringC2EPKcS2_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 10)) %this, ptr noundef %codepageData, ptr noundef %codepage) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -217,7 +217,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6icu_7511ReplaceableD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513UnicodeStringC2EPKciS2_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %codepageData, i32 noundef %dataLength, ptr noundef %codepage) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513UnicodeStringC2EPKciS2_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 10)) %this, ptr noundef %codepageData, i32 noundef %dataLength, ptr noundef %codepage) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -240,7 +240,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513UnicodeStringC2EPKciP10UConverterR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %src, i32 noundef %srcLength, ptr noundef %cnv, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513UnicodeStringC2EPKciP10UConverterR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 10)) %this, ptr noundef %src, i32 noundef %srcLength, ptr noundef %cnv, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %this, align 8
   %fUnion2 = getelementptr inbounds i8, ptr %this, i64 8

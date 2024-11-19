@@ -1357,7 +1357,7 @@ _ZN8QuantLib10LazyObject6updateEv.exit:           ; preds = %entry, %if.end9.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18SquareRootCLVModelC2ERKN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEENS2_INS_17SquareRootProcessEEESt6vectorINS_4DateESaISA_EEmdd(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef readonly %vtt, ptr noundef nonnull align 8 dereferenceable(16) %bsProcess, ptr nocapture noundef %sqrtProcess, ptr nocapture noundef %maturityDates, i64 noundef %lagrangeOrder, double noundef %pMax, double noundef %pMin) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18SquareRootCLVModelC2ERKN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEENS2_INS_17SquareRootProcessEEESt6vectorINS_4DateESaISA_EEmdd(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 12), (16, 96)) %this, ptr nocapture noundef readonly %vtt, ptr noundef nonnull align 8 dereferenceable(16) %bsProcess, ptr nocapture noundef %sqrtProcess, ptr nocapture noundef %maturityDates, i64 noundef %lagrangeOrder, double noundef %pMax, double noundef %pMin) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -1725,7 +1725,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18SquareRootCLVModelC1ERKN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEENS2_INS_17SquareRootProcessEEESt6vectorINS_4DateESaISA_EEmdd(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(16) %bsProcess, ptr nocapture noundef %sqrtProcess, ptr nocapture noundef %maturityDates, i64 noundef %lagrangeOrder, double noundef %pMax, double noundef %pMin) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18SquareRootCLVModelC1ERKN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEENS2_INS_17SquareRootProcessEEESt6vectorINS_4DateESaISA_EEmdd(ptr noundef nonnull align 8 dereferenceable(144) initializes((160, 164), (168, 176)) %this, ptr noundef nonnull align 8 dereferenceable(16) %bsProcess, ptr nocapture noundef %sqrtProcess, ptr nocapture noundef %maturityDates, i64 noundef %lagrangeOrder, double noundef %pMax, double noundef %pMin) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %0 = getelementptr inbounds i8, ptr %this, i64 144
   %1 = getelementptr inbounds i8, ptr %this, i64 160
@@ -2691,7 +2691,7 @@ _ZN8QuantLib5ArrayD2Ev.exit35:                    ; preds = %ehcleanup24, %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib18SquareRootCLVModel1gEv(ptr dead_on_unwind noalias writable sret(%"class.std::function") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib18SquareRootCLVModel1gEv(ptr dead_on_unwind noalias writable sret(%"class.std::function") align 8 initializes((0, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !35
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24

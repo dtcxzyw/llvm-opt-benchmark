@@ -31,7 +31,7 @@ $_ZTIN6icu_757UMemoryE = comdat any
 @_ZN6icu_7522TransliterationRuleSetD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7522TransliterationRuleSetD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522TransliterationRuleSetC2ER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1056) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7522TransliterationRuleSetC2ER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1056) initializes((0, 1056)) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522TransliterationRuleSetE, i64 16), ptr %this, align 8
   %ruleVector = getelementptr inbounds i8, ptr %this, i64 8
@@ -110,7 +110,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522TransliterationRuleSetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1056) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1056) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7522TransliterationRuleSetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1056) initializes((0, 1056)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1056) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca i32, align 4
   %p = alloca %struct.UParseError, align 4
@@ -238,7 +238,7 @@ declare void @_ZN6icu_7519TransliterationRuleC1ERS0_(ptr noundef nonnull align 8
 declare void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7522TransliterationRuleSetD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(1056) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7522TransliterationRuleSetD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(1056) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522TransliterationRuleSetE, i64 16), ptr %this, align 8
   %ruleVector = getelementptr inbounds i8, ptr %this, i64 8

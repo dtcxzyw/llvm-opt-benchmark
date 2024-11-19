@@ -99,7 +99,7 @@ define dso_local void @_ZN5clang5arcmt16TransformActions15RewriteReceiverD0Ev(pt
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang5arcmt16TransformActionsC2ERNS_17DiagnosticsEngineERNS0_16CapturedDiagListERNS_10ASTContextERNS_12PreprocessorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(1304) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(23096) %3, ptr noundef nonnull align 8 dereferenceable(3288) %4) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang5arcmt16TransformActionsC2ERNS_17DiagnosticsEngineERNS0_16CapturedDiagListERNS_10ASTContextERNS_12PreprocessorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(1304) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(23096) %3, ptr noundef nonnull align 8 dereferenceable(3288) %4) unnamed_addr #3 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8

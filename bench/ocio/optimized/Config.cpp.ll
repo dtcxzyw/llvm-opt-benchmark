@@ -3774,7 +3774,7 @@ declare void @_ZN19OpenColorIO_v2_4dev16CIOPOciozArchive17setArchiveAbsPathERKNS
 declare void @_ZN19OpenColorIO_v2_4dev16CIOPOciozArchive12buildEntriesEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev6Config23CreateFromConfigIOProxyESt10shared_ptrINS_13ConfigIOProxyEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef readonly %ciop) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev6Config23CreateFromConfigIOProxyESt10shared_ptrINS_13ConfigIOProxyEE(ptr noalias sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef readonly %ciop) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %configStr = alloca %"class.std::__cxx11::basic_string", align 8
   %configStream = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -18024,7 +18024,7 @@ eh.resume:                                        ; preds = %lpad86, %lpad58, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK19OpenColorIO_v2_4dev6Config17getCurrentContextEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.105") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19OpenColorIO_v2_4dev6Config17getCurrentContextEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.105") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_context = getelementptr inbounds i8, ptr %0, i64 56
@@ -22887,7 +22887,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit: ; preds = %cle
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK19OpenColorIO_v2_4dev6Config17getNamedTransformEPKc(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.86") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %name) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19OpenColorIO_v2_4dev6Config17getNamedTransformEPKc(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.86") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %name) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
@@ -25641,7 +25641,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK19OpenColorIO_v2_4dev6Config12getFileRulesEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.127") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19OpenColorIO_v2_4dev6Config12getFileRulesEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.127") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_fileRules = getelementptr inbounds i8, ptr %0, i64 992
@@ -30094,7 +30094,7 @@ _ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev14NamedTransformEESaIS4_EE5cl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK19OpenColorIO_v2_4dev6Config15getViewingRulesEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.133") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19OpenColorIO_v2_4dev6Config15getViewingRulesEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.133") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_viewingRules = getelementptr inbounds i8, ptr %0, i64 520
@@ -38004,7 +38004,7 @@ return:                                           ; preds = %if.end25, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK19OpenColorIO_v2_4dev6Config19getDefaultLumaCoefsEPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef writeonly %c3) local_unnamed_addr #16 align 2 {
+define void @_ZNK19OpenColorIO_v2_4dev6Config19getDefaultLumaCoefsEPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef writeonly initializes((0, 24)) %c3) local_unnamed_addr #16 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_defaultLumaCoefs = getelementptr inbounds i8, ptr %0, i64 808

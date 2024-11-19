@@ -399,7 +399,7 @@ define void @print_gres_list_parsable(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gres_common_gpu_set_env(ptr noundef %0) local_unnamed_addr #0 {
+define void @gres_common_gpu_set_env(ptr noundef initializes((72, 80)) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8

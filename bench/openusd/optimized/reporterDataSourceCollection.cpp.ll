@@ -28,7 +28,7 @@ $_ZN32pxrInternal_v0_24__pxrReserved__33TraceReporterDataSourceCollectionD0Ev = 
 @_ZN32pxrInternal_v0_24__pxrReserved__33TraceReporterDataSourceCollectionC1ESt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS4_EE = unnamed_addr alias void (ptr, ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__33TraceReporterDataSourceCollectionC2ESt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS4_EE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__33TraceReporterDataSourceCollectionC2ESt10shared_ptrINS_15TraceCollectionEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__33TraceReporterDataSourceCollectionC2ESt10shared_ptrINS_15TraceCollectionEE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [1 x %"class.std::shared_ptr"], align 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__33TraceReporterDataSourceCollectionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -267,7 +267,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionELN9__gn
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__27TraceReporterDataSourceBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__33TraceReporterDataSourceCollectionC2ESt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS4_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr nocapture noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__33TraceReporterDataSourceCollectionC2ESt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS4_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef %1) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__33TraceReporterDataSourceCollectionE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %1, align 8
@@ -392,7 +392,7 @@ _ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollection
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__33TraceReporterDataSourceCollection11ConsumeDataEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__33TraceReporterDataSourceCollection11ConsumeDataEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16

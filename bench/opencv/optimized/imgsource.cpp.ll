@@ -385,7 +385,7 @@ define linkonce_odr hidden void @_ZN5zxing27IllegalArgumentErrorHandlerD2Ev(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv13wechat_qrcode9ImgSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv13wechat_qrcode9ImgSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8), (24, 32)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN2cv13wechat_qrcode9ImgSourceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -430,7 +430,7 @@ _ZN5zxing8ArrayRefIcED2Ev.exit:                   ; preds = %5, %9, %14
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv13wechat_qrcode9ImgSourceD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv13wechat_qrcode9ImgSourceD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8), (24, 32)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN2cv13wechat_qrcode9ImgSourceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -521,7 +521,7 @@ _ZN5zxing3RefIN2cv13wechat_qrcode9ImgSourceEEC2EPS3_.exit: ; preds = %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv13wechat_qrcode9ImgSource5resetEPhii(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN2cv13wechat_qrcode9ImgSource5resetEPhii(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((12, 20), (48, 56), (64, 80)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #7 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 72
@@ -734,7 +734,7 @@ define hidden void @_ZNK2cv13wechat_qrcode9ImgSource9arrayCopyEPhiPcii(ptr nocap
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv13wechat_qrcode9ImgSource9getMatrixEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::ArrayRef") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv13wechat_qrcode9ImgSource9getMatrixEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::ArrayRef") align 8 initializes((0, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 16

@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [2 x i8] c"B\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6, ptr noundef %7, ptr nocapture noundef %8) local_unnamed_addr #0 {
+define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6, ptr noundef %7, ptr nocapture noundef initializes((0, 4)) %8) local_unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca double, align 8
   %12 = alloca double, align 8

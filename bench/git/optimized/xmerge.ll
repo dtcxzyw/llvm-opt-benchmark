@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @sane_ctype = external local_unnamed_addr constant [256 x i8], align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @xdl_merge(ptr noundef %orig, ptr noundef %mf1, ptr noundef %mf2, ptr noundef %xmp, ptr noundef %result) local_unnamed_addr #0 {
+define dso_local i32 @xdl_merge(ptr noundef %orig, ptr noundef %mf1, ptr noundef %mf2, ptr noundef %xmp, ptr noundef initializes((0, 16)) %result) local_unnamed_addr #0 {
 entry:
   %xscr1 = alloca ptr, align 8
   %xscr2 = alloca ptr, align 8

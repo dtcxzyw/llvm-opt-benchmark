@@ -4942,7 +4942,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal1
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19GenParamsEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19GenParamsEv(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 24)) %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8 = alloca [15 x %"class.absl::zipf_distribution<unsigned long>::param_type"], align 8
   call void @_ZN4absl17zipf_distributionImE10param_typeC2Emdd(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8, i64 noundef -1, double noundef 2.000000e+00, double noundef 1.000000e+00)
@@ -49622,7 +49622,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare void @abort() local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_18ZipfTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_18ZipfTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_18ZipfTestEEE, i64 16), ptr %this, align 8
   %instantiations_ = getelementptr inbounds i8, ptr %this, i64 104
@@ -49762,7 +49762,7 @@ _ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_18ZipfTestEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_18ZipfTestEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_18ZipfTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31

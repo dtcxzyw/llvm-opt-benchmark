@@ -63,7 +63,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4absl17BadStatusOrAccessC2ENS_6StatusE(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 %status.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl17BadStatusOrAccessC2ENS_6StatusE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 20)) %this, i64 %status.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN4absl6StatusD2Ev.exit:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl17BadStatusOrAccessE, i64 16), ptr %this, align 8
   %status_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -108,7 +108,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4absl17BadStatusOrAccessC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl17BadStatusOrAccessC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 20)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl17BadStatusOrAccessE, i64 16), ptr %this, align 8
   %status_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -277,7 +277,7 @@ _ZN4absl6StatusaSEOS0_.exit:                      ; preds = %entry, %if.then.i, 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4absl17BadStatusOrAccessC2EOS0_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull align 8 dereferenceable(56) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl17BadStatusOrAccessC2EOS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 20)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(56) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl17BadStatusOrAccessE, i64 16), ptr %this, align 8
   %status_ = getelementptr inbounds i8, ptr %this, i64 8

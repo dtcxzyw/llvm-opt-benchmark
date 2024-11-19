@@ -364,7 +364,7 @@ define internal fastcc i32 @get_l4proto(ptr noundef %0, i32 noundef %1, i8 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @nf_ct_get_tuple(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i16 noundef zeroext %3, i8 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @nf_ct_get_tuple(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i16 noundef zeroext %3, i8 noundef zeroext %4, ptr noundef %5, ptr noundef initializes((0, 40)) %6) unnamed_addr #0 align 16 {
   %8 = alloca %struct.anon.66, align 4
   %9 = alloca [8 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #17
@@ -503,7 +503,7 @@ define internal fastcc zeroext i1 @nf_ct_get_tuple(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @nf_ct_invert_tuple(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local zeroext i1 @nf_ct_invert_tuple(ptr noundef initializes((0, 40)) %0, ptr noundef %1) #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 18
   %4 = load i16, ptr %3, align 2
@@ -6676,7 +6676,7 @@ define internal noundef zeroext i1 @nf_conntrack_get_tuple_skb(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nf_conntrack_attach(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @nf_conntrack_attach(ptr nocapture noundef initializes((104, 112)) %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 104
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, -8

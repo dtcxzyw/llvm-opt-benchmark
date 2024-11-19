@@ -60,7 +60,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.40 = private unnamed_addr constant [15 x i8] c"0:%s:%s:%d:%s\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @option_constructor(ptr nocapture noundef writeonly %0) #0 {
+define internal void @option_constructor(ptr nocapture noundef writeonly initializes((40, 41), (48, 68), (72, 84), (88, 105), (108, 112)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -122,7 +122,7 @@ define internal void @option_destructor(ptr nocapture noundef readonly %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @param_constructor(ptr nocapture noundef writeonly %0) #0 {
+define internal void @param_constructor(ptr nocapture noundef writeonly initializes((40, 60), (64, 72)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr null, ptr %3, align 8
@@ -146,7 +146,7 @@ define internal void @param_destructor(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cmd_line_constructor(ptr noundef %0) #2 {
+define internal void @cmd_line_constructor(ptr noundef initializes((16, 24)) %0) #2 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_recursive_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3

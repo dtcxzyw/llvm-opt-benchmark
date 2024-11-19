@@ -840,7 +840,7 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z7loadALNRK7QStringR12MeshDocumentPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %3) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define void @_Z7loadALNRK7QStringR12MeshDocumentPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.16") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %3) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.21", align 8
   %6 = alloca %class.QByteArray, align 8
   %7 = alloca %class.QString, align 8
@@ -2377,7 +2377,7 @@ _ZSt4copyISt14_List_iteratorIP9MeshModelEN9__gnu_cxx17__normal_iteratorIPS2_St6v
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z7loadOUTRK7QStringS1_R12MeshDocumentRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEPFbiPKcE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(192) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr nocapture noundef readnone %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define void @_Z7loadOUTRK7QStringS1_R12MeshDocumentRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEPFbiPKcE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(192) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr nocapture noundef readnone %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %7 = alloca %class.QString, align 8
   %8 = alloca %class.QString, align 8
   %9 = alloca %class.QFileInfo, align 8
@@ -9195,7 +9195,7 @@ declare void @_ZNK7QString7sectionERKS_ii6QFlagsINS_11SectionFlagEE(ptr dead_on_
 declare void @_ZN7QStringC1E5QChar(ptr noundef nonnull align 8 dereferenceable(8), i16) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z7loadNVMRK7QStringR12MeshDocumentRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEPFbiPKcE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef readnone %4) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define void @_Z7loadNVMRK7QStringR12MeshDocumentRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEPFbiPKcE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef readnone %4) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QFileInfo, align 8
   %8 = alloca %class.QString, align 8
@@ -11118,7 +11118,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z7loadMLPRK7QStringR12MeshDocumentRSt6vectorI15MLRenderingDataSaIS5_EERS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr nocapture noundef readnone %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define void @_Z7loadMLPRK7QStringR12MeshDocumentRSt6vectorI15MLRenderingDataSaIS5_EERS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.16") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr nocapture noundef readnone %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::allocator.27", align 1
   %8 = alloca %class.QByteArray, align 8
   %9 = alloca %class.QString, align 8

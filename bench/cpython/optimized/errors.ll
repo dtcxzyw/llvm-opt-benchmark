@@ -2455,7 +2455,7 @@ return:                                           ; preds = %restart, %if.end34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_PyErr_Fetch(ptr nocapture noundef %tstate, ptr nocapture noundef writeonly %p_type, ptr nocapture noundef writeonly %p_value, ptr nocapture noundef writeonly %p_traceback) local_unnamed_addr #5 {
+define hidden void @_PyErr_Fetch(ptr nocapture noundef %tstate, ptr nocapture noundef writeonly initializes((0, 8)) %p_type, ptr nocapture noundef writeonly initializes((0, 8)) %p_value, ptr nocapture noundef writeonly initializes((0, 8)) %p_traceback) local_unnamed_addr #5 {
 entry:
   %current_exception.i = getelementptr inbounds i8, ptr %tstate, i64 104
   %0 = load ptr, ptr %current_exception.i, align 8
@@ -2527,7 +2527,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @PyErr_Fetch(ptr nocapture noundef writeonly %p_type, ptr nocapture noundef writeonly %p_value, ptr nocapture noundef writeonly %p_traceback) local_unnamed_addr #5 {
+define dso_local void @PyErr_Fetch(ptr nocapture noundef writeonly initializes((0, 8)) %p_type, ptr nocapture noundef writeonly initializes((0, 8)) %p_value, ptr nocapture noundef writeonly initializes((0, 8)) %p_traceback) local_unnamed_addr #5 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -4285,7 +4285,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 declare i32 @PyDict_SetItemString(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyErr_InitTypes(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %interp) local_unnamed_addr #0 {
+define hidden void @_PyErr_InitTypes(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %interp) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @_PyStructSequence_InitBuiltinWithFlags(ptr noundef %interp, ptr noundef nonnull @UnraisableHookArgsType, ptr noundef nonnull @UnraisableHookArgs_desc, i64 noundef 0) #16
   %cmp = icmp slt i32 %call.i, 0

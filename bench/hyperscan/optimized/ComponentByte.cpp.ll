@@ -89,7 +89,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue213ComponentByte5firstEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue213ComponentByte5firstEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %position = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %position, align 8
@@ -107,7 +107,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue213ComponentByte4lastEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue213ComponentByte4lastEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %position = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %position, align 8
@@ -125,7 +125,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213ComponentByte13notePositionsERNS_18GlushkovBuildStateE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(8) %bs) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue213ComponentByte13notePositionsERNS_18GlushkovBuildStateE(ptr nocapture noundef nonnull align 8 dereferenceable(20) initializes((16, 20)) %this, ptr noundef nonnull align 8 dereferenceable(8) %bs) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.ue2::CharReach", align 8
   %vtable = load ptr, ptr %bs, align 8

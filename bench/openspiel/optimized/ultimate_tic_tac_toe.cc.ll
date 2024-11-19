@@ -1937,7 +1937,7 @@ define noundef zeroext i1 @_ZNK10open_spiel20ultimate_tic_tac_toe16UltimateTTTSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel20ultimate_tic_tac_toe16UltimateTTTState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.14") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel20ultimate_tic_tac_toe16UltimateTTTState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.14") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
   store ptr %3, ptr %0, align 8

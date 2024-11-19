@@ -2650,7 +2650,7 @@ return:                                           ; preds = %entry, %return.fold
 declare i64 @_ZN6hermes2vm6GCBase13getSnapshotIDENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(741), i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook6hermes13HermesRuntime14getObjectForIDEm(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %id) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook6hermes13HermesRuntime14getObjectForIDEm(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::Value") align 8 initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %id) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hv.i = alloca %"class.hermes::vm::HermesValue", align 8
   %runtime_ = getelementptr inbounds i8, ptr %this, i64 128
@@ -4364,7 +4364,7 @@ declare noundef i32 @_ZN6hermes2vm7Runtime9drainJobsEv(ptr noundef nonnull align
 declare void @_ZN6hermes2vm7Runtime16clearKeptObjectsEv(ptr noundef nonnull align 8 dereferenceable(9832)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl6globalEv(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::Object") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl6globalEv(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::Object") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 align 2 {
 entry:
   %hv.i = alloca %"class.hermes::vm::HermesValue", align 8
   %runtime_ = getelementptr inbounds i8, ptr %this, i64 128
@@ -4831,7 +4831,7 @@ lpad:                                             ; preds = %invoke.cont19, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl26createPropNameIDFromSymbolERKNS_3jsi6SymbolE(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::PropNameID") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %sym) unnamed_addr #0 align 2 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl26createPropNameIDFromSymbolERKNS_3jsi6SymbolE(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::PropNameID") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %sym) unnamed_addr #0 align 2 {
 entry:
   %hv.i = alloca %"class.hermes::vm::HermesValue", align 8
   %0 = load ptr, ptr %sym, align 8
@@ -6265,7 +6265,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl13getHostObjectERKNS_3jsi6ObjectE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.335") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %obj) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl13getHostObjectERKNS_3jsi6ObjectE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.335") align 8 initializes((0, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %obj) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %obj, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 16
@@ -8109,7 +8109,7 @@ lpad:                                             ; preds = %invoke.cont11, %if.
 declare void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl16createWeakObjectERKNS_3jsi6ObjectE(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::WeakObject") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %obj) unnamed_addr #0 align 2 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl16createWeakObjectERKNS_3jsi6ObjectE(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::WeakObject") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %obj) unnamed_addr #0 align 2 {
 entry:
   %wr.i = alloca %"class.hermes::vm::WeakRoot.383", align 4
   %0 = load ptr, ptr %obj, align 8
@@ -8134,7 +8134,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl14lockWeakObjectERKNS_3jsi10WeakObjectE(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %wo) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook6hermes17HermesRuntimeImpl14lockWeakObjectERKNS_3jsi10WeakObjectE(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::Value") align 8 initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %wo) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hv.i = alloca %"class.hermes::vm::HermesValue", align 8
   %0 = load ptr, ptr %wo, align 8

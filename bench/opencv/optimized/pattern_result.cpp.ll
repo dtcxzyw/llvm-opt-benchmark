@@ -30,7 +30,7 @@ $_ZTIN5zxing6qrcode13PatternResultE = comdat any
 @_ZN5zxing6qrcode13PatternResultC1ENS_3RefINS0_17FinderPatternInfoEEE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN5zxing6qrcode13PatternResultC2ENS_3RefINS0_17FinderPatternInfoEEE
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing6qrcode13PatternResultC2ENS_3RefINS0_17FinderPatternInfoEEE(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing6qrcode13PatternResultC2ENS_3RefINS0_17FinderPatternInfoEEE(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 12), (16, 56)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode13PatternResultE, i64 16), ptr %0, align 8

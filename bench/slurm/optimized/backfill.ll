@@ -6605,7 +6605,7 @@ define internal fastcc void @_dump_node_space_table(ptr noundef %0) unnamed_addr
 declare void @assoc_mgr_lock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_clear_qos_blocked_times(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #10 {
+define internal noundef i32 @_clear_qos_blocked_times(ptr nocapture noundef writeonly initializes((328, 336)) %0, ptr nocapture readnone %1) #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 328
   store i64 0, ptr %3, align 8
   ret i32 0
@@ -7098,7 +7098,7 @@ declare i32 @acct_policy_get_prio_thresh(ptr noundef, i1 noundef zeroext) local_
 declare ptr @xhash_init(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_bf_map_key_id(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #10 {
+define internal void @_bf_map_key_id(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #10 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %4, ptr %1, align 8
   store i32 4, ptr %2, align 4
@@ -8892,7 +8892,7 @@ declare void @bit_clear(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare ptr @node_state_string(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_foreach_het_job_details(ptr nocapture noundef writeonly %0, ptr noundef %1) #10 {
+define internal noundef i32 @_foreach_het_job_details(ptr nocapture noundef writeonly initializes((352, 360)) %0, ptr noundef %1) #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 352
   store ptr %1, ptr %3, align 8
   ret i32 0

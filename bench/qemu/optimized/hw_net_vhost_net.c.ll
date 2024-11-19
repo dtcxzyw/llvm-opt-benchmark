@@ -96,7 +96,7 @@ entry:
 declare i32 @vhost_dev_set_config(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vhost_net_ack_features(ptr noundef %net, i64 noundef %features) local_unnamed_addr #0 {
+define dso_local void @vhost_net_ack_features(ptr noundef initializes((464, 472)) %net, i64 noundef %features) local_unnamed_addr #0 {
 entry:
   %backend_features = getelementptr inbounds i8, ptr %net, i64 472
   %0 = load i64, ptr %backend_features, align 8

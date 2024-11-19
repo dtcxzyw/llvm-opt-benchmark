@@ -413,7 +413,7 @@ if.end52:                                         ; preds = %if.end49, %if.end28
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_gc_freeall(ptr noundef %g) local_unnamed_addr #0 {
+define hidden void @lj_gc_freeall(ptr noundef initializes((32, 33)) %g) local_unnamed_addr #0 {
 entry:
   %q.sroa.0.i = alloca i64, align 8
   %currentwhite = getelementptr inbounds i8, ptr %g, i64 32
@@ -1951,7 +1951,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @lj_gc_closeuv(ptr noundef %g, ptr noundef %uv) local_unnamed_addr #2 {
+define hidden void @lj_gc_closeuv(ptr noundef %g, ptr noundef initializes((16, 24)) %uv) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %uv, i64 16
   %v = getelementptr inbounds i8, ptr %uv, i64 32

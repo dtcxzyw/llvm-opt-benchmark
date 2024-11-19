@@ -2969,7 +2969,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %45, %47
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm8SROAPassC2ENS_11SROAOptionsE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %0, i1 noundef zeroext %1) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm8SROAPassC2ENS_11SROAOptionsE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, i1 noundef zeroext %1) unnamed_addr #6 align 2 {
   %3 = zext i1 %1 to i8
   store i8 %3, ptr %0, align 1
   ret void
@@ -27741,7 +27741,7 @@ _ZN4llvm11SmallVectorIPNS_8LoadInstELj4EED2Ev.exit: ; preds = %_ZN4llvm11SmallVe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112AllocaSlices10partitionsEv(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(456) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112AllocaSlices10partitionsEv(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(456) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.(anonymous namespace)::AllocaSlices::partition_iterator", align 8
   %4 = alloca %"class.(anonymous namespace)::AllocaSlices::partition_iterator", align 8
   %5 = alloca %"class.(anonymous namespace)::AllocaSlices::partition_iterator", align 8
@@ -31272,7 +31272,7 @@ _ZN4llvm13SmallDenseMapIPNS_11InstructionEZN12_GLOBAL__N_14SROA22presplitLoadsAn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEZN12_GLOBAL__N_14SROA22presplitLoadsAndStoresERNS_10AllocaInstERNS4_12AllocaSlicesEE12SplitOffsetsLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SA_EEEES3_SA_SC_SF_E18moveFromOldBucketsEPSF_SI_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef readnone %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEZN12_GLOBAL__N_14SROA22presplitLoadsAndStoresERNS_10AllocaInstERNS4_12AllocaSlicesEE12SplitOffsetsLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SA_EEEES3_SA_SC_SF_E18moveFromOldBucketsEPSF_SI_(ptr noundef nonnull align 1 dereferenceable(1) initializes((4, 8)) %0, ptr noundef %1, ptr noundef readnone %2) unnamed_addr #0 align 2 {
   %4 = load i32, ptr %0, align 8
   %5 = and i32 %4, 1
   store i32 %5, ptr %0, align 8
@@ -32355,7 +32355,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE13growAndAssignEmm.exit: ; preds = %.lr.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112AllocaSlices18partition_iteratorC2EOS1_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112AllocaSlices18partition_iteratorC2EOS1_(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 32, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -32876,7 +32876,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN12_GLOBAL__N_15SliceELb1EE9push_backES3_.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112AllocaSlices18partition_iteratorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112AllocaSlices18partition_iteratorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 32, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -33361,7 +33361,7 @@ declare i8 @_ZNK4llvm10DataLayout16getPrefTypeAlignEPNS_4TypeE(ptr noundef nonnu
 declare void @_ZN4llvm10AllocaInstC1EPNS_4TypeEjPNS_5ValueENS_5AlignERKNS_5TwineENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef, i32 noundef, ptr noundef, i8, ptr noundef nonnull align 8 dereferenceable(34), ptr noundef byval(%"class.llvm::InsertPosition") align 8) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AllocaSliceRewriter5visitEPKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AllocaSliceRewriter5visitEPKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(352) initializes((96, 138), (144, 160)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8

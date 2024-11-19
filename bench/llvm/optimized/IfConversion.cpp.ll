@@ -417,7 +417,7 @@ _ZNSt8functionIFbRKN4llvm15MachineFunctionEEED2Ev.exit: ; preds = %_ZNSt8functio
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111IfConverterC2ESt8functionIFbRKN4llvm15MachineFunctionEEE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111IfConverterC2ESt8functionIFbRKN4llvm15MachineFunctionEEE(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 28), (32, 272)) %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.anon.442, align 8
   %4 = alloca %"class.std::reference_wrapper", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -541,7 +541,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_111IfConverterD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_111IfConverterD2Ev(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_111IfConverterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %3 = load ptr, ptr %2, align 8
@@ -642,7 +642,7 @@ _ZNSt6vectorIN12_GLOBAL__N_111IfConverter6BBInfoESaIS2_EED2Ev.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_111IfConverterD0Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_111IfConverterD0Ev(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_111IfConverterD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 504) #25
   ret void

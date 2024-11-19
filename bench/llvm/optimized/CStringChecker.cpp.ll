@@ -1001,7 +1001,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114CStringCheckerC2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114CStringCheckerC2Ev(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 93), (96, 176)) %0) unnamed_addr #0 align 2 {
   %2 = alloca [32 x %"struct.std::pair.151"], align 8
   %3 = alloca %"class.clang::ento::CallDescription", align 8
   %4 = alloca [1 x %"class.llvm::StringRef"], align 8
@@ -5798,7 +5798,7 @@ declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i
 declare void @_ZN5clang4ento15CallDescriptionC1ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60), i32 noundef, ptr, i64, i64, i64) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker10evalMemcpyERN5clang4ento14CheckerContextERKNS2_9CallEventENS_8CharKindE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %3) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker10evalMemcpyERN5clang4ento14CheckerContextERKNS2_9CallEventENS_8CharKindE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %3) #0 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %6 = alloca %"struct.(anonymous namespace)::DestinationArgExpr", align 8
   %7 = alloca %"struct.(anonymous namespace)::SourceArgExpr", align 8
@@ -5855,7 +5855,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit19: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker11evalMempcpyERN5clang4ento14CheckerContextERKNS2_9CallEventENS_8CharKindE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %3) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker11evalMempcpyERN5clang4ento14CheckerContextERKNS2_9CallEventENS_8CharKindE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %3) #0 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %6 = alloca %"struct.(anonymous namespace)::DestinationArgExpr", align 8
   %7 = alloca %"struct.(anonymous namespace)::SourceArgExpr", align 8
@@ -5904,7 +5904,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker10evalMemcmpERN5clang4ento14CheckerContextERKNS2_9CallEventENS_8CharKindE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %3) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker10evalMemcmpERN5clang4ento14CheckerContextERKNS2_9CallEventENS_8CharKindE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %3) #0 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -6444,7 +6444,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit244: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker11evalMemmoveERN5clang4ento14CheckerContextERKNS2_9CallEventENS_8CharKindE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %3) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker11evalMemmoveERN5clang4ento14CheckerContextERKNS2_9CallEventENS_8CharKindE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %3) #0 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %6 = alloca %"struct.(anonymous namespace)::DestinationArgExpr", align 8
   %7 = alloca %"struct.(anonymous namespace)::SourceArgExpr", align 8
@@ -6493,7 +6493,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker10evalMemsetERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker10evalMemsetERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
   %4 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %5 = alloca %"class.clang::ProgramPoint", align 8
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -6861,79 +6861,79 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit111: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker10evalStrcpyERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker10evalStrcpyERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
   tail call fastcc void @_ZNK12_GLOBAL__N_114CStringChecker16evalStrcpyCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEbbNS_12ConcatFnKindEb(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 0, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker11evalStrncpyERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker11evalStrncpyERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
   tail call fastcc void @_ZNK12_GLOBAL__N_114CStringChecker16evalStrcpyCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEbbNS_12ConcatFnKindEb(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker10evalStpcpyERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker10evalStpcpyERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
   tail call fastcc void @_ZNK12_GLOBAL__N_114CStringChecker16evalStrcpyCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEbbNS_12ConcatFnKindEb(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef 0, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker11evalStrlcpyERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker11evalStrlcpyERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
   tail call fastcc void @_ZNK12_GLOBAL__N_114CStringChecker16evalStrcpyCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEbbNS_12ConcatFnKindEb(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker10evalStrcatERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker10evalStrcatERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
   tail call fastcc void @_ZNK12_GLOBAL__N_114CStringChecker16evalStrcpyCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEbbNS_12ConcatFnKindEb(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker11evalStrncatERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker11evalStrncatERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
   tail call fastcc void @_ZNK12_GLOBAL__N_114CStringChecker16evalStrcpyCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEbbNS_12ConcatFnKindEb(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 1, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker11evalStrlcatERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker11evalStrlcatERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
   tail call fastcc void @_ZNK12_GLOBAL__N_114CStringChecker16evalStrcpyCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEbbNS_12ConcatFnKindEb(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 2, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker13evalstrLengthERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker13evalstrLengthERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
   tail call fastcc void @_ZNK12_GLOBAL__N_114CStringChecker19evalstrLengthCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEb(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker14evalstrnLengthERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker14evalstrnLengthERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
   tail call fastcc void @_ZNK12_GLOBAL__N_114CStringChecker19evalstrLengthCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEb(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker10evalStrcmpERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker10evalStrcmpERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
   tail call fastcc void @_ZNK12_GLOBAL__N_114CStringChecker16evalStrcmpCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEbb(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext false, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker11evalStrncmpERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker11evalStrncmpERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
   tail call fastcc void @_ZNK12_GLOBAL__N_114CStringChecker16evalStrcmpCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEbb(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext true, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker14evalStrcasecmpERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker14evalStrcasecmpERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
   tail call fastcc void @_ZNK12_GLOBAL__N_114CStringChecker16evalStrcmpCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEbb(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext false, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker15evalStrncasecmpERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker15evalStrncasecmpERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
   tail call fastcc void @_ZNK12_GLOBAL__N_114CStringChecker16evalStrcmpCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEbb(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext true, i1 noundef zeroext true)
   ret void
 }
@@ -7248,7 +7248,7 @@ _ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker9evalBcopyERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker9evalBcopyERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
   %4 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %5 = alloca %"struct.(anonymous namespace)::DestinationArgExpr", align 8
   %6 = alloca %"struct.(anonymous namespace)::SourceArgExpr", align 8
@@ -7297,7 +7297,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker9evalBzeroERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker9evalBzeroERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
   %4 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %5 = alloca %"class.clang::ProgramPoint", align 8
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -7607,7 +7607,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit102: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker11evalSprintfERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker11evalSprintfERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr @.str.83, ptr %4, align 8
   tail call fastcc void @_ZNK12_GLOBAL__N_114CStringChecker17evalSprintfCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEb(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext false)
@@ -7615,7 +7615,7 @@ define internal void @_ZNK12_GLOBAL__N_114CStringChecker11evalSprintfERN5clang4e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_114CStringChecker12evalSnprintfERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CStringChecker12evalSnprintfERN5clang4ento14CheckerContextERKNS2_9CallEventE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr @.str.84, ptr %4, align 8
   tail call fastcc void @_ZNK12_GLOBAL__N_114CStringChecker17evalSprintfCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEb(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext true)
@@ -7623,7 +7623,7 @@ define internal void @_ZNK12_GLOBAL__N_114CStringChecker12evalSnprintfERN5clang4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_114CStringCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_114CStringCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_114CStringCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
@@ -7856,7 +7856,7 @@ _ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EED2Ev.exit29: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_114CStringCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_114CStringCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_114CStringCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #23
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 328) #22
   ret void
@@ -7879,7 +7879,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_114CStringChecker14evalCopyCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS_11SizeArgExprENS_18DestinationArgExprENS_13SourceArgExprEbbNS_8CharKindE(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull %3, ptr %4, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::DestinationArgExpr") align 8 %5, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::SourceArgExpr") align 8 %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i32 noundef %9) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_114CStringChecker14evalCopyCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS_11SizeArgExprENS_18DestinationArgExprENS_13SourceArgExprEbbNS_8CharKindE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull %3, ptr %4, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::DestinationArgExpr") align 8 %5, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::SourceArgExpr") align 8 %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i32 noundef %9) unnamed_addr #0 align 2 {
   %11 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %12 = alloca %"class.clang::ProgramPoint", align 8
   %13 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -8803,7 +8803,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_114CStringChecker12checkNonNullERN5clang4ento14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS_10AnyArgExprENS2_4SValE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr %.0.val, ptr %3, i32 %4, ptr %.0.val1, i8 %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_114CStringChecker12checkNonNullERN5clang4ento14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS_10AnyArgExprENS2_4SValE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr %.0.val, ptr %3, i32 %4, ptr %.0.val1, i8 %.8.val) unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::unique_ptr.706", align 8
   %7 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -10476,7 +10476,7 @@ declare void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferencea
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_114CStringChecker13CheckLocationERN5clang4ento14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS_10AnyArgExprENS2_4SValENS_10AccessKindENS_8CharKindE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr nocapture noundef nonnull %3, ptr %4, ptr noundef byval(%"class.clang::ento::SVal") align 8 %5, i32 noundef range(i32 0, 2) %6, i32 noundef %7) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_114CStringChecker13CheckLocationERN5clang4ento14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS_10AnyArgExprENS2_4SValENS_10AccessKindENS_8CharKindE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr nocapture noundef nonnull %3, ptr %4, ptr noundef byval(%"class.clang::ento::SVal") align 8 %5, i32 noundef range(i32 0, 2) %6, i32 noundef %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %10 = alloca %"class.clang::ento::NonLoc", align 8
   %11 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -10785,7 +10785,7 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %_ZN5clang4ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_114CStringChecker9checkInitERN5clang4ento14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS_10AnyArgExprENS2_4SValESB_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr nocapture noundef nonnull %3, ptr %4, i32 %5, ptr noundef byval(%"class.clang::ento::SVal") align 8 %6, ptr %.0.val, i8 %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_114CStringChecker9checkInitERN5clang4ento14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS_10AnyArgExprENS2_4SValESB_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr nocapture noundef nonnull %3, ptr %4, i32 %5, ptr noundef byval(%"class.clang::ento::SVal") align 8 %6, ptr %.0.val, i8 %.8.val) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::SmallString.792", align 8
   %9 = alloca %"class.llvm::raw_svector_ostream", align 8
   %10 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -16545,7 +16545,7 @@ _ZNSt14_Function_base13_Base_managerIMN12_GLOBAL__N_114CStringCheckerEKFvRN5clan
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_114CStringChecker16evalStrcpyCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEbbNS_12ConcatFnKindEb(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef range(i32 0, 3) %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_114CStringChecker16evalStrcpyCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEbbNS_12ConcatFnKindEb(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef range(i32 0, 3) %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %9 = alloca %"class.clang::ProgramPoint", align 8
   %10 = alloca %"class.clang::ento::EnvironmentEntry", align 8
@@ -18957,7 +18957,7 @@ _ZN4llvm11SmallStringILj120EED2Ev.exit:           ; preds = %281, %_ZN4llvm18Int
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_114CStringChecker21checkAdditionOverflowERN5clang4ento14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS2_6NonLocESA_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr nocapture noundef nonnull %3, ptr %4, i8 %5, ptr nocapture noundef readonly byval(%"class.clang::ento::NonLoc") align 8 %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_114CStringChecker21checkAdditionOverflowERN5clang4ento14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS2_6NonLocESA_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr nocapture noundef nonnull %3, ptr %4, i8 %5, ptr nocapture noundef readonly byval(%"class.clang::ento::NonLoc") align 8 %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.std::unique_ptr.706", align 8
   %9 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %10 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -20041,7 +20041,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11ra
 declare void @_ZNK5clang9NamedDecl9printNameERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_114CStringChecker19evalstrLengthCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEb(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_114CStringChecker19evalstrLengthCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEb(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -20720,7 +20720,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit267: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_114CStringChecker16evalStrcmpCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEbb(ptr nocapture noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_114CStringChecker16evalStrcmpCommonERN5clang4ento14CheckerContextERKNS2_9CallEventEbb(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((80, 88)) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %7 = alloca %"class.clang::ProgramPoint", align 8
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8

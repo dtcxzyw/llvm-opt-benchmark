@@ -101,7 +101,7 @@ declare void @qemu_input_handler_unregister(ptr noundef) local_unnamed_addr #1
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @wctablet_chr_open(ptr noundef %chr, ptr nocapture readnone %backend, ptr nocapture noundef writeonly %be_opened, ptr nocapture readnone %errp) #0 {
+define internal void @wctablet_chr_open(ptr noundef %chr, ptr nocapture readnone %backend, ptr nocapture noundef writeonly initializes((0, 1)) %be_opened, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 90, ptr noundef nonnull @__func__.WCTABLET_CHARDEV) #8
   store i8 1, ptr %be_opened, align 1

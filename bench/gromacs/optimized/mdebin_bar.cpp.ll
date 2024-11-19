@@ -86,7 +86,7 @@ $_ZNSt6vectorIS_IfSaIfEESaIS1_EE17_M_default_appendEm = comdat any
 @_ZN18t_mde_delta_h_collC1ERK10t_inputrec = unnamed_addr alias void (ptr, ptr), ptr @_ZN18t_mde_delta_h_collC2ERK10t_inputrec
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18t_mde_delta_h_collC2ERK10t_inputrec(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18t_mde_delta_h_collC2ERK10t_inputrec(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 24), (104, 128), (136, 160), (168, 216)) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -758,7 +758,7 @@ declare noundef float @_Z27constantEnsembleTemperatureRK10t_inputrec(ptr noundef
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16mde_delta_h_initP13t_mde_delta_hidjiiiPKd(ptr noundef nonnull %0, i32 noundef %1, double noundef %2, i32 noundef %3, i32 noundef range(i32 0, 5) %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16mde_delta_h_initP13t_mde_delta_hidjiiiPKd(ptr noundef nonnull initializes((152, 160), (184, 188)) %0, i32 noundef %1, double noundef %2, i32 noundef %3, i32 noundef range(i32 0, 5) %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 %4, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 156

@@ -14964,7 +14964,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$13par
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN12regex_syntax3ast5parse20NestLimiter$LT$P$GT$15increment_depth17h5416c9625328035aE.llvm.1868304128835149030"(ptr noalias nocapture noundef writeonly sret({ i64, [15 x i64] }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN12regex_syntax3ast5parse20NestLimiter$LT$P$GT$15increment_depth17h5416c9625328035aE.llvm.1868304128835149030"(ptr noalias nocapture noundef writeonly sret({ i64, [15 x i64] }) align 8 dereferenceable(128) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8, !noundef !5
   %6 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %5, i32 1)
@@ -15070,7 +15070,7 @@ define hidden void @"_ZN12regex_syntax3ast5parse20NestLimiter$LT$P$GT$15decremen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN102_$LT$regex_syntax..ast..parse..NestLimiter$LT$P$GT$$u20$as$u20$regex_syntax..ast..visitor..Visitor$GT$6finish17h401b568b29b1bab5E"(ptr noalias nocapture noundef writeonly sret({ i64, [15 x i64] }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #3 {
+define hidden void @"_ZN102_$LT$regex_syntax..ast..parse..NestLimiter$LT$P$GT$$u20$as$u20$regex_syntax..ast..visitor..Visitor$GT$6finish17h401b568b29b1bab5E"(ptr noalias nocapture noundef writeonly sret({ i64, [15 x i64] }) align 8 dereferenceable(128) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #3 {
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
 }
@@ -15401,7 +15401,7 @@ define hidden void @"_ZN102_$LT$regex_syntax..ast..parse..NestLimiter$LT$P$GT$$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN102_$LT$regex_syntax..ast..parse..NestLimiter$LT$P$GT$$u20$as$u20$regex_syntax..ast..visitor..Visitor$GT$29visit_class_set_binary_op_pre17h8dfaddc5a63b45a7E"(ptr noalias nocapture noundef writeonly sret({ i64, [15 x i64] }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN102_$LT$regex_syntax..ast..parse..NestLimiter$LT$P$GT$$u20$as$u20$regex_syntax..ast..visitor..Visitor$GT$29visit_class_set_binary_op_pre17h8dfaddc5a63b45a7E"(ptr noalias nocapture noundef writeonly sret({ i64, [15 x i64] }) align 8 dereferenceable(128) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1566)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1569)
@@ -15513,7 +15513,7 @@ define hidden void @"_ZN102_$LT$regex_syntax..ast..parse..NestLimiter$LT$P$GT$$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN12regex_syntax3ast5parse14specialize_err17h9695813fcf3c03a2E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(56) %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN12regex_syntax3ast5parse14specialize_err17h9695813fcf3c03a2E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 128)) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(56) %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { { { { i64, ptr }, i64 } }, { i32, [13 x i32] }, { { i64, i64, i64 }, { i64, i64, i64 } } }, align 8
   %6 = load i64, ptr %1, align 8, !range !15, !noundef !5
   %.not.not = icmp eq i64 %6, -9223372036854775808
@@ -15680,19 +15680,19 @@ define hidden void @_ZN12regex_syntax3ast7visitor7Visitor5start17hac47dbbda140a0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12regex_syntax3ast7visitor7Visitor20visit_alternation_in17heec60ba9d2ddf101E(ptr noalias nocapture noundef writeonly sret({ i64, [15 x i64] }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readnone align 8 dereferenceable(16) %1) unnamed_addr #3 {
+define hidden void @_ZN12regex_syntax3ast7visitor7Visitor20visit_alternation_in17heec60ba9d2ddf101E(ptr noalias nocapture noundef writeonly sret({ i64, [15 x i64] }) align 8 dereferenceable(128) initializes((0, 8)) %0, ptr noalias nocapture noundef readnone align 8 dereferenceable(16) %1) unnamed_addr #3 {
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12regex_syntax3ast7visitor7Visitor15visit_concat_in17h37547ec71330b202E(ptr noalias nocapture noundef writeonly sret({ i64, [15 x i64] }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readnone align 8 dereferenceable(16) %1) unnamed_addr #3 {
+define hidden void @_ZN12regex_syntax3ast7visitor7Visitor15visit_concat_in17h37547ec71330b202E(ptr noalias nocapture noundef writeonly sret({ i64, [15 x i64] }) align 8 dereferenceable(128) initializes((0, 8)) %0, ptr noalias nocapture noundef readnone align 8 dereferenceable(16) %1) unnamed_addr #3 {
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12regex_syntax3ast7visitor7Visitor28visit_class_set_binary_op_in17h486cd2fd69a4dba8E(ptr noalias nocapture noundef writeonly sret({ i64, [15 x i64] }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readnone align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %2) unnamed_addr #3 {
+define hidden void @_ZN12regex_syntax3ast7visitor7Visitor28visit_class_set_binary_op_in17h486cd2fd69a4dba8E(ptr noalias nocapture noundef writeonly sret({ i64, [15 x i64] }) align 8 dereferenceable(128) initializes((0, 8)) %0, ptr noalias nocapture noundef readnone align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %2) unnamed_addr #3 {
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
 }

@@ -197,7 +197,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3ue216removeRedundancyERNS_8NGHolderENS_8som_typeE(ptr noundef nonnull align 8 dereferenceable(136) %g, i32 noundef %som) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3ue216removeRedundancyERNS_8NGHolderENS_8som_typeE(ptr noundef nonnull align 8 dereferenceable(136) initializes((32, 40)) %g, i32 noundef %som) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %succPredSet.i66 = alloca %"class.std::vector.123", align 8
   %predSuccSet.i67 = alloca %"class.std::vector.123", align 8

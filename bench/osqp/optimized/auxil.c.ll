@@ -1115,7 +1115,7 @@ compute_obj_val.exit:                             ; preds = %96, %109
 declare double @osqp_toc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @reset_info(ptr noundef %0) local_unnamed_addr #0 {
+define void @reset_info(ptr noundef initializes((32, 40), (104, 112), (120, 128)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   store double 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1130,7 +1130,7 @@ define void @reset_info(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @update_status(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @update_status(ptr noundef initializes((32, 40)) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds [12 x ptr], ptr @OSQP_STATUS_MESSAGE, i64 0, i64 %1

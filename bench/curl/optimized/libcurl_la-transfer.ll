@@ -1544,7 +1544,7 @@ declare i32 @Curl_speedcheck(ptr noundef, i64, i32) local_unnamed_addr #1
 declare i64 @Curl_timeleft(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Curl_init_CONNECT(ptr nocapture noundef %data) local_unnamed_addr #5 {
+define hidden void @Curl_init_CONNECT(ptr nocapture noundef initializes((4608, 4624)) %data) local_unnamed_addr #5 {
 entry:
   %fread_func_set = getelementptr inbounds i8, ptr %data, i64 552
   %0 = load ptr, ptr %fread_func_set, align 8
@@ -2438,7 +2438,7 @@ declare ptr @Curl_get_scheme_handler(ptr noundef) local_unnamed_addr #1
 declare { i64, i32 } @Curl_pgrsTime(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 56) i32 @Curl_retry_request(ptr noundef %data, ptr nocapture noundef writeonly %url) local_unnamed_addr #0 {
+define hidden range(i32 0, 56) i32 @Curl_retry_request(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 8)) %url) local_unnamed_addr #0 {
 entry:
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
@@ -2593,7 +2593,7 @@ return:                                           ; preds = %if.else, %if.end, %
 declare void @Curl_conncontrol(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_setup_transfer(ptr noundef %data, i32 noundef %sockindex, i64 noundef %size, i1 noundef zeroext %getheader, i32 noundef %writesockindex) local_unnamed_addr #0 {
+define hidden void @Curl_setup_transfer(ptr noundef initializes((224, 232)) %data, i32 noundef %sockindex, i64 noundef %size, i1 noundef zeroext %getheader, i32 noundef %writesockindex) local_unnamed_addr #0 {
 entry:
   %req = getelementptr inbounds i8, ptr %data, i64 224
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32

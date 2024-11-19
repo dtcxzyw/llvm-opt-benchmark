@@ -292,7 +292,7 @@ $_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits = comdat any
 @_ZN6hermes2vm6GCBase9IDTrackerC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6hermes2vm6GCBase9IDTrackerC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm6GCBaseC2ERNS1_11GCCallbacksERNS0_11PointerBaseERKNS0_8GCConfigESt10shared_ptrINS0_12CrashManagerEENS1_8HeapKindE(ptr noundef nonnull align 8 dereferenceable(741) %this, ptr noundef nonnull align 8 dereferenceable(8) %gcCallbacks, ptr noundef nonnull align 1 dereferenceable(1) %pointerBase, ptr noundef nonnull align 8 dereferenceable(200) %gcConfig, ptr nocapture noundef readonly %crashMgr, i32 noundef %kind) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm6GCBaseC2ERNS1_11GCCallbacksERNS0_11PointerBaseERKNS0_8GCConfigESt10shared_ptrINS0_12CrashManagerEENS1_8HeapKindE(ptr noundef nonnull align 8 dereferenceable(741) initializes((0, 12), (16, 24), (32, 68), (72, 104)) %this, ptr noundef nonnull align 8 dereferenceable(8) %gcCallbacks, ptr noundef nonnull align 1 dereferenceable(1) %pointerBase, ptr noundef nonnull align 8 dereferenceable(200) %gcConfig, ptr nocapture noundef readonly %crashMgr, i32 noundef %kind) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i38 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i39 = alloca %"class.std::allocator.2", align 1
@@ -579,7 +579,7 @@ for.end:                                          ; preds = %for.body
 declare void @_ZN6hermes2vm18buildMetadataTableEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm6GCBase7GCCycleC2ERS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(741) %gc, ptr noundef nonnull %extraInfo) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm6GCBase7GCCycleC2ERS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(741) %gc, ptr noundef nonnull %extraInfo) unnamed_addr #0 align 2 {
 entry:
   store ptr %gc, ptr %this, align 8
   %extraInfo_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -813,7 +813,7 @@ declare void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 der
 declare void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6hermes2vm6GCBase11getHeapInfoERNS1_8HeapInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(741) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) %info) unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm6GCBase11getHeapInfoERNS1_8HeapInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(741) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) initializes((0, 4)) %info) unnamed_addr #4 align 2 {
 entry:
   %cumStats_ = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i32, ptr %cumStats_, align 8
@@ -822,7 +822,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6hermes2vm6GCBase25getHeapInfoWithMallocSizeERNS1_8HeapInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(741) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) %info) unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm6GCBase25getHeapInfoWithMallocSizeERNS1_8HeapInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(741) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(384) initializes((32, 36)) %info) unnamed_addr #4 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 408
   %_M_start.i = getelementptr inbounds i8, ptr %this, i64 376
@@ -1165,7 +1165,7 @@ declare void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef no
 declare void @_ZN6hermes11JSONEmitter10closeArrayEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6hermes2vm6GCBase13recordGCStatsERKNS0_16GCAnalyticsEventEPNS1_19CumulativeHeapStatsEb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %event, ptr nocapture noundef %stats, i1 noundef zeroext %onMutator) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes2vm6GCBase13recordGCStatsERKNS0_16GCAnalyticsEventEPNS1_19CumulativeHeapStatsEb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %event, ptr nocapture noundef initializes((88, 92)) %stats, i1 noundef zeroext %onMutator) local_unnamed_addr #4 align 2 {
 entry:
   br i1 %onMutator, label %if.then, label %if.end
 
@@ -1386,7 +1386,7 @@ if.end4:                                          ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN6hermes2vm6GCBase3oomESt10error_code(ptr noundef nonnull align 8 dereferenceable(741) %this, i32 %reason.coerce0, ptr %reason.coerce1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN6hermes2vm6GCBase3oomESt10error_code(ptr noundef nonnull align 8 dereferenceable(741) initializes((130, 131)) %this, i32 %reason.coerce0, ptr %reason.coerce1) local_unnamed_addr #6 align 2 {
 entry:
   %detailBuffer = alloca [400 x i8], align 16
   %hasOOMed_ = getelementptr inbounds i8, ptr %this, i64 130
@@ -1482,7 +1482,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm6GCBase12buildKeyListERNS0_7HadesGCEPNS0_13JSWeakMapImplILNS0_8CellKindE51EEE(ptr noalias nocapture sret(%"class.std::vector.31") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8152) %gc, ptr noundef nonnull %weakMap) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm6GCBase12buildKeyListERNS0_7HadesGCEPNS0_13JSWeakMapImplILNS0_8CellKindE51EEE(ptr noalias nocapture sret(%"class.std::vector.31") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8152) %gc, ptr noundef nonnull %weakMap) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call = tail call { ptr, ptr } @_ZN6hermes2vm17JSWeakMapImplBase10keys_beginEv(ptr noundef nonnull align 8 dereferenceable(61) %weakMap) #27
@@ -3078,7 +3078,7 @@ entry:
 declare void @llvm.trap() #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes2vm6GCBase9IDTrackerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) %this) unnamed_addr #11 align 2 {
+define hidden void @_ZN6hermes2vm6GCBase9IDTrackerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) initializes((0, 44), (48, 68), (72, 92), (96, 116), (120, 140), (144, 164), (168, 188)) %this) unnamed_addr #11 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
   %__kind.i.i = getelementptr inbounds i8, ptr %this, i64 16

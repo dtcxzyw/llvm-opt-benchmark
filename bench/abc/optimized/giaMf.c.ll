@@ -13066,7 +13066,7 @@ Vec_PtrFreeData.exit:                             ; preds = %62, %54
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Mf_ManSetDefaultPars(ptr nocapture noundef writeonly %0) local_unnamed_addr #11 {
+define void @Mf_ManSetDefaultPars(ptr nocapture noundef writeonly initializes((0, 264)) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %2, i8 0, i64 232, i1 false)
   store i32 6, ptr %0, align 8
@@ -16094,7 +16094,7 @@ split:                                            ; preds = %18, %27, %.preheade
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Abc_Tt8IsopCover(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 32) %2, ptr nocapture noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #4 {
+define internal fastcc void @Abc_Tt8IsopCover(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 32) %2, ptr nocapture noundef nonnull initializes((0, 32)) %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #4 {
   %7 = alloca [2 x i64], align 16
   %8 = alloca [2 x i64], align 16
   %9 = alloca [2 x i64], align 16
@@ -16284,7 +16284,7 @@ define internal fastcc void @Abc_Tt8IsopCover(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Abc_Tt7IsopCover(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #4 {
+define internal fastcc void @Abc_Tt7IsopCover(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #4 {
   %6 = load i64, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
@@ -16650,7 +16650,7 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef nonnull %0, i32 noundef 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @Abc_Tt8Isop(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 32) %2, ptr nocapture noundef nonnull %3) unnamed_addr #4 {
+define internal fastcc i32 @Abc_Tt8Isop(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 32) %2, ptr nocapture noundef nonnull initializes((0, 32)) %3) unnamed_addr #4 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [2 x i64], align 16
@@ -16822,7 +16822,7 @@ Abc_Tt7Isop.exit:                                 ; preds = %86, %._crit_edge.i
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @Abc_Tt7Isop(i64 %.0.val, i64 %.8.val, ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #4 {
+define internal fastcc i32 @Abc_Tt7Isop(i64 %.0.val, i64 %.8.val, ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %1) unnamed_addr #4 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   %4 = icmp eq i64 %.0.val, %.8.val

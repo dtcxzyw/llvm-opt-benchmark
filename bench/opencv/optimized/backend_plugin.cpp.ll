@@ -5259,7 +5259,7 @@ _ZN2cvL7makePtrINS_4impl6legacy12PluginWriterEJPK36OpenCV_VideoIO_Plugin_API_pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv26createPluginBackendFactoryENS_16VideoCaptureAPIsEPKc(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.36") align 8 %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv26createPluginBackendFactoryENS_16VideoCaptureAPIsEPKc(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.36") align 8 initializes((0, 16)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_4impl20PluginBackendFactoryEED2Ev.exit:
   %3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23, !noalias !77
   %4 = getelementptr inbounds i8, ptr %3, i64 8

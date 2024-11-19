@@ -157,7 +157,7 @@ define internal noalias ptr @H5FA__test_crt_dbg_context(ptr nocapture readnone %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5FA__get_cparam_test(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
+define noundef i32 @H5FA__get_cparam_test(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 9), (16, 24)) %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 256
   %5 = load i8, ptr %4, align 8

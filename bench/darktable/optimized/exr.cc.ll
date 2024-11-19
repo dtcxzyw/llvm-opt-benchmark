@@ -219,7 +219,7 @@ define hidden void @_ZNK7Imf_3_114TypedAttributeINS_4BlobEE12writeValueToERNS_7O
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_114TypedAttributeINS_4BlobEE13readValueFromERNS_7IStreamEii(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %2, i32 %3) unnamed_addr #4 align 2 {
+define hidden void @_ZN7Imf_3_114TypedAttributeINS_4BlobEE13readValueFromERNS_7IStreamEii(ptr noundef nonnull align 8 dereferenceable(32) initializes((8, 12)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %2, i32 %3) unnamed_addr #4 align 2 {
   %5 = alloca [4 x i8], align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #29
@@ -2681,7 +2681,7 @@ define ptr @name() local_unnamed_addr #9 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #4 {
+define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr #4 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #34
   %3 = getelementptr inbounds i8, ptr %0, i64 352
   store ptr %2, ptr %3, align 8, !tbaa !122

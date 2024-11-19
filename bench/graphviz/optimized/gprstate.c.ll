@@ -22,7 +22,7 @@ define noundef zeroext i1 @validTVT(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @initGPRState(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
+define void @initGPRState(ptr nocapture noundef writeonly initializes((64, 72)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(12) ptr @strdup(ptr noundef nonnull @.str) #16
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %2, ptr %3, align 8

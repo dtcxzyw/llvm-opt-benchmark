@@ -889,7 +889,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers12TermRegistry10finishInitEPNS2_15FirstOrderModelEPNS2_27QuantifiersInferenceManagerE(ptr nocapture noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %fm, ptr noundef %qim) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers12TermRegistry10finishInitEPNS2_15FirstOrderModelEPNS2_27QuantifiersInferenceManagerE(ptr nocapture noundef nonnull align 8 dereferenceable(208) initializes((200, 208)) %this, ptr noundef %fm, ptr noundef %qim) local_unnamed_addr #3 align 2 {
 entry:
   %d_qmodel = getelementptr inbounds i8, ptr %this, i64 200
   store ptr %fm, ptr %d_qmodel, align 8

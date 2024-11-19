@@ -23145,7 +23145,7 @@ return:                                           ; preds = %return.loopexit.cri
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow11PrettyPrintERKNS_5TableERKNS_18PrettyPrintOptionsEPSo(ptr noalias nocapture sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %table, ptr noundef nonnull align 8 dereferenceable(248) %options, ptr noundef %sink) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow11PrettyPrintERKNS_5TableERKNS_18PrettyPrintOptionsEPSo(ptr noalias nocapture sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %table, ptr noundef nonnull align 8 dereferenceable(248) %options, ptr noundef %sink) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %column_options = alloca %"struct.arrow::PrettyPrintOptions", align 8
@@ -23948,7 +23948,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter5VisitERKNS_10UnionArrayE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(72) %array) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter5VisitERKNS_10UnionArrayE(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(72) %array) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %printer.i212 = alloca %"class.arrow::(anonymous namespace)::ArrayPrinter", align 8
   %printer.i = alloca %"class.arrow::(anonymous namespace)::ArrayPrinter", align 8

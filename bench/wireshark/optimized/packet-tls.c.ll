@@ -2187,7 +2187,7 @@ define internal void @sslkeylist_uats_ipaddr_set_cb(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sslkeylist_uats_ipaddr_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sslkeylist_uats_ipaddr_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -2225,7 +2225,7 @@ define internal void @sslkeylist_uats_port_set_cb(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sslkeylist_uats_port_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sslkeylist_uats_port_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2251,7 +2251,7 @@ define internal void @sslkeylist_uats_port_tostr_cb(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @ssldecrypt_uat_fld_protocol_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly %5) #0 {
+define internal noundef zeroext i1 @ssldecrypt_uat_fld_protocol_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %7
 
@@ -2307,7 +2307,7 @@ define internal void @sslkeylist_uats_protocol_set_cb(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sslkeylist_uats_protocol_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sslkeylist_uats_protocol_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2346,7 +2346,7 @@ define internal void @sslkeylist_uats_keyfile_set_cb(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sslkeylist_uats_keyfile_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sslkeylist_uats_keyfile_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2385,7 +2385,7 @@ define internal void @sslkeylist_uats_password_set_cb(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sslkeylist_uats_password_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sslkeylist_uats_password_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2413,7 +2413,7 @@ define internal void @sslkeylist_uats_password_tostr_cb(ptr nocapture noundef re
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @ssldecrypt_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @ssldecrypt_copy_cb(ptr noundef returned writeonly initializes((0, 40)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #11
   store ptr %5, ptr %0, align 8
@@ -4638,7 +4638,7 @@ define internal fastcc void @print_tls_fragment_tree(ptr noundef nonnull %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_ssl_payload(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc void @process_ssl_payload(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull initializes((16, 24)) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 56
   %10 = getelementptr inbounds i8, ptr %6, i64 16
@@ -5439,7 +5439,7 @@ declare ptr @dissector_handle_get_protocol_long_name(ptr noundef) local_unnamed_
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ssl_payload(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc void @dissect_ssl_payload(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef nonnull initializes((0, 4)) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8

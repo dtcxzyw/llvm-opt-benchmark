@@ -991,7 +991,7 @@ declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_mark_shutdown_true(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #7 {
+define internal noundef i32 @_mark_shutdown_true(ptr nocapture noundef writeonly initializes((24, 25)) %0, ptr nocapture readnone %1) #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 1, ptr %3, align 8
   ret i32 0

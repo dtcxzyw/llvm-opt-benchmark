@@ -576,7 +576,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 declare void @_ZNSt6locale5_ImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu10ParserBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(596) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2mu10ParserBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(596) initializes((0, 24)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2mu10ParserBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 ptrtoint (ptr @_ZNK2mu10ParserBase11ParseStringEv to i64), ptr %2, align 8
@@ -1214,7 +1214,7 @@ _ZNKSt14default_deleteIN2mu14ParserCallbackEEclEPS1_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu10ParserBaseC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(596) %0, ptr noundef nonnull align 8 dereferenceable(596) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2mu10ParserBaseC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(596) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(596) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2mu10ParserBaseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 ptrtoint (ptr @_ZNK2mu10ParserBase11ParseStringEv to i64), ptr %3, align 8
@@ -1469,7 +1469,7 @@ _ZNSt10unique_ptrIN2mu17ParserTokenReaderESt14default_deleteIS1_EE5resetEPS1_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2mu10ParserBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(596) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2mu10ParserBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(596) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2mu10ParserBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 568
   %3 = load ptr, ptr %2, align 8
@@ -1676,7 +1676,7 @@ define noundef nonnull align 8 dereferenceable(596) ptr @_ZN2mu10ParserBaseaSERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2mu10ParserBase6ReInitEv(ptr noundef nonnull align 8 dereferenceable(596) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2mu10ParserBase6ReInitEv(ptr noundef nonnull align 8 dereferenceable(596) initializes((8, 24)) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 ptrtoint (ptr @_ZNK2mu10ParserBase11ParseStringEv to i64), ptr %2, align 8
   %.repack1 = getelementptr inbounds i8, ptr %0, i64 16
@@ -19090,7 +19090,7 @@ define void @_ZN2mu10ParserBase15EnableDebugDumpEbb(i1 noundef zeroext %0, i1 no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu10ParserBase17EnableBuiltInOprtEb(ptr noundef nonnull align 8 dereferenceable(596) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2mu10ParserBase17EnableBuiltInOprtEb(ptr noundef nonnull align 8 dereferenceable(596) initializes((8, 24), (464, 465)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 464
   store i8 %3, ptr %4, align 8
@@ -19477,7 +19477,7 @@ define noundef double @_ZNK2mu10ParserBase4EvalEv(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZNK2mu10ParserBase4EvalERi(ptr noundef nonnull align 8 dereferenceable(596) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) local_unnamed_addr #7 align 2 {
+define noundef nonnull ptr @_ZNK2mu10ParserBase4EvalERi(ptr noundef nonnull align 8 dereferenceable(596) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8

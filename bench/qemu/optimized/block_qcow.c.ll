@@ -922,7 +922,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @qcow_refresh_limits(ptr nocapture noundef writeonly %bs, ptr nocapture readnone %errp) #3 {
+define internal void @qcow_refresh_limits(ptr nocapture noundef writeonly initializes((16464, 16468)) %bs, ptr nocapture readnone %errp) #3 {
 entry:
   %bl = getelementptr inbounds i8, ptr %bs, i64 16464
   store i32 512, ptr %bl, align 8
@@ -1504,7 +1504,7 @@ return:                                           ; preds = %fail, %if.then10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @qcow_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %bdi) #5 {
+define internal noundef i32 @qcow_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly initializes((0, 4)) %bdi) #5 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1662,7 +1662,7 @@ declare i32 @bdrv_truncate(ptr noundef, i64 noundef, i1 noundef zeroext, i32 nou
 declare void @qemu_co_mutex_lock(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @get_cluster_offset(ptr nocapture noundef readonly %bs, i64 noundef %offset, i32 noundef %allocate, i32 noundef %compressed_size, i32 noundef %n_start, i32 noundef %n_end, ptr nocapture noundef writeonly %result) #0 {
+define internal i32 @get_cluster_offset(ptr nocapture noundef readonly %bs, i64 noundef %offset, i32 noundef %allocate, i32 noundef %compressed_size, i32 noundef %n_start, i32 noundef %n_end, ptr nocapture noundef writeonly initializes((0, 8)) %result) #0 {
 entry:
   %qiov.i161 = alloca %struct.QEMUIOVector, align 8
   %qiov.i = alloca %struct.QEMUIOVector, align 8

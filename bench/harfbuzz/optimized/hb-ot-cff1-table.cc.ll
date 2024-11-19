@@ -390,7 +390,7 @@ return:                                           ; preds = %entry, %if.end44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL11_get_boundsPKN2OT4cff113accelerator_tEjR8bounds_tb(ptr noundef %cff, i32 noundef %glyph, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %bounds, i1 noundef zeroext %in_seac) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZL11_get_boundsPKN2OT4cff113accelerator_tEjR8bounds_tb(ptr noundef %cff, i32 noundef %glyph, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %bounds, i1 noundef zeroext %in_seac) unnamed_addr #1 {
 entry:
   %env = alloca %"struct.CFF::cff1_cs_interp_env_t", align 8
   %param = alloca %struct.cff1_extents_param_t, align 8

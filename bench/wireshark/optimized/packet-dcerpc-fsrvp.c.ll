@@ -303,14 +303,14 @@ define internal i32 @fsrvp_dissect_element_fssagent_share_mapping_1_ShadowCopySh
 declare i32 @dissect_ndr_nt_NTTIME(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @fsrvp_dissect_GetSupportedVersion_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @fsrvp_dissect_GetSupportedVersion_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.68, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_GetSupportedVersion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_GetSupportedVersion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.68, ptr %8, align 8
@@ -338,7 +338,7 @@ define internal i32 @fsrvp_dissect_GetSupportedVersion_response(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_SetContext_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_SetContext_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.69, ptr %7, align 8
   %8 = load i32, ptr @hf_fsrvp_fsrvp_SetContext_Context, align 4
@@ -347,7 +347,7 @@ define internal i32 @fsrvp_dissect_SetContext_request(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_SetContext_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_SetContext_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.69, ptr %8, align 8
@@ -369,7 +369,7 @@ define internal i32 @fsrvp_dissect_SetContext_response(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_StartShadowCopySet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_StartShadowCopySet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.70, ptr %7, align 8
   %8 = load i32, ptr @hf_fsrvp_fsrvp_StartShadowCopySet_ClientShadowCopySetId, align 4
@@ -378,7 +378,7 @@ define internal i32 @fsrvp_dissect_StartShadowCopySet_request(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_StartShadowCopySet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_StartShadowCopySet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.70, ptr %8, align 8
@@ -403,7 +403,7 @@ define internal i32 @fsrvp_dissect_StartShadowCopySet_response(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_AddToShadowCopySet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_AddToShadowCopySet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.71, ptr %7, align 8
   %8 = load i32, ptr @hf_fsrvp_fsrvp_AddToShadowCopySet_ClientShadowCopyId, align 4
@@ -417,7 +417,7 @@ define internal i32 @fsrvp_dissect_AddToShadowCopySet_request(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_AddToShadowCopySet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_AddToShadowCopySet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.71, ptr %8, align 8
@@ -442,7 +442,7 @@ define internal i32 @fsrvp_dissect_AddToShadowCopySet_response(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_CommitShadowCopySet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_CommitShadowCopySet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.72, ptr %7, align 8
   %8 = load i32, ptr @hf_fsrvp_fsrvp_CommitShadowCopySet_ShadowCopySetId, align 4
@@ -453,7 +453,7 @@ define internal i32 @fsrvp_dissect_CommitShadowCopySet_request(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_CommitShadowCopySet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_CommitShadowCopySet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.72, ptr %8, align 8
@@ -475,7 +475,7 @@ define internal i32 @fsrvp_dissect_CommitShadowCopySet_response(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_ExposeShadowCopySet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_ExposeShadowCopySet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.73, ptr %7, align 8
   %8 = load i32, ptr @hf_fsrvp_fsrvp_ExposeShadowCopySet_ShadowCopySetId, align 4
@@ -486,7 +486,7 @@ define internal i32 @fsrvp_dissect_ExposeShadowCopySet_request(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_ExposeShadowCopySet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_ExposeShadowCopySet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.73, ptr %8, align 8
@@ -508,7 +508,7 @@ define internal i32 @fsrvp_dissect_ExposeShadowCopySet_response(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_RecoveryCompleteShadowCopySet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_RecoveryCompleteShadowCopySet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.74, ptr %7, align 8
   %8 = load i32, ptr @hf_fsrvp_fsrvp_RecoveryCompleteShadowCopySet_ShadowCopySetId, align 4
@@ -517,7 +517,7 @@ define internal i32 @fsrvp_dissect_RecoveryCompleteShadowCopySet_request(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_RecoveryCompleteShadowCopySet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_RecoveryCompleteShadowCopySet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.74, ptr %8, align 8
@@ -539,7 +539,7 @@ define internal i32 @fsrvp_dissect_RecoveryCompleteShadowCopySet_response(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_AbortShadowCopySet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_AbortShadowCopySet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.75, ptr %7, align 8
   %8 = load i32, ptr @hf_fsrvp_fsrvp_AbortShadowCopySet_ShadowCopySetId, align 4
@@ -548,7 +548,7 @@ define internal i32 @fsrvp_dissect_AbortShadowCopySet_request(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_AbortShadowCopySet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_AbortShadowCopySet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.75, ptr %8, align 8
@@ -570,7 +570,7 @@ define internal i32 @fsrvp_dissect_AbortShadowCopySet_response(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_IsPathSupported_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_IsPathSupported_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.76, ptr %7, align 8
   %8 = load i32, ptr @hf_fsrvp_fsrvp_IsPathSupported_ShareName, align 4
@@ -580,7 +580,7 @@ define internal i32 @fsrvp_dissect_IsPathSupported_request(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_IsPathSupported_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_IsPathSupported_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.76, ptr %8, align 8
@@ -608,7 +608,7 @@ define internal i32 @fsrvp_dissect_IsPathSupported_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_IsPathShadowCopied_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_IsPathShadowCopied_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.77, ptr %7, align 8
   %8 = load i32, ptr @hf_fsrvp_fsrvp_IsPathShadowCopied_ShareName, align 4
@@ -618,7 +618,7 @@ define internal i32 @fsrvp_dissect_IsPathShadowCopied_request(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_IsPathShadowCopied_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_IsPathShadowCopied_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.77, ptr %8, align 8
@@ -646,7 +646,7 @@ define internal i32 @fsrvp_dissect_IsPathShadowCopied_response(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_GetShareMapping_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_GetShareMapping_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.78, ptr %7, align 8
   %8 = load i32, ptr @hf_fsrvp_fsrvp_GetShareMapping_ShadowCopyId, align 4
@@ -662,7 +662,7 @@ define internal i32 @fsrvp_dissect_GetShareMapping_request(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_GetShareMapping_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_GetShareMapping_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.78, ptr %8, align 8
@@ -687,7 +687,7 @@ define internal i32 @fsrvp_dissect_GetShareMapping_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_DeleteShareMapping_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_DeleteShareMapping_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.79, ptr %7, align 8
   %8 = load i32, ptr @hf_fsrvp_fsrvp_DeleteShareMapping_ShadowCopySetId, align 4
@@ -701,7 +701,7 @@ define internal i32 @fsrvp_dissect_DeleteShareMapping_request(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_DeleteShareMapping_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_DeleteShareMapping_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.79, ptr %8, align 8
@@ -723,7 +723,7 @@ define internal i32 @fsrvp_dissect_DeleteShareMapping_response(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_PrepareShadowCopySet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_PrepareShadowCopySet_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.80, ptr %7, align 8
   %8 = load i32, ptr @hf_fsrvp_fsrvp_PrepareShadowCopySet_ShadowCopySetId, align 4
@@ -734,7 +734,7 @@ define internal i32 @fsrvp_dissect_PrepareShadowCopySet_request(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsrvp_dissect_PrepareShadowCopySet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @fsrvp_dissect_PrepareShadowCopySet_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.80, ptr %8, align 8

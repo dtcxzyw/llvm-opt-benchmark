@@ -4725,7 +4725,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes8FunctionC2ENS_9ValueKindEPNS_6ModuleEPNS_9ScopeDescENS_10IdentifierENS0_14DefinitionKindEbNS_16SourceVisibilityEbN4llvh7SMRangeEPS0_(ptr noundef nonnull align 8 dereferenceable(304) %this, i8 noundef zeroext %kind, ptr noundef nonnull %parent, ptr noundef %scopeDesc, ptr %originalName.coerce, i32 noundef %definitionKind, i1 noundef zeroext %strictMode, i32 noundef %sourceVisibility, i1 noundef zeroext %isGlobal, ptr nocapture noundef readonly byval(%"class.llvh::SMRange") align 8 %sourceRange, ptr noundef %insertBefore) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes8FunctionC2ENS_9ValueKindEPNS_6ModuleEPNS_9ScopeDescENS_10IdentifierENS0_14DefinitionKindEbNS_16SourceVisibilityEbN4llvh7SMRangeEPS0_(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 16), (18, 22)) %this, i8 noundef zeroext %kind, ptr noundef nonnull %parent, ptr noundef %scopeDesc, ptr %originalName.coerce, i32 noundef %definitionKind, i1 noundef zeroext %strictMode, i32 noundef %sourceVisibility, i1 noundef zeroext %isGlobal, ptr nocapture noundef readonly byval(%"class.llvh::SMRange") align 8 %sourceRange, ptr noundef %insertBefore) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %strictMode to i8
   %frombool1 = zext i1 %isGlobal to i8
@@ -5071,7 +5071,7 @@ return:                                           ; preds = %if.then.i.i.i68, %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes6Module6insertEN4llvh14ilist_iteratorINS1_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvEELb0ELb0EEEPS5_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1033) %this, ptr %position.coerce, ptr noundef %F) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6hermes6Module6insertEN4llvh14ilist_iteratorINS1_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvEELb0ELb0EEEPS5_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1033) %this, ptr %position.coerce, ptr noundef initializes((0, 16)) %F) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %position.coerce, align 8
   %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %F, i64 8
@@ -5084,7 +5084,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes6Module9push_backEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(1033) %this, ptr noundef %F) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6hermes6Module9push_backEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(1033) %this, ptr noundef initializes((0, 16)) %F) local_unnamed_addr #7 align 2 {
 entry:
   %FunctionList = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %FunctionList, align 8
@@ -5328,7 +5328,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK6hermes8Function26getSourceRepresentationStrEv(ptr noalias nocapture writeonly sret(%"class.llvh::Optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this) local_unnamed_addr #9 align 2 {
+define hidden void @_ZNK6hermes8Function26getSourceRepresentationStrEv(ptr noalias nocapture writeonly sret(%"class.llvh::Optional") align 8 initializes((16, 17)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this) local_unnamed_addr #9 align 2 {
 entry:
   %sourceVisibility_.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load i32, ptr %sourceVisibility_.i, align 8
@@ -5371,7 +5371,7 @@ return:                                           ; preds = %sw.default, %sw.bb5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes10BasicBlockC2EPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %parent) unnamed_addr #7 align 2 {
+define hidden void @_ZN6hermes10BasicBlockC2EPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 16), (18, 22)) %this, ptr noundef %parent) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -5405,7 +5405,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes8Function8addBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef %BB) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6hermes8Function8addBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef initializes((0, 16)) %BB) local_unnamed_addr #7 align 2 {
 entry:
   %BasicBlockList = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %BasicBlockList, align 8
@@ -6315,7 +6315,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr nocapture noundef readonly %src, ptr readonly %operands.coerce0, i64 %operands.coerce1) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 16), (18, 22)) %this, ptr nocapture noundef readonly %src, ptr readonly %operands.coerce0, i64 %operands.coerce1) unnamed_addr #0 align 2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %src, i64 16
   %0 = load i8, ptr %add.ptr, align 8
@@ -6749,7 +6749,7 @@ _ZN4llvh15SmallVectorImplISt4pairIPN6hermes5ValueEjEE5eraseEPKS5_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes11Instruction12insertBeforeEPS0_(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %InsertPos) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6hermes11Instruction12insertBeforeEPS0_(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 16)) %this, ptr noundef %InsertPos) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %InsertPos, align 8
   %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -6762,7 +6762,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes11Instruction11insertAfterEPS0_(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr nocapture noundef readonly %InsertPos) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN6hermes11Instruction11insertAfterEPS0_(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 16)) %this, ptr nocapture noundef readonly %InsertPos) local_unnamed_addr #10 align 2 {
 entry:
   %Parent.i = getelementptr inbounds i8, ptr %InsertPos, i64 56
   %0 = load ptr, ptr %Parent.i, align 8
@@ -7479,7 +7479,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes9ParameterC2EPNS_8FunctionENS_10IdentifierEb(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %parent, ptr %name.coerce, i1 noundef zeroext %isThisParameter) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes9ParameterC2EPNS_8FunctionENS_10IdentifierEb(ptr noundef nonnull align 8 dereferenceable(56) initializes((2, 6)) %this, ptr noundef %parent, ptr %name.coerce, i1 noundef zeroext %isThisParameter) unnamed_addr #0 align 2 {
 entry:
   %valueType.i = getelementptr inbounds i8, ptr %this, i64 2
   store i16 1023, ptr %valueType.i, align 2
@@ -7566,7 +7566,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes9ParameterELb1EE9push_backERKS3_.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes8VariableC2ENS_9ValueKindEPNS_9ScopeDescENS_18JavaScriptDeclKindENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(65) %this, i8 noundef zeroext %k, ptr noundef %scope, i8 noundef zeroext %declKind, ptr %txt.coerce) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes8VariableC2ENS_9ValueKindEPNS_9ScopeDescENS_18JavaScriptDeclKindENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(65) initializes((2, 6)) %this, i8 noundef zeroext %k, ptr noundef %scope, i8 noundef zeroext %declKind, ptr %txt.coerce) unnamed_addr #0 align 2 {
 entry:
   %valueType.i = getelementptr inbounds i8, ptr %this, i64 2
   store i16 1023, ptr %valueType.i, align 2
@@ -7763,7 +7763,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes10BasicBlock9push_backEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %I) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6hermes10BasicBlock9push_backEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef initializes((0, 16)) %I) local_unnamed_addr #7 align 2 {
 entry:
   %InstList = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %InstList, align 8
@@ -9277,7 +9277,7 @@ for.end18:                                        ; preds = %for.inc16, %if.end,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes6Module21getFunctionsInSegmentEj(ptr noalias sret(%"class.llvh::DenseSet") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1033) %this, i32 noundef %segment) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes6Module21getFunctionsInSegmentEj(ptr noalias sret(%"class.llvh::DenseSet") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1033) %this, i32 noundef %segment) local_unnamed_addr #0 align 2 {
 entry:
   %segment.addr = alloca i32, align 4
   %worklist = alloca %"class.llvh::SetVector", align 8

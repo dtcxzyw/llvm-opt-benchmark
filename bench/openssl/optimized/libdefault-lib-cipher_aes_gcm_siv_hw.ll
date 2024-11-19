@@ -576,7 +576,7 @@ return:                                           ; preds = %if.then19.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aes_gcm_siv_dup_ctx(ptr nocapture noundef %vdst, ptr nocapture noundef readonly %vsrc) #1 {
+define internal range(i32 0, 2) i32 @aes_gcm_siv_dup_ctx(ptr nocapture noundef initializes((0, 8)) %vdst, ptr nocapture noundef readonly %vsrc) #1 {
 entry:
   store ptr null, ptr %vdst, align 8
   %0 = load ptr, ptr %vsrc, align 8

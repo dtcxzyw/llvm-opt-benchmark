@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { [2 x i32] }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @MDC2_Init(ptr nocapture noundef writeonly %c) local_unnamed_addr #0 {
+define noundef i32 @MDC2_Init(ptr nocapture noundef writeonly initializes((0, 4), (12, 32)) %c) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %c, align 4
   %pad_type = getelementptr inbounds i8, ptr %c, i64 28
@@ -223,7 +223,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MDC2_Final(ptr nocapture noundef writeonly %md, ptr noundef %c) local_unnamed_addr #2 {
+define noundef i32 @MDC2_Final(ptr nocapture noundef writeonly initializes((0, 16)) %md, ptr noundef %c) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %c, align 4
   %pad_type = getelementptr inbounds i8, ptr %c, i64 28

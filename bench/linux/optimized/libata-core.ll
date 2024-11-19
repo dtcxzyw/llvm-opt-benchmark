@@ -9815,7 +9815,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @ata_dev_config_lba(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ata_dev_config_chs(ptr nocapture noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc void @ata_dev_config_chs(ptr nocapture noundef initializes((848, 854)) %0) unnamed_addr #1 align 16 {
   %2 = getelementptr i8, ptr %0, i64 1002
   %3 = load i16, ptr %2, align 2
   %4 = and i16 %3, 1
@@ -10038,7 +10038,7 @@ define internal fastcc void @ata_dev_config_sense_reporting(ptr noundef %0) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ata_dev_config_zac(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc void @ata_dev_config_zac(ptr noundef initializes((1504, 1516)) %0) unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 64
   %3 = load ptr, ptr %2, align 64
   %4 = getelementptr inbounds i8, ptr %3, i64 15936
@@ -14065,7 +14065,7 @@ define dso_local noundef i32 @ata_noop_qc_prep(ptr nocapture readnone %0) #2 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @ata_sg_init(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #8 align 16 {
+define dso_local void @ata_sg_init(ptr nocapture noundef writeonly initializes((96, 100), (160, 176)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #8 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -14076,7 +14076,7 @@ define dso_local void @ata_sg_init(ptr nocapture noundef writeonly %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @ata_qc_free(ptr nocapture noundef %0) local_unnamed_addr #17 align 16 {
+define dso_local void @ata_qc_free(ptr nocapture noundef initializes((80, 88)) %0) local_unnamed_addr #17 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 88
@@ -14960,7 +14960,7 @@ define dso_local void @ata_host_resume(ptr nocapture noundef readonly %0) #19 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_dev_init(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local void @ata_dev_init(ptr nocapture noundef initializes((12, 16), (784, 2048)) %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 64
   %3 = load ptr, ptr %2, align 64
   %4 = getelementptr inbounds i8, ptr %3, i64 14720
@@ -15012,7 +15012,7 @@ define dso_local void @ata_dev_init(ptr nocapture noundef %0) local_unnamed_addr
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #0 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_link_init(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local void @ata_link_init(ptr noundef %0, ptr noundef initializes((0, 12), (744, 1152)) %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr i8, ptr %1, i64 744
   %5 = getelementptr i8, ptr %1, i64 748
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(408) %5, i8 0, i64 404, i1 false)
@@ -16141,7 +16141,7 @@ declare dso_local void @ata_eh_freeze_port(ptr noundef) local_unnamed_addr #0
 declare dso_local void @devres_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_host_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local void @ata_host_init(ptr noundef initializes((0, 4)) %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   store i32 0, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @__mutex_init(ptr noundef %4, ptr noundef nonnull @.str.89, ptr noundef nonnull @ata_host_init.__key) #31
@@ -16185,7 +16185,7 @@ define dso_local void @ata_port_probe(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ata_host_register(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local i32 @ata_host_register(ptr noundef initializes((28, 32)) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 272
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)

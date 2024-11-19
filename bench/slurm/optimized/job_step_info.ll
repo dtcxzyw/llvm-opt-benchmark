@@ -369,7 +369,7 @@ declare i32 @cpu_freq_debug(ptr noundef, ptr noundef, ptr noundef, i32 noundef, 
 declare ptr @slurm_step_layout_type_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurm_get_job_steps(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_get_job_steps(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8

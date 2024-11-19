@@ -166,7 +166,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt8qi_queueC2ERNS_18quantifier_managerERNS_7contextER9qi_params(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef nonnull align 8 dereferenceable(13) %qm, ptr noundef nonnull align 8 dereferenceable(11616) %ctx, ptr noundef nonnull align 8 dereferenceable(144) %params) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt8qi_queueC2ERNS_18quantifier_managerERNS_7contextER9qi_params(ptr noundef nonnull align 8 dereferenceable(1048) initializes((0, 40)) %this, ptr noundef nonnull align 8 dereferenceable(13) %qm, ptr noundef nonnull align 8 dereferenceable(11616) %ctx, ptr noundef nonnull align 8 dereferenceable(144) %params) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %qm, ptr %this, align 8
   %m_context = getelementptr inbounds i8, ptr %this, i64 8
@@ -4407,7 +4407,7 @@ _ZN14core_hashtableIN7obj_mapI10quantifierN3smt15delayed_qa_infoEE13obj_map_entr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK3smt8qi_queue17get_min_max_costsERfS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1048) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %min, ptr nocapture noundef nonnull align 4 dereferenceable(4) %max) local_unnamed_addr #8 align 2 {
+define hidden void @_ZNK3smt8qi_queue17get_min_max_costsERfS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1048) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %min, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %max) local_unnamed_addr #8 align 2 {
 entry:
   store float 0.000000e+00, ptr %min, align 4
   store float 0.000000e+00, ptr %max, align 4

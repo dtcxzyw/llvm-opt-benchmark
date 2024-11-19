@@ -3059,7 +3059,7 @@ cleanup56:                                        ; preds = %for.inc, %if.else45
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN5folly10symbolizer8ElfCache7filePtrERKSt10shared_ptrINS1_5EntryEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %e) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10symbolizer8ElfCache7filePtrERKSt10shared_ptrINS1_5EntryEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %e) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %e, align 8, !tbaa !64
   %file = getelementptr inbounds i8, ptr %0, i64 32

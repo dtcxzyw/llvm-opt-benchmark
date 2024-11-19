@@ -71,7 +71,7 @@ define dso_local noundef ptr @_ZN4llvm15getBugReportMsgEv() local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm21PrettyStackTraceEntryE, i64 16), ptr %0, align 8
   %2 = load atomic volatile i32, ptr @_ZL30GlobalSigInfoGenerationCounter monotonic, align 4
   %3 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZL35ThreadLocalSigInfoGenerationCounter)
@@ -100,7 +100,7 @@ _ZL23printForSigInfoIfNeededv.exit:               ; preds = %1, %7
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21PrettyStackTraceEntryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm21PrettyStackTraceEntryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm21PrettyStackTraceEntryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -192,7 +192,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit5:                ; preds = %25, %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm22PrettyStackTraceFormatC2EPKcz(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm22PrettyStackTraceFormatC2EPKcz(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 16)) %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #3 align 2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm21PrettyStackTraceEntryE, i64 16), ptr %0, align 8
   %4 = load atomic volatile i32, ptr @_ZL30GlobalSigInfoGenerationCounter monotonic, align 4

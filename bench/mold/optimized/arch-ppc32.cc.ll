@@ -252,7 +252,7 @@ _ZNSt12_Vector_baseIPN4mold7CounterESaIS2_EED2Ev.exit: ; preds = %entry, %if.the
 }
 
 ; Function Attrs: mustprogress nofree nounwind
-define dso_local void @_ZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4576) %ctx, ptr nocapture noundef %buf) local_unnamed_addr #5 {
+define dso_local void @_ZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4576) %ctx, ptr nocapture noundef initializes((0, 64)) %buf) local_unnamed_addr #5 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN4mold3elf16write_plt_headerINS0_5PPC32EEEvRNS0_7ContextIT_EEPhE4insn acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
@@ -326,7 +326,7 @@ init.end:                                         ; preds = %init, %init.check, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @_ZN4mold3elf15write_plt_entryINS0_5PPC32EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4576) %ctx, ptr nocapture noundef %buf, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %sym) local_unnamed_addr #7 {
+define dso_local void @_ZN4mold3elf15write_plt_entryINS0_5PPC32EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4576) %ctx, ptr nocapture noundef initializes((0, 36)) %buf, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %sym) local_unnamed_addr #7 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %buf, ptr noundef nonnull align 16 dereferenceable(36) @_ZN4mold3elfL9plt_entryE, i64 36, i1 false)
   %gotplt.i = getelementptr inbounds i8, ptr %ctx, i64 4032
@@ -419,7 +419,7 @@ _ZNK4mold3elf6SymbolINS0_5PPC32EE12get_plt_addrERNS0_7ContextIS2_EE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @_ZN4mold3elf18write_pltgot_entryINS0_5PPC32EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4576) %ctx, ptr nocapture noundef %buf, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %sym) local_unnamed_addr #7 {
+define dso_local void @_ZN4mold3elf18write_pltgot_entryINS0_5PPC32EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4576) %ctx, ptr nocapture noundef initializes((0, 36)) %buf, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %sym) local_unnamed_addr #7 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %buf, ptr noundef nonnull align 16 dereferenceable(36) @_ZN4mold3elfL9plt_entryE, i64 36, i1 false)
   %0 = load ptr, ptr %sym, align 8
@@ -2022,7 +2022,7 @@ _ZN4mold7SyncOutINS_3elf7ContextINS1_5PPC32EEEElsIRA50_KcEERS5_OT_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind
-define dso_local void @_ZN4mold3elf12InputSectionINS0_5PPC32EE16scan_relocationsERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(118) %this, ptr noundef nonnull align 8 dereferenceable(4576) %ctx) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4mold3elf12InputSectionINS0_5PPC32EE16scan_relocationsERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(118) initializes((88, 92)) %this, ptr noundef nonnull align 8 dereferenceable(4576) %ctx) local_unnamed_addr #4 align 2 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp36 = alloca %"class.mold::Error", align 8

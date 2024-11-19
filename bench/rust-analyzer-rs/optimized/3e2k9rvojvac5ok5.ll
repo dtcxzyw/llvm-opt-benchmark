@@ -3376,7 +3376,7 @@ define { i32, i32 } @_ZN6syntax12syntax_error11SyntaxError5range17h99b05d01cbec0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6syntax12syntax_error11SyntaxError10with_range17h9f5ae7336d7f8834E(ptr noalias nocapture noundef writeonly sret({ { { { i64, ptr, {} }, i64 } }, { i32, i32 } }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #9 {
+define void @_ZN6syntax12syntax_error11SyntaxError10with_range17h9f5ae7336d7f8834E(ptr noalias nocapture noundef writeonly sret({ { { { i64, ptr, {} }, i64 } }, { i32, i32 } }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) initializes((24, 32)) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #9 {
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 28

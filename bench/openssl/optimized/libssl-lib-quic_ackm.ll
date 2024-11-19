@@ -1445,7 +1445,7 @@ return:                                           ; preds = %entry, %ackm_set_lo
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ackm_on_handshake_confirmed(ptr nocapture noundef %ackm) local_unnamed_addr #0 {
+define noundef i32 @ossl_ackm_on_handshake_confirmed(ptr nocapture noundef initializes((456, 458)) %ackm) local_unnamed_addr #0 {
 entry:
   %space.i = alloca i32, align 4
   %handshake_confirmed = getelementptr inbounds i8, ptr %ackm, i64 456
@@ -2584,7 +2584,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @ossl_uint_set_query(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ackm_set_loss_detection_deadline_callback(ptr nocapture noundef writeonly %ackm, ptr noundef %fn, ptr noundef %arg) local_unnamed_addr #6 {
+define void @ossl_ackm_set_loss_detection_deadline_callback(ptr nocapture noundef writeonly initializes((2368, 2384)) %ackm, ptr noundef %fn, ptr noundef %arg) local_unnamed_addr #6 {
 entry:
   %loss_detection_deadline_cb = getelementptr inbounds i8, ptr %ackm, i64 2368
   store ptr %fn, ptr %loss_detection_deadline_cb, align 8
@@ -2594,7 +2594,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ackm_set_ack_deadline_callback(ptr nocapture noundef writeonly %ackm, ptr noundef %fn, ptr noundef %arg) local_unnamed_addr #6 {
+define void @ossl_ackm_set_ack_deadline_callback(ptr nocapture noundef writeonly initializes((2384, 2400)) %ackm, ptr noundef %fn, ptr noundef %arg) local_unnamed_addr #6 {
 entry:
   %ack_deadline_cb = getelementptr inbounds i8, ptr %ackm, i64 2384
   store ptr %fn, ptr %ack_deadline_cb, align 8
@@ -2791,7 +2791,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ackm_set_rx_max_ack_delay(ptr nocapture noundef writeonly %ackm, i64 %rx_max_ack_delay.coerce) local_unnamed_addr #6 {
+define void @ossl_ackm_set_rx_max_ack_delay(ptr nocapture noundef writeonly initializes((2352, 2360)) %ackm, i64 %rx_max_ack_delay.coerce) local_unnamed_addr #6 {
 entry:
   %rx_max_ack_delay1 = getelementptr inbounds i8, ptr %ackm, i64 2352
   store i64 %rx_max_ack_delay.coerce, ptr %rx_max_ack_delay1, align 8
@@ -2799,7 +2799,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ackm_set_tx_max_ack_delay(ptr nocapture noundef writeonly %ackm, i64 %tx_max_ack_delay.coerce) local_unnamed_addr #6 {
+define void @ossl_ackm_set_tx_max_ack_delay(ptr nocapture noundef writeonly initializes((2360, 2368)) %ackm, i64 %tx_max_ack_delay.coerce) local_unnamed_addr #6 {
 entry:
   %tx_max_ack_delay1 = getelementptr inbounds i8, ptr %ackm, i64 2360
   store i64 %tx_max_ack_delay.coerce, ptr %tx_max_ack_delay1, align 8

@@ -50,7 +50,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.05a6e1260e3c6d1447b4da0ac4e042c1.55 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr122drop_in_place$LT$$RF$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h021e3b5f6a382534E", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h8af3dff67aa77439E" }>, align 8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hccf911fa47a125e5E.llvm.4379384273148075702"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hccf911fa47a125e5E.llvm.4379384273148075702"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, i64 } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -796,7 +796,7 @@ define hidden void @_ZN15ockam_multiaddr5error5Error7message17h68e2075b0b154277E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN15ockam_multiaddr5error5Error6custom17h4934302cfc1d9dfdE(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] } }) align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #8 {
+define void @_ZN15ockam_multiaddr5error5Error6custom17h4934302cfc1d9dfdE(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] } }) align 8 dereferenceable(32) initializes((0, 1), (8, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #8 {
   store i8 7, ptr %0, align 8
   %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %.sroa.41.0..sroa_idx, align 8
@@ -806,7 +806,7 @@ define void @_ZN15ockam_multiaddr5error5Error6custom17h4934302cfc1d9dfdE(ptr noa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN15ockam_multiaddr5error5Error14required_bytes17h07beaeed99b1ac32E(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] } }) align 8 dereferenceable(32) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #8 {
+define void @_ZN15ockam_multiaddr5error5Error14required_bytes17h07beaeed99b1ac32E(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] } }) align 8 dereferenceable(32) initializes((0, 1), (4, 16)) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #8 {
   store i8 6, ptr %0, align 8
   %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %.sroa.41.0..sroa_idx, align 4
@@ -816,7 +816,7 @@ define void @_ZN15ockam_multiaddr5error5Error14required_bytes17h07beaeed99b1ac32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN15ockam_multiaddr5error5Error12unregistered17he876595648676278E(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] } }) align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #8 {
+define void @_ZN15ockam_multiaddr5error5Error12unregistered17he876595648676278E(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] } }) align 8 dereferenceable(32) initializes((0, 1), (4, 8)) %0, i32 noundef %1) unnamed_addr #8 {
   store i8 0, ptr %0, align 8
   %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %.sroa.41.0..sroa_idx, align 4
@@ -824,7 +824,7 @@ define void @_ZN15ockam_multiaddr5error5Error12unregistered17he876595648676278E(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15ockam_multiaddr5error5Error13invalid_proto17hab61a1fb91baad84E(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] } }) align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #8 {
+define hidden void @_ZN15ockam_multiaddr5error5Error13invalid_proto17hab61a1fb91baad84E(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] } }) align 8 dereferenceable(32) initializes((0, 1), (4, 8)) %0, i32 noundef %1) unnamed_addr #8 {
   store i8 1, ptr %0, align 8
   %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %.sroa.41.0..sroa_idx, align 4
@@ -832,7 +832,7 @@ define hidden void @_ZN15ockam_multiaddr5error5Error13invalid_proto17hab61a1fb91
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN15ockam_multiaddr5error5Error9into_impl17hc370ee0cab422cb3E(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #9 {
+define hidden void @_ZN15ockam_multiaddr5error5Error9into_impl17hc370ee0cab422cb3E(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #9 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 }
@@ -1064,7 +1064,7 @@ default.unreachable1:                             ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN107_$LT$ockam_multiaddr..error..Error$u20$as$u20$core..convert..From$LT$unsigned_varint..decode..Error$GT$$GT$4from17h6a1e890c2b54d1f7E"(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] } }) align 8 dereferenceable(32) %0, i8 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #8 {
+define void @"_ZN107_$LT$ockam_multiaddr..error..Error$u20$as$u20$core..convert..From$LT$unsigned_varint..decode..Error$GT$$GT$4from17h6a1e890c2b54d1f7E"(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] } }) align 8 dereferenceable(32) initializes((0, 2)) %0, i8 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #8 {
   store i8 3, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %1, ptr %.sroa.4.0..sroa_idx, align 1
@@ -1072,7 +1072,7 @@ define void @"_ZN107_$LT$ockam_multiaddr..error..Error$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN93_$LT$ockam_multiaddr..error..Error$u20$as$u20$core..convert..From$LT$core..fmt..Error$GT$$GT$4from17h8d092af7f143e621E"(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] } }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #8 {
+define void @"_ZN93_$LT$ockam_multiaddr..error..Error$u20$as$u20$core..convert..From$LT$core..fmt..Error$GT$$GT$4from17h8d092af7f143e621E"(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] } }) align 8 dereferenceable(32) initializes((0, 1)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #8 {
   store i8 5, ptr %0, align 8
   ret void
 }

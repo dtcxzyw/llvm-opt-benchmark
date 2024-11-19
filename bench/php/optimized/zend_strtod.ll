@@ -3478,7 +3478,7 @@ Balloc.exit61:                                    ; preds = %41, %51
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @zend_freedtoa(ptr noundef %0) local_unnamed_addr #5 {
+define void @zend_freedtoa(ptr noundef initializes((4, 12)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -4
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -3515,7 +3515,7 @@ Bfree.exit:                                       ; preds = %8, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @zend_dtoa(double noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #1 {
+define nonnull ptr @zend_dtoa(double noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly initializes((0, 1)) %4, ptr noundef writeonly %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca %union.U, align 8
@@ -6160,7 +6160,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc double @b2d(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #11 {
+define internal fastcc double @b2d(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %1) unnamed_addr #11 {
   %.ptr = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4

@@ -604,7 +604,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_758numparse4impl26AffixPatternMatcherBuilderC2ERKNS_13UnicodeStringERNS1_26AffixTokenMatcherWarehouseEPNS1_17IgnorablesMatcherE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef nonnull align 8 dereferenceable(1288) %warehouse, ptr noundef %ignorables) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758numparse4impl26AffixPatternMatcherBuilderC2ERKNS_13UnicodeStringERNS1_26AffixTokenMatcherWarehouseEPNS1_17IgnorablesMatcherE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef nonnull align 8 dereferenceable(1288) %warehouse, ptr noundef %ignorables) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl26AffixPatternMatcherBuilderE, i64 16), ptr %this, align 8
@@ -1163,7 +1163,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758numparse4impl26AffixTokenMatcherWarehouseC2EPKNS1_26AffixTokenMatcherSetupDataE(ptr noundef nonnull align 8 dereferenceable(1288) %this, ptr noundef %setupData) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758numparse4impl26AffixTokenMatcherWarehouseC2EPKNS1_26AffixTokenMatcherSetupDataE(ptr noundef nonnull align 8 dereferenceable(1288) initializes((0, 26), (96, 114), (184, 202), (264, 282)) %this, ptr noundef %setupData) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   store ptr %setupData, ptr %this, align 8
   %fMinusSign = getelementptr inbounds i8, ptr %this, i64 8
@@ -1451,7 +1451,7 @@ entry:
 declare noundef zeroext i1 @_ZNK6icu_756number4impl15CurrencySymbols22hasEmptyCurrencySymbolEv(ptr noundef nonnull align 8 dereferenceable(232)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_758numparse4impl16CodePointMatcherC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, i32 noundef %cp) unnamed_addr #7 align 2 {
+define void @_ZN6icu_758numparse4impl16CodePointMatcherC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, i32 noundef %cp) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl16CodePointMatcherE, i64 16), ptr %this, align 8
   %fCp = getelementptr inbounds i8, ptr %this, i64 8
@@ -1501,7 +1501,7 @@ entry:
 declare void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758numparse4impl19AffixPatternMatcher16fromAffixPatternERKNS_13UnicodeStringERNS1_26AffixTokenMatcherWarehouseEiPbR10UErrorCode(ptr noalias sret(%"class.icu_75::numparse::impl::AffixPatternMatcher") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %affixPattern, ptr noundef nonnull align 8 dereferenceable(1288) %tokenWarehouse, i32 noundef %parseFlags, ptr nocapture noundef writeonly %success, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758numparse4impl19AffixPatternMatcher16fromAffixPatternERKNS_13UnicodeStringERNS1_26AffixTokenMatcherWarehouseEiPbR10UErrorCode(ptr noalias sret(%"class.icu_75::numparse::impl::AffixPatternMatcher") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %affixPattern, ptr noundef nonnull align 8 dereferenceable(1288) %tokenWarehouse, i32 noundef %parseFlags, ptr nocapture noundef writeonly initializes((0, 1)) %success, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %builder = alloca %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", align 8
   %fUnion.i = getelementptr inbounds i8, ptr %affixPattern, i64 8
@@ -3153,7 +3153,7 @@ return:                                           ; preds = %_ZN12_GLOBAL__N_16l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_758numparse4impl12AffixMatcherC2EPNS1_19AffixPatternMatcherES4_i(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef %prefix, ptr noundef %suffix, i32 noundef %flags) unnamed_addr #7 align 2 {
+define void @_ZN6icu_758numparse4impl12AffixMatcherC2EPNS1_19AffixPatternMatcherES4_i(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 28)) %this, ptr noundef %prefix, ptr noundef %suffix, i32 noundef %flags) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl12AffixMatcherE, i64 16), ptr %this, align 8
   %fPrefix = getelementptr inbounds i8, ptr %this, i64 8

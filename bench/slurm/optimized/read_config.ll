@@ -999,7 +999,7 @@ define internal noundef i32 @_defunct_option(ptr nocapture readnone %0, i32 %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_parse_downnodes(ptr nocapture noundef writeonly %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal noundef i32 @_parse_downnodes(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
   %7 = tail call ptr @s_p_hashtbl_create(ptr noundef nonnull @_parse_downnodes._downnodes_options) #18
   %8 = load ptr, ptr %5, align 8
   %9 = tail call i32 @s_p_parse_line(ptr noundef %7, ptr noundef %8, ptr noundef nonnull %5) #18
@@ -1928,7 +1928,7 @@ define internal void @_destroy_nodename(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_parse_nodeset(ptr nocapture noundef writeonly %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal noundef i32 @_parse_nodeset(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
   %7 = tail call ptr @s_p_hashtbl_create(ptr noundef nonnull @_parse_nodeset._nodeset_options) #18
   %8 = load ptr, ptr %5, align 8
   %9 = tail call i32 @s_p_parse_line(ptr noundef %7, ptr noundef %8, ptr noundef nonnull %5) #18
@@ -3116,7 +3116,7 @@ define internal void @_destroy_slurmctld_host(ptr noundef %0) #0 {
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_conf_frontend_array(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define i32 @slurm_conf_frontend_array(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   store i32 0, ptr %2, align 4
@@ -3134,7 +3134,7 @@ define i32 @slurm_conf_frontend_array(ptr nocapture noundef writeonly %0) local_
 declare i32 @s_p_get_array(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_conf_nodename_array(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define i32 @slurm_conf_nodename_array(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   store i32 0, ptr %2, align 4
@@ -3197,7 +3197,7 @@ declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 23) i32 @job_defaults_list(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 0, 23) i32 @job_defaults_list(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -3372,7 +3372,7 @@ declare void @pack16(i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 declare void @pack64(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @job_defaults_unpack(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @job_defaults_unpack(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.228, i32 noundef 1339, ptr noundef nonnull @__func__.job_defaults_unpack) #18
   store ptr %5, ptr %4, align 8
@@ -3402,7 +3402,7 @@ declare i32 @unpack16(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @unpack64(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_conf_partition_array(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define i32 @slurm_conf_partition_array(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   store i32 0, ptr %2, align 4
@@ -3418,7 +3418,7 @@ define i32 @slurm_conf_partition_array(ptr nocapture noundef writeonly %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_conf_downnodes_array(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define i32 @slurm_conf_downnodes_array(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   store i32 0, ptr %2, align 4
@@ -3434,7 +3434,7 @@ define i32 @slurm_conf_downnodes_array(ptr nocapture noundef writeonly %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_conf_nodeset_array(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define i32 @slurm_conf_nodeset_array(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   store i32 0, ptr %2, align 4
@@ -5693,7 +5693,7 @@ _free_name_hashtbl.exit:                          ; preds = %._crit_edge.i
 declare void @slurm_xfree_array(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @init_slurm_conf(ptr noundef %0) local_unnamed_addr #0 {
+define void @init_slurm_conf(ptr noundef initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = tail call i64 @time(ptr noundef null) #18
   store i64 %3, ptr %0, align 8
@@ -8735,7 +8735,7 @@ define ptr @debug_flags2str(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @debug_str2flags(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @debug_str2flags(ptr noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -9644,7 +9644,7 @@ pack_config_key_pair.exit:                        ; preds = %15, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @unpack_config_plugin_params(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @unpack_config_plugin_params(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.228, i32 noundef 6183, ptr noundef nonnull @__func__.unpack_config_plugin_params) #18
@@ -9892,7 +9892,7 @@ define void @pack_config_key_pair(ptr nocapture noundef readonly %0, i16 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @unpack_config_key_pair(ptr nocapture noundef writeonly %0, i16 zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @unpack_config_key_pair(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.228, i32 noundef 6270, ptr noundef nonnull @__func__.unpack_config_key_pair) #18
@@ -15157,7 +15157,7 @@ declare i32 @time_str2secs(ptr noundef) local_unnamed_addr #1
 declare void @extra_constraints_set_parsing(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_parse_select_type_param(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_parse_select_type_param(ptr noundef %0, ptr nocapture noundef nonnull initializes((0, 2)) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store i16 0, ptr %1, align 2
   %4 = tail call ptr @xstrdup(ptr noundef %0) #18

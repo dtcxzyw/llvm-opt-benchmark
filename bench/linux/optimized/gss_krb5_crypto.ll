@@ -366,7 +366,7 @@ declare dso_local i32 @crypto_ahash_update(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @xdr_process_buf(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @checksummer(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal i32 @checksummer(ptr noundef %0, ptr noundef initializes((48, 52), (56, 72)) %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 56

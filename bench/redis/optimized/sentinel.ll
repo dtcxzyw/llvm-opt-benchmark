@@ -5863,7 +5863,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sentinelRefreshInstanceInfo(ptr noundef %ri, ptr noundef %info) local_unnamed_addr #0 {
+define dso_local void @sentinelRefreshInstanceInfo(ptr noundef initializes((192, 200)) %ri, ptr noundef %info) local_unnamed_addr #0 {
 entry:
   %ip.i419 = alloca [46 x i8], align 16
   %ip.i = alloca [46 x i8], align 16
@@ -10953,7 +10953,7 @@ declare i32 @getLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr
 declare i32 @getLongLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sentinelVoteLeader(ptr noundef %master, i64 noundef %req_epoch, ptr noundef %req_runid, ptr nocapture noundef writeonly %leader_epoch) local_unnamed_addr #0 {
+define dso_local ptr @sentinelVoteLeader(ptr noundef %master, i64 noundef %req_epoch, ptr noundef %req_runid, ptr nocapture noundef writeonly initializes((0, 8)) %leader_epoch) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @sentinel, i64 48), align 8
   %cmp = icmp ugt i64 %req_epoch, %0

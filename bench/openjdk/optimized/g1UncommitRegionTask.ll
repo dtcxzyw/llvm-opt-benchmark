@@ -374,7 +374,7 @@ define hidden void @_ZN20G1UncommitRegionTask10initializeEv() local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20G1UncommitRegionTask10set_activeEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN20G1UncommitRegionTask10set_activeEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) initializes((40, 41)) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 %3, ptr %4, align 8
@@ -586,7 +586,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20G1UncommitRegionTask13clear_summaryEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN20G1UncommitRegionTask13clear_summaryEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) initializes((48, 68)) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
   ret void

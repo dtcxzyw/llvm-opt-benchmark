@@ -435,7 +435,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN2cv11bioinspired17BasicRetinaFilter21setLPfilterParametersEfffj(ptr noundef nonnull align 8 dereferenceable(168), float noundef, float noundef, float noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11bioinspired11RetinaColor18_initColorSamplingEv(ptr noundef nonnull align 8 dereferenceable(349) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv11bioinspired11RetinaColor18_initColorSamplingEv(ptr noundef nonnull align 8 dereferenceable(349) initializes((336, 348)) %0) local_unnamed_addr #3 align 2 {
   %2 = tail call i64 @time(ptr noundef null) #17
   %3 = trunc i64 %2 to i32
   tail call void @srand(i32 noundef %3) #17
@@ -821,7 +821,7 @@ _ZNSt8valarrayIfEaSERKf.exit24:                   ; preds = %.lr.ph.i.i20, %_ZNS
 declare void @_ZN2cv11bioinspired17BasicRetinaFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(168)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv11bioinspired11RetinaColorD2Ev(ptr noundef nonnull align 8 dereferenceable(349) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11bioinspired11RetinaColorD2Ev(ptr noundef nonnull align 8 dereferenceable(349) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv11bioinspired11RetinaColorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 328
   %3 = load ptr, ptr %2, align 8
@@ -853,7 +853,7 @@ define hidden void @_ZN2cv11bioinspired11RetinaColorD2Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv11bioinspired11RetinaColorD0Ev(ptr noundef nonnull align 8 dereferenceable(349) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11bioinspired11RetinaColorD0Ev(ptr noundef nonnull align 8 dereferenceable(349) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv11bioinspired11RetinaColorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 328
   %3 = load ptr, ptr %2, align 8
@@ -2269,7 +2269,7 @@ define linkonce_odr hidden void @_ZN2cv11bioinspired11RetinaColor24Parallel_comp
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11bioinspired11RetinaColor24_adaptiveSpatialLPfilterEPKfPf(ptr noundef nonnull align 8 dereferenceable(349) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11bioinspired11RetinaColor24_adaptiveSpatialLPfilterEPKfPf(ptr noundef nonnull align 8 dereferenceable(349) initializes((172, 176)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Range", align 4
   %5 = alloca %"class.cv::bioinspired::RetinaColor::Parallel_adaptiveVerticalAnticausalFilter_multGain", align 8
   %6 = alloca %"class.cv::Range", align 4

@@ -4248,7 +4248,7 @@ declare void @_ZN5clang17DiagnosticsEngineD1Ev(ptr noundef nonnull align 8 deref
 declare void @_ZN5clang11FileManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(808)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7tooling23groupReplacementsByFileERNS_11FileManagerERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ReplacementsESt4lessIS9_ESaISt4pairIKS9_SA_EEE(ptr dead_on_unwind noalias writable sret(%"class.std::map.250") align 8 %0, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang7tooling23groupReplacementsByFileERNS_11FileManagerERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12ReplacementsESt4lessIS9_ESaISt4pairIKS9_SA_EEE(ptr dead_on_unwind noalias writable sret(%"class.std::map.250") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2) local_unnamed_addr #0 {
   %4 = alloca %"struct.std::_Rb_tree<clang::tooling::Replacement, clang::tooling::Replacement, std::_Identity<clang::tooling::Replacement>, std::less<clang::tooling::Replacement>>::_Reuse_or_alloc_node", align 8
   %5 = alloca %"class.std::tuple.368", align 8
   %6 = alloca %"class.std::tuple.371", align 1

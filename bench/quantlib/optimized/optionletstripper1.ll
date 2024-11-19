@@ -1738,7 +1738,7 @@ _ZN5boost10shared_ptrIN8QuantLib22CapFloorTermVolSurfaceEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18OptionletStripper1C1ERKN5boost10shared_ptrINS_22CapFloorTermVolSurfaceEEERKNS2_INS_9IborIndexEEEddjRKNS_6HandleINS_18YieldTermStructureEEENS_14VolatilityTypeEdb(ptr noundef nonnull align 8 dereferenceable(461) %this, ptr noundef nonnull align 8 dereferenceable(16) %termVolSurface, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index, double noundef %switchStrike, double noundef %accuracy, i32 noundef %maxIter, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %discount, i32 noundef %type, double noundef %displacement, i1 noundef zeroext %dontThrow) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18OptionletStripper1C1ERKN5boost10shared_ptrINS_22CapFloorTermVolSurfaceEEERKNS2_INS_9IborIndexEEEddjRKNS_6HandleINS_18YieldTermStructureEEENS_14VolatilityTypeEdb(ptr noundef nonnull align 8 dereferenceable(461) initializes((464, 472), (480, 484), (488, 496)) %this, ptr noundef nonnull align 8 dereferenceable(16) %termVolSurface, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index, double noundef %switchStrike, double noundef %accuracy, i32 noundef %maxIter, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %discount, i32 noundef %type, double noundef %displacement, i1 noundef zeroext %dontThrow) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.49", align 8
   %agg.tmp2 = alloca %"class.QuantLib::Handle", align 8

@@ -98,7 +98,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare i32 @pg_mblen(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RS_compile(ptr nocapture noundef %0, i1 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @RS_compile(ptr nocapture noundef initializes((0, 16)) %0, i1 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %5 = zext i1 %1 to i32

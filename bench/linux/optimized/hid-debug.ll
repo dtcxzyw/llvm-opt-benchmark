@@ -1688,7 +1688,7 @@ define dso_local void @hid_dump_input(ptr noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @hid_debug_register(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @hid_debug_register(ptr noundef initializes((7512, 7520)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr @hid_debug_root, align 8
   %4 = tail call ptr @debugfs_create_dir(ptr noundef %1, ptr noundef %3) #9
   %5 = getelementptr inbounds i8, ptr %0, i64 7512
@@ -1712,7 +1712,7 @@ declare dso_local ptr @debugfs_create_dir(ptr noundef, ptr noundef) local_unname
 declare dso_local ptr @debugfs_create_file(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @hid_debug_unregister(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @hid_debug_unregister(ptr noundef initializes((7504, 7506)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 7504
   store i16 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 7560

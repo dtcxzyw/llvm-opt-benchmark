@@ -3796,7 +3796,7 @@ define dso_local { ptr, i64 } @_ZN4llvm7remarks31BitstreamRemarkSerializerHelper
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks25BitstreamRemarkSerializerC2ERNS_11raw_ostreamENS0_14SerializerModeE(ptr noundef nonnull align 8 dereferenceable(1984) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks25BitstreamRemarkSerializerC2ERNS_11raw_ostreamENS0_14SerializerModeE(ptr noundef nonnull align 8 dereferenceable(1984) initializes((0, 12), (16, 28), (160, 161), (168, 169)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3845,7 +3845,7 @@ _ZNSt8optionalIN4llvm7remarks11StringTableEE7emplaceIJEEENSt9enable_ifIX18is_con
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks25BitstreamRemarkSerializerC2ERNS_11raw_ostreamENS0_14SerializerModeENS0_11StringTableE(ptr noundef nonnull align 8 dereferenceable(1984) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks25BitstreamRemarkSerializerC2ERNS_11raw_ostreamENS0_14SerializerModeENS0_11StringTableE(ptr noundef nonnull align 8 dereferenceable(1984) initializes((0, 12), (16, 28), (160, 161), (168, 169)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4024,7 +4024,7 @@ _ZNSt8optionalIN4llvm7remarks31BitstreamRemarkSerializerHelperEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks25BitstreamRemarkSerializer14metaSerializerERNS_11raw_ostreamESt8optionalINS_9StringRefEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1984) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef readonly byval(%"class.std::optional.46") align 8 %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks25BitstreamRemarkSerializer14metaSerializerERNS_11raw_ostreamESt8optionalINS_9StringRefEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(1984) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef readonly byval(%"class.std::optional.46") align 8 %3) unnamed_addr #0 align 2 {
 _ZNSt10unique_ptrIN4llvm7remarks23BitstreamMetaSerializerESt14default_deleteIS2_EED2Ev.exit:
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1904
   %5 = load i32, ptr %4, align 8

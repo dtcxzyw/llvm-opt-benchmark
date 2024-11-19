@@ -372,7 +372,7 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj107E18ResolutionEr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ResolutionErrorEntryC2EP6SymbolPKcS1_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ResolutionErrorEntryC2EP6SymbolPKcS1_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %.not = icmp eq ptr %2, null

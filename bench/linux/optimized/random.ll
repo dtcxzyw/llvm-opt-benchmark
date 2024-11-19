@@ -2257,7 +2257,7 @@ declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #4
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #4 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @crng_make_state(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef range(i64 1, 33) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @crng_make_state(ptr noundef initializes((0, 64)) %0, ptr nocapture noundef writeonly %1, i64 noundef range(i64 1, 33) %2) unnamed_addr #0 align 16 {
   %4 = alloca [64 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %6 = alloca i64, align 8
@@ -2539,7 +2539,7 @@ define internal fastcc void @extract_entropy(ptr noundef %0) unnamed_addr #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @crng_fast_key_erasure(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @crng_fast_key_erasure(ptr noundef initializes((0, 64)) %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) unnamed_addr #0 align 16 {
   %3 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false), !annotation !7

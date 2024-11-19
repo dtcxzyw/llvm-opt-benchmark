@@ -153,7 +153,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashmap_init(ptr nocapture noundef %map, ptr noundef %equals_function, ptr noundef %cmpfn_data, i64 noundef %initial_size) local_unnamed_addr #2 {
+define dso_local void @hashmap_init(ptr nocapture noundef initializes((0, 48)) %map, ptr noundef %equals_function, ptr noundef %cmpfn_data, i64 noundef %initial_size) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %map, i8 0, i64 48, i1 false)
   %tobool.not = icmp eq ptr %equals_function, null
@@ -454,7 +454,7 @@ return:                                           ; preds = %land.rhs.i, %for.co
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashmap_add(ptr nocapture noundef %map, ptr noundef %entry1) local_unnamed_addr #2 {
+define dso_local void @hashmap_add(ptr nocapture noundef %map, ptr noundef initializes((0, 8)) %entry1) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %map, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -716,7 +716,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @hashmap_iter_init(ptr noundef %map, ptr nocapture noundef writeonly %iter) local_unnamed_addr #6 {
+define dso_local void @hashmap_iter_init(ptr noundef %map, ptr nocapture noundef writeonly initializes((0, 20)) %iter) local_unnamed_addr #6 {
 entry:
   store ptr %map, ptr %iter, align 8
   %tablepos = getelementptr inbounds i8, ptr %iter, i64 16

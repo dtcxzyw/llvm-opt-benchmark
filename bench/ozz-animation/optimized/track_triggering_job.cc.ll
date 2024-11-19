@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN3ozz9animation18TrackTriggeringJob8IteratorC1EPKS1_ = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN3ozz9animation18TrackTriggeringJob8IteratorC2EPKS1_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3ozz9animation18TrackTriggeringJobC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3ozz9animation18TrackTriggeringJobC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 12), (16, 32)) %0) unnamed_addr #0 align 2 {
   store float 0.000000e+00, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %2, align 4
@@ -90,7 +90,7 @@ _ZN3ozz9animation18TrackTriggeringJob8IteratorC2EPKS1_.exit: ; preds = %16, %20
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN3ozz9animation18TrackTriggeringJob8IteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN3ozz9animation18TrackTriggeringJob8IteratorC2EPKS1_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 12), (16, 24)) %0, ptr noundef %1) unnamed_addr #4 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = load float, ptr %1, align 8
   %4 = tail call float @llvm.floor.f32(float %3)

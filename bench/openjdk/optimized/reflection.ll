@@ -356,7 +356,7 @@ define hidden noundef zeroext i8 @_ZN10Reflection19unbox_for_primitiveEP7oopDesc
 declare noundef zeroext i8 @_ZN23java_lang_boxing_object9get_valueEP7oopDescP6jvalue(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef zeroext i8 @_ZN10Reflection24unbox_for_regular_objectEP7oopDescP6jvalue(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i8 @_ZN10Reflection24unbox_for_regular_objectEP7oopDescP6jvalue(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #2 align 2 {
   store ptr %0, ptr %1, align 8
   ret i8 12
 }
@@ -8198,7 +8198,7 @@ declare void @_ZN24ResolvingSignatureStreamC1EP6SymbolP5Klassb(ptr noundef nonnu
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN12methodHandleaSERKS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL22resolve_interface_callP13InstanceKlassRK12methodHandleP5Klass6HandleP10JavaThread(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, ptr nocapture readonly %.0.val.8.val, ptr noundef %2, ptr %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL22resolve_interface_callP13InstanceKlassRK12methodHandleP5Klass6HandleP10JavaThread(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 16)) %0, ptr noundef %1, ptr nocapture readonly %.0.val.8.val, ptr noundef %2, ptr %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %class.CallInfo, align 8
   %7 = alloca %class.LinkInfo, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8

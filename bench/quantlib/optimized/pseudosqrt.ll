@@ -1940,7 +1940,7 @@ unreachable:                                      ; preds = %invoke.cont21
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_119hypersphereOptimizeERKNS_6MatrixES3_b(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %targetMatrix, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %currentRoot, i1 noundef zeroext %lowerDiagonal) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_119hypersphereOptimizeERKNS_6MatrixES3_b(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %targetMatrix, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %currentRoot, i1 noundef zeroext %lowerDiagonal) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.boost::shared_ptr.2", align 8
   %approxMatrix = alloca %"class.QuantLib::Matrix", align 8
@@ -3476,7 +3476,7 @@ _ZN8QuantLib6MatrixD2Ev.exit528:                  ; preds = %ehcleanup508, %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_120highamImplementationERKNS_6MatrixEmRKd(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %A, double %tolerance.0.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_120highamImplementationERKNS_6MatrixEmRKd(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %A, double %tolerance.0.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream.i105 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp.i106 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6942,7 +6942,7 @@ _ZN5boost10shared_ptrIN8QuantLib10Constraint4ImplEED2Ev.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_123HypersphereCostFunctionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_123HypersphereCostFunctionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_123HypersphereCostFunctionE, i64 16), ptr %this, align 8, !tbaa !24
   %currentMatrix_ = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -7058,7 +7058,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN8QuantLib21LineSearchBasedMethodC2EN5boost10shared_ptrINS_10LineSearchEEE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_123HypersphereCostFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_123HypersphereCostFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_123HypersphereCostFunctionE, i64 16), ptr %this, align 8, !tbaa !24
   %currentMatrix_.i = getelementptr inbounds nuw i8, ptr %this, i64 112

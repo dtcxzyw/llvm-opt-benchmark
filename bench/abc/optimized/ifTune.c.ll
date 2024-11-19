@@ -68,7 +68,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [65 x i8] c"Hard limit on the number of nodes (2^29) is reached. Quitting...\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @Ifn_Prepare(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @Ifn_Prepare(ptr nocapture noundef initializes((1552, 1560), (1576, 1584)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1576
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1552
@@ -1078,7 +1078,7 @@ define range(i32 0, 2) i32 @Ifn_NtkParseInt2(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Ifn_NtkParseConstraints(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Ifn_NtkParseConstraints(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((1548, 1552)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 1548
   store i32 0, ptr %3, align 4
   %4 = load i32, ptr %1, align 8
@@ -2519,7 +2519,7 @@ declare i32 @sat_solver_addclause(ptr noundef, ptr noundef, ptr noundef) local_u
 declare void @Cnf_DataFree(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Ifn_ManSatBuild(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #6 {
+define noundef ptr @Ifn_ManSatBuild(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #6 {
   store ptr null, ptr %2, align 8
   store ptr null, ptr %1, align 8
   %4 = tail call ptr @Ifn_ManStrFindModel(ptr noundef %0)
@@ -2822,7 +2822,7 @@ Vec_IntFill.exit:                                 ; preds = %24, %Vec_IntGrow.ex
 declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define void @Ifn_ManSatDeriveOne(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #6 {
+define void @Ifn_ManSatDeriveOne(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr i8, ptr %1, i64 4

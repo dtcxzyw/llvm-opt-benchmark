@@ -915,7 +915,7 @@ merge_close_in_files.exit:                        ; preds = %.lr.ph.i178, %.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 8) i32 @merge_files_to_tempfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr nocapture noundef writeonly %13, ptr nocapture noundef writeonly %14) local_unnamed_addr #0 {
+define range(i32 0, 8) i32 @merge_files_to_tempfile(ptr noundef %0, ptr noundef initializes((0, 8)) %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr nocapture noundef writeonly %13, ptr nocapture noundef writeonly %14) local_unnamed_addr #0 {
   store ptr null, ptr %1, align 8
   %16 = tail call fastcc i32 @merge_files_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
   ret i32 %16
@@ -967,7 +967,7 @@ declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @g_ptr_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 8) i32 @merge_process_packets(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 1, 0) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7, ptr nocapture noundef readonly %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr nocapture noundef writeonly %13, ptr nocapture noundef writeonly %14) unnamed_addr #0 {
+define internal fastcc range(i32 0, 8) i32 @merge_process_packets(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 1, 0) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7, ptr nocapture noundef readonly %8, ptr noundef %9, ptr noundef %10, ptr noundef initializes((0, 4)) %11, ptr noundef %12, ptr nocapture noundef writeonly %13, ptr nocapture noundef writeonly %14) unnamed_addr #0 {
   %16 = alloca i64, align 8
   %17 = alloca i64, align 8
   %18 = alloca %struct.wtap_rec, align 8

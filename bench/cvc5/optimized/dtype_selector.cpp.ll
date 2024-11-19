@@ -231,7 +231,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal13DTypeSelector11getSelectorEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal13DTypeSelector11getSelectorEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_selector = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %d_selector, align 8
@@ -266,7 +266,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal13DTypeSelector10getUpdaterEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal13DTypeSelector10getUpdaterEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_updater = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %d_updater, align 8
@@ -301,7 +301,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal13DTypeSelector14getConstructorEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal13DTypeSelector14getConstructorEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_constructor = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %d_constructor, align 8

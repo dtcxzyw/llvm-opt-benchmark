@@ -1611,7 +1611,7 @@ declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @moduleCreateContext(ptr nocapture noundef writeonly %out_ctx, ptr noundef %module, i32 noundef %ctx_flags) local_unnamed_addr #0 {
+define dso_local void @moduleCreateContext(ptr nocapture noundef writeonly initializes((0, 120)) %out_ctx, ptr noundef %module, i32 noundef %ctx_flags) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %out_ctx, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, i8 0, i64 104, i1 false)
@@ -4066,7 +4066,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @RM_BlockedClientMeasureTimeStart(ptr nocapture noundef writeonly %bc) #0 {
+define dso_local noundef i32 @RM_BlockedClientMeasureTimeStart(ptr nocapture noundef writeonly initializes((96, 104)) %bc) #0 {
 entry:
   %background_timer = getelementptr inbounds i8, ptr %bc, i64 96
   %0 = load ptr, ptr @getMonotonicUs, align 8
@@ -13506,7 +13506,7 @@ return:                                           ; preds = %if.end11.i.i18, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @RM_SetContextUser(ptr nocapture noundef writeonly %ctx, ptr noundef %user) #23 {
+define dso_local void @RM_SetContextUser(ptr nocapture noundef writeonly initializes((112, 120)) %ctx, ptr noundef %user) #23 {
 entry:
   %user1 = getelementptr inbounds i8, ptr %ctx, i64 112
   store ptr %user, ptr %user1, align 8
@@ -14616,7 +14616,7 @@ return:                                           ; preds = %for.body, %while.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @moduleTypeNameByID(ptr nocapture noundef writeonly %name, i64 noundef %moduleid) local_unnamed_addr #25 {
+define dso_local void @moduleTypeNameByID(ptr nocapture noundef writeonly initializes((9, 10)) %name, i64 noundef %moduleid) local_unnamed_addr #25 {
 entry:
   %0 = load ptr, ptr @ModuleTypeNameCharSet, align 8
   %arrayidx = getelementptr inbounds i8, ptr %name, i64 9
@@ -17642,7 +17642,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @RM_BlockClientSetPrivateData(ptr nocapture noundef writeonly %blocked_client, ptr noundef %private_data) #23 {
+define dso_local void @RM_BlockClientSetPrivateData(ptr nocapture noundef writeonly initializes((56, 64)) %blocked_client, ptr noundef %private_data) #23 {
 entry:
   %privdata = getelementptr inbounds i8, ptr %blocked_client, i64 56
   store ptr %private_data, ptr %privdata, align 8
@@ -17677,7 +17677,7 @@ entry:
 declare void @signalKeyAsReady(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @moduleUnblockClientByHandle(ptr noundef %bc, ptr noundef %privdata) local_unnamed_addr #0 {
+define dso_local noundef i32 @moduleUnblockClientByHandle(ptr noundef initializes((88, 92)) %bc, ptr noundef %privdata) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @moduleUnblockedClientsMutex) #34
   %blocked_on_keys = getelementptr inbounds i8, ptr %bc, i64 84
@@ -17875,7 +17875,7 @@ return:                                           ; preds = %entry, %moduleCreat
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @RM_AbortBlock(ptr noundef %bc) #0 {
+define dso_local range(i32 0, 2) i32 @RM_AbortBlock(ptr noundef initializes((16, 32), (40, 48)) %bc) #0 {
 entry:
   %reply_callback = getelementptr inbounds i8, ptr %bc, i64 16
   %disconnect_callback = getelementptr inbounds i8, ptr %bc, i64 40
@@ -17886,7 +17886,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @RM_SetDisconnectCallback(ptr nocapture noundef writeonly %bc, ptr noundef %callback) #23 {
+define dso_local void @RM_SetDisconnectCallback(ptr nocapture noundef writeonly initializes((40, 48)) %bc, ptr noundef %callback) #23 {
 entry:
   %disconnect_callback = getelementptr inbounds i8, ptr %bc, i64 40
   store ptr %callback, ptr %disconnect_callback, align 8
@@ -20055,7 +20055,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @revokeClientAuthentication(ptr noundef %c) local_unnamed_addr #0 {
+define dso_local void @revokeClientAuthentication(ptr noundef initializes((152, 160), (256, 260)) %c) local_unnamed_addr #0 {
 entry:
   %auth_callback.i = getelementptr inbounds i8, ptr %c, i64 624
   %0 = load ptr, ptr %auth_callback.i, align 8
@@ -21830,7 +21830,7 @@ return:                                           ; preds = %entry, %sdslen.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @RM_InfoAddSection(ptr nocapture noundef %ctx, ptr noundef %name) #0 {
+define dso_local range(i32 0, 2) i32 @RM_InfoAddSection(ptr nocapture noundef initializes((28, 32)) %ctx, ptr noundef %name) #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %name1 = getelementptr inbounds i8, ptr %0, i64 8
@@ -23604,7 +23604,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @RM_ScanCursorRestart(ptr nocapture noundef writeonly %cursor) #23 {
+define dso_local void @RM_ScanCursorRestart(ptr nocapture noundef writeonly initializes((0, 12)) %cursor) #23 {
 entry:
   store i64 0, ptr %cursor, align 8
   %done = getelementptr inbounds i8, ptr %cursor, i64 8
@@ -28842,7 +28842,7 @@ declare i32 @objectSetLRUOrLFU(ptr noundef, i64 noundef, i64 noundef, i64 nounde
 declare i32 @LRU_CLOCK() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @RM_GetLRU(ptr nocapture noundef readonly %key, ptr nocapture noundef writeonly %lru_idle) #0 {
+define dso_local range(i32 0, 2) i32 @RM_GetLRU(ptr nocapture noundef readonly %key, ptr nocapture noundef writeonly initializes((0, 8)) %lru_idle) #0 {
 entry:
   store i64 -1, ptr %lru_idle, align 8
   %value = getelementptr inbounds i8, ptr %key, i64 24
@@ -28888,7 +28888,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @RM_GetLFU(ptr nocapture noundef readonly %key, ptr nocapture noundef writeonly %lfu_freq) #0 {
+define dso_local range(i32 0, 2) i32 @RM_GetLFU(ptr nocapture noundef readonly %key, ptr nocapture noundef writeonly initializes((0, 8)) %lfu_freq) #0 {
 entry:
   store i64 -1, ptr %lfu_freq, align 8
   %value = getelementptr inbounds i8, ptr %key, i64 24

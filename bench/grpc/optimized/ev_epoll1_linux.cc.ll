@@ -688,7 +688,7 @@ declare void @_ZN9grpc_core12StatusSetIntEPN4absl12lts_202308026StatusENS_17Stat
 declare noundef zeroext i1 @_ZN17grpc_event_engine12experimental13LockfreeEvent11SetShutdownEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental12Epoll1PollerC2EPNS0_9SchedulerE(ptr noundef nonnull align 8 dereferenceable(1281) %this, ptr noundef %scheduler) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental12Epoll1PollerC2EPNS0_9SchedulerE(ptr noundef nonnull align 8 dereferenceable(1281) initializes((0, 32), (1244, 1245)) %this, ptr noundef %scheduler) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::StatusOr", align 8
   %ev = alloca %struct.epoll_event, align 4
@@ -1108,7 +1108,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit3:       ; preds = %cleanup
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN17grpc_event_engine12experimental12Epoll1PollerD2Ev(ptr noundef nonnull align 8 dereferenceable(1281) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental12Epoll1PollerD2Ev(ptr noundef nonnull align 8 dereferenceable(1281) initializes((0, 16)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental12Epoll1PollerE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8

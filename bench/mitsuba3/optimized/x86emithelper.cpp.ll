@@ -1404,7 +1404,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_103x8616EmitterExplici
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6asmjit9_abi_1_103x8618assignEmitterFuncsEPNS0_11BaseEmitterE(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 {
+define hidden void @_ZN6asmjit9_abi_1_103x8618assignEmitterFuncsEPNS0_11BaseEmitterE(ptr nocapture noundef writeonly initializes((104, 144)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr @_ZN6asmjit9_abi_1_103x86L18Emitter_emitPrologEPNS0_11BaseEmitterERKNS0_9FuncFrameE, ptr %2, align 8, !tbaa !96
   %3 = getelementptr inbounds i8, ptr %0, i64 112

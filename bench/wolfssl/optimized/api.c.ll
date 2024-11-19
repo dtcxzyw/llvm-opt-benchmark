@@ -4040,7 +4040,7 @@ join_thread.exit:                                 ; preds = %start_thread.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @InitTcpReady(ptr noundef nonnull %ready) unnamed_addr #0 {
+define internal fastcc void @InitTcpReady(ptr noundef nonnull initializes((0, 4), (8, 16)) %ready) unnamed_addr #0 {
 entry:
   store i16 0, ptr %ready, align 8
   %port = getelementptr inbounds i8, ptr %ready, i64 2
@@ -4079,7 +4079,7 @@ do.end12:                                         ; preds = %do.body4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @test_server_nofail(ptr noundef %args) #0 {
+define internal noundef ptr @test_server_nofail(ptr noundef initializes((16, 20)) %args) #0 {
 entry:
   %sockfd = alloca i32, align 4
   %clientfd = alloca i32, align 4
@@ -4376,7 +4376,7 @@ if.end181:                                        ; preds = %if.then180, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_client_nofail(ptr nocapture noundef nonnull %args, ptr noundef readonly %cb) unnamed_addr #0 {
+define internal fastcc void @test_client_nofail(ptr nocapture noundef nonnull initializes((16, 20)) %args, ptr noundef readonly %cb) unnamed_addr #0 {
 entry:
   %addr.i = alloca %struct.sockaddr_in, align 4
   %sockfd = alloca i32, align 4
@@ -38618,7 +38618,7 @@ declare zeroext i8 @wolfSSL_SNI_Status(ptr noundef, i8 noundef zeroext) local_un
 declare zeroext i16 @wolfSSL_SNI_GetRequest(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @run_wolfssl_server(ptr noundef %args) #0 {
+define internal noundef ptr @run_wolfssl_server(ptr noundef initializes((16, 20)) %args) #0 {
 entry:
   %sfd = alloca i32, align 4
   %cfd = alloca i32, align 4

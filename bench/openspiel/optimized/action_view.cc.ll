@@ -69,7 +69,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel14CollectActionsERKNS_5StateE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(60) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel14CollectActionsERKNS_5StateE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(60) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.5", align 8
   %4 = alloca [1 x %"class.std::vector.5"], align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -316,7 +316,7 @@ _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10ActionViewC2EiSt6vectorIS1_IlSaIlEESaIS3_EE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10ActionViewC2EiSt6vectorIS1_IlSaIlEESaIS3_EE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 32)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store i32 %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -379,7 +379,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EEC2ERKS3_.exit:     ; preds = %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10ActionViewC2ERKNS_5StateE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(60) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10ActionViewC2ERKNS_5StateE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 32)) %0, ptr noundef nonnull align 8 dereferenceable(60) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -578,7 +578,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK10open_spiel24FlatJoi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel24FlatJointActionsIteratorC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #8 align 2 {
+define void @_ZN10open_spiel24FlatJointActionsIteratorC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #8 align 2 {
   store i32 %1, ptr %0, align 4
   ret void
 }
@@ -1027,7 +1027,7 @@ _ZNK10open_spiel20FixedActionsIteratoreqERKS0_.exit: ; preds = %2, %8, %14, %18,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel20FixedActionsIteratorC2Eiiiiii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #8 align 2 {
+define void @_ZN10open_spiel20FixedActionsIteratorC2Eiiiiii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) initializes((0, 24)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #8 align 2 {
   store i32 %1, ptr %0, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %8, align 4

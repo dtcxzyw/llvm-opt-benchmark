@@ -585,7 +585,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN5ceres8internal27SparseSchurComplementSolverD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5ceres8internal27SparseSchurComplementSolverD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal21SchurComplementSolverC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal21SchurComplementSolverC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(256) initializes((8, 48), (56, 60), (64, 72)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %4 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %5 = alloca %"struct.google::CheckOpString", align 8
@@ -1399,7 +1399,7 @@ declare void @_ZN5ceres8internal11EventLogger8AddEventERKNSt7__cxx1112basic_stri
 declare void @_ZN5ceres8internal11EventLoggerD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal26DenseSchurComplementSolverC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal26DenseSchurComplementSolverC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(264) initializes((8, 48), (56, 60), (64, 72)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5ceres8internal21SchurComplementSolverC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(128) %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal26DenseSchurComplementSolverE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 256
@@ -1654,7 +1654,7 @@ _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EED2Ev.exit9: ; preds = %36, %33, %31
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal26DenseSchurComplementSolver24SolveReducedLinearSystemERKNS0_12LinearSolver15PerSolveOptionsEPd(ptr dead_on_unwind noalias writable sret(%"struct.ceres::internal::LinearSolver::Summary") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal26DenseSchurComplementSolver24SolveReducedLinearSystemERKNS0_12LinearSolver15PerSolveOptionsEPd(ptr dead_on_unwind noalias writable sret(%"struct.ceres::internal::LinearSolver::Summary") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store double -1.000000e+00, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 -1, ptr %5, align 8
@@ -1705,7 +1705,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef i32 @_ZN5ceres8internal13DenseCholesky14FactorAndSolveEiPdPKdS2_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal27SparseSchurComplementSolverC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal27SparseSchurComplementSolverC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(352) initializes((8, 48), (56, 60), (64, 72)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr.77", align 8
   tail call void @_ZN5ceres8internal21SchurComplementSolverC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(128) %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal27SparseSchurComplementSolverE, i64 16), ptr %0, align 8
@@ -1904,7 +1904,7 @@ define hidden void @_ZN5ceres8internal27SparseSchurComplementSolverD0Ev(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal27SparseSchurComplementSolver11InitStorageEPKNS0_27CompressedRowBlockStructureE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal27SparseSchurComplementSolver11InitStorageEPKNS0_27CompressedRowBlockStructureE(ptr noundef nonnull align 8 dereferenceable(352) initializes((264, 280)) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %4 = alloca %"class.std::vector.27", align 8
   %5 = alloca %"class.std::set", align 8

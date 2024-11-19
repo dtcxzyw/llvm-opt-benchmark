@@ -288,7 +288,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN4llvm10VarLenInstC1EPKNS_7DagInitEPKNS_9RecordValE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN4llvm10VarLenInstC2EPKNS_7DagInitEPKNS_9RecordValE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10VarLenInstC2EPKNS_7DagInitEPKNS_9RecordValE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10VarLenInstC2EPKNS_7DagInitEPKNS_9RecordValE(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 17)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr %2, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %4, align 8
@@ -822,7 +822,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15getCustomCodersN4llvm8ArrayRefIPNS_4InitEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr readonly %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZL15getCustomCodersN4llvm8ArrayRefIPNS_4InitEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 32)) %0, ptr readonly %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8

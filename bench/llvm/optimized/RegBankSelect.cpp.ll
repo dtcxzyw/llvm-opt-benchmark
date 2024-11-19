@@ -433,7 +433,7 @@ define internal noundef nonnull ptr @_ZL31initializeRegBankSelectPassOnceRN4llvm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm13RegBankSelectC2ERcNS0_4ModeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(208) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm13RegBankSelectC2ERcNS0_4ModeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(208) initializes((0, 28), (32, 196)) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -465,7 +465,7 @@ define dso_local void @_ZN4llvm13RegBankSelectC2ERcNS0_4ModeE(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13RegBankSelect4initERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13RegBankSelect4initERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(208) initializes((56, 80)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -637,7 +637,7 @@ declare void @_ZN4llvm36getSelectionDAGFallbackAnalysisUsageERNS_13AnalysisUsage
 declare void @_ZNK4llvm19MachineFunctionPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(161)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm13RegBankSelect15assignmentMatchENS_8RegisterERKNS_16RegisterBankInfo12ValueMappingERb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %0, i32 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm13RegBankSelect15assignmentMatchENS_8RegisterERKNS_16RegisterBankInfo12ValueMappingERb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %0, i32 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %3) local_unnamed_addr #0 align 2 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i32, ptr %5, align 8
@@ -1424,7 +1424,7 @@ _ZN4llvm11SmallVectorINS_13RegBankSelect18RepairingPlacementELj4EED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm13RegBankSelect11MappingCost14ImpossibleCostEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::RegBankSelect::MappingCost") align 8 %0) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm13RegBankSelect11MappingCost14ImpossibleCostEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::RegBankSelect::MappingCost") align 8 initializes((0, 24)) %0) local_unnamed_addr #6 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 -1, i64 24, i1 false)
   ret void
 }
@@ -2373,7 +2373,7 @@ _ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit: ; preds = %13, %8, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm13RegBankSelect11MappingCost8saturateEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm13RegBankSelect11MappingCost8saturateEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) local_unnamed_addr #6 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 -1, i64 24, i1 false)
   store i64 -2, ptr %0, align 8
   ret void
@@ -2899,7 +2899,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13RegBankSelect20runOnMachineFuncti
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13RegBankSelect18RepairingPlacementC2ERNS_12MachineInstrEjRKNS_18TargetRegisterInfoERNS_4PassENS1_13RepairingKindE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull align 8 dereferenceable(28) %4, i32 noundef %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13RegBankSelect18RepairingPlacementC2ERNS_12MachineInstrEjRKNS_18TargetRegisterInfoERNS_4PassENS1_13RepairingKindE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 10)) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull align 8 dereferenceable(28) %4, i32 noundef %5) unnamed_addr #0 align 2 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -3591,7 +3591,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm13RegBankSelect16InstrInsertPointC2ERNS_12MachineInstrEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i1 noundef zeroext %2) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm13RegBankSelect16InstrInsertPointC2ERNS_12MachineInstrEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 9), (16, 25)) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i1 noundef zeroext %2) unnamed_addr #6 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %5, align 8
@@ -3837,7 +3837,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13RegBankSelect15EdgeInsertPoint14
 declare noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock20canSplitCriticalEdgeEPKS0_(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm13RegBankSelect11MappingCostC2ENS_14BlockFrequencyE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i64 %1) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm13RegBankSelect11MappingCostC2ENS_14BlockFrequencyE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, i64 %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i64 %1, ptr %3, align 8

@@ -79,13 +79,13 @@ $_ZTVN4llvm8codeview27DebugChecksumsSubsectionRefE = comdat any
 @_ZN4llvm8codeview22StringsAndChecksumsRefC1ERKNS0_29DebugStringTableSubsectionRefERKNS0_27DebugChecksumsSubsectionRefE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN4llvm8codeview22StringsAndChecksumsRefC2ERKNS0_29DebugStringTableSubsectionRefERKNS0_27DebugChecksumsSubsectionRefE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRefC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRefC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRefC2ERKNS0_29DebugStringTableSubsectionRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRefC2ERKNS0_29DebugStringTableSubsectionRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   store ptr %1, ptr %3, align 8
@@ -95,7 +95,7 @@ define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRefC2ERKNS0_29Debug
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRefC2ERKNS0_29DebugStringTableSubsectionRefERKNS0_27DebugChecksumsSubsectionRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRefC2ERKNS0_29DebugStringTableSubsectionRefERKNS0_27DebugChecksumsSubsectionRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   store ptr %1, ptr %4, align 8
@@ -105,7 +105,7 @@ define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRefC2ERKNS0_29Debug
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRef17initializeStringsERKNS0_21DebugSubsectionRecordE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRef17initializeStringsERKNS0_21DebugSubsectionRecordE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (32, 40)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %class.anon, align 1
@@ -320,7 +320,7 @@ declare void @_ZN4llvm8codeview29DebugStringTableSubsectionRef10initializeENS_15
 declare void @_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv(ptr dead_on_unwind writable sret(%"class.llvm::BinaryStreamRef") align 8, ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRef5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRef5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24), (32, 48)) %0) local_unnamed_addr #1 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -482,7 +482,7 @@ _ZN4llvm8codeview22StringsAndChecksumsRef14resetChecksumsEv.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRef12resetStringsEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRef12resetStringsEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (32, 40)) %0) local_unnamed_addr #1 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -565,7 +565,7 @@ _ZNSt12__shared_ptrIN4llvm8codeview29DebugStringTableSubsectionRefELN9__gnu_cxx1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRef14resetChecksumsEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRef14resetChecksumsEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((16, 24), (40, 48)) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -649,7 +649,7 @@ _ZNSt12__shared_ptrIN4llvm8codeview27DebugChecksumsSubsectionRefELN9__gnu_cxx12_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRef10setStringsERKNS0_29DebugStringTableSubsectionRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRef10setStringsERKNS0_29DebugStringTableSubsectionRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (32, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #13, !noalias !10
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %4, align 8, !noalias !15
@@ -862,7 +862,7 @@ _ZN4llvm8codeview29DebugStringTableSubsectionRefaSERKS1_.exit: ; preds = %_ZNSt1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRef12setChecksumsERKNS0_27DebugChecksumsSubsectionRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm8codeview22StringsAndChecksumsRef12setChecksumsERKNS0_27DebugChecksumsSubsectionRefE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((16, 24), (40, 48)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #13, !noalias !16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %4, align 8, !noalias !21

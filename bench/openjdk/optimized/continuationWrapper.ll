@@ -144,7 +144,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_
 @_ZN19ContinuationWrapperC1EPK11RegisterMap = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN19ContinuationWrapperC2EPK11RegisterMap
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ContinuationWrapperC2EPK11RegisterMap(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN19ContinuationWrapperC2EPK11RegisterMap(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((0, 33)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 4960

@@ -232,7 +232,7 @@ entry:
 declare void @exr_set_default_dwa_compression_quality(float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_26HeaderC2EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %this, i32 noundef %width, i32 noundef %height, float noundef %pixelAspectRatio, ptr noundef nonnull align 4 dereferenceable(8) %screenWindowCenter, float noundef %screenWindowWidth, i32 noundef %lineOrder, i32 noundef %compression) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_26HeaderC2EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 24)) %this, i32 noundef %width, i32 noundef %height, float noundef %pixelAspectRatio, ptr noundef nonnull align 4 dereferenceable(8) %screenWindowCenter, float noundef %screenWindowWidth, i32 noundef %lineOrder, i32 noundef %compression) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %displayWindow = alloca %"class.Imath_3_2::Box", align 4
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -654,7 +654,7 @@ _ZNSt8_Rb_treeIN7Imf_3_24NameESt4pairIKS1_PNS0_9AttributeEESt10_Select1stIS6_ESt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_26HeaderC2EiiRKN9Imath_3_23BoxINS1_4Vec2IiEEEEfRKNS3_IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %this, i32 noundef %width, i32 noundef %height, ptr noundef nonnull align 4 dereferenceable(16) %dataWindow, float noundef %pixelAspectRatio, ptr noundef nonnull align 4 dereferenceable(8) %screenWindowCenter, float noundef %screenWindowWidth, i32 noundef %lineOrder, i32 noundef %compression) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_26HeaderC2EiiRKN9Imath_3_23BoxINS1_4Vec2IiEEEEfRKNS3_IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 24)) %this, i32 noundef %width, i32 noundef %height, ptr noundef nonnull align 4 dereferenceable(16) %dataWindow, float noundef %pixelAspectRatio, ptr noundef nonnull align 4 dereferenceable(8) %screenWindowCenter, float noundef %screenWindowWidth, i32 noundef %lineOrder, i32 noundef %compression) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %displayWindow = alloca %"class.Imath_3_2::Box", align 4
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -722,7 +722,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_26HeaderC2ERKN9Imath_3_23BoxINS1_4Vec2IiEEEES7_fRKNS3_IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 4 dereferenceable(16) %displayWindow, ptr noundef nonnull align 4 dereferenceable(16) %dataWindow, float noundef %pixelAspectRatio, ptr noundef nonnull align 4 dereferenceable(8) %screenWindowCenter, float noundef %screenWindowWidth, i32 noundef %lineOrder, i32 noundef %compression) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_26HeaderC2ERKN9Imath_3_23BoxINS1_4Vec2IiEEEES7_fRKNS3_IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 24)) %this, ptr noundef nonnull align 4 dereferenceable(16) %displayWindow, ptr noundef nonnull align 4 dereferenceable(16) %dataWindow, float noundef %pixelAspectRatio, ptr noundef nonnull align 4 dereferenceable(8) %screenWindowCenter, float noundef %screenWindowWidth, i32 noundef %lineOrder, i32 noundef %compression) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -752,7 +752,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_26HeaderC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(49) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_26HeaderC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(49) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -1252,7 +1252,7 @@ if.end31:                                         ; preds = %if.end30, %_ZN7Imf_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_26HeaderC2EOS0_(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(49) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_26HeaderC2EOS0_(ptr noundef nonnull align 8 dereferenceable(49) initializes((8, 12), (16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(49) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 16
@@ -5496,7 +5496,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @_ZN7Imf_3_26Header15getMaxImageSizeERiS1_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %maxWidth, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %maxHeight) local_unnamed_addr #17 align 2 {
+define void @_ZN7Imf_3_26Header15getMaxImageSizeERiS1_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %maxWidth, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %maxHeight) local_unnamed_addr #17 align 2 {
 entry:
   %0 = load i32, ptr @_ZN7Imf_3_212_GLOBAL__N_113maxImageWidthE, align 4
   store i32 %0, ptr %maxWidth, align 4
@@ -5506,7 +5506,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @_ZN7Imf_3_26Header14getMaxTileSizeERiS1_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %maxWidth, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %maxHeight) local_unnamed_addr #17 align 2 {
+define void @_ZN7Imf_3_26Header14getMaxTileSizeERiS1_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %maxWidth, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %maxHeight) local_unnamed_addr #17 align 2 {
 entry:
   %0 = load i32, ptr @_ZN7Imf_3_212_GLOBAL__N_112maxTileWidthE, align 4
   store i32 %0, ptr %maxWidth, align 4

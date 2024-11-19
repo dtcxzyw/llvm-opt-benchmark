@@ -1279,7 +1279,7 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_UDPH1_generic(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_UDPH1_generic(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0) #4
   %8 = getelementptr inbounds i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8

@@ -65,13 +65,13 @@ define internal noundef i32 @H5HF__huge_bt2_dst_context(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5HF__huge_bt2_indir_store(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal noundef i32 @H5HF__huge_bt2_indir_store(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1) #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5HF__huge_bt2_indir_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #1 {
+define internal noundef i32 @H5HF__huge_bt2_indir_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -423,13 +423,13 @@ define internal noundef i32 @H5HF__huge_bt2_indir_debug(ptr nocapture noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5HF__huge_bt2_filt_indir_store(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal noundef i32 @H5HF__huge_bt2_filt_indir_store(ptr nocapture noundef writeonly initializes((0, 40)) %0, ptr nocapture noundef readonly %1) #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5HF__huge_bt2_filt_indir_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #1 {
+define internal noundef i32 @H5HF__huge_bt2_filt_indir_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 32
@@ -1005,13 +1005,13 @@ define internal noundef i32 @H5HF__huge_bt2_filt_indir_debug(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5HF__huge_bt2_dir_store(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal noundef i32 @H5HF__huge_bt2_dir_store(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1) #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5HF__huge_bt2_dir_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #1 {
+define internal noundef i32 @H5HF__huge_bt2_dir_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #1 {
   %4 = load i64, ptr %0, align 8
   %5 = load i64, ptr %1, align 8
   %6 = icmp ult i64 %4, %5
@@ -1215,13 +1215,13 @@ define internal noundef i32 @H5HF__huge_bt2_dir_debug(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5HF__huge_bt2_filt_dir_store(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal noundef i32 @H5HF__huge_bt2_filt_dir_store(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr nocapture noundef readonly %1) #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5HF__huge_bt2_filt_dir_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #1 {
+define internal noundef i32 @H5HF__huge_bt2_filt_dir_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #1 {
   %4 = load i64, ptr %0, align 8
   %5 = load i64, ptr %1, align 8
   %6 = icmp ult i64 %4, %5
@@ -1653,7 +1653,7 @@ define internal noundef i32 @H5HF__huge_bt2_filt_dir_debug(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5HF__huge_bt2_indir_found(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define noundef i32 @H5HF__huge_bt2_indir_found(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 24)) %1) local_unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   ret i32 0
 }
@@ -1695,7 +1695,7 @@ declare i32 @H5MF_xfree(ptr noundef, i32 noundef, i64 noundef, i64 noundef) loca
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5HF__huge_bt2_filt_indir_found(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define noundef i32 @H5HF__huge_bt2_filt_indir_found(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 40)) %1) local_unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   ret i32 0
 }
@@ -1760,7 +1760,7 @@ define range(i32 -1, 1) i32 @H5HF__huge_bt2_dir_remove(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5HF__huge_bt2_filt_dir_found(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define noundef i32 @H5HF__huge_bt2_filt_dir_found(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) local_unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   ret i32 0
 }

@@ -259,7 +259,7 @@ define hidden void @jMkCDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @jGenOptTbl(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden void @jGenOptTbl(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef initializes((2048, 2056)) %2) local_unnamed_addr #0 {
   %4 = alloca [33 x i8], align 16
   %5 = alloca [257 x i32], align 16
   %6 = alloca [257 x i32], align 16

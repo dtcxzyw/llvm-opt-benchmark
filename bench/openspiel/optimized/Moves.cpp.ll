@@ -3201,7 +3201,7 @@ define void @_ZN5MovesD2Ev(ptr noundef nonnull align 8 dereferenceable(39992) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Moves4InitEiiPKiS1_PA4_Ktii(ptr nocapture noundef nonnull align 8 dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #6 align 2 {
+define void @_ZN5Moves4InitEiiPKiS1_PA4_Ktii(ptr nocapture noundef nonnull align 8 dereferenceable(39992) initializes((16, 24)) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #6 align 2 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -9369,7 +9369,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK5Moves13RankForcesAce
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK5Moves12GetTopNumberEiiRiS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4) local_unnamed_addr #6 align 2 {
+define void @_ZNK5Moves12GetTopNumberEiiRiS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %4) local_unnamed_addr #6 align 2 {
   store i32 -10, ptr %3, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 14968
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28

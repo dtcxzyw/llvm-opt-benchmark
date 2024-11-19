@@ -419,7 +419,7 @@ define i64 @H5F_get_eoa(ptr nocapture noundef readonly %0, i32 noundef %1) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5F_shared_get_file_driver(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define noundef i32 @H5F_shared_get_file_driver(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   store ptr %3, ptr %1, align 8
   ret i32 0

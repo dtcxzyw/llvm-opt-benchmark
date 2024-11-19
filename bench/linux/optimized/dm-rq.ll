@@ -125,7 +125,7 @@ define dso_local noundef i64 @dm_attr_rq_based_seq_io_merge_deadline_store(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dm_mq_init_request_queue(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @dm_mq_init_request_queue(ptr noundef initializes((416, 424)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 132
   %4 = load i32, ptr %3, align 4
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
@@ -740,7 +740,7 @@ define internal void @dm_softirq_done(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @dm_mq_init_request(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2, i32 %3) #8 align 16 {
+define internal noundef i32 @dm_mq_init_request(ptr nocapture noundef readonly %0, ptr noundef initializes((248, 256)) %1, i32 %2, i32 %3) #8 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %1, i64 248
@@ -854,7 +854,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #10
 declare dso_local i32 @blk_rq_prep_clone(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @dm_rq_bio_constructor(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) #11 align 16 {
+define internal noundef i32 @dm_rq_bio_constructor(ptr nocapture noundef writeonly initializes((-16, 0), (56, 64)) %0, ptr noundef %1, ptr noundef %2) #11 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -16
   store ptr %1, ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 -8

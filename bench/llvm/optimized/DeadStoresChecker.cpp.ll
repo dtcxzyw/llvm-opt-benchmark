@@ -1591,7 +1591,7 @@ declare noundef zeroext i1 @_ZNK5clang12FunctionDecl23isTemplateInstantiationEv(
 declare void @_ZN5clang13LiveVariables14runOnAllBlocksERNS0_8ObserverE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112DeadStoreObsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(368) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112DeadStoreObsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(368) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_112DeadStoreObsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %3 = load ptr, ptr %2, align 8
@@ -1674,14 +1674,14 @@ declare { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr nound
 declare void @_ZN5clang13LiveVariables8Observer6anchorEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112DeadStoreObsD0Ev(ptr noundef nonnull align 8 dereferenceable(368) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112DeadStoreObsD0Ev(ptr noundef nonnull align 8 dereferenceable(368) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_112DeadStoreObsD2Ev(ptr noundef nonnull align 8 dereferenceable(368) %0) #23
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 368) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112DeadStoreObs11observeStmtEPKN5clang4StmtEPKNS1_8CFGBlockERKNS1_13LiveVariables14LivenessValuesE(ptr noundef nonnull align 8 dereferenceable(368) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112DeadStoreObs11observeStmtEPKN5clang4StmtEPKNS1_8CFGBlockERKNS1_13LiveVariables14LivenessValuesE(ptr noundef nonnull align 8 dereferenceable(368) initializes((352, 360)) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::ArrayRef.1386", align 8
   %6 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %7 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8

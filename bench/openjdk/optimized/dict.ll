@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4DictD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN4DictD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4DictC2EPFiPKvS1_EPFiS1_E(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN4DictC2EPFiPKvS1_EPFiS1_E(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 800
@@ -68,7 +68,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4DictC2EPFiPKvS1_EPFiS1_EP5Arenai(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN4DictC2EPFiPKvS1_EPFiS1_EP5Arenai(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   store ptr %3, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %2, ptr %6, align 8
@@ -120,7 +120,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4DictC2ERKS_P5Arena(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN4DictC2ERKS_P5Arena(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr %2, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1003,7 +1003,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z6cmpkeyPKvS0_(ptr noundef readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5DictI5resetEPK4Dict(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN5DictI5resetEPK4Dict(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 16)) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
 .preheader.i:
   store ptr %1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8

@@ -509,7 +509,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @sr_read_tocentry(ptr %.32.
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @sr_get_last_session(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 align 16 {
+define dso_local noundef i32 @sr_get_last_session(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 5)) %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24

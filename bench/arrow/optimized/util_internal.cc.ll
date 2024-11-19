@@ -66,7 +66,7 @@ $_ZTVSt18bad_variant_access = comdat any
 @.str.2 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal12GetExecValueERKNS_5DatumE(ptr noalias sret(%"struct.arrow::compute::ExecValue") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %value) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal12GetExecValueERKNS_5DatumE(ptr noalias sret(%"struct.arrow::compute::ExecValue") align 8 initializes((0, 136)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %value) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %null_count.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.result, i8 0, i64 16, i1 false)
@@ -833,7 +833,7 @@ declare void @_ZN5arrow7compute14ScalarFunction9AddKernelESt6vectorINS0_9InputTy
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow4nullEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_114NullToNullExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture readnone %ctx, ptr nocapture nonnull readnone align 8 %batch, ptr nocapture readnone %out) #3 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_114NullToNullExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture readnone %ctx, ptr nocapture nonnull readnone align 8 %batch, ptr nocapture readnone %out) #3 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !7
   ret void

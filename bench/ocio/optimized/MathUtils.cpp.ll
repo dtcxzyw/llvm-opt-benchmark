@@ -1093,7 +1093,7 @@ return:                                           ; preds = %_ZN19OpenColorIO_v2
 declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev16GetM44M44ProductEPfPKfS2_(ptr nocapture noundef writeonly %mout, ptr nocapture noundef readonly %m1_, ptr nocapture noundef readonly %m2_) local_unnamed_addr #8 {
+define hidden void @_ZN19OpenColorIO_v2_4dev16GetM44M44ProductEPfPKfS2_(ptr nocapture noundef writeonly initializes((0, 64)) %mout, ptr nocapture noundef readonly %m1_, ptr nocapture noundef readonly %m2_) local_unnamed_addr #8 {
 entry:
   %m1.sroa.0.0.copyload = load float, ptr %m1_, align 4
   %m1.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 4
@@ -1262,7 +1262,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev13GetMxbCombineEPfS0_PKfS2_S2_S2_(ptr nocapture noundef writeonly %mout, ptr nocapture noundef %vout, ptr nocapture noundef readonly %m1_, ptr nocapture noundef readonly %v1_, ptr nocapture noundef readonly %m2_, ptr nocapture noundef readonly %v2_) local_unnamed_addr #6 {
+define hidden void @_ZN19OpenColorIO_v2_4dev13GetMxbCombineEPfS0_PKfS2_S2_S2_(ptr nocapture noundef writeonly initializes((0, 64)) %mout, ptr nocapture noundef initializes((0, 16)) %vout, ptr nocapture noundef readonly %m1_, ptr nocapture noundef readonly %v1_, ptr nocapture noundef readonly %m2_, ptr nocapture noundef readonly %v2_) local_unnamed_addr #6 {
 entry:
   %v2 = alloca [4 x float], align 16
   %m1.sroa.0.0.copyload = load float, ptr %m1_, align 4

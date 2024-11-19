@@ -23,7 +23,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly6detail17CancellationStateD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6detail17CancellationStateD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly6detail17CancellationStateE, i64 16), ptr %this, align 8, !tbaa !7
   ret void

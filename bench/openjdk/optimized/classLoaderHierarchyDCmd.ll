@@ -181,7 +181,7 @@ $_ZTV12DCmdArgumentIbE = comdat any
 @_ZN24ClassLoaderHierarchyDCmdC1EP12outputStreamb = hidden unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN24ClassLoaderHierarchyDCmdC2EP12outputStreamb
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24ClassLoaderHierarchyDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN24ClassLoaderHierarchyDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 17), (24, 91), (96, 147), (152, 203)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8

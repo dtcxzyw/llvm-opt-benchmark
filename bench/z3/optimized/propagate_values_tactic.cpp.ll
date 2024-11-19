@@ -169,7 +169,7 @@ entry:
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123propagate_values_tacticC2ER11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_123propagate_values_tacticC2ER11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 12), (16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tp.i = alloca %struct.tactic_params, align 8
   %m_ref_count.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -292,7 +292,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 declare void @_ZN11th_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123propagate_values_tacticD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123propagate_values_tacticD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_123propagate_values_tacticE, i64 16), ptr %this, align 8
   %m_params = getelementptr inbounds i8, ptr %this, i64 112
@@ -323,7 +323,7 @@ _ZN10scoped_ptrI17expr_substitutionED2Ev.exit:    ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123propagate_values_tacticD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123propagate_values_tacticD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_123propagate_values_tacticE, i64 16), ptr %this, align 8
   %m_params.i = getelementptr inbounds i8, ptr %this, i64 112

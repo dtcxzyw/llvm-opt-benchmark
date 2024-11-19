@@ -18474,7 +18474,7 @@ define dso_local i64 @rpc_task_timeout(ptr noundef %0) #5 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rpc_init_priority_wait_queue(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local void @rpc_init_priority_wait_queue(ptr noundef initializes((0, 4)) %0, ptr noundef %1) #1 align 16 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   br label %4
@@ -18528,7 +18528,7 @@ define dso_local void @rpc_init_priority_wait_queue(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rpc_init_wait_queue(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local void @rpc_init_wait_queue(ptr noundef initializes((0, 4)) %0, ptr noundef %1) #1 align 16 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   br label %4
@@ -19911,7 +19911,7 @@ define dso_local void @rpc_task_try_cancel(ptr noundef %0, i32 noundef %1) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rpc_exit(ptr noundef %0, i32 noundef %1) #1 align 16 {
+define dso_local void @rpc_exit(ptr noundef initializes((4, 8), (32, 40)) %0, i32 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -19951,7 +19951,7 @@ define dso_local void @rpc_release_calldata(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rpc_execute(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local void @rpc_execute(ptr noundef initializes((220, 222)) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 1
@@ -23383,7 +23383,7 @@ define internal fastcc void @__rpc_do_sleep_on_priority(ptr noundef %0, ptr noun
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #0 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef zeroext i1 @rpc_task_action_set_status(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define internal noundef zeroext i1 @rpc_task_action_set_status(ptr nocapture noundef writeonly initializes((4, 8)) %0, ptr nocapture noundef readonly %1) #6 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %3, ptr %4, align 4

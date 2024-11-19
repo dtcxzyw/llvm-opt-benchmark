@@ -1446,7 +1446,7 @@ define void @PQconninfoFree(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @pqConnectOptions2(ptr noundef %0) local_unnamed_addr #0 {
+define noundef zeroext i1 @pqConnectOptions2(ptr noundef initializes((428, 432)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = alloca [1024 x i8], align 16
@@ -5115,7 +5115,7 @@ sendTerminateConn.exit456:                        ; preds = %578, %580
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @pqParseIntParam(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define noundef zeroext i1 @pqParseIntParam(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store i32 0, ptr %1, align 4
   %6 = tail call ptr @__errno_location() #26
@@ -8360,7 +8360,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2, ptr noundef %3, ptr nocapture noundef nonnull initializes((0, 1)) %4) unnamed_addr #0 {
   %6 = alloca [1024 x i8], align 16
   store i8 0, ptr %4, align 1
   %7 = tail call noalias ptr @fopen(ptr noundef nonnull %0, ptr noundef nonnull @.str.138)

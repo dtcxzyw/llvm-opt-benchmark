@@ -238,7 +238,7 @@ _ZNSt12__shared_ptrIN2cv4cuda7GpuDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4cuda8GpuMatNDC2ESt6vectorIiSaIiEEiPvS2_ImSaImEE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4cuda8GpuMatNDC2ESt6vectorIiSaIiEEiPvS2_ImSaImEE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 88)) %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.5", align 1
   %8 = alloca %"class.std::vector", align 8
@@ -405,7 +405,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4cuda8GpuMatND9setFieldsESt6vectorIiSaIiEEiS2_ImSaImEE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4cuda8GpuMatND9setFieldsESt6vectorIiSaIiEEiS2_ImSaImEE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 32)) %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.5", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1765,7 +1765,7 @@ _ZN2cv4cuda6GpuMatD2Ev.exit2:                     ; preds = %.body
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv4cuda7GpuDataC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i64 %1) unnamed_addr #6 align 2 {
+define void @_ZN2cv4cuda7GpuDataC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i64 %1) unnamed_addr #6 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   tail call fastcc void @_ZL13throw_no_cudav() #18
   unreachable

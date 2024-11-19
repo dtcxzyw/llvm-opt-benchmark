@@ -426,7 +426,7 @@ declare void @_ZN11cmExportSet15AddInstallationEPK24cmInstallExportGenerator(ptr
 declare void @_ZN18cmInstallGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN24cmInstallExportGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN24cmInstallExportGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(424) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV24cmInstallExportGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 416
   %3 = load ptr, ptr %2, align 8
@@ -459,7 +459,7 @@ _ZNSt10unique_ptrI28cmExportInstallFileGeneratorSt14default_deleteIS0_EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN24cmInstallExportGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN24cmInstallExportGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(424) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN24cmInstallExportGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
@@ -469,7 +469,7 @@ define dso_local void @_ZN24cmInstallExportGeneratorD0Ev(ptr noundef nonnull ali
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN24cmInstallExportGenerator7ComputeEP16cmLocalGenerator(ptr nocapture noundef nonnull align 8 dereferenceable(424) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN24cmInstallExportGenerator7ComputeEP16cmLocalGenerator(ptr nocapture noundef nonnull align 8 dereferenceable(424) initializes((344, 352)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 344
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 200

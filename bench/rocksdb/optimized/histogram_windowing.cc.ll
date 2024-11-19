@@ -29,7 +29,7 @@ $_ZNK7rocksdb22HistogramWindowingImpl3numEv = comdat any
 @_ZN7rocksdb22HistogramWindowingImplD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7rocksdb22HistogramWindowingImplD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb22HistogramWindowingImplC2Ev(ptr noundef nonnull align 8 dereferenceable(1032) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb22HistogramWindowingImplC2Ev(ptr noundef nonnull align 8 dereferenceable(1032) initializes((0, 64)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22HistogramWindowingImplE, i64 16), ptr %this, align 8
   %clock_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -353,7 +353,7 @@ _ZNSt12__shared_ptrIN7rocksdb11SystemClockELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb22HistogramWindowingImplC2Emmm(ptr noundef nonnull align 8 dereferenceable(1032) %this, i64 noundef %num_windows, i64 noundef %micros_per_window, i64 noundef %min_num_per_window) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb22HistogramWindowingImplC2Emmm(ptr noundef nonnull align 8 dereferenceable(1032) initializes((0, 64)) %this, i64 noundef %num_windows, i64 noundef %micros_per_window, i64 noundef %min_num_per_window) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22HistogramWindowingImplE, i64 16), ptr %this, align 8
   %clock_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -579,7 +579,7 @@ ehcleanup15:                                      ; preds = %_ZNSt10unique_ptrIA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb22HistogramWindowingImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(1032) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb22HistogramWindowingImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(1032) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22HistogramWindowingImplE, i64 16), ptr %this, align 8
   %window_stats_ = getelementptr inbounds i8, ptr %this, i64 984

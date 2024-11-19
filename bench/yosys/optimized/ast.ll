@@ -2379,7 +2379,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit:                ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys3AST7AstNodeC2ENS0_11AstNodeTypeEPS1_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(284) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys3AST7AstNodeC2ENS0_11AstNodeTypeEPS1_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(284) initializes((8, 32), (40, 44), (48, 56)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -8440,7 +8440,7 @@ define void @_ZN5Yosys3AST7AstNode11bitsAsConstEi(ptr dead_on_unwind noalias noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Yosys3AST7AstNode11asAttrConstEv(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::RTLIL::Const") align 8 %0, ptr noundef nonnull align 8 dereferenceable(284) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Yosys3AST7AstNode11asAttrConstEv(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::RTLIL::Const") align 8 initializes((0, 4), (8, 32)) %0, ptr noundef nonnull align 8 dereferenceable(284) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -8983,7 +8983,7 @@ declare void @_ZN5Yosys5RTLIL9const_negERKNS0_5ConstES3_bbi(ptr dead_on_unwind w
 declare double @exp2(double noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys3AST7AstNode11realAsConstEi(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::RTLIL::Const") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(284) %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys3AST7AstNode11realAsConstEi(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::RTLIL::Const") align 8 initializes((0, 4), (8, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(284) %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Yosys::RTLIL::Const", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 168
   %6 = load double, ptr %5, align 8
@@ -13986,7 +13986,7 @@ declare void @_ZNK5Yosys3AST7AstNode11genBindingsEv(ptr dead_on_unwind writable 
 declare void @_ZN5Yosys5RTLIL6Design3addEPNS0_7BindingE(ptr noundef nonnull align 8 dereferenceable(376), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Yosys3AST9AstModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(579) %0) unnamed_addr #3 align 2 {
+define void @_ZN5Yosys3AST9AstModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(579) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Yosys3AST9AstModuleE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 560
   %3 = load ptr, ptr %2, align 8

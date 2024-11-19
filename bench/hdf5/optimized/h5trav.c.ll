@@ -588,7 +588,7 @@ define i64 @h5trav_getindex(ptr nocapture noundef readonly %0, ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @trav_info_init(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
+define void @trav_info_init(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #8 {
   %4 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #21
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr null, ptr %5, align 8
@@ -985,7 +985,7 @@ define void @trav_table_addflags(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @trav_table_init(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
+define void @trav_table_init(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #8 {
   %3 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #21
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4

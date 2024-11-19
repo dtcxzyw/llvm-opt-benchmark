@@ -410,7 +410,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %entry
 declare void @_ZN4cvc58internal7CDProofD2Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal11LazyCDProofD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal11LazyCDProofD2Ev(ptr noundef nonnull align 8 dereferenceable(408) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal11LazyCDProofE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
@@ -431,7 +431,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn16_N4cvc58internal11LazyCDProofD1Ev(ptr noundef %this) unnamed_addr #5 align 2 {
+define hidden void @_ZThn16_N4cvc58internal11LazyCDProofD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal11LazyCDProofE, i64 16), ptr %0, align 8
@@ -445,7 +445,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal11LazyCDProofD0Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal11LazyCDProofD0Ev(ptr noundef nonnull align 8 dereferenceable(408) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal11LazyCDProofE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -463,7 +463,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn16_N4cvc58internal11LazyCDProofD0Ev(ptr noundef %this) unnamed_addr #5 align 2 {
+define hidden void @_ZThn16_N4cvc58internal11LazyCDProofD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal11LazyCDProofE, i64 16), ptr %0, align 8
@@ -1911,7 +1911,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
 declare noundef i32 @_ZNK4cvc58internal9ProofNode7getRuleEv(ptr noundef nonnull align 8 dereferenceable(65)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN4cvc58internal11LazyCDProof15getGeneratorForENS0_12NodeTemplateILb1EEERb(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef %fact, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %isSym) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN4cvc58internal11LazyCDProof15getGeneratorForENS0_12NodeTemplateILb1EEERb(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef %fact, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %isSym) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %factSym = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.62", align 8

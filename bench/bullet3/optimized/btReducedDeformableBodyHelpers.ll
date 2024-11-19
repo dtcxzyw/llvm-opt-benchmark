@@ -2310,7 +2310,7 @@ if.end15:                                         ; preds = %_ZN20btAlignedObjec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN30btReducedDeformableBodyHelpers21calculateLocalInertiaER9btVector3fRKS0_S3_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %inertia, float noundef %mass, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %half_extents, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %margin) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN30btReducedDeformableBodyHelpers21calculateLocalInertiaER9btVector3fRKS0_S3_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %inertia, float noundef %mass, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %half_extents, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %margin) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load float, ptr %half_extents, align 4
   %1 = load float, ptr %margin, align 4

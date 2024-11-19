@@ -2885,7 +2885,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly12json_pointerC2ESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef %tokens) unnamed_addr #17 align 2 {
+define void @_ZN5folly12json_pointerC2ESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef %tokens) unnamed_addr #17 align 2 {
 entry:
   %0 = load <2 x ptr>, ptr %tokens, align 8, !tbaa !13
   store <2 x ptr> %0, ptr %this, align 8, !tbaa !13

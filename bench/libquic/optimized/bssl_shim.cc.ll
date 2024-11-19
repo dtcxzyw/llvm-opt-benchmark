@@ -2718,7 +2718,7 @@ declare i32 @SSL_CTX_enable_tls_channel_id(ptr noundef) local_unnamed_addr #2
 declare void @SSL_CTX_set_channel_id_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL17ChannelIdCallbackP6ssl_stPP11evp_pkey_st(ptr noundef %ssl, ptr nocapture noundef writeonly %out_pkey) #8 {
+define internal void @_ZL17ChannelIdCallbackP6ssl_stPP11evp_pkey_st(ptr noundef %ssl, ptr nocapture noundef writeonly initializes((0, 8)) %out_pkey) #8 {
 entry:
   %0 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
@@ -2730,7 +2730,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL19CurrentTimeCallbackPK6ssl_stP7timeval(ptr noundef %ssl, ptr nocapture noundef writeonly %out_clock) #8 {
+define internal void @_ZL19CurrentTimeCallbackPK6ssl_stP7timeval(ptr noundef %ssl, ptr nocapture noundef writeonly initializes((0, 16)) %out_clock) #8 {
 entry:
   %0 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
@@ -2924,7 +2924,7 @@ declare i32 @SSL_CTX_add_server_custom_ext(ptr noundef, i32 noundef, ptr noundef
 declare void @SSL_CTX_set_cert_verify_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL10VerifyFailP17x509_store_ctx_stPv(ptr nocapture noundef writeonly %store_ctx, ptr nocapture readnone %arg) #10 {
+define internal noundef i32 @_ZL10VerifyFailP17x509_store_ctx_stPv(ptr nocapture noundef writeonly initializes((184, 188)) %store_ctx, ptr nocapture readnone %arg) #10 {
 entry:
   %error = getelementptr inbounds i8, ptr %store_ctx, i64 184
   store i32 50, ptr %error, align 8

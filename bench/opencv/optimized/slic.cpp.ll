@@ -876,7 +876,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit:   ; preds = %_ZSt8_DestroyIPN2cv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8ximgproc18SuperpixelSLICImplD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8ximgproc18SuperpixelSLICImplD2Ev(ptr noundef nonnull align 8 dereferenceable(276) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv8ximgproc18SuperpixelSLICImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -1068,7 +1068,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8ximgproc18SuperpixelSLICImplD0Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN2cv8ximgproc18SuperpixelSLICImplD0Ev(ptr noundef nonnull align 8 dereferenceable(276) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN2cv8ximgproc18SuperpixelSLICImplD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
@@ -1085,7 +1085,7 @@ define hidden noundef i32 @_ZNK2cv8ximgproc18SuperpixelSLICImpl22getNumberOfSupe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8ximgproc18SuperpixelSLICImpl7iterateEi(ptr noundef nonnull align 8 dereferenceable(276) %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8ximgproc18SuperpixelSLICImpl7iterateEi(ptr noundef nonnull align 8 dereferenceable(276) initializes((44, 48)) %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.14", align 1

@@ -141,7 +141,7 @@ return:                                           ; preds = %sw.default, %sw.bb1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @luaO_str2d(ptr noundef %s, ptr nocapture noundef writeonly %result) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @luaO_str2d(ptr noundef %s, ptr nocapture noundef writeonly initializes((0, 8)) %result) local_unnamed_addr #4 {
 entry:
   %endptr = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr) #16

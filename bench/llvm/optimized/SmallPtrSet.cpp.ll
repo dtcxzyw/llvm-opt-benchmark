@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm19SmallPtrSetImplBaseC1EPPKvjOS0_ = unnamed_addr alias void (ptr, ptr, i32, ptr), ptr @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvjOS0_
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19SmallPtrSetImplBase16shrink_and_clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19SmallPtrSetImplBase16shrink_and_clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((16, 20)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #13
@@ -390,7 +390,7 @@ define dso_local noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvRKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvRKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 8)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -460,7 +460,7 @@ _ZN4llvm19SmallPtrSetImplBase10CopyHelperERKS0_.exit: ; preds = %_ZN4llvm11safe_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm19SmallPtrSetImplBase10CopyHelperERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm19SmallPtrSetImplBase10CopyHelperERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((16, 28)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -496,7 +496,7 @@ _ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit:               ; preds = %2, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvjOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull align 8 dereferenceable(28) %3) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvjOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 28)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull align 8 dereferenceable(28) %3) unnamed_addr #4 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -545,7 +545,7 @@ _ZN4llvm19SmallPtrSetImplBase10MoveHelperEjOS0_.exit: ; preds = %10, %13, %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm19SmallPtrSetImplBase10MoveHelperEjOS0_(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(28) %2) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm19SmallPtrSetImplBase10MoveHelperEjOS0_(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((8, 28)) %0, i32 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(28) %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %2, align 8
@@ -720,7 +720,7 @@ _ZN4llvm19SmallPtrSetImplBase10CopyHelperERKS0_.exit: ; preds = %44, %54
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @_ZN4llvm19SmallPtrSetImplBase8MoveFromEjOS0_(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(28) %2) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm19SmallPtrSetImplBase8MoveFromEjOS0_(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((16, 28)) %0, i32 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(28) %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8

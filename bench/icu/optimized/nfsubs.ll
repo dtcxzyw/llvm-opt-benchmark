@@ -155,7 +155,7 @@ $_ZNK6icu_7521NumeratorSubstitution9tokenCharEv = comdat any
 @_ZN6icu_7526FractionalPartSubstitutionC1EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode = unnamed_addr alias void (ptr, i32, ptr, ptr, ptr), ptr @_ZN6icu_7526FractionalPartSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7521SameValueSubstitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7521SameValueSubstitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514NFSubstitutionE, i64 16), ptr %this, align 8
   %numberFormat.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -177,7 +177,7 @@ _ZN6icu_7514NFSubstitutionD2Ev.exit:              ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7514NFSubstitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7514NFSubstitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514NFSubstitutionE, i64 16), ptr %this, align 8
   %numberFormat = getelementptr inbounds i8, ptr %this, i64 24
@@ -210,7 +210,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7522MultiplierSubstitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7522MultiplierSubstitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514NFSubstitutionE, i64 16), ptr %this, align 8
   %numberFormat.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -240,7 +240,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7519ModulusSubstitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7519ModulusSubstitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514NFSubstitutionE, i64 16), ptr %this, align 8
   %numberFormat.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -270,7 +270,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7524IntegralPartSubstitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7524IntegralPartSubstitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514NFSubstitutionE, i64 16), ptr %this, align 8
   %numberFormat.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -300,7 +300,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7526FractionalPartSubstitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(34) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7526FractionalPartSubstitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(34) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514NFSubstitutionE, i64 16), ptr %this, align 8
   %numberFormat.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -330,7 +330,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7525AbsoluteValueSubstitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7525AbsoluteValueSubstitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514NFSubstitutionE, i64 16), ptr %this, align 8
   %numberFormat.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -360,7 +360,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7521NumeratorSubstitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7521NumeratorSubstitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514NFSubstitutionE, i64 16), ptr %this, align 8
   %numberFormat.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -714,7 +714,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514NFSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %_pos, ptr noundef %_ruleSet, ptr noundef nonnull align 8 dereferenceable(64) %description, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514NFSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 12), (16, 32)) %this, i32 noundef %_pos, ptr noundef %_ruleSet, ptr noundef nonnull align 8 dereferenceable(64) %description, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %workingDescription = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514NFSubstitutionE, i64 16), ptr %this, align 8
@@ -1488,7 +1488,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7521SameValueSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %_pos, ptr noundef %_ruleSet, ptr noundef nonnull align 8 dereferenceable(64) %description, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7521SameValueSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 12), (16, 32)) %this, i32 noundef %_pos, ptr noundef %_ruleSet, ptr noundef nonnull align 8 dereferenceable(64) %description, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7514NFSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %_pos, ptr noundef %_ruleSet, ptr noundef nonnull align 8 dereferenceable(64) %description, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521SameValueSubstitutionE, i64 16), ptr %this, align 8
@@ -1628,7 +1628,7 @@ land.end:                                         ; preds = %if.end.i.i, %_ZNKSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7519ModulusSubstitutionC2EiPKNS_6NFRuleES3_PKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %_pos, ptr noundef %rule, ptr noundef %predecessor, ptr noundef %_ruleSet, ptr noundef nonnull align 8 dereferenceable(64) %description, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7519ModulusSubstitutionC2EiPKNS_6NFRuleES3_PKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 12), (16, 32)) %this, i32 noundef %_pos, ptr noundef %rule, ptr noundef %predecessor, ptr noundef %_ruleSet, ptr noundef nonnull align 8 dereferenceable(64) %description, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7514NFSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %_pos, ptr noundef %_ruleSet, ptr noundef nonnull align 8 dereferenceable(64) %description, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519ModulusSubstitutionE, i64 16), ptr %this, align 8
@@ -1951,7 +1951,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7526FractionalPartSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(34) %this, i32 noundef %_pos, ptr noundef %_ruleSet, ptr noundef nonnull align 8 dereferenceable(64) %description, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7526FractionalPartSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(34) initializes((0, 12), (16, 32)) %this, i32 noundef %_pos, ptr noundef %_ruleSet, ptr noundef nonnull align 8 dereferenceable(64) %description, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7514NFSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %_pos, ptr noundef %_ruleSet, ptr noundef nonnull align 8 dereferenceable(64) %description, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7526FractionalPartSubstitutionE, i64 16), ptr %this, align 8

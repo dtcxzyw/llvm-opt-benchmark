@@ -2213,7 +2213,7 @@ unreachable:                                      ; preds = %invoke.cont7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5folly12_GLOBAL__N_120GlogFormatterFactory15createFormatterERKSt10shared_ptrINS_9LogWriterEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.24") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_120GlogFormatterFactory15createFormatterERKSt10shared_ptrINS_9LogWriterEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.24") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt12__shared_ptrIN5folly18GlogStyleFormatterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
   %log_thread_name_ = getelementptr inbounds i8, ptr %this, i64 8
   %call5.i.i.i17.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24, !noalias !95
@@ -2450,7 +2450,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_125CustomLogFormatterFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_125CustomLogFormatterFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_125CustomLogFormatterFactoryE, i64 16), ptr %this, align 8, !tbaa !10
   %format_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2475,7 +2475,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_125CustomLogFormatterFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_125CustomLogFormatterFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_125CustomLogFormatterFactoryE, i64 16), ptr %this, align 8, !tbaa !10
   %format_.i = getelementptr inbounds i8, ptr %this, i64 8

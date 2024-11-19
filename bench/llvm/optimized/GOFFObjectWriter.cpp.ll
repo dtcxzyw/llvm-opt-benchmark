@@ -28,7 +28,7 @@ $_ZN4llvm11raw_ostream13enable_colorsEb = comdat any
 @_ZTVN12_GLOBAL__N_111GOFFOstreamE = internal unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr null, ptr @_ZN12_GLOBAL__N_111GOFFOstreamD2Ev, ptr @_ZN12_GLOBAL__N_111GOFFOstreamD0Ev, ptr @_ZN4llvm11raw_ostream17reserveExtraSpaceEm, ptr @_ZN4llvm11raw_ostream11changeColorENS0_6ColorsEbb, ptr @_ZN4llvm11raw_ostream10resetColorEv, ptr @_ZN4llvm11raw_ostream12reverseColorEv, ptr @_ZNK4llvm11raw_ostream12is_displayedEv, ptr @_ZNK4llvm11raw_ostream10has_colorsEv, ptr @_ZN4llvm11raw_ostream13enable_colorsEb, ptr @_ZN12_GLOBAL__N_111GOFFOstream10write_implEPKcm, ptr @_ZNK12_GLOBAL__N_111GOFFOstream11current_posEv, ptr @_ZNK4llvm11raw_ostream21preferred_buffer_sizeEv, ptr @_ZN4llvm11raw_ostream6anchorEv] }, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm22createGOFFObjectWriterESt10unique_ptrINS_24MCGOFFObjectTargetWriterESt14default_deleteIS1_EERNS_17raw_pwrite_streamE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm22createGOFFObjectWriterESt10unique_ptrINS_24MCGOFFObjectTargetWriterESt14default_deleteIS1_EERNS_17raw_pwrite_streamE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_116GOFFObjectWriterESt14default_deleteIS1_EED2Ev.exit:
   %3 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #9, !noalias !4
   %4 = load i64, ptr %1, align 8, !noalias !4
@@ -73,7 +73,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_116GOFFObjectWriterESt14default_deleteIS1_EED2Ev
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116GOFFObjectWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_116GOFFObjectWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 8), (112, 120)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_116GOFFObjectWriterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN12_GLOBAL__N_111GOFFOstreamE, i64 16), ptr %2, align 8
@@ -128,7 +128,7 @@ _ZNSt10unique_ptrIN4llvm24MCGOFFObjectTargetWriterESt14default_deleteIS1_EED2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116GOFFObjectWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_116GOFFObjectWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 8), (112, 120)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_116GOFFObjectWriterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN12_GLOBAL__N_111GOFFOstreamE, i64 16), ptr %2, align 8
@@ -379,7 +379,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_111GOFFOstreamD2Ev(ptr noundef nonnull align 8 dereferenceable(147) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_111GOFFOstreamD2Ev(ptr noundef nonnull align 8 dereferenceable(147) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN12_GLOBAL__N_111GOFFOstreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
@@ -417,7 +417,7 @@ _ZN12_GLOBAL__N_111GOFFOstream8finalizeEv.exit:   ; preds = %15, %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_111GOFFOstreamD0Ev(ptr noundef nonnull align 8 dereferenceable(147) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_111GOFFOstreamD0Ev(ptr noundef nonnull align 8 dereferenceable(147) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN12_GLOBAL__N_111GOFFOstreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8

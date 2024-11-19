@@ -640,7 +640,7 @@ define internal noundef i32 @nlm4svc_proc_free_all(ptr noundef %0) #2 align 16 {
 declare dso_local zeroext i1 @nlm4svc_decode_notify(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_test(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_test(ptr noundef %0, ptr noundef initializes((0, 40)) %1) unnamed_addr #2 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 11296
@@ -837,7 +837,7 @@ declare dso_local i32 @nlm_lookup_file(ptr noundef, ptr noundef, ptr noundef) lo
 declare dso_local void @nlmsvc_locks_init_private(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_lock(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_lock(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 40)) %1) unnamed_addr #2 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 11296
@@ -890,7 +890,7 @@ declare dso_local i32 @nlmsvc_lock(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare dso_local void @nlmsvc_release_lockowner(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_cancel(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_cancel(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 40)) %1) unnamed_addr #2 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 11296
@@ -958,7 +958,7 @@ declare dso_local zeroext i1 @locks_in_grace(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @nlmsvc_cancel_blocked(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_unlock(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_unlock(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 40)) %1) unnamed_addr #2 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 11296

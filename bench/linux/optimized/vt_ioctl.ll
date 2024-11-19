@@ -1622,7 +1622,7 @@ __vt_event_wait.exit:                             ; preds = %10, %.thread1.i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @reset_vc(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @reset_vc(ptr noundef initializes((492, 493), (628, 636), (648, 652)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 492
   store i8 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 416

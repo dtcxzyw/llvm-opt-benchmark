@@ -3056,7 +3056,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #2
 declare void @register_conversation_table(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bp_conv_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) #1 {
+define internal noundef i32 @bp_conv_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 32
@@ -3078,7 +3078,7 @@ define internal noundef i32 @bp_conv_packet(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bp_endp_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) #1 {
+define internal noundef i32 @bp_endp_packet(ptr noundef initializes((24, 28)) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 32
@@ -4777,7 +4777,7 @@ define internal void @fragment_bundle_ident_free_temporary_key(ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @fragment_bundle_ident_free_persistent_key(ptr noundef %0) #1 {
+define internal void @fragment_bundle_ident_free_persistent_key(ptr noundef initializes((8, 16)) %0) #1 {
   %2 = load i32, ptr %0, align 8
   %.not.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i, label %free_address.exit, label %3

@@ -371,7 +371,7 @@ eh.resume:                                        ; preds = %lpad61, %lpad55, %l
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata9PrototypeC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %object) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata9PrototypeC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %object) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -387,7 +387,7 @@ entry:
 declare ptr @FLAC__metadata_object_clone(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata9PrototypeC2ERK20FLAC__StreamMetadata(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(176) %object) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata9PrototypeC2ERK20FLAC__StreamMetadata(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this, ptr noundef nonnull align 8 dereferenceable(176) %object) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -399,7 +399,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata9PrototypeC2EPK20FLAC__StreamMetadata(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, ptr noundef %object) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata9PrototypeC2EPK20FLAC__StreamMetadata(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this, ptr noundef %object) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -411,7 +411,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, ptr noundef %object, i1 noundef zeroext %copy) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this, ptr noundef %object, i1 noundef zeroext %copy) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   br i1 %copy, label %cond.true, label %cond.end
@@ -430,7 +430,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata9PrototypeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4FLAC8Metadata9PrototypeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -612,7 +612,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata10StreamInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata10StreamInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this) unnamed_addr #0 align 2 {
 entry:
   %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 0)
   %object_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -626,7 +626,7 @@ entry:
 declare ptr @FLAC__metadata_object_new(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata10StreamInfoD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4FLAC8Metadata10StreamInfoD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -847,7 +847,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata7PaddingC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata7PaddingC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this) unnamed_addr #0 align 2 {
 entry:
   %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 1)
   %object_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -859,7 +859,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata7PaddingC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, i32 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4FLAC8Metadata7PaddingC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this, i32 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 1)
   %object_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -883,7 +883,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata7PaddingD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4FLAC8Metadata7PaddingD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -922,7 +922,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata11ApplicationC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata11ApplicationC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this) unnamed_addr #0 align 2 {
 entry:
   %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 2)
   %object_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -934,7 +934,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata11ApplicationD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4FLAC8Metadata11ApplicationD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1026,7 +1026,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata9SeekTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata9SeekTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this) unnamed_addr #0 align 2 {
 entry:
   %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 3)
   %object_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1038,7 +1038,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata9SeekTableD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4FLAC8Metadata9SeekTableD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1087,7 +1087,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK4FLAC8Metadata9SeekTable9get_pointEj(ptr noalias nocapture writeonly sret(%struct.FLAC__StreamMetadata_SeekPoint) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %indx) local_unnamed_addr #11 align 2 {
+define void @_ZNK4FLAC8Metadata9SeekTable9get_pointEj(ptr noalias nocapture writeonly sret(%struct.FLAC__StreamMetadata_SeekPoint) align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, i32 noundef %indx) local_unnamed_addr #11 align 2 {
 entry:
   %object_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %object_, align 8
@@ -1232,7 +1232,7 @@ entry:
 declare i32 @FLAC__metadata_object_seektable_template_sort(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %this) unnamed_addr #13 align 2 {
+define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((0, 9), (16, 44), (48, 60)) %this) unnamed_addr #13 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %this, align 8
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1252,7 +1252,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5Entry4zeroEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %this) local_unnamed_addr #13 align 2 {
+define void @_ZN4FLAC8Metadata13VorbisComment5Entry4zeroEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((8, 9), (16, 20), (24, 44), (48, 60)) %this) local_unnamed_addr #13 align 2 {
 entry:
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %is_valid_, align 8
@@ -1268,7 +1268,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcj(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field, i32 noundef %field_length) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcj(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((0, 9), (16, 44), (48, 60)) %this, ptr noundef %field, i32 noundef %field_length) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %this, align 8
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1330,7 +1330,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit: ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field, i32 noundef %field_length) local_unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((8, 9)) %this, ptr noundef %field, i32 noundef %field_length) local_unnamed_addr #0 align 2 {
 entry:
   %call.i = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %field, i32 noundef %field_length)
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -1387,7 +1387,7 @@ if.end:                                           ; preds = %if.then4.i, %if.the
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((0, 9), (16, 44), (48, 60)) %this, ptr noundef %field) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %this, align 8
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1405,7 +1405,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field) local_unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((8, 9)) %this, ptr noundef %field) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %field) #25
   %conv = trunc i64 %call to i32
@@ -1464,7 +1464,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit: ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcS4_j(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field_name, ptr noundef %field_value, i32 noundef %field_value_length) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcS4_j(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((0, 9), (16, 44), (48, 60)) %this, ptr noundef %field_name, ptr noundef %field_value, i32 noundef %field_value_length) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %this, align 8
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1546,7 +1546,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field_name, ptr noundef %field_value, i32 noundef %field_value_length) local_unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((8, 9)) %this, ptr noundef %field_name, ptr noundef %field_value, i32 noundef %field_value_length) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field_name)
   br i1 %call, label %land.lhs.true, label %if.end
@@ -1623,7 +1623,7 @@ if.end:                                           ; preds = %_ZN4FLAC8Metadata13
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcS4_(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field_name, ptr noundef %field_value) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcS4_(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((0, 9), (16, 44), (48, 60)) %this, ptr noundef %field_name, ptr noundef %field_value) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %this, align 8
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1641,7 +1641,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field_name, ptr noundef %field_value) local_unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((8, 9)) %this, ptr noundef %field_name, ptr noundef %field_value) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %field_value) #25
   %call.i = tail call noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field_name)
@@ -1720,7 +1720,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2ERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %entry1) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2ERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((0, 9), (16, 44), (48, 60)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %entry1) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %this, align 8
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1786,7 +1786,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit: ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef nonnull align 8 dereferenceable(60) ptr @_ZN4FLAC8Metadata13VorbisComment5EntryaSERKS2_(ptr noundef nonnull returned align 8 dereferenceable(60) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %entry1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(60) ptr @_ZN4FLAC8Metadata13VorbisComment5EntryaSERKS2_(ptr noundef nonnull returned align 8 dereferenceable(60) initializes((8, 9)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %entry1) local_unnamed_addr #0 align 2 {
 entry:
   %entry2.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %entry2.i.i, align 8
@@ -1884,7 +1884,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj.exit: ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5Entry5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #15 align 2 {
+define void @_ZN4FLAC8Metadata13VorbisComment5Entry5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((8, 9)) %this) local_unnamed_addr #15 align 2 {
 entry:
   %entry2.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %entry2.i, align 8
@@ -1931,7 +1931,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5EntryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4FLAC8Metadata13VorbisComment5EntryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((0, 9)) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %this, align 8
   %entry2.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -2056,7 +2056,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field, i32 noundef %field_length) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((8, 9)) %this, ptr noundef %field, i32 noundef %field_length) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %field, i32 noundef %field_length)
   %tobool.not = icmp eq i32 %call, 0
@@ -2131,7 +2131,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #15 align 2 {
+define void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((8, 9), (40, 44)) %this) local_unnamed_addr #15 align 2 {
 entry:
   %field_name_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %field_name_.i, align 8
@@ -2226,7 +2226,7 @@ return:                                           ; preds = %if.else, %if.then28
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((8, 9)) %this, ptr noundef %field) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %field) #25
   %conv = trunc i64 %call to i32
@@ -2285,7 +2285,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit: ; preds = %if.then.i
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field_name) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((8, 9)) %this, ptr noundef %field_name) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call i32 @FLAC__format_vorbiscomment_entry_name_is_legal(ptr noundef %field_name)
   %tobool.not = icmp eq i32 %call, 0
@@ -2417,7 +2417,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define void @_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #15 align 2 {
+define void @_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((8, 9)) %this) local_unnamed_addr #15 align 2 {
 entry:
   %entry2.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %entry2.i, align 8
@@ -2483,7 +2483,7 @@ if.end37:                                         ; preds = %_ZN4FLAC8Metadata13
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field_value, i32 noundef %field_value_length) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((8, 9)) %this, ptr noundef %field_value, i32 noundef %field_value_length) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr noundef %field_value, i32 noundef %field_value_length)
   %tobool.not = icmp eq i32 %call, 0
@@ -2615,7 +2615,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %field_value) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((8, 9)) %this, ptr noundef %field_value) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %field_value) #25
   %conv = trunc i64 %call to i32
@@ -2630,7 +2630,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #18
 declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisCommentC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata13VorbisCommentC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this) unnamed_addr #0 align 2 {
 entry:
   %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 4)
   %object_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2642,7 +2642,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata13VorbisCommentD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4FLAC8Metadata13VorbisCommentD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2853,7 +2853,7 @@ entry:
 declare i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata8CueSheet5TrackC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata8CueSheet5TrackC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 16), ptr %this, align 8
   %object_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2865,7 +2865,7 @@ entry:
 declare ptr @FLAC__metadata_object_cuesheet_track_new() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata8CueSheet5TrackC2EPK35FLAC__StreamMetadata_CueSheet_Track(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %track) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata8CueSheet5TrackC2EPK35FLAC__StreamMetadata_CueSheet_Track(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %track) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 16), ptr %this, align 8
   %object_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2877,7 +2877,7 @@ entry:
 declare ptr @FLAC__metadata_object_cuesheet_track_clone(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata8CueSheet5TrackC2ERKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %track) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata8CueSheet5TrackC2ERKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %track) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 16), ptr %this, align 8
   %object_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2911,7 +2911,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @FLAC__metadata_object_cuesheet_track_delete(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata8CueSheet5TrackD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4FLAC8Metadata8CueSheet5TrackD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i64 16), ptr %this, align 8
   %object_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -3010,7 +3010,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata8CueSheetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata8CueSheetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this) unnamed_addr #0 align 2 {
 entry:
   %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 5)
   %object_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -3022,7 +3022,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata8CueSheetD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4FLAC8Metadata8CueSheetD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -3303,7 +3303,7 @@ entry:
 declare i32 @FLAC__metadata_object_cuesheet_calculate_cddb_id(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata7PictureC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata7PictureC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this) unnamed_addr #0 align 2 {
 entry:
   %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 6)
   %object_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -3315,7 +3315,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata7PictureD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4FLAC8Metadata7PictureD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -3542,7 +3542,7 @@ entry:
 declare i32 @FLAC__metadata_object_picture_is_legal(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata7UnknownC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata7UnknownC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this) unnamed_addr #0 align 2 {
 entry:
   %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 2)
   %object_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -3554,7 +3554,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata7UnknownD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4FLAC8Metadata7UnknownD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i64 16), ptr %this, align 8
   %object_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -3649,7 +3649,7 @@ return:                                           ; preds = %entry, %if.then
 declare i32 @FLAC__metadata_get_streaminfo(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata8get_tagsEPKcRPNS0_13VorbisCommentE(ptr noundef %filename, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %tags) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN4FLAC8Metadata8get_tagsEPKcRPNS0_13VorbisCommentE(ptr noundef %filename, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %tags) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %object = alloca ptr, align 8
   store ptr null, ptr %tags, align 8
@@ -3698,7 +3698,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata12get_cuesheetEPKcRPNS0_8CueSheetE(ptr noundef %filename, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %cuesheet) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN4FLAC8Metadata12get_cuesheetEPKcRPNS0_8CueSheetE(ptr noundef %filename, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %cuesheet) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %object = alloca ptr, align 8
   store ptr null, ptr %cuesheet, align 8
@@ -3747,7 +3747,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_ZN4FLAC8Metadata11get_pictureEPKcRPNS0_7PictureE33FLAC__StreamMetadata_Picture_TypeS2_PKhjjjj(ptr noundef %filename, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %picture, i32 noundef %type, ptr noundef %mime_type, ptr noundef %description, i32 noundef %max_width, i32 noundef %max_height, i32 noundef %max_depth, i32 noundef %max_colors) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN4FLAC8Metadata11get_pictureEPKcRPNS0_7PictureE33FLAC__StreamMetadata_Picture_TypeS2_PKhjjjj(ptr noundef %filename, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %picture, i32 noundef %type, ptr noundef %mime_type, ptr noundef %description, i32 noundef %max_width, i32 noundef %max_height, i32 noundef %max_depth, i32 noundef %max_colors) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %object = alloca ptr, align 8
   store ptr null, ptr %picture, align 8
@@ -3796,7 +3796,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata14SimpleIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata14SimpleIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata14SimpleIteratorE, i64 16), ptr %this, align 8
   %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -3808,7 +3808,7 @@ entry:
 declare ptr @FLAC__metadata_simple_iterator_new() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata14SimpleIteratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4FLAC8Metadata14SimpleIteratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata14SimpleIteratorE, i64 16), ptr %this, align 8
   %iterator_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -4067,7 +4067,7 @@ entry:
 declare i32 @FLAC__metadata_simple_iterator_delete_block(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata5ChainC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata5ChainC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata5ChainE, i64 16), ptr %this, align 8
   %chain_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -4079,7 +4079,7 @@ entry:
 declare ptr @FLAC__metadata_chain_new() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata5ChainD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4FLAC8Metadata5ChainD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata5ChainE, i64 16), ptr %this, align 8
   %chain_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -4276,7 +4276,7 @@ entry:
 declare void @FLAC__metadata_chain_sort_padding(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN4FLAC8Metadata8IteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define void @_ZN4FLAC8Metadata8IteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata8IteratorE, i64 16), ptr %this, align 8
   %iterator_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -4288,7 +4288,7 @@ entry:
 declare ptr @FLAC__metadata_iterator_new() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
-define void @_ZN4FLAC8Metadata8IteratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4FLAC8Metadata8IteratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4FLAC8Metadata8IteratorE, i64 16), ptr %this, align 8
   %iterator_.i = getelementptr inbounds i8, ptr %this, i64 8

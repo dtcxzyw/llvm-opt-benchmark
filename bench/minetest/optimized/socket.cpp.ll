@@ -152,7 +152,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9UDPSocketC2Eb(ptr nocapture noundef nonnull align 4 dereferenceable(10) %this, i1 noundef zeroext %ipv6) unnamed_addr #4 align 2 {
+define dso_local void @_ZN9UDPSocketC2Eb(ptr nocapture noundef nonnull align 4 dereferenceable(10) initializes((0, 10)) %this, i1 noundef zeroext %ipv6) unnamed_addr #4 align 2 {
 entry:
   store i32 -1, ptr %this, align 4, !tbaa !4
   %m_timeout_ms = getelementptr inbounds i8, ptr %this, i64 4
@@ -780,7 +780,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #1
 declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN9UDPSocket12setTimeoutMsEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(10) %this, i32 noundef %timeout_ms) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN9UDPSocket12setTimeoutMsEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(10) initializes((4, 8)) %this, i32 noundef %timeout_ms) local_unnamed_addr #11 align 2 {
 entry:
   %m_timeout_ms = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %timeout_ms, ptr %m_timeout_ms, align 4, !tbaa !10

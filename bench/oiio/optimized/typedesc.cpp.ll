@@ -757,7 +757,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %this, ptr nocapture noundef readonly %typestring) unnamed_addr #1 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08TypeDescC2ENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef readonly %typestring) unnamed_addr #1 align 2 {
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   store i8 0, ptr %this, align 4
@@ -780,7 +780,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN18OpenImageIO_v2_6_08TypeDesc10fromstringENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %this, ptr noundef %typestring) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN18OpenImageIO_v2_6_08TypeDesc10fromstringENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %typestring) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %type = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %arraylen = alloca i32, align 4
@@ -1519,7 +1519,7 @@ declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_07Strutil10parse_charERNS_17ba
 declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_07Strutil9parse_intERNS_17basic_string_viewIcSt11char_traitsIcEEERib(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18OpenImageIO_v2_6_019tostring_formattingC2EPKcS2_S2_S2_S2_S2_S2_S2_S2_S2_iS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(113) %this, ptr noundef %int_fmt, ptr noundef %float_fmt, ptr noundef %string_fmt, ptr noundef %ptr_fmt, ptr noundef %aggregate_begin, ptr noundef %aggregate_end, ptr noundef %aggregate_sep, ptr noundef %array_begin, ptr noundef %array_end, ptr noundef %array_sep, i32 noundef %flags, ptr noundef %uint_fmt) unnamed_addr #8 align 2 {
+define void @_ZN18OpenImageIO_v2_6_019tostring_formattingC2EPKcS2_S2_S2_S2_S2_S2_S2_S2_S2_iS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(113) initializes((0, 84), (88, 113)) %this, ptr noundef %int_fmt, ptr noundef %float_fmt, ptr noundef %string_fmt, ptr noundef %ptr_fmt, ptr noundef %aggregate_begin, ptr noundef %aggregate_end, ptr noundef %aggregate_sep, ptr noundef %array_begin, ptr noundef %array_end, ptr noundef %array_sep, i32 noundef %flags, ptr noundef %uint_fmt) unnamed_addr #8 align 2 {
 entry:
   store ptr %int_fmt, ptr %this, align 8
   %float_fmt3 = getelementptr inbounds i8, ptr %this, i64 8
@@ -1554,7 +1554,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18OpenImageIO_v2_6_019tostring_formattingC2ENS0_8NotationEPKcS3_S3_S3_S3_S3_S3_S3_S3_S3_S3_i(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(113) %this, i32 %notation, ptr noundef %int_fmt, ptr noundef %uint_fmt, ptr noundef %float_fmt, ptr noundef %string_fmt, ptr noundef %ptr_fmt, ptr noundef %aggregate_begin, ptr noundef %aggregate_end, ptr noundef %aggregate_sep, ptr noundef %array_begin, ptr noundef %array_end, ptr noundef %array_sep, i32 noundef %flags) unnamed_addr #8 align 2 {
+define void @_ZN18OpenImageIO_v2_6_019tostring_formattingC2ENS0_8NotationEPKcS3_S3_S3_S3_S3_S3_S3_S3_S3_S3_i(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(113) initializes((0, 84), (88, 113)) %this, i32 %notation, ptr noundef %int_fmt, ptr noundef %uint_fmt, ptr noundef %float_fmt, ptr noundef %string_fmt, ptr noundef %ptr_fmt, ptr noundef %aggregate_begin, ptr noundef %aggregate_end, ptr noundef %aggregate_sep, ptr noundef %array_begin, ptr noundef %array_end, ptr noundef %array_sep, i32 noundef %flags) unnamed_addr #8 align 2 {
 entry:
   store ptr %int_fmt, ptr %this, align 8
   %float_fmt3.i = getelementptr inbounds i8, ptr %this, i64 8

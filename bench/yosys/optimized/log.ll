@@ -5778,7 +5778,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys17get_coverage_dataB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.Yosys::hashlib::dict.166") align 8 %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys17get_coverage_dataB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.Yosys::hashlib::dict.166") align 8 initializes((0, 48)) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

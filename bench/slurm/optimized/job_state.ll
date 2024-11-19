@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._foreach_add_job_state_het_job = private unnamed_addr constant [31 x i8] c"_foreach_add_job_state_het_job\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @job_state_set(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @job_state_set(ptr nocapture noundef writeonly initializes((448, 452)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   store i32 %1, ptr %3, align 8
   ret void
@@ -369,7 +369,7 @@ declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef z
 declare i32 @list_for_each_ro(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_foreach_job_state_filter(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #2 {
+define internal range(i32 -1, 1) i32 @_foreach_job_state_filter(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 8)) %1) #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 1

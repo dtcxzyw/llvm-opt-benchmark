@@ -1681,7 +1681,7 @@ _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %_ZN10ptr_vectorI4ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z13mk_quantifier15quantifier_kindR11ast_managerjPKP3appP4expr(ptr noalias nonnull sret(%class.obj_ref) align 8 %agg.result, i32 noundef %k, ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %num_bound, ptr nocapture noundef readonly %bound, ptr noundef %n) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z13mk_quantifier15quantifier_kindR11ast_managerjPKP3appP4expr(ptr noalias nonnull sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, i32 noundef %k, ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %num_bound, ptr nocapture noundef readonly %bound, ptr noundef %n) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %sorts = alloca %class.ptr_vector.33, align 8
   %names = alloca %class.svector.8, align 8
@@ -1933,14 +1933,14 @@ _ZN6vectorIP4sortLb0EjED2Ev.exit:                 ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z9mk_forallR11ast_managerjPKP3appP4expr(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %num_bound, ptr nocapture noundef readonly %bound, ptr noundef %n) local_unnamed_addr #3 {
+define hidden void @_Z9mk_forallR11ast_managerjPKP3appP4expr(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %num_bound, ptr nocapture noundef readonly %bound, ptr noundef %n) local_unnamed_addr #3 {
 entry:
   tail call void @_Z13mk_quantifier15quantifier_kindR11ast_managerjPKP3appP4expr(ptr sret(%class.obj_ref) align 8 %agg.result, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %num_bound, ptr noundef %bound, ptr noundef %n)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z9mk_existsR11ast_managerjPKP3appP4expr(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %num_bound, ptr nocapture noundef readonly %bound, ptr noundef %n) local_unnamed_addr #3 {
+define hidden void @_Z9mk_existsR11ast_managerjPKP3appP4expr(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %num_bound, ptr nocapture noundef readonly %bound, ptr noundef %n) local_unnamed_addr #3 {
 entry:
   tail call void @_Z13mk_quantifier15quantifier_kindR11ast_managerjPKP3appP4expr(ptr sret(%class.obj_ref) align 8 %agg.result, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %num_bound, ptr noundef %bound, ptr noundef %n)
   ret void

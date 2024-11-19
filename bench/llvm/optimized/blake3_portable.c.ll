@@ -1036,7 +1036,7 @@ define hidden void @llvm_blake3_compress_in_place_portable(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @llvm_blake3_compress_xof_portable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i64 noundef %3, i8 noundef zeroext %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define hidden void @llvm_blake3_compress_xof_portable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i64 noundef %3, i8 noundef zeroext %4, ptr noundef writeonly initializes((0, 64)) %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %1, align 1
   %8 = zext i16 %7 to i32
   %9 = getelementptr inbounds i8, ptr %1, i64 2

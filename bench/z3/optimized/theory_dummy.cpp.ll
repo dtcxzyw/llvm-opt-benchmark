@@ -364,7 +364,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt12theory_dummy8reset_ehEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt12theory_dummy8reset_ehEv(ptr noundef nonnull align 8 dereferenceable(64) initializes((53, 54)) %this) unnamed_addr #3 align 2 {
 entry:
   %m_theory_exprs = getelementptr inbounds i8, ptr %this, i64 53
   store i8 1, ptr %m_theory_exprs, align 1

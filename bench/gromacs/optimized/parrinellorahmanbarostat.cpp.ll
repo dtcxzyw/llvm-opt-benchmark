@@ -951,7 +951,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN3gmx24ParrinelloRahma
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx24ParrinelloRahmanBarostat22registerEnergyCallbackENS_20EnergySignallerEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx24ParrinelloRahmanBarostat22registerEnergyCallbackENS_20EnergySignallerEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %10
 
@@ -1170,7 +1170,7 @@ _ZN3gmx24ParrinelloRahmanBarostatD0Ev.exit:       ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZThn16_N3gmx24ParrinelloRahmanBarostat22registerEnergyCallbackENS_20EnergySignallerEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn16_N3gmx24ParrinelloRahmanBarostat22registerEnergyCallbackENS_20EnergySignallerEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 initializes((32, 33)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %_ZN3gmx24ParrinelloRahmanBarostat22registerEnergyCallbackENS_20EnergySignallerEventE.exit
 
@@ -1194,7 +1194,7 @@ _ZN3gmx24ParrinelloRahmanBarostat22registerEnergyCallbackENS_20EnergySignallerEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx24ParrinelloRahmanBarostatC2EiiflPNS_19StatePropagatorDataEPNS_10EnergyDataERKNS_8MDLoggerEPK10t_inputrecPKNS_7MDAtomsE(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i32 noundef %2, float noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %7, ptr noundef %8, ptr noundef %9) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx24ParrinelloRahmanBarostatC2EiiflPNS_19StatePropagatorDataEPNS_10EnergyDataERKNS_8MDLoggerEPK10t_inputrecPKNS_7MDAtomsE(ptr noundef nonnull align 8 dereferenceable(344) initializes((0, 36), (40, 124)) %0, i32 noundef %1, i32 noundef %2, float noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %7, ptr noundef %8, ptr noundef %9) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.std::allocator", align 1
   %12 = alloca %"class.std::function.49", align 8
   %13 = alloca %"class.std::function.51", align 8

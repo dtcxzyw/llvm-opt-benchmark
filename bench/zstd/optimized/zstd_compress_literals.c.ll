@@ -108,7 +108,7 @@ sw.epilog:                                        ; preds = %sw.bb10, %sw.bb6, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressLiterals(ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize, ptr noundef %entropyWorkspace, i64 noundef %entropyWorkspaceSize, ptr nocapture noundef readonly %prevHuf, ptr noundef %nextHuf, i32 noundef %strategy, i32 noundef %disableLiteralCompression, i32 noundef %suspectUncompressible, i32 noundef %bmi2) local_unnamed_addr #2 {
+define i64 @ZSTD_compressLiterals(ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize, ptr noundef %entropyWorkspace, i64 noundef %entropyWorkspaceSize, ptr nocapture noundef readonly %prevHuf, ptr noundef initializes((0, 2064)) %nextHuf, i32 noundef %strategy, i32 noundef %disableLiteralCompression, i32 noundef %suspectUncompressible, i32 noundef %bmi2) local_unnamed_addr #2 {
 entry:
   %repeat = alloca i32, align 4
   %cmp = icmp ugt i64 %srcSize, 1023

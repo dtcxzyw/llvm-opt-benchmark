@@ -855,7 +855,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10t_inputrecC2Ev(ptr noundef nonnull align 8 dereferenceable(856) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10t_inputrecC2Ev(ptr noundef nonnull align 8 dereferenceable(856) initializes((0, 20), (24, 76), (80, 97), (104, 182), (192, 201), (204, 365), (368, 409)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store i32 -1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = getelementptr inbounds i8, ptr %0, i64 24

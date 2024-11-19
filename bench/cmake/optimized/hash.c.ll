@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @Curl_hash_init(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @Curl_hash_init(ptr nocapture noundef writeonly initializes((0, 36), (40, 48)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
@@ -138,7 +138,7 @@ mk_hash_element.exit.thread:                      ; preds = %.loopexit, %6, %44
 declare void @Curl_llist_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @hash_element_dtor(ptr nocapture noundef readonly %0, ptr noundef %1) #1 {
+define internal void @hash_element_dtor(ptr nocapture noundef readonly %0, ptr noundef initializes((32, 40)) %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -503,7 +503,7 @@ define dso_local range(i64 0, 2) i64 @Curl_str_key_compare(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @Curl_hash_start_iterate(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local void @Curl_hash_start_iterate(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 12), (16, 24)) %1) local_unnamed_addr #0 {
   store ptr %0, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 0, ptr %3, align 8

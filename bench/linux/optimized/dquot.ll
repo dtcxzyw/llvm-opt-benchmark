@@ -253,7 +253,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @register_quota_format(ptr noundef %0) #0 align 16 {
+define dso_local noundef i32 @register_quota_format(ptr noundef initializes((24, 32)) %0) #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @dq_list_lock) #12
   %2 = load ptr, ptr @quota_formats, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6504,7 +6504,7 @@ define dso_local i32 @dquot_set_dqblk(ptr noundef %0, i64 %1, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dquot_get_state(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local noundef i32 @dquot_get_state(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 176)) %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(176) %1, i8 0, i64 176, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 8

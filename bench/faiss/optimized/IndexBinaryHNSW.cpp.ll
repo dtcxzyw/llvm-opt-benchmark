@@ -167,7 +167,7 @@ define void @_ZN5faiss15IndexBinaryHNSWD0Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss15IndexBinaryHNSW5trainElPKh(ptr nocapture noundef nonnull align 8 dereferenceable(5200) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define void @_ZN5faiss15IndexBinaryHNSW5trainElPKh(ptr nocapture noundef nonnull align 8 dereferenceable(5200) initializes((25, 26)) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 5192
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -1149,7 +1149,7 @@ define void @_ZN5faiss15IndexBinaryHNSWC2EPNS_11IndexBinaryEi(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5faiss15IndexBinaryHNSWD2Ev(ptr noundef nonnull align 8 dereferenceable(5200) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss15IndexBinaryHNSWD2Ev(ptr noundef nonnull align 8 dereferenceable(5200) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss15IndexBinaryHNSWE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 5184
   %3 = load i8, ptr %2, align 8
@@ -2400,7 +2400,7 @@ declare void @_ZN5faiss4HNSW5resetEv(ptr noundef nonnull align 8 dereferenceable
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComputer4EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %0, ptr nocapture noundef readonly %1) unnamed_addr #19 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComputer4EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((32, 36)) %0, ptr nocapture noundef readonly %1) unnamed_addr #19 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %3, align 8
@@ -2479,7 +2479,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16Hamm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComputer4EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComputer4EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @3)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComputer4EEE, i64 16), ptr %0, align 8
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %2, ptr nonnull @.gomp_critical_user_.var)
@@ -2493,7 +2493,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComput
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComputer4EED0Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComputer4EED0Ev(ptr noundef nonnull align 8 dereferenceable(36) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @3)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComputer4EEE, i64 16), ptr %0, align 8
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %2, ptr nonnull @.gomp_critical_user_.var)
@@ -2794,7 +2794,7 @@ declare void @__kmpc_critical(ptr, i32, ptr) local_unnamed_addr #12
 declare void @__kmpc_end_critical(ptr, i32, ptr) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComputer8EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1) unnamed_addr #19 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComputer8EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((32, 40)) %0, ptr nocapture noundef readonly %1) unnamed_addr #19 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %3, align 8
@@ -2849,7 +2849,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16Hamm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComputer8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComputer8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @3)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComputer8EEE, i64 16), ptr %0, align 8
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %2, ptr nonnull @.gomp_critical_user_.var)
@@ -2863,7 +2863,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComput
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComputer8EED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComputer8EED0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @3)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComputer8EEE, i64 16), ptr %0, align 8
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %2, ptr nonnull @.gomp_critical_user_.var)
@@ -2878,7 +2878,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComput
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer16EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1) unnamed_addr #19 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer16EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((32, 48)) %0, ptr nocapture noundef readonly %1) unnamed_addr #19 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %3, align 8
@@ -2945,7 +2945,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer16EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer16EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @3)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer16EEE, i64 16), ptr %0, align 8
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %2, ptr nonnull @.gomp_critical_user_.var)
@@ -2959,7 +2959,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComput
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer16EED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer16EED0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @3)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer16EEE, i64 16), ptr %0, align 8
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %2, ptr nonnull @.gomp_critical_user_.var)
@@ -2974,7 +2974,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComput
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer20EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1) unnamed_addr #19 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer20EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((32, 52)) %0, ptr nocapture noundef readonly %1) unnamed_addr #19 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %3, align 8
@@ -3053,7 +3053,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer20EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer20EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @3)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer20EEE, i64 16), ptr %0, align 8
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %2, ptr nonnull @.gomp_critical_user_.var)
@@ -3067,7 +3067,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComput
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer20EED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer20EED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @3)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer20EEE, i64 16), ptr %0, align 8
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %2, ptr nonnull @.gomp_critical_user_.var)
@@ -3082,7 +3082,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComput
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer32EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #19 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer32EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((32, 64)) %0, ptr nocapture noundef readonly %1) unnamed_addr #19 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %3, align 8
@@ -3173,7 +3173,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer32EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer32EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @3)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer32EEE, i64 16), ptr %0, align 8
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %2, ptr nonnull @.gomp_critical_user_.var)
@@ -3187,7 +3187,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComput
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer32EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer32EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @3)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer32EEE, i64 16), ptr %0, align 8
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %2, ptr nonnull @.gomp_critical_user_.var)
@@ -3202,7 +3202,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComput
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer64EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr nocapture noundef readonly %1) unnamed_addr #19 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer64EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((32, 96)) %0, ptr nocapture noundef readonly %1) unnamed_addr #19 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %3, align 8
@@ -3341,7 +3341,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer64EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer64EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @3)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer64EEE, i64 16), ptr %0, align 8
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %2, ptr nonnull @.gomp_critical_user_.var)
@@ -3355,7 +3355,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComput
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer64EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer64EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @3)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer64EEE, i64 16), ptr %0, align 8
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %2, ptr nonnull @.gomp_critical_user_.var)
@@ -3370,7 +3370,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComput
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_22HammingComputerDefaultEE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #19 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_22HammingComputerDefaultEE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((32, 48)) %0, ptr noundef %1) unnamed_addr #19 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -3428,7 +3428,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_22Hamm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_22HammingComputerDefaultEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_22HammingComputerDefaultEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @3)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_22HammingComputerDefaultEEE, i64 16), ptr %0, align 8
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %2, ptr nonnull @.gomp_critical_user_.var)
@@ -3442,7 +3442,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_22HammingComput
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_22HammingComputerDefaultEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_22HammingComputerDefaultEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @3)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_22HammingComputerDefaultEEE, i64 16), ptr %0, align 8
   tail call void @__kmpc_critical(ptr nonnull @3, i32 %2, ptr nonnull @.gomp_critical_user_.var)

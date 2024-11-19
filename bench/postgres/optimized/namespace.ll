@@ -5228,7 +5228,7 @@ define dso_local i32 @GetTempToastNamespace() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @GetTempNamespaceState(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 {
+define dso_local void @GetTempNamespaceState(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #7 {
   %3 = load i32, ptr @myTempNamespace, align 4
   store i32 %3, ptr %0, align 4
   %4 = load i32, ptr @myTempToastNamespace, align 4

@@ -791,7 +791,7 @@ define dso_local void @FreeSpaceMapVacuum(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i8 @fsm_vacuum_page(ptr noundef %0, i64 %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc zeroext i8 @fsm_vacuum_page(ptr noundef %0, i64 %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %.sroa.042.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.5.0.extract.shift = lshr i64 %1, 32

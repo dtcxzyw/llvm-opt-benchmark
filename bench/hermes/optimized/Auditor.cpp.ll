@@ -72,7 +72,7 @@ _ZL21auditCallInstructionsPN6hermes8FunctionE.exit: ; preds = %for.inc40.i, %ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes13createAuditorEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result) local_unnamed_addr #0 {
+define hidden void @_ZN6hermes13createAuditorEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN6hermes7AuditorESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #5, !noalias !4
   %kind.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8

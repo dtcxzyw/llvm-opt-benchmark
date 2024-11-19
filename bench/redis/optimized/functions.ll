@@ -1547,7 +1547,7 @@ entry:
 declare void @scriptKill(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @fcallGetCommandFlags(ptr nocapture noundef %c, i64 noundef %cmd_flags) local_unnamed_addr #1 {
+define dso_local i64 @fcallGetCommandFlags(ptr nocapture noundef initializes((232, 240)) %c, i64 noundef %cmd_flags) local_unnamed_addr #1 {
 entry:
   %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8

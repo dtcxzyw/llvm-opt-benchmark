@@ -443,7 +443,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #1
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__21Usd_UsdzResolverCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__21Usd_UsdzResolverCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 24)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificISt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21Usd_UsdzResolverCache6_CacheEESaIS8_EENS1_23cache_aligned_allocatorISA_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %0, align 8
@@ -974,7 +974,7 @@ _ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21Usd_UsdzResolve
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__21Usd_UsdzResolverCache16_GetCurrentCacheEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__21Usd_UsdzResolverCache16_GetCurrentCacheEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !12
@@ -1022,7 +1022,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__24ArThreadLocalScopedCacheINS_21Usd_UsdzRes
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__21Usd_UsdzResolverCache12_OpenZipFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__21Usd_UsdzResolverCache12_OpenZipFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr.8", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::ArResolvedPath", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile", align 8
@@ -5164,7 +5164,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__29Ar_PackageResolverFactoryBa
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7ArAssetC2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_AssetD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_AssetD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_AssetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
@@ -5247,7 +5247,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__7ArAssetEED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_AssetD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_AssetD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_AssetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
@@ -5338,7 +5338,7 @@ define internal noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.61") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.61") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct._Deleter, align 8
   %4 = alloca %struct._Deleter, align 8
   %5 = alloca %struct._Deleter, align 8
@@ -5833,7 +5833,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__7ArAsset16GetDetachedAssetEv
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7ArAssetD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterclEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterclEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile", align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFileC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2)
   %3 = load ptr, ptr %2, align 8
@@ -5971,7 +5971,7 @@ define internal void @_ZNSt19_Sp_counted_deleterIPKcZNK32pxrInternal_v0_24__pxrR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt19_Sp_counted_deleterIPKcZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvE8_DeleterSaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt19_Sp_counted_deleterIPKcZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvE8_DeleterSaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((16, 24)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke fastcc void @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterclEPKc(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3 unwind label %4

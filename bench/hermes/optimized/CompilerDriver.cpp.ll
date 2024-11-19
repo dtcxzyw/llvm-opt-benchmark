@@ -8623,7 +8623,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataE
 declare void @zip_close(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120memoryBufferFromFileEN4llvh9StringRefEbb(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %path.coerce0, i64 %path.coerce1, i1 noundef zeroext %stdinOk, i1 noundef zeroext %silent) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120memoryBufferFromFileEN4llvh9StringRefEbb(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr %path.coerce0, i64 %path.coerce1, i1 noundef zeroext %stdinOk, i1 noundef zeroext %silent) unnamed_addr #0 {
 entry:
   %path = alloca %"class.llvh::StringRef", align 8
   %fileBuf = alloca %"class.llvh::ErrorOr", align 8
@@ -15628,7 +15628,7 @@ declare i32 @isatty(i32 noundef) local_unnamed_addr #5
 declare { i32, ptr } @_ZN4llvh3sys2fs12is_directoryERKNS_5TwineERb(ptr noundef nonnull align 8 dereferenceable(18), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125getFileFromDirectoryOrZipEP5zip_tN4llvh9StringRefENS2_5TwineEb(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %zip, ptr %rootPath.coerce0, i64 %rootPath.coerce1, ptr noundef byval(%"class.llvh::Twine") align 8 %fileName, i1 noundef zeroext %silent) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_125getFileFromDirectoryOrZipEP5zip_tN4llvh9StringRefENS2_5TwineEb(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr noundef %zip, ptr %rootPath.coerce0, i64 %rootPath.coerce1, ptr noundef byval(%"class.llvh::Twine") align 8 %fileName, i1 noundef zeroext %silent) unnamed_addr #0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr.228", align 8
   %ref.tmp11.i = alloca %"class.llvh::Twine", align 8
@@ -18368,7 +18368,7 @@ _ZNSt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS2_EED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119disassembleBytecodeESt10unique_ptrIN6hermes3hbc14BCProviderBaseESt14default_deleteIS3_EE(ptr noalias align 8 %agg.result, ptr noundef nonnull %bytecode) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_119disassembleBytecodeESt10unique_ptrIN6hermes3hbc14BCProviderBaseESt14default_deleteIS3_EE(ptr noalias align 8 initializes((0, 4), (8, 72)) %agg.result, ptr noundef nonnull %bytecode) unnamed_addr #0 {
 entry:
   %ref.tmp.i.i = alloca %"class.llvh::Twine", align 8
   %fileOS = alloca %"class.(anonymous namespace)::OutputStream", align 8
@@ -19629,7 +19629,7 @@ declare { i32, ptr } @_ZN4llvh3sys2fs6renameERKNS_5TwineES4_(ptr noundef nonnull
 declare { i32, ptr } @_ZN4llvh3sys2fs6removeERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(18), i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121initializeDumpOptionsERN6hermes35CodeGenerationSettings_DumpSettingsERKN4llvh2cl3optIbLb0ENS4_6parserIbEEEERKNS4_4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS6_ISH_EEEE(ptr noundef nonnull align 8 dereferenceable(152) %dumpSettings, i8 %dumpAll.152.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %passes) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_121initializeDumpOptionsERN6hermes35CodeGenerationSettings_DumpSettingsERKN4llvh2cl3optIbLb0ENS4_6parserIbEEEERKNS4_4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS6_ISH_EEEE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 1)) %dumpSettings, i8 %dumpAll.152.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %passes) unnamed_addr #0 {
 entry:
   %ConstFoundBucket.i.i.i.i = alloca ptr, align 8
   %s.i = alloca %"class.llvh::StringRef", align 8

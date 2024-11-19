@@ -718,7 +718,7 @@ define dso_local range(i32 -2147483648, 1) i32 @fat_get_mapped_cluster(ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @fat_bmap(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @fat_bmap(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #3 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 872

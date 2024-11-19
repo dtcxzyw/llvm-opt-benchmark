@@ -638,7 +638,7 @@ define noalias noundef ptr @OSQPVectorf_view(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @OSQPVectorf_view_update(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #11 {
+define void @OSQPVectorf_view_update(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #11 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %5, align 8
   %6 = load ptr, ptr %1, align 8

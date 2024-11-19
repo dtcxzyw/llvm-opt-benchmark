@@ -3541,7 +3541,7 @@ define noundef i32 @_ZN3gmx24countFlexibleConstraintsENS_8ArrayRefIK15Interactio
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx11Constraints4Impl14setConstraintsEP14gmx_localtop_tiiNS_8ArrayRefIKfEES6_bfNS4_IKtEE(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr %4, ptr %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %6, i1 noundef zeroext %7, float noundef %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.23") align 8 %9) local_unnamed_addr #7 align 2 {
+define void @_ZN3gmx11Constraints4Impl14setConstraintsEP14gmx_localtop_tiiNS_8ArrayRefIKfEES6_bfNS4_IKtEE(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((128, 177), (180, 200)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr %4, ptr %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %6, i1 noundef zeroext %7, float noundef %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.23") align 8 %9) local_unnamed_addr #7 align 2 {
   %11 = alloca %"class.gmx::ArrayRef", align 8
   %12 = zext i1 %7 to i8
   %13 = getelementptr inbounds i8, ptr %0, i64 136
@@ -3754,7 +3754,7 @@ define void @_ZN3gmx11ConstraintsC2ERK10gmx_mtop_tRK10t_inputrecP6pull_tP8_IO_FI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx11Constraints4ImplC2ERK10gmx_mtop_tRK10t_inputrecP6pull_tP8_IO_FILEPK9t_commrecbPK14gmx_multisim_tP6t_nrnbP13gmx_wallcyclebPNS_25ObservablesReducerBuilderEii(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(768) %1, ptr noundef nonnull align 8 dereferenceable(856) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i1 noundef zeroext %10, ptr noundef %11, i32 noundef %12, i32 noundef %13) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx11Constraints4ImplC2ERK10gmx_mtop_tRK10t_inputrecP6pull_tP8_IO_FILEPK9t_commrecbPK14gmx_multisim_tP6t_nrnbP13gmx_wallcyclebPNS_25ObservablesReducerBuilderEii(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 92), (96, 176), (184, 201), (208, 264)) %0, ptr noundef nonnull align 8 dereferenceable(768) %1, ptr noundef nonnull align 8 dereferenceable(856) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i1 noundef zeroext %10, ptr noundef %11, i32 noundef %12, i32 noundef %13) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %15 = alloca %"class.gmx::ListOfLists", align 8
   %16 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %17 = alloca %"class.std::vector", align 8

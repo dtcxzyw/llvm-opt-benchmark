@@ -27,7 +27,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @iterator_from_filtering_ref_iterator(ptr nocapture noundef writeonly %it, ptr noundef %fri) local_unnamed_addr #1 {
+define dso_local void @iterator_from_filtering_ref_iterator(ptr nocapture noundef writeonly initializes((0, 16)) %it, ptr noundef %fri) local_unnamed_addr #1 {
 entry:
   %iter_arg = getelementptr inbounds i8, ptr %it, i64 8
   store ptr %fri, ptr %iter_arg, align 8
@@ -108,7 +108,7 @@ declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare void @reftable_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @iterator_from_indexed_table_ref_iter(ptr nocapture noundef writeonly %it, ptr noundef %itr) local_unnamed_addr #1 {
+define dso_local void @iterator_from_indexed_table_ref_iter(ptr nocapture noundef writeonly initializes((0, 16)) %it, ptr noundef %itr) local_unnamed_addr #1 {
 entry:
   %iter_arg = getelementptr inbounds i8, ptr %it, i64 8
   store ptr %itr, ptr %iter_arg, align 8

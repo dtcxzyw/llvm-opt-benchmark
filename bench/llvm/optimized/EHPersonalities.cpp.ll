@@ -246,7 +246,7 @@ declare noundef ptr @_ZNK4llvm8Function16getPersonalityFnEv(ptr noundef nonnull 
 declare noundef ptr @_ZNK4llvm6Module13getModuleFlagENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15colorEHFuncletsERNS_8FunctionE(ptr dead_on_unwind noalias writable sret(%"class.llvm::DenseMap.89") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm15colorEHFuncletsERNS_8FunctionE(ptr dead_on_unwind noalias writable sret(%"class.llvm::DenseMap.89") align 8 initializes((0, 20)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %1) local_unnamed_addr #0 {
   %3 = alloca %"class.llvm::SmallVector.92", align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

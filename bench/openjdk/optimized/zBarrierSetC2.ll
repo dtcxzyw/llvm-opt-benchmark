@@ -342,7 +342,7 @@ define hidden void @_ZN18ZLoadBarrierStubC2C2EPK8MachNode7Address8Register(ptr n
 declare void @_ZN13BarrierStubC213dont_preserveE8Register(ptr noundef nonnull align 8 dereferenceable(184), i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK18ZLoadBarrierStubC28ref_addrEv(ptr dead_on_unwind noalias writable sret(%class.Address) align 8 %0, ptr noundef nonnull align 8 dereferenceable(260) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK18ZLoadBarrierStubC28ref_addrEv(ptr dead_on_unwind noalias writable sret(%class.Address) align 8 initializes((0, 21)) %0, ptr noundef nonnull align 8 dereferenceable(260) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 21, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -515,7 +515,7 @@ define hidden void @_ZN19ZStoreBarrierStubC2C2EPK8MachNode7Address8RegisterS4_bb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK19ZStoreBarrierStubC28ref_addrEv(ptr dead_on_unwind noalias writable sret(%class.Address) align 8 %0, ptr noundef nonnull align 8 dereferenceable(266) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK19ZStoreBarrierStubC28ref_addrEv(ptr dead_on_unwind noalias writable sret(%class.Address) align 8 initializes((0, 21)) %0, ptr noundef nonnull align 8 dereferenceable(266) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 21, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2799,7 +2799,7 @@ _ZL19block_has_safepointPK5Blockjj.exit:          ; preds = %.preheader123, %._c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL19get_base_and_offsetPK8MachNodeRl(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL19get_base_and_offsetPK8MachNodeRl(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   store i64 0, ptr %1, align 8

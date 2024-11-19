@@ -139,7 +139,7 @@ declare noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull a
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl10AffixUtils6escapeERKNS_13UnicodeStringE(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl10AffixUtils6escapeERKNS_13UnicodeStringE(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i17 = alloca i16, align 2
   %srcChar.addr.i14 = alloca i16, align 2

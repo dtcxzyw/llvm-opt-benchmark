@@ -113,7 +113,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.draw__children = private unnamed_addr constant [15 x ptr] [ptr @cache_draw, ptr @cache_draw, ptr @cache_draw, ptr @cache_draw, ptr @cache_draw, ptr @cache_draw, ptr @cache_draw, ptr @cache_draw, ptr @normal_draw, ptr @normal_draw, ptr @bridge_draw, ptr @pci_device_draw, ptr @normal_draw, ptr @normal_draw, ptr @cache_draw], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @lstopo_palette_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @lstopo_palette_init(ptr nocapture noundef writeonly initializes((1576, 1584)) %0) local_unnamed_addr #0 {
   store i32 255, ptr @lstopo_main_palette, align 8
   store i32 255, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 4), align 4
   store i32 255, ptr getelementptr inbounds (i8, ptr @lstopo_main_palette, i64 8), align 8
@@ -444,7 +444,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @lstopo_palette_set_color(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define hidden void @lstopo_palette_set_color(ptr nocapture noundef writeonly initializes((0, 12)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = lshr i32 %1, 16
   %4 = and i32 %3, 255
   store i32 %4, ptr %0, align 8
@@ -4954,7 +4954,7 @@ thread-pre-split.i298:                            ; preds = %232, %226, %224
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc void @lstopo_set_object_color(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #15 {
+define internal fastcc void @lstopo_set_object_color(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly initializes((0, 24)) %2) unnamed_addr #15 {
   %4 = getelementptr inbounds i8, ptr %1, i64 232
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 1576

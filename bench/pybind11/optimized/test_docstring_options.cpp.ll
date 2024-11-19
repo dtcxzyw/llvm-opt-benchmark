@@ -11092,7 +11092,7 @@ define internal noundef i32 @_ZZ32test_submodule_docstring_optionsRN8pybind117mo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZZ32test_submodule_docstring_optionsRN8pybind117module_EEN16DocstringTestFoo8setValueEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, i32 noundef %1) #8 align 2 {
+define internal void @_ZZ32test_submodule_docstring_optionsRN8pybind117module_EEN16DocstringTestFoo8setValueEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) #8 align 2 {
   store i32 %1, ptr %0, align 4
   ret void
 }

@@ -504,7 +504,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7510QuantifierC2EPNS_14UnicodeFunctorEjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %adoptedMatcher, i32 noundef %_minCount, i32 noundef %_maxCount) unnamed_addr #8 align 2 {
+define void @_ZN6icu_7510QuantifierC2EPNS_14UnicodeFunctorEjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %adoptedMatcher, i32 noundef %_minCount, i32 noundef %_maxCount) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510QuantifierE, i64 16), ptr %this, align 8
@@ -519,7 +519,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7510QuantifierC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %o) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7510QuantifierC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %o) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510QuantifierE, i64 16), ptr %this, align 8
@@ -560,7 +560,7 @@ declare void @_ZN6icu_7514UnicodeMatcherD2Ev(ptr noundef nonnull align 8 derefer
 declare void @_ZN6icu_7514UnicodeFunctorD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7510QuantifierD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7510QuantifierD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510QuantifierE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8

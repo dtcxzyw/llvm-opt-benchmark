@@ -114,7 +114,7 @@ entry:
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes18SourceErrorManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(464) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN6hermes18SourceErrorManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 80)) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -2116,7 +2116,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes18SourceErrorManager17findBufferAndLineEN4llvh5SMLocE(ptr noalias nocapture writeonly sret(%"class.llvh::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(464) %this, ptr %loc.coerce) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK6hermes18SourceErrorManager17findBufferAndLineEN4llvh5SMLocE(ptr noalias nocapture writeonly sret(%"class.llvh::Optional") align 8 initializes((24, 25)) %agg.result, ptr noundef nonnull align 8 dereferenceable(464) %this, ptr %loc.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %lineRefAndNo = alloca %"struct.std::pair", align 8
   %cmp.i.not = icmp eq ptr %loc.coerce, null

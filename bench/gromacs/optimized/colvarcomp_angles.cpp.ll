@@ -209,7 +209,7 @@ declare void @_ZN6colvar3cvc14get_atom_listsEv(ptr dead_on_unwind writable sret(
 declare void @_ZN6colvar3cvc9read_dataEv(ptr noundef nonnull align 8 dereferenceable(1648)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN6colvar9polar_phi10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar9polar_phi10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1680) initializes((640, 648), (1656, 1680)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1648
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1344
@@ -460,7 +460,7 @@ define linkonce_odr void @_ZN6colvar11polar_thetaD0Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN6colvar11polar_theta10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1680) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar11polar_theta10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1680) initializes((640, 648), (1656, 1680)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1648
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1344
@@ -632,7 +632,7 @@ define linkonce_odr void @_ZN6colvar5angleD0Ev(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar5angle10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1785) %0) unnamed_addr #3 align 2 {
+define void @_ZN6colvar5angle10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1785) initializes((640, 648), (1672, 1736)) %0) unnamed_addr #3 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8
@@ -765,7 +765,7 @@ define void @_ZN6colvar5angle10calc_valueEv(ptr nocapture noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar5angle14calc_gradientsEv(ptr noundef nonnull align 8 dereferenceable(1785) %0) unnamed_addr #3 align 2 {
+define void @_ZN6colvar5angle14calc_gradientsEv(ptr noundef nonnull align 8 dereferenceable(1785) initializes((1736, 1784)) %0) unnamed_addr #3 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1672
   %4 = getelementptr inbounds i8, ptr %0, i64 1696
@@ -877,7 +877,7 @@ define void @_ZN6colvar5angle14calc_gradientsEv(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar5angle19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1785) %0) unnamed_addr #3 align 2 {
+define void @_ZN6colvar5angle19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1785) initializes((976, 984)) %0) unnamed_addr #3 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8
@@ -1171,7 +1171,7 @@ define linkonce_odr void @_ZN6colvar12dipole_angleD0Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar12dipole_angle10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1785) %0) unnamed_addr #3 align 2 {
+define void @_ZN6colvar12dipole_angle10calc_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(1785) initializes((640, 648), (1672, 1736)) %0) unnamed_addr #3 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8
@@ -1272,7 +1272,7 @@ define void @_ZN6colvar12dipole_angle10calc_valueEv(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN6colvar12dipole_angle14calc_gradientsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1785) %0) unnamed_addr #8 align 2 {
+define void @_ZN6colvar12dipole_angle14calc_gradientsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1785) initializes((1736, 1784)) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1672
   %3 = getelementptr inbounds i8, ptr %0, i64 1696
   %4 = load double, ptr %2, align 8
@@ -1606,7 +1606,7 @@ define linkonce_odr void @_ZN6colvar8dihedralD0Ev(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar8dihedral10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(1753) %0) unnamed_addr #3 align 2 {
+define void @_ZN6colvar8dihedral10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(1753) initializes((640, 648), (1680, 1752)) %0) unnamed_addr #3 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8
@@ -2113,7 +2113,7 @@ define void @_ZN6colvar8dihedral14calc_gradientsEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar8dihedral19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1753) %0) unnamed_addr #3 align 2 {
+define void @_ZN6colvar8dihedral19calc_force_invgradsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1753) initializes((976, 984)) %0) unnamed_addr #3 align 2 {
   %2 = alloca %"class.colvarmodule::rvector", align 8
   %3 = alloca %"class.colvarmodule::rvector", align 8
   %4 = alloca %"class.colvarmodule::rvector", align 8

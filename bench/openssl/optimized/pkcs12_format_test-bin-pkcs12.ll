@@ -126,7 +126,7 @@ entry:
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @start_pkcs12(ptr nocapture noundef writeonly %pb) local_unnamed_addr #3 {
+define dso_local void @start_pkcs12(ptr nocapture noundef writeonly initializes((24, 32)) %pb) local_unnamed_addr #3 {
 entry:
   %safes = getelementptr inbounds i8, ptr %pb, i64 24
   store ptr null, ptr %safes, align 8
@@ -302,7 +302,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @start_contentinfo(ptr nocapture noundef writeonly %pb) local_unnamed_addr #3 {
+define dso_local void @start_contentinfo(ptr nocapture noundef writeonly initializes((40, 48)) %pb) local_unnamed_addr #3 {
 entry:
   %bags = getelementptr inbounds i8, ptr %pb, i64 40
   store ptr null, ptr %bags, align 8

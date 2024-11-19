@@ -673,7 +673,7 @@ define internal noundef range(i32 -22, 1) i32 @rapl_pmu_event_init(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rapl_pmu_event_add(ptr noundef %0, i32 noundef %1) #2 align 16 {
+define internal noundef i32 @rapl_pmu_event_add(ptr noundef initializes((480, 484)) %0, i32 noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #9
@@ -1030,7 +1030,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rapl_get_attr_cpumask(pt
 declare dso_local i32 @bitmap_print_to_pagebuf(i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @event_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef i64 @event_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 12)) %2) #6 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(12) %2, ptr noundef nonnull align 1 dereferenceable(12) @.str.30, i64 12, i1 false)
   ret i64 11
 }

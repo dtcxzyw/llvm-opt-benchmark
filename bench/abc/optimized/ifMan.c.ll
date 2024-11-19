@@ -3193,7 +3193,7 @@ define void @If_ManCreateChoice(ptr nocapture noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @If_ManSetupSet(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @If_ManSetupSet(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 4)) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %1, i64 2
   store i16 0, ptr %3, align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3255,7 +3255,7 @@ define void @If_ManSetupSet(ptr nocapture noundef readonly %0, ptr noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @If_ManSetupCutTriv(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define void @If_ManSetupCutTriv(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((16, 28), (36, 40)) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %1, i64 28
   %5 = load i64, ptr %4, align 4
   %6 = and i64 %5, -4097
@@ -3438,7 +3438,7 @@ If_ManSetupCutTriv.exit:                          ; preds = %7, %36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @If_ManSetupNodeCutSet(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #9 {
+define ptr @If_ManSetupNodeCutSet(ptr nocapture noundef %0, ptr nocapture noundef initializes((72, 80)) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 768
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -3574,7 +3574,7 @@ define void @If_ManDerefChoiceCutSet(ptr nocapture noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define void @If_ManSetupSetAll(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @If_ManSetupSetAll(ptr nocapture noundef initializes((760, 776)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = add nsw i32 %1, 128
   %4 = getelementptr inbounds i8, ptr %0, i64 728
   %5 = load i32, ptr %4, align 8

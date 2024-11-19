@@ -1781,7 +1781,7 @@ entry:
 declare void @llvm.trap() #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl12crc_internal3CRCC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #11 align 2 {
+define dso_local void @_ZN4absl12crc_internal3CRCC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #11 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12crc_internal3CRCE, i64 16), ptr %this, align 8
   ret void

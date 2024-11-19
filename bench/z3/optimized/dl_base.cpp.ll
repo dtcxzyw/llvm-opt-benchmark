@@ -607,7 +607,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK11mk_ismt2_pp(p
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN7datalog13relation_factC2ERNS_7contextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3556) %ctx) unnamed_addr #6 align 2 {
+define hidden void @_ZN7datalog13relation_factC2ERNS_7contextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3556) %ctx) unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -4212,7 +4212,7 @@ ehcleanup:                                        ; preds = %lpad6, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK7datalog10table_base13row_interface5beginEv(ptr noalias nocapture writeonly sret(%"class.datalog::table_base::row_iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK7datalog10table_base13row_interface5beginEv(ptr noalias nocapture writeonly sret(%"class.datalog::table_base::row_iterator") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7datalog10table_base12row_iteratorC2EPNS0_17row_iterator_coreE.exit:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
   %m_ref_cnt.i.i = getelementptr inbounds i8, ptr %call, i64 8
@@ -4229,7 +4229,7 @@ _ZN7datalog10table_base12row_iteratorC2EPNS0_17row_iterator_coreE.exit:
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK7datalog10table_base13row_interface3endEv(ptr noalias nocapture writeonly sret(%"class.datalog::table_base::row_iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK7datalog10table_base13row_interface3endEv(ptr noalias nocapture writeonly sret(%"class.datalog::table_base::row_iterator") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog10table_base13row_interface17fact_row_iteratorE, i64 16), ptr %call, align 8

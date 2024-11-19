@@ -844,7 +844,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK7V3Sched9TimingKit12remapDomainsERKSt13unordered_mapIPK10AstSenTreePS2_St4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S5_EEE(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK7V3Sched9TimingKit12remapDomainsERKSt13unordered_mapIPK10AstSenTreePS2_St4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S5_EEE(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::tuple", align 8
   %5 = alloca %"class.std::tuple.126", align 1
   %6 = alloca ptr, align 8
@@ -7421,7 +7421,7 @@ _ZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor11remapLocalsEP8AstCFun
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor5visitEP9AstCAwait(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 {
+define internal void @_ZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor5visitEP9AstCAwait(ptr noundef nonnull align 8 dereferenceable(56) initializes((34, 35)) %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 34
   store i8 1, ptr %3, align 2
   tail call void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
@@ -7429,7 +7429,7 @@ define internal void @_ZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor5visitEP8AstCFunc(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 {
+define internal void @_ZZN7V3Sched14transformForksEP10AstNetlistEN11ForkVisitor5visitEP8AstCFunc(ptr noundef nonnull align 8 dereferenceable(56) initializes((48, 56)) %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8
   tail call void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)

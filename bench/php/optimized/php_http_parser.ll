@@ -2641,7 +2641,7 @@ define hidden ptr @php_http_method_str(i32 noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @php_http_parser_init(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden void @php_http_parser_init(ptr nocapture noundef writeonly initializes((0, 2), (4, 8), (22, 24)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = trunc i32 %1 to i8
   %4 = and i8 %3, 3
   %5 = icmp eq i32 %1, 0

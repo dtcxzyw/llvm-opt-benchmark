@@ -1319,7 +1319,7 @@ declare i32 @dt_image_is_monochrome(ptr noundef) local_unnamed_addr #4
 declare void @dtgtk_reset_label_set_text(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @init_global(ptr nocapture noundef writeonly %0) local_unnamed_addr #7 {
+define void @init_global(ptr nocapture noundef writeonly initializes((528, 536)) %0) local_unnamed_addr #7 {
   %2 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #21
   %3 = getelementptr inbounds i8, ptr %0, i64 528
   store ptr %2, ptr %3, align 8, !tbaa !96
@@ -1399,7 +1399,7 @@ define void @commit_params(ptr nocapture noundef readonly %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #1 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #21
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !65
@@ -1427,7 +1427,7 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #1 {
   %2 = alloca %struct._GdkRGBA, align 16
   %3 = tail call ptr @dt_alloc_aligned(i64 noundef 224) #16
   %4 = icmp eq ptr %3, null

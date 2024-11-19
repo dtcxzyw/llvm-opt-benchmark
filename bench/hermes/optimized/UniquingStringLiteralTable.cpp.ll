@@ -75,7 +75,7 @@ $_ZN4llvh8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS1_EENS_6detail12DenseMapPai
 @_ZN6hermes3hbc22StringLiteralIDMappingC1ENS0_24ConsecutiveStringStorageESt6vectorIbSaIbEE = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN6hermes3hbc22StringLiteralIDMappingC2ENS0_24ConsecutiveStringStorageESt6vectorIbSaIbEE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc22StringLiteralIDMappingC2ENS0_24ConsecutiveStringStorageESt6vectorIbSaIbEE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef %storage, ptr nocapture noundef %isIdentifier) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc22StringLiteralIDMappingC2ENS0_24ConsecutiveStringStorageESt6vectorIbSaIbEE(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 50), (56, 156), (160, 200)) %this, ptr nocapture noundef %storage, ptr nocapture noundef %isIdentifier) unnamed_addr #0 align 2 {
 entry:
   %utf8Storage = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %storage, align 8
@@ -290,7 +290,7 @@ declare { ptr, i64 } @_ZNK6hermes3hbc24ConsecutiveStringStorage16getStringAtInde
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes3hbc18StringLiteralTable19getIdentifierHashesEv(ptr noalias nocapture sret(%"class.std::vector.15") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK6hermes3hbc18StringLiteralTable19getIdentifierHashesEv(ptr noalias nocapture sret(%"class.std::vector.15") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 104

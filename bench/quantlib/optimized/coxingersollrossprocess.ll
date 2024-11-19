@@ -260,7 +260,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23CoxIngersollRossProcessC2Edddd(ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %speed, double noundef %vol, double noundef %x0, double noundef %level) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23CoxIngersollRossProcessC2Edddd(ptr noundef nonnull align 8 dereferenceable(176) initializes((16, 20), (24, 32)) %this, double noundef %speed, double noundef %vol, double noundef %x0, double noundef %level) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

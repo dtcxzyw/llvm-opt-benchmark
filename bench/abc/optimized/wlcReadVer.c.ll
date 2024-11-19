@@ -2417,7 +2417,7 @@ Wlc_PrsIsChar.exit32.thread.i:                    ; preds = %131
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc ptr @Wlc_PrsFindRange(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #12 {
+define internal fastcc ptr @Wlc_PrsFindRange(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %1, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %2) unnamed_addr #12 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %1, align 4
   br label %4
@@ -2565,7 +2565,7 @@ Wlc_PrsFindSymbol.exit45.thread:                  ; preds = %4, %22, %41, %Wlc_P
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @Wlc_PrsFindName(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #13 {
+define internal fastcc noundef ptr @Wlc_PrsFindName(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1) unnamed_addr #13 {
   store ptr @Wlc_PrsFindName.Buffer, ptr %1, align 8
   br label %3
 
@@ -2672,7 +2672,7 @@ declare i32 @Wlc_ObjAlloc(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i3
 declare void @Wlc_ObjSetCo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 53) i32 @Wlc_PrsFindDefinition(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 53) i32 @Wlc_PrsFindDefinition(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -8764,7 +8764,7 @@ Wlc_PrsSkipSpaces.exit42:                         ; preds = %117, %83, %75, %52,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Wlc_PrsReadConstant(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc ptr @Wlc_PrsReadConstant(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %5) unnamed_addr #0 {
   %7 = tail call i32 @atoi(ptr nocapture noundef %1) #26
   store i32 -1, ptr %3, align 4
   store i32 0, ptr %4, align 4

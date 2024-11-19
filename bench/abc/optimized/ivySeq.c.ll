@@ -1896,7 +1896,7 @@ Ivy_CutCheckDominance.exit.thread64:              ; preds = %39, %._crit_edge, %
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Ivy_CutCompactAll(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @Ivy_CutCompactAll(ptr nocapture noundef initializes((4, 8)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   %3 = load i32, ptr %0, align 4

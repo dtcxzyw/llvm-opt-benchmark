@@ -594,7 +594,7 @@ if.end27:                                         ; preds = %if.end13, %entry, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7515SortKeyByteSink15GetAppendBufferEiiPciPi(ptr noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %min_capacity, i32 noundef %desired_capacity_hint, ptr noundef readnone %scratch, i32 noundef %scratch_capacity, ptr nocapture noundef writeonly %result_capacity) unnamed_addr #1 align 2 {
+define noundef ptr @_ZN6icu_7515SortKeyByteSink15GetAppendBufferEiiPciPi(ptr noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %min_capacity, i32 noundef %desired_capacity_hint, ptr noundef readnone %scratch, i32 noundef %scratch_capacity, ptr nocapture noundef writeonly initializes((0, 4)) %result_capacity) unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp slt i32 %min_capacity, 1
   %cmp2 = icmp slt i32 %scratch_capacity, %min_capacity

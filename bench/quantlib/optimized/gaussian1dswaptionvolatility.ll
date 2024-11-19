@@ -969,7 +969,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib28Gaussian1dSwaptionVolatilityC1ERKNS_8CalendarENS_21BusinessDayConventionEN5boost10shared_ptrINS_9SwapIndexEEERKNS6_INS_15Gaussian1dModelEEERKNS_10DayCounterENS6_INS_24Gaussian1dSwaptionEngineEEE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr nocapture noundef %indexBase, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %model, ptr noundef nonnull align 8 dereferenceable(16) %dc, ptr nocapture noundef %swaptionEngine) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib28Gaussian1dSwaptionVolatilityC1ERKNS_8CalendarENS_21BusinessDayConventionEN5boost10shared_ptrINS_9SwapIndexEEERKNS6_INS_15Gaussian1dModelEEERKNS_10DayCounterENS6_INS_24Gaussian1dSwaptionEngineEEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((128, 136), (144, 148), (152, 160)) %this, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr nocapture noundef %indexBase, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %model, ptr noundef nonnull align 8 dereferenceable(16) %dc, ptr nocapture noundef %swaptionEngine) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 128
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %0, align 8, !tbaa !35

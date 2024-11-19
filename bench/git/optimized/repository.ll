@@ -61,7 +61,7 @@ declare ptr @parsed_object_pool_new() local_unnamed_addr #1
 declare void @index_state_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @repo_set_hash_algo(ptr nocapture noundef writeonly %repo, i32 noundef %hash_algo) local_unnamed_addr #2 {
+define dso_local void @repo_set_hash_algo(ptr nocapture noundef writeonly initializes((256, 264)) %repo, i32 noundef %hash_algo) local_unnamed_addr #2 {
 entry:
   %idxprom = sext i32 %hash_algo to i64
   %arrayidx = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom
@@ -233,7 +233,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @repo_set_ref_storage_format(ptr nocapture noundef writeonly %repo, i32 noundef %format) local_unnamed_addr #2 {
+define dso_local void @repo_set_ref_storage_format(ptr nocapture noundef writeonly initializes((264, 268)) %repo, i32 noundef %format) local_unnamed_addr #2 {
 entry:
   %ref_storage_format = getelementptr inbounds i8, ptr %repo, i64 264
   store i32 %format, ptr %ref_storage_format, align 8
@@ -241,7 +241,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @repo_set_worktree(ptr noundef %repo, ptr noundef %path) local_unnamed_addr #0 {
+define dso_local void @repo_set_worktree(ptr noundef initializes((128, 136)) %repo, ptr noundef %path) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @real_pathdup(ptr noundef %path, i32 noundef 1) #8
   %worktree = getelementptr inbounds i8, ptr %repo, i64 128
@@ -255,7 +255,7 @@ declare ptr @real_pathdup(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @trace2_def_repo_fl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @repo_init(ptr noundef %repo, ptr noundef %gitdir, ptr noundef %worktree) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @repo_init(ptr noundef initializes((0, 304)) %repo, ptr noundef %gitdir, ptr noundef %worktree) local_unnamed_addr #0 {
 entry:
   %sb.i = alloca %struct.strbuf, align 8
   %error.i = alloca i32, align 4
@@ -530,7 +530,7 @@ if.end61:                                         ; preds = %if.then55, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @repo_submodule_init(ptr noundef %subrepo, ptr noundef %superproject, ptr noundef %path, ptr noundef %treeish_name) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @repo_submodule_init(ptr noundef initializes((0, 304)) %subrepo, ptr noundef %superproject, ptr noundef %path, ptr noundef %treeish_name) local_unnamed_addr #0 {
 entry:
   %gitdir = alloca %struct.strbuf, align 8
   %worktree = alloca %struct.strbuf, align 8

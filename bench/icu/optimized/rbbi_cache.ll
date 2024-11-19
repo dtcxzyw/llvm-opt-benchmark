@@ -21,7 +21,7 @@ $_ZTIN6icu_757UMemoryE = comdat any
 @_ZN6icu_7522RuleBasedBreakIterator10BreakCacheD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7522RuleBasedBreakIterator10BreakCacheD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCacheC2EPS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %bi, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCacheC2EPS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) initializes((0, 8)) %this, ptr noundef %bi, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 {
 entry:
   store ptr %bi, ptr %this, align 8
   %fBreaks = getelementptr inbounds i8, ptr %this, i64 8
@@ -47,7 +47,7 @@ entry:
 declare void @_ZN6icu_759UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache5resetEv(ptr noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache5resetEv(ptr noundef nonnull align 8 dereferenceable(60) initializes((40, 60)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %fPositionInCache = getelementptr inbounds i8, ptr %this, i64 40
   store i32 -1, ptr %fPositionInCache, align 8
@@ -550,7 +550,7 @@ declare noundef ptr @_ZNK6icu_7513BreakIterator11getLocaleIDE18ULocDataLocaleTyp
 declare void @_ZN6icu_759UVector3215insertElementAtEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522RuleBasedBreakIterator10BreakCacheC2EPS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %this, ptr noundef %bi, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7522RuleBasedBreakIterator10BreakCacheC2EPS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) initializes((0, 16)) %this, ptr noundef %bi, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522RuleBasedBreakIterator10BreakCacheE, i64 16), ptr %this, align 8
   %fBI = getelementptr inbounds i8, ptr %this, i64 8
@@ -565,7 +565,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache5resetEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(832) %this, i32 noundef %pos, i32 noundef %ruleStatus) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache5resetEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(832) initializes((16, 36), (544, 546)) %this, i32 noundef %pos, i32 noundef %ruleStatus) local_unnamed_addr #6 align 2 {
 entry:
   %fStartBufIdx = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %fStartBufIdx, align 8
@@ -586,7 +586,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7522RuleBasedBreakIterator10BreakCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(832) %this) unnamed_addr #2 align 2 {
+define void @_ZN6icu_7522RuleBasedBreakIterator10BreakCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(832) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522RuleBasedBreakIterator10BreakCacheE, i64 16), ptr %this, align 8
   %fSideBuffer = getelementptr inbounds i8, ptr %this, i64 800

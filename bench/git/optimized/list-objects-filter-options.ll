@@ -521,7 +521,7 @@ if.end16:                                         ; preds = %if.then15, %cleanup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @list_objects_filter_init(ptr nocapture noundef writeonly %filter_options) local_unnamed_addr #4 {
+define dso_local void @list_objects_filter_init(ptr nocapture noundef writeonly initializes((0, 88)) %filter_options) local_unnamed_addr #4 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %filter_options, ptr noundef nonnull align 8 dereferenceable(88) @__const.list_objects_filter_init.blank, i64 88, i1 false)
   ret void
@@ -975,7 +975,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @list_objects_filter_copy(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #0 {
+define dso_local void @list_objects_filter_copy(ptr noundef initializes((0, 88)) %dest, ptr noundef %src) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %dest, ptr noundef nonnull align 8 dereferenceable(88) %src, i64 88, i1 false)
   tail call void @strbuf_init(ptr noundef %dest, i64 noundef 0) #14

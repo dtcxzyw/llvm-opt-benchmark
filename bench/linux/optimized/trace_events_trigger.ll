@@ -769,7 +769,7 @@ define dso_local noundef zeroext i1 @event_trigger_empty_param(ptr noundef readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @event_trigger_separate_filter(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @event_trigger_separate_filter(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr null, ptr %2, align 8
@@ -1087,7 +1087,7 @@ define dso_local zeroext i1 @is_named_trigger(ptr noundef readnone %0) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @save_named_trigger(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @save_named_trigger(ptr noundef %0, ptr noundef initializes((80, 88)) %1) local_unnamed_addr #0 align 16 {
   %3 = tail call noalias ptr @kstrdup(ptr noundef %0, i32 noundef 3264) #15
   %4 = getelementptr inbounds i8, ptr %1, i64 80
   store ptr %3, ptr %4, align 8
@@ -1200,7 +1200,7 @@ define dso_local void @unpause_named_trigger(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @set_named_trigger_data(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #11 align 16 {
+define dso_local void @set_named_trigger_data(ptr nocapture noundef writeonly initializes((104, 112)) %0, ptr noundef %1) local_unnamed_addr #11 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %1, ptr %3, align 8
   ret void

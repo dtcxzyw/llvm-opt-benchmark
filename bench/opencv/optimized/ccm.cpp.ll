@@ -3906,7 +3906,7 @@ declare void @_ZN2cv3ccm8multipleERKNS_3MatES3_(ptr dead_on_unwind writable sret
 declare void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3ccm20ColorCorrectionModel4Impl8getColorENS0_11CONST_COLORE(ptr nocapture noundef nonnull align 8 dereferenceable(1008) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3ccm20ColorCorrectionModel4Impl8getColorENS0_11CONST_COLORE(ptr nocapture noundef nonnull align 8 dereferenceable(1008) initializes((96, 104)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr", align 8
   call void @_ZN2cv3ccm8GetColor8getColorENS0_11CONST_COLORE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %3, i32 noundef %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 96
@@ -4565,7 +4565,7 @@ _ZNSt10shared_ptrIN2cv3ccm10ColorSpaceEED2Ev.exit: ; preds = %17, %36, %49, %_ZN
 declare void @_ZN2cv3ccm5ColorC1ENS_3MatERKNS0_10ColorSpaceES2_(ptr noundef nonnull align 8 dereferenceable(352), ptr noundef, ptr noundef nonnull align 8 dereferenceable(200), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3ccm20ColorCorrectionModelC2ERKNS_3MatENS0_11CONST_COLORE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3ccm20ColorCorrectionModelC2ERKNS_3MatENS0_11CONST_COLORE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   store ptr null, ptr %0, align 8, !alias.scope !30
   %4 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znwm(i64 noundef 1024) #18, !noalias !30
@@ -4690,7 +4690,7 @@ _ZNSt12__shared_ptrIN2cv3ccm20ColorCorrectionModel4ImplELN9__gnu_cxx12_Lock_poli
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3ccm20ColorCorrectionModelC2ERKNS_3MatES2_NS0_11COLOR_SPACEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3ccm20ColorCorrectionModelC2ERKNS_3MatES2_NS0_11COLOR_SPACEE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::Mat", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   store ptr null, ptr %0, align 8, !alias.scope !33
@@ -4752,7 +4752,7 @@ _ZSt11make_sharedIN2cv3ccm20ColorCorrectionModel4ImplEJEESt10shared_ptrINSt9enab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3ccm20ColorCorrectionModelC2ERKNS_3MatES2_NS0_11COLOR_SPACEES2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3ccm20ColorCorrectionModelC2ERKNS_3MatES2_NS0_11COLOR_SPACEES2_(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::Mat", align 8
   %7 = alloca %"class.cv::Mat", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)

@@ -1279,7 +1279,7 @@ define internal void @_ZL13def_free_funcPvS_(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @tdefl_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #18 {
+define noundef i32 @tdefl_init(ptr noundef initializes((0, 32), (36, 48), (84, 100), (112, 132)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #18 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
@@ -5544,7 +5544,7 @@ define ptr @mz_error(i32 noundef %0) local_unnamed_addr #16 {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @tinfl_decompress_mem_to_heap(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define noundef ptr @tinfl_decompress_mem_to_heap(ptr noundef %0, i64 noundef %1, ptr nocapture noundef initializes((0, 8)) %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = alloca %struct.tinfl_decompressor_tag, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -10274,7 +10274,7 @@ define i64 @tdefl_compress_mem_to_mem(ptr noundef %0, i64 noundef %1, ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @tdefl_write_image_to_png_file_in_memory_ex(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #10 {
+define ptr @tdefl_write_image_to_png_file_in_memory_ex(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef initializes((0, 8)) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #10 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -10737,7 +10737,7 @@ mz_crc32.exit84:                                  ; preds = %mz_crc32.exit84.pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @tdefl_write_image_to_png_file_in_memory(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #10 {
+define ptr @tdefl_write_image_to_png_file_in_memory(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef initializes((0, 8)) %4) local_unnamed_addr #10 {
   %6 = tail call ptr @tdefl_write_image_to_png_file_in_memory_ex(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef 6, i32 noundef 0)
   ret ptr %6
 }
@@ -14059,7 +14059,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_init(ptr noundef %0, i64 noundef %1) l
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @mz_zip_writer_init_heap(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @mz_zip_writer_init_heap(ptr noundef initializes((72, 80)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr @_ZL22mz_zip_heap_write_funcPvyPKvm, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 80
@@ -14318,7 +14318,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_end(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @mz_zip_writer_init_file(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @mz_zip_writer_init_file(ptr noundef initializes((72, 80)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #10 {
   %4 = alloca [4096 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr @_ZL22mz_zip_file_write_funcPvyPKvm, ptr %5, align 8
@@ -14999,7 +14999,7 @@ _ZL35mz_zip_writer_validate_archive_namePKc.exit.thread: ; preds = %.preheader.i
 declare i64 @time(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23mz_zip_time_to_dos_timelPtS_(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #4 {
+define internal fastcc void @_ZL23mz_zip_time_to_dos_timelPtS_(i64 noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 2)) %1, ptr nocapture noundef nonnull writeonly initializes((0, 2)) %2) unnamed_addr #4 {
   %4 = alloca i64, align 8
   store i64 %0, ptr %4, align 8
   %5 = call ptr @localtime(ptr noundef nonnull %4) #43
@@ -17277,7 +17277,7 @@ declare void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef n
 declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21FilterSketchFabPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21FilterSketchFabPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((104, 113)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [1 x i32], align 4
   %3 = alloca %"class.std::__cxx11::list.19", align 8
   %4 = alloca %class.QString, align 8
@@ -17557,14 +17557,14 @@ define linkonce_odr void @_ZNK13MeshLabPlugin6vendorEv(ptr dead_on_unwind noalia
 declare void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK21FilterSketchFabPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %1) unnamed_addr #10 align 2 {
+define void @_ZNK21FilterSketchFabPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %1) unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.26, i32 noundef 15)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n40_NK21FilterSketchFabPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #31 align 2 {
+define void @_ZTv0_n40_NK21FilterSketchFabPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #31 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.26, i32 noundef 15), !noalias !200
   store ptr %3, ptr %0, align 8, !alias.scope !200
@@ -17572,7 +17572,7 @@ define void @_ZTv0_n40_NK21FilterSketchFabPlugin10pluginNameEv(ptr dead_on_unwin
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK21FilterSketchFabPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK21FilterSketchFabPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %cond = icmp eq i32 %2, 0
   br i1 %cond, label %4, label %6
 
@@ -17587,7 +17587,7 @@ define void @_ZNK21FilterSketchFabPlugin10filterNameEi(ptr dead_on_unwind noalia
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK21FilterSketchFabPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #31 align 2 {
+define void @_ZThn16_NK21FilterSketchFabPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #31 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !203)
   %cond.i = icmp eq i32 %2, 0
   br i1 %cond.i, label %4, label %_ZNK21FilterSketchFabPlugin10filterNameEi.exit
@@ -17603,7 +17603,7 @@ _ZNK21FilterSketchFabPlugin10filterNameEi.exit:   ; preds = %3, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK21FilterSketchFabPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK21FilterSketchFabPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %cond = icmp eq i32 %2, 0
   br i1 %cond, label %4, label %6
 
@@ -17618,7 +17618,7 @@ define void @_ZNK21FilterSketchFabPlugin16pythonFilterNameEi(ptr dead_on_unwind 
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK21FilterSketchFabPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #31 align 2 {
+define void @_ZThn16_NK21FilterSketchFabPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #31 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
   %cond.i = icmp eq i32 %2, 0
   br i1 %cond.i, label %4, label %_ZNK21FilterSketchFabPlugin16pythonFilterNameEi.exit
@@ -17634,7 +17634,7 @@ _ZNK21FilterSketchFabPlugin16pythonFilterNameEi.exit: ; preds = %3, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK21FilterSketchFabPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK21FilterSketchFabPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %cond = icmp eq i32 %2, 0
   br i1 %cond, label %4, label %6
 
@@ -17653,7 +17653,7 @@ define void @_ZNK21FilterSketchFabPlugin10filterInfoEi(ptr dead_on_unwind noalia
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK21FilterSketchFabPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #31 align 2 {
+define void @_ZThn16_NK21FilterSketchFabPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #31 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !209)
   %cond.i = icmp eq i32 %2, 0
   br i1 %cond.i, label %4, label %6
@@ -19318,7 +19318,7 @@ declare noundef zeroext i1 @_ZNK8QVariant3cmpERKS_(ptr noundef nonnull align 8 d
 declare noundef zeroext i1 @_ZeqRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21FilterSketchFabPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::map.38") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nocapture nonnull readnone align 4 %5, ptr noundef %6) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21FilterSketchFabPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::map.38") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nocapture nonnull readnone align 4 %5, ptr noundef %6) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %class.QString, align 8
@@ -19932,7 +19932,7 @@ _ZN7QStringD2Ev.exit122:                          ; preds = %_ZN9QtPrivate8RefCo
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21FilterSketchFabPlugin9sketchfabB5cxx11ER12MeshDocumentPFbiPKcERK7QStringS8_S8_S8_bbbb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 zeroext %10, i1 noundef zeroext %11) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21FilterSketchFabPlugin9sketchfabB5cxx11ER12MeshDocumentPFbiPKcERK7QStringS8_S8_S8_bbbb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) initializes((88, 96)) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 zeroext %10, i1 noundef zeroext %11) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %13 = alloca [4096 x i8], align 16
   %14 = alloca %"class.vcg::tri::io::PlyInfo", align 8
   %15 = alloca %class.QMessageLogger, align 8
@@ -21222,7 +21222,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_8
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N21FilterSketchFabPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::map.38") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %5, ptr noundef %6) unnamed_addr #31 align 2 {
+define void @_ZThn16_N21FilterSketchFabPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::map.38") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %5, ptr noundef %6) unnamed_addr #31 align 2 {
   %8 = getelementptr inbounds i8, ptr %1, i64 -16
   tail call void @_ZN21FilterSketchFabPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind writable sret(%"class.std::map.38") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %8, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nonnull align 4 poison, ptr noundef %6)
   ret void
@@ -30468,7 +30468,7 @@ define void @_ZN21FilterSketchFabPlugin14uploadProgressExx(ptr nocapture noundef
 declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21FilterSketchFabPlugin8finishedEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0) local_unnamed_addr #10 align 2 {
+define void @_ZN21FilterSketchFabPlugin8finishedEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((80, 81)) %0) local_unnamed_addr #10 align 2 {
   %2 = alloca %class.QMessageLogger, align 8
   store i32 2, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 4

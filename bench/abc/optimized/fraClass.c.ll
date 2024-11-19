@@ -2107,7 +2107,7 @@ Vec_PtrPush.exit75:                               ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Fra_ClassesTest(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define void @Fra_ClassesTest(ptr nocapture noundef initializes((40, 48)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %4, ptr %5, align 8

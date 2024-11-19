@@ -3047,7 +3047,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare i32 @close(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3nix9PathLocks11setDeletionEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
+define void @_ZN3nix9PathLocks11setDeletionEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((24, 25)) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 %3, ptr %4, align 8
@@ -3055,7 +3055,7 @@ define void @_ZN3nix9PathLocks11setDeletionEb(ptr nocapture noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix6FdLockC2EiNS_8LockTypeEbSt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i64 %4, ptr %5) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix6FdLockC2EiNS_8LockTypeEbSt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) initializes((0, 5)) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i64 %4, ptr %5) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.boost::io::detail::put_holder", align 8
   %8 = alloca %"class.boost::basic_format", align 8
   %9 = alloca %"class.std::basic_string_view", align 8

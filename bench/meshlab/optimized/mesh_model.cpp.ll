@@ -634,7 +634,7 @@ define void @_ZN9MeshModelC2EiRK7QStringS2_(ptr noundef nonnull align 8 derefere
 declare void @_ZN6CMeshOC1Ev(ptr noundef nonnull align 8 dereferenceable(1196)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9MeshModel5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1288) %0) local_unnamed_addr #12 align 2 {
+define void @_ZN9MeshModel5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1288) initializes((1116, 1124), (1132, 1196), (1200, 1205), (1228, 1229)) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1228
   store i8 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 1200
@@ -722,7 +722,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9MeshModel15setMeshModifiedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1288) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
+define void @_ZN9MeshModel15setMeshModifiedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1288) initializes((1228, 1229)) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 1228
   store i8 %3, ptr %4, align 4
@@ -730,7 +730,7 @@ define void @_ZN9MeshModel15setMeshModifiedEb(ptr nocapture noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9MeshModel19updateBoxAndNormalsEv(ptr noundef nonnull align 8 dereferenceable(1288) %0) local_unnamed_addr #10 align 2 {
+define void @_ZN9MeshModel19updateBoxAndNormalsEv(ptr noundef nonnull align 8 dereferenceable(1288) initializes((652, 676)) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 652
   store float 1.000000e+00, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 664
@@ -3942,7 +3942,7 @@ define noundef zeroext i1 @_ZNK9MeshModel24hasPerFaceWedgeTexCoordsEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9MeshModel14updateDataMaskEv(ptr nocapture noundef nonnull align 8 dereferenceable(1288) %0) local_unnamed_addr #20 align 2 {
+define void @_ZN9MeshModel14updateDataMaskEv(ptr nocapture noundef nonnull align 8 dereferenceable(1288) initializes((1200, 1204)) %0) local_unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1200
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load i8, ptr %3, align 8

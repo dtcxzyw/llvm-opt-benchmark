@@ -363,7 +363,7 @@ declare signext i8 @u_feof_75(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @_Z18ufmt_digitvalue_75Ds(i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL30u_scanf_simple_percent_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture readnone %info, ptr nocapture readnone %args, ptr nocapture readnone %fmt, ptr nocapture readnone %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
+define internal noundef i32 @_ZL30u_scanf_simple_percent_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture readnone %info, ptr nocapture readnone %args, ptr nocapture readnone %fmt, ptr nocapture readnone %fmtConsumed, ptr nocapture noundef writeonly initializes((0, 4)) %argConverted) #0 {
 entry:
   store i32 0, ptr %argConverted, align 4
   %call = tail call zeroext i16 @u_fgetc_75(ptr noundef %input)
@@ -379,7 +379,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL21u_scanf_uchar_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef %info, ptr nocapture noundef readonly %args, ptr nocapture noundef readnone %fmt, ptr nocapture noundef readnone %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
+define internal noundef i32 @_ZL21u_scanf_uchar_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef initializes((13, 14)) %info, ptr nocapture noundef readonly %args, ptr nocapture noundef readnone %fmt, ptr nocapture noundef readnone %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
 entry:
   %0 = load i32, ptr %info, align 4
   %cmp = icmp slt i32 %0, 0
@@ -1141,7 +1141,7 @@ if.end40:                                         ; preds = %if.then31, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_scanset_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args, ptr noundef %fmt, ptr nocapture noundef writeonly %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
+define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_scanset_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args, ptr noundef %fmt, ptr nocapture noundef writeonly initializes((0, 4)) %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
 entry:
   %status = alloca i32, align 4
   %c = alloca i32, align 4
@@ -1286,7 +1286,7 @@ return:                                           ; preds = %if.end49.thread57, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL20u_scanf_char_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef %info, ptr nocapture noundef readonly %args, ptr nocapture noundef readnone %fmt, ptr nocapture noundef readnone %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
+define internal noundef i32 @_ZL20u_scanf_char_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %input, ptr nocapture noundef initializes((13, 14)) %info, ptr nocapture noundef readonly %args, ptr nocapture noundef readnone %fmt, ptr nocapture noundef readnone %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #0 {
 entry:
   %0 = load i32, ptr %info, align 4
   %cmp = icmp slt i32 %0, 0
@@ -1564,7 +1564,7 @@ return:                                           ; preds = %_ZL23u_scanf_skip_l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL21u_scanf_count_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr nocapture readnone %input, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args, ptr nocapture readnone %fmt, ptr nocapture readnone %fmtConsumed, ptr nocapture noundef writeonly %argConverted) #2 {
+define internal noundef i32 @_ZL21u_scanf_count_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr nocapture readnone %input, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args, ptr nocapture readnone %fmt, ptr nocapture readnone %fmtConsumed, ptr nocapture noundef writeonly initializes((0, 4)) %argConverted) #2 {
 entry:
   %fSkipArg = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load i8, ptr %fSkipArg, align 4

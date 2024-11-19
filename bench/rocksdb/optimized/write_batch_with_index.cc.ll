@@ -1928,7 +1928,7 @@ terminate.lpad.body:                              ; preds = %lpad.i, %terminate.
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb19WriteBatchWithIndexC2EPKNS_10ComparatorEmbmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %default_index_comparator, i64 noundef %reserved_bytes, i1 noundef zeroext %overwrite_key, i64 noundef %max_bytes, i64 noundef %protection_bytes_per_key) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb19WriteBatchWithIndexC2EPKNS_10ComparatorEmbmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %this, ptr noundef %default_index_comparator, i64 noundef %reserved_bytes, i1 noundef zeroext %overwrite_key, i64 noundef %max_bytes, i64 noundef %protection_bytes_per_key) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb19WriteBatchWithIndexE, i64 16), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(2528) ptr @_Znwm(i64 noundef 2528) #24
@@ -2077,7 +2077,7 @@ _ZN7rocksdb25WriteBatchEntryComparatorD2Ev.exit:  ; preds = %ehcleanup, %if.then
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb19WriteBatchWithIndexD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb19WriteBatchWithIndexD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb19WriteBatchWithIndexE, i64 16), ptr %this, align 8
   %rep = getelementptr inbounds i8, ptr %this, i64 8
@@ -2116,7 +2116,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb19WriteBatchWithIndexC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 align 2 {
+define void @_ZN7rocksdb19WriteBatchWithIndexC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb19WriteBatchWithIndexE, i64 16), ptr %this, align 8
   %rep = getelementptr inbounds i8, ptr %this, i64 8
@@ -2939,7 +2939,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb19WriteBatchWithIndex12GetFromBatchEPNS_18ColumnFamilyHandleERKNS_9DBOptionsERKNS_5SliceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %column_family, ptr nocapture noundef nonnull readnone align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef %value) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb19WriteBatchWithIndex12GetFromBatchEPNS_18ColumnFamilyHandleERKNS_9DBOptionsERKNS_5SliceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %column_family, ptr nocapture noundef nonnull readnone align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef %value) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %merge_context = alloca %"class.rocksdb::MergeContext", align 8
   %operands_reversed_.i = getelementptr inbounds i8, ptr %merge_context, i64 16

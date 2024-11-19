@@ -38,7 +38,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN19SamplePriorityQueueD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN19SamplePriorityQueueD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19SamplePriorityQueueC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN19SamplePriorityQueueC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 20), (24, 32)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

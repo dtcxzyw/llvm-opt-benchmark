@@ -318,14 +318,14 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_6ModuleESt14default_deleteIS2_EEED2Ev.exit: 
 declare ptr @LLVMGetGlobalContext() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @LLVMParseBitcode2(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @LLVMParseBitcode2(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @LLVMGetGlobalContext() #12
   %4 = tail call i32 @LLVMParseBitcodeInContext2(ptr noundef %3, ptr noundef %0, ptr noundef %1)
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @LLVMParseBitcodeInContext2(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @LLVMParseBitcodeInContext2(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::MemoryBufferRef", align 8
   %6 = alloca %"class.llvm::Expected", align 8
@@ -746,7 +746,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
 declare void @_ZN4llvm26getOwningLazyBitcodeModuleEOSt10unique_ptrINS_12MemoryBufferESt14default_deleteIS1_EERNS_11LLVMContextEbbNS_15ParserCallbacksE(ptr dead_on_unwind writable sret(%"class.llvm::Expected") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @LLVMGetBitcodeModuleInContext2(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @LLVMGetBitcodeModuleInContext2(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.std::unique_ptr.32", align 8
   %6 = alloca %"class.llvm::Expected", align 8
@@ -892,7 +892,7 @@ define dso_local range(i32 0, 2) i32 @LLVMGetBitcodeModule(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @LLVMGetBitcodeModule2(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @LLVMGetBitcodeModule2(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @LLVMGetGlobalContext() #12
   %4 = tail call i32 @LLVMGetBitcodeModuleInContext2(ptr noundef %3, ptr noundef %0, ptr noundef %1)
   ret i32 %4

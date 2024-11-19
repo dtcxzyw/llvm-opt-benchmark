@@ -1468,7 +1468,7 @@ declare void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef n
 declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14FilterGeodesicC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14FilterGeodesicC1Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((80, 89)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [4 x i32], align 4
   %3 = alloca %"class.std::__cxx11::list.19", align 8
   %4 = alloca %class.QString, align 8
@@ -1717,7 +1717,7 @@ declare noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef, i32 noundef
 declare void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14FilterGeodesicD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14FilterGeodesicD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((16, 24)) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -1766,7 +1766,7 @@ _ZN12FilterPluginD2Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14FilterGeodesicD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14FilterGeodesicD1Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT14FilterGeodesic, i64 8), align 8
   store ptr %3, ptr %2, align 8
@@ -1816,7 +1816,7 @@ _ZN14FilterGeodesicD2Ev.exit:                     ; preds = %.lr.ph.i.i.i3.i.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn16_N14FilterGeodesicD1Ev(ptr noundef %0) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn16_N14FilterGeodesicD1Ev(ptr noundef initializes((0, 8)) %0) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT14FilterGeodesic, i64 8), align 8
   store ptr %2, ptr %0, align 8
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT14FilterGeodesic, i64 16), align 8
@@ -1920,7 +1920,7 @@ _ZN14FilterGeodesicD1Ev.exit:                     ; preds = %.lr.ph.i.i.i3.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14FilterGeodesicD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14FilterGeodesicD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT14FilterGeodesic, i64 8), align 8
   store ptr %3, ptr %2, align 8
@@ -1971,7 +1971,7 @@ _ZN14FilterGeodesicD1Ev.exit:                     ; preds = %.lr.ph.i.i.i3.i.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn16_N14FilterGeodesicD0Ev(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZThn16_N14FilterGeodesicD0Ev(ptr noundef initializes((0, 8)) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN14FilterGeodesicD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #32
   ret void
@@ -1988,14 +1988,14 @@ define void @_ZTv0_n24_N14FilterGeodesicD0Ev(ptr noundef %0) unnamed_addr #13 al
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK14FilterGeodesic10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1) unnamed_addr #10 align 2 {
+define void @_ZNK14FilterGeodesic10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1) unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.7, i32 noundef 14)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n40_NK14FilterGeodesic10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
+define void @_ZTv0_n40_NK14FilterGeodesic10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.7, i32 noundef 14), !noalias !15
   store ptr %3, ptr %0, align 8, !alias.scope !15
@@ -2003,7 +2003,7 @@ define void @_ZTv0_n40_NK14FilterGeodesic10pluginNameEv(ptr dead_on_unwind noali
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK14FilterGeodesic10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK14FilterGeodesic10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   switch i32 %2, label %12 [
     i32 0, label %4
     i32 1, label %6
@@ -2034,7 +2034,7 @@ define void @_ZNK14FilterGeodesic10filterNameEi(ptr dead_on_unwind noalias nocap
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK14FilterGeodesic10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #14 align 2 {
+define void @_ZThn16_NK14FilterGeodesic10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #14 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   switch i32 %2, label %_ZNK14FilterGeodesic10filterNameEi.exit [
     i32 0, label %4
@@ -2066,7 +2066,7 @@ _ZNK14FilterGeodesic10filterNameEi.exit:          ; preds = %3, %4, %6, %8, %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK14FilterGeodesic16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK14FilterGeodesic16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   switch i32 %2, label %12 [
     i32 0, label %4
     i32 1, label %6
@@ -2097,7 +2097,7 @@ define void @_ZNK14FilterGeodesic16pythonFilterNameEi(ptr dead_on_unwind noalias
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK14FilterGeodesic16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #14 align 2 {
+define void @_ZThn16_NK14FilterGeodesic16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #14 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   switch i32 %2, label %_ZNK14FilterGeodesic16pythonFilterNameEi.exit [
     i32 0, label %4

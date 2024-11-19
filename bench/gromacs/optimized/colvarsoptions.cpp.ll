@@ -8243,7 +8243,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx14ColvarsOptions15processTopologyEP10gmx_mtop_t(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(560) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define void @_ZN3gmx14ColvarsOptions15processTopologyEP10gmx_mtop_t(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(560) initializes((312, 384)) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %struct.t_atoms, align 8
   call void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind nonnull writable sret(%struct.t_atoms) align 8 %3, ptr noundef nonnull align 1 %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 312
@@ -8254,7 +8254,7 @@ define void @_ZN3gmx14ColvarsOptions15processTopologyEP10gmx_mtop_t(ptr nocaptur
 declare void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind writable sret(%struct.t_atoms) align 8, ptr noundef nonnull align 1) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx14ColvarsOptions18processCoordinatesERKNS_29CoordinatesAndBoxPreprocessedE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(560) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #16 align 2 {
+define void @_ZN3gmx14ColvarsOptions18processCoordinatesERKNS_29CoordinatesAndBoxPreprocessedE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(560) initializes((384, 440)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #16 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -8306,7 +8306,7 @@ define void @_ZN3gmx14ColvarsOptions18processCoordinatesERKNS_29CoordinatesAndBo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx14ColvarsOptions9setLoggerERKNS_8MDLoggerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(560) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #13 align 2 {
+define void @_ZN3gmx14ColvarsOptions9setLoggerERKNS_8MDLoggerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(560) initializes((520, 528)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 520
   store ptr %1, ptr %3, align 8
   ret void
@@ -8663,7 +8663,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx14ColvarsOptions18processTemperatureERKNS_19EnsembleTemperatureE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(560) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #16 align 2 {
+define void @_ZN3gmx14ColvarsOptions18processTemperatureERKNS_19EnsembleTemperatureE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(560) initializes((512, 516)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #16 align 2 {
 _ZNKRSt8optionalIfE5valueEv.exit:
   %2 = getelementptr inbounds i8, ptr %1, i64 4
   %3 = load i8, ptr %2, align 4

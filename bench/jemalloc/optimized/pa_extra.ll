@@ -349,7 +349,7 @@ declare void @hpa_shard_stats_merge(ptr noundef, ptr noundef, ptr noundef) local
 declare void @sec_stats_merge(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pa_shard_mtx_stats_read(ptr noundef %tsdn, ptr noundef %shard, ptr noundef %mutex_prof_data) local_unnamed_addr #0 {
+define hidden void @pa_shard_mtx_stats_read(ptr noundef %tsdn, ptr noundef %shard, ptr noundef initializes((64, 128)) %mutex_prof_data) local_unnamed_addr #0 {
 entry:
   %mtx = getelementptr inbounds i8, ptr %shard, i64 68120
   %lock.i.i.i = getelementptr inbounds i8, ptr %shard, i64 68192

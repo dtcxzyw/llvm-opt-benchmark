@@ -340,7 +340,7 @@ PQdownheap.exit:                                  ; preds = %10, %._crit_edge.lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @PQupdate(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @PQupdate(ptr nocapture noundef initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #5 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4

@@ -69,7 +69,7 @@ entry:
 declare i64 @ZSTD_freeDCtx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen22ZstdStreamDecompressorC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) %this, i1 noundef zeroext %reuseOutBuf) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen22ZstdStreamDecompressorC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((0, 12), (16, 33)) %this, i1 noundef zeroext %reuseOutBuf) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22ZstdStreamDecompressorE, i64 16), ptr %this, align 8
   %status_ = getelementptr inbounds i8, ptr %this, i64 8

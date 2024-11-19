@@ -458,7 +458,7 @@ define hidden void @"_ZN8nalgebra4base12construction200_$LT$impl$u20$nalgebra..b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN8nalgebra4base4iter31MatrixIter$LT$T$C$R$C$C$C$S$GT$3new17h2dd7c42ba78fabcaE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #6 {
+define hidden void @"_ZN8nalgebra4base4iter31MatrixIter$LT$T$C$R$C$C$C$S$GT$3new17h2dd7c42ba78fabcaE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -477,7 +477,7 @@ define hidden void @"_ZN8nalgebra4base4iter31MatrixIter$LT$T$C$R$C$C$C$S$GT$3new
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN8nalgebra4base4iter31MatrixIter$LT$T$C$R$C$C$C$S$GT$3new17ha1e3ad14ea5af63bE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
+define hidden void @"_ZN8nalgebra4base4iter31MatrixIter$LT$T$C$R$C$C$C$S$GT$3new17ha1e3ad14ea5af63bE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 32
@@ -921,19 +921,19 @@ define hidden noundef i64 @"_ZN92_$LT$nalgebra..base..dimension..Const$LT$_$GT$$
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN92_$LT$nalgebra..base..uninit..Init$u20$as$u20$nalgebra..base..uninit..InitStatus$LT$T$GT$$GT$4init17hd7fbe83126c43a84E.llvm.1230910081964842050"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(8) %0, double noundef %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define hidden void @"_ZN92_$LT$nalgebra..base..uninit..Init$u20$as$u20$nalgebra..base..uninit..InitStatus$LT$T$GT$$GT$4init17hd7fbe83126c43a84E.llvm.1230910081964842050"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, double noundef %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   store double %1, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN94_$LT$nalgebra..base..uninit..Uninit$u20$as$u20$nalgebra..base..uninit..InitStatus$LT$T$GT$$GT$4init17h7d4194b03a194043E.llvm.1230910081964842050"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(8) %0, double noundef %1) unnamed_addr #10 {
+define hidden void @"_ZN94_$LT$nalgebra..base..uninit..Uninit$u20$as$u20$nalgebra..base..uninit..InitStatus$LT$T$GT$$GT$4init17h7d4194b03a194043E.llvm.1230910081964842050"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, double noundef %1) unnamed_addr #10 {
   store double %1, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution14hypergeometric14Hypergeometric3new17haf2b7c358e860c11E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #11 {
+define void @_ZN6statrs12distribution14hypergeometric14Hypergeometric3new17haf2b7c358e860c11E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #11 {
   %5 = icmp ugt i64 %2, %1
   %6 = icmp ugt i64 %3, %1
   %or.cond = or i1 %5, %6

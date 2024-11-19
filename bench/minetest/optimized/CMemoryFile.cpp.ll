@@ -73,7 +73,7 @@ $_ZTIN3irr2io10IWriteFileE = comdat any
 @_ZTIN3irr2io16CMemoryWriteFileE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3irr2io16CMemoryWriteFileE, ptr @_ZTIN3irr2io10IWriteFileE }, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io15CMemoryReadFileC2EPKvlRKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(65) %this, ptr nocapture noundef readonly %vtt, ptr noundef %memory, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %d) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io15CMemoryReadFileC2EPKvlRKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 32)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %memory, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %d) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = getelementptr inbounds i8, ptr %vtt, i64 16
@@ -128,7 +128,7 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit:              ; preds = %if.end.i.i, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io15CMemoryReadFileC1EPKvlRKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(65) %this, ptr noundef %memory, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %d) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io15CMemoryReadFileC1EPKvlRKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 32), (72, 92)) %this, ptr noundef %memory, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %d) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 72
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -164,7 +164,7 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit:              ; preds = %if.end.i.i, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io15CMemoryReadFileD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io15CMemoryReadFileD2Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -215,7 +215,7 @@ _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZN
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io15CMemoryReadFileD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io15CMemoryReadFileD1Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8), (72, 80)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -305,7 +305,7 @@ _ZN3irr2io15CMemoryReadFileD1Ev.exit:             ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io15CMemoryReadFileD0Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io15CMemoryReadFileD0Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8), (72, 80)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -494,7 +494,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io16CMemoryWriteFileC2EPvlRKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(65) %this, ptr nocapture noundef readonly %vtt, ptr noundef %memory, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %d) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io16CMemoryWriteFileC2EPvlRKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 32)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %memory, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %d) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -540,7 +540,7 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit:              ; preds = %if.end.i.i, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io16CMemoryWriteFileC1EPvlRKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(65) %this, ptr noundef %memory, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %d) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io16CMemoryWriteFileC1EPvlRKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 32), (72, 92)) %this, ptr noundef %memory, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %d) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 72
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -576,7 +576,7 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit:              ; preds = %if.end.i.i, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io16CMemoryWriteFileD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io16CMemoryWriteFileD2Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -624,7 +624,7 @@ _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io16CMemoryWriteFileD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io16CMemoryWriteFileD1Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8), (72, 80)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -714,7 +714,7 @@ _ZN3irr2io16CMemoryWriteFileD1Ev.exit:            ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io16CMemoryWriteFileD0Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io16CMemoryWriteFileD0Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8), (72, 80)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 72

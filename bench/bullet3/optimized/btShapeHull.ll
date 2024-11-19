@@ -32,7 +32,7 @@ $_ZN11HullLibraryD2Ev = comdat any
 @_ZN11btShapeHullD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN11btShapeHullD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN11btShapeHullC2EPK13btConvexShape(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this, ptr noundef %shape) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11btShapeHullC2EPK13btConvexShape(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((4, 12), (16, 25), (36, 44), (48, 57), (64, 68), (72, 80)) %this, ptr noundef %shape) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont6:
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16

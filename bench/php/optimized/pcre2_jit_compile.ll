@@ -54916,7 +54916,7 @@ emit_mov.exit:                                    ; preds = %40, %28, %38, %26, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @emit_mov_byte(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2, i64 noundef range(i64 -2147483648, 2147483664) %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @emit_mov_byte(ptr nocapture noundef initializes((152, 156)) %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2, i64 noundef range(i64 -2147483648, 2147483664) %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 0, ptr %7, align 8
   %8 = icmp eq i32 %4, 127
@@ -55000,7 +55000,7 @@ emit_groupf.exit:                                 ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @emit_mov_half(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2, i64 noundef range(i64 -2147483648, 2147483664) %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @emit_mov_half(ptr nocapture noundef initializes((152, 156)) %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2, i64 noundef range(i64 -2147483648, 2147483664) %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 0, ptr %7, align 8
   %8 = icmp eq i32 %4, 127
@@ -55084,7 +55084,7 @@ emit_groupf.exit:                                 ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @emit_mov_int(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2, i64 noundef range(i64 -2147483648, 2147483664) %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @emit_mov_int(ptr nocapture noundef initializes((152, 156)) %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2, i64 noundef range(i64 -2147483648, 2147483664) %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 0, ptr %7, align 8
   %8 = icmp eq i32 %4, 127
@@ -85945,7 +85945,7 @@ sljit_alloc_memory.exit.thread:                   ; preds = %989, %973, %22, %3,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2, -2147483648) i32 @get_framesize(ptr nocapture noundef nonnull readonly %0, ptr noundef readonly %1, ptr noundef readnone %2, i32 noundef range(i32 0, 2) %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #11 {
+define internal fastcc range(i32 -2, -2147483648) i32 @get_framesize(ptr nocapture noundef nonnull readonly %0, ptr noundef readonly %1, ptr noundef readnone %2, i32 noundef range(i32 0, 2) %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4) unnamed_addr #11 {
   store i32 0, ptr %4, align 4
   %6 = icmp eq ptr %2, null
   br i1 %6, label %.preheader, label %26
@@ -102885,7 +102885,7 @@ add_jump.exit:                                    ; preds = %sljit_alloc_memory.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc nonnull ptr @get_iterator_parameters(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #14 {
+define internal fastcc nonnull ptr @get_iterator_parameters(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull initializes((0, 1)) %2, ptr nocapture noundef nonnull initializes((0, 1)) %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %5, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %6) unnamed_addr #14 {
   %8 = load i8, ptr %1, align 1
   store i8 %8, ptr %2, align 1
   store i32 0, ptr %5, align 4
@@ -112436,7 +112436,7 @@ declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc nonnull ptr @generate_far_jump_code(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #14 {
+define internal fastcc nonnull ptr @generate_far_jump_code(ptr nocapture noundef initializes((8, 16)) %0, ptr noundef %1) unnamed_addr #14 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 13

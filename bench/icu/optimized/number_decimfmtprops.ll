@@ -12,7 +12,7 @@ $_ZNK6icu_7513UnicodeStringeqERKS0_ = comdat any
 @_ZN6icu_756number4impl23DecimalFormatPropertiesC1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_756number4impl23DecimalFormatPropertiesC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl23DecimalFormatPropertiesC2Ev(ptr noundef nonnull align 8 dereferenceable(757) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl23DecimalFormatPropertiesC2Ev(ptr noundef nonnull align 8 dereferenceable(757) initializes((0, 1), (8, 9)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont22:
   store i8 1, ptr %this, align 8
   %currency = getelementptr inbounds i8, ptr %this, i64 8
@@ -102,7 +102,7 @@ ehcleanup34:                                      ; preds = %delete.notnull.i.i,
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl23DecimalFormatProperties5clearEv(ptr noundef nonnull align 8 dereferenceable(757) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_756number4impl23DecimalFormatProperties5clearEv(ptr noundef nonnull align 8 dereferenceable(757) initializes((0, 1), (8, 9), (56, 57), (64, 69), (72, 81), (84, 128)) %this) local_unnamed_addr #0 align 2 {
 entry:
   store i8 1, ptr %this, align 8
   %currency = getelementptr inbounds i8, ptr %this, i64 8

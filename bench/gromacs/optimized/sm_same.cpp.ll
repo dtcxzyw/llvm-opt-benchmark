@@ -122,7 +122,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 @_ZL17smparams_same_str = internal global [2 x %struct.gmx_ana_selparam_t] [%struct.gmx_ana_selparam_t { ptr null, %struct.gmx_ana_selvalue_t { i32 3, i32 -1, %union.anon zeroinitializer, i32 0 }, ptr null, i32 36 }, %struct.gmx_ana_selparam_t { ptr @.str.3, %struct.gmx_ana_selvalue_t { i32 3, i32 -1, %union.anon zeroinitializer, i32 0 }, ptr null, i32 20 }], align 16
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL14init_data_sameiP18gmx_ana_selparam_t(i32 %0, ptr nocapture noundef writeonly %1) #0 {
+define internal noundef ptr @_ZL14init_data_sameiP18gmx_ana_selparam_t(i32 %0, ptr nocapture noundef writeonly initializes((80, 88)) %1) #0 {
   %3 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 224, i64 noundef 1, i64 noundef 40)
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr null, ptr %4, align 8
@@ -133,7 +133,7 @@ define internal noundef ptr @_ZL14init_data_sameiP18gmx_ana_selparam_t(i32 %0, p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL9init_samePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL9init_samePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((0, 8), (16, 24)) %3) #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.gmx::InvalidInputError", align 8
   %6 = alloca %"class.gmx::ExceptionInitializer", align 8
   %7 = alloca %"class.gmx::ExceptionInfo", align 8
@@ -236,7 +236,7 @@ define internal void @_ZL14free_data_samePv(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal void @_ZL19init_frame_same_intRKN3gmx20SelMethodEvalContextEPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef %1) #1 {
+define internal void @_ZL19init_frame_same_intRKN3gmx20SelMethodEvalContextEPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef initializes((32, 33)) %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   store i8 1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1492,7 +1492,7 @@ _ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal void @_ZL19init_frame_same_strRKN3gmx20SelMethodEvalContextEPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef %1) #1 {
+define internal void @_ZL19init_frame_same_strRKN3gmx20SelMethodEvalContextEPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef initializes((32, 33)) %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8

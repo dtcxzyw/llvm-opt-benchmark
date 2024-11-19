@@ -303,7 +303,7 @@ declare ptr @H5I_object(i64 noundef) local_unnamed_addr #1
 declare noalias ptr @H5FL_reg_calloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD__splitter_populate_config(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD__splitter_populate_config(ptr noundef %0, ptr noundef nonnull initializes((0, 8216)) %1) unnamed_addr #0 {
   %3 = alloca %struct.H5FD_driver_prop_t, align 8
   %4 = alloca i64, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8216) %1, i8 0, i64 8216, i1 false)

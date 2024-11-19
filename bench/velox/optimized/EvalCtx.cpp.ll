@@ -1017,7 +1017,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceINSt15__exception_ptr13exception_ptrESaIvELN9__g
 @_ZN8facebook5velox4exec26ScopedFinalSelectionSetterD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8facebook5velox4exec26ScopedFinalSelectionSetterD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox4exec7EvalCtxC2EPNS0_4core7ExecCtxEPNS1_7ExprSetEPKNS0_9RowVectorE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %execCtx, ptr noundef %exprSet, ptr noundef %row) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox4exec7EvalCtxC2EPNS0_4core7ExecCtxEPNS1_7ExprSetEPKNS0_9RowVectorE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 25), (32, 75), (88, 104)) %this, ptr noundef %execCtx, ptr noundef %exprSet, ptr noundef %row) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %execCtx, ptr %this, align 8
   %exprSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1384,7 +1384,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox4exec7EvalCtxC2EPNS0_4core7ExecCtxE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this, ptr noundef %execCtx) unnamed_addr #3 align 2 {
+define void @_ZN8facebook5velox4exec7EvalCtxC2EPNS0_4core7ExecCtxE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 25), (32, 75), (88, 104)) %this, ptr noundef %execCtx) unnamed_addr #3 align 2 {
 entry:
   store ptr %execCtx, ptr %this, align 8
   %exprSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -8971,7 +8971,7 @@ _ZNSt12__shared_ptrIN8facebook5velox10BaseVectorELN9__gnu_cxx12_Lock_policyE2EEa
 declare noundef nonnull align 8 dereferenceable(38) ptr @_ZN8facebook5velox17SelectivityVector5emptyEv() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox4exec26ScopedFinalSelectionSetterC2ERNS1_7EvalCtxEPKNS0_17SelectivityVectorEbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(104) %evalCtx, ptr noundef %finalSelection, i1 noundef zeroext %checkCondition, i1 noundef zeroext %override) unnamed_addr #3 align 2 {
+define void @_ZN8facebook5velox4exec26ScopedFinalSelectionSetterC2ERNS1_7EvalCtxEPKNS0_17SelectivityVectorEbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this, ptr noundef nonnull align 8 dereferenceable(104) %evalCtx, ptr noundef %finalSelection, i1 noundef zeroext %checkCondition, i1 noundef zeroext %override) unnamed_addr #3 align 2 {
 entry:
   store ptr %evalCtx, ptr %this, align 8
   %oldFinalSelection_ = getelementptr inbounds i8, ptr %this, i64 8

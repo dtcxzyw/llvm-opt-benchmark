@@ -50,14 +50,14 @@ ZSTD_updateTree_internal.exit:                    ; preds = %while.body.i, %entr
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_btopt(ptr noundef %ms, ptr nocapture noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_btopt(ptr noundef initializes((224, 228)) %ms, ptr nocapture noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef %ms, ptr noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef 0)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef %ms, ptr nocapture noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef range(i32 0, 3) %dictMode) unnamed_addr #2 {
+define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef initializes((224, 228)) %ms, ptr nocapture noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef range(i32 0, 3) %dictMode) unnamed_addr #2 {
 entry:
   %retval.i540 = alloca %struct.repcodes_s, align 8
   %retval.i = alloca %struct.repcodes_s, align 8
@@ -1444,14 +1444,14 @@ ZSTD_compressBlock_opt_generic.exit:              ; preds = %if.then.i, %ZSTD_co
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_btultra(ptr noundef %ms, ptr nocapture noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_btultra(ptr noundef initializes((224, 228)) %ms, ptr nocapture noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef %ms, ptr noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef 0)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef %ms, ptr nocapture noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef range(i32 0, 3) %dictMode) unnamed_addr #2 {
+define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef initializes((224, 228)) %ms, ptr nocapture noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef range(i32 0, 3) %dictMode) unnamed_addr #2 {
 entry:
   %retval.i598 = alloca %struct.repcodes_s, align 8
   %retval.i = alloca %struct.repcodes_s, align 8
@@ -3004,7 +3004,7 @@ ZSTD_compressBlock_opt_generic.exit:              ; preds = %if.then.i, %ZSTD_co
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_btultra2(ptr noundef %ms, ptr noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_btultra2(ptr noundef initializes((224, 228)) %ms, ptr noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %tmpRep.i = alloca [3 x i32], align 4
   %base = getelementptr inbounds i8, ptr %ms, i64 8
@@ -3064,28 +3064,28 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_btopt_dictMatchState(ptr noundef %ms, ptr nocapture noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_btopt_dictMatchState(ptr noundef initializes((224, 228)) %ms, ptr nocapture noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef %ms, ptr noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef 2)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_btopt_extDict(ptr noundef %ms, ptr nocapture noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_btopt_extDict(ptr noundef initializes((224, 228)) %ms, ptr nocapture noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef %ms, ptr noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef 1)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_btultra_dictMatchState(ptr noundef %ms, ptr nocapture noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_btultra_dictMatchState(ptr noundef initializes((224, 228)) %ms, ptr nocapture noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef %ms, ptr noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef 2)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_compressBlock_btultra_extDict(ptr noundef %ms, ptr nocapture noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_btultra_extDict(ptr noundef initializes((224, 228)) %ms, ptr nocapture noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef %ms, ptr noundef %seqStore, ptr noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef 1)
   ret i64 %call
@@ -3648,7 +3648,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr nocapture noundef nonnull %optLdm, i32 noundef %currPosInBlock, i32 noundef %blockBytesRemaining) unnamed_addr #7 {
+define internal fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr nocapture noundef nonnull initializes((40, 48)) %optLdm, i32 noundef %currPosInBlock, i32 noundef %blockBytesRemaining) unnamed_addr #7 {
 entry:
   %size = getelementptr inbounds i8, ptr %optLdm, i64 24
   %0 = load i64, ptr %size, align 8
@@ -3836,7 +3836,7 @@ if.end53:                                         ; preds = %if.then18.i78, %lor
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ZSTD_rescaleFreqs(ptr nocapture noundef %optPtr, ptr noundef %src, i64 noundef %srcSize, i32 noundef range(i32 0, 3) %optLevel) unnamed_addr #1 {
+define internal fastcc void @ZSTD_rescaleFreqs(ptr nocapture noundef initializes((80, 84)) %optPtr, ptr noundef %src, i64 noundef %srcSize, i32 noundef range(i32 0, 3) %optLevel) unnamed_addr #1 {
 entry:
   %lit102 = alloca i32, align 4
   %0 = getelementptr i8, ptr %optPtr, i64 96

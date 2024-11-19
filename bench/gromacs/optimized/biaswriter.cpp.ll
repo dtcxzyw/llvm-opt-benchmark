@@ -301,7 +301,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN3gmx18AwhOutputEntryTypeESt4pairIKS1_N
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx14AwhEnergyBlockC2EiNS_13NormalizationEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, float noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx14AwhEnergyBlockC2EiNS_13NormalizationEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2, float noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store i32 %2, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   store float %3, ptr %5, align 4
@@ -347,7 +347,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx10BiasWriterC2ERKNS_4BiasE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(556) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx10BiasWriterC2ERKNS_4BiasE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24), (32, 36), (40, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(556) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::map.13", align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

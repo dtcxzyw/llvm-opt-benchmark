@@ -190,7 +190,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode22utf8_decode_code_pointERPKcS2_RDi(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #6 {
+define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode22utf8_decode_code_pointERPKcS2_RDi(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #6 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, %1
   br i1 %5, label %6, label %7
@@ -837,7 +837,7 @@ define internal fastcc void @_ZN5vcpkg7UnicodeL7messageENS0_9utf8_errcE(ptr dead
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull returned align 8 dereferenceable(32) %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull returned align 8 dereferenceable(32) initializes((0, 4), (8, 24)) %0) local_unnamed_addr #10 align 2 {
   store i32 -1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8

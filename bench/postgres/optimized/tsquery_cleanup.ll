@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.cleanup_tsquery_stopwords = private unnamed_addr constant [26 x i8] c"cleanup_tsquery_stopwords\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @clean_NOT(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local ptr @clean_NOT(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PLAINTREE, align 8
   %4 = tail call fastcc ptr @maketree(ptr noundef %0)
   %5 = tail call fastcc ptr @clean_NOT_intree(ptr noundef %4)
@@ -302,7 +302,7 @@ plaintree.exit:                                   ; preds = %22, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @clean_stopword_intree(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc ptr @clean_stopword_intree(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %1, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4

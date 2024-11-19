@@ -666,7 +666,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_Z14best_sacrificeRK14ddTableResultsiiiiPA5_K9list_typePA5_iRi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(80) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef nonnull align 4 dereferenceable(4) %7) local_unnamed_addr #4 {
+define void @_Z14best_sacrificeRK14ddTableResultsiiiiPA5_K9list_typePA5_iRi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(80) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %7) local_unnamed_addr #4 {
   %9 = sub nsw i32 1, %1
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [5 x %struct.list_type], ptr %5, i64 %10
@@ -755,7 +755,7 @@ define void @_Z14best_sacrificeRK14ddTableResultsiiiiPA5_K9list_typePA5_iRi(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_Z15reduce_contractRiiS_(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #7 {
+define void @_Z15reduce_contractRiiS_(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #7 {
   %4 = icmp sgt i32 %1, -2
   br i1 %4, label %5, label %6
 

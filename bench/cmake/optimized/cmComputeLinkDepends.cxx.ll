@@ -2371,7 +2371,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN20cmComputeLinkDepends17SetOldLinkDirModeEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(783) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN20cmComputeLinkDepends17SetOldLinkDirModeEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(783) initializes((782, 783)) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 782
   store i8 %3, ptr %4, align 2

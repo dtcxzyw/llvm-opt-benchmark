@@ -32,7 +32,7 @@ define dso_local void @cmsysMD5_Delete(ptr noundef %0) local_unnamed_addr #2 {
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @cmsysMD5_Initialize(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
+define dso_local void @cmsysMD5_Initialize(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   store i32 0, ptr %0, align 4

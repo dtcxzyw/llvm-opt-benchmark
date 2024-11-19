@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [66 x i8] c"error in mca_common_ompio_release_buf: allocator not initialized\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @mca_common_ompio_check_gpu_buf(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define void @mca_common_ompio_check_gpu_buf(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   store i64 0, ptr %5, align 8

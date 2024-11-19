@@ -671,7 +671,7 @@ declare ptr @Mvc_CoverCommonCubeCover(ptr noundef) local_unnamed_addr #1
 declare ptr @Abc_FrameReadManDec(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Dec_FactorTrivialCube(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @Dec_FactorTrivialCube(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((4, 8)) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 8

@@ -517,7 +517,7 @@ define dso_local ptr @interval_tree_iter_next(ptr noundef readonly %0, i64 nound
 declare dso_local void @__rb_insert_augmented(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @interval_tree_augment_rotate(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #3 align 16 {
+define internal void @interval_tree_augment_rotate(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((40, 48)) %1) #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40

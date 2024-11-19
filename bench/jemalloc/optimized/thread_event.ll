@@ -13,7 +13,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @te_recompute_fast_threshold(ptr nocapture noundef %tsd) local_unnamed_addr #1 {
+define hidden void @te_recompute_fast_threshold(ptr nocapture noundef initializes((840, 848), (856, 864)) %tsd) local_unnamed_addr #1 {
 entry:
   %state.i35 = getelementptr inbounds i8, ptr %tsd, i64 824
   %0 = load i8, ptr %state.i35, align 8
@@ -388,7 +388,7 @@ declare void @peak_alloc_event_handler(ptr noundef, i64 noundef) local_unnamed_a
 declare void @peak_dalloc_event_handler(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @tsd_te_init(ptr noundef %tsd) local_unnamed_addr #2 {
+define hidden void @tsd_te_init(ptr noundef initializes((8, 16)) %tsd) local_unnamed_addr #2 {
 entry:
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i = getelementptr inbounds i8, ptr %tsd, i64 832
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i.i = getelementptr inbounds i8, ptr %tsd, i64 8

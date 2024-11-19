@@ -94,7 +94,7 @@ $_ZTV18LogMessageTemplateILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE = c
 @_ZN17HashtableTextDumpD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN17HashtableTextDumpD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22CompactHashtableWriterC2EiP21CompactHashtableStats(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN22CompactHashtableWriterC2EiP21CompactHashtableStats(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (24, 32)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = load i32, ptr @SharedSymbolTableBucketSize, align 4
   %5 = udiv i32 %1, %4
   %6 = tail call noundef i32 @llvm.smax.i32(i32 %5, i32 1)
@@ -559,7 +559,7 @@ define hidden void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr noca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22CompactHashtableWriter4dumpEP22SimpleCompactHashtablePKc(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN22CompactHashtableWriter4dumpEP22SimpleCompactHashtablePKc(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef writeonly initializes((0, 32)) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.NumberSeq, align 8
   %5 = alloca %class.LogMessageTemplate, align 8
   call void @_ZN9NumberSeqC1Ed(ptr noundef nonnull align 8 dereferenceable(72) %4, double noundef 3.000000e-01) #14
@@ -657,7 +657,7 @@ _ZN18LogMessageTemplateILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EED2Ev.e
 declare void @_ZN9NumberSeqC1Ed(ptr noundef nonnull align 8 dereferenceable(72), double noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22SimpleCompactHashtable4initEPhjjPjS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN22SimpleCompactHashtable4initEPhjjPjS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #5 align 2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %3, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 12
@@ -716,7 +716,7 @@ define hidden void @_ZN22SimpleCompactHashtable16serialize_headerEP16SerializeCl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17HashtableTextDumpC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN17HashtableTextDumpC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 4), (8, 56)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %struct.stat, align 8
   store i32 -1, ptr %0, align 8
   %4 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %1, ptr noundef nonnull %3) #14
@@ -1095,7 +1095,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17HashtableTextDump16scan_prefix_typeEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17HashtableTextDump16scan_prefix_typeEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((48, 52)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca [100 x i8], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8

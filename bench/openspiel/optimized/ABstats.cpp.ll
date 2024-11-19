@@ -173,7 +173,7 @@ _ZN7ABstats8SetNamesEv.exit:                      ; preds = %.noexc8
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN7ABstats5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2800) %0) local_unnamed_addr #4 align 2 {
+define void @_ZN7ABstats5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2800) initializes((256, 460)) %0) local_unnamed_addr #4 align 2 {
 .preheader24:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(204) %1, i8 0, i64 204, i1 false)
@@ -253,7 +253,7 @@ define void @_ZN7ABstatsD2Ev(ptr noundef nonnull align 8 dereferenceable(2800) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN7ABstats8ResetCumEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2800) %0) local_unnamed_addr #4 align 2 {
+define void @_ZN7ABstats8ResetCumEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2800) initializes((672, 680)) %0) local_unnamed_addr #4 align 2 {
 .preheader.critedge:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 672
   store i32 0, ptr %1, align 8

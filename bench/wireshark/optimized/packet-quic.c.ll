@@ -4426,7 +4426,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @quic_extract_header(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @quic_extract_header(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull initializes((0, 4)) %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #15
   %.not = icmp sgt i8 %6, -1
   br i1 %.not, label %.critedge, label %quic_get_long_packet_type.exit
@@ -5140,7 +5140,7 @@ declare i32 @gcry_cipher_checktag(ptr noundef, ptr noundef, i64 noundef) local_u
 declare void @gcry_cipher_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @quic_create_initial_decoders(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @quic_create_initial_decoders(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct._StringInfo, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct._StringInfo, align 8
@@ -6017,7 +6017,7 @@ quic_hp_cipher_init.exit:                         ; preds = %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @quic_pp_cipher_prepare(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef nonnull writeonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @quic_pp_cipher_prepare(ptr noundef nonnull initializes((8, 24)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef nonnull writeonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca %struct._StringInfo, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %struct._StringInfo, align 8
@@ -7836,7 +7836,7 @@ define internal fastcc ptr @quic_get_crypto_state(i16 %.80.val.50.val, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_quic_crypto_payload(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_quic_crypto_payload(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef initializes((328, 330)) %3, ptr noundef %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 328
   store i16 2, ptr %9, align 8
@@ -8500,7 +8500,7 @@ declare i32 @wmem_strong_hash(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @wmem_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @quic_connection_destroy(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @quic_connection_destroy(ptr nocapture noundef initializes((64, 80), (96, 112), (128, 144), (160, 176), (192, 208), (224, 240), (248, 264), (304, 320), (328, 344)) %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   tail call void @gcry_cipher_close(ptr noundef %4) #15

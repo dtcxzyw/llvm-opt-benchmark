@@ -1190,7 +1190,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11FBXExporter12ExportBinaryEPKcPNS_8IOSystemE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %pFile, ptr noundef %pIOSystem) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11FBXExporter12ExportBinaryEPKcPNS_8IOSystemE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 1)) %this, ptr noundef %pFile, ptr noundef %pIOSystem) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1552,7 +1552,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11FBXExporter11ExportAsciiEPKcPNS_8IOSystemE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %pFile, ptr noundef %pIOSystem) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11FBXExporter11ExportAsciiEPKcPNS_8IOSystemE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 1)) %this, ptr noundef %pFile, ptr noundef %pIOSystem) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1718,7 +1718,7 @@ unreachable:                                      ; preds = %invoke.cont9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp11FBXExporterC2EPK7aiScenePKNS_16ExportPropertiesE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %pScene, ptr noundef %pProperties) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11FBXExporterC2EPK7aiScenePKNS_16ExportPropertiesE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 1), (8, 136)) %this, ptr noundef %pScene, ptr noundef %pProperties) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %this, align 8
   %mScene = getelementptr inbounds i8, ptr %this, i64 8

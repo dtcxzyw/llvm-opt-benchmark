@@ -3938,7 +3938,7 @@ declare i32 @dup2(i32 noundef, i32 noundef) local_unnamed_addr #11
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @get_first_good(ptr nocapture readnone %refname, ptr nocapture noundef readonly %oid, i32 %flag, ptr nocapture noundef writeonly %cb_data) #10 {
+define internal noundef i32 @get_first_good(ptr nocapture readnone %refname, ptr nocapture noundef readonly %oid, i32 %flag, ptr nocapture noundef writeonly initializes((0, 36)) %cb_data) #10 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %cb_data, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %oid, i64 32

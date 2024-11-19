@@ -2857,7 +2857,7 @@ declare zeroext i1 @brinRevmapDesummarizeRange(ptr noundef, i32 noundef) local_u
 declare i64 @FunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @brinGetStats(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local void @brinGetStats(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @ReadBuffer(ptr noundef %0, i32 noundef 0) #10
   tail call void @LockBuffer(i32 noundef %3, i32 noundef 1) #10
   %4 = icmp slt i32 %3, 0
@@ -2975,7 +2975,7 @@ declare void @tuplesort_attach_shared(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @InstrStartParallelQuery() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_brin_parallel_scan_and_build(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @_brin_parallel_scan_and_build(ptr noundef initializes((104, 112)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = tail call ptr @palloc0(i64 noundef 16) #10
   store i8 1, ptr %8, align 8

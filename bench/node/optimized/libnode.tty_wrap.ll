@@ -1005,7 +1005,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare void @_ZN4node11Environment22CollectUVExceptionInfoEN2v85LocalINS1_5ValueEEEiPKcS6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2872), ptr, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node7TTYWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEiPi(ptr noundef nonnull align 8 dereferenceable(472) %this, ptr noundef %env, ptr %object.coerce, i32 noundef %fd, ptr nocapture noundef writeonly %init_err) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node7TTYWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEiPi(ptr noundef nonnull align 8 dereferenceable(472) initializes((0, 8), (88, 96)) %this, ptr noundef %env, ptr %object.coerce, i32 noundef %fd, ptr nocapture noundef writeonly initializes((0, 4)) %init_err) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node7TTYWrapE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 88

@@ -700,7 +700,7 @@ define internal zeroext i1 @intel_dp_get_hw_state(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_dp_get_config(ptr noundef %0, ptr noundef %1) #4 align 16 {
+define internal void @intel_dp_get_config(ptr noundef %0, ptr noundef initializes((877, 878), (1457, 1458)) %1) #4 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8

@@ -396,7 +396,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl19str_format_internal16ParsedFormatBaseC2ESt17basic_string_viewIcSt11char_traitsIcEEbSt16initializer_listINS_23FormatConversionCharSetEE(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 %format.coerce0, ptr %format.coerce1, i1 noundef zeroext %allow_ignored, ptr nocapture readonly %convs.coerce0, i64 %convs.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl19str_format_internal16ParsedFormatBaseC2ESt17basic_string_viewIcSt11char_traitsIcEEbSt16initializer_listINS_23FormatConversionCharSetEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 40)) %this, i64 %format.coerce0, ptr %format.coerce1, i1 noundef zeroext %allow_ignored, ptr nocapture readonly %convs.coerce0, i64 %convs.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.i = icmp eq i64 %format.coerce0, 0

@@ -876,7 +876,7 @@ declare noundef ptr @_ZN5clang7CodeGen12CodeGenTypes11ConvertTypeENS_8QualTypeE(
 declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN5clang7CodeGen12CodeGenTypes29arrangeCXXStructorDeclarationENS_10GlobalDeclE(ptr noundef nonnull align 8 dereferenceable(240), i64, i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction27EmitCXXPseudoDestructorExprEPKNS_23CXXPseudoDestructorExprE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::RValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction27EmitCXXPseudoDestructorExprEPKNS_23CXXPseudoDestructorExprE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::RValue") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
   %.sroa.7 = alloca [23 x i8], align 1
   %4 = alloca %"class.clang::CodeGen::Address", align 8
   %5 = alloca %"class.clang::CodeGen::LValue", align 8

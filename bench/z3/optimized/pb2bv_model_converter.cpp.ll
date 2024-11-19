@@ -81,7 +81,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN21pb2bv_model_converterC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(976) %_m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN21pb2bv_model_converterC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 12), (16, 25), (32, 48)) %this, ptr noundef nonnull align 8 dereferenceable(976) %_m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_ref_count.i.i, align 8
@@ -100,7 +100,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN21pb2bv_model_converterC2ER11ast_managerRK7obj_mapI9func_declP4exprERK13bound_manager(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(976) %_m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %c2bit, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %bm) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN21pb2bv_model_converterC2ER11ast_managerRK7obj_mapI9func_declP4exprERK13bound_manager(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 12), (16, 25), (32, 48)) %this, ptr noundef nonnull align 8 dereferenceable(976) %_m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %c2bit, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %bm) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_ref_count.i.i, align 8
@@ -402,7 +402,7 @@ _ZN6vectorISt4pairIP9func_declS2_ELb0EjED2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21pb2bv_model_converterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN21pb2bv_model_converterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV21pb2bv_model_converter, i64 16), ptr %this, align 8
   %m_c2bit = getelementptr inbounds i8, ptr %this, i64 40
@@ -507,7 +507,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21pb2bv_model_converterD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN21pb2bv_model_converterD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN21pb2bv_model_converterD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18

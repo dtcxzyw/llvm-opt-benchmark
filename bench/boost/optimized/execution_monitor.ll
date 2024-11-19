@@ -665,14 +665,14 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit.i: ; preds = %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5boost6detail13signal_actionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(312) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN5boost6detail13signal_actionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(312) initializes((4, 5)) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %2, align 4, !tbaa !18
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost6detail13signal_actionC2EibbPc(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef readnone %4) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost6detail13signal_actionC2EibbPc(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 5)) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef readnone %4) unnamed_addr #3 align 2 {
   %6 = alloca %"class.boost::system_error", align 8
   %7 = alloca %"class.boost::system_error", align 8
   %8 = alloca %"class.boost::system_error", align 8
@@ -853,7 +853,7 @@ define hidden void @_ZN5boost6detail13signal_actionD2Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost6detail14signal_handlerC2EbbmbPc(ptr noundef nonnull align 8 dereferenceable(2728) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i64 noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost6detail14signal_handlerC2EbbmbPc(ptr noundef nonnull align 8 dereferenceable(2728) initializes((0, 21)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i64 noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %struct.stack_t, align 8
   %8 = alloca %"class.boost::system_error", align 8
   %9 = alloca %"class.boost::system_error", align 8
@@ -1612,7 +1612,7 @@ define linkonce_odr hidden void @_ZN5boost9unit_test9ut_detail15throw_exceptionI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost17execution_monitorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 {
+define void @_ZN5boost17execution_monitorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 2), (8, 17), (20, 48)) %0) unnamed_addr #5 align 2 {
   store i8 1, ptr %0, align 8, !tbaa !56
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %2, align 1, !tbaa !56
@@ -3121,7 +3121,7 @@ _ZN5boost10function_nIiJEE5clearEv.exit:          ; preds = %_ZNK5boost6detail8f
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5boost12system_errorC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #19 align 2 {
+define hidden void @_ZN5boost12system_errorC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #19 align 2 {
   %3 = tail call ptr @__errno_location() #43
   %4 = load i32, ptr %3, align 4, !tbaa !24
   %5 = sext i32 %4 to i64
@@ -3132,7 +3132,7 @@ define hidden void @_ZN5boost12system_errorC2EPKc(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5boost19execution_exceptionC2ENS0_10error_codeENS_9unit_test13basic_cstringIKcEERKNS0_8locationE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %3) unnamed_addr #20 align 2 {
+define void @_ZN5boost19execution_exceptionC2ENS0_10error_codeENS_9unit_test13basic_cstringIKcEERKNS0_8locationE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 4), (8, 64)) %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %3) unnamed_addr #20 align 2 {
   store i32 %1, ptr %0, align 8, !tbaa !121
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !17
@@ -3167,7 +3167,7 @@ define void @_ZN5boost19execution_exceptionC2ENS0_10error_codeENS_9unit_test13ba
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost19execution_exception8locationC2EPKcmS3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #21 align 2 {
+define void @_ZN5boost19execution_exception8locationC2EPKcmS3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #21 align 2 {
   %.not = icmp eq ptr %1, null
   %5 = select i1 %.not, ptr @.str.49, ptr %1
   store ptr %5, ptr %0, align 8, !tbaa !13
@@ -3224,7 +3224,7 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit5: ; preds = %.thread.i, %_ZN5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5boost19execution_exception8locationC2ENS_9unit_test13basic_cstringIKcEEmPS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3) unnamed_addr #22 align 2 {
+define void @_ZN5boost19execution_exception8locationC2ENS_9unit_test13basic_cstringIKcEEmPS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 32)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3) unnamed_addr #22 align 2 {
   %5 = load ptr, ptr %1, align 8, !tbaa !13
   store ptr %5, ptr %0, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

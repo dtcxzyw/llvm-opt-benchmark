@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @check_stat = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @fill_stat_data(ptr nocapture noundef writeonly %sd, ptr nocapture noundef readonly %st) local_unnamed_addr #0 {
+define dso_local void @fill_stat_data(ptr nocapture noundef writeonly initializes((0, 36)) %sd, ptr nocapture noundef readonly %st) local_unnamed_addr #0 {
 entry:
   %st_ctim = getelementptr inbounds i8, ptr %st, i64 104
   %0 = load i64, ptr %st_ctim, align 8
@@ -61,7 +61,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @fake_lstat_data(ptr nocapture noundef readonly %sd, ptr nocapture noundef writeonly %st) local_unnamed_addr #0 {
+define dso_local void @fake_lstat_data(ptr nocapture noundef readonly %sd, ptr nocapture noundef writeonly initializes((0, 16), (28, 36), (48, 56), (88, 120)) %st) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %sd, align 4
   %conv.i = zext i32 %0 to i64

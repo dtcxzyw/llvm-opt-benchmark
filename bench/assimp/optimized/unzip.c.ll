@@ -3933,7 +3933,7 @@ declare void @fill_fopen64_filefunc(ptr noundef) local_unnamed_addr #3
 declare ptr @call_zopen64(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @unz64local_getLong(ptr nocapture noundef nonnull readonly %pzlib_filefunc_def, ptr noundef %filestream, ptr nocapture noundef nonnull writeonly %pX) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @unz64local_getLong(ptr nocapture noundef nonnull readonly %pzlib_filefunc_def, ptr noundef %filestream, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %pX) unnamed_addr #2 {
 entry:
   %c.i43 = alloca i8, align 1
   %c.i29 = alloca i8, align 1
@@ -4069,7 +4069,7 @@ if.end16.thread:                                  ; preds = %if.end16, %unz64loc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @unz64local_getLong64(ptr nocapture noundef nonnull readonly %pzlib_filefunc_def, ptr noundef %filestream, ptr nocapture noundef nonnull writeonly %pX) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @unz64local_getLong64(ptr nocapture noundef nonnull readonly %pzlib_filefunc_def, ptr noundef %filestream, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %pX) unnamed_addr #2 {
 entry:
   %c.i115 = alloca i8, align 1
   %c.i101 = alloca i8, align 1

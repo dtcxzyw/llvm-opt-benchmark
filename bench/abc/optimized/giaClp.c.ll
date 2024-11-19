@@ -410,7 +410,7 @@ declare i32 @Abc_ConvertZddToSop(ptr noundef, ptr noundef, ptr noundef, i32 noun
 declare i32 @Gia_ManFactorNode(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Gia_ManRebuildNode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define i32 @Gia_ManRebuildNode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((4, 8)) %4, ptr nocapture noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = tail call ptr @Dsd_ManagerReadDd(ptr noundef %0) #13
   %9 = tail call i32 @Dsd_NodeReadType(ptr noundef %1) #13
   %10 = tail call i32 @Dsd_NodeReadDecsNum(ptr noundef %1) #13

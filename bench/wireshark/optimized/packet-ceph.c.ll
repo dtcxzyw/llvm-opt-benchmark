@@ -3748,7 +3748,7 @@ define internal fastcc i32 @c_dissect_connect_reply(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @c_dissect_msg(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2, ptr noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @c_dissect_msg(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2, ptr noundef nonnull initializes((48, 100)) %3) unnamed_addr #0 {
   %5 = alloca %struct._c_entityinst, align 8
   %6 = alloca %struct._c_entityinst, align 8
   %7 = alloca %struct.nstime_t, align 8
@@ -7282,7 +7282,7 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @c_dissect_entityname(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @c_dissect_entityname(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 28)) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 9, i32 noundef 0) #8
   %7 = load i32, ptr @ett_entityname, align 4
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #8
@@ -7453,7 +7453,7 @@ c_warn_size.exit68:                               ; preds = %79, %78, %c_warn_un
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @c_dissect_encoded(ptr noundef %0, ptr nocapture noundef nonnull %1, i8 noundef zeroext range(i8 1, 9) %2, i8 noundef zeroext range(i8 1, 18) %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 {
+define internal fastcc noundef i32 @c_dissect_encoded(ptr noundef %0, ptr nocapture noundef nonnull initializes((0, 1)) %1, i8 noundef zeroext range(i8 1, 9) %2, i8 noundef zeroext range(i8 1, 18) %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 {
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %5) #8
   store i8 %8, ptr %1, align 4
   %9 = load i32, ptr @hf_encoded_ver, align 4

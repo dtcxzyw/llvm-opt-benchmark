@@ -641,7 +641,7 @@ _ZNK3g2o8BaseEdgeILi6ENS_7SE3QuatEE22writeInformationMatrixERSo.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3g2o13EdgeSE3Expmap12computeErrorEv(ptr nocapture noundef nonnull align 16 dereferenceable(664) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o13EdgeSE3Expmap12computeErrorEv(ptr nocapture noundef nonnull align 16 dereferenceable(664) initializes((528, 576)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.g2o::SE3Quat", align 16
   %.sroa.018 = alloca [48 x i8], align 16
   %3 = alloca %"class.Eigen::Matrix.38", align 16

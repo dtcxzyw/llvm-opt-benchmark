@@ -195,7 +195,7 @@ define dso_local ptr @snd_seq_port_query_nearest(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, -2147483648) i32 @snd_seq_create_port(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, -2147483648) i32 @snd_seq_create_port(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 align 16 {
   store ptr null, ptr %2, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %87, label %5

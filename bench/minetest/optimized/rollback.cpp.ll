@@ -345,7 +345,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15RollbackManagerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8IGameDef(ptr noundef nonnull align 8 dereferenceable(264) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %world_path, ptr noundef %gamedef_) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15RollbackManagerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8IGameDef(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %world_path, ptr noundef %gamedef_) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2467,7 +2467,7 @@ _ZNSt7__cxx1110_List_baseI14RollbackActionSaIS1_EE8_M_clearEv.exit: ; preds = %w
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZN15RollbackManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15RollbackManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV15RollbackManager, i64 16), ptr %this, align 8, !tbaa !4
   invoke void @_ZN15RollbackManager5flushEv(ptr noundef nonnull align 8 dereferenceable(264) %this)
@@ -3985,7 +3985,7 @@ declare ptr @sqlite3_errmsg(ptr noundef) local_unnamed_addr #0
 declare i32 @sqlite3_close(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15RollbackManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZN15RollbackManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN15RollbackManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31

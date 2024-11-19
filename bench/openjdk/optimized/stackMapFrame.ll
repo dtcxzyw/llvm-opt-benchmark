@@ -64,7 +64,7 @@ $_ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE9expand_toEi = com
 @_ZN13StackMapFrameC1EttP13ClassVerifier = hidden unnamed_addr alias void (ptr, i16, i16, ptr), ptr @_ZN13StackMapFrameC2EttP13ClassVerifier
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StackMapFrameC2EttP13ClassVerifier(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN13StackMapFrameC2EttP13ClassVerifier(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 21), (24, 48)) %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i16 %1, ptr %5, align 8

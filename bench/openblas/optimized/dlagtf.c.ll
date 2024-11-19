@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [8 x i8] c"Epsilon\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @dlagtf_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #0 {
+define void @dlagtf_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef %7, ptr nocapture noundef writeonly initializes((0, 4)) %8) local_unnamed_addr #0 {
   %10 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
   %11 = getelementptr inbounds i8, ptr %7, i64 -4

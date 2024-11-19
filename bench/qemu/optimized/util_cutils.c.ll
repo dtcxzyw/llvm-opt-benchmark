@@ -1299,7 +1299,7 @@ return:                                           ; preds = %if.then2, %if.then4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_strtod(ptr noundef %nptr, ptr noundef writeonly %endptr, ptr nocapture noundef writeonly %result) local_unnamed_addr #10 {
+define dso_local i32 @qemu_strtod(ptr noundef %nptr, ptr noundef writeonly %endptr, ptr nocapture noundef writeonly initializes((0, 8)) %result) local_unnamed_addr #10 {
 entry:
   %ep = alloca ptr, align 8
   %tobool.not = icmp eq ptr %nptr, null
@@ -1363,7 +1363,7 @@ return:                                           ; preds = %if.end34.i, %land.l
 declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_strtod_finite(ptr noundef %nptr, ptr noundef writeonly %endptr, ptr nocapture noundef writeonly %result) local_unnamed_addr #10 {
+define dso_local i32 @qemu_strtod_finite(ptr noundef %nptr, ptr noundef writeonly %endptr, ptr nocapture noundef writeonly initializes((0, 8)) %result) local_unnamed_addr #10 {
 entry:
   %ep.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ep.i)
@@ -1600,7 +1600,7 @@ return:                                           ; preds = %do.end, %if.else3
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -1, 3) i32 @uleb128_decode_small(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %n) local_unnamed_addr #16 {
+define dso_local range(i32 -1, 3) i32 @uleb128_decode_small(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly initializes((0, 4)) %n) local_unnamed_addr #16 {
 entry:
   %0 = load i8, ptr %in, align 1
   %conv = zext i8 %0 to i32

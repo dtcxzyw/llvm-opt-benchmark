@@ -15181,7 +15181,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %162, %434, %390, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm12RISCVTTIImpl21getPeelingPreferencesEPNS_4LoopERNS_15ScalarEvolutionERNS_19TargetTransformInfo18PeelingPreferencesE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1392) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %3) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN4llvm12RISCVTTIImpl21getPeelingPreferencesEPNS_4LoopERNS_15ScalarEvolutionERNS_19TargetTransformInfo18PeelingPreferencesE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1392) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 7)) %3) local_unnamed_addr #9 align 2 {
   store i32 0, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 1, ptr %5, align 4
@@ -15483,7 +15483,7 @@ _ZNK4llvm13FeatureBitsetanERKS0_.exit:            ; preds = %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm12RISCVTTIImpl34shouldConsiderAddressTypePromotionERKNS_11InstructionERb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm12RISCVTTIImpl34shouldConsiderAddressTypePromotionERKNS_11InstructionERb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2) local_unnamed_addr #0 align 2 {
   store i8 0, ptr %2, align 1
   %4 = load i8, ptr %1, align 8
   %5 = icmp eq i8 %4, 69

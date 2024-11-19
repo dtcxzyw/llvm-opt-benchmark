@@ -1266,7 +1266,7 @@ define internal void @log_pre_callback() #2 {
 declare void @pg_logging_set_locus_callback(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal void @log_locus_callback(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) #3 {
+define internal void @log_locus_callback(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #3 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 328), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4

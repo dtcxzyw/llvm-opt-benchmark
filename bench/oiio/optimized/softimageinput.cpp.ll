@@ -764,7 +764,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN18OpenImageIO_v2_6_010ImageInputdlEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_014SoftimageInput4initEv(ptr noundef nonnull align 8 dereferenceable(376) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18OpenImageIO_v2_6_014SoftimageInput4initEv(ptr noundef nonnull align 8 dereferenceable(376) initializes((184, 192)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_fd = getelementptr inbounds i8, ptr %this, i64 184
   store ptr null, ptr %m_fd, align 8

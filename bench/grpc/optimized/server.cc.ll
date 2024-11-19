@@ -1768,7 +1768,7 @@ entry:
 declare void @_Z26grpc_channel_next_get_infoP20grpc_channel_elementPK17grpc_channel_info(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core6ServerC2ERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(592) %this, ptr noundef nonnull align 8 dereferenceable(8) %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core6ServerC2ERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(592) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(8) %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %seeder.i.i = alloca %"class.absl::lts_20230802::random_internal::RandenPoolSeedSeq", align 1
   %ref.tmp24.i = alloca %struct.grpc_slice, align 8
@@ -2071,7 +2071,7 @@ declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 deref
 declare void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core6ServerD2Ev(ptr noundef nonnull align 8 dereferenceable(592) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core6ServerD2Ev(ptr noundef nonnull align 8 dereferenceable(592) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core6ServerE, i64 16), ptr %this, align 8
   %started_ = getelementptr inbounds i8, ptr %this, i64 96
@@ -2439,7 +2439,7 @@ if.end:                                           ; preds = %invoke.cont, %if.th
 declare void @_ZN9grpc_core8channelz10ServerNode20AddChildListenSocketENS_13RefCountedPtrINS0_16ListenSocketNodeEEE(ptr noundef nonnull align 8 dereferenceable(256), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core6Server5StartEv(ptr noundef nonnull align 8 dereferenceable(592) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core6Server5StartEv(ptr noundef nonnull align 8 dereferenceable(592) initializes((96, 97)) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i11 = alloca %"class.std::unique_ptr.439", align 8
   %ref.tmp2.i12 = alloca ptr, align 8
@@ -3204,7 +3204,7 @@ declare i32 @rand() local_unnamed_addr #1
 declare void @_ZN9grpc_core8channelz10ServerNode14AddChildSocketENS_13RefCountedPtrINS0_10SocketNodeEEE(ptr noundef nonnull align 8 dereferenceable(256), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core6Server11ChannelData13InitTransportENS_13RefCountedPtrIS0_EENS2_INS_7ChannelEEEmPNS_9TransportEl(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef %server, ptr nocapture noundef readonly %channel, i64 noundef %cq_idx, ptr noundef %transport, i64 noundef %channelz_socket_uuid) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core6Server11ChannelData13InitTransportENS_13RefCountedPtrIS0_EENS2_INS_7ChannelEEEmPNS_9TransportEl(ptr noundef nonnull align 8 dereferenceable(80) initializes((16, 24), (72, 80)) %this, ptr nocapture noundef %server, ptr nocapture noundef readonly %channel, i64 noundef %cq_idx, ptr noundef %transport, i64 noundef %channelz_socket_uuid) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp26 = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp27 = alloca %"class.grpc_core::DebugLocation", align 1
@@ -4816,7 +4816,7 @@ _ZN9grpc_core20InternallyRefCountedINS_6ServerENS_11UnrefDeleteEE5UnrefEv.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core6Server17GetChannelsLockedEv(ptr noalias sret(%"class.std::vector.159") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(592) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core6Server17GetChannelsLockedEv(ptr noalias sret(%"class.std::vector.159") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(592) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %channels_ = getelementptr inbounds i8, ptr %this, i64 520
@@ -8021,7 +8021,7 @@ return:                                           ; preds = %entry, %if.end24
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core6Server8CallDataC2EP17grpc_call_elementRK22grpc_call_element_argsNS_13RefCountedPtrIS0_EE(ptr nocapture noundef nonnull align 8 dereferenceable(376) %this, ptr noundef %elem, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %args, ptr nocapture noundef %server) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core6Server8CallDataC2EP17grpc_call_elementRK22grpc_call_element_argsNS_13RefCountedPtrIS0_EE(ptr nocapture noundef nonnull align 8 dereferenceable(376) initializes((0, 8)) %this, ptr noundef %elem, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %args, ptr nocapture noundef %server) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
   %0 = load ptr, ptr %server, align 8
@@ -8974,7 +8974,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core6Server8CallData10KillZombieEv(ptr noundef nonnull align 8 dereferenceable(376) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core6Server8CallData10KillZombieEv(ptr noundef nonnull align 8 dereferenceable(376) initializes((144, 168)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -9112,7 +9112,7 @@ return:                                           ; preds = %if.else.i, %_ZN9grp
 declare noundef i32 @_Z33grpc_call_start_batch_and_executeP9grpc_callPK7grpc_opmP12grpc_closure(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core6Server8CallData7PublishEmPNS0_13RequestedCallE(ptr noundef nonnull align 8 dereferenceable(376) %this, i64 noundef %cq_idx, ptr noundef %rc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core6Server8CallData7PublishEmPNS0_13RequestedCallE(ptr noundef nonnull align 8 dereferenceable(376) initializes((112, 120)) %this, i64 noundef %cq_idx, ptr noundef %rc) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i = alloca %struct.grpc_metadata_array, align 8
   %agg.tmp41 = alloca %"class.absl::lts_20230802::Status", align 8
@@ -22099,7 +22099,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN9grpc_core20arena_promise_detail14SharedCallableIN4absl12lts_202308028StatusOrINS_10NextResultISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEEEEZNS_6Server11ChannelData15MakeCallPromiseEP20grpc_channel_elementNS_8CallArgsESt8functionIFNS_12ArenaPromiseIS6_I19grpc_metadata_batchS9_EEESH_EEE3$_5E8PollOnceEPNS0_7ArgTypeE"(ptr noalias nocapture writeonly sret(%"class.grpc_core::Poll.587") align 8 %agg.result, ptr nocapture readnone %arg) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9grpc_core20arena_promise_detail14SharedCallableIN4absl12lts_202308028StatusOrINS_10NextResultISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEEEEZNS_6Server11ChannelData15MakeCallPromiseEP20grpc_channel_elementNS_8CallArgsESt8functionIFNS_12ArenaPromiseIS6_I19grpc_metadata_batchS9_EEESH_EEE3$_5E8PollOnceEPNS0_7ArgTypeE"(ptr noalias nocapture writeonly sret(%"class.grpc_core::Poll.587") align 8 initializes((0, 1), (8, 25)) %agg.result, ptr nocapture readnone %arg) #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %agg.tmp = alloca %"class.grpc_core::NextResult", align 8
   store i8 1, ptr %agg.result, align 8
@@ -22115,7 +22115,7 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9grpc_core20arena_promise_detail17AllocatedCallableIN4absl12lts_202308028StatusOrINS_10NextResultISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEEEENS_14promise_detail3MapINSD_3SeqINS_11pipe_detail4NextISA_EEJZNS_12PipeReceiverISA_E4NextEvEUlSt8optionalISA_EE_EEEZNS_6Server11ChannelData15MakeCallPromiseEP20grpc_channel_elementNS_8CallArgsESt8functionIFNS_12ArenaPromiseIS6_I19grpc_metadata_batchS9_EEEST_EEE3$_6EEE8PollOnceEPNS0_7ArgTypeE"(ptr noalias nocapture writeonly sret(%"class.grpc_core::Poll.587") align 8 %agg.result, ptr nocapture noundef readonly %arg) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9grpc_core20arena_promise_detail17AllocatedCallableIN4absl12lts_202308028StatusOrINS_10NextResultISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEEEENS_14promise_detail3MapINSD_3SeqINS_11pipe_detail4NextISA_EEJZNS_12PipeReceiverISA_E4NextEvEUlSt8optionalISA_EE_EEEZNS_6Server11ChannelData15MakeCallPromiseEP20grpc_channel_elementNS_8CallArgsESt8functionIFNS_12ArenaPromiseIS6_I19grpc_metadata_batchS9_EEEST_EEE3$_6EEE8PollOnceEPNS0_7ArgTypeE"(ptr noalias nocapture writeonly sret(%"class.grpc_core::Poll.587") align 8 initializes((0, 1)) %agg.result, ptr nocapture noundef readonly %arg) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.grpc_core::Poll.597", align 8
   %r.i = alloca %"class.grpc_core::Poll.597", align 8

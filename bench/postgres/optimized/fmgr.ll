@@ -107,14 +107,14 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.get_call_expr_arg_stable = private unnamed_addr constant [8 x i64] [i64 24, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fmgr_info(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local void @fmgr_info(i32 noundef %0, ptr nocapture noundef writeonly initializes((8, 12), (24, 48)) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @CurrentMemoryContext, align 8
   tail call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef %1, ptr noundef %3, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr nocapture noundef writeonly initializes((8, 12), (24, 48)) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.FmgrInfo, align 8
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
@@ -456,7 +456,7 @@ fmgr_info_other_lang.exit:                        ; preds = %159
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fmgr_info_cxt(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @fmgr_info_cxt(i32 noundef %0, ptr nocapture noundef writeonly initializes((8, 12), (24, 48)) %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call fastcc void @fmgr_info_cxt_security(i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false)
   ret void
 }
@@ -626,7 +626,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @fmgr_info_copy(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #3 {
+define dso_local void @fmgr_info_copy(ptr nocapture noundef writeonly initializes((0, 48)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %2, ptr %4, align 8
@@ -2672,7 +2672,7 @@ define dso_local i64 @InputFunctionCall(ptr noundef %0, ptr noundef %1, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @InputFunctionCallSafe(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @InputFunctionCallSafe(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #0 {
   %7 = alloca %union.anon.23, align 8
   %8 = icmp eq ptr %1, null
   br i1 %8, label %9, label %14
@@ -2766,7 +2766,7 @@ define dso_local noundef zeroext i1 @InputFunctionCallSafe(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @DirectInputFunctionCallSafe(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @DirectInputFunctionCallSafe(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #0 {
   %7 = alloca %union.anon.24, align 8
   %8 = icmp eq ptr %1, null
   br i1 %8, label %9, label %10
@@ -3440,7 +3440,7 @@ define dso_local zeroext i1 @get_fn_expr_variadic(ptr noundef readonly %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @set_fn_opclass_options(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @set_fn_opclass_options(ptr nocapture noundef writeonly initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = icmp eq ptr %1, null
   %5 = tail call ptr @makeConst(i32 noundef 17, i32 noundef -1, i32 noundef 0, i32 noundef -1, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext false) #13

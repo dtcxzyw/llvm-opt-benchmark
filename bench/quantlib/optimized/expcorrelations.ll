@@ -1074,7 +1074,7 @@ declare double @llvm.fabs.f64(double) #8
 declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib29ExponentialForwardCorrelationC2ERKSt6vectorIdSaIdEEdddS3_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rateTimes, double noundef %longTermCorr, double noundef %beta, double noundef %gamma, ptr nocapture noundef %times) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib29ExponentialForwardCorrelationC2ERKSt6vectorIdSaIdEEdddS3_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 64)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rateTimes, double noundef %longTermCorr, double noundef %beta, double noundef %gamma, ptr nocapture noundef %times) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

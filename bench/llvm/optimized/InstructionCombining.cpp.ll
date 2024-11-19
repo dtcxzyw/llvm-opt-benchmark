@@ -7228,7 +7228,7 @@ _ZL16getIdentityValueN4llvm11Instruction9BinaryOpsEPNS_5ValueE.exit59.thread: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 -29, 227) i32 @_ZL25getBinOpsForFactorizationN4llvm11Instruction9BinaryOpsEPNS_14BinaryOperatorERPNS_5ValueES6_S3_(i32 noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -29, 227) i32 @_ZL25getBinOpsForFactorizationN4llvm11Instruction9BinaryOpsEPNS_14BinaryOperatorERPNS_5ValueES6_S3_(i32 noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca %"struct.llvm::PatternMatch::BinaryOp_match.885", align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 -64
   %8 = load ptr, ptr %7, align 8
@@ -36700,7 +36700,7 @@ declare noundef nonnull align 8 dereferenceable(185) ptr @_ZN4llvm22AssumptionCa
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm30TargetTransformInfoWrapperPass6getTTIERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm24InstructionCombiningPassC2Ev(ptr noundef nonnull align 8 dereferenceable(2288) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm24InstructionCombiningPassC2Ev(ptr noundef nonnull align 8 dereferenceable(2288) initializes((0, 28)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.1243, align 8
   %3 = alloca %"class.std::reference_wrapper.803", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

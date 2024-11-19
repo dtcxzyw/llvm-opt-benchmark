@@ -642,7 +642,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7525RelativeDateTimeCacheDataD2Ev(ptr noundef nonnull align 8 dereferenceable(23152) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7525RelativeDateTimeCacheDataD2Ev(ptr noundef nonnull align 8 dereferenceable(23152) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525RelativeDateTimeCacheDataE, i64 16), ptr %this, align 8
   %relativeUnitsFormatters = getelementptr inbounds i8, ptr %this, i64 17304
@@ -1541,7 +1541,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7525FormattedRelativeDateTimeC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) unnamed_addr #9 align 2 {
+define void @_ZN6icu_7525FormattedRelativeDateTimeC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) unnamed_addr #9 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525FormattedRelativeDateTimeE, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds i8, ptr %this, i64 8
@@ -1558,7 +1558,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7525FormattedRelativeDateTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7525FormattedRelativeDateTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525FormattedRelativeDateTimeE, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds i8, ptr %this, i64 8
@@ -1591,7 +1591,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_7525FormattedRelativeDateTimeaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_7525FormattedRelativeDateTimeaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(20) initializes((16, 20)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) local_unnamed_addr #0 align 2 {
 entry:
   %fData = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fData, align 8
@@ -1793,7 +1793,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7525RelativeDateTimeFormatterC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7525RelativeDateTimeFormatterC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 48)) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525RelativeDateTimeFormatterE, i64 16), ptr %this, align 8
   %fCache = getelementptr inbounds i8, ptr %this, i64 8
@@ -2057,7 +2057,7 @@ _ZN6icu_7512LocalPointerINS_12NumberFormatEED2Ev.exit60: ; preds = %ehcleanup71,
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7525RelativeDateTimeFormatterC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7525RelativeDateTimeFormatterC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 48)) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525RelativeDateTimeFormatterE, i64 16), ptr %this, align 8
   %fCache = getelementptr inbounds i8, ptr %this, i64 8
@@ -2095,7 +2095,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7525RelativeDateTimeFormatterC2ERKNS_6LocaleEPNS_12NumberFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef %nfToAdopt, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7525RelativeDateTimeFormatterC2ERKNS_6LocaleEPNS_12NumberFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 48)) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef %nfToAdopt, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525RelativeDateTimeFormatterE, i64 16), ptr %this, align 8
   %fCache = getelementptr inbounds i8, ptr %this, i64 8
@@ -2133,7 +2133,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7525RelativeDateTimeFormatterC2ERKNS_6LocaleEPNS_12NumberFormatE35UDateRelativeDateTimeFormatterStyle15UDisplayContextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef %nfToAdopt, i32 noundef %styl, i32 noundef %capitalizationContext, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7525RelativeDateTimeFormatterC2ERKNS_6LocaleEPNS_12NumberFormatE35UDateRelativeDateTimeFormatterStyle15UDisplayContextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 48)) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef %nfToAdopt, i32 noundef %styl, i32 noundef %capitalizationContext, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525RelativeDateTimeFormatterE, i64 16), ptr %this, align 8
   %fCache = getelementptr inbounds i8, ptr %this, i64 8
@@ -2205,7 +2205,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 declare noundef ptr @_ZN6icu_7513BreakIterator22createSentenceInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7525RelativeDateTimeFormatterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(272) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7525RelativeDateTimeFormatterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 48)) %this, ptr noundef nonnull align 8 dereferenceable(272) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525RelativeDateTimeFormatterE, i64 16), ptr %this, align 8
   %fCache = getelementptr inbounds i8, ptr %this, i64 8
@@ -2436,7 +2436,7 @@ if.end6:                                          ; preds = %if.end, %if.then4, 
 declare noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7525RelativeDateTimeFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7525RelativeDateTimeFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525RelativeDateTimeFormatterE, i64 16), ptr %this, align 8
   %fCache = getelementptr inbounds i8, ptr %this, i64 8
@@ -3786,7 +3786,7 @@ declare noundef ptr @_ZN6icu_7512NumberFormat20createSharedInstanceERKNS_6Locale
 declare void @_ZN6icu_7519SharedBreakIteratorC1EPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7530UFormattedRelativeDateTimeImplC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7530UFormattedRelativeDateTimeImplC2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 4), (16, 20), (24, 44)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 1430672896, ptr %this, align 8
   %fFormattedValue.i = getelementptr inbounds i8, ptr %this, i64 8

@@ -175,7 +175,7 @@ $_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE = comdat any
 @_ZN18ColoringRulesModelD1Ev = unnamed_addr alias void (ptr), ptr @_ZN18ColoringRulesModelD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN16ColoringRuleItemC2Eb7QStringS0_6QColorS1_PS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i64 %4, i64 %5, ptr nocapture noundef readonly byval(%class.QColor) align 8 %6, ptr noundef %7) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16ColoringRuleItemC2Eb7QStringS0_6QColorS1_PS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 41), (48, 128)) %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i64 %4, i64 %5, ptr nocapture noundef readonly byval(%class.QColor) align 8 %6, ptr noundef %7) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = zext i1 %1 to i8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %7, ptr %10, align 8
@@ -235,7 +235,7 @@ _ZN7QStringC2ERKS_.exit3:                         ; preds = %_ZN7QStringC2ERKS_.
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN16ColoringRuleItemD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #2 align 2 {
+define void @_ZN16ColoringRuleItemD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16ColoringRuleItem, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -304,7 +304,7 @@ define void @_ZN16ColoringRuleItemD0Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16ColoringRuleItemC2EP13_color_filterPS_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16ColoringRuleItemC2EP13_color_filterPS_(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 41)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -431,7 +431,7 @@ declare i32 @__gxx_personality_v0(...)
 declare { i64, i64 } @_ZN10ColorUtils10fromColorTE7color_t(i48) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN16ColoringRuleItemC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16ColoringRuleItemC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 41), (48, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -494,7 +494,7 @@ _ZN7QStringC2ERKS_.exit8:                         ; preds = %_ZN7QStringC2ERKS_.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN16ColoringRuleItemaSERS_(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN16ColoringRuleItemaSERS_(ptr noundef nonnull returned align 8 dereferenceable(128) initializes((40, 41)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i8, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -818,7 +818,7 @@ _ZN17QArrayDataPointerIiED2Ev.exit:               ; preds = %1, %_ZN17QArrayData
 declare void @_ZN18QAbstractItemModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18ColoringRulesModelD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18ColoringRulesModelD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV18ColoringRulesModel, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8

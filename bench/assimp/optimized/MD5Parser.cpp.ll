@@ -218,7 +218,7 @@ $_ZTV17DeadlyImportError = comdat any
 @_ZN6Assimp3MD515MD5CameraParserC1ERSt6vectorINS0_7SectionESaIS3_EE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN6Assimp3MD515MD5CameraParserC2ERSt6vectorINS0_7SectionESaIS3_EE
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3MD59MD5ParserC2EPcj(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %_buffer, i32 noundef %_fileSize) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3MD59MD5ParserC2EPcj(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %this, ptr noundef %_buffer, i32 noundef %_fileSize) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %szBuffer = alloca [128 x i8], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
@@ -561,7 +561,7 @@ ehcleanup:                                        ; preds = %lpad23, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3MD59MD5Parser12ParseSectionERNS0_7SectionE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(96) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp3MD59MD5Parser12ParseSectionERNS0_7SectionE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 4)) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::allocator.5", align 1
@@ -1166,7 +1166,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIN6Assi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3MD513MD5MeshParserC2ERSt6vectorINS0_7SectionESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mSections) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3MD513MD5MeshParserC2ERSt6vectorINS0_7SectionESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mSections) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %szBuffer.i885 = alloca [1024 x i8], align 16
   %szBuffer.i879 = alloca [1024 x i8], align 16
@@ -4258,7 +4258,7 @@ _ZNSt12_Vector_baseIN6Assimp3MD58MeshDescESaIS2_EED2Ev.exit: ; preds = %invoke.c
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3MD513MD5AnimParserC2ERSt6vectorINS0_7SectionESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mSections) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3MD513MD5AnimParserC2ERSt6vectorINS0_7SectionESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(84) initializes((8, 80)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mSections) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %szBuffer.i296 = alloca [1024 x i8], align 16
   %szBuffer.i287 = alloca [1024 x i8], align 16
@@ -5909,7 +5909,7 @@ _ZNSt12_Vector_baseIN6Assimp3MD59FrameDescESaIS2_EED2Ev.exit: ; preds = %invoke.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3MD515MD5CameraParserC2ERSt6vectorINS0_7SectionESaIS3_EE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mSections) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3MD515MD5CameraParserC2ERSt6vectorINS0_7SectionESaIS3_EE(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((8, 56)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mSections) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ret.i273 = alloca float, align 4
   %szBuffer.i267 = alloca [1024 x i8], align 16

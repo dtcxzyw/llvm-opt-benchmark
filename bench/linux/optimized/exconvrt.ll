@@ -603,7 +603,7 @@ define internal fastcc i32 @acpi_ex_convert_to_ascii(i64 noundef %0, i16 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 16 {
   store ptr %1, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 1040
   %6 = load ptr, ptr %5, align 8

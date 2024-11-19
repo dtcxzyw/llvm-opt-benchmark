@@ -882,7 +882,7 @@ select.unfold.thread:                             ; preds = %71, %select.unfold
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mca_common_ompio_finalize_initial_grouping(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_common_ompio_finalize_initial_grouping(ptr nocapture noundef initializes((400, 404)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 400
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 392
@@ -2247,7 +2247,7 @@ define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mca_common_ompio_retain_initial_groups(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_common_ompio_retain_initial_groups(ptr nocapture noundef initializes((432, 444)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 404
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 440
@@ -2405,7 +2405,7 @@ define i32 @mca_common_ompio_merge_groups(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mca_common_ompio_split_a_group(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_common_ompio_split_a_group(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef initializes((0, 4)) %6, ptr nocapture noundef writeonly initializes((0, 4)) %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 404
   %10 = load i32, ptr %9, align 4
   %11 = sdiv i32 %10, %3

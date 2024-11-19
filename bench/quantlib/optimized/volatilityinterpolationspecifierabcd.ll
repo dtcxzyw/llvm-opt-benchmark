@@ -104,7 +104,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib29PiecewiseConstantAbcdVariance
 @_ZN8QuantLib36VolatilityInterpolationSpecifierabcdC1EmmRKSt6vectorINS_29PiecewiseConstantAbcdVarianceESaIS2_EERKS1_IdSaIdEEd = unnamed_addr alias void (ptr, i64, i64, ptr, ptr, double), ptr @_ZN8QuantLib36VolatilityInterpolationSpecifierabcdC2EmmRKSt6vectorINS_29PiecewiseConstantAbcdVarianceESaIS2_EERKS1_IdSaIdEEd
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib36VolatilityInterpolationSpecifierabcdC2EmmRKSt6vectorINS_29PiecewiseConstantAbcdVarianceESaIS2_EERKS1_IdSaIdEEd(ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef %period, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(24) %originalVariances, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %timesForSmallRates, double noundef %lastCapletVol) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib36VolatilityInterpolationSpecifierabcdC2EmmRKSt6vectorINS_29PiecewiseConstantAbcdVarianceESaIS2_EERKS1_IdSaIdEEd(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 24)) %this, i64 noundef %period, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(24) %originalVariances, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %timesForSmallRates, double noundef %lastCapletVol) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp28 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2869,7 +2869,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib36VolatilityInterpolationSpecifierabcd16setLastCapletVolEd(ptr noundef nonnull align 8 dereferenceable(192) %this, double noundef %vol) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib36VolatilityInterpolationSpecifierabcd16setLastCapletVolEd(ptr noundef nonnull align 8 dereferenceable(192) initializes((120, 128)) %this, double noundef %vol) unnamed_addr #0 align 2 {
 entry:
   %lastCapletVol_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   store double %vol, ptr %lastCapletVol_, align 8, !tbaa !33

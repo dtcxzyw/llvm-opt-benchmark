@@ -587,7 +587,7 @@ define hidden void @PMurHash128x86(ptr noundef %0, i32 noundef %1, i32 noundef %
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @PMurHash128x64_Result(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define hidden void @PMurHash128x64_Result(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 16)) %3) local_unnamed_addr #0 {
   %5 = load i64, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
@@ -920,7 +920,7 @@ define hidden void @PMurHash128x64_Process(ptr nocapture noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @PMurHash128x64(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
+define hidden void @PMurHash128x64(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 16)) %3) local_unnamed_addr #1 {
   %5 = alloca [2 x i64], align 16
   %6 = alloca [2 x i64], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)

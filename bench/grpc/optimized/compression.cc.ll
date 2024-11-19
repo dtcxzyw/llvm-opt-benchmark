@@ -114,7 +114,7 @@ declare i8 @_ZN9grpc_core23CompressionAlgorithmSet10FromUint32Ej(i32 noundef) lo
 declare noundef i32 @_ZNK9grpc_core23CompressionAlgorithmSet28CompressionAlgorithmForLevelE22grpc_compression_level(ptr noundef nonnull align 1 dereferenceable(1), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @grpc_compression_options_init(ptr nocapture noundef writeonly %opts) local_unnamed_addr #5 {
+define void @grpc_compression_options_init(ptr nocapture noundef writeonly initializes((0, 20)) %opts) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr inbounds i8, ptr %opts, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 16, i1 false)

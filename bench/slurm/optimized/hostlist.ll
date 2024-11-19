@@ -1110,7 +1110,7 @@ _hostlist_iterator_destroy.exit:                  ; preds = %.lr.ph, %11, %.lr.p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @hostlist_iterator_reset(ptr nocapture noundef %0) #1 {
+define void @hostlist_iterator_reset(ptr nocapture noundef initializes((16, 20), (24, 36)) %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8

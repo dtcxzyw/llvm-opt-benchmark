@@ -57,7 +57,7 @@ $_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable = comdat any
 @_ZN4llvm3LLTC1ENS_3MVTE = unnamed_addr alias void (ptr, i16), ptr @_ZN4llvm3LLTC2ENS_3MVTE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3LLTC2ENS_3MVTE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, i16 %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3LLTC2ENS_3MVTE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, i16 %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::TypeSize", align 8
   %4 = alloca %"class.llvm::TypeSize", align 8
   %5 = add i16 %1, -17

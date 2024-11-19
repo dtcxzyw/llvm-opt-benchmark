@@ -254,7 +254,7 @@ define internal void @gen11_enable_guc_interrupts(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gen11_disable_guc_interrupts(ptr noundef %0) #0 align 16 {
+define internal void @gen11_disable_guc_interrupts(ptr noundef initializes((1072, 1073)) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -632
   %3 = getelementptr inbounds i8, ptr %0, i64 1072
   store i8 0, ptr %3, align 8
@@ -354,7 +354,7 @@ define internal void @gen9_enable_guc_interrupts(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gen9_disable_guc_interrupts(ptr noundef %0) #0 align 16 {
+define internal void @gen9_disable_guc_interrupts(ptr noundef initializes((1072, 1073)) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -632
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8928

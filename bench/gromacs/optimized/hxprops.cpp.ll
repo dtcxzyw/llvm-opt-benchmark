@@ -616,7 +616,7 @@ define void @_Z9av_phipsiP8_IO_FILES0_S0_S0_fiP4t_bb(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define noundef ptr @_Z7mkbbindPKcPiS1_iS1_PS1_PPPcP6t_atomP9t_resinfo(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_Z7mkbbindPKcPiS1_iS1_PS1_PPPcP6t_atomP9t_resinfo(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
   %12 = alloca %"class.std::filesystem::__cxx11::path", align 8

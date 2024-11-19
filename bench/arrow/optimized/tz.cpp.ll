@@ -320,7 +320,7 @@ while.end:                                        ; preds = %_ZN14arrow_vendored
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN14arrow_vendored4date9tzdb_listC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %x) unnamed_addr #5 align 2 {
+define void @_ZN14arrow_vendored4date9tzdb_listC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %x) unnamed_addr #5 align 2 {
 entry:
   %0 = atomicrmw xchg ptr %x, i64 0 seq_cst, align 8
   %atomic-temp.i.0.i = inttoptr i64 %0 to ptr
@@ -329,7 +329,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN14arrow_vendored4date9tzdb_list10push_frontEPNS0_4tzdbE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %tzdb) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14arrow_vendored4date9tzdb_list10push_frontEPNS0_4tzdbE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr noundef initializes((80, 88)) %tzdb) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i64, ptr %this seq_cst, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -4587,7 +4587,7 @@ lpad.i:                                           ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK14arrow_vendored4date9time_zone13load_sys_infoEN9__gnu_cxx17__normal_iteratorIPKNS0_6detail10transitionESt6vectorIS5_SaIS5_EEEE(ptr noalias sret(%"struct.arrow_vendored::date::sys_info") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr readonly %i.coerce) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK14arrow_vendored4date9time_zone13load_sys_infoEN9__gnu_cxx17__normal_iteratorIPKNS0_6detail10transitionESt6vectorIS5_SaIS5_EEEE(ptr noalias sret(%"struct.arrow_vendored::date::sys_info") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr readonly %i.coerce) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %abbrev.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, i8 0, i64 16, i1 false)
@@ -5406,7 +5406,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN14arrow_vendored4date11leap_secondC2ERKNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEENS0_6detail12undocumentedE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s) unnamed_addr #11 align 2 {
+define void @_ZN14arrow_vendored4date11leap_secondC2ERKNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEENS0_6detail12undocumentedE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s) unnamed_addr #11 align 2 {
 entry:
   %0 = load i64, ptr %s, align 8
   store i64 %0, ptr %this, align 8
@@ -8864,7 +8864,7 @@ return:                                           ; preds = %for.body, %return.l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN14arrow_vendored4dateL10load_leapsIiEESt6vectorINS0_11leap_secondESaIS3_EERSii(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_leapcnt) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN14arrow_vendored4dateL10load_leapsIiEESt6vectorINS0_11leap_secondESaIS3_EERSii(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_leapcnt) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %t0 = alloca i32, align 4
   %t1 = alloca i32, align 4
@@ -9087,7 +9087,7 @@ unreachable:                                      ; preds = %invoke.cont21
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN14arrow_vendored4dateL10load_leapsIlEESt6vectorINS0_11leap_secondESaIS3_EERSii(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_leapcnt) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN14arrow_vendored4dateL10load_leapsIlEESt6vectorINS0_11leap_secondESaIS3_EERSii(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_leapcnt) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %t0 = alloca i64, align 8
   %t1 = alloca i32, align 4
@@ -10041,7 +10041,7 @@ declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN14arrow_vendored4dateL12load_indicesERSii(ptr noalias nocapture nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_timecnt) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN14arrow_vendored4dateL12load_indicesERSii(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_timecnt) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca i8, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -10177,7 +10177,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc, %entry, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN14arrow_vendored4dateL11load_ttinfoERSii(ptr noalias nocapture nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_typecnt) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN14arrow_vendored4dateL11load_ttinfoERSii(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_typecnt) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.arrow_vendored::date::detail::ttinfo", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)

@@ -682,7 +682,7 @@ declare void @Curl_wildcard_dtor(ptr noundef) local_unnamed_addr #1
 declare i32 @Curl_headers_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_init_userdefined(ptr noundef %data) local_unnamed_addr #0 {
+define hidden i32 @Curl_init_userdefined(ptr noundef initializes((416, 424), (440, 456), (472, 496), (504, 520), (528, 536), (552, 560), (656, 664), (752, 760), (1289, 1290), (1704, 1708), (1712, 1724), (1728, 1732), (1776, 1777), (2544, 2548)) %data) local_unnamed_addr #0 {
 entry:
   %set1 = getelementptr inbounds i8, ptr %data, i64 416
   %0 = load ptr, ptr @stdout, align 8
@@ -1485,7 +1485,7 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_setup_conn(ptr noundef %data, ptr nocapture noundef writeonly %protocol_done) local_unnamed_addr #0 {
+define hidden i32 @Curl_setup_conn(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %protocol_done) local_unnamed_addr #0 {
 entry:
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
@@ -1537,7 +1537,7 @@ declare { i64, i32 } @Curl_now() local_unnamed_addr #1
 declare i32 @Curl_conn_setup(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_connect(ptr noundef %data, ptr nocapture noundef %asyncp, ptr nocapture noundef writeonly %protocol_done) local_unnamed_addr #0 {
+define hidden i32 @Curl_connect(ptr noundef %data, ptr nocapture noundef initializes((0, 1)) %asyncp, ptr nocapture noundef writeonly %protocol_done) local_unnamed_addr #0 {
 entry:
   %portbuf.i.i = alloca [16 x i8], align 16
   %proxy_env.i.i.i = alloca [128 x i8], align 16
@@ -4393,7 +4393,7 @@ declare void @Curl_persistconninfo(ptr noundef, ptr noundef, ptr noundef, i32 no
 declare i32 @Curl_conncache_add_conn(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 28) i32 @setup_range(ptr nocapture noundef %data) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @setup_range(ptr nocapture noundef initializes((4536, 4544)) %data) unnamed_addr #0 {
 entry:
   %set_resume_from = getelementptr inbounds i8, ptr %data, i64 792
   %0 = load i64, ptr %set_resume_from, align 8
@@ -4557,7 +4557,7 @@ if.end28:                                         ; preds = %if.end19, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ConnectionExists(ptr noundef %data, ptr noundef nonnull %needle, ptr nocapture noundef nonnull writeonly %usethis, ptr nocapture noundef nonnull writeonly %force_reuse, ptr nocapture noundef nonnull writeonly %waitpipe) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ConnectionExists(ptr noundef %data, ptr noundef nonnull %needle, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %usethis, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %force_reuse, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %waitpipe) unnamed_addr #0 {
 entry:
   %state = getelementptr inbounds i8, ptr %data, i64 3144
   %authhost = getelementptr inbounds i8, ptr %data, i64 3560

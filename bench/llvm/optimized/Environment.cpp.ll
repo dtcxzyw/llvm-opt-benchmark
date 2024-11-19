@@ -327,7 +327,7 @@ _ZNK5clang4ento11Environment10lookupExprERKNS0_16EnvironmentEntryE.exit: ; preds
 declare void @_ZN5clang4ento11SValBuilder14getConstantValEPKNS_4ExprE(ptr dead_on_unwind writable sret(%"class.std::optional") align 8, ptr noundef nonnull align 8 dereferenceable(412), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento18EnvironmentManager8bindExprENS0_11EnvironmentERKNS0_16EnvironmentEntryENS0_4SValEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::Environment") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr %4, i8 %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento18EnvironmentManager8bindExprENS0_11EnvironmentERKNS0_16EnvironmentEntryENS0_4SValEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::Environment") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr %4, i8 %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.clang::ento::SVal", align 8
   %9 = alloca %"class.llvm::ImmutableMap", align 8
   %10 = alloca %"class.llvm::ImmutableMap", align 8
@@ -627,7 +627,7 @@ _ZN4llvm12ImmutableMapIN5clang4ento16EnvironmentEntryENS2_4SValENS_16ImutKeyValu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento18EnvironmentManager18removeDeadBindingsENS0_11EnvironmentERNS0_12SymbolReaperEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::ento::Environment") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(160) %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento18EnvironmentManager18removeDeadBindingsENS0_11EnvironmentERNS0_12SymbolReaperEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::ento::Environment") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(160) %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::pair.48", align 8
   %7 = alloca %"class.(anonymous namespace)::MarkLiveCallback", align 8
   %8 = alloca %"class.clang::ento::ScanReachableSymbols", align 8

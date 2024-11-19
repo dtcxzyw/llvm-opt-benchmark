@@ -2258,7 +2258,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_infiniband(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_infiniband(ptr noundef %0, ptr noundef initializes((280, 292)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   tail call fastcc void @dissect_infiniband_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #11
   ret i32 %5
@@ -2326,7 +2326,7 @@ declare void @prefs_register_uint_preference(ptr noundef, ptr noundef, ptr nound
 declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_infiniband_link(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_infiniband_link(ptr noundef %0, ptr noundef initializes((208, 256)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.MAD_Data, align 8
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #11
@@ -2683,7 +2683,7 @@ define internal void @table_destroy_notify(ptr noundef %0) #0 {
 declare ptr @register_decode_as_next_proto(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @infiniband_payload_prompt(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #2 {
+define internal void @infiniband_payload_prompt(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 30)) %1) #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %1, ptr noundef nonnull align 1 dereferenceable(30) @.str.1534, i64 30, i1 false)
   ret void
 }
@@ -2708,14 +2708,14 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_roce(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_roce(ptr noundef %0, ptr noundef initializes((280, 292)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   tail call fastcc void @dissect_infiniband_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #11
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_rroce(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_rroce(ptr noundef %0, ptr noundef initializes((280, 292)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   tail call fastcc void @dissect_infiniband_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 2)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #11
   ret i32 %5
@@ -2951,7 +2951,7 @@ define internal i32 @dissect_eth_over_ib(ptr noundef %0, ptr noundef %1, ptr nou
 declare void @dissector_delete_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_infiniband_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_infiniband_common(ptr noundef %0, ptr noundef initializes((280, 292)) %1, ptr noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.infinibandinfo, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
@@ -3778,7 +3778,7 @@ define internal fastcc void @parse_RDETH(ptr noundef %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_DETH(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @parse_DETH(ptr noundef %0, ptr nocapture noundef writeonly initializes((284, 288)) %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4
   %6 = load i32, ptr @hf_infiniband_DETH, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %2, i32 noundef %5, i32 noundef 8, i32 noundef 0) #11

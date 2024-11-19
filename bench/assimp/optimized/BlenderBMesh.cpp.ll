@@ -356,7 +356,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp21BlenderBMeshConverterC2EPKNS_7Blender4MeshE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %mesh) unnamed_addr #1 align 2 {
+define hidden void @_ZN6Assimp21BlenderBMeshConverterC2EPKNS_7Blender4MeshE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %mesh) unnamed_addr #1 align 2 {
 entry:
   store ptr %mesh, ptr %this, align 8
   %triMesh = getelementptr inbounds i8, ptr %this, i64 8

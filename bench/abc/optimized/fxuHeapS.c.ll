@@ -41,7 +41,7 @@ define void @Fxu_HeapSingleStop(ptr nocapture noundef %0) local_unnamed_addr #2 
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Fxu_HeapSinglePrint(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
+define void @Fxu_HeapSinglePrint(ptr nocapture noundef %0, ptr nocapture noundef initializes((16, 20)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
@@ -123,7 +123,7 @@ Fxu_HeapSingleCheck.exit:                         ; preds = %8, %10, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Fxu_HeapSingleCheck(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @Fxu_HeapSingleCheck(ptr nocapture noundef initializes((16, 20)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8

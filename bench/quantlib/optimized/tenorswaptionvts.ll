@@ -5364,7 +5364,7 @@ _ZN8QuantLib10DayCounterD2Ev.exit:                ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16TenorSwaptionVTS25TenorSwaptionSmileSectionC1ERKS0_dd(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(184) %volTS, double noundef %optionTime, double noundef %swapLength) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16TenorSwaptionVTS25TenorSwaptionSmileSectionC1ERKS0_dd(ptr noundef nonnull align 8 dereferenceable(128) initializes((128, 136), (144, 148), (152, 160)) %this, ptr noundef nonnull align 8 dereferenceable(184) %volTS, double noundef %optionTime, double noundef %swapLength) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.boost::shared_ptr.18", align 8
   %retval.i159 = alloca %"class.QuantLib::Date", align 8

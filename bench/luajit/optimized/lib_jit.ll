@@ -392,7 +392,7 @@ return:                                           ; preds = %if.end47.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_jit_status(ptr noundef %L) #0 {
+define internal i32 @lj_cf_jit_status(ptr noundef initializes((40, 48)) %L) #0 {
 entry:
   %glref = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8

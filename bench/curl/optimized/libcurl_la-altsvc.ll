@@ -248,7 +248,7 @@ altsvc_load.exit:                                 ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @Curl_altsvc_ctrl(ptr nocapture noundef writeonly %asi, i64 noundef %ctrl) local_unnamed_addr #3 {
+define hidden noundef i32 @Curl_altsvc_ctrl(ptr nocapture noundef writeonly initializes((40, 48)) %asi, i64 noundef %ctrl) local_unnamed_addr #3 {
 entry:
   %flags = getelementptr inbounds i8, ptr %asi, i64 40
   store i64 %ctrl, ptr %flags, align 8

@@ -135,7 +135,7 @@ define i32 @mca_pml_cm_del_comm(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
-define internal noundef range(i32 -2, 1) i32 @mca_pml_cm_irecv_init(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6) #1 {
+define internal noundef range(i32 -2, 1) i32 @mca_pml_cm_irecv_init(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef writeonly initializes((0, 8)) %6) #1 {
   %8 = tail call fastcc ptr @opal_free_list_get()
   %9 = getelementptr inbounds i8, ptr %8, i64 168
   store i32 2, ptr %9, align 8
@@ -745,7 +745,7 @@ opal_free_list_return.exit:                       ; preds = %opal_free_list_retu
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
-define internal noundef i32 @mca_pml_cm_isend_init(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7) #1 {
+define internal noundef i32 @mca_pml_cm_isend_init(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef writeonly initializes((0, 8)) %7) #1 {
   %9 = tail call fastcc ptr @opal_free_list_wait()
   %10 = getelementptr inbounds i8, ptr %9, i64 168
   store i32 0, ptr %10, align 8

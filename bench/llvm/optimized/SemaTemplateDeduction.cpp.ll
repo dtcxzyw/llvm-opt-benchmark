@@ -6957,7 +6957,7 @@ _ZL30hasDeducibleTemplateParametersRN5clang4SemaEPNS_20FunctionTemplateDeclENS_8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118PackDeductionScopeC2ERN5clang4SemaEPNS1_21TemplateParameterListERN4llvm15SmallVectorImplINS1_23DeducedTemplateArgumentEEERNS1_4sema21TemplateDeductionInfoENS1_16TemplateArgumentEbb(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(504) %4, ptr nocapture noundef readonly byval(%"class.clang::TemplateArgument") align 8 %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118PackDeductionScopeC2ERN5clang4SemaEPNS1_21TemplateParameterListERN4llvm15SmallVectorImplINS1_23DeducedTemplateArgumentEEERNS1_4sema21TemplateDeductionInfoENS1_16TemplateArgumentEbb(ptr noundef nonnull align 8 dereferenceable(512) initializes((0, 40), (44, 45)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(504) %4, ptr nocapture noundef readonly byval(%"class.clang::TemplateArgument") align 8 %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::SmallBitVector", align 8
   %10 = alloca %"class.llvm::SmallVector.998", align 8
   %11 = alloca %class.anon.1458, align 8
@@ -24677,7 +24677,7 @@ _ZN4llvm14SmallBitVector3setEj.exit:              ; preds = %44, %33, %21, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118PackDeductionScope7addPackEj(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118PackDeductionScope7addPackEj(ptr noundef nonnull align 8 dereferenceable(512) initializes((38, 39)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.clang::DeducedPack", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -52343,7 +52343,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %20, %18, %168, %165
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_130SubstituteDeducedTypeTransformEE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr nocapture noundef readonly byval(%"class.clang::TemplateArgumentLoc") align 8 %1, i32 %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_130SubstituteDeducedTypeTransformEE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 4), (8, 16)) %0, ptr %.0.val, ptr nocapture noundef readonly byval(%"class.clang::TemplateArgumentLoc") align 8 %1, i32 %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::TemplateName", align 8
   %6 = alloca %"class.clang::TemplateArgument", align 8
   %7 = load i32, ptr %1, align 8

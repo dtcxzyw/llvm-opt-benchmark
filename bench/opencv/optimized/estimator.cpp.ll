@@ -746,7 +746,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4usac19HomographyEstimator6createERKNS_3PtrINS0_13MinimalSolverEEERKNS2_INS0_16NonMinimalSolverEEERKNS2_INS0_10DegeneracyEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4usac19HomographyEstimator6createERKNS_3PtrINS0_13MinimalSolverEEERKNS2_INS0_16NonMinimalSolverEEERKNS2_INS0_10DegeneracyEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_4usac23HomographyEstimatorImplEED2Ev.exit:
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::shared_ptr.1", align 8
@@ -766,7 +766,7 @@ _ZN2cv3PtrINS_4usac23HomographyEstimatorImplEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4usac20FundamentalEstimator6createERKNS_3PtrINS0_13MinimalSolverEEERKNS2_INS0_16NonMinimalSolverEEERKNS2_INS0_10DegeneracyEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4usac20FundamentalEstimator6createERKNS_3PtrINS0_13MinimalSolverEEERKNS2_INS0_16NonMinimalSolverEEERKNS2_INS0_10DegeneracyEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.16") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_4usac24FundamentalEstimatorImplEED2Ev.exit:
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::shared_ptr.21", align 8
@@ -786,7 +786,7 @@ _ZN2cv3PtrINS_4usac24FundamentalEstimatorImplEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4usac18EssentialEstimator6createERKNS_3PtrINS0_13MinimalSolverEEERKNS2_INS0_16NonMinimalSolverEEERKNS2_INS0_10DegeneracyEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.24") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4usac18EssentialEstimator6createERKNS_3PtrINS0_13MinimalSolverEEERKNS2_INS0_16NonMinimalSolverEEERKNS2_INS0_10DegeneracyEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.24") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_4usac22EssentialEstimatorImplEED2Ev.exit:
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::shared_ptr.29", align 8

@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [64 x i8] c"sharedfp_lockedfile_request_position: released lock.for fd: %d\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_sharedfp_lockedfile_request_position(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define i32 @mca_sharedfp_lockedfile_request_position(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.flock, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8

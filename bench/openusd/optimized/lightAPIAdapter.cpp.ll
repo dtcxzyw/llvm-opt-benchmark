@@ -1266,7 +1266,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__28UsdImagingDataSourceMat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__25UsdImagingLightAPIAdapter24InvalidateImagingSubprimERKNS_7UsdPrimERKNS_7TfTokenES6_RKSt6vectorIS4_SaIS4_EENS_34UsdImagingPropertyInvalidationTypeE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, i32 %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__25UsdImagingLightAPIAdapter24InvalidateImagingSubprimERKNS_7UsdPrimERKNS_7TfTokenES6_RKSt6vectorIS4_SaIS4_EENS_34UsdImagingPropertyInvalidationTypeE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet") align 8 initializes((448, 456)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, i32 %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = load ptr, ptr %3, align 8
   %9 = icmp eq ptr %8, null
   %10 = load ptr, ptr %4, align 8

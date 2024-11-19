@@ -753,7 +753,7 @@ define hidden void @zim_PdoSqlite_createCollation(ptr noundef %0, ptr noundef %1
 declare void @pdo_sqlite_create_collation_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_sqlite_collation_callback(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal i32 @php_sqlite_collation_callback(ptr noundef initializes((32, 52), (56, 84)) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca [2 x %struct._zval_struct], align 16
   %7 = alloca %struct._zval_struct, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1022,7 +1022,7 @@ define internal noundef i32 @php_pdosqlite3_stream_flush(ptr nocapture readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #4 {
+define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   switch i32 %2, label %57 [
@@ -1150,7 +1150,7 @@ define internal noundef i32 @php_pdosqlite3_stream_cast(ptr nocapture readnone %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @php_pdosqlite3_stream_stat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define internal noundef i32 @php_pdosqlite3_stream_stat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((48, 56)) %1) #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16

@@ -156,7 +156,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.fbc89d1f2eb06d7ca114507bbed8d748.7.llvm.8566878086777466222 = external hidden unnamed_addr constant <{ [16 x i8] }>, align 16
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6c61bf8526572c10E"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6c61bf8526572c10E"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(168) initializes((120, 124)) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [8 x i8], align 8
   %5 = alloca [8 x i8], align 8
@@ -3443,7 +3443,7 @@ define void @_ZN4text10LineIndent11from_chunks17ha2fe1c0d15d2ef0eE(ptr dead_on_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN4text10LineIndent6spaces17h8825811e16fcda76E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([12 x i8]) align 4 dereferenceable(12) %0, i32 noundef %1) unnamed_addr #7 {
+define void @_ZN4text10LineIndent6spaces17h8825811e16fcda76E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([12 x i8]) align 4 dereferenceable(12) initializes((0, 9)) %0, i32 noundef %1) unnamed_addr #7 {
   store i32 0, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
@@ -3453,7 +3453,7 @@ define void @_ZN4text10LineIndent6spaces17h8825811e16fcda76E(ptr dead_on_unwind 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN4text10LineIndent4tabs17h01b66e5b60cf5b5cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([12 x i8]) align 4 dereferenceable(12) %0, i32 noundef %1) unnamed_addr #7 {
+define void @_ZN4text10LineIndent4tabs17h01b66e5b60cf5b5cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([12 x i8]) align 4 dereferenceable(12) initializes((0, 9)) %0, i32 noundef %1) unnamed_addr #7 {
   store i32 %1, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %3, align 4
@@ -4727,7 +4727,7 @@ define { i64, i32 } @_ZN4text6Buffer26transaction_group_interval17hc868e0fa1c848
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN4text6Buffer15set_line_ending17h48ed4a418214ead4E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(360) %0, i1 noundef zeroext %1) unnamed_addr #7 {
+define void @_ZN4text6Buffer15set_line_ending17h48ed4a418214ead4E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(360) initializes((242, 243)) %0, i1 noundef zeroext %1) unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 242
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 2
@@ -13537,7 +13537,7 @@ define void @_ZN4text14BufferSnapshot12deleted_text17hab8c7a2c6ec85cb8E(ptr dead
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN4text14BufferSnapshot9fragments17hd8080e48bd55160bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([272 x i8]) align 8 dereferenceable(272) %0, ptr noalias noundef readonly align 8 dereferenceable(104) %1) unnamed_addr #7 {
+define void @_ZN4text14BufferSnapshot9fragments17hd8080e48bd55160bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([272 x i8]) align 8 dereferenceable(272) initializes((0, 12)) %0, ptr noalias noundef readonly align 8 dereferenceable(104) %1) unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -15170,7 +15170,7 @@ define { ptr, ptr } @_ZN4text11RopeBuilder6finish17he02b9ce81d612e60E(ptr noalia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4text8Fragment15insertion_slice17h2289bf73a4c9380fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(152) %1) unnamed_addr #3 {
+define void @_ZN4text8Fragment15insertion_slice17h2289bf73a4c9380fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 22)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(152) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load i32, ptr %3, align 8, !noundef !9
   %5 = getelementptr inbounds i8, ptr %1, i64 76
@@ -15674,7 +15674,7 @@ _ZN4text7locator7Locator3min17he6c60f6e71e8d75bE.exit: ; preds = %.noexc.i, %.no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN58_$LT$text..InsertionFragment$u20$as$u20$sum_tree..Item$GT$7summary17hcb6079795dc28eb4E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #3 {
+define void @"_ZN58_$LT$text..InsertionFragment$u20$as$u20$sum_tree..Item$GT$7summary17hcb6079795dc28eb4E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 6), (8, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #3 {
   %4 = load i32, ptr %1, align 8, !noundef !9
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i16, ptr %5, align 4, !noundef !9
@@ -15689,7 +15689,7 @@ define void @"_ZN58_$LT$text..InsertionFragment$u20$as$u20$sum_tree..Item$GT$7su
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @"_ZN63_$LT$text..InsertionFragment$u20$as$u20$sum_tree..KeyedItem$GT$3key17hef423a9891da5bfaE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #10 {
+define void @"_ZN63_$LT$text..InsertionFragment$u20$as$u20$sum_tree..KeyedItem$GT$3key17hef423a9891da5bfaE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 6), (8, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #10 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3008)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3011)
   %3 = load i32, ptr %1, align 8, !alias.scope !3011, !noalias !3008, !noundef !9
@@ -15761,7 +15761,7 @@ _ZN4text17InsertionFragment3new17hefc319dadf3943afE.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN64_$LT$text..InsertionFragmentKey$u20$as$u20$sum_tree..Summary$GT$4zero17h0896c775a5bd88ecE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #7 {
+define void @"_ZN64_$LT$text..InsertionFragmentKey$u20$as$u20$sum_tree..Summary$GT$4zero17h0896c775a5bd88ecE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 6), (8, 16)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #7 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i16 0, ptr %3, align 4
@@ -15771,7 +15771,7 @@ define void @"_ZN64_$LT$text..InsertionFragmentKey$u20$as$u20$sum_tree..Summary$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN64_$LT$text..InsertionFragmentKey$u20$as$u20$sum_tree..Summary$GT$11add_summary17h245f0b4dfafb751aE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #3 {
+define void @"_ZN64_$LT$text..InsertionFragmentKey$u20$as$u20$sum_tree..Summary$GT$11add_summary17h245f0b4dfafb751aE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   ret void
 }

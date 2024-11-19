@@ -745,7 +745,7 @@ define range(i32 -1, 1) i32 @H5B_insert(ptr noundef %0, ptr noundef %1, i64 noun
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %6, ptr nocapture noundef writeonly %7, ptr noundef nonnull %8, ptr nocapture noundef nonnull %9) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef nonnull initializes((0, 1)) %4, ptr noundef nonnull %5, ptr noundef %6, ptr nocapture noundef writeonly %7, ptr noundef nonnull initializes((0, 1)) %8, ptr nocapture noundef nonnull %9) unnamed_addr #0 {
   %11 = alloca %struct.H5B_cache_ud_t, align 8
   %12 = alloca [3 x double], align 16
   %13 = alloca %struct.H5B_cache_ud_t, align 8
@@ -2762,7 +2762,7 @@ define noundef i32 @H5B_shared_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5B_get_info(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #0 {
+define i32 @H5B_get_info(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef initializes((0, 16)) %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.H5B_iter_ud_t, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr %3, ptr %7, align 8

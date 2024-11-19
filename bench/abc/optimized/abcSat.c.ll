@@ -536,7 +536,7 @@ declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #1
 declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkClauseTriv(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define i32 @Abc_NtkClauseTriv(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   %5 = ptrtoint ptr %1 to i64
@@ -596,7 +596,7 @@ Vec_IntPush.exit:                                 ; preds = %3, %Vec_IntGrow.exi
 declare i32 @sat_solver_addclause(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkClauseTop(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define i32 @Abc_NtkClauseTop(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr i8, ptr %1, i64 4
@@ -708,7 +708,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkClauseAnd(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define i32 @Abc_NtkClauseAnd(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
@@ -1040,7 +1040,7 @@ Vec_IntPush.exit56:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkClauseMux(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define i32 @Abc_NtkClauseMux(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef initializes((4, 8)) %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 64
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
@@ -2313,7 +2313,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 declare i32 @Abc_NodeIsMuxType(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkCollectSupergate(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Abc_NtkCollectSupergate(ptr noundef %0, i32 noundef %1, ptr noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   %5 = tail call i32 @Abc_NtkCollectSupergate_rec(ptr noundef %0, ptr noundef %2, i32 noundef 1, i32 noundef %1)
@@ -3864,7 +3864,7 @@ declare ptr @Cudd_ReadOne(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NodeAddClausesTop(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NodeAddClausesTop(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr i8, ptr %1, i64 32
   %.val59 = load ptr, ptr %4, align 8

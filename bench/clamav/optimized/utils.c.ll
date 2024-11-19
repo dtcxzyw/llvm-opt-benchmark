@@ -246,7 +246,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @onas_get_opt_list(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local ptr @onas_get_opt_list(ptr noundef %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   %5 = alloca i64, align 8
   store i64 0, ptr %5, align 8

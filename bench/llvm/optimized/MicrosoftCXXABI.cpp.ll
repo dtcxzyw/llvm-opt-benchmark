@@ -766,7 +766,7 @@ declare noundef ptr @_ZN5clang20ItaniumMangleContext6createERNS_10ASTContextERNS
 declare noundef nonnull align 8 dereferenceable(1304) ptr @_ZNK5clang10ASTContext14getDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(23096)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115MicrosoftCXXABID2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115MicrosoftCXXABID2Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_115MicrosoftCXXABIE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
@@ -838,7 +838,7 @@ _ZN4llvm13SmallDenseMapIPN5clang13CXXRecordDeclEPNS1_18CXXConstructorDeclELj4ENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115MicrosoftCXXABID0Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115MicrosoftCXXABID0Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_115MicrosoftCXXABID2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #12
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 240) #15
   ret void
@@ -1093,7 +1093,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_115MicrosoftCXXABI13isNearl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_115MicrosoftCXXABI28createMangleNumberingContextEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.441") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %1) unnamed_addr #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_115MicrosoftCXXABI28createMangleNumberingContextEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.441") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2112
@@ -1642,7 +1642,7 @@ declare noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef 
 declare void @_ZN5clang29createItaniumNumberingContextEPNS_13MangleContextE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.441") align 8, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121MSHIPNumberingContextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121MSHIPNumberingContextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_121MSHIPNumberingContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -1670,7 +1670,7 @@ _ZNSt10unique_ptrIN5clang22MangleNumberingContextESt14default_deleteIS1_EED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121MSHIPNumberingContextD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121MSHIPNumberingContextD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_121MSHIPNumberingContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -1874,7 +1874,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_121MSHIPNumberingContext23getDevice
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_125MicrosoftNumberingContextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_125MicrosoftNumberingContextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -1887,7 +1887,7 @@ define internal void @_ZN12_GLOBAL__N_125MicrosoftNumberingContextD2Ev(ptr nocap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_125MicrosoftNumberingContextD0Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_125MicrosoftNumberingContextD0Ev(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -2217,7 +2217,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef zeroext i1 @_ZN5clang17DiagnosticsEngine21EmitCurrentDiagnosticEb(ptr noundef nonnull align 8 dereferenceable(1304), i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122MSSYCLNumberingContextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_122MSSYCLNumberingContextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_122MSSYCLNumberingContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -2245,7 +2245,7 @@ _ZNSt10unique_ptrIN5clang22MangleNumberingContextESt14default_deleteIS1_EED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122MSSYCLNumberingContextD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_122MSSYCLNumberingContextD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_122MSSYCLNumberingContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8

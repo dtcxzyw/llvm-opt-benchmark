@@ -80,7 +80,7 @@ $_ZN4toku3omtIPNS_12lock_requestES2_Lb0EE15delete_internalEPNS_12omt_internal17s
 @.str.1 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku12lock_request6createESt10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr nocapture noundef readonly %mutex_factory) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4toku12lock_request6createESt10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEE(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 40)) %this, ptr nocapture noundef readonly %mutex_factory) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::shared_ptr.0", align 8
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
@@ -455,7 +455,7 @@ _ZNSt12__shared_ptrIN7rocksdb25TransactionDBMutexFactoryELN9__gnu_cxx12_Lock_pol
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku12lock_request7destroyEv(ptr noundef nonnull align 8 dereferenceable(224) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4toku12lock_request7destroyEv(ptr noundef nonnull align 8 dereferenceable(224) initializes((124, 128)) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_state4 = getelementptr inbounds i8, ptr %this, i64 124
   store i32 4, ptr %m_state4, align 4
@@ -546,7 +546,7 @@ _Z26toku_external_cond_destroyPSt10shared_ptrIN7rocksdb20TransactionDBCondVarEE.
 declare void @_Z16toku_destroy_dbtP10__toku_dbt(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku12lock_request3setEPNS_8locktreeEmPK10__toku_dbtS5_NS0_4typeEbPv(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %lt, i64 noundef %txnid, ptr noundef %left_key, ptr noundef %right_key, i32 noundef %lock_type, i1 noundef zeroext %big_txn, ptr noundef %extra) local_unnamed_addr #0 align 2 {
+define void @_ZN4toku12lock_request3setEPNS_8locktreeEmPK10__toku_dbtS5_NS0_4typeEbPv(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8), (24, 40), (112, 120)) %this, ptr noundef %lt, i64 noundef %txnid, ptr noundef %left_key, ptr noundef %right_key, i32 noundef %lock_type, i1 noundef zeroext %big_txn, ptr noundef %extra) local_unnamed_addr #0 align 2 {
 entry:
   %m_lt = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %lt, ptr %m_lt, align 8
@@ -1381,7 +1381,7 @@ if.end:                                           ; preds = %if.then, %_ZNK4toku
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4toku12lock_request8completeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) %this, i32 noundef %complete_r) local_unnamed_addr #3 align 2 {
+define void @_ZN4toku12lock_request8completeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((120, 128)) %this, i32 noundef %complete_r) local_unnamed_addr #3 align 2 {
 entry:
   %m_complete_r = getelementptr inbounds i8, ptr %this, i64 120
   store i32 %complete_r, ptr %m_complete_r, align 8
@@ -2822,7 +2822,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4toku12lock_request23set_start_test_callbackEPFvvE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) %this, ptr noundef %f) local_unnamed_addr #3 align 2 {
+define void @_ZN4toku12lock_request23set_start_test_callbackEPFvvE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((168, 176)) %this, ptr noundef %f) local_unnamed_addr #3 align 2 {
 entry:
   %m_start_test_callback = getelementptr inbounds i8, ptr %this, i64 168
   store ptr %f, ptr %m_start_test_callback, align 8
@@ -2830,7 +2830,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4toku12lock_request38set_start_before_pending_test_callbackEPFvvE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) %this, ptr noundef %f) local_unnamed_addr #3 align 2 {
+define void @_ZN4toku12lock_request38set_start_before_pending_test_callbackEPFvvE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((176, 184)) %this, ptr noundef %f) local_unnamed_addr #3 align 2 {
 entry:
   %m_start_before_pending_test_callback = getelementptr inbounds i8, ptr %this, i64 176
   store ptr %f, ptr %m_start_before_pending_test_callback, align 8
@@ -2838,7 +2838,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4toku12lock_request23set_retry_test_callbackEPFvvE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) %this, ptr noundef %f) local_unnamed_addr #3 align 2 {
+define void @_ZN4toku12lock_request23set_retry_test_callbackEPFvvE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((184, 192)) %this, ptr noundef %f) local_unnamed_addr #3 align 2 {
 entry:
   %m_retry_test_callback = getelementptr inbounds i8, ptr %this, i64 184
   store ptr %f, ptr %m_retry_test_callback, align 8

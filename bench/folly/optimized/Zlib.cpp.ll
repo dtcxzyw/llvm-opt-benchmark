@@ -1573,7 +1573,7 @@ declare void @_ZNK5folly2io5Codec23doGetUncompressedLengthEPKNS_5IOBufENS_8Optio
 declare noundef zeroext i1 @_ZNK5folly2io11StreamCodec17doNeedsDataLengthEv(ptr noundef nonnull align 8 dereferenceable(49)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5folly2io4zlib12_GLOBAL__N_115ZlibStreamCodec13doResetStreamEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(320) %this) unnamed_addr #11 align 2 {
+define internal void @_ZN5folly2io4zlib12_GLOBAL__N_115ZlibStreamCodec13doResetStreamEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(320) initializes((316, 317)) %this) unnamed_addr #11 align 2 {
 entry:
   %needReset_ = getelementptr inbounds i8, ptr %this, i64 316
   store i8 1, ptr %needReset_, align 4, !tbaa !35

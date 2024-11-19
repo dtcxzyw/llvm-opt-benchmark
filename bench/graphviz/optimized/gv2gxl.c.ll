@@ -548,7 +548,7 @@ writeEdgeTest.exit:                               ; preds = %.lr.ph.i43, %addid.
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @writeHdr(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @writeHdr(ptr nocapture noundef nonnull initializes((40, 41)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.namev_t, align 8
   %6 = alloca %struct.agxbuf, align 8
   %7 = load i32, ptr @Level, align 4

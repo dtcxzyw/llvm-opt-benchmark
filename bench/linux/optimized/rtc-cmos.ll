@@ -1432,7 +1432,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 declare dso_local zeroext i1 @mc146818_avoid_UIP(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @cmos_read_alarm_callback(i8 zeroext %0, ptr nocapture noundef %1) #3 align 16 {
+define internal void @cmos_read_alarm_callback(i8 zeroext %0, ptr nocapture noundef initializes((16, 17)) %1) #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call zeroext i8 @rtc_cmos_read(i8 noundef zeroext 1) #9

@@ -31,7 +31,7 @@ return:                                           ; preds = %entry, %if.end, %if
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CRYPTO_ocb128_init(ptr noundef %ctx, ptr noundef %keyenc, ptr noundef %keydec, ptr noundef %encrypt, ptr noundef %decrypt, ptr noundef %stream) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_ocb128_init(ptr noundef initializes((0, 176)) %ctx, ptr noundef %keyenc, ptr noundef %keydec, ptr noundef %encrypt, ptr noundef %decrypt, ptr noundef %stream) local_unnamed_addr #0 {
 entry:
   %l_index = getelementptr inbounds i8, ptr %ctx, i64 40
   %max_l_index = getelementptr inbounds i8, ptr %ctx, i64 48
@@ -226,7 +226,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CRYPTO_ocb128_copy_ctx(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %src, ptr noundef %keyenc, ptr noundef %keydec) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_ocb128_copy_ctx(ptr nocapture noundef writeonly initializes((0, 176)) %dest, ptr nocapture noundef readonly %src, ptr noundef %keyenc, ptr noundef %keydec) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %dest, ptr noundef nonnull align 8 dereferenceable(176) %src, i64 176, i1 false)
   %tobool.not = icmp eq ptr %keyenc, null

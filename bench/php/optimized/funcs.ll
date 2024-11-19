@@ -540,7 +540,7 @@ define hidden range(i32 -1, 2) i32 @file_default(ptr nocapture noundef %0, i64 n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 1, 0) i32 @file_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #2 {
+define hidden range(i32 1, 0) i32 @file_buffer(ptr noundef initializes((96, 100)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #2 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8

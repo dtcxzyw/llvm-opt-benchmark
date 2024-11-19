@@ -102,7 +102,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.34 = private unnamed_addr constant [14 x i8] c"pmix.grp.mbrs\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @gtcon(ptr noundef %0) #0 {
+define internal void @gtcon(ptr noundef initializes((168, 180), (184, 248)) %0) #0 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
@@ -1277,7 +1277,7 @@ pmix_obj_run_destructors.exit207:                 ; preds = %.lr.ph.i204, %386
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @info_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 {
+define internal void @info_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef initializes((344, 348)) %3, ptr noundef readonly %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 344
   store i32 %0, ptr %7, align 8
   %.not = icmp eq ptr %1, null
@@ -2769,7 +2769,7 @@ pmix_obj_run_destructors.exit215:                 ; preds = %.lr.ph.i212, %394
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_cbfunc(i32 noundef %0, ptr noundef %1) #0 {
+define internal void @op_cbfunc(i32 noundef %0, ptr noundef initializes((344, 348)) %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 344
   store i32 %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 432
@@ -5073,7 +5073,7 @@ define internal void @invite_handler(i64 %0, i32 noundef %1, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @regcbfunc(i32 noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+define internal void @regcbfunc(i32 noundef %0, i64 noundef %1, ptr noundef initializes((344, 348), (352, 360)) %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 344
   store i32 %0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 352
@@ -5590,7 +5590,7 @@ pmix_obj_run_destructors.exit74:                  ; preds = %.lr.ph.i71, %100
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_cbfunc_rel(i32 noundef %0, ptr noundef %1) #0 {
+define internal void @op_cbfunc_rel(i32 noundef %0, ptr noundef initializes((344, 348)) %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 344
   store i32 %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 432

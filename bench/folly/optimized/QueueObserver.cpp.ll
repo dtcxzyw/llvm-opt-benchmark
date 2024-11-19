@@ -517,7 +517,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115WorkerKeepAliveD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_115WorkerKeepAliveD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115WorkerKeepAliveE, i64 16), ptr %this, align 8, !tbaa !7
   %threadsExitLock_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -546,7 +546,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115WorkerKeepAliveD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_115WorkerKeepAliveD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115WorkerKeepAliveE, i64 16), ptr %this, align 8, !tbaa !7
   %threadsExitLock_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2116,7 +2116,7 @@ entry:
 declare extern_weak void @_ZN5folly27make_queue_observer_factoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPNS_14WorkerProviderE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.30") align 8, ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_136make_queue_observer_factory_fallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPN5folly14WorkerProviderE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.30") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %0, i64 %1, ptr nocapture readnone %2) unnamed_addr #17 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_136make_queue_observer_factory_fallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmPN5folly14WorkerProviderE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.30") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %0, i64 %1, ptr nocapture readnone %2) unnamed_addr #17 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 8, !tbaa !90
   ret void

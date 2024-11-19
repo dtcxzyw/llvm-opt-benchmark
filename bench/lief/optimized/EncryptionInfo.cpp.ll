@@ -143,21 +143,21 @@ define noundef i32 @_ZNK4LIEF5MachO14EncryptionInfo8crypt_idEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO14EncryptionInfo12crypt_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF5MachO14EncryptionInfo12crypt_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) initializes((56, 60)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO14EncryptionInfo10crypt_sizeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF5MachO14EncryptionInfo10crypt_sizeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) initializes((60, 64)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO14EncryptionInfo8crypt_idEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF5MachO14EncryptionInfo8crypt_idEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8
   ret void

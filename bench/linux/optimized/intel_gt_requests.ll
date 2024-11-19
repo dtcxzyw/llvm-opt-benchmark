@@ -77,7 +77,7 @@ define dso_local void @intel_engine_add_retire(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @intel_engine_init_retire(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_engine_init_retire(ptr noundef initializes((1200, 1208)) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1200
   store i64 68719476704, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1208
@@ -552,7 +552,7 @@ declare dso_local i64 @dma_fence_wait_timeout(ptr noundef, i1 noundef zeroext, i
 declare dso_local void @__intel_timeline_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gt_init_requests(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_gt_init_requests(ptr noundef initializes((3168, 3176)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 3168
   store i64 68719476704, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 3176

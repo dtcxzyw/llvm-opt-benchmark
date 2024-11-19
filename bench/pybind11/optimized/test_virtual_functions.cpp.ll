@@ -57144,7 +57144,7 @@ _ZN8pybind116detail16simple_collectorILNS_19return_value_policyE1EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN3PyAD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN3PyAD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVZ32test_submodule_virtual_functionsRN8pybind117module_EE3PyA, i64 16), ptr %0, align 8
   invoke void @_ZN8pybind115printILNS_19return_value_policyE1EJRA11_KcEEEvDpOT0_(ptr noundef nonnull align 1 dereferenceable(11) @.str.216)
           to label %2 unwind label %3
@@ -57161,7 +57161,7 @@ define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN3PyAD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN3PyAD0Ev(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVZ32test_submodule_virtual_functionsRN8pybind117module_EE3PyA, i64 16), ptr %0, align 8
   invoke void @_ZN8pybind115printILNS_19return_value_policyE1EJRA11_KcEEEvDpOT0_(ptr noundef nonnull align 1 dereferenceable(11) @.str.216)
           to label %_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN3PyAD2Ev.exit unwind label %2
@@ -58431,7 +58431,7 @@ _ZN8pybind116detail16simple_collectorILNS_19return_value_policyE1EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN4PyA2D2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN4PyA2D2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVZ32test_submodule_virtual_functionsRN8pybind117module_EE4PyA2, i64 16), ptr %0, align 8
   invoke void @_ZN8pybind115printILNS_19return_value_policyE1EJRA13_KcEEEvDpOT0_(ptr noundef nonnull align 1 dereferenceable(13) @.str.220)
           to label %2 unwind label %3
@@ -58448,7 +58448,7 @@ define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN4PyA2D0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN4PyA2D0Ev(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVZ32test_submodule_virtual_functionsRN8pybind117module_EE4PyA2, i64 16), ptr %0, align 8
   invoke void @_ZN8pybind115printILNS_19return_value_policyE1EJRA13_KcEEEvDpOT0_(ptr noundef nonnull align 1 dereferenceable(13) @.str.220)
           to label %_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN4PyA2D2Ev.exit unwind label %2
@@ -66851,7 +66851,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJRKNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN12OverrideTestC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN12OverrideTestC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct._Guard, align 8
   %4 = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVZ32test_submodule_virtual_functionsRN8pybind117module_EE12OverrideTest, i64 16), ptr %0, align 8
@@ -66942,7 +66942,7 @@ define internal noundef nonnull align 8 dereferenceable(32) ptr @_ZZ32test_submo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN12OverrideTestD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
+define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN12OverrideTestD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVZ32test_submodule_virtual_functionsRN8pybind117module_EE12OverrideTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
@@ -66952,7 +66952,7 @@ define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN12OverrideTestD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
+define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN12OverrideTestD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVZ32test_submodule_virtual_functionsRN8pybind117module_EE12OverrideTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
@@ -68035,7 +68035,7 @@ _ZN8pybind1118gil_scoped_acquireD2Ev.exit:        ; preds = %.noexc2.i, %_ZN8pyb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN14PyOverrideTestD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
+define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN14PyOverrideTestD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVZ32test_submodule_virtual_functionsRN8pybind117module_EE14PyOverrideTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
@@ -68048,7 +68048,7 @@ define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN14PyOverrideTestD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
+define internal void @_ZZ32test_submodule_virtual_functionsRN8pybind117module_EEN14PyOverrideTestD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVZ32test_submodule_virtual_functionsRN8pybind117module_EE14PyOverrideTest, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27

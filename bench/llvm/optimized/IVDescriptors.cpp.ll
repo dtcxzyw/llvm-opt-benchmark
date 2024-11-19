@@ -2223,7 +2223,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit: ; preds = %.lr.
 declare noundef zeroext i1 @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm20RecurrenceDescriptor23isConditionalRdxPatternENS_9RecurKindEPNS_11InstructionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::RecurrenceDescriptor::InstDesc") align 8 %0, i32 %1, ptr noundef %2) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm20RecurrenceDescriptor23isConditionalRdxPatternENS_9RecurKindEPNS_11InstructionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::RecurrenceDescriptor::InstDesc") align 8 initializes((0, 1), (8, 20), (24, 32)) %0, i32 %1, ptr noundef %2) local_unnamed_addr #5 align 2 {
   %4 = load i8, ptr %2, align 8
   %.not = icmp eq i8 %4, 86
   br i1 %.not, label %9, label %5
@@ -2471,7 +2471,7 @@ thread-pre-split:                                 ; preds = %_ZN4llvm12PatternMa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20RecurrenceDescriptor14isAnyOfPatternEPNS_4LoopEPNS_7PHINodeEPNS_11InstructionERNS0_8InstDescE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::RecurrenceDescriptor::InstDesc") align 8 %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm20RecurrenceDescriptor14isAnyOfPatternEPNS_4LoopEPNS_7PHINodeEPNS_11InstructionERNS0_8InstDescE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::RecurrenceDescriptor::InstDesc") align 8 initializes((0, 1), (8, 20), (24, 32)) %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i.i = icmp eq ptr %7, null
@@ -2601,7 +2601,7 @@ _ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12OneUse_matchINS0_14CmpClass_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20RecurrenceDescriptor15isMinMaxPatternEPNS_11InstructionENS_9RecurKindERKNS0_8InstDescE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::RecurrenceDescriptor::InstDesc") align 8 %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm20RecurrenceDescriptor15isMinMaxPatternEPNS_11InstructionENS_9RecurKindERKNS0_8InstDescE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::RecurrenceDescriptor::InstDesc") align 8 initializes((0, 1), (8, 20), (24, 32)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::PatternMatch::match_combine_and.99", align 8
   %6 = alloca %"struct.llvm::PatternMatch::match_combine_and.99", align 8
   %7 = alloca %"struct.llvm::PatternMatch::match_combine_and.99", align 8
@@ -3682,7 +3682,7 @@ _ZN4llvm8bit_ceilImEET_S1_.exit:                  ; preds = %.critedge, %71
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17collectCastInstrsPN4llvm4LoopEPNS_11InstructionEPNS_4TypeERNS_15SmallPtrSetImplIS3_EERj(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL17collectCastInstrsPN4llvm4LoopEPNS_11InstructionEPNS_4TypeERNS_15SmallPtrSetImplIS3_EERj(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::SmallVector", align 8
   %7 = alloca %"class.llvm::SmallPtrSet.8", align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -5635,7 +5635,7 @@ define linkonce_odr hidden void @_ZN4llvm11SmallVectorIPNS_11InstructionELj4EEC2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19InductionDescriptorC2EPNS_5ValueENS0_13InductionKindEPKNS_4SCEVEPNS_14BinaryOperatorEPNS_15SmallVectorImplIPNS_11InstructionEEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19InductionDescriptorC2EPNS_5ValueENS0_13InductionKindEPKNS_4SCEVEPNS_14BinaryOperatorEPNS_15SmallVectorImplIPNS_11InstructionEEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 24)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
   store i64 6, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)

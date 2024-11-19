@@ -93,7 +93,7 @@ entry:
 declare void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZNK6Assimp23GenVertexNormalsProcess8IsActiveEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(31) %this, i32 noundef %pFlags) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK6Assimp23GenVertexNormalsProcess8IsActiveEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(31) initializes((28, 31)) %this, i32 noundef %pFlags) unnamed_addr #2 align 2 {
 entry:
   %force_ = getelementptr inbounds i8, ptr %this, i64 28
   %and = lshr i32 %pFlags, 29
@@ -116,7 +116,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp23GenVertexNormalsProcess15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(31) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 {
+define void @_ZN6Assimp23GenVertexNormalsProcess15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(31) initializes((24, 28)) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef float @_ZNK6Assimp8Importer16GetPropertyFloatEPKcf(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str, float noundef 1.750000e+02)
   %configMaxAngle = getelementptr inbounds i8, ptr %this, i64 24

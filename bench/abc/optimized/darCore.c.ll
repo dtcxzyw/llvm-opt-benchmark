@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [46 x i8] c"Aig_ManRewrite: The network check has failed.\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Dar_ManDefaultRwrParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @Dar_ManDefaultRwrParams(ptr nocapture noundef writeonly initializes((0, 40)) %0) local_unnamed_addr #0 {
   store i32 8, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 5, ptr %2, align 4

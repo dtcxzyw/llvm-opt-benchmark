@@ -97,7 +97,7 @@ declare dso_local void @intel_pxp_tee_component_fini(ptr noundef) local_unnamed_
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @intel_pxp_mark_termination_in_progress(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 align 16 {
+define dso_local void @intel_pxp_mark_termination_in_progress(ptr nocapture noundef writeonly initializes((128, 129), (192, 196)) %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 192

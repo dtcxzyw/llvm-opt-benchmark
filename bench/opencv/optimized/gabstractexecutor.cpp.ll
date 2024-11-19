@@ -216,7 +216,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5gimpl17GAbstractExecutorC2EOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5gimpl17GAbstractExecutorC2EOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 16)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.ade::details::InitIdsArray.150", align 1
   %4 = alloca %"struct.ade::details::InitIdsArray", align 1
   %5 = alloca %"class.ade::details::MetadataId", align 8

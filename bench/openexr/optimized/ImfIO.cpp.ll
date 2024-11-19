@@ -27,7 +27,7 @@ $__clang_call_terminate = comdat any
 @_ZN7Imf_3_27OStreamD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7Imf_3_27OStreamD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_27IStreamC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %fileName) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_27IStreamC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this, ptr noundef %fileName) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_27IStreamE, i64 16), ptr %this, align 8
@@ -87,7 +87,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Imf_3_27IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 align 2 {
+define void @_ZN7Imf_3_27IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_27IStreamE, i64 16), ptr %this, align 8
   %_fileName = getelementptr inbounds i8, ptr %this, i64 8
@@ -162,7 +162,7 @@ entry:
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_27OStreamC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %fileName) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_27OStreamC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this, ptr noundef %fileName) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_27OStreamE, i64 16), ptr %this, align 8
@@ -214,7 +214,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Imf_3_27OStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 align 2 {
+define void @_ZN7Imf_3_27OStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_27OStreamE, i64 16), ptr %this, align 8
   %_fileName = getelementptr inbounds i8, ptr %this, i64 8

@@ -244,7 +244,7 @@ define hidden noalias noundef nonnull ptr @"_ZN68_$LT$alloc..sync..Arc$LT$T$GT$$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN86_$LT$assistant_tool..tool_registry..ToolRegistry$u20$as$u20$core..default..Default$GT$7default17h0bb0ac8e11644a88E.llvm.1280695209766896138"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #5 {
+define hidden void @"_ZN86_$LT$assistant_tool..tool_registry..ToolRegistry$u20$as$u20$core..default..Default$GT$7default17h0bb0ac8e11644a88E.llvm.1280695209766896138"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #5 {
   store i64 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) @anon.6f7c9c45d78fddb753f0fddff7e71c08.3.llvm.1280695209766896138, i64 32, i1 false)

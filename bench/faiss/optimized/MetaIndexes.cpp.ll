@@ -1287,7 +1287,7 @@ define void @_ZNK5faiss11IndexRandom6searchElPKflPfPlPKNS_16SearchParametersE(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss11IndexRandom5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 {
+define void @_ZN5faiss11IndexRandom5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((16, 24)) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   ret void
@@ -1330,7 +1330,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss17IndexSplitVectorsC2Elb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #5 align 2 {
+define void @_ZN5faiss17IndexSplitVectorsC2Elb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 12), (16, 26), (28, 38), (40, 72)) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #5 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = trunc i64 %1 to i32
@@ -2543,7 +2543,7 @@ declare void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonn
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5faiss17IndexSplitVectorsD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss17IndexSplitVectorsD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss17IndexSplitVectorsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
@@ -2609,7 +2609,7 @@ _ZNSt6vectorIPN5faiss5IndexESaIS2_EED2Ev.exit:    ; preds = %.loopexit, %27
 declare void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss11IndexRandomC2ElllNS_10MetricTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #5 align 2 {
+define void @_ZN5faiss11IndexRandomC2ElllNS_10MetricTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 12), (16, 26), (28, 36), (40, 48)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #5 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = trunc i64 %1 to i32
   store i32 %7, ptr %6, align 8

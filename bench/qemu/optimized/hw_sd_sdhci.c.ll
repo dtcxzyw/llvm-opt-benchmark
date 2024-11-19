@@ -5234,7 +5234,7 @@ declare zeroext i1 @sdbus_get_cmd_line(ptr noundef) local_unnamed_addr #1
 declare void @timer_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @sdhci_send_command(ptr noundef %s) unnamed_addr #0 {
+define internal fastcc void @sdhci_send_command(ptr noundef initializes((3190, 3192), (3200, 3202)) %s) unnamed_addr #0 {
 entry:
   %_now.i.i62 = alloca %struct.timeval, align 8
   %_now.i.i48 = alloca %struct.timeval, align 8

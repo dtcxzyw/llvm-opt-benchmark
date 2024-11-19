@@ -4367,7 +4367,7 @@ declare ptr @PyObject_CallFunctionObjArgs(ptr noundef, ...) local_unnamed_addr #
 declare ptr @PyObject_CallFunction(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @load_data(ptr nocapture noundef readonly %state, ptr nocapture noundef nonnull %self, ptr noundef %file_obj) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @load_data(ptr nocapture noundef readonly %state, ptr nocapture noundef nonnull initializes((24, 32), (56, 88), (192, 200)) %self, ptr noundef %file_obj) unnamed_addr #1 {
 entry:
   %trans_list_utc = getelementptr inbounds i8, ptr %self, i64 56
   %trans_list_wall = getelementptr inbounds i8, ptr %self, i64 64
@@ -5230,7 +5230,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @build_ttinfo(ptr nocapture noundef readonly %state, i64 noundef %utcoffset, i64 noundef %dstoffset, ptr noundef %tzname, ptr nocapture noundef writeonly %out) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @build_ttinfo(ptr nocapture noundef readonly %state, i64 noundef %utcoffset, i64 noundef %dstoffset, ptr noundef %tzname, ptr nocapture noundef writeonly initializes((0, 32)) %out) unnamed_addr #1 {
 entry:
   %tzname1 = getelementptr inbounds i8, ptr %out, i64 16
   %utcoff_seconds = getelementptr inbounds i8, ptr %out, i64 24
@@ -6484,7 +6484,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 1) i32 @parse_transition_time(ptr nocapture noundef nonnull %p, ptr nocapture noundef nonnull writeonly %hour, ptr nocapture noundef nonnull writeonly %minute, ptr nocapture noundef nonnull writeonly %second) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @parse_transition_time(ptr nocapture noundef nonnull %p, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %hour, ptr nocapture noundef nonnull writeonly %minute, ptr nocapture noundef nonnull writeonly %second) unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %p, align 8
   %1 = load i8, ptr %0, align 1

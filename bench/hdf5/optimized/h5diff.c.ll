@@ -129,7 +129,7 @@ define void @do_print_attrname(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @h5diff(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define i64 @h5diff(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((136, 140)) %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %struct.H5O_info2_t, align 8

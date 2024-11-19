@@ -204,7 +204,7 @@ _ZN8facebook5velox6common3hll12_GLOBAL__N_121initializeInputStreamEPKc.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK8facebook5velox6common3hll9SparseHll9serializeEaPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this, i8 noundef signext %indexBitLength, ptr nocapture noundef writeonly %output) local_unnamed_addr #4 align 2 {
+define void @_ZNK8facebook5velox6common3hll9SparseHll9serializeEaPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this, i8 noundef signext %indexBitLength, ptr nocapture noundef writeonly initializes((0, 4)) %output) local_unnamed_addr #4 align 2 {
 entry:
   store i8 2, ptr %output, align 1
   %add.ptr.i5 = getelementptr inbounds i8, ptr %output, i64 1

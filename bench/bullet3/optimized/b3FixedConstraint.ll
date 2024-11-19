@@ -135,14 +135,14 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN17b3FixedConstraintD2Ev(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(112) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN17b3FixedConstraintD2Ev(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17b3TypedConstraint, i64 16), ptr %this, align 16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN17b3FixedConstraintD0Ev(ptr noundef nonnull align 16 dereferenceable(112) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17b3FixedConstraintD0Ev(ptr noundef nonnull align 16 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17b3TypedConstraint, i64 16), ptr %this, align 16
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %this)
@@ -160,7 +160,7 @@ _ZN17b3TypedConstraintdlEPv.exit:                 ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN17b3FixedConstraint8getInfo1EPN17b3TypedConstraint17b3ConstraintInfo1EPK15b3RigidBodyData(ptr nocapture nonnull readnone align 16 %this, ptr nocapture noundef writeonly %info, ptr nocapture readnone %bodies) unnamed_addr #3 align 2 {
+define dso_local void @_ZN17b3FixedConstraint8getInfo1EPN17b3TypedConstraint17b3ConstraintInfo1EPK15b3RigidBodyData(ptr nocapture nonnull readnone align 16 %this, ptr nocapture noundef writeonly initializes((0, 8)) %info, ptr nocapture readnone %bodies) unnamed_addr #3 align 2 {
 entry:
   store i32 6, ptr %info, align 4
   %nub = getelementptr inbounds i8, ptr %info, i64 4

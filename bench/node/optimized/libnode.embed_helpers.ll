@@ -421,7 +421,7 @@ declare i64 @_ZN4node23EmitProcessExitInternalEPNS_11EnvironmentE(ptr noundef) l
 declare void @_ZN2v815SealHandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node22CommonEnvironmentSetupC2EPNS_20MultiIsolatePlatformEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEPKNS_20EmbedderSnapshotDataEjSt8functionIFPNS_11EnvironmentEPKS0_EEPKNS_14SnapshotConfigE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %platform, ptr noundef %errors, ptr noundef %snapshot_data, i32 noundef %flags, ptr noundef %make_env, ptr noundef %snapshot_config) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node22CommonEnvironmentSetupC2EPNS_20MultiIsolatePlatformEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEPKNS_20EmbedderSnapshotDataEjSt8functionIFPNS_11EnvironmentEPKS0_EEPKNS_14SnapshotConfigE(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %platform, ptr noundef %errors, ptr noundef %snapshot_data, i32 noundef %flags, ptr noundef %make_env, ptr noundef %snapshot_config) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i.i61 = alloca %"class.std::__cxx11::basic_string", align 8
   %__args.addr.i44 = alloca ptr, align 8
@@ -1065,7 +1065,7 @@ declare void @_ZN2v88TryCatchD1Ev(ptr noundef nonnull align 8 dereferenceable(41
 declare void @_ZN2v86LockerD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node22CommonEnvironmentSetupC2EPNS_20MultiIsolatePlatformEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESt8functionIFPNS_11EnvironmentEPKS0_EE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %platform, ptr noundef %errors, ptr noundef %make_env) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node22CommonEnvironmentSetupC2EPNS_20MultiIsolatePlatformEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESt8functionIFPNS_11EnvironmentEPKS0_EE(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %platform, ptr noundef %errors, ptr noundef %make_env) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::function.256", align 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %make_env, i64 16
@@ -1101,7 +1101,7 @@ _ZNSt8functionIFPN4node11EnvironmentEPKNS0_22CommonEnvironmentSetupEEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node22CommonEnvironmentSetup21CreateForSnapshottingEPNS_20MultiIsolatePlatformEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKSB_SE_RKNS_14SnapshotConfigE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.357") align 8 %agg.result, ptr noundef %platform, ptr noundef %errors, ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef nonnull align 8 dereferenceable(24) %exec_args, ptr noundef nonnull align 8 dereferenceable(48) %snapshot_config) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node22CommonEnvironmentSetup21CreateForSnapshottingEPNS_20MultiIsolatePlatformEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKSB_SE_RKNS_14SnapshotConfigE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.357") align 8 initializes((0, 8)) %agg.result, ptr noundef %platform, ptr noundef %errors, ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef nonnull align 8 dereferenceable(24) %exec_args, ptr noundef nonnull align 8 dereferenceable(48) %snapshot_config) local_unnamed_addr #3 align 2 {
 entry:
   %env_flags = alloca i64, align 8
   %agg.tmp = alloca %"class.std::function.256", align 8
@@ -1505,7 +1505,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local void @_ZNK4node22CommonEnvironmentSetup22array_buffer_allocatorEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.262") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZNK4node22CommonEnvironmentSetup22array_buffer_allocatorEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.262") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %allocator = getelementptr inbounds i8, ptr %0, i64 856
@@ -1623,7 +1623,7 @@ delete.end15:                                     ; preds = %entry, %delete.notn
 declare void @_ZN4node12SnapshotDataD1Ev(ptr noundef nonnull align 8 dereferenceable(416)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node20EmbedderSnapshotData19BuiltinSnapshotDataEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.368") align 8 %agg.result) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node20EmbedderSnapshotData19BuiltinSnapshotDataEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.368") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   %call1 = tail call noundef ptr @_ZN4node15SnapshotBuilder23GetEmbeddedSnapshotDataEv() #21
@@ -1744,7 +1744,7 @@ entry:
 declare void @_ZNK4node12SnapshotData6ToFileEP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(416), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node20EmbedderSnapshotDataC2EPKNS_12SnapshotDataEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %this, ptr noundef %impl, i1 noundef zeroext %owns_impl) unnamed_addr #12 align 2 {
+define dso_local void @_ZN4node20EmbedderSnapshotDataC2EPKNS_12SnapshotDataEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %this, ptr noundef %impl, i1 noundef zeroext %owns_impl) unnamed_addr #12 align 2 {
 entry:
   %frombool = zext i1 %owns_impl to i8
   store ptr %impl, ptr %this, align 8
@@ -1774,7 +1774,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @_ZN2v87Isolate4ExitEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @"_ZZN4node22CommonEnvironmentSetupD1EvEN3$_08__invokeEPv"(ptr nocapture noundef writeonly %data) #12 align 2 {
+define internal void @"_ZZN4node22CommonEnvironmentSetupD1EvEN3$_08__invokeEPv"(ptr nocapture noundef writeonly initializes((0, 1)) %data) #12 align 2 {
 entry:
   store i8 1, ptr %data, align 1
   ret void

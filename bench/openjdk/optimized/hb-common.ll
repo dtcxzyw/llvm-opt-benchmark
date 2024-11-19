@@ -315,7 +315,7 @@ define hidden i32 @hb_tag_from_string(ptr noundef readonly %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @hb_tag_to_string(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define hidden void @hb_tag_to_string(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 {
   %3 = lshr i32 %0, 24
   %4 = trunc nuw i32 %3 to i8
   store i8 %4, ptr %1, align 1
@@ -868,7 +868,7 @@ define hidden range(i32 0, 6) i32 @hb_script_get_horizontal_direction(i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @hb_version(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define hidden void @hb_version(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #4 {
   store i32 8, ptr %0, align 4
   store i32 2, ptr %1, align 4
   store i32 2, ptr %2, align 4

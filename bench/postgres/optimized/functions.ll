@@ -178,7 +178,7 @@ declare i64 @SysCacheGetAttr(i32 noundef, ptr noundef, i16 noundef signext, ptr 
 declare i32 @get_func_input_arg_names(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @sql_fn_parser_setup(ptr nocapture noundef writeonly %0, ptr noundef %1) #4 {
+define dso_local void @sql_fn_parser_setup(ptr nocapture noundef writeonly initializes((184, 208), (216, 224)) %0, ptr noundef %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 192

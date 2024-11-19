@@ -139,7 +139,7 @@ declare ptr @__errno_location() local_unnamed_addr #2
 declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @onas_recvlninit(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define dso_local void @onas_recvlninit(ptr noundef initializes((5128, 5140)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 5128
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 5136
@@ -156,7 +156,7 @@ define dso_local void @onas_recvlninit(ptr noundef %0, ptr noundef %1, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @onas_recvln(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @onas_recvln(ptr noundef initializes((5136, 5140)) %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.timeval, align 8
   %6 = alloca %struct.fd_set, align 8
   %7 = alloca %struct.fd_set, align 8

@@ -73,7 +73,7 @@ $_ZZN5folly19uncaught_exceptionsEvE2ct = comdat any
 @_ZN5folly6fibers5Fiber9LocalDataC1ERKS2_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN5folly6fibers5Fiber9LocalDataC2ERKS2_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6fibers5Fiber6resumeEv(ptr noundef nonnull align 64 dereferenceable(936) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6fibers5Fiber6resumeEv(ptr noundef nonnull align 64 dereferenceable(936) initializes((0, 1)) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 2, ptr %this, align 64, !tbaa !7
   %threadId_ = getelementptr inbounds i8, ptr %this, i64 928
@@ -164,7 +164,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6fibers5FiberC2ERNS0_12FiberManagerE(ptr noundef nonnull align 64 dereferenceable(936) %this, ptr noundef nonnull align 16 dereferenceable(577) %fiberManager) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6fibers5FiberC2ERNS0_12FiberManagerE(ptr noundef nonnull align 64 dereferenceable(936) initializes((0, 4), (8, 40), (112, 128)) %this, ptr noundef nonnull align 16 dereferenceable(577) %fiberManager) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit.i:
   %fiberManager_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %this, align 64
@@ -363,7 +363,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN5folly6fibers5Fiber9fiberFuncEv(ptr noundef nonnull align 64 dereferenceable(936) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6fibers5Fiber9fiberFuncEv(ptr noundef nonnull align 64 dereferenceable(936) initializes((0, 1), (928, 936)) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %comb.i15 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %comb.i4 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
@@ -916,7 +916,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6fibers5Fiber4initEb(ptr noundef nonnull align 64 dereferenceable(936) %this, i1 noundef zeroext %recordStackUsed) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6fibers5Fiber4initEb(ptr noundef nonnull align 64 dereferenceable(936) initializes((2, 3)) %this, i1 noundef zeroext %recordStackUsed) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_result = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp = alloca i64, align 8
@@ -1856,7 +1856,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #16
 declare noundef ptr @_ZN5folly6detail23uncaught_exceptions_ptrEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK5folly6fibers5Fiber14getRunningTimeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 64 dereferenceable(936) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly6fibers5Fiber14getRunningTimeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 64 dereferenceable(936) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tp.i = alloca %struct.timespec, align 8
   %clockid.i = alloca i32, align 4
@@ -1999,7 +1999,7 @@ return:                                           ; preds = %if.end7, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6fibers5Fiber9LocalDataC2ERKS2_(ptr noundef nonnull align 64 dereferenceable(176) %this, ptr noundef nonnull align 64 dereferenceable(176) %other) unnamed_addr #0 align 2 {
+define void @_ZN5folly6fibers5Fiber9LocalDataC2ERKS2_(ptr noundef nonnull align 64 dereferenceable(176) initializes((128, 176)) %this, ptr noundef nonnull align 64 dereferenceable(176) %other) unnamed_addr #0 align 2 {
 _ZN5folly6fibers5Fiber9LocalData5resetEv.exit.i:
   %vtable_ = getelementptr inbounds i8, ptr %this, i64 128
   %make_copy = getelementptr inbounds i8, ptr %this, i64 136

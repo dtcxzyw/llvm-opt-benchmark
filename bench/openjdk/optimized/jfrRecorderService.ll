@@ -181,7 +181,7 @@ $_ZGVZ19compressed_integersvE13comp_integers = comdat any
 @_ZN18JfrRecorderServiceC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN18JfrRecorderServiceC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18JfrRecorderServiceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN18JfrRecorderServiceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN20JfrCheckpointManager8instanceEv() #14
   store ptr %2, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8

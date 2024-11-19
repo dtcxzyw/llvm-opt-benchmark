@@ -391,7 +391,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN13DrawImageStepC2EhN3irr4core8vector2dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr nocapture noundef readonly %vtt, i8 noundef zeroext %texture_index, <2 x float> %_offset.coerce) unnamed_addr #5 align 2 {
+define dso_local void @_ZN13DrawImageStepC2EhN3irr4core8vector2dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 9), (12, 20)) %this, ptr nocapture noundef readonly %vtt, i8 noundef zeroext %texture_index, <2 x float> %_offset.coerce) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -421,7 +421,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN13DrawImageStepC1EhN3irr4core8vector2dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, i8 noundef zeroext %texture_index, <2 x float> %_offset.coerce) unnamed_addr #7 align 2 {
+define dso_local void @_ZN13DrawImageStepC1EhN3irr4core8vector2dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 9), (12, 20)) %this, i8 noundef zeroext %texture_index, <2 x float> %_offset.coerce) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV13DrawImageStep, i64 40), ptr %this, align 8, !tbaa !12
   %texture_index2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -432,7 +432,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN13DrawImageStep15setRenderSourceEP12RenderSource(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef %_source) unnamed_addr #8 align 2 {
+define dso_local void @_ZN13DrawImageStep15setRenderSourceEP12RenderSource(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((24, 32)) %this, ptr noundef %_source) unnamed_addr #8 align 2 {
 entry:
   %source = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %_source, ptr %source, align 8, !tbaa !21
@@ -440,7 +440,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN13DrawImageStep15setRenderTargetEP12RenderTarget(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef %_target) unnamed_addr #8 align 2 {
+define dso_local void @_ZN13DrawImageStep15setRenderTargetEP12RenderTarget(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((32, 40)) %this, ptr noundef %_target) unnamed_addr #8 align 2 {
 entry:
   %target = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %_target, ptr %target, align 8, !tbaa !22
@@ -503,7 +503,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z26populateSideBySidePipelineP14RenderPipelineP6ClientbbRN3irr4core8vector2dIfEE(ptr noundef %pipeline, ptr noundef %client, i1 noundef zeroext %horizontal, i1 noundef zeroext %flipped, ptr nocapture noundef nonnull align 4 dereferenceable(8) %virtual_size_scale) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z26populateSideBySidePipelineP14RenderPipelineP6ClientbbRN3irr4core8vector2dIfEE(ptr noundef %pipeline, ptr noundef %client, i1 noundef zeroext %horizontal, i1 noundef zeroext %flipped, ptr nocapture noundef nonnull align 4 dereferenceable(8) initializes((0, 8)) %virtual_size_scale) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i186 = alloca %"class.std::unique_ptr.53", align 8
   %ref.tmp.i151 = alloca %"class.std::unique_ptr.108", align 8

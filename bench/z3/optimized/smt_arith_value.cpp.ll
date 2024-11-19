@@ -68,7 +68,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt11arith_valueC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt11arith_valueC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   %m2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -85,7 +85,7 @@ declare void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 deref
 declare void @_ZN7bv_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(976)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define hidden void @_ZN3smt11arith_value4initEPNS_7contextE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %ctx) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN3smt11arith_value4initEPNS_7contextE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (56, 88)) %this, ptr noundef %ctx) local_unnamed_addr #4 align 2 {
 entry:
   store ptr %ctx, ptr %this, align 8
   %b = getelementptr inbounds i8, ptr %this, i64 32

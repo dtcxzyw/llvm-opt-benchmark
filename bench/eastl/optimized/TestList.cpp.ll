@@ -22942,7 +22942,7 @@ declare noundef ptr @_ZnammmPKcijS0_i(i64 noundef, i64 noundef, i64 noundef, ptr
 declare noundef ptr @_ZN15MallocAllocator8allocateEmi(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZN5eastl4listIZ8TestListvE1A_2NS_9allocatorEE6DoSortIZ8TestListvE3$_8EENS_12ListIteratorIS1_PS1_RS1_EES9_S9_mRT_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull %i1, ptr nocapture noundef nonnull %end2, i64 noundef %n) unnamed_addr #8 align 2 {
+define internal fastcc void @"_ZN5eastl4listIZ8TestListvE1A_2NS_9allocatorEE6DoSortIZ8TestListvE3$_8EENS_12ListIteratorIS1_PS1_RS1_EES9_S9_mRT_"(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull %i1, ptr nocapture noundef nonnull %end2, i64 noundef %n) unnamed_addr #8 align 2 {
 entry:
   %ref.tmp = alloca %"struct.eastl::ListIterator.99", align 8
   %agg.tmp32 = alloca %"struct.eastl::ListIterator.99", align 8

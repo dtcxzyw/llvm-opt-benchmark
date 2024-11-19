@@ -2735,7 +2735,7 @@ define hidden noundef i32 @_ZN4Type5uhashEPKS_(ptr noundef %0) #0 align 2 {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4Type17Initialize_sharedEP7Compile(ptr nocapture noundef %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4Type17Initialize_sharedEP7Compile(ptr nocapture noundef initializes((856, 864)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -8131,7 +8131,7 @@ _ZN4TypenwEm.exit:                                ; preds = %87, %89
 declare noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4Type10InitializeEP7Compile(ptr nocapture noundef %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4Type10InitializeEP7Compile(ptr nocapture noundef initializes((856, 864)) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN4Type17_shared_type_dictE, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -9118,7 +9118,7 @@ define hidden noundef ptr @_ZN11TypeInteger7minus_1E9BasicType(i8 noundef zeroex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7TypeIntC2Eiii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #9 align 2 {
+define hidden void @_ZN7TypeIntC2Eiii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 22), (24, 32)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #9 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -9771,7 +9771,7 @@ define hidden noundef zeroext i1 @_ZNK7TypeInt5emptyEv(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN8TypeLongC2Elli(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #9 align 2 {
+define hidden void @_ZN8TypeLongC2Elli(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 22), (24, 40)) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #9 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -14191,7 +14191,7 @@ _ZNK7TypePtr4hashEv.exit:                         ; preds = %1, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14TypeInterfacesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN14TypeInterfacesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 20), (24, 52), (56, 64)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -14223,7 +14223,7 @@ define hidden void @_ZN14TypeInterfacesC2Ev(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14TypeInterfacesC2EP13GrowableArrayIP15ciInstanceKlassE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN14TypeInterfacesC2EP13GrowableArrayIP15ciInstanceKlassE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 20), (24, 52), (56, 64)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -15657,7 +15657,7 @@ define hidden noundef zeroext i1 @_ZNK14TypeInterfaces9singletonEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10) unnamed_addr #0 align 2 {
+define hidden void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 20), (24, 44), (48, 80)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10) unnamed_addr #0 align 2 {
   %12 = zext i1 %5 to i8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %13, align 8
@@ -17641,7 +17641,7 @@ _ZNK14TypeInterfaces2eqEP15ciInstanceKlass.exit:  ; preds = %38, %1, %13, %.loop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11TypeInstPtrC2EN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) unnamed_addr #0 align 2 {
+define hidden void @_ZN11TypeInstPtrC2EN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 20), (24, 44), (48, 80)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) unnamed_addr #0 align 2 {
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef 21, i32 noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9)
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %0, align 8
   ret void
@@ -25702,7 +25702,7 @@ _ZNK7TypePtr11dual_offsetEv.exit:                 ; preds = %23, %33, %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15TypeMetadataPtrC2EN7TypePtr3PTREP10ciMetadatai(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #9 align 2 {
+define hidden void @_ZN15TypeMetadataPtrC2EN7TypePtr3PTREP10ciMetadatai(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 20), (24, 44), (48, 56)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #9 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -26352,7 +26352,7 @@ _ZN15TypeAryKlassPtr4makeEN7TypePtr3PTREPK4TypeP7ciKlassi.exit: ; preds = %105, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12TypeKlassPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #9 align 2 {
+define hidden void @_ZN12TypeKlassPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 20), (24, 44), (48, 64)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #9 align 2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
@@ -28705,7 +28705,7 @@ _ZNK4Type8make_ptrEv.exit.thread:                 ; preds = %9, %_ZNK4Type8make_
 declare noundef ptr @_ZN15ciObjArrayKlass4makeEP7ciKlass(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK10TypeAryPtr17base_element_typeERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK10TypeAryPtr17base_element_typeERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #2 align 2 {
   br label %3
 
 3:                                                ; preds = %_ZNK4Type8make_ptrEv.exit11, %2
@@ -30731,7 +30731,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK15TypeAryKlassPtr17base_element_typeERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK15TypeAryKlassPtr17base_element_typeERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #2 align 2 {
   br label %3
 
 3:                                                ; preds = %3, %2

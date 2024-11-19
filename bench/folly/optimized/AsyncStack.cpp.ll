@@ -161,7 +161,7 @@ _ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit3: ; preds = %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZN5folly6detail20ScopedAsyncStackRootC2EPvS2_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %framePointer, ptr noundef %returnAddress) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6detail20ScopedAsyncStackRootC2EPvS2_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %framePointer, ptr noundef %returnAddress) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 16, i1 false)
   %stackFramePtr.i = getelementptr inbounds i8, ptr %this, i64 16

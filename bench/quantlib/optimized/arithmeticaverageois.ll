@@ -3116,7 +3116,7 @@ _ZN8QuantLib10InstrumentD2Ev.exit:                ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20ArithmeticAverageOISC1ENS_4Swap4TypeEdNS_8ScheduleEdNS_10DayCounterEN5boost10shared_ptrINS_14OvernightIndexEEES3_dddb(ptr noundef nonnull align 8 dereferenceable(368) %this, i32 noundef %type, double noundef %nominal, ptr noundef %fixedLegSchedule, double noundef %fixedRate, ptr nocapture noundef %fixedDC, ptr nocapture noundef %overnightIndex, ptr noundef %overnightLegSchedule, double noundef %spread, double noundef %meanReversionSpeed, double noundef %volatility, i1 noundef zeroext %byApprox) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20ArithmeticAverageOISC1ENS_4Swap4TypeEdNS_8ScheduleEdNS_10DayCounterEN5boost10shared_ptrINS_14OvernightIndexEEES3_dddb(ptr noundef nonnull align 8 dereferenceable(368) initializes((368, 376), (384, 388), (392, 400)) %this, i32 noundef %type, double noundef %nominal, ptr noundef %fixedLegSchedule, double noundef %fixedRate, ptr nocapture noundef %fixedDC, ptr nocapture noundef %overnightIndex, ptr noundef %overnightLegSchedule, double noundef %spread, double noundef %meanReversionSpeed, double noundef %volatility, i1 noundef zeroext %byApprox) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Schedule", align 8
   %agg.tmp14 = alloca %"class.QuantLib::Schedule", align 8
@@ -3918,7 +3918,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %ehcleanup, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20ArithmeticAverageOISC1ENS_4Swap4TypeESt6vectorIdSaIdEENS_8ScheduleEdNS_10DayCounterEN5boost10shared_ptrINS_14OvernightIndexEEES6_dddb(ptr noundef nonnull align 8 dereferenceable(368) %this, i32 noundef %type, ptr nocapture noundef %nominals, ptr noundef %fixedLegSchedule, double noundef %fixedRate, ptr nocapture noundef %fixedDC, ptr nocapture noundef %overnightIndex, ptr noundef %overnightLegSchedule, double noundef %spread, double noundef %meanReversionSpeed, double noundef %volatility, i1 noundef zeroext %byApprox) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20ArithmeticAverageOISC1ENS_4Swap4TypeESt6vectorIdSaIdEENS_8ScheduleEdNS_10DayCounterEN5boost10shared_ptrINS_14OvernightIndexEEES6_dddb(ptr noundef nonnull align 8 dereferenceable(368) initializes((368, 376), (384, 388), (392, 400)) %this, i32 noundef %type, ptr nocapture noundef %nominals, ptr noundef %fixedLegSchedule, double noundef %fixedRate, ptr nocapture noundef %fixedDC, ptr nocapture noundef %overnightIndex, ptr noundef %overnightLegSchedule, double noundef %spread, double noundef %meanReversionSpeed, double noundef %volatility, i1 noundef zeroext %byApprox) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Schedule", align 8
   %agg.tmp12 = alloca %"class.QuantLib::Schedule", align 8

@@ -715,7 +715,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #8
 declare void @qemu_hexdump(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_iovec_init(ptr nocapture noundef writeonly %qiov, i32 noundef %alloc_hint) local_unnamed_addr #0 {
+define dso_local void @qemu_iovec_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 20), (32, 40)) %qiov, i32 noundef %alloc_hint) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %alloc_hint to i64
   %call = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 16) #18
@@ -733,7 +733,7 @@ entry:
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @qemu_iovec_init_external(ptr nocapture noundef writeonly %qiov, ptr noundef %iov, i32 noundef %niov) local_unnamed_addr #9 {
+define dso_local void @qemu_iovec_init_external(ptr nocapture noundef writeonly initializes((0, 12), (16, 20), (32, 40)) %qiov, ptr noundef %iov, i32 noundef %niov) local_unnamed_addr #9 {
 entry:
   store ptr %iov, ptr %qiov, align 8
   %niov2 = getelementptr inbounds i8, ptr %qiov, i64 8
@@ -1273,7 +1273,7 @@ if.end10:                                         ; preds = %if.else8, %if.then7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_iovec_destroy(ptr nocapture noundef %qiov) local_unnamed_addr #0 {
+define dso_local void @qemu_iovec_destroy(ptr nocapture noundef initializes((8, 16), (20, 40)) %qiov) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %qiov, i64 16
   %1 = load i32, ptr %0, align 8

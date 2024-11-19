@@ -759,7 +759,7 @@ luaT_callorderTM.exit:                            ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaT_adjustvarargs(ptr noundef %L, i32 noundef %nfixparams, ptr nocapture noundef %ci, ptr nocapture noundef readonly %p) local_unnamed_addr #0 {
+define hidden void @luaT_adjustvarargs(ptr noundef %L, i32 noundef %nfixparams, ptr nocapture noundef initializes((44, 48)) %ci, ptr nocapture noundef readonly %p) local_unnamed_addr #0 {
 entry:
   %top = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load ptr, ptr %top, align 8

@@ -42,7 +42,7 @@ $_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IRA10_KcRA
 @.str.5 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7Collada25MakeColladaAssimpMetaKeysB5cxx11Ev(ptr noalias nonnull sret(%"class.std::vector") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7Collada25MakeColladaAssimpMetaKeysB5cxx11Ev(ptr noalias nonnull sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 if.else.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %_M_finish.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -161,7 +161,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7Collada34MakeColladaAssimpMetaKeysCamelCaseB5cxx11Ev(ptr noalias nonnull sret(%"class.std::vector") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7Collada34MakeColladaAssimpMetaKeysCamelCaseB5cxx11Ev(ptr noalias nonnull sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !7
   %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8

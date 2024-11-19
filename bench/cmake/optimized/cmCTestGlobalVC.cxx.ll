@@ -244,7 +244,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 declare void @_ZN9cmCTestVCD2Ev(ptr noundef nonnull align 8 dereferenceable(388)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15cmCTestGlobalVCD2Ev(ptr noundef nonnull align 8 dereferenceable(784) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15cmCTestGlobalVCD2Ev(ptr noundef nonnull align 8 dereferenceable(784) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV15cmCTestGlobalVC, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 760
   tail call void @_ZNSt7__cxx1110_List_baseIN9cmCTestVC8RevisionESaIS2_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #18

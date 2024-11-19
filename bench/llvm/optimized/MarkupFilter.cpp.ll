@@ -336,7 +336,7 @@ $_ZTVN4llvm7support6detail23provider_format_adapterIRmEE = comdat any
 @_ZN4llvm9symbolize12MarkupFilterC1ERNS_11raw_ostreamERNS0_14LLVMSymbolizerESt8optionalIbE = unnamed_addr alias void (ptr, ptr, ptr, i16), ptr @_ZN4llvm9symbolize12MarkupFilterC2ERNS_11raw_ostreamERNS0_14LLVMSymbolizerESt8optionalIbE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9symbolize12MarkupFilterC2ERNS_11raw_ostreamERNS0_14LLVMSymbolizerESt8optionalIbE(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(416) %2, i16 %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9symbolize12MarkupFilterC2ERNS_11raw_ostreamERNS0_14LLVMSymbolizerESt8optionalIbE(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 17)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(416) %2, i16 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::StringSet", align 8
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2379,7 +2379,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %31, %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9symbolize12MarkupFilter19beginModuleInfoLineEPKNS1_6ModuleE(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9symbolize12MarkupFilter19beginModuleInfoLineEPKNS1_6ModuleE(ptr noundef nonnull align 8 dereferenceable(464) initializes((296, 304)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::formatv_object.117", align 8

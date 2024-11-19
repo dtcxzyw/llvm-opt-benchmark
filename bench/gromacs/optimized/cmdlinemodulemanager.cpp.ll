@@ -497,7 +497,7 @@ define void @_ZN3gmx30CommandLineCommonOptionsHolder18adjustFromSettingsERKNS_25
 declare noundef i32 @_ZNK3gmx25CommandLineModuleSettings16defaultNiceLevelEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx24CommandLineModuleManager4ImplC2EPKcPNS_25CommandLineProgramContextE(ptr noundef nonnull align 8 dereferenceable(129) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx24CommandLineModuleManager4ImplC2EPKcPNS_25CommandLineProgramContextE(ptr noundef nonnull align 8 dereferenceable(129) initializes((8, 12), (16, 24)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator.14", align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8

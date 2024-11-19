@@ -34124,7 +34124,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS0_C1IvZ28test_submodule_call_policies
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8pybind116detail15argument_loaderIJPZ28test_submodule_call_policiesRNS_7module_EE6ParentPZ28test_submodule_call_policiesS3_E5ChildEEC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8pybind116detail15argument_loaderIJPZ28test_submodule_call_policiesRNS_7module_EE6ParentPZ28test_submodule_call_policiesS3_E5ChildEEC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"struct.std::type_index", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 24, i1 false)

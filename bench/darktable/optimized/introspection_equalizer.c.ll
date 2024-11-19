@@ -2080,7 +2080,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
+define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #8 {
   %4 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #22
   %5 = getelementptr inbounds i8, ptr %0, i64 688
   %6 = load ptr, ptr %5, align 16, !tbaa !68
@@ -2338,7 +2338,7 @@ define void @gui_update(ptr nocapture noundef readnone %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @init(ptr nocapture noundef writeonly %0) local_unnamed_addr #10 {
+define void @init(ptr nocapture noundef writeonly initializes((676, 700), (704, 712)) %0) local_unnamed_addr #10 {
   %2 = tail call noalias dereferenceable_or_null(144) ptr @calloc(i64 noundef 1, i64 noundef 144) #21
   %3 = getelementptr inbounds i8, ptr %0, i64 680
   store ptr %2, ptr %3, align 8, !tbaa !76
@@ -2373,7 +2373,7 @@ define void @init(ptr nocapture noundef writeonly %0) local_unnamed_addr #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dt_alloc_aligned(i64 noundef 1808) #20
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4

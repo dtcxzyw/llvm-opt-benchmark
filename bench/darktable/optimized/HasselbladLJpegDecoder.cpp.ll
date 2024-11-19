@@ -638,7 +638,7 @@ define linkonce_odr hidden void @_ZN8rawspeed22HasselbladDecompressorD2Ev(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8rawspeed22HasselbladLJpegDecoder6decodeEv(ptr noundef nonnull align 8 dereferenceable(240) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8rawspeed22HasselbladLJpegDecoder6decodeEv(ptr noundef nonnull align 8 dereferenceable(240) initializes((97, 98)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 97
   store i8 0, ptr %2, align 1, !tbaa !127
   tail call void @_ZN8rawspeed20AbstractLJpegDecoder9decodeSOIEv(ptr noundef nonnull align 8 dereferenceable(236) %0)

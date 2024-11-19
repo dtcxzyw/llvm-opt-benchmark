@@ -662,7 +662,7 @@ declare void @dt_culling_update_active_images_list(ptr noundef) local_unnamed_ad
 declare void @dt_ui_restore_panels(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @init(ptr noundef %0) local_unnamed_addr #1 {
+define void @init(ptr noundef initializes((288, 296)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 288
   store ptr %2, ptr %3, align 8, !tbaa !6
@@ -1005,7 +1005,7 @@ declare void @g_slist_free(ptr noundef) local_unnamed_addr #6
 declare void @dt_control_signal_raise(ptr noundef, i32 noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_preview_quit(ptr nocapture %0) unnamed_addr #1 {
+define internal fastcc void @_preview_quit(ptr nocapture initializes((24, 28)) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = getelementptr inbounds i8, ptr %3, i64 8

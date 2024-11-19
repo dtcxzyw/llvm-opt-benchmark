@@ -2474,7 +2474,7 @@ define range(i32 0, 2) i32 @CORD_pos_valid(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @CORD_set_pos(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #8 {
+define void @CORD_set_pos(ptr nocapture noundef initializes((8, 12)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #8 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %7
 

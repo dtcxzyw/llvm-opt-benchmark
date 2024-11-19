@@ -365,7 +365,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 dereferenceable(17), i1 noundef zeroext, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core20FaultInjectionFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::StatusOr") align 16 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr %filter_args.coerce0, ptr %filter_args.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core20FaultInjectionFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::StatusOr") align 16 initializes((0, 8), (16, 96)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr %filter_args.coerce0, ptr %filter_args.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::FaultInjectionFilter", align 16
   call void @_ZN9grpc_core20FaultInjectionFilterC1ENS_13ChannelFilter4ArgsE(ptr noundef nonnull align 16 dereferenceable(80) %ref.tmp, ptr %filter_args.coerce0, ptr %filter_args.coerce1)
@@ -589,7 +589,7 @@ _ZN9grpc_core13ChannelFilterD2Ev.exit:            ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core20FaultInjectionFilterC2ENS_13ChannelFilter4ArgsE(ptr noundef nonnull align 16 dereferenceable(80) %this, ptr %filter_args.coerce0, ptr %filter_args.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core20FaultInjectionFilterC2ENS_13ChannelFilter4ArgsE(ptr noundef nonnull align 16 dereferenceable(80) initializes((0, 8)) %this, ptr %filter_args.coerce0, ptr %filter_args.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i.i.i.i.i2 = alloca [4 x i32], align 16
   %buffer.i.i.i.i.i = alloca [4 x i32], align 16

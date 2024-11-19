@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [30 x i8] c"Invalid comparison opcode: %X\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 12292) i32 @acpi_ex_get_object_reference(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 12292) i32 @acpi_ex_get_object_reference(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 16 {
   store ptr null, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8
@@ -153,7 +153,7 @@ define dso_local i64 @acpi_ex_do_math_op(i16 noundef zeroext %0, i64 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 12304) i32 @acpi_ex_do_logical_numeric_op(i16 noundef zeroext %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 12304) i32 @acpi_ex_do_logical_numeric_op(i16 noundef zeroext %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #0 align 16 {
   switch i16 %0, label %12 [
     i16 144, label %5
     i16 145, label %9
@@ -184,7 +184,7 @@ define dso_local noundef range(i32 0, 12304) i32 @acpi_ex_do_logical_numeric_op(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ex_do_logical_op(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @acpi_ex_do_logical_op(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   store ptr %2, ptr %5, align 8

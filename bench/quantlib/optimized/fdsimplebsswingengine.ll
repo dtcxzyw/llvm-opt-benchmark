@@ -784,7 +784,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21FdSimpleBSSwingEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEEmmRKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr nocapture noundef %process, i64 noundef %tGrid, i64 noundef %xGrid, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21FdSimpleBSSwingEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEEmmRKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(408) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %process, i64 noundef %tGrid, i64 noundef %xGrid, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !8

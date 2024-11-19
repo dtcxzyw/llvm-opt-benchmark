@@ -1086,7 +1086,7 @@ define internal void @stream_encoder_mt_end(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @get_progress(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define internal void @get_progress(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef initializes((0, 8)) %2) #0 {
 .critedge35:
   %3 = getelementptr inbounds i8, ptr %0, i64 360
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #11

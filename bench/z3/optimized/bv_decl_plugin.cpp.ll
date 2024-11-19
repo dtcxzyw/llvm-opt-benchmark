@@ -260,7 +260,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN14bv_decl_pluginC2Ev(ptr noundef nonnull align 8 dereferenceable(608) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN14bv_decl_pluginC2Ev(ptr noundef nonnull align 8 dereferenceable(608) initializes((0, 20)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %m_manager.i, align 8
@@ -297,7 +297,7 @@ declare void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8), p
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN14bv_decl_plugin11set_managerEP11ast_manageri(ptr noundef nonnull align 8 dereferenceable(608) %this, ptr noundef %m, i32 noundef %id) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN14bv_decl_plugin11set_managerEP11ast_manageri(ptr noundef nonnull align 8 dereferenceable(608) initializes((8, 20)) %this, ptr noundef %m, i32 noundef %id) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %class.symbol, align 8
   %ref.tmp = alloca %class.symbol, align 8
@@ -5328,7 +5328,7 @@ return:                                           ; preds = %entry, %sw.bb104, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN14bv_decl_plugin15get_concat_sizeEjPKP4sortRi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(608) %this, i32 noundef %arity, ptr nocapture noundef readonly %domain, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN14bv_decl_plugin15get_concat_sizeEjPKP4sortRi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(608) %this, i32 noundef %arity, ptr nocapture noundef readonly %domain, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %result) local_unnamed_addr #3 align 2 {
 entry:
   store i32 0, ptr %result, align 4
   %cmp8 = icmp eq i32 %arity, 0
@@ -11883,7 +11883,7 @@ return:                                           ; preds = %land.rhs.i.i, %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7bv_utilC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 {
+define hidden void @_ZN7bv_utilC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 4), (8, 24)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i = alloca %class.symbol, align 8
   %ref.tmp = alloca %class.symbol, align 8

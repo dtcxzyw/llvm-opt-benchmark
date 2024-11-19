@@ -162,7 +162,7 @@ if.end:                                           ; preds = %if.else21.i.i, %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core19ProxyMapperRegistry7Builder5BuildEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::ProxyMapperRegistry") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core19ProxyMapperRegistry7Builder5BuildEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::ProxyMapperRegistry") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorISt10unique_ptrIN9grpc_core20ProxyMapperInterfaceESt14default_deleteIS2_EESaIS5_EEaSEOS7_.exit:
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16

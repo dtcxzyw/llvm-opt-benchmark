@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN3gmx12LocalAtomSetC1ERKNS_8internal16LocalAtomSetDataE = unnamed_addr alias void (ptr, ptr), ptr @_ZN3gmx12LocalAtomSetC2ERKNS_8internal16LocalAtomSetDataE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx12LocalAtomSetC2ERKNS_8internal16LocalAtomSetDataE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 align 2 {
+define void @_ZN3gmx12LocalAtomSetC2ERKNS_8internal16LocalAtomSetDataE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }

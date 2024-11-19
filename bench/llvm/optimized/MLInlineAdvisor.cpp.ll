@@ -5736,7 +5736,7 @@ _ZNSt3mapIPKN4llvm8FunctionENS0_22FunctionPropertiesInfoESt4lessIS3_ESaISt4pairI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15MLInlineAdvisor13getAdviceImplERNS_8CallBaseE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.420") align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15MLInlineAdvisor13getAdviceImplERNS_8CallBaseE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.420") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::OptimizationRemarkMissed", align 8
   %5 = alloca %"class.llvm::OptimizationRemarkMissed", align 8
   %6 = alloca %class.anon, align 8
@@ -6218,7 +6218,7 @@ _ZNSt10unique_ptrIN4llvm14MLInlineAdviceESt14default_deleteIS1_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15MLInlineAdvisor34getSkipAdviceIfUnreachableCallsiteERNS_8CallBaseE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.420") align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15MLInlineAdvisor34getSkipAdviceIfUnreachableCallsiteERNS_8CallBaseE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.420") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr @_ZN4llvm8CallBase9getCallerEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #19
@@ -6334,7 +6334,7 @@ _ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit: ; preds = %_ZNK4llvm8CallB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15MLInlineAdvisor18getAdviceFromModelERNS_8CallBaseERNS_25OptimizationRemarkEmitterE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.462") align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15MLInlineAdvisor18getAdviceFromModelERNS_8CallBaseERNS_25OptimizationRemarkEmitterE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.462") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -6355,7 +6355,7 @@ declare noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm13InlineAdvisor12getCallerOREERNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15MLInlineAdvisor18getMandatoryAdviceERNS_8CallBaseEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.420") align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(88) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15MLInlineAdvisor18getMandatoryAdviceERNS_8CallBaseEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.420") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(88) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::unique_ptr.462", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !noalias !261
@@ -6403,7 +6403,7 @@ _ZNSt10unique_ptrIN4llvm14MLInlineAdviceESt14default_deleteIS1_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15MLInlineAdvisor22getMandatoryAdviceImplERNS_8CallBaseE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.462") align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15MLInlineAdvisor22getMandatoryAdviceImplERNS_8CallBaseE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.462") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm13InlineAdvisor12getCallerOREERNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) #19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !270)
   %5 = tail call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #20, !noalias !270

@@ -587,7 +587,7 @@ declare ptr @agstrdup(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @find_user_shape(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @gif_size(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @gif_size(ptr nocapture noundef initializes((72, 76)) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -654,7 +654,7 @@ get_int_lsb_first.exit.thread:                    ; preds = %7, %18, %26, %15, %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @png_size(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @png_size(ptr nocapture noundef initializes((72, 76)) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -717,7 +717,7 @@ get_int_msb_first.exit.thread:                    ; preds = %7, %17, %24, %14, %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @bmp_size(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @bmp_size(ptr nocapture noundef initializes((72, 76)) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -838,7 +838,7 @@ get_int_lsb_first.exit.thread:                    ; preds = %7, %18, %29, %40, %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @jpeg_size(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @jpeg_size(ptr nocapture noundef initializes((72, 76)) %0) unnamed_addr #5 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 72
@@ -959,7 +959,7 @@ get_int_msb_first.exit.thread:                    ; preds = %.backedge, %39, %.p
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @ps_size(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @ps_size(ptr nocapture noundef initializes((72, 76)) %0) unnamed_addr #5 {
   %2 = alloca [8192 x i8], align 16
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -1013,7 +1013,7 @@ define internal fastcc void @ps_size(ptr nocapture noundef %0) unnamed_addr #5 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @webp_size(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @webp_size(ptr nocapture noundef initializes((72, 76)) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1881,7 +1881,7 @@ agxbfree.exit:                                    ; preds = %.critedge, %301
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @pdf_size(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @pdf_size(ptr nocapture noundef initializes((72, 76)) %0) unnamed_addr #5 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -2330,7 +2330,7 @@ bboxPDF.exit.thread15:                            ; preds = %getNum.exit.i, %get
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @ico_size(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @ico_size(ptr nocapture noundef initializes((72, 76)) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32

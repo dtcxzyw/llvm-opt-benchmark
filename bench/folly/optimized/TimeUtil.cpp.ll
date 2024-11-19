@@ -146,7 +146,7 @@ $_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE = comdat any
 @.str.29 = private unnamed_addr constant [2 x i8] c")\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly9TimePoint5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly9TimePoint5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 8), (24, 28)) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %schedstatFile.i = alloca [256 x i8], align 16
   %ref.tmp8.i = alloca %"class.std::__cxx11::basic_string", align 8

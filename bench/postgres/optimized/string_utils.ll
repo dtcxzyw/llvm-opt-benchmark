@@ -808,7 +808,7 @@ declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #1
 declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local noundef zeroext i1 @parsePGArray(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @parsePGArray(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #4 {
   store ptr null, ptr %1, align 8
   store i32 0, ptr %2, align 4
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
@@ -1242,7 +1242,7 @@ define dso_local noundef zeroext i1 @processSQLNamePattern(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
+define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr nocapture noundef initializes((0, 4)) %7) local_unnamed_addr #0 {
   %9 = alloca [3 x %struct.PQExpBufferData], align 16
   %10 = alloca %struct.PQExpBufferData, align 8
   store i32 0, ptr %7, align 4

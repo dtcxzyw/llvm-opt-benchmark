@@ -68,7 +68,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt11fingerprintC2ER6regionPvjP4exprjPKPNS_5enodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %r, ptr noundef %d, i32 noundef %d_h, ptr noundef %def, i32 noundef %n, ptr nocapture noundef readonly %args) unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt11fingerprintC2ER6regionPvjP4exprjPKPNS_5enodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 12), (16, 28), (32, 40)) %this, ptr noundef nonnull align 8 dereferenceable(40) %r, ptr noundef %d, i32 noundef %d_h, ptr noundef %def, i32 noundef %n, ptr nocapture noundef readonly %args) unnamed_addr #3 align 2 {
 entry:
   store ptr %d, ptr %this, align 8
   %m_data_hash = getelementptr inbounds i8, ptr %this, i64 8

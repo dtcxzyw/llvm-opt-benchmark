@@ -387,7 +387,7 @@ define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
+define void @init_presets(ptr noundef initializes((472, 476)) %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 472
   store i32 1, ptr %3, align 8, !tbaa !6
@@ -1340,7 +1340,7 @@ define noalias noundef ptr @legacy_params(ptr nocapture noundef readnone %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @get_params(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define noundef ptr @get_params(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   %5 = tail call fastcc ptr @_preset_to_string(ptr %4, i32 noundef 0)
@@ -1997,7 +1997,7 @@ define internal fastcc void @_preset_from_string(ptr nocapture noundef readonly 
 declare ptr @dt_conf_get_string(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(312) ptr @g_malloc0(i64 noundef 312) #20
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !32

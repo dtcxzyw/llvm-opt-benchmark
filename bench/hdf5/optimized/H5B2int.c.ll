@@ -76,7 +76,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.29 = private unnamed_addr constant [42 x i8] c"unable to update child node to new parent\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5B2__locate_record(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5B2__locate_record(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr noundef initializes((0, 4)) %6) local_unnamed_addr #0 {
   store i32 -1, ptr %6, align 4
   %.not29 = icmp eq i32 %1, 0
   br i1 %.not29, label %.critedge, label %.lr.ph

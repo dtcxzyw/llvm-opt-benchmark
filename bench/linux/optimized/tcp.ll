@@ -338,7 +338,7 @@ define dso_local void @tcp_leave_memory_pressure(ptr nocapture noundef readonly 
 declare dso_local i32 @jiffies_to_msecs(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_init_sock(ptr noundef %0) #0 align 16 {
+define dso_local void @tcp_init_sock(ptr noundef initializes((352, 360), (1496, 1504)) %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1496
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 352
@@ -895,7 +895,7 @@ define dso_local noundef range(i32 -515, 1) i32 @tcp_ioctl(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @tcp_mark_push(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 16 {
+define dso_local void @tcp_mark_push(ptr nocapture noundef initializes((1576, 1580)) %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 52
   %4 = load i8, ptr %3, align 4
   %5 = or i8 %4, 8
@@ -908,7 +908,7 @@ define dso_local void @tcp_mark_push(ptr nocapture noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_skb_entail(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @tcp_skb_entail(ptr noundef %0, ptr noundef initializes((40, 48), (52, 53)) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 1572
   %5 = load i32, ptr %4, align 4
@@ -1564,7 +1564,7 @@ define internal fastcc void @sk_stream_moderate_sndbuf(ptr noundef %0) unnamed_a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tcp_send_mss(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @tcp_send_mss(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call i32 @tcp_current_mss(ptr noundef %0) #22
   %5 = and i32 %2, 1
   %6 = icmp eq i32 %5, 0
@@ -4902,7 +4902,7 @@ define dso_local noundef i32 @tcp_set_rcvlowat(ptr noundef %0, i32 noundef %1) #
 declare dso_local void @tcp_data_ready(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_update_recv_tstamps(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @tcp_update_recv_tstamps(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16), (32, 48)) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -7880,7 +7880,7 @@ define dso_local void @tcp_sock_set_quickack(ptr noundef %0, i32 noundef %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__tcp_sock_set_quickack(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @__tcp_sock_set_quickack(ptr noundef initializes((1218, 1219)) %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %10
 
@@ -9333,7 +9333,7 @@ define dso_local i32 @tcp_setsockopt(ptr noundef %0, i32 noundef %1, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_get_info(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local void @tcp_get_info(ptr noundef %0, ptr noundef initializes((0, 248)) %1) #0 align 16 {
   %3 = alloca [4 x i64], align 16
   %4 = alloca i8, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(248) %1, i8 0, i64 248, i1 false)
@@ -11285,7 +11285,7 @@ define internal fastcc i32 @check_zeroed_sockptr(ptr %0, i8 %1, i64 noundef rang
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tcp_zerocopy_receive(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tcp_zerocopy_receive(ptr noundef %0, ptr nocapture noundef initializes((56, 60)) %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca %struct.msghdr, align 8
   %6 = alloca i32, align 4
@@ -12127,7 +12127,7 @@ tcp_zerocopy_vm_insert_batch.exit:                ; preds = %447
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tcp_zc_finalize_rx_tstamp(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @tcp_zc_finalize_rx_tstamp(ptr noundef %0, ptr nocapture noundef initializes((56, 60)) %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.msghdr, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4, i8 0, i64 104, i1 false), !annotation !16

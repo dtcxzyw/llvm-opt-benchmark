@@ -161,7 +161,7 @@ define internal void @_db_res_op() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_connect_dbd_conn(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @_connect_dbd_conn(ptr noundef initializes((72, 76)) %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 64

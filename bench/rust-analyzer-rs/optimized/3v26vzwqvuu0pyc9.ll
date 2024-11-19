@@ -2352,7 +2352,7 @@ define void @"_ZN46_$LT$DB$u20$as$u20$base_db..SourceDatabase$GT$29set_toolchain
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7base_db10ParseQuery5in_db17h2687c96cbf3fc249E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
+define void @_ZN7base_db10ParseQuery5in_db17h2687c96cbf3fc249E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !423)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !426)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -2590,7 +2590,7 @@ _ZN7base_db5parse17h9d1e0c92f5755e4aE.exit:       ; preds = %62, %65
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7base_db15CrateGraphQuery5in_db17hcfcd6ad49121c03fE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
+define void @_ZN7base_db15CrateGraphQuery5in_db17hcfcd6ad49121c03fE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !461)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !464)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -2638,7 +2638,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN57_$LT$base_db..Crate
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7base_db15DataLayoutQuery5in_db17h8da3fa9bb005fd70E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
+define void @_ZN7base_db15DataLayoutQuery5in_db17h8da3fa9bb005fd70E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !470)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !473)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -2686,7 +2686,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN57_$LT$base_db..DataL
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7base_db14ToolchainQuery5in_db17h96164b599db72a93E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
+define void @_ZN7base_db14ToolchainQuery5in_db17h96164b599db72a93E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !479)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !482)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -3542,7 +3542,7 @@ define { ptr, i64 } @"_ZN49_$LT$DB$u20$as$u20$base_db..SourceDatabaseExt$GT$18so
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7base_db23CompressedFileTextQuery5in_db17h9239911ff8d207baE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
+define void @_ZN7base_db23CompressedFileTextQuery5in_db17h9239911ff8d207baE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !658)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !661)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -3586,7 +3586,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN65_$LT$base_db..Compr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7base_db13FileTextQuery5in_db17ha186f7c75052f16aE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
+define void @_ZN7base_db13FileTextQuery5in_db17ha186f7c75052f16aE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !667)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !670)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -4168,7 +4168,7 @@ _ZN7base_db9file_text17h2d6088d1e1f50ba2E.exit:   ; preds = %234, %238
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7base_db19FileSourceRootQuery5in_db17h933c1c6974e4d044E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
+define void @_ZN7base_db19FileSourceRootQuery5in_db17h933c1c6974e4d044E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !745)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !748)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -4216,7 +4216,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN61_$LT$base_db..FileS
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7base_db15SourceRootQuery5in_db17hf530b65810d35df8E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
+define void @_ZN7base_db15SourceRootQuery5in_db17hf530b65810d35df8E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !754)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !757)
   %4 = getelementptr inbounds i8, ptr %2, i64 112
@@ -4264,7 +4264,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN57_$LT$base_db..Sourc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7base_db21SourceRootCratesQuery5in_db17h0ee3576bfcf2cbbbE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
+define void @_ZN7base_db21SourceRootCratesQuery5in_db17h0ee3576bfcf2cbbbE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !763)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !766)
   %4 = getelementptr inbounds i8, ptr %2, i64 112

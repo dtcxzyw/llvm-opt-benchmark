@@ -93,7 +93,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mei_me_dev_i
 @llvm.compiler.used = appending global [12 x ptr] [ptr @__UNIQUE_ID___addressable_mei_me_dev_init413, ptr @__UNIQUE_ID___addressable_mei_me_get_cfg412, ptr @__UNIQUE_ID___addressable_mei_me_irq_quick_handler405, ptr @__UNIQUE_ID___addressable_mei_me_irq_thread_handler406, ptr @__UNIQUE_ID___addressable_mei_me_polling_thread410, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched37, ptr @trace_mei_pci_cfg_read.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace388, ptr @trace_mei_pci_cfg_read.__UNIQUE_ID___addressable___SCK__tp_func_mei_pci_cfg_read387, ptr @trace_mei_reg_read.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace360, ptr @trace_mei_reg_read.__UNIQUE_ID___addressable___SCK__tp_func_mei_reg_read359, ptr @trace_mei_reg_write.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace374, ptr @trace_mei_reg_write.__UNIQUE_ID___addressable___SCK__tp_func_mei_reg_write373], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mei_me_pg_enter_sync(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @mei_me_pg_enter_sync(ptr noundef initializes((440, 444)) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.wait_queue_entry, align 8
   %3 = alloca %struct.wait_queue_entry, align 8
   %4 = alloca %struct.wait_queue_entry, align 8
@@ -748,7 +748,7 @@ define dso_local i32 @mei_me_pg_exit_sync(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -62, 1) i32 @mei_me_d0i3_exit_sync(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -62, 1) i32 @mei_me_d0i3_exit_sync(ptr noundef initializes((440, 444)) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.wait_queue_entry, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 440
   store i32 3, ptr %3, align 8

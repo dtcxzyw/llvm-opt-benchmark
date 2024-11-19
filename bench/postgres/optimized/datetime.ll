@@ -164,7 +164,7 @@ declare void @EncodeDateOnly(ptr noundef, i32 noundef, ptr noundef, i1 noundef z
 declare ptr @pgtypes_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @PGTYPESdate_julmdy(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define void @PGTYPESdate_julmdy(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -184,7 +184,7 @@ define void @PGTYPESdate_julmdy(i64 noundef %0, ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PGTYPESdate_mdyjul(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define void @PGTYPESdate_mdyjul(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 4

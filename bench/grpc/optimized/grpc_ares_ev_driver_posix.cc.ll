@@ -122,7 +122,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core22NewGrpcPolledFdFactoryEPN4absl12lts_202308025MutexE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef readnone %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core22NewGrpcPolledFdFactoryEPN4absl12lts_202308025MutexE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef readnone %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN9grpc_core24GrpcPolledFdFactoryPosixESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #14, !noalias !4
   %1 = getelementptr inbounds i8, ptr %call.i, i64 80

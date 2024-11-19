@@ -603,7 +603,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @tiling_callback(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #8 {
+define void @tiling_callback(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, ptr nocapture noundef writeonly initializes((0, 32)) %4) local_unnamed_addr #8 {
   %6 = getelementptr i8, ptr %2, i64 16
   %7 = load float, ptr %6, align 4, !tbaa !48
   %8 = getelementptr inbounds i8, ptr %1, i64 104
@@ -7345,7 +7345,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 declare float @llvm.fabs.f32(float) #10
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dt_iop_filmic_rgb_compute_spline(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @dt_iop_filmic_rgb_compute_spline(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 12), (16, 28), (32, 44), (48, 60), (72, 76), (80, 136)) %1) unnamed_addr #6 {
   %3 = alloca [25 x double], align 16
   %4 = alloca [5 x double], align 16
   %5 = alloca [16 x double], align 16
@@ -8054,7 +8054,7 @@ declare i64 @gtk_toggle_button_get_type() local_unnamed_addr #13
 declare void @dt_dev_reprocess_center(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #1 {
   %4 = tail call ptr @dt_alloc_aligned(i64 noundef 320) #21
   %5 = icmp eq ptr %4, null
   br i1 %5, label %7, label %6
@@ -8454,7 +8454,7 @@ define void @gui_changed(ptr nocapture noundef readonly %0, ptr noundef readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define void @reload_defaults(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @reload_defaults(ptr nocapture noundef initializes((676, 680)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 688
   %3 = load ptr, ptr %2, align 16, !tbaa !341
   %4 = getelementptr inbounds i8, ptr %0, i64 944
@@ -8534,7 +8534,7 @@ declare float @dt_image_get_exposure_bias(ptr noundef) local_unnamed_addr #3
 declare float @llvm.log.f32(float) #10
 
 ; Function Attrs: nounwind uwtable
-define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
+define void @init_presets(ptr noundef initializes((556, 560)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 556
   store i32 1, ptr %2, align 4, !tbaa !347
   %3 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.12) #21
@@ -8575,7 +8575,7 @@ declare void @dt_gui_presets_update_format(ptr noundef, ptr noundef, i32 noundef
 declare void @dt_gui_presets_update_autoapply(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @init_global(ptr nocapture noundef writeonly %0) local_unnamed_addr #17 {
+define void @init_global(ptr nocapture noundef writeonly initializes((528, 536)) %0) local_unnamed_addr #17 {
   %2 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #35
   %3 = getelementptr inbounds i8, ptr %0, i64 528
   store ptr %2, ptr %3, align 8, !tbaa !349
@@ -8706,7 +8706,7 @@ declare void @cairo_scale(ptr noundef, double noundef, double noundef) local_unn
 declare void @cairo_restore(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dt_alloc_aligned(i64 noundef 640) #21
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
@@ -13196,7 +13196,7 @@ define internal fastcc float @dt_ioppr_get_rgb_matrix_luminance(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @filmic_v4_prepare_matrices(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef readonly %6, ptr noundef readonly %7) unnamed_addr #25 {
+define internal fastcc noundef range(i32 0, 2) i32 @filmic_v4_prepare_matrices(ptr nocapture noundef nonnull writeonly initializes((0, 64)) %0, ptr nocapture noundef nonnull initializes((0, 48)) %1, ptr nocapture noundef nonnull writeonly initializes((0, 64)) %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef readonly %6, ptr noundef readonly %7) unnamed_addr #25 {
   %9 = alloca [4 x [4 x float]], align 64
   %10 = alloca [4 x [4 x float]], align 64
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #21
@@ -13581,7 +13581,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @filmic_v4_prepare_matrices(p
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @gamut_mapping(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull readonly %6, ptr nocapture noundef nonnull readonly %7, ptr nocapture noundef nonnull readonly %8, float noundef %9, float noundef %10, float noundef %11, i32 noundef range(i32 0, 2) %12) unnamed_addr #26 {
+define internal fastcc void @gamut_mapping(ptr nocapture noundef nonnull initializes((8, 16)) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull initializes((0, 16)) %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull readonly %6, ptr nocapture noundef nonnull readonly %7, ptr nocapture noundef nonnull readonly %8, float noundef %9, float noundef %10, float noundef %11, i32 noundef range(i32 0, 2) %12) unnamed_addr #26 {
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load float, ptr %14, align 4, !tbaa !14
   %16 = getelementptr inbounds i8, ptr %0, i64 8
@@ -13758,7 +13758,7 @@ define internal fastcc void @gamut_mapping(ptr nocapture noundef nonnull %0, ptr
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @dt_colormatrix_mul(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #26 {
+define internal fastcc void @dt_colormatrix_mul(ptr nocapture noundef nonnull writeonly initializes((0, 48)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #26 {
   %4 = load float, ptr %1, align 4, !tbaa !14
   %5 = load float, ptr %2, align 4, !tbaa !14
   %6 = fmul reassoc nsz arcp contract afn float %5, %4
@@ -14079,7 +14079,7 @@ declare <4 x float> @llvm.x86.sse.min.ps(<4 x float>, <4 x float>) #28
 declare <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float>) #28
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @gamut_check_RGB(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, float noundef %3, float noundef %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #26 {
+define internal fastcc void @gamut_check_RGB(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, float noundef %3, float noundef %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %6) unnamed_addr #26 {
   %8 = load float, ptr %5, align 4, !tbaa !14
   %9 = getelementptr inbounds i8, ptr %5, i64 4
   %10 = load float, ptr %9, align 4, !tbaa !14

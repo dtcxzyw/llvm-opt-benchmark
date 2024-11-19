@@ -597,7 +597,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %6, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ShenandoahBarrierSet16on_thread_createEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ShenandoahBarrierSet16on_thread_createEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef initializes((40, 43)) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 41
@@ -631,7 +631,7 @@ _ZN25ShenandoahThreadLocalData7destroyEP6Thread.exit: ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ShenandoahBarrierSet16on_thread_attachEP6Thread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1064) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ShenandoahBarrierSet16on_thread_attachEP6Thread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1064) %0, ptr noundef initializes((64, 65)) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 960
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 1

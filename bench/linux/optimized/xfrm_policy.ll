@@ -1654,7 +1654,7 @@ define internal void @xfrm_policy_destroy_rcu(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @xfrm_spd_getinfo(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define dso_local void @xfrm_spd_getinfo(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2816
   %4 = load i32, ptr %3, align 64
   store i32 %4, ptr %1, align 4
@@ -2976,7 +2976,7 @@ define internal fastcc void @xfrm_policy_kill(ptr noundef %0) unnamed_addr #1 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @xfrm_policy_bysel_ctx(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture readnone %6, i32 noundef %7, ptr nocapture noundef writeonly %8) #1 align 16 {
+define dso_local ptr @xfrm_policy_bysel_ctx(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture readnone %6, i32 noundef %7, ptr nocapture noundef writeonly initializes((0, 4)) %8) #1 align 16 {
   %10 = alloca %struct.xfrm_pol_inexact_key, align 8
   %11 = alloca %struct.xfrm_pol_inexact_candidates, align 8
   store i32 0, ptr %8, align 4
@@ -3374,7 +3374,7 @@ define dso_local ptr @xfrm_policy_bysel_ctx(ptr noundef %0, ptr nocapture nounde
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @xfrm_policy_byid(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef writeonly %7) #1 align 16 {
+define dso_local ptr @xfrm_policy_byid(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef writeonly initializes((0, 4)) %7) #1 align 16 {
   store i32 -2, ptr %7, align 4
   %9 = and i32 %5, 7
   %10 = icmp eq i32 %9, %4
@@ -12166,7 +12166,7 @@ declare dso_local ptr @ipv4_dst_check(ptr noundef, i32 noundef) #4
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #4 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @xfrm_net_init(ptr noundef %0) #1 align 16 {
+define internal range(i32 -2147483648, 1) i32 @xfrm_net_init(ptr noundef initializes((3392, 3396), (3400, 3408)) %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 3392
   store i32 0, ptr %2, align 64
   %3 = getelementptr inbounds i8, ptr %0, i64 3404

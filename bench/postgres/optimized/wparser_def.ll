@@ -3829,7 +3829,7 @@ TParserCopyClose.exit:                            ; preds = %.lr.ph.i, %83
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @SpecialFURL(ptr nocapture noundef %0) #10 {
+define internal void @SpecialFURL(ptr nocapture noundef initializes((49, 50)) %0) #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 49
   store i8 1, ptr %2, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 40

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.md4_state_st = type { [4 x i32], i32, i32, [64 x i8], i32 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @MD4(ptr nocapture noundef readonly %data, i64 noundef %len, ptr noundef returned writeonly %out) local_unnamed_addr #0 {
+define hidden noundef ptr @MD4(ptr nocapture noundef readonly %data, i64 noundef %len, ptr noundef returned writeonly initializes((0, 16)) %out) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.md4_state_st, align 4
   %0 = getelementptr inbounds i8, ptr %ctx, i64 16
@@ -57,7 +57,7 @@ MD4_Update.exit:                                  ; preds = %entry, %if.end45.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @MD4_Init(ptr nocapture noundef writeonly %md4) local_unnamed_addr #1 {
+define hidden noundef i32 @MD4_Init(ptr nocapture noundef writeonly initializes((0, 92)) %md4) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr inbounds i8, ptr %md4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %0, i8 0, i64 76, i1 false)
@@ -157,7 +157,7 @@ return:                                           ; preds = %if.end45, %if.then4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @MD4_Final(ptr nocapture noundef writeonly %md, ptr nocapture noundef %c) local_unnamed_addr #0 {
+define hidden noundef i32 @MD4_Final(ptr nocapture noundef writeonly initializes((0, 16)) %md, ptr nocapture noundef %c) local_unnamed_addr #0 {
 entry:
   %num = getelementptr inbounds i8, ptr %c, i64 88
   %0 = load i32, ptr %num, align 4

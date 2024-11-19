@@ -779,7 +779,7 @@ _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12MachineInstrC2ERNS_15MachineFunctionERKNS_11MCInstrDescENS_8DebugLocEb(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12MachineInstrC2ERNS_15MachineFunctionERKNS_11MCInstrDescENS_8DebugLocEb(ptr noundef nonnull align 8 dereferenceable(70) initializes((0, 64)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::MachineOperand", align 8
   %7 = alloca %"class.llvm::MachineOperand", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -983,7 +983,7 @@ _ZN4llvm12MachineInstr25addImplicitDefUseOperandsERNS_15MachineFunctionE.exit: ;
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12MachineInstrC2ERNS_15MachineFunctionERKS0_(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12MachineInstrC2ERNS_15MachineFunctionERKS0_(ptr noundef nonnull align 8 dereferenceable(70) initializes((0, 64)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %2) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1480,7 +1480,7 @@ _ZL12moveOperandsPN4llvm14MachineOperandES1_jPNS_19MachineRegisterInfoE.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12MachineInstr12setExtraInfoERNS_15MachineFunctionENS_8ArrayRefIPNS_17MachineMemOperandEEEPNS_8MCSymbolES8_PNS_6MDNodeESA_jSA_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr %2, i64 %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12MachineInstr12setExtraInfoERNS_15MachineFunctionENS_8ArrayRefIPNS_17MachineMemOperandEEEPNS_8MCSymbolES8_PNS_6MDNodeESA_jSA_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(70) initializes((48, 56)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr %2, i64 %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #0 align 2 {
   %11 = icmp ne ptr %4, null
   %12 = icmp ne ptr %5, null
   %13 = icmp ne ptr %6, null
@@ -17855,7 +17855,7 @@ define dso_local noundef i32 @_ZN4llvm12MachineInstr16getDebugInstrNumERNS_15Mac
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm12MachineInstr13getFirst2LLTsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.340") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm12MachineInstr13getFirst2LLTsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.340") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -17935,7 +17935,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit6: ; preds = %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm12MachineInstr13getFirst3LLTsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.345") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm12MachineInstr13getFirst3LLTsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.345") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -18052,7 +18052,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit12: ; preds = %_ZNK4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm12MachineInstr13getFirst4LLTsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.350") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm12MachineInstr13getFirst4LLTsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.350") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -18206,7 +18206,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit18: ; preds = %_ZNK4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm12MachineInstr13getFirst5LLTsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.356") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm12MachineInstr13getFirst5LLTsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.356") align 8 initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -18397,7 +18397,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit24: ; preds = %_ZNK4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm12MachineInstr16getFirst2RegLLTsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.363") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm12MachineInstr16getFirst2RegLLTsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.363") align 8 initializes((0, 12), (16, 28)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -18480,7 +18480,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit6: ; preds = %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm12MachineInstr16getFirst3RegLLTsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.370") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm12MachineInstr16getFirst3RegLLTsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.370") align 8 initializes((0, 12), (16, 28), (32, 44)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -18601,7 +18601,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit12: ; preds = %_ZNK4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm12MachineInstr16getFirst4RegLLTsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.383") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm12MachineInstr16getFirst4RegLLTsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.383") align 8 initializes((0, 12), (16, 28), (32, 44), (48, 60)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -18760,7 +18760,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit18: ; preds = %_ZNK4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm12MachineInstr16getFirst5RegLLTsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.399") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm12MachineInstr16getFirst5RegLLTsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.399") align 8 initializes((0, 12), (16, 28), (32, 44), (48, 60), (64, 76)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4

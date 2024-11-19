@@ -19301,7 +19301,7 @@ define hidden noundef zeroext i1 @_ZThn16_NK5osgeo4proj9operation21ConcatenatedO
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5osgeo4proj9operation21ConcatenatedOperation11gridsNeededERKSt10shared_ptrINS0_2io15DatabaseContextEEb(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5osgeo4proj9operation21ConcatenatedOperation11gridsNeededERKSt10shared_ptrINS0_2io15DatabaseContextEEb(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::set", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8

@@ -3229,7 +3229,7 @@ _ZN8WasmEdge3AST11TypeMatcher10matchTypesEN5cxx204spanIKPKNS0_7SubTypeELm1844674
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST5LimitE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST5LimitE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca i32, align 4
@@ -3284,7 +3284,7 @@ define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST5LimitE(ptr dead
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST9TableTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(520) %1, ptr noundef nonnull align 4 dereferenceable(20) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST9TableTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr noundef nonnull align 8 dereferenceable(520) %1, ptr noundef nonnull align 4 dereferenceable(20) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"class.cxx20::expected", align 4
   %6 = alloca %"class.cxx20::expected", align 4
@@ -3333,7 +3333,7 @@ define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST9TableTypeE(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST10MemoryTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST10MemoryTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca %"struct.spdlog::source_loc", align 8
@@ -3414,7 +3414,7 @@ define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST10MemoryTypeE(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST10GlobalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(520) %1, ptr noundef nonnull align 4 dereferenceable(9) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST10GlobalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr noundef nonnull align 8 dereferenceable(520) %1, ptr noundef nonnull align 4 dereferenceable(9) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cxx20::expected", align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 160
   call void @_ZNK8WasmEdge9Validator11FormChecker8validateERKNS_7ValTypeE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %4, ptr noundef nonnull align 8 dereferenceable(360) %5, ptr noundef nonnull align 4 dereferenceable(8) %2) #19
@@ -4293,7 +4293,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit6: ; preds = %_ZNSt6vectorIN8Wa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST13GlobalSegmentE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(520) %1, ptr noundef nonnull align 8 dereferenceable(36) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST13GlobalSegmentE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr noundef nonnull align 8 dereferenceable(520) %1, ptr noundef nonnull align 8 dereferenceable(36) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"class.cxx20::expected", align 4
   %6 = alloca %"struct.spdlog::source_loc", align 8
@@ -4786,7 +4786,7 @@ declare void @_ZN8WasmEdge9Validator11FormChecker8addLocalERKNS_7ValTypeEb(ptr n
 declare void @_ZN8WasmEdge9Validator11FormChecker8validateEN5cxx204spanIKNS_3AST11InstructionELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4, ptr noundef nonnull align 8 dereferenceable(360), ptr, i64, ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST11DataSegmentE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(520) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST11DataSegmentE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr noundef nonnull align 8 dereferenceable(520) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca %"struct.spdlog::source_loc", align 8
@@ -4876,7 +4876,7 @@ define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST11DataSegmentE(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST10ImportDescE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(520) %1, ptr noundef nonnull align 8 dereferenceable(136) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST10ImportDescE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr noundef nonnull align 8 dereferenceable(520) %1, ptr noundef nonnull align 8 dereferenceable(136) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"class.cxx20::expected", align 4
   %6 = alloca %"struct.spdlog::source_loc", align 8
@@ -5176,7 +5176,7 @@ declare void @_ZN8WasmEdge9Validator11FormChecker6addTagEj(ptr noundef nonnull a
 declare void @_ZN8WasmEdge9Validator11FormChecker9addGlobalERKNS_3AST10GlobalTypeEb(ptr noundef nonnull align 8 dereferenceable(360), ptr noundef nonnull align 4 dereferenceable(9), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST10ExportDescE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(520) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST10ExportDescE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr noundef nonnull align 8 dereferenceable(520) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca %"struct.spdlog::source_loc", align 8

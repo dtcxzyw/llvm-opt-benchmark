@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.jdwpCmdPacket = type { i32, i32, i8, i8, i8, ptr }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @inStream_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly byval(%struct.jdwpPacket) align 8 %1) local_unnamed_addr #0 {
+define hidden void @inStream_init(ptr nocapture noundef writeonly initializes((0, 14), (16, 48)) %0, ptr nocapture noundef readonly byval(%struct.jdwpPacket) align 8 %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 12
@@ -1165,7 +1165,7 @@ define hidden zeroext i16 @inStream_error(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @inStream_clearError(ptr nocapture noundef writeonly %0) local_unnamed_addr #7 {
+define hidden void @inStream_clearError(ptr nocapture noundef writeonly initializes((12, 14)) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   store i16 0, ptr %2, align 4
   ret void

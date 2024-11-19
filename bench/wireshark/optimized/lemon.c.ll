@@ -5241,7 +5241,7 @@ define hidden noalias noundef ptr @newconfig() local_unnamed_addr #18 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @deleteconfig(ptr noundef %0) local_unnamed_addr #19 {
+define hidden void @deleteconfig(ptr noundef initializes((56, 64)) %0) local_unnamed_addr #19 {
   %2 = load ptr, ptr @freelist, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %2, ptr %3, align 8
@@ -11256,7 +11256,7 @@ file_open.exit._crit_edge:                        ; preds = %file_open.exit, %fi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ReportTable(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define hidden void @ReportTable(ptr noundef initializes((48, 72)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = alloca [1000 x i8], align 16
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -14704,7 +14704,7 @@ define hidden range(i32 0, 2) i32 @PrintAction(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @lemon_sprintf(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @lemon_sprintf(ptr nocapture noundef nonnull writeonly initializes((0, 1)) %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [50 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -16334,7 +16334,7 @@ lemon_strcpy.exit:                                ; preds = %52
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @translate_code(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @translate_code(ptr nocapture noundef %0, ptr nocapture noundef initializes((96, 100)) %1) local_unnamed_addr #7 {
   %3 = alloca [1000 x i8], align 16
   %4 = alloca [50 x i8], align 16
   %5 = alloca [900 x i8], align 16

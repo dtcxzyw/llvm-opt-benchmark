@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [21 x i8] c"pthread_mutex_lock()\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @component_map_construct(ptr nocapture noundef writeonly %0) #0 {
+define internal void @component_map_construct(ptr nocapture noundef writeonly initializes((144, 152)) %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr null, ptr %2, align 8
   ret void

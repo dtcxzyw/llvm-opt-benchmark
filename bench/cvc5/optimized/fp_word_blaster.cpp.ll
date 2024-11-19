@@ -3310,7 +3310,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionC2ENS0_12NodeTemplateILb1EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %n) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionC2ENS0_12NodeTemplateILb1EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef readonly %n) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %n, align 8
   store ptr %0, ptr %this, align 8
@@ -3553,7 +3553,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionC2ERKS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %old) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionC2ERKS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %old) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %old, align 8
   store ptr %0, ptr %this, align 8
@@ -4220,7 +4220,7 @@ lpad:                                             ; preds = %entry
 declare noundef zeroext i1 @_ZNK4cvc58internal8TypeNode11isBitVectorEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2ENS0_12NodeTemplateILb1EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %n) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2ENS0_12NodeTemplateILb1EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef readonly %n) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %n, align 8
   store ptr %0, ptr %this, align 8
@@ -4362,7 +4362,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit4:            ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2ERKS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %old) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory2fp14symfpuSymbolic20symbolicRoundingModeC2ERKS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %old) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %old, align 8
   store ptr %0, ptr %this, align 8
@@ -10286,7 +10286,7 @@ ehcleanup11:                                      ; preds = %ehcleanup10
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory2fp13FpWordBlaster9ubvToNodeERKNS2_14symfpuSymbolic17symbolicBitVectorILb0EEE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(640) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %u) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal6theory2fp13FpWordBlaster9ubvToNodeERKNS2_14symfpuSymbolic17symbolicBitVectorILb0EEE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(640) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %u) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %u, align 8
   store ptr %0, ptr %agg.result, align 8
@@ -10320,7 +10320,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory2fp13FpWordBlaster9sbvToNodeERKNS2_14symfpuSymbolic17symbolicBitVectorILb1EEE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(640) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal6theory2fp13FpWordBlaster9sbvToNodeERKNS2_14symfpuSymbolic17symbolicBitVectorILb1EEE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(640) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %s, align 8
   store ptr %0, ptr %agg.result, align 8

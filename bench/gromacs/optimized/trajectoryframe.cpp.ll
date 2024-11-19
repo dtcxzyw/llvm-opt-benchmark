@@ -330,7 +330,7 @@ declare void @_Z9done_atomP7t_atoms(ptr noundef) local_unnamed_addr #1
 declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx15TrajectoryFrameC2ERK10t_trxframe(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(176) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx15TrajectoryFrameC2ERK10t_trxframe(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((0, 44)) %0, ptr noundef nonnull align 8 dereferenceable(176) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.gmx::APIError", align 8
   %4 = alloca %"class.gmx::ExceptionInitializer", align 8
   %5 = alloca %"class.gmx::ExceptionInfo", align 8

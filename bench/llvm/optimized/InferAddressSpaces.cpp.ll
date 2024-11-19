@@ -437,13 +437,13 @@ _ZN12_GLOBAL__N_118InferAddressSpacesC2Ej.exit:   ; preds = %1
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm22InferAddressSpacesPassC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm22InferAddressSpacesPassC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #3 align 2 {
   store i32 -1, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm22InferAddressSpacesPassC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm22InferAddressSpacesPassC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   store i32 %1, ptr %0, align 4
   ret void
 }
@@ -523,7 +523,7 @@ define dso_local void @_ZN4llvm22InferAddressSpacesPass3runERNS_8FunctionERNS_15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122InferAddressSpacesImpl3runERN4llvm8FunctionE(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122InferAddressSpacesImpl3runERN4llvm8FunctionE(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((8, 16), (32, 40)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.anon.178, align 1
   %4 = alloca %"class.llvm::SmallVector.136", align 8
   %5 = alloca %"struct.std::pair.165", align 8

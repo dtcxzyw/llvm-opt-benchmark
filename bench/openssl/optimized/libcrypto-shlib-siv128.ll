@@ -185,7 +185,7 @@ declare i32 @EVP_MAC_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i32 @EVP_MAC_final(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_siv128_copy_ctx(ptr nocapture noundef %dest, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_siv128_copy_ctx(ptr nocapture noundef initializes((0, 16)) %dest, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dest, ptr noundef nonnull align 8 dereferenceable(16) %src, i64 16, i1 false)
   %cipher_ctx = getelementptr inbounds i8, ptr %dest, i64 32
@@ -602,7 +602,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_siv128_speed(ptr nocapture noundef writeonly %ctx, i32 noundef %arg) local_unnamed_addr #6 {
+define noundef i32 @ossl_siv128_speed(ptr nocapture noundef writeonly initializes((60, 64)) %ctx, i32 noundef %arg) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq i32 %arg, 1
   %cond = select i1 %cmp, i32 -1, i32 1

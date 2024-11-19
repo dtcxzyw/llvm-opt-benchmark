@@ -1399,7 +1399,7 @@ $_ZSt19piecewise_construct = comdat any
 @switch.table._ZN11flatbuffers3cpp12CppGenerator11GenBuildersERKNS_9StructDefE = private unnamed_addr constant [19 x i64] [i64 1, i64 1, i64 1, i64 1, i64 1, i64 2, i64 2, i64 4, i64 4, i64 8, i64 8, i64 4, i64 8, i64 4, i64 4, i64 4, i64 4, i64 4, i64 8], align 8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11flatbuffers19NewCppCodeGeneratorEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11flatbuffers19NewCppCodeGeneratorEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN11flatbuffers12_GLOBAL__N_116CppCodeGeneratorESt14default_deleteIS2_EED2Ev.exit:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call, i8 0, i64 40, i1 false)
@@ -1418,7 +1418,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11flatbuffers12_GLOBAL__N_116CppCodeGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN11flatbuffers12_GLOBAL__N_116CppCodeGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i64 16), ptr %this, align 8
   %status_detail.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1427,7 +1427,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11flatbuffers12_GLOBAL__N_116CppCodeGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN11flatbuffers12_GLOBAL__N_116CppCodeGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i64 16), ptr %this, align 8
   %status_detail.i.i = getelementptr inbounds i8, ptr %this, i64 8

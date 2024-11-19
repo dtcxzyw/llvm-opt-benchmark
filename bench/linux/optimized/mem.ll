@@ -572,7 +572,7 @@ declare dso_local i32 @security_locked_down(i32 noundef) local_unnamed_addr #3
 declare dso_local ptr @iomem_get_mapping() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i64 @null_lseek(ptr nocapture noundef writeonly %0, i64 %1, i32 %2) #8 align 16 {
+define internal noundef i64 @null_lseek(ptr nocapture noundef writeonly initializes((64, 72)) %0, i64 %1, i32 %2) #8 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store i64 0, ptr %4, align 8
   ret i64 0

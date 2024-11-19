@@ -476,7 +476,7 @@ return:                                           ; preds = %if.end3.i.i.i.i, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14ThreadLocalPtr10StaticMetaC2Ev(ptr noundef nonnull align 8 dereferenceable(228) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14ThreadLocalPtr10StaticMetaC2Ev(ptr noundef nonnull align 8 dereferenceable(228) initializes((0, 4), (8, 16)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %this, align 8
   %free_instance_ids_ = getelementptr inbounds i8, ptr %this, i64 8

@@ -7961,7 +7961,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN5QListIPvED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13IOGraphDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13IOGraphDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV13IOGraphDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV13IOGraphDialog, i64 528), ptr %2, align 8
@@ -9542,7 +9542,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i140:   ; preds = %_ZN10QByteArrayD2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog13scheduleRetapEb(ptr noundef nonnull align 8 dereferenceable(352) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog13scheduleRetapEb(ptr noundef nonnull align 8 dereferenceable(352) initializes((314, 315)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 314
   store i8 1, ptr %3, align 2
   br i1 %1, label %4, label %5
@@ -10706,7 +10706,7 @@ _ZN7IOGraph7setNameERK7QString.exit:              ; preds = %156, %159
 declare noundef i32 @_ZNK8QVariant5toIntEPb(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7IOGraph11setIntervalEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(38000212) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+define void @_ZN7IOGraph11setIntervalEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(38000212) initializes((172, 176)) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 172
   store i32 %1, ptr %3, align 4
   ret void
@@ -10764,7 +10764,7 @@ define void @_ZN7IOGraph10setVisibleEb(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog12getGraphInfoEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13IOGraphDialog12getGraphInfoEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((208, 216), (232, 240)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QVariant, align 8
   %4 = alloca %class.QModelIndex, align 8
@@ -13578,7 +13578,7 @@ _ZN7QStringD2Ev.exit178:                          ; preds = %358, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog14scheduleReplotEb(ptr noundef nonnull align 8 dereferenceable(352) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog14scheduleReplotEb(ptr noundef nonnull align 8 dereferenceable(352) initializes((312, 313)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   store i8 1, ptr %3, align 8
   br i1 %1, label %4, label %5
@@ -13851,7 +13851,7 @@ _ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog14scheduleRecalcEb(ptr noundef nonnull align 8 dereferenceable(352) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog14scheduleRecalcEb(ptr noundef nonnull align 8 dereferenceable(352) initializes((313, 314)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 313
   store i8 1, ptr %3, align 1
   br i1 %1, label %4, label %5
@@ -14106,7 +14106,7 @@ _ZN13IOGraphDialog29on_actionGoToPacket_triggeredEv.exit: ; preds = %101, %98, %
 declare i32 @_ZNK9QKeyEvent9modifiersEv(ptr noundef nonnull align 8 dereferenceable(82)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog8zoomAxesEb(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog8zoomAxesEb(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 184
@@ -14144,7 +14144,7 @@ define void @_ZN13IOGraphDialog8zoomAxesEb(ptr nocapture noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog9zoomXAxisEb(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog9zoomXAxisEb(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 184
@@ -14169,7 +14169,7 @@ define void @_ZN13IOGraphDialog9zoomXAxisEb(ptr nocapture noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog9zoomYAxisEb(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog9zoomYAxisEb(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 184
@@ -14194,7 +14194,7 @@ define void @_ZN13IOGraphDialog9zoomYAxisEb(ptr nocapture noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog7panAxesEii(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog7panAxesEii(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 184
@@ -14262,7 +14262,7 @@ define void @_ZN13IOGraphDialog7panAxesEii(ptr nocapture noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog9resetAxesEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog9resetAxesEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.QCPRange, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
@@ -15184,7 +15184,7 @@ declare void @_ZN12QCPLayerable10setVisibleEb(ptr noundef nonnull align 8 derefe
 declare void @_ZNK9QComboBox8itemTextEi(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7IOGraph14valueUnitLabelEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(38000212) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7IOGraph14valueUnitLabelEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(38000212) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 136
   %5 = load i32, ptr %4, align 8
@@ -15526,7 +15526,7 @@ define noundef zeroext i1 @_ZN7IOGraph16removeFromLegendEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog13getZoomRangesE5QRect(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QRectF) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %1, i64 %2, i64 %3) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog13getZoomRangesE5QRect(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QRectF) align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %1, i64 %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.QRect, align 8
   %6 = alloca %class.QRect, align 8
   %7 = alloca %class.QRect, align 8
@@ -15893,7 +15893,7 @@ declare void @_ZNK7QString3argEdici5QChar(ptr dead_on_unwind writable sret(%clas
 declare void @_ZN11ElidedLabel7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog13mouseReleasedEP11QMouseEvent(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13IOGraphDialog13mouseReleasedEP11QMouseEvent(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QRectF, align 8
   %4 = alloca %class.QCursor, align 8
   %5 = alloca %class.QCursor, align 8
@@ -16022,7 +16022,7 @@ declare void @_ZN13IOGraphDialog15recalcGraphDataEP13_capture_fileb(ptr noundef 
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL16io_graph_copy_cbPvPKvm(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @_ZL16io_graph_copy_cbPvPKvm(ptr noundef returned writeonly initializes((0, 4), (8, 36), (40, 56)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -16439,7 +16439,7 @@ define void @_ZN13IOGraphDialog16modelDataChangedERK11QModelIndex(ptr noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog22on_resetButton_clickedEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog22on_resetButton_clickedEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN13IOGraphDialog9resetAxesEv(ptr noundef nonnull align 8 dereferenceable(352) %0)
   ret void
 }
@@ -17322,13 +17322,13 @@ define void @_ZN13IOGraphDialog31on_enableLegendCheckBox_toggledEb(ptr nocapture
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog24on_actionReset_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog24on_actionReset_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN13IOGraphDialog9resetAxesEv(ptr noundef nonnull align 8 dereferenceable(352) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog25on_actionZoomIn_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog25on_actionZoomIn_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 184
@@ -17362,7 +17362,7 @@ define void @_ZN13IOGraphDialog25on_actionZoomIn_triggeredEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog26on_actionZoomInX_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog26on_actionZoomInX_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 184
@@ -17385,7 +17385,7 @@ define void @_ZN13IOGraphDialog26on_actionZoomInX_triggeredEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog26on_actionZoomInY_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog26on_actionZoomInY_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 184
@@ -17408,7 +17408,7 @@ define void @_ZN13IOGraphDialog26on_actionZoomInY_triggeredEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog26on_actionZoomOut_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog26on_actionZoomOut_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 184
@@ -17444,7 +17444,7 @@ define void @_ZN13IOGraphDialog26on_actionZoomOut_triggeredEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog27on_actionZoomOutX_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog27on_actionZoomOutX_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 184
@@ -17468,7 +17468,7 @@ define void @_ZN13IOGraphDialog27on_actionZoomOutX_triggeredEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog27on_actionZoomOutY_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog27on_actionZoomOutY_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 184
@@ -17492,49 +17492,49 @@ define void @_ZN13IOGraphDialog27on_actionZoomOutY_triggeredEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog27on_actionMoveUp10_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog27on_actionMoveUp10_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN13IOGraphDialog7panAxesEii(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef 0, i32 noundef 10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog29on_actionMoveLeft10_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog29on_actionMoveLeft10_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN13IOGraphDialog7panAxesEii(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef -10, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog30on_actionMoveRight10_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog30on_actionMoveRight10_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN13IOGraphDialog7panAxesEii(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef 10, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog29on_actionMoveDown10_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog29on_actionMoveDown10_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN13IOGraphDialog7panAxesEii(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef 0, i32 noundef -10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog26on_actionMoveUp1_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog26on_actionMoveUp1_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN13IOGraphDialog7panAxesEii(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef 0, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog28on_actionMoveLeft1_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog28on_actionMoveLeft1_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN13IOGraphDialog7panAxesEii(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef -1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog29on_actionMoveRight1_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog29on_actionMoveRight1_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN13IOGraphDialog7panAxesEii(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef 1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IOGraphDialog28on_actionMoveDown1_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN13IOGraphDialog28on_actionMoveDown1_triggeredEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((315, 316)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN13IOGraphDialog7panAxesEii(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef 0, i32 noundef -1)
   ret void
 }
@@ -20407,7 +20407,7 @@ declare void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unn
 declare void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7IOGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(38000212) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7IOGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(38000212) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV7IOGraph, i64 16), ptr %0, align 8
   invoke void @remove_tap_listener(ptr noundef nonnull %0)
           to label %2 unwind label %43
@@ -20723,7 +20723,7 @@ _ZN14QSharedPointerI16QCPDataContainerI11QCPBarsDataEE5derefEv.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7IOGraph12clearAllDataEv(ptr noundef nonnull align 8 dereferenceable(38000212) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7IOGraph12clearAllDataEv(ptr noundef nonnull align 8 dereferenceable(38000212) initializes((38000208, 38000212)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 38000208
@@ -25787,7 +25787,7 @@ declare noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull alig
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZL18uat_fld_chk_enablePvPKcjPKvS3_PPc(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly %5) #0 {
+define internal noundef zeroext i1 @_ZL18uat_fld_chk_enablePvPKcjPKvS3_PPc(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
   %7 = zext i32 %2 to i64
   %8 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %7)
   %9 = tail call i32 @g_strcmp0(ptr noundef %8, ptr noundef nonnull @.str.248)
@@ -25822,7 +25822,7 @@ define internal noundef zeroext i1 @_ZL18uat_fld_chk_enablePvPKcjPKvS3_PPc(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL23io_graph_enabled_set_cbPvPKcjPKvS3_(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @_ZL23io_graph_enabled_set_cbPvPKcjPKvS3_(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6)
   %8 = tail call i32 @g_strcmp0(ptr noundef %7, ptr noundef nonnull @.str.248)
@@ -25843,7 +25843,7 @@ define internal void @_ZL23io_graph_enabled_set_cbPvPKcjPKvS3_(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL25io_graph_enabled_tostr_cbPvPPcPjPKvS4_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @_ZL25io_graph_enabled_tostr_cbPvPPcPjPKvS4_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %6, 0
   %7 = select i1 %.not, ptr @.str.273, ptr @.str.248
@@ -25869,7 +25869,7 @@ define internal void @_ZL20io_graph_name_set_cbPvPKcjPKvS3_(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL22io_graph_name_tostr_cbPvPPcPjPKvS4_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @_ZL22io_graph_name_tostr_cbPvPPcPjPKvS4_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -25906,7 +25906,7 @@ define internal void @_ZL23io_graph_dfilter_set_cbPvPKcjPKvS3_(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL25io_graph_dfilter_tostr_cbPvPPcPjPKvS4_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @_ZL25io_graph_dfilter_tostr_cbPvPPcPjPKvS4_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -25934,7 +25934,7 @@ define internal void @_ZL25io_graph_dfilter_tostr_cbPvPPcPjPKvS4_(ptr nocapture 
 declare zeroext i1 @uat_fld_chk_color(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21io_graph_color_set_cbPvPKcjPKvS3_(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @_ZL21io_graph_color_set_cbPvPKcjPKvS3_(ptr nocapture noundef writeonly initializes((24, 28)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = icmp eq i32 %2, 0
   br i1 %6, label %7, label %9
 
@@ -25960,7 +25960,7 @@ define internal void @_ZL21io_graph_color_set_cbPvPKcjPKvS3_(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL23io_graph_color_tostr_cbPvPPcPjPKvS4_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @_ZL23io_graph_color_tostr_cbPvPPcPjPKvS4_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.277, i32 noundef %7)
@@ -25974,7 +25974,7 @@ define internal void @_ZL23io_graph_color_tostr_cbPvPPcPjPKvS4_(ptr nocapture no
 declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21io_graph_style_set_cbPvPKcjPKvS3_(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @_ZL21io_graph_style_set_cbPvPKcjPKvS3_(ptr nocapture noundef writeonly initializes((28, 32)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6)
   %8 = getelementptr inbounds i8, ptr %0, i64 28
@@ -26064,7 +26064,7 @@ define internal void @_ZL23io_graph_style_tostr_cbPvPPcPjPKvS4_(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21io_graph_yaxis_set_cbPvPKcjPKvS3_(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @_ZL21io_graph_yaxis_set_cbPvPKcjPKvS3_(ptr nocapture noundef writeonly initializes((32, 36)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6)
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -26165,7 +26165,7 @@ define internal void @_ZL22io_graph_yfield_set_cbPvPKcjPKvS3_(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL24io_graph_yfield_tostr_cbPvPPcPjPKvS4_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @_ZL24io_graph_yfield_tostr_cbPvPPcPjPKvS4_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -26259,7 +26259,7 @@ sub_0:                                            ; preds = %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL26io_graph_sma_period_set_cbPvPKcjPKvS3_(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @_ZL26io_graph_sma_period_set_cbPvPKcjPKvS3_(ptr nocapture noundef writeonly initializes((48, 52)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6)
   %8 = getelementptr inbounds i8, ptr %0, i64 48
@@ -26393,7 +26393,7 @@ define internal void @_ZL29io_graph_y_axis_factor_set_cbPvPKcjPKvS3_(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL31io_graph_y_axis_factor_tostr_cbPvPPcPjPKvS4_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @_ZL31io_graph_y_axis_factor_tostr_cbPvPPcPjPKvS4_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.281, i32 noundef %7)

@@ -112,7 +112,7 @@ $_ZTVN3url15RawCanonOutputTIcLi64EEE = comdat any
 @_ZTVN3url15RawCanonOutputTIcLi64EEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3url15RawCanonOutputTIcLi64EEE, ptr @_ZN3url15RawCanonOutputTIcLi64EED2Ev, ptr @_ZN3url15RawCanonOutputTIcLi64EED0Ev, ptr @_ZN3url15RawCanonOutputTIcLi64EE6ResizeEi] }, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url16CanonicalizeHostEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef %output, ptr nocapture noundef writeonly %out_host) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url16CanonicalizeHostEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef %output, ptr nocapture noundef writeonly initializes((0, 8)) %out_host) local_unnamed_addr #0 {
 entry:
   %host_info = alloca %"struct.url::CanonHostInfo", align 4
   store i32 0, ptr %host_info, align 4
@@ -339,7 +339,7 @@ return:                                           ; preds = %if.end35, %if.then
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url16CanonicalizeHostEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef %output, ptr nocapture noundef writeonly %out_host) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url16CanonicalizeHostEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef %output, ptr nocapture noundef writeonly initializes((0, 8)) %out_host) local_unnamed_addr #0 {
 entry:
   %host_info = alloca %"struct.url::CanonHostInfo", align 4
   store i32 0, ptr %host_info, align 4
@@ -845,7 +845,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_112DoSimpleHostIccEEbPKT_iPNS_12CanonOutputTIT0_EEPb(ptr nocapture noundef readonly %host, i32 noundef %host_len, ptr noundef %output, ptr nocapture noundef nonnull writeonly %has_non_ascii) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_112DoSimpleHostIccEEbPKT_iPNS_12CanonOutputTIT0_EEPb(ptr nocapture noundef readonly %host, i32 noundef %host_len, ptr noundef %output, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %has_non_ascii) unnamed_addr #0 {
 entry:
   store i8 0, ptr %has_non_ascii, align 1
   %cmp46 = icmp sgt i32 %host_len, 0

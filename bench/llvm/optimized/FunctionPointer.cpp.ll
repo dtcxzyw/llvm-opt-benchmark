@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [9 x i8] c"<<expr>>\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang6interp15FunctionPointer9toAPValueERKNS_10ASTContextE(ptr dead_on_unwind noalias writable sret(%"class.clang::APValue") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(23096) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang6interp15FunctionPointer9toAPValueERKNS_10ASTContextE(ptr dead_on_unwind noalias writable sret(%"class.clang::APValue") align 8 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(23096) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::APValue::LValueBase", align 8
   %5 = alloca %"class.clang::CharUnits", align 8
   %6 = alloca %"class.clang::APValue::LValueBase", align 8

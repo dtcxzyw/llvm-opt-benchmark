@@ -25,7 +25,7 @@ $__clang_call_terminate = comdat any
 @_ZN13gmx_ana_pos_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN13gmx_ana_pos_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13gmx_ana_pos_tC2Ev(ptr noundef nonnull align 8 dereferenceable(148) %0) unnamed_addr #0 align 2 {
+define void @_ZN13gmx_ana_pos_tC2Ev(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   tail call void @_Z22gmx_ana_indexmap_clearP18gmx_ana_indexmap_t(ptr noundef nonnull %2)
@@ -270,7 +270,7 @@ _Z26gmx_ana_pos_reserve_forcesP13gmx_ana_pos_t.exit: ; preds = %29, %26, %_Z30gm
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z22gmx_ana_pos_init_constP13gmx_ana_pos_tPKf(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @_Z22gmx_ana_pos_init_constP13gmx_ana_pos_tPKf(ptr noundef initializes((0, 24), (144, 148)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 170, i64 noundef 1, i64 noundef 12)
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -424,14 +424,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_Z21gmx_ana_indexmap_copyP18gmx_ana_indexmap_tS0_b(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z18gmx_ana_pos_set_nrP13gmx_ana_pos_ti(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @_Z18gmx_ana_pos_set_nrP13gmx_ana_pos_ti(ptr nocapture noundef writeonly initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_Z22gmx_ana_pos_empty_initP13gmx_ana_pos_t(ptr nocapture noundef %0) local_unnamed_addr #8 {
+define void @_Z22gmx_ana_pos_empty_initP13gmx_ana_pos_t(ptr nocapture noundef initializes((48, 52), (64, 68), (96, 100), (112, 116), (136, 137)) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 64
@@ -452,7 +452,7 @@ define void @_Z22gmx_ana_pos_empty_initP13gmx_ana_pos_t(ptr nocapture noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_Z17gmx_ana_pos_emptyP13gmx_ana_pos_t(ptr nocapture noundef %0) local_unnamed_addr #8 {
+define void @_Z17gmx_ana_pos_emptyP13gmx_ana_pos_t(ptr nocapture noundef initializes((48, 52), (64, 68), (136, 137)) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 64

@@ -1342,7 +1342,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit22: ; preds = %_ZN4cvc58internal12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory4bags9BagSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory4bags9BagSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory4bags9BagSolverE, i64 16), ptr %this, align 8
   %d_one = getelementptr inbounds i8, ptr %this, i64 232
@@ -1465,7 +1465,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit33: ; preds = %_ZN4cvc58internal12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory4bags9BagSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory4bags9BagSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory4bags9BagSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -12911,7 +12911,7 @@ eh.resume:                                        ; preds = %ehcleanup131, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory4bags9BagSolver28getElementsForBinaryOperatorERKNS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.std::set") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory4bags9BagSolver28getElementsForBinaryOperatorERKNS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::set", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8

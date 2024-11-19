@@ -397,7 +397,7 @@ $_ZTIN5arrow14NumericBuilderINS_9Int64TypeEEE = comdat any
 @_ZN5arrow18RunEndEncodedArrayC1ERKSt10shared_ptrINS_8DataTypeEElRKS1_INS_5ArrayEES9_l = unnamed_addr alias void (ptr, ptr, i64, ptr, ptr, i64), ptr @_ZN5arrow18RunEndEncodedArrayC2ERKSt10shared_ptrINS_8DataTypeEElRKS1_INS_5ArrayEES9_l
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow18RunEndEncodedArrayC2ERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow18RunEndEncodedArrayC2ERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %this, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i, i8 0, i64 24, i1 false)
@@ -1027,7 +1027,7 @@ _ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow18RunEndEncodedArrayC2ERKSt10shared_ptrINS_8DataTypeEElRKS1_INS_5ArrayEES9_l(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, i64 noundef %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %run_ends, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %values, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow18RunEndEncodedArrayC2ERKSt10shared_ptrINS_8DataTypeEElRKS1_INS_5ArrayEES9_l(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, i64 noundef %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %run_ends, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %values, i64 noundef %offset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %agg.tmp = alloca %"class.std::shared_ptr.3", align 8

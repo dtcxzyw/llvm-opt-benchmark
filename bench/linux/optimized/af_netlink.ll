@@ -5871,7 +5871,7 @@ declare dso_local i32 @sock_no_socketpair(ptr noundef, ptr noundef) #0
 declare dso_local i32 @sock_no_accept(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @netlink_getname(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #1 align 16 {
+define internal noundef i32 @netlink_getname(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, i32 noundef %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   store i16 16, ptr %1, align 4
@@ -7463,7 +7463,7 @@ declare dso_local void @rtnetlink_init() local_unnamed_addr #0
 declare dso_local void @panic(ptr noundef, ...) local_unnamed_addr #22
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -94, 1) i32 @netlink_create(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal noundef range(i32 -94, 1) i32 @netlink_create(ptr noundef %0, ptr noundef initializes((0, 4)) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   store i32 1, ptr %1, align 64
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i16, ptr %5, align 4

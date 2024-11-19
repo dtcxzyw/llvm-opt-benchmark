@@ -2110,7 +2110,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_oid_with_context_1(ptr noundef %repo, ptr noundef %name, i32 noundef %flags, ptr noundef %prefix, ptr noundef %oid, ptr noundef %oc) unnamed_addr #0 {
+define internal fastcc i32 @get_oid_with_context_1(ptr noundef %repo, ptr noundef %name, i32 noundef %flags, ptr noundef %prefix, ptr noundef %oid, ptr noundef initializes((0, 40)) %oc) unnamed_addr #0 {
 entry:
   %cb = alloca %struct.handle_one_ref_cb, align 8
   %list = alloca ptr, align 8

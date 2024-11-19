@@ -3800,7 +3800,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11flatbuffers12_GLOBAL__N_116NimBfbsGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11flatbuffers12_GLOBAL__N_116NimBfbsGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(624) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN11flatbuffers12_GLOBAL__N_116NimBfbsGeneratorE, i64 16), ptr %this, align 8
   %namer_ = getelementptr inbounds i8, ptr %this, i64 232
@@ -3862,7 +3862,7 @@ _ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hash
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11flatbuffers12_GLOBAL__N_116NimBfbsGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(624) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN11flatbuffers12_GLOBAL__N_116NimBfbsGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(624) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN11flatbuffers12_GLOBAL__N_116NimBfbsGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %this) #25
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
@@ -20576,7 +20576,7 @@ eh.resume:                                        ; preds = %lpad14, %lpad.i, %l
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEt(ptr noundef nonnull align 8 dereferenceable(8), i16 noundef zeroext) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator11StringSplitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %orig_str, ptr noundef nonnull %token) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_116NimBfbsGenerator11StringSplitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull %orig_str, ptr noundef nonnull %token) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %str = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

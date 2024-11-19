@@ -395,7 +395,7 @@ declare ptr @H5FL_blk_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @H5WB_unwrap(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__fill_init(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8, i64 noundef %9) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__fill_init(ptr nocapture noundef initializes((0, 152)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8, i64 noundef %9) local_unnamed_addr #0 {
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %11, i8 0, i64 120, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 48

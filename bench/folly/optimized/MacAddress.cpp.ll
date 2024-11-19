@@ -208,7 +208,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10MacAddressC2ENS_5RangeIPKcEE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(8) %this, ptr %str.coerce0, ptr %str.coerce1) unnamed_addr #3 align 2 {
+define void @_ZN5folly10MacAddressC2ENS_5RangeIPKcEE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(8) initializes((0, 8)) %this, ptr %str.coerce0, ptr %str.coerce1) unnamed_addr #3 align 2 {
 entry:
   store i64 0, ptr %this, align 1
   tail call void @_ZN5folly10MacAddress13setFromStringENS_5RangeIPKcEE(ptr noundef nonnull align 1 dereferenceable(8) %this, ptr %str.coerce0, ptr %str.coerce1)

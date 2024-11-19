@@ -84,7 +84,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN5ceres8internal10ThreadPool22MaxNu
 declare noundef i32 @_ZNSt6thread20hardware_concurrencyEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal10ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal10ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 40)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(169) %0, i8 0, i64 40, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #15
@@ -108,7 +108,7 @@ _ZN5ceres8internal15ConcurrentQueueISt8functionIFvvEEEC2Ev.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal10ThreadPoolC2Ei(ptr noundef nonnull align 8 dereferenceable(240) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal10ThreadPoolC2Ei(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 40)) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(169) %0, i8 0, i64 40, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #15

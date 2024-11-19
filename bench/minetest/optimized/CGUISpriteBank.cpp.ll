@@ -76,7 +76,7 @@ $_ZTIN3irr3gui14IGUISpriteBankE = comdat any
 @.str.2 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui14CGUISpriteBankC2EPNS0_15IGUIEnvironmentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %this, ptr nocapture noundef readonly %vtt, ptr noundef %env) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui14CGUISpriteBankC2EPNS0_15IGUIEnvironmentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 33), (40, 65), (72, 97), (104, 120)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %env) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -139,7 +139,7 @@ if.end15:                                         ; preds = %if.then9, %if.then,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui14CGUISpriteBankC1EPNS0_15IGUIEnvironmentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %this, ptr noundef %env) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui14CGUISpriteBankC1EPNS0_15IGUIEnvironmentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 33), (40, 65), (72, 97), (104, 140)) %this, ptr noundef %env) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 120
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 128
@@ -192,7 +192,7 @@ if.end11:                                         ; preds = %if.then7, %if.then,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui14CGUISpriteBankD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui14CGUISpriteBankD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -291,7 +291,7 @@ _ZN3irr4core5arrayINS_3gui10SGUISpriteEED2Ev.exit: ; preds = %if.then.i.i.i.i12,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui14CGUISpriteBankD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui14CGUISpriteBankD1Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr3gui14CGUISpriteBankD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull @_ZTTN3irr3gui14CGUISpriteBankE) #17
   ret void
@@ -309,7 +309,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui14CGUISpriteBankD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui14CGUISpriteBankD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr3gui14CGUISpriteBankD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull @_ZTTN3irr3gui14CGUISpriteBankE) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18

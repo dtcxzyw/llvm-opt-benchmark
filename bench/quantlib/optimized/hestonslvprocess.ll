@@ -241,7 +241,7 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16HestonSLVProcessC2ERKN5boost10shared_ptrINS_13HestonProcessEEENS2_INS_21LocalVolTermStructureEEEd(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %hestonProcess, ptr nocapture noundef %leverageFct, double noundef %mixingFactor) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16HestonSLVProcessC2ERKN5boost10shared_ptrINS_13HestonProcessEEENS2_INS_21LocalVolTermStructureEEEd(ptr noundef nonnull align 8 dereferenceable(216) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %hestonProcess, ptr nocapture noundef %leverageFct, double noundef %mixingFactor) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -597,7 +597,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16HestonSLVProcess13setParametersEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) %this) local_unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib16HestonSLVProcess13setParametersEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) initializes((128, 168), (176, 184)) %this) local_unnamed_addr #6 align 2 {
 entry:
   %hestonProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %hestonProcess_, align 8, !tbaa !45
@@ -847,7 +847,7 @@ _ZN8QuantLib8ObserverD2Ev.exit:                   ; preds = %for.cond.cleanup.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16HestonSLVProcess6updateEv(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib16HestonSLVProcess6updateEv(ptr noundef nonnull align 8 dereferenceable(216) initializes((128, 168), (176, 184)) %this) unnamed_addr #6 align 2 {
 entry:
   %hestonProcess_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %hestonProcess_.i, align 8, !tbaa !45
@@ -893,7 +893,7 @@ _ZN8QuantLib16HestonSLVProcess13setParametersEv.exit: ; preds = %entry, %_ZNK5bo
 declare void @_ZN8QuantLib17StochasticProcess6updateEv(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib16HestonSLVProcess5driftEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, double noundef %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib16HestonSLVProcess5driftEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, double noundef %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp12 = alloca %"class.QuantLib::InterestRate", align 8
   %ref.tmp24 = alloca %"class.QuantLib::InterestRate", align 8
@@ -1387,7 +1387,7 @@ _ZN8QuantLib10DayCounterD2Ev.exit:                ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib16HestonSLVProcess9diffusionEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, double noundef %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib16HestonSLVProcess9diffusionEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, double noundef %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %x, align 8, !tbaa !3
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1443,7 +1443,7 @@ invoke.cont24:                                    ; preds = %entry, %cond.false.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib16HestonSLVProcess6evolveEdRKNS_5ArrayEdS3_(ptr dead_on_unwind noalias nocapture writable sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, double noundef %t0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0, double noundef %dt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dw) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib16HestonSLVProcess6evolveEdRKNS_5ArrayEdS3_(ptr dead_on_unwind noalias nocapture writable sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, double noundef %t0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0, double noundef %dt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dw) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::CumulativeNormalDistribution", align 8
   %ref.tmp72 = alloca %"class.QuantLib::InterestRate", align 8

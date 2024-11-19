@@ -7794,7 +7794,7 @@ if.end65:                                         ; preds = %_ZSt4copyIPPN5folly
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly13AsyncFdSocket18popNextReceivedFdsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::SocketFds") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(2336) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13AsyncFdSocket18popNextReceivedFdsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::SocketFds") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(2336) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 1232
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 1200

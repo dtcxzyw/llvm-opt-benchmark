@@ -3531,7 +3531,7 @@ _ZN8QuantLib8ObserverD2Ev.exit:                   ; preds = %for.cond.cleanup.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib24LiborForwardModelProcess5driftEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this, double noundef %t, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib24LiborForwardModelProcess5driftEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this, double noundef %t, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %covariance = alloca %"class.QuantLib::Matrix", align 8
   %size_ = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -3820,7 +3820,7 @@ _ZN8QuantLib6MatrixD2Ev.exit:                     ; preds = %for.body.i.i, %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib24LiborForwardModelProcess5applyERKNS_5ArrayES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dx) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib24LiborForwardModelProcess5applyERKNS_5ArrayES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dx) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %size_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load i64, ptr %size_, align 8, !tbaa !47
@@ -4157,7 +4157,7 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %ehcleanup93, %_ZNKS
 declare double @sqrt(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib24LiborForwardModelProcess13initialValuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib24LiborForwardModelProcess13initialValuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %n_.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load i64, ptr %n_.i, align 8, !tbaa !75
@@ -4186,7 +4186,7 @@ _ZN8QuantLib5ArrayC2ERKS0_.exit:                  ; preds = %cond.end.i, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8QuantLib24LiborForwardModelProcess13setCovarParamERKN5boost10shared_ptrINS_29LfmCovarianceParameterizationEEE(ptr nocapture noundef nonnull align 8 dereferenceable(336) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %param) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24LiborForwardModelProcess13setCovarParamERKN5boost10shared_ptrINS_29LfmCovarianceParameterizationEEE(ptr nocapture noundef nonnull align 8 dereferenceable(336) initializes((152, 160)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %param) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lfmParam_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %param, align 8, !tbaa !141
@@ -4246,7 +4246,7 @@ _ZN5boost10shared_ptrIN8QuantLib29LfmCovarianceParameterizationEEaSERKS3_.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK8QuantLib24LiborForwardModelProcess10covarParamEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.51") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib24LiborForwardModelProcess10covarParamEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.51") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lfmParam_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %lfmParam_, align 8, !tbaa !141
@@ -4268,7 +4268,7 @@ _ZN5boost10shared_ptrIN8QuantLib29LfmCovarianceParameterizationEEC2ERKS3_.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK8QuantLib24LiborForwardModelProcess5indexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.49") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib24LiborForwardModelProcess5indexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.49") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %index_, align 8, !tbaa !74

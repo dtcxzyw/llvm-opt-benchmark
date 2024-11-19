@@ -6703,7 +6703,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %if.end, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_011ImageOutput6createENS_17basic_string_viewIcSt11char_traitsIcEEEPNS_10Filesystem7IOProxyES4_(ptr noalias nocapture sret(%"class.std::unique_ptr.57") align 8 %agg.result, ptr noundef %filename, ptr noundef %ioproxy, ptr nocapture noundef readonly %plugin_searchpath) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_011ImageOutput6createENS_17basic_string_viewIcSt11char_traitsIcEEEPNS_10Filesystem7IOProxyES4_(ptr noalias nocapture sret(%"class.std::unique_ptr.57") align 8 initializes((0, 8)) %agg.result, ptr noundef %filename, ptr noundef %ioproxy, ptr nocapture noundef readonly %plugin_searchpath) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i19 = alloca %"class.std::allocator.22", align 1
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store.256", align 16
@@ -7238,7 +7238,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_011ImageOutput6createERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noalias nocapture sret(%"class.std::unique_ptr.57") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %plugin_searchpath) local_unnamed_addr #5 align 2 {
+define void @_ZN18OpenImageIO_v2_6_011ImageOutput6createERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noalias nocapture sret(%"class.std::unique_ptr.57") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %plugin_searchpath) local_unnamed_addr #5 align 2 {
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8

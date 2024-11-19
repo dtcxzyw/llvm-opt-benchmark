@@ -839,7 +839,7 @@ pmix_obj_run_destructors.exit77:                  ; preds = %.lr.ph.i74, %92
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @prte_attr_load(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define i32 @prte_attr_load(ptr noundef initializes((152, 154)) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   store i16 %2, ptr %4, align 8
   %5 = icmp eq ptr %1, null

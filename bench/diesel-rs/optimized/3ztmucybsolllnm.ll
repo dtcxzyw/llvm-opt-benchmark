@@ -2870,7 +2870,7 @@ common.resume:                                    ; preds = %35, %56, %"_ZN4core
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer11into_errors17h9c53ec5474473d26E(ptr noalias nocapture noundef writeonly sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #4 {
+define hidden void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer11into_errors17h9c53ec5474473d26E(ptr noalias nocapture noundef writeonly sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   ret void
@@ -3296,7 +3296,7 @@ common.resume:                                    ; preds = %.body, %26
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN13dsl_auto_type9auto_type16settings_builder87_$LT$impl$u20$dsl_auto_type..auto_type..expression_type_inference..InferrerSettings$GT$7builder17h5987e457d874d491E"(ptr noalias nocapture noundef writeonly sret({ { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, [6 x i8] } }) align 8 dereferenceable(56) %0) unnamed_addr #0 {
+define void @"_ZN13dsl_auto_type9auto_type16settings_builder87_$LT$impl$u20$dsl_auto_type..auto_type..expression_type_inference..InferrerSettings$GT$7builder17h5987e457d874d491E"(ptr noalias nocapture noundef writeonly sret({ { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, [6 x i8] } }) align 8 dereferenceable(56) initializes((0, 56)) %0) unnamed_addr #0 {
   %2 = alloca { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, [6 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @"_ZN13dsl_auto_type9auto_type16settings_builder122_$LT$impl$u20$core..default..Default$u20$for$u20$dsl_auto_type..auto_type..expression_type_inference..InferrerSettings$GT$7default17h4eb5a7eba41f7edeE"(ptr noalias nocapture noundef nonnull sret({ { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, [6 x i8] }) align 8 dereferenceable(56) %2)

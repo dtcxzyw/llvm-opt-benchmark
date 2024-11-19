@@ -553,7 +553,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.545 = private unnamed_addr constant [8 x i8] c"sincosl\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm5RTLIB19RuntimeLibcallsInfo12initLibcallsERKNS_6TripleE(ptr noundef nonnull writeonly align 8 dereferenceable(8408) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm5RTLIB19RuntimeLibcallsInfo12initLibcallsERKNS_6TripleE(ptr noundef nonnull writeonly align 8 dereferenceable(8408) initializes((0, 8408)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 784
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5608) %3, i8 0, i64 4824, i1 false)
   store ptr @.str, ptr %0, align 8

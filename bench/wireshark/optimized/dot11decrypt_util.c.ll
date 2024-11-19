@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [7 x i8] c"FT-PTK\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @dot11decrypt_construct_aad(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden void @dot11decrypt_construct_aad(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 22)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = load i8, ptr %0, align 1
   %5 = and i8 %4, 12
   %6 = icmp eq i8 %5, 0

@@ -815,7 +815,7 @@ _ZNSt10unique_ptrIN17grpc_event_engine12experimental19GrpcPolledFdFactoryESt14de
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental12AresResolverC2ESt10unique_ptrINS0_19GrpcPolledFdFactoryESt14default_deleteIS3_EESt10shared_ptrINS0_11EventEngineEEP16ares_channeldata(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef %polled_fd_factory, ptr nocapture noundef %event_engine, ptr noundef %channel) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental12AresResolverC2ESt10unique_ptrINS0_19GrpcPolledFdFactoryESt14default_deleteIS3_EESt10shared_ptrINS0_11EventEngineEEP16ares_channeldata(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 25), (32, 40)) %this, ptr nocapture noundef %polled_fd_factory, ptr nocapture noundef %event_engine, ptr noundef %channel) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN17grpc_event_engine12experimental24grpc_trace_ares_resolverE, i64 16) monotonic, align 8
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1065,7 +1065,7 @@ _ZNSt7__cxx1110_List_baseISt10unique_ptrIN17grpc_event_engine12experimental12Are
 declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN17grpc_event_engine12experimental12AresResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental12AresResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental12AresResolverE, i64 16), ptr %this, align 8
   %fd_node_list_ = getelementptr inbounds i8, ptr %this, i64 40

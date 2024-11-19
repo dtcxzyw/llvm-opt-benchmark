@@ -127,7 +127,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc56parser5LexerC2Ev(ptr noundef nonnull align 8 dereferenceable(32892) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc56parser5LexerC2Ev(ptr noundef nonnull align 8 dereferenceable(32892) initializes((0, 24)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser5LexerE, i64 16), ptr %this, align 8
   %d_span = getelementptr inbounds i8, ptr %this, i64 8
@@ -310,7 +310,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc56parser5Lexer8initSpanEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32892) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc56parser5Lexer8initSpanEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32892) initializes((8, 24)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_span = getelementptr inbounds i8, ptr %this, i64 8
   store i32 1, ptr %d_span, align 8
@@ -324,7 +324,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser5Lexer10initializeEPNS0_5InputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32892) %this, ptr noundef %input, ptr noundef nonnull align 8 dereferenceable(32) %inputName) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser5Lexer10initializeEPNS0_5InputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32892) initializes((80, 89)) %this, ptr noundef %input, ptr noundef nonnull align 8 dereferenceable(32) %inputName) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %input, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16

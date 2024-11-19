@@ -833,7 +833,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4nori8tokenizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_b(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4nori8tokenizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_b(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13find_first_ofERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0) #28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -1470,7 +1470,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden void @_ZNK4nori7Color3f6toSRGBEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.nori::Color3f") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4nori7Color3f6toSRGBEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.nori::Color3f") align 4 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   store float 0.000000e+00, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %3, align 4
@@ -1510,7 +1510,7 @@ define hidden void @_ZNK4nori7Color3f6toSRGBEv(ptr dead_on_unwind noalias nocapt
 declare float @llvm.fmuladd.f32(float, float, float) #12
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden void @_ZNK4nori7Color3f11toLinearRGBEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.nori::Color3f") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4nori7Color3f11toLinearRGBEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.nori::Color3f") align 4 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   store float 0.000000e+00, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %3, align 4
@@ -1579,7 +1579,7 @@ define hidden noundef float @_ZNK4nori7Color3f12getLuminanceEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN4nori9TransformC2ERKN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEE(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %1) unnamed_addr #14 align 2 {
+define hidden void @_ZN4nori9TransformC2ERKN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEE(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(128) initializes((0, 128)) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %1) unnamed_addr #14 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(64) %1, i64 64, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i.i.i.i = load <4 x float>, ptr %1, align 16
@@ -2184,7 +2184,7 @@ define linkonce_odr hidden void @_ZN5Eigen8IOFormatD2Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK4nori9TransformmlERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.nori::Transform") align 16 %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(128) %1, ptr nocapture noundef nonnull readonly align 16 dereferenceable(128) %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4nori9TransformmlERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.nori::Transform") align 16 initializes((0, 128)) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(128) %1, ptr nocapture noundef nonnull readonly align 16 dereferenceable(128) %2) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load <4 x float>, ptr %1, align 16
   %5 = load <4 x float>, ptr %2, align 16
   %6 = shufflevector <4 x float> %5, <4 x float> poison, <4 x i32> zeroinitializer
@@ -2380,7 +2380,7 @@ define hidden void @_ZN4nori18sphericalDirectionEff(ptr dead_on_unwind noalias n
 declare void @sincosf(float noundef, ptr nocapture noundef writeonly, ptr nocapture noundef writeonly) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden void @_ZN4nori20sphericalCoordinatesERKNS_7TVectorIfLi3EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.nori::TPoint") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #17 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4nori20sphericalCoordinatesERKNS_7TVectorIfLi3EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.nori::TPoint") align 4 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #17 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load float, ptr %3, align 4
   %5 = tail call noundef float @acosf(float noundef %4) #28
@@ -2398,7 +2398,7 @@ define hidden void @_ZN4nori20sphericalCoordinatesERKNS_7TVectorIfLi3EEE(ptr dea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN4nori16coordinateSystemERKNS_7TVectorIfLi3EEERS1_S4_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %2) local_unnamed_addr #18 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4nori16coordinateSystemERKNS_7TVectorIfLi3EEERS1_S4_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %2) local_unnamed_addr #18 personality ptr @__gxx_personality_v0 {
   %4 = load float, ptr %0, align 4
   %5 = tail call noundef float @llvm.fabs.f32(float %4)
   %6 = getelementptr inbounds i8, ptr %0, i64 4

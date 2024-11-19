@@ -45,7 +45,7 @@ $_ZTV10WorkerTask = comdat any
 @_ZN28ShenandoahClassUnloadingTaskC1EN22ShenandoahPhaseTimings5PhaseEjb = hidden unnamed_addr alias void (ptr, i32, i32, i1), ptr @_ZN28ShenandoahClassUnloadingTaskC2EN22ShenandoahPhaseTimings5PhaseEjb
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28ShenandoahClassUnloadingTaskC2EN22ShenandoahPhaseTimings5PhaseEjb(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN28ShenandoahClassUnloadingTaskC2EN22ShenandoahPhaseTimings5PhaseEjb(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 25)) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = zext i1 %3 to i8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8

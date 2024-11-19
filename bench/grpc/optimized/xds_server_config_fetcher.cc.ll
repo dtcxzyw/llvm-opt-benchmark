@@ -1850,7 +1850,7 @@ declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_
 declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcherD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcherD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcherE, i64 16), ptr %this, align 8
   %xds_client_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1938,7 +1938,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcherD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcherD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcherD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #29
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -2786,7 +2786,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcherE, i64 16), ptr %this, align 8
   %xds_client_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -2963,7 +2963,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #29
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -7992,7 +7992,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit5:       ; preds = %invoke.cont11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(408) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManagerE, i64 16), ptr %this, align 8
   %xds_client_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -8204,7 +8204,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(408) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) #29
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -14821,7 +14821,7 @@ _ZN9grpc_core19XdsResourceTypeImplINS_26XdsRouteConfigResourceTypeENS_22XdsRoute
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager38DynamicXdsServerConfigSelectorProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager38DynamicXdsServerConfigSelectorProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i.i.i.i.i.i = alloca %class.anon.383, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager38DynamicXdsServerConfigSelectorProviderE, i64 16), ptr %this, align 8
@@ -14977,7 +14977,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager38DynamicXdsServerConfigSelectorProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager38DynamicXdsServerConfigSelectorProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager38DynamicXdsServerConfigSelectorProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #29
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -15363,7 +15363,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager38DynamicXdsServerConfigSelectorProvider18RouteConfigWatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager38DynamicXdsServerConfigSelectorProvider18RouteConfigWatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager38DynamicXdsServerConfigSelectorProvider18RouteConfigWatcherE, i64 16), ptr %this, align 8
   %parent_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -15389,7 +15389,7 @@ _ZN9grpc_core17WeakRefCountedPtrINS_12_GLOBAL__N_122XdsServerConfigFetcher15List
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager38DynamicXdsServerConfigSelectorProvider18RouteConfigWatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager38DynamicXdsServerConfigSelectorProvider18RouteConfigWatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager38DynamicXdsServerConfigSelectorProvider18RouteConfigWatcherE, i64 16), ptr %this, align 8
   %parent_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -18062,7 +18062,7 @@ _ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core10XdsRouting3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelectorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelectorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelectorE, i64 16), ptr %this, align 8
   %virtual_hosts_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -18225,7 +18225,7 @@ _ZNSt6vectorIN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelectorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelectorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelectorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #29
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -19276,7 +19276,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager37StaticXdsServerConfigSelectorProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager37StaticXdsServerConfigSelectorProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i.i.i.i.i.i = alloca %class.anon.383, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager37StaticXdsServerConfigSelectorProviderE, i64 16), ptr %this, align 8
@@ -19428,7 +19428,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager37StaticXdsServerConfigSelectorProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager37StaticXdsServerConfigSelectorProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager37StaticXdsServerConfigSelectorProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #29
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -21661,7 +21661,7 @@ if.end:                                           ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager18RouteConfigWatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager18RouteConfigWatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager18RouteConfigWatcherE, i64 16), ptr %this, align 8
   %filter_chain_match_manager_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -21689,7 +21689,7 @@ _ZN9grpc_core17WeakRefCountedPtrINS_12_GLOBAL__N_122XdsServerConfigFetcher15List
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager18RouteConfigWatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager18RouteConfigWatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager18RouteConfigWatcherE, i64 16), ptr %this, align 8
   %filter_chain_match_manager_.i = getelementptr inbounds i8, ptr %this, i64 48

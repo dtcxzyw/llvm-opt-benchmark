@@ -2170,7 +2170,7 @@ define hidden void @_ZN10HeapShared16count_allocationEm(i64 noundef %0) local_un
 declare void @_ZN17ArchiveHeapWriter14add_source_objEP7oopDesc(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10HeapShared20make_cached_oop_infoEP7oopDesc(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.HeapShared::CachedOopInfo") align 8 %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10HeapShared20make_cached_oop_infoEP7oopDesc(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.HeapShared::CachedOopInfo") align 8 initializes((0, 18)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.PointsToOopsChecker, align 8
   %4 = load ptr, ptr @_ZN24WalkOopAndArchiveClosure8_currentE, align 8
   %5 = icmp eq ptr %4, null
@@ -4954,7 +4954,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE14ELS1_52ELS1_0ELS1_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN31ArchivedKlassSubGraphInfoRecord4initEP17KlassSubGraphInfo(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN31ArchivedKlassSubGraphInfoRecord4initEP17KlassSubGraphInfo(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 10), (16, 32)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

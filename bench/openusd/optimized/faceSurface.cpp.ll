@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.3 = private unnamed_addr constant [31 x i8] c"            face-vert indices:\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi(ptr noundef nonnull align 8 dereferenceable(143) %0, ptr noundef nonnull align 8 dereferenceable(944) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi(ptr noundef nonnull align 8 dereferenceable(143) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(944) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -271,7 +271,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface24reviseSdcOptionsInEffectEv(ptr nocapture noundef nonnull align 8 dereferenceable(143) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface24reviseSdcOptionsInEffectEv(ptr nocapture noundef nonnull align 8 dereferenceable(143) initializes((138, 140)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 138
   store i8 1, ptr %3, align 2
@@ -319,7 +319,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface24reviseSdcOptionsInEffectEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface10InitializeERKNS1_12FaceTopologyEPKi(ptr noundef nonnull align 8 dereferenceable(143) %0, ptr noundef nonnull align 8 dereferenceable(944) %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface10InitializeERKNS1_12FaceTopologyEPKi(ptr noundef nonnull align 8 dereferenceable(143) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(944) %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -503,7 +503,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface36sharpenBySdcVtxBoundaryIn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface10InitializeERKS2_PKi(ptr noundef nonnull align 8 dereferenceable(143) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(143) %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface10InitializeERKS2_PKi(ptr noundef nonnull align 8 dereferenceable(143) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(143) %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

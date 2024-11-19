@@ -639,7 +639,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN6Camera12drawNametagsEv(ptr noundef nonnull align 8 dereferenceable(560)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN13MapPostFxStep15setRenderTargetEP12RenderTarget(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %_target) unnamed_addr #7 align 2 {
+define dso_local void @_ZN13MapPostFxStep15setRenderTargetEP12RenderTarget(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 16)) %this, ptr noundef %_target) unnamed_addr #7 align 2 {
 entry:
   %target = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %_target, ptr %target, align 8, !tbaa !167

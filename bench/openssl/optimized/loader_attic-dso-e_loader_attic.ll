@@ -755,7 +755,7 @@ sw.epilog5:                                       ; preds = %entry, %sw.bb1, %sw
 declare i32 @OSSL_STORE_LOADER_set_expect(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @file_expect(ptr nocapture noundef writeonly %ctx, i32 noundef %expected) #4 {
+define internal noundef i32 @file_expect(ptr nocapture noundef writeonly initializes((64, 68)) %ctx, i32 noundef %expected) #4 {
 entry:
   %expected_type = getelementptr inbounds i8, ptr %ctx, i64 64
   store i32 %expected, ptr %expected_type, align 8
@@ -835,7 +835,7 @@ return:                                           ; preds = %if.end9, %ERR_ATTIC
 declare i32 @OSSL_STORE_LOADER_set_load(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @file_load(ptr noundef %ctx, ptr noundef %ui_method, ptr noundef %ui_data) #1 {
+define internal ptr @file_load(ptr noundef initializes((12, 16)) %ctx, ptr noundef %ui_method, ptr noundef %ui_data) #1 {
 entry:
   %handler_ctx.i = alloca ptr, align 8
   %try_matchcount.i140 = alloca i32, align 4

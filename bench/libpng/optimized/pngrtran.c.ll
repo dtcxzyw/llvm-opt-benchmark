@@ -1851,7 +1851,7 @@ define void @png_set_rgb_to_gray(ptr noalias noundef %0, i32 noundef %1, double 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_set_read_user_transform_fn(ptr noalias nocapture noundef %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @png_set_read_user_transform_fn(ptr noalias nocapture noundef initializes((272, 280)) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 308
   %4 = load i32, ptr %3, align 4
   %5 = or i32 %4, 1048576

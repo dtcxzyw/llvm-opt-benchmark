@@ -136,7 +136,7 @@ return:                                           ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ASYNC_WAIT_CTX_get_all_fds(ptr nocapture noundef readonly %ctx, ptr noundef writeonly %fd, ptr nocapture noundef %numfds) local_unnamed_addr #3 {
+define noundef i32 @ASYNC_WAIT_CTX_get_all_fds(ptr nocapture noundef readonly %ctx, ptr noundef writeonly %fd, ptr nocapture noundef initializes((0, 8)) %numfds) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   store i64 0, ptr %numfds, align 8
@@ -189,7 +189,7 @@ while.end:                                        ; preds = %if.end4, %if.then, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr nocapture noundef readonly %ctx, ptr noundef writeonly %addfd, ptr nocapture noundef writeonly %numaddfds, ptr noundef writeonly %delfd, ptr nocapture noundef writeonly %numdelfds) local_unnamed_addr #2 {
+define noundef i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr nocapture noundef readonly %ctx, ptr noundef writeonly %addfd, ptr nocapture noundef writeonly initializes((0, 8)) %numaddfds, ptr noundef writeonly %delfd, ptr nocapture noundef writeonly initializes((0, 8)) %numdelfds) local_unnamed_addr #2 {
 entry:
   %numadd = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load i64, ptr %numadd, align 8
@@ -372,7 +372,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ASYNC_WAIT_CTX_set_status(ptr nocapture noundef writeonly %ctx, i32 noundef %status) local_unnamed_addr #4 {
+define noundef i32 @ASYNC_WAIT_CTX_set_status(ptr nocapture noundef writeonly initializes((40, 44)) %ctx, i32 noundef %status) local_unnamed_addr #4 {
 entry:
   %status1 = getelementptr inbounds i8, ptr %ctx, i64 40
   store i32 %status, ptr %status1, align 8
@@ -388,7 +388,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @async_wait_ctx_reset_counts(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
+define void @async_wait_ctx_reset_counts(ptr nocapture noundef initializes((8, 24)) %ctx) local_unnamed_addr #0 {
 entry:
   %numadd = getelementptr inbounds i8, ptr %ctx, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %numadd, i8 0, i64 16, i1 false)

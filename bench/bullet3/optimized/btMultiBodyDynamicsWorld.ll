@@ -1662,7 +1662,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 declare void @_ZN23btDiscreteDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(508)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN24btMultiBodyDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(848) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24btMultiBodyDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(848) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV24btMultiBodyDynamicsWorld, i64 16), ptr %this, align 8
   %m_solverMultiBodyIslandCallback = getelementptr inbounds i8, ptr %this, i64 616
@@ -1983,7 +1983,7 @@ _ZN20btAlignedObjectArrayIP11btMultiBodyED2Ev.exit: ; preds = %_ZN20btAlignedObj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN24btMultiBodyDynamicsWorldD0Ev(ptr noundef nonnull align 8 dereferenceable(848) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24btMultiBodyDynamicsWorldD0Ev(ptr noundef nonnull align 8 dereferenceable(848) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN24btMultiBodyDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(848) %this) #17
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
@@ -2001,7 +2001,7 @@ _ZN23btDiscreteDynamicsWorlddlEPv.exit:           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24btMultiBodyDynamicsWorld28setMultiBodyConstraintSolverEP27btMultiBodyConstraintSolver(ptr noundef nonnull align 8 dereferenceable(848) %this, ptr noundef %solver) unnamed_addr #0 align 2 {
+define dso_local void @_ZN24btMultiBodyDynamicsWorld28setMultiBodyConstraintSolverEP27btMultiBodyConstraintSolver(ptr noundef nonnull align 8 dereferenceable(848) initializes((608, 616)) %this, ptr noundef %solver) unnamed_addr #0 align 2 {
 entry:
   %m_multiBodyConstraintSolver = getelementptr inbounds i8, ptr %this, i64 608
   store ptr %solver, ptr %m_multiBodyConstraintSolver, align 8

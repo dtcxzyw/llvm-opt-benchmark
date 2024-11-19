@@ -1244,7 +1244,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo6minrttEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.9") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo6minrttEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.9") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tcpInfoBytesRead.i = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i, align 8, !tbaa !26
@@ -1277,7 +1277,7 @@ declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 derefe
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo4srttEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.9") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo4srttEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.9") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tcpInfoBytesRead.i = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i, align 8, !tbaa !26
@@ -1303,7 +1303,7 @@ cond.end:                                         ; preds = %cond.false, %_ZN6go
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo9bytesSentEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo9bytesSentEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -1329,7 +1329,7 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo13bytesReceivedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo13bytesReceivedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -1355,7 +1355,7 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo18bytesRetransmittedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo18bytesRetransmittedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -1381,7 +1381,7 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo12bytesNotSentEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo12bytesNotSentEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
   %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -1408,7 +1408,7 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo10bytesAckedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo10bytesAckedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -1434,7 +1434,7 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo11packetsSentEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo11packetsSentEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
   %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -1461,7 +1461,7 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo19packetsWithDataSentEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo19packetsWithDataSentEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
   %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -1488,7 +1488,7 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo15packetsReceivedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo15packetsReceivedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -1515,7 +1515,7 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo23packetsWithDataReceivedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo23packetsWithDataReceivedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -1542,7 +1542,7 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo20packetsRetransmittedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo20packetsRetransmittedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
   %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -1569,7 +1569,7 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo15packetsInFlightEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo15packetsInFlightEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i, align 8, !tbaa !26, !noalias !42
@@ -1607,7 +1607,7 @@ cleanup:                                          ; preds = %if.end, %_ZNKR5foll
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo16packetsDeliveredEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo16packetsDeliveredEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
   %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -1634,7 +1634,7 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo27packetsDeliveredWithCEMarksEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo27packetsDeliveredWithCEMarksEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
   %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -1661,7 +1661,7 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo13cwndInPacketsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo13cwndInPacketsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -1688,7 +1688,7 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo11cwndInBytesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo11cwndInBytesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tcpInfoBytesRead.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i.i, align 8, !tbaa !26, !noalias !100
@@ -1718,7 +1718,7 @@ cleanup:                                          ; preds = %if.end, %_ZNKR5foll
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo3mssEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo3mssEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tcpi_snd_mss = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %tcpi_snd_mss, align 8, !tbaa !105
@@ -1730,7 +1730,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo8ssthreshEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo8ssthreshEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !109)
   %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -1757,7 +1757,7 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo25deliveryRateBitsPerSecondEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo25deliveryRateBitsPerSecondEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tcpInfoBytesRead.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i.i, align 8, !tbaa !26, !noalias !112
@@ -1783,7 +1783,7 @@ _ZN5folly7TcpInfo29bytesPerSecondToBitsPerSecondERKNS_8OptionalImEE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo26deliveryRateBytesPerSecondEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo26deliveryRateBytesPerSecondEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -1809,7 +1809,7 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo22deliveryRateAppLimitedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.11") align 1 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo22deliveryRateAppLimitedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.11") align 1 initializes((0, 2)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tcpInfoBytesRead.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i.i, align 8, !tbaa !26, !noalias !123
@@ -1828,7 +1828,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly7TcpInfo9ccNameRawB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo9ccNameRawB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 initializes((32, 33)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
@@ -1919,7 +1919,7 @@ _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS7_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo10ccNameEnumEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.2") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo10ccNameEnumEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.2") align 4 initializes((0, 1), (4, 5)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %agg.result, align 4, !tbaa !12
   %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
@@ -2151,7 +2151,7 @@ lpad:                                             ; preds = %invoke.cont3, %invo
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo18bbrBwBitsPerSecondEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo18bbrBwBitsPerSecondEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 308
   %0 = load i8, ptr %hasValue.i.i.i, align 4, !tbaa !56, !range !41, !noalias !145, !noundef !42
@@ -2189,7 +2189,7 @@ _ZN5folly7TcpInfo29bytesPerSecondToBitsPerSecondERKNS_8OptionalImEE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo19bbrBwBytesPerSecondEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo19bbrBwBytesPerSecondEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 308
   %0 = load i8, ptr %hasValue.i.i, align 4, !tbaa !56, !range !41, !noalias !42, !noundef !42
@@ -2226,7 +2226,7 @@ cleanup:                                          ; preds = %if.end, %_ZNR5folly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo9bbrMinrttEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.9") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo9bbrMinrttEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.9") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 308
   %0 = load i8, ptr %hasValue.i.i, align 4, !tbaa !56, !range !41, !noalias !151, !noundef !42
@@ -2264,7 +2264,7 @@ cond.end:                                         ; preds = %cond.false, %_ZNR5f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo13bbrPacingGainEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo13bbrPacingGainEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 308
@@ -2313,7 +2313,7 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo11bbrCwndGainEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo11bbrCwndGainEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
   %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 308
@@ -2362,7 +2362,7 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo17sendBufInUseBytesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo17sendBufInUseBytesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %agg.result, align 8, !tbaa !12
   %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2384,7 +2384,7 @@ _ZN5folly8OptionalImEC2ERKS1_.exit:               ; preds = %invoke.cont2.i, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5folly7TcpInfo17recvBufInUseBytesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly7TcpInfo17recvBufInUseBytesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %agg.result, align 8, !tbaa !12
   %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8

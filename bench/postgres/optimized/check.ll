@@ -1807,7 +1807,7 @@ declare void @get_control_data(ptr noundef, i1 noundef zeroext) local_unnamed_ad
 declare void @check_control_data(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @create_script_for_old_cluster_deletion(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @create_script_for_old_cluster_deletion(ptr nocapture noundef initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [1024 x i8], align 16
   %4 = alloca [1024 x i8], align 16

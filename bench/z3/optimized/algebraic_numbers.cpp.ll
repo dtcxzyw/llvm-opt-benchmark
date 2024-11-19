@@ -570,7 +570,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17algebraic_numbers7managerC2ER8reslimitR11mpq_managerILb0EERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(40) %lim, ptr noundef nonnull align 8 dereferenceable(728) %m, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef %a) unnamed_addr #3 align 2 {
+define hidden void @_ZN17algebraic_numbers7managerC2ER8reslimitR11mpq_managerILb0EERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(17) initializes((8, 17)) %this, ptr noundef nonnull align 8 dereferenceable(40) %lim, ptr noundef nonnull align 8 dereferenceable(728) %m, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef %a) unnamed_addr #3 align 2 {
 entry:
   %m_own_allocator = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %m_own_allocator, align 8

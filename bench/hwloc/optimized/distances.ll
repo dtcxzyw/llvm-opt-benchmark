@@ -25,14 +25,14 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [9 x i8] c"NVSwitch\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @hwloc_internal_distances_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define hidden void @hwloc_internal_distances_init(ptr nocapture noundef writeonly initializes((728, 748)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 728
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @hwloc_internal_distances_prepare(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define hidden void @hwloc_internal_distances_prepare(ptr nocapture noundef initializes((776, 780)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 776
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load i32, ptr %3, align 8
@@ -180,7 +180,7 @@ define hidden void @hwloc_internal_distances_destroy(ptr nocapture noundef %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @hwloc_internal_distances_dup(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @hwloc_internal_distances_dup(ptr nocapture noundef initializes((744, 748)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 744
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 744

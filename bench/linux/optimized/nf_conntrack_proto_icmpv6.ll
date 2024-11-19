@@ -411,7 +411,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare dso_local i32 @nf_conntrack_inet_error(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @nf_conntrack_icmpv6_init_net(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 align 16 {
+define dso_local void @nf_conntrack_icmpv6_init_net(ptr nocapture noundef writeonly initializes((2532, 2536)) %0) local_unnamed_addr #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2532
   store i32 30000, ptr %2, align 4
   ret void

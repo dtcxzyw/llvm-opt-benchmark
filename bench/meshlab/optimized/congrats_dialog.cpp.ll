@@ -1085,7 +1085,7 @@ declare noundef ptr @_ZNK9QTextEdit8documentEv(ptr noundef nonnull align 8 deref
 declare void @_ZN13QTextDocument18setMetaInformationENS_15MetaInformationERK7QString(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14CongratsDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 align 2 {
+define void @_ZN14CongratsDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 24)) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV14CongratsDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV14CongratsDialog, i64 488), ptr %2, align 8

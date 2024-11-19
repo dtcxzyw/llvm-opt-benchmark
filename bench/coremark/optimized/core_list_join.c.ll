@@ -126,7 +126,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @copy_info(ptr nocapture noundef writeonly %to, ptr nocapture noundef readonly %from) local_unnamed_addr #2 {
+define dso_local void @copy_info(ptr nocapture noundef writeonly initializes((0, 4)) %to, ptr nocapture noundef readonly %from) local_unnamed_addr #2 {
 entry:
   %0 = load i16, ptr %from, align 2
   store i16 %0, ptr %to, align 2
@@ -962,7 +962,7 @@ entry:
 declare zeroext i16 @crc16(i16 noundef signext, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @core_list_undo_remove(ptr noundef returned %item_removed, ptr nocapture noundef %item_modified) local_unnamed_addr #2 {
+define dso_local noundef ptr @core_list_undo_remove(ptr noundef returned initializes((0, 8)) %item_removed, ptr nocapture noundef %item_modified) local_unnamed_addr #2 {
 entry:
   %info = getelementptr inbounds i8, ptr %item_removed, i64 8
   %0 = load ptr, ptr %info, align 8
@@ -977,7 +977,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local ptr @core_list_init(i32 noundef %blksize, ptr noundef %memblock, i16 noundef signext %seed) local_unnamed_addr #6 {
+define dso_local ptr @core_list_init(i32 noundef %blksize, ptr noundef initializes((0, 8)) %memblock, i16 noundef signext %seed) local_unnamed_addr #6 {
 entry:
   %div = udiv i32 %blksize, 20
   %sub = add nsw i32 %div, -2

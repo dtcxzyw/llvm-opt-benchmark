@@ -686,7 +686,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2EA8UnitTest4TestC2EPKcPFvS3_E(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %pTestName, ptr noundef %pReportFunction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2EA8UnitTest4TestC2EPKcPFvS3_E(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 9), (31, 32)) %this, ptr noundef %pTestName, ptr noundef %pReportFunction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA8UnitTest4TestE, i64 16), ptr %this, align 8
   %msTestName = getelementptr inbounds i8, ptr %this, i64 8
@@ -750,7 +750,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEEC2EPKcRKS1_.exit: ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA8UnitTest4TestD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2EA8UnitTest4TestD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA8UnitTest4TestE, i64 16), ptr %this, align 8
   %mRemainingSizeField.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
@@ -773,7 +773,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA8UnitTest4TestD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2EA8UnitTest4TestD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA8UnitTest4TestE, i64 16), ptr %this, align 8
   %mRemainingSizeField.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
@@ -1061,7 +1061,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 declare noundef i32 @_ZN2EA4StdC7SprintfEPcPKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2EA8UnitTest12TestFunctionC2EPKcPFivE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %pTestName, ptr noundef %pFunction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2EA8UnitTest12TestFunctionC2EPKcPFivE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 9), (31, 32)) %this, ptr noundef %pTestName, ptr noundef %pFunction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA8UnitTest4TestE, i64 16), ptr %this, align 8
   %msTestName.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1160,7 +1160,7 @@ if.end8:                                          ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2EA8UnitTest14TestCollectionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #15 align 2 {
+define dso_local void @_ZN2EA8UnitTest14TestCollectionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this) unnamed_addr #15 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 16), ptr %this, align 8
   %mTests = getelementptr inbounds i8, ptr %this, i64 8
@@ -1169,7 +1169,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA8UnitTest14TestCollectionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2EA8UnitTest14TestCollectionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 16), ptr %this, align 8
   %mTests = getelementptr inbounds i8, ptr %this, i64 8
@@ -1225,7 +1225,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA8UnitTest14TestCollectionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2EA8UnitTest14TestCollectionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 16), ptr %this, align 8
   %mTests.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2005,7 +2005,7 @@ if.end8:                                          ; preds = %for.body, %if.then,
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2EA8UnitTest9TestSuiteC2EPKcPFvS3_E(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %pTestName, ptr noundef %pReportFunction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2EA8UnitTest9TestSuiteC2EPKcPFvS3_E(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 9), (31, 32)) %this, ptr noundef %pTestName, ptr noundef %pReportFunction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA8UnitTest4TestE, i64 16), ptr %this, align 8
   %msTestName.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2078,7 +2078,7 @@ invoke.cont3:                                     ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA8UnitTest9TestSuiteD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2EA8UnitTest9TestSuiteD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8), (80, 88)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 80
@@ -2150,7 +2150,7 @@ _ZN2EA8UnitTest4TestD2Ev.exit:                    ; preds = %_ZN2EA8UnitTest14Te
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn80_N2EA8UnitTest9TestSuiteD1Ev(ptr noundef %this) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZThn80_N2EA8UnitTest9TestSuiteD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %this) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -80
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 16), ptr %0, align 8
@@ -2222,7 +2222,7 @@ _ZN2EA8UnitTest9TestSuiteD2Ev.exit:               ; preds = %_ZN2EA8UnitTest14Te
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA8UnitTest9TestSuiteD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2EA8UnitTest9TestSuiteD0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8), (80, 88)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -2295,7 +2295,7 @@ _ZN2EA8UnitTest9TestSuiteD2Ev.exit:               ; preds = %_ZN2EA8UnitTest14Te
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn80_N2EA8UnitTest9TestSuiteD0Ev(ptr noundef %this) unnamed_addr #21 align 2 {
+define dso_local void @_ZThn80_N2EA8UnitTest9TestSuiteD0Ev(ptr noundef initializes((-80, -72), (0, 8)) %this) unnamed_addr #21 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -80
   tail call void @_ZN2EA8UnitTest9TestSuiteD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #33
@@ -2435,7 +2435,7 @@ if.end58:                                         ; preds = %if.end46, %if.then5
 declare void @_ZN2EA6EAMain15ReportVerbosityEjPKcz(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2EA8UnitTest9TestSuite3RunEv(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN2EA8UnitTest9TestSuite3RunEv(ptr noundef nonnull align 8 dereferenceable(144) initializes((112, 116)) %this) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca %"struct.EA::Thread::ThreadTime", align 8
   %mnTestResult = getelementptr inbounds i8, ptr %this, i64 112
@@ -3131,7 +3131,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2EA8UnitTest15TestApplicationC2EPKciPPcPFivES7_(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %pTestApplicationName, i32 noundef %argc, ptr noundef %argv, ptr noundef %pInitFunction, ptr noundef %pShutdownFunction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2EA8UnitTest15TestApplicationC2EPKciPPcPFivES7_(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((0, 9), (31, 32)) %this, ptr noundef %pTestApplicationName, i32 noundef %argc, ptr noundef %argv, ptr noundef %pInitFunction, ptr noundef %pShutdownFunction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN2EA6EAMain17GetReportFunctionEv()
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA8UnitTest4TestE, i64 16), ptr %this, align 8
@@ -3215,7 +3215,7 @@ _ZN2EA8UnitTest9TestSuiteC2EPKcPFvS3_E.exit:      ; preds = %if.then.i.i.i.i.i.i
 declare noundef ptr @_ZN2EA6EAMain17GetReportFunctionEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA8UnitTest15TestApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2EA8UnitTest15TestApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (80, 88)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -3287,7 +3287,7 @@ _ZN2EA8UnitTest9TestSuiteD2Ev.exit:               ; preds = %_ZN2EA8UnitTest14Te
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn80_N2EA8UnitTest15TestApplicationD1Ev(ptr noundef %this) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZThn80_N2EA8UnitTest15TestApplicationD1Ev(ptr noundef initializes((-80, -72), (0, 8)) %this) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -80
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 16), ptr %0, align 8
@@ -3359,7 +3359,7 @@ _ZN2EA8UnitTest15TestApplicationD2Ev.exit:        ; preds = %_ZN2EA8UnitTest14Te
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA8UnitTest15TestApplicationD0Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2EA8UnitTest15TestApplicationD0Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (80, 88)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -3432,7 +3432,7 @@ _ZN2EA8UnitTest15TestApplicationD2Ev.exit:        ; preds = %_ZN2EA8UnitTest14Te
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn80_N2EA8UnitTest15TestApplicationD0Ev(ptr noundef %this) unnamed_addr #21 align 2 {
+define dso_local void @_ZThn80_N2EA8UnitTest15TestApplicationD0Ev(ptr noundef initializes((-80, -72), (0, 8)) %this) unnamed_addr #21 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -80
   tail call void @_ZN2EA8UnitTest15TestApplicationD0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #33
@@ -3440,7 +3440,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2EA8UnitTest15TestApplication6SetArgEiPPc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) %this, i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN2EA8UnitTest15TestApplication6SetArgEiPPc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) initializes((144, 148), (152, 160)) %this, i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #15 align 2 {
 entry:
   %mArgc = getelementptr inbounds i8, ptr %this, i64 144
   store i32 %argc, ptr %mArgc, align 8
@@ -3450,7 +3450,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2EA8UnitTest15TestApplication14SetForceReportEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) %this, i1 noundef zeroext %bReport) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN2EA8UnitTest15TestApplication14SetForceReportEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) initializes((64, 65)) %this, i1 noundef zeroext %bReport) local_unnamed_addr #15 align 2 {
 entry:
   %frombool = zext i1 %bReport to i8
   %mbForceReport = getelementptr inbounds i8, ptr %this, i64 64

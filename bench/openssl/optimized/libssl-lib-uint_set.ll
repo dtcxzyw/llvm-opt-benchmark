@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/ssl/quic/uint_set.c\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_uint_set_init(ptr nocapture noundef writeonly %s) local_unnamed_addr #0 {
+define void @ossl_uint_set_init(ptr nocapture noundef writeonly initializes((0, 24)) %s) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %s, i8 0, i64 24, i1 false)
   ret void

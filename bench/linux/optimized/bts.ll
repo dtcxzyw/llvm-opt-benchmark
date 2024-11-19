@@ -652,7 +652,7 @@ define internal i32 @bts_event_init(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @bts_event_add(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @bts_event_add(ptr noundef initializes((480, 484)) %0, i32 noundef %1) #0 align 16 {
   %3 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @bts_ctx) #6, !srcloc !25
   %4 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #6, !srcloc !26
   %5 = getelementptr inbounds i8, ptr %0, i64 480

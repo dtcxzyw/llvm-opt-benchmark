@@ -5573,7 +5573,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
 declare noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer21GetTimeCodesPerSecondEv(ptr noundef nonnull align 8 dereferenceable(557)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__13PcpLayerStackC2ERKNS_23PcpLayerStackIdentifierERKNS_22Pcp_LayerStackRegistryE(ptr noundef nonnull align 8 dereferenceable(617) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__13PcpLayerStackC2ERKNS_23PcpLayerStackIdentifierERKNS_22Pcp_LayerStackRegistryE(ptr noundef nonnull align 8 dereferenceable(617) initializes((0, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -7943,7 +7943,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEED2Ev.exit: ; pre
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__9TfRefBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__13PcpLayerStackD2Ev(ptr noundef nonnull align 8 dereferenceable(617) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__13PcpLayerStackD2Ev(ptr noundef nonnull align 8 dereferenceable(617) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__13PcpLayerStackE, i64 16), ptr %0, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13PcpLayerStack11_BlowLayersEv(ptr noundef nonnull align 8 dereferenceable(617) %0)
           to label %2 unwind label %280
@@ -11477,7 +11477,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__13PcpLayerStack16GetSessionLayersEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.219") align 8 %0, ptr noundef nonnull align 8 dereferenceable(617) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__13PcpLayerStack16GetSessionLayersEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.219") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(617) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24

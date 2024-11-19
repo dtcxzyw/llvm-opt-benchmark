@@ -458,7 +458,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm27TargetLoweringObjectFileELFC2Ev(ptr noundef nonnull align 8 dereferenceable(1026) %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm27TargetLoweringObjectFileELFC2Ev(ptr noundef nonnull align 8 dereferenceable(1026) initializes((0, 11), (12, 20), (24, 897), (904, 923), (924, 940), (944, 969), (972, 976)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -754,7 +754,7 @@ define dso_local void @_ZN4llvm27TargetLoweringObjectFileELF10InitializeERNS_9MC
 declare void @_ZN4llvm24TargetLoweringObjectFile10InitializeERNS_9MCContextERKNS_13TargetMachineE(ptr noundef nonnull align 8 dereferenceable(968), ptr noundef nonnull align 8 dereferenceable(2432), ptr noundef nonnull align 8 dereferenceable(1232)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm27TargetLoweringObjectFileELF13InitializeELFEb(ptr nocapture noundef nonnull align 8 dereferenceable(1026) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm27TargetLoweringObjectFileELF13InitializeELFEb(ptr nocapture noundef nonnull align 8 dereferenceable(1026) initializes((944, 960), (968, 969)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -4687,7 +4687,7 @@ define dso_local noundef ptr @_ZNK4llvm27TargetLoweringObjectFileELF25getSection
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm29TargetLoweringObjectFileMachOC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(968) %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm29TargetLoweringObjectFileMachOC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(968) initializes((0, 11), (12, 20), (24, 897), (904, 940), (944, 968)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -8913,7 +8913,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit16:  ; preds = %28, %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm28TargetLoweringObjectFileWasm14InitializeWasmEv(ptr nocapture noundef nonnull align 8 dereferenceable(1024) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm28TargetLoweringObjectFileWasm14InitializeWasmEv(ptr nocapture noundef nonnull align 8 dereferenceable(1024) initializes((932, 936), (944, 952)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::Twine", align 8
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 904
@@ -10157,7 +10157,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %54, %_ZN4llvmlsINS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm28TargetLoweringObjectFileGOFFC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(968) %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm28TargetLoweringObjectFileGOFFC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(968) initializes((0, 11), (12, 20), (24, 897), (904, 940), (944, 968)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9

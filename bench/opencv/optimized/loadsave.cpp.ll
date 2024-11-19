@@ -9262,7 +9262,7 @@ define noundef i64 @_ZNK2cv15ImageCollection4Impl4sizeEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv15ImageCollection4Impl4readEv(ptr dead_on_unwind noalias writable sret(%"class.cv::Mat") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN2cv15ImageCollection4Impl4readEv(ptr dead_on_unwind noalias writable sret(%"class.cv::Mat") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((48, 56)) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -9293,7 +9293,7 @@ define void @_ZN2cv15ImageCollection4Impl4readEv(ptr dead_on_unwind noalias writ
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN2cv15ImageCollection4Impl10readHeaderEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN2cv15ImageCollection4Impl10readHeaderEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((48, 56)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -9937,7 +9937,7 @@ define { ptr, i32 } @_ZN2cv15ImageCollection4Impl3endEPS0_(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv15ImageCollection4Impl5resetEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv15ImageCollection4Impl5resetEv(ptr noundef nonnull align 8 dereferenceable(104) initializes((56, 60)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.cv::Ptr.13", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 0, ptr %3, align 8
@@ -10341,7 +10341,7 @@ define void @_ZN2cv15ImageCollection4Impl12releaseCacheEi(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv15ImageCollectionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv15ImageCollectionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %2, i8 0, i64 104, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #27
@@ -10505,7 +10505,7 @@ define void @_ZN2cv15ImageCollection12releaseCacheEi(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN2cv15ImageCollection7getImplEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.25") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv15ImageCollection7getImplEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.25") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10568,7 +10568,7 @@ define { ptr, i32 } @_ZN2cv15ImageCollection3endEv(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv15ImageCollection8iteratorC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %0, ptr noundef %1) unnamed_addr #17 align 2 {
+define void @_ZN2cv15ImageCollection8iteratorC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, ptr noundef %1) unnamed_addr #17 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
@@ -10576,7 +10576,7 @@ define void @_ZN2cv15ImageCollection8iteratorC2EPS0_(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv15ImageCollection8iteratorC2EPS0_i(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #17 align 2 {
+define void @_ZN2cv15ImageCollection8iteratorC2EPS0_i(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #17 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %2, ptr %4, align 8

@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.18 = private unnamed_addr constant [31 x i8] c"%s %s: nonexisting DP port %c\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @intel_crtc_crc_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_crtc_crc_init(ptr nocapture noundef writeonly initializes((2104, 2108)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2104
   store i32 0, ptr %2, align 4
   ret void
@@ -42,7 +42,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef nonnull ptr @intel_crtc_get_crc_sources(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef nonnull ptr @intel_crtc_get_crc_sources(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 align 16 {
   store i64 14, ptr %1, align 8
   ret ptr @pipe_crc_sources
 }
@@ -894,7 +894,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_pipe_crc_ctl_reg(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @i9xx_pipe_crc_auto_source(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 align 16 {
+define internal fastcc void @i9xx_pipe_crc_auto_source(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #2 align 16 {
   store i32 8, ptr %2, align 4
   tail call void @drm_modeset_lock_all(ptr noundef %0) #6
   %4 = getelementptr inbounds i8, ptr %0, i64 688

@@ -3640,7 +3640,7 @@ $_ZTIPFN5boost13intrusive_ptrIN8facebook5velox6BufferEEEPKvmE = comdat any
 @.str.59 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox13exportToArrowERKSt10shared_ptrINS0_10BaseVectorEER10ArrowArrayPNS0_6memory10MemoryPoolERK12ArrowOptions(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %vector, ptr noundef nonnull align 8 dereferenceable(80) %arrowArray, ptr noundef %pool, ptr noundef nonnull align 1 dereferenceable(2) %options) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox13exportToArrowERKSt10shared_ptrINS0_10BaseVectorEER10ArrowArrayPNS0_6memory10MemoryPoolERK12ArrowOptions(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %vector, ptr noundef nonnull align 8 dereferenceable(80) initializes((40, 48)) %arrowArray, ptr noundef %pool, ptr noundef nonnull align 1 dereferenceable(2) %options) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.facebook::velox::(anonymous namespace)::Selection", align 8
   %0 = load ptr, ptr %vector, align 8
@@ -3693,7 +3693,7 @@ _ZN8facebook5velox12_GLOBAL__N_19SelectionD2Ev.exit7: ; preds = %lpad, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_117exportToArrowImplERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERK12ArrowOptions(ptr noundef nonnull align 8 dereferenceable(99) %vec, ptr noundef nonnull align 8 dereferenceable(36) %rows, ptr noundef nonnull align 8 dereferenceable(80) %out, ptr noundef %pool, ptr noundef nonnull align 1 dereferenceable(2) %options) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_117exportToArrowImplERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERK12ArrowOptions(ptr noundef nonnull align 8 dereferenceable(99) %vec, ptr noundef nonnull align 8 dereferenceable(36) %rows, ptr noundef nonnull align 8 dereferenceable(80) initializes((40, 48)) %out, ptr noundef %pool, ptr noundef nonnull align 1 dereferenceable(2) %options) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i1339 = alloca %struct._Guard, align 8
   %__guard.i = alloca %struct._Guard, align 8
@@ -9290,7 +9290,7 @@ _ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_124VeloxToArrowBridgeHolderESt14d
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox13exportToArrowERKSt10shared_ptrINS0_10BaseVectorEER11ArrowSchemaRK12ArrowOptions(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %vec, ptr nocapture noundef nonnull align 8 dereferenceable(72) %arrowSchema, ptr noundef nonnull align 1 dereferenceable(2) %options) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox13exportToArrowERKSt10shared_ptrINS0_10BaseVectorEER11ArrowSchemaRK12ArrowOptions(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %vec, ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((8, 32)) %arrowSchema, ptr noundef nonnull align 1 dereferenceable(2) %options) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %bridgeHolder = alloca %"class.std::unique_ptr", align 8
   %ref.tmp21 = alloca %struct.ArrowOptions, align 1
@@ -14125,7 +14125,7 @@ ehcleanup:                                        ; preds = %lpad10, %lpad.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %vec, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %rows, ptr nocapture noundef nonnull align 8 dereferenceable(80) %out, ptr noundef %pool, ptr nocapture noundef nonnull align 8 dereferenceable(88) %holder) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_110exportFlatERKNS0_10BaseVectorERKNS1_9SelectionER10ArrowArrayPNS0_6memory10MemoryPoolERNS1_24VeloxToArrowBridgeHolderE(ptr noundef nonnull align 8 dereferenceable(99) %vec, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %rows, ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((32, 40), (48, 56)) %out, ptr noundef %pool, ptr nocapture noundef nonnull align 8 dereferenceable(88) %holder) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sv.i8.i.i = alloca %"struct.facebook::velox::StringView", align 8
   %sv.i.i.i = alloca %"struct.facebook::velox::StringView", align 8
@@ -37102,7 +37102,7 @@ lpad.body:                                        ; preds = %_ZNSt15__allocated_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8facebook5velox12_GLOBAL__N_124wrapInBufferViewAsViewerEPKvm(ptr noalias nocapture writeonly sret(%"class.boost::intrusive_ptr") align 8 %agg.result, ptr noundef %buffer, i64 noundef %length) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox12_GLOBAL__N_124wrapInBufferViewAsViewerEPKvm(ptr noalias nocapture writeonly sret(%"class.boost::intrusive_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef %buffer, i64 noundef %length) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.facebook::velox::(anonymous namespace)::BufferViewReleaser", align 8
   %0 = load atomic i8, ptr @_ZGVZN8facebook5velox12_GLOBAL__N_124wrapInBufferViewAsViewerEPKvmE15kViewerReleaser acquire, align 8
@@ -69125,7 +69125,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #24
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10BufferViewINS0_12_GLOBAL__N_118BufferViewReleaserEE6createEPKhmS3_b(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %data, i64 noundef %size, ptr nocapture noundef nonnull readonly %releaser) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox10BufferViewINS0_12_GLOBAL__N_118BufferViewReleaserEE6createEPKhmS3_b(ptr noalias nocapture writeonly align 8 initializes((0, 8)) %agg.result, ptr noundef %data, i64 noundef %size, ptr nocapture noundef nonnull readonly %releaser) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.facebook::velox::(anonymous namespace)::BufferViewReleaser", align 8
   %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #38
@@ -69419,7 +69419,7 @@ _ZNSt12__shared_ptrI11ArrowSchemaLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox10BufferViewINS0_12_GLOBAL__N_118BufferViewReleaserEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10BufferViewINS0_12_GLOBAL__N_118BufferViewReleaserEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox10BufferViewINS0_12_GLOBAL__N_118BufferViewReleaserEEE, i64 16), ptr %this, align 8
   %releaser_ = getelementptr inbounds i8, ptr %this, i64 64
@@ -69428,7 +69428,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox10BufferViewINS0_12_GLOBAL__N_118BufferViewReleaserEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10BufferViewINS0_12_GLOBAL__N_118BufferViewReleaserEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox10BufferViewINS0_12_GLOBAL__N_118BufferViewReleaserEEE, i64 16), ptr %this, align 8
   %releaser_.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -200058,7 +200058,7 @@ cond.end:                                         ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN5boost13intrusive_ptrIN8facebook5velox6BufferEEEPKvmEZNS3_12_GLOBAL__N_119importFromArrowImplER11ArrowSchemaR10ArrowArrayPNS3_6memory10MemoryPoolEbE3$_0E9_M_invokeERKSt9_Any_dataOS7_Om"(ptr noalias nocapture writeonly sret(%"class.boost::intrusive_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFN5boost13intrusive_ptrIN8facebook5velox6BufferEEEPKvmEZNS3_12_GLOBAL__N_119importFromArrowImplER11ArrowSchemaR10ArrowArrayPNS3_6memory10MemoryPoolEbE3$_0E9_M_invokeERKSt9_Any_dataOS7_Om"(ptr noalias nocapture writeonly sret(%"class.boost::intrusive_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i = alloca %"struct.facebook::velox::(anonymous namespace)::BufferViewReleaser", align 8
   %agg.tmp1.i.i.i.i = alloca %"class.std::shared_ptr.603", align 8

@@ -54,7 +54,7 @@ $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 @_ZN4llvm3pdb16NativeSourceFileC1ERNS0_13NativeSessionEjRKNS_8codeview17FileChecksumEntryE = unnamed_addr alias void (ptr, ptr, i32, ptr), ptr @_ZN4llvm3pdb16NativeSourceFileC2ERNS0_13NativeSessionEjRKNS_8codeview17FileChecksumEntryE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm3pdb16NativeSourceFileC2ERNS0_13NativeSessionEjRKNS_8codeview17FileChecksumEntryE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb16NativeSourceFileC2ERNS0_13NativeSessionEjRKNS_8codeview17FileChecksumEntryE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 20), (24, 48)) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4llvm3pdb16NativeSourceFileE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -285,7 +285,7 @@ define dso_local noundef range(i32 0, 256) i32 @_ZNK4llvm3pdb16NativeSourceFile1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm3pdb16NativeSourceFile13getCompilandsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.143") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #6 align 2 {
+define dso_local void @_ZNK4llvm3pdb16NativeSourceFile13getCompilandsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.143") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #6 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }

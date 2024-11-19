@@ -922,7 +922,7 @@ cleanup:                                          ; preds = %if.end18.sink.split
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl6DecNum6_setToEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(92) %this, ptr noundef %str, i32 noundef %maxDigits, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_756number4impl6DecNum6_setToEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(92) initializes((64, 68)) %this, ptr noundef %str, i32 noundef %maxDigits, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp sgt i32 %maxDigits, 34
   br i1 %cmp, label %if.then.i, label %if.end
@@ -980,7 +980,7 @@ if.end18:                                         ; preds = %if.end18.sink.split
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl6DecNum5setToEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(92) %this, ptr noundef %str, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_756number4impl6DecNum5setToEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(92) initializes((64, 68)) %this, ptr noundef %str, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #14
   %conv = trunc i64 %call to i32
@@ -1146,7 +1146,7 @@ declare void @_ZN6icu_7517double_conversion23DoubleToStringConverter13DoubleToAs
 declare ptr @uprv_decNumberFromString_75(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl6DecNum5setToEPKhiibR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(92) %this, ptr noundef %bcd, i32 noundef %length, i32 noundef %scale, i1 noundef zeroext %isNegative, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_756number4impl6DecNum5setToEPKhiibR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(92) initializes((64, 68)) %this, ptr noundef %bcd, i32 noundef %length, i32 noundef %scale, i1 noundef zeroext %isNegative, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp sgt i32 %length, 34
   br i1 %cmp, label %if.then.i, label %if.end

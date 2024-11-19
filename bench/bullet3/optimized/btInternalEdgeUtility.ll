@@ -671,7 +671,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z27btNearestPointInLineSegmentRK9btVector3S1_S1_RS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %point, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %line0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %line1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %nearestPoint) local_unnamed_addr #3 {
+define dso_local void @_Z27btNearestPointInLineSegmentRK9btVector3S1_S1_RS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %point, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %line0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %line1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %nearestPoint) local_unnamed_addr #3 {
 entry:
   %0 = load float, ptr %line1, align 4
   %1 = load float, ptr %line0, align 4

@@ -668,7 +668,7 @@ define void @_Z19ebin_increase_countiP6t_ebinb(i32 noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z15reset_ebin_sumsP6t_ebin(ptr nocapture noundef writeonly %0) local_unnamed_addr #9 {
+define void @_Z15reset_ebin_sumsP6t_ebin(ptr nocapture noundef writeonly initializes((16, 32)) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void

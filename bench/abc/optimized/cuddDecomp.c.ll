@@ -464,7 +464,7 @@ define range(i32 0, 3) i32 @Cudd_bddIterDisjDecomp(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -956,7 +956,7 @@ cuddConjunctsAux.exit.thread:                     ; preds = %138, %._crit_edge19
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @Cudd_bddGenDisjDecomp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @Cudd_bddGenDisjDecomp(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = xor i64 %4, 1
   %6 = inttoptr i64 %5 to ptr
@@ -2347,7 +2347,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
 declare ptr @cuddBddIteRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #0 {
+define internal fastcc noundef ptr @CheckInTables(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %7) unnamed_addr #0 {
   store i32 0, ptr %7, align 4
   %9 = tail call fastcc i32 @PairInTables(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %5)
   %10 = tail call fastcc i32 @PairInTables(ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5)

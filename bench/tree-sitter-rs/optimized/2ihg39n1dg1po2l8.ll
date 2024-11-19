@@ -3405,7 +3405,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i25: 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN18tree_sitter_loader6Loader20configure_highlights17ha299261fc50c8069E(ptr noalias nocapture noundef align 8 dereferenceable(200) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN18tree_sitter_loader6Loader20configure_highlights17ha299261fc50c8069E(ptr noalias nocapture noundef align 8 dereferenceable(200) initializes((192, 193)) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { ptr, i8 }, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 192
@@ -15275,7 +15275,7 @@ common.resume:                                    ; preds = %76, %73, %40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN18tree_sitter_loader6Loader15use_debug_build17h3c3348eb0ba4ed27E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(200) %0, i1 noundef zeroext %1) unnamed_addr #5 {
+define void @_ZN18tree_sitter_loader6Loader15use_debug_build17h3c3348eb0ba4ed27E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(200) initializes((193, 194)) %0, i1 noundef zeroext %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 193
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 1

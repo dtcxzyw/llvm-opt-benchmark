@@ -192,7 +192,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define void @_ZN11TransTableLC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(664216) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11TransTableLC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(664216) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [8192 x i32], align 16
   store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV11TransTableL, i64 16), ptr %0, align 8
   %.b1 = load i1, ptr @_ZL13_constantsSet, align 1
@@ -403,7 +403,7 @@ define void @_ZN11TransTableL12SetConstantsEv(ptr nocapture noundef nonnull read
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN11TransTableLD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(664216) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11TransTableLD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(664216) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV11TransTableL, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 656184
   %3 = load ptr, ptr %2, align 8
@@ -588,7 +588,7 @@ define void @_ZN11TransTableLD0Ev(ptr noundef nonnull align 8 dereferenceable(66
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN11TransTableL4InitEPA15_Ki(ptr nocapture noundef nonnull align 8 dereferenceable(664216) %0, ptr nocapture noundef readonly %1) unnamed_addr #9 align 2 {
+define void @_ZN11TransTableL4InitEPA15_Ki(ptr nocapture noundef nonnull align 8 dereferenceable(664216) initializes((52, 132)) %0, ptr nocapture noundef readonly %1) unnamed_addr #9 align 2 {
 .preheader:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %2, i8 0, i64 80, i1 false)
@@ -710,7 +710,7 @@ define void @_ZN11TransTableL4InitEPA15_Ki(ptr nocapture noundef nonnull align 8
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11TransTableL16SetMemoryDefaultEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(664216) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define void @_ZN11TransTableL16SetMemoryDefaultEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(664216) initializes((12, 16)) %0, i32 noundef %1) unnamed_addr #11 align 2 {
   %3 = shl nsw i32 %1, 10
   %4 = sitofp i32 %3 to double
   %5 = fdiv double %4, 0x40B8D76000000000
@@ -721,7 +721,7 @@ define void @_ZN11TransTableL16SetMemoryDefaultEi(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11TransTableL16SetMemoryMaximumEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(664216) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define void @_ZN11TransTableL16SetMemoryMaximumEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(664216) initializes((20, 24)) %0, i32 noundef %1) unnamed_addr #11 align 2 {
   %3 = shl nsw i32 %1, 10
   %4 = sitofp i32 %3 to double
   %5 = fdiv double %4, 0x40B8D76000000000
@@ -3483,7 +3483,7 @@ declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(p
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK11TransTableL9KeyToDistExPi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(664216) %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #11 align 2 {
+define void @_ZNK11TransTableL9KeyToDistExPi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(664216) %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) local_unnamed_addr #11 align 2 {
   %4 = lshr i64 %1, 36
   %5 = trunc nuw nsw i64 %4 to i32
   %6 = and i32 %5, 4095
@@ -4341,7 +4341,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK11TransTableL13MakeHistStatsEPKiRiS2_S2_S2_i(ptr nocapture noundef nonnull readnone align 8 dereferenceable(664216) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) %5, i32 noundef %6) local_unnamed_addr #9 align 2 {
+define void @_ZNK11TransTableL13MakeHistStatsEPKiRiS2_S2_S2_i(ptr nocapture noundef nonnull readnone align 8 dereferenceable(664216) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %5, i32 noundef %6) local_unnamed_addr #9 align 2 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
@@ -4598,7 +4598,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #22
 declare double @sqrt(double noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK11TransTableL14UpdateSuitHistEiiPiRi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(664216) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #24 align 2 {
+define void @_ZNK11TransTableL14UpdateSuitHistEiiPiRi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(664216) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 132)) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %4) local_unnamed_addr #24 align 2 {
 .preheader:
   store i32 0, ptr %4, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %3, i8 0, i64 132, i1 false)
@@ -4640,7 +4640,7 @@ define void @_ZNK11TransTableL14UpdateSuitHistEiiPiRi(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK11TransTableL14UpdateSuitHistEiiPiS0_RiS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(664216) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull align 4 dereferenceable(4) %6) local_unnamed_addr #24 align 2 {
+define void @_ZNK11TransTableL14UpdateSuitHistEiiPiS0_RiS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(664216) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 132)) %3, ptr nocapture noundef %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %5, ptr nocapture noundef nonnull align 4 dereferenceable(4) %6) local_unnamed_addr #24 align 2 {
 .preheader:
   store i32 0, ptr %5, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %3, i8 0, i64 132, i1 false)
@@ -6224,7 +6224,7 @@ _ZNK11TransTableL13DistToLengthsEiPKiPA4_h.exit.i: ; preds = %99
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK11TransTableL15UpdateEntryHistEiiPiRi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(664216) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #24 align 2 {
+define void @_ZNK11TransTableL15UpdateEntryHistEiiPiRi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(664216) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 504)) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %4) local_unnamed_addr #24 align 2 {
 .preheader:
   store i32 0, ptr %4, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(504) %3, i8 0, i64 504, i1 false)
@@ -6285,7 +6285,7 @@ define void @_ZNK11TransTableL15UpdateEntryHistEiiPiRi(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK11TransTableL15UpdateEntryHistEiiPiS0_RiS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(664216) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull align 4 dereferenceable(4) %6) local_unnamed_addr #24 align 2 {
+define void @_ZNK11TransTableL15UpdateEntryHistEiiPiS0_RiS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(664216) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 504)) %3, ptr nocapture noundef %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %5, ptr nocapture noundef nonnull align 4 dereferenceable(4) %6) local_unnamed_addr #24 align 2 {
 .preheader:
   store i32 0, ptr %5, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(504) %3, i8 0, i64 504, i1 false)

@@ -53,7 +53,7 @@ ecdh_compute_shared_restartable.exit:             ; preds = %6, %9, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ecdh_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
+define hidden void @mbedtls_ecdh_init(ptr nocapture noundef writeonly initializes((0, 456)) %0) local_unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(456) %0, i8 0, i64 456, i1 false)
   ret void
 }
@@ -62,7 +62,7 @@ define hidden void @mbedtls_ecdh_init(ptr nocapture noundef writeonly %0) local_
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -20096, 1) i32 @mbedtls_ecdh_setup(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 -20096, 1) i32 @mbedtls_ecdh_setup(ptr noundef initializes((0, 1), (4, 12)) %0, i32 noundef %1) local_unnamed_addr #1 {
   store i8 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %3, align 8

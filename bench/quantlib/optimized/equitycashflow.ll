@@ -2205,7 +2205,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14EquityCashFlowC1EdN5boost10shared_ptrINS_11EquityIndexEEERKNS_4DateES7_S7_b(ptr noundef nonnull align 8 dereferenceable(104) %this, double noundef %notional, ptr nocapture noundef %index, ptr noundef nonnull align 8 dereferenceable(8) %baseDate, ptr noundef nonnull align 8 dereferenceable(8) %fixingDate, ptr noundef nonnull align 8 dereferenceable(8) %paymentDate, i1 noundef zeroext %growthOnly) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14EquityCashFlowC1EdN5boost10shared_ptrINS_11EquityIndexEEERKNS_4DateES7_S7_b(ptr noundef nonnull align 8 dereferenceable(104) initializes((104, 112), (120, 124), (128, 136)) %this, double noundef %notional, ptr nocapture noundef %index, ptr noundef nonnull align 8 dereferenceable(8) %baseDate, ptr noundef nonnull align 8 dereferenceable(8) %fixingDate, ptr noundef nonnull align 8 dereferenceable(8) %paymentDate, i1 noundef zeroext %growthOnly) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.46", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 104
@@ -2390,7 +2390,7 @@ return:                                           ; preds = %_ZNK5boost10shared_
 declare noundef double @_ZNK8QuantLib15IndexedCashFlow6amountEv(ptr noundef nonnull align 8 dereferenceable(81)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26EquityQuantoCashFlowPricerC2ENS_6HandleINS_18YieldTermStructureEEENS1_INS_21BlackVolTermStructureEEES5_NS1_INS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %vtt, ptr nocapture noundef %quantoCurrencyTermStructure, ptr nocapture noundef %equityVolatility, ptr nocapture noundef %fxVolatility, ptr nocapture noundef %correlation) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26EquityQuantoCashFlowPricerC2ENS_6HandleINS_18YieldTermStructureEEENS1_INS_21BlackVolTermStructureEEES5_NS1_INS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 24)) %this, ptr noundef %vtt, ptr nocapture noundef %quantoCurrencyTermStructure, ptr nocapture noundef %equityVolatility, ptr nocapture noundef %fxVolatility, ptr nocapture noundef %correlation) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::shared_ptr.38", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
@@ -3657,7 +3657,7 @@ _ZN5boost10shared_ptrIN8QuantLib11EquityIndexEED2Ev.exit: ; preds = %entry, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26EquityQuantoCashFlowPricerC1ENS_6HandleINS_18YieldTermStructureEEENS1_INS_21BlackVolTermStructureEEES5_NS1_INS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef %quantoCurrencyTermStructure, ptr nocapture noundef %equityVolatility, ptr nocapture noundef %fxVolatility, ptr nocapture noundef %correlation) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26EquityQuantoCashFlowPricerC1ENS_6HandleINS_18YieldTermStructureEEENS1_INS_21BlackVolTermStructureEEES5_NS1_INS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((144, 148), (152, 160)) %this, ptr nocapture noundef %quantoCurrencyTermStructure, ptr nocapture noundef %equityVolatility, ptr nocapture noundef %fxVolatility, ptr nocapture noundef %correlation) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::shared_ptr.38", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
@@ -4728,7 +4728,7 @@ ehcleanup59:                                      ; preds = %lpad.i, %ehcleanup5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26EquityQuantoCashFlowPricer10initializeERKNS_14EquityCashFlowE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(104) %cashFlow) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26EquityQuantoCashFlowPricer10initializeERKNS_14EquityCashFlowE(ptr noundef nonnull align 8 dereferenceable(128) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(104) %cashFlow) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.boost::shared_ptr.46", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8

@@ -529,7 +529,7 @@ declare ptr @__errno_location() local_unnamed_addr #4
 declare i32 @close(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @inet_parse(ptr nocapture noundef writeonly %addr, ptr noundef %str, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @inet_parse(ptr nocapture noundef writeonly initializes((0, 32)) %addr, ptr noundef %str, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %host = alloca [65 x i8], align 16
   %port = alloca [33 x i8], align 16

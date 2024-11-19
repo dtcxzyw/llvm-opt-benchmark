@@ -1202,7 +1202,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel14dots_and_boxes4MoveC2EiiNS0_15CellOrientationEii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #6 align 2 {
+define void @_ZN10open_spiel14dots_and_boxes4MoveC2EiiNS0_15CellOrientationEii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((0, 20)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #6 align 2 {
   store i32 %1, ptr %0, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %7, align 4
@@ -1216,7 +1216,7 @@ define void @_ZN10open_spiel14dots_and_boxes4MoveC2EiiNS0_15CellOrientationEii(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel14dots_and_boxes4MoveC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %0) unnamed_addr #6 align 2 {
+define void @_ZN10open_spiel14dots_and_boxes4MoveC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((0, 20)) %0) unnamed_addr #6 align 2 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -1230,7 +1230,7 @@ define void @_ZN10open_spiel14dots_and_boxes4MoveC2Ev(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel14dots_and_boxes4MoveC2Elii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel14dots_and_boxes4MoveC2Elii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((0, 20)) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1374,7 +1374,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel14dots_and_boxes4Move3SetEiiNS0_15CellOrientationE(ptr nocapture noundef nonnull align 4 dereferenceable(20) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel14dots_and_boxes4Move3SetEiiNS0_15CellOrientationE(ptr nocapture noundef nonnull align 4 dereferenceable(20) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2565,7 +2565,7 @@ _ZN4absl7debian28AlphaNumC2Ei.exit.i:             ; preds = %_ZN4absl7debian28Al
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel14dots_and_boxes17DotsAndBoxesState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.14") align 8 %0, ptr noundef nonnull align 8 dereferenceable(169) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel14dots_and_boxes17DotsAndBoxesState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.14") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(169) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5913,7 +5913,7 @@ define noundef zeroext i1 @_ZNK10open_spiel14dots_and_boxes17DotsAndBoxesState10
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel14dots_and_boxes17DotsAndBoxesState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.19") align 8 %0, ptr noundef nonnull align 8 dereferenceable(169) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel14dots_and_boxes17DotsAndBoxesState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.19") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(169) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1

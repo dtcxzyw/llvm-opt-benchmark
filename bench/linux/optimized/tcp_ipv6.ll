@@ -638,7 +638,7 @@ define internal noundef range(i32 0, 2) i32 @tcp_v6_md5_hash_skb(ptr noundef %0,
 declare dso_local i32 @cookie_v6_init_sequence(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @tcp_v6_route_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 align 16 {
+define internal ptr @tcp_v6_route_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef initializes((56, 88)) %3) #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 64
   %6 = getelementptr inbounds i8, ptr %3, i64 56
   %7 = getelementptr inbounds i8, ptr %1, i64 192
@@ -3522,7 +3522,7 @@ declare dso_local ptr @__inet6_lookup_established(ptr noundef, ptr noundef, ptr 
 declare dso_local void @sock_edemux(ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_v6_send_check(ptr noundef %0, ptr nocapture noundef %1) #1 align 16 {
+define dso_local void @tcp_v6_send_check(ptr noundef %0, ptr nocapture noundef initializes((136, 140)) %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = getelementptr inbounds i8, ptr %1, i64 192

@@ -1793,7 +1793,7 @@ declare dso_local void @intel_gt_check_and_clear_faults(ptr noundef) local_unnam
 declare dso_local void @intel_uncore_prune_engine_fw_domains(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @intel_engine_init_execlists(ptr noundef %0) local_unnamed_addr #4 align 16 {
+define dso_local void @intel_engine_init_execlists(ptr noundef initializes((1096, 1148)) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1144
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1096
@@ -2041,7 +2041,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_engines_init(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_engines_init(ptr nocapture noundef initializes((4688, 4692)) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_gem_ww_ctx, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 636
   %4 = load i32, ptr %3, align 4
@@ -3433,7 +3433,7 @@ define dso_local void @intel_engine_wait_for_pending_mi_fw(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_engine_get_instdone(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_engine_get_instdone(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1552)) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %0, align 8
@@ -5311,7 +5311,7 @@ define dso_local ptr @intel_engine_create_virtual(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_engine_get_hung_entity(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_engine_get_hung_entity(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8

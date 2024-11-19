@@ -1218,7 +1218,7 @@ define internal void @kyber_limit_depth(i32 noundef %0, ptr nocapture noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @kyber_prepare_request(ptr nocapture noundef writeonly %0) #8 align 16 {
+define internal void @kyber_prepare_request(ptr nocapture noundef writeonly initializes((192, 200)) %0) #8 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   store ptr inttoptr (i64 -1 to ptr), ptr %2, align 8
   ret void

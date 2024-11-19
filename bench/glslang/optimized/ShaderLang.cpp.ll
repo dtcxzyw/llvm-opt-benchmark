@@ -3340,7 +3340,7 @@ define noundef i32 @ShGetUniformLocation(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7glslang10GetVersionEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.glslang::Version") align 8 %0) local_unnamed_addr #7 {
+define void @_ZN7glslang10GetVersionEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.glslang::Version") align 8 initializes((0, 12), (16, 24)) %0) local_unnamed_addr #7 {
   store i32 14, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 2, ptr %2, align 4
@@ -3379,7 +3379,7 @@ define void @_ZN7glslang15FinalizeProcessEv() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang7TShaderC2E11EShLanguage(ptr noundef nonnull align 8 dereferenceable(165) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN7glslang7TShaderC2E11EShLanguage(ptr noundef nonnull align 8 dereferenceable(165) initializes((0, 8), (16, 20), (56, 72), (80, 88)) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang7TShaderE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
@@ -3449,7 +3449,7 @@ define void @_ZN7glslang7TShaderC2E11EShLanguage(ptr noundef nonnull align 8 der
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang7TShaderD2Ev(ptr noundef nonnull align 8 dereferenceable(165) %0) unnamed_addr #3 align 2 {
+define void @_ZN7glslang7TShaderD2Ev(ptr noundef nonnull align 8 dereferenceable(165) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang7TShaderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -3512,7 +3512,7 @@ define void @_ZN7glslang7TShaderD0Ev(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7glslang7TShader10setStringsEPKPKci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(165) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
+define void @_ZN7glslang7TShader10setStringsEPKPKci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(165) initializes((48, 64), (72, 76)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72
@@ -3523,7 +3523,7 @@ define void @_ZN7glslang7TShader10setStringsEPKPKci(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7glslang7TShader21setStringsWithLengthsEPKPKcPKii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(165) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #7 align 2 {
+define void @_ZN7glslang7TShader21setStringsWithLengthsEPKPKcPKii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(165) initializes((48, 64), (72, 76)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #7 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 72
@@ -3534,7 +3534,7 @@ define void @_ZN7glslang7TShader21setStringsWithLengthsEPKPKcPKii(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7glslang7TShader29setStringsWithLengthsAndNamesEPKPKcPKiS4_i(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(165) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #7 align 2 {
+define void @_ZN7glslang7TShader29setStringsWithLengthsAndNamesEPKPKcPKiS4_i(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(165) initializes((48, 76)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #7 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 72
@@ -3640,7 +3640,7 @@ define void @_ZN7glslang7TShader11setUniqueIdEy(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7glslang7TShader18setOverrideVersionEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(165) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN7glslang7TShader18setOverrideVersionEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(165) initializes((120, 124)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store i32 %1, ptr %3, align 8
   ret void
@@ -5836,7 +5836,7 @@ define noundef ptr @_ZN7glslang7TShader15getInfoDebugLogEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang8TProgramC2Ev(ptr noundef nonnull align 8 dereferenceable(497) %0) unnamed_addr #3 align 2 {
+define void @_ZN7glslang8TProgramC2Ev(ptr noundef nonnull align 8 dereferenceable(497) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang8TProgramE, i64 16), ptr %0, align 8
   br label %2
 
@@ -5881,7 +5881,7 @@ define void @_ZN7glslang8TProgramC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang8TProgramD2Ev(ptr noundef nonnull align 8 dereferenceable(497) %0) unnamed_addr #3 align 2 {
+define void @_ZN7glslang8TProgramD2Ev(ptr noundef nonnull align 8 dereferenceable(497) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang8TProgramE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 480
   %3 = load ptr, ptr %2, align 8

@@ -1114,7 +1114,7 @@ declare void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_trai
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg8RegistryC2EOSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEOSt10unique_ptrINS_22RegistryImplementationESt14default_deleteISC_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg8RegistryC2EOSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEOSt10unique_ptrINS_22RegistryImplementationESt14default_deleteISC_EE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.vcpkg::LineInfo", align 8
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %0, align 8
@@ -3068,7 +3068,7 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg17is_git_commit_shaENS_10StringVie
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg21make_builtin_registryERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.21") align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg21make_builtin_registryERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.21") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(400) %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr.93", align 8
   %4 = tail call noundef zeroext i1 @_ZNK5vcpkg10VcpkgPaths24use_git_default_registryEv(ptr noundef nonnull align 8 dereferenceable(400) %1)
   br i1 %4, label %_ZNSt10unique_ptrIN12_GLOBAL__N_120BuiltinErrorRegistryESt14default_deleteIS1_EED2Ev.exit, label %6
@@ -3403,7 +3403,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_118FilesystemRegistryESt14default_deleteIS1_EED2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg32make_git_version_db_deserializerEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.125") align 8 %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg32make_git_version_db_deserializerEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.125") align 8 initializes((0, 8)) %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_134GitVersionDbEntryArrayDeserializerESt14default_deleteIS1_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31, !noalias !88
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_134GitVersionDbEntryArrayDeserializerE, i64 16), ptr %1, align 8, !noalias !88
@@ -11969,7 +11969,7 @@ _ZNSt12_Vector_baseIN5vcpkg18DependencyOverrideESaIS1_EED2Ev.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZNK12_GLOBAL__N_128BuiltinPortTreeRegistryEntry17get_port_versionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::ExpectedT.366") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %1) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_128BuiltinPortTreeRegistryEntry17get_port_versionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::ExpectedT.366") align 8 initializes((0, 16), (32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   store ptr %3, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -14660,7 +14660,7 @@ define internal void @_ZN12_GLOBAL__N_120BuiltinErrorRegistryD0Ev(ptr noundef no
 declare void @_ZN5vcpkg3msg9format_toIJEJEEEvRNS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS5_E4typeET0_EE(ptr noundef nonnull align 8 dereferenceable(32), i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111GitRegistryC2ERKN5vcpkg10VcpkgPathsEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111GitRegistryC2ERKN5vcpkg10VcpkgPathsEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_111GitRegistryE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
@@ -15207,7 +15207,7 @@ _ZNO5vcpkg9ExpectedTIN12_GLOBAL__N_111GitRegistry22VersionsTreePathResultENS_15L
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZNK12_GLOBAL__N_111GitRegistry36try_append_all_port_names_no_networkERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::ExpectedT.59") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_111GitRegistry36try_append_all_port_names_no_networkERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::ExpectedT.59") align 8 initializes((0, 1), (32, 33)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   store i8 0, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %4, align 8
@@ -16256,7 +16256,7 @@ declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEbNS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext, ptr, i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116GitRegistryEntryC2EN5vcpkg10StringViewERKNS_11GitRegistryEbOSt6vectorINS1_17GitVersionDbEntryESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(176) %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116GitRegistryEntryC2EN5vcpkg10StringViewERKNS_11GitRegistryEbOSt6vectorINS1_17GitVersionDbEntryESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(176) %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_116GitRegistryEntryE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -20937,7 +20937,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_123BuiltinGitRegistryEntryEEclEPS1_.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZNK12_GLOBAL__N_123BuiltinGitRegistryEntry17get_port_versionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::ExpectedT.366") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_123BuiltinGitRegistryEntry17get_port_versionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::ExpectedT.366") align 8 initializes((0, 16), (32, 33)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 56
@@ -24931,7 +24931,7 @@ _ZNK5vcpkg4Json13IDeserializerISt6vectorINS_24FilesystemVersionDbEntryESaIS3_EEE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZNK12_GLOBAL__N_123FilesystemRegistryEntry17get_port_versionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::ExpectedT.366") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_123FilesystemRegistryEntry17get_port_versionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::ExpectedT.366") align 8 initializes((0, 16), (32, 33)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 48

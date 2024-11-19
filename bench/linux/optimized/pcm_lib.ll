@@ -3146,7 +3146,7 @@ define internal noundef range(i32 -22, 2) i32 @snd_pcm_hw_rule_noresample_func(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @_snd_pcm_hw_params_any(ptr nocapture noundef %0) #7 align 16 {
+define dso_local void @_snd_pcm_hw_params_any(ptr nocapture noundef initializes((0, 608)) %0) #7 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(608) %0, i8 0, i64 608, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = getelementptr inbounds i8, ptr %0, i64 516
@@ -5432,7 +5432,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_add_chmap_ctls(ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @pcm_chmap_ctl_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #10 align 16 {
+define internal noundef i32 @pcm_chmap_ctl_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((64, 68), (72, 76), (80, 96)) %1) #10 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 64
