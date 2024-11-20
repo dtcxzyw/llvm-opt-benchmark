@@ -8,6 +8,8 @@
 #include <llvm/ADT/DenseMap.h>
 #include <llvm/ADT/STLExtras.h>
 #include <llvm/Analysis/InstructionSimplify.h>
+#include <llvm/Analysis/ValueTracking.h>
+#include <llvm/IR/Attributes.h>
 #include <llvm/IR/BasicBlock.h>
 #include <llvm/IR/Constants.h>
 #include <llvm/IR/DataLayout.h>
@@ -211,8 +213,15 @@ bool matchValue(Value *V1, Value *V2, DenseMap<Value *, Value *> &Map) {
   if (Ref)
     return Ref == V1;
   Ref = V1;
-  if (isa<Argument>(V2))
+  if (auto *Arg = dyn_cast<Argument>(V2)) {
+    if (Arg->hasAttribute(Attribute::NoUndef) && !isGuaranteedNotToBePoison(V1))
+      return false;
+    if (V2->hasName() && V2->getName().starts_with("cst")) {
+      if (!match(V1, m_ImmConstant()))
+        return false;
+    }
     return true;
+  }
   if (auto *I1 = dyn_cast<Instruction>(V1))
     if (auto *I2 = dyn_cast<Instruction>(V2))
       return matchInst(*I1, *I2, Map);
