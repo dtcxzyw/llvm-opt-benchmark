@@ -34182,7 +34182,7 @@ spike/div.ll 523900401
 spike/divu.ll 489458993
 spike/divuw.ll 426154751
 spike/divw.ll 429699053
-spike/dret.ll 287008042
+spike/dret.ll 286721025
 spike/dtm.ll 238226224
 spike/dts.ll 265440370
 spike/dummy_rocc.ll 174009743
@@ -36389,7 +36389,7 @@ wasmtime-rs/123vz9jj5d0c8gh1.ll 137761346
 wasmtime-rs/1272tr6bte1p197s.ll 939688445
 wasmtime-rs/136otopym0n1vd5o.ll 4277762764
 wasmtime-rs/13ds1tq11rpvttmq.ll 277215646
-wasmtime-rs/13ix6g1ibmr6sbv8.ll 150428492
+wasmtime-rs/13ix6g1ibmr6sbv8.ll 150278023
 wasmtime-rs/142pswrf9m1eqg4t.ll 173114583
 wasmtime-rs/14o4a7b6y6onx84q.ll 5838569937
 wasmtime-rs/15mm17rjct5r7ki2.ll 261478482
