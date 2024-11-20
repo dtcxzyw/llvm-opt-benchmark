@@ -122,7 +122,7 @@ if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then
 
 if.else.i:                                        ; preds = %if.then
   call void @_ZNSt6vectorIS_ImSaImEESaIS1_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8QuantLib14PascalTriangle13coefficients_E, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1)
-  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib14PascalTriangle13coefficients_E, i64 8), align 8, !tbaa !15
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib14PascalTriangle13coefficients_E, i64 8), align 8, !tbaa !8
   br label %_ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJiiEEERS1_DpOT_.exit
 
 _ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJiiEEERS1_DpOT_.exit: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i, %if.else.i
@@ -164,7 +164,7 @@ _ZNSt16allocator_traitsISaISt6vectorImSaImEEEE9constructIS2_JiiEEEvRS3_PT_DpOT0_
 
 if.else.i24:                                      ; preds = %_ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJiiEEERS1_DpOT_.exit
   call void @_ZNSt6vectorIS_ImSaImEESaIS1_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8QuantLib14PascalTriangle13coefficients_E, ptr %4, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4)
-  %.pre89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib14PascalTriangle13coefficients_E, i64 8), align 8, !tbaa !15
+  %.pre89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib14PascalTriangle13coefficients_E, i64 8), align 8, !tbaa !8
   br label %_ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJiiEEERS1_DpOT_.exit26
 
 _ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJiiEEERS1_DpOT_.exit26: ; preds = %_ZNSt16allocator_traitsISaISt6vectorImSaImEEEE9constructIS2_JiiEEEvRS3_PT_DpOT0_.exit.i18, %if.else.i24
@@ -206,7 +206,7 @@ _ZNSt16allocator_traitsISaISt6vectorImSaImEEEE9constructIS2_JiiEEEvRS3_PT_DpOT0_
 
 if.else.i49:                                      ; preds = %_ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJiiEEERS1_DpOT_.exit26
   call void @_ZNSt6vectorIS_ImSaImEESaIS1_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) @_ZN8QuantLib14PascalTriangle13coefficients_E, ptr %7, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp7)
-  %.pre90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib14PascalTriangle13coefficients_E, i64 8), align 8, !tbaa !15
+  %.pre90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib14PascalTriangle13coefficients_E, i64 8), align 8, !tbaa !8
   br label %_ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJiiEEERS1_DpOT_.exit51
 
 _ZNSt6vectorIS_ImSaImEESaIS1_EE12emplace_backIJiiEEERS1_DpOT_.exit51: ; preds = %_ZNSt16allocator_traitsISaISt6vectorImSaImEEEE9constructIS2_JiiEEEvRS3_PT_DpOT0_.exit.i43, %if.else.i49
@@ -306,7 +306,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 define void @_ZN8QuantLib14PascalTriangle9nextOrderEv() local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca i64, align 8
-  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib14PascalTriangle13coefficients_E, i64 8), align 8, !tbaa !15
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib14PascalTriangle13coefficients_E, i64 8), align 8, !tbaa !8
   %1 = load ptr, ptr @_ZN8QuantLib14PascalTriangle13coefficients_E, align 8, !tbaa !3
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
@@ -422,7 +422,7 @@ define linkonce_odr void @_ZNSt6vectorIS_ImSaImEESaIS1_EE17_M_realloc_insertIJii
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !8
-  %1 = load ptr, ptr %this, align 8, !tbaa !15
+  %1 = load ptr, ptr %this, align 8, !tbaa !3
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -640,7 +640,7 @@ define linkonce_odr void @_ZNSt6vectorIS_ImSaImEESaIS1_EE17_M_realloc_insertIJmE
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !8
-  %1 = load ptr, ptr %this, align 8, !tbaa !15
+  %1 = load ptr, ptr %this, align 8, !tbaa !3
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

@@ -9823,8 +9823,8 @@ invoke.cont6:                                     ; preds = %for.body
           to label %invoke.cont8 unwind label %lpad5
 
 invoke.cont8:                                     ; preds = %invoke.cont6
-  %6 = load double, ptr %call9, align 8
-  %7 = load double, ptr %call7, align 8
+  %6 = load double, ptr %call9, align 8, !tbaa !106
+  %7 = load double, ptr %call7, align 8, !tbaa !106
   %call13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib5Array2atEm(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i64 noundef %iter.024)
           to label %invoke.cont12 unwind label %lpad5
 
@@ -9958,8 +9958,8 @@ invoke.cont6:                                     ; preds = %for.body
           to label %invoke.cont8 unwind label %lpad5
 
 invoke.cont8:                                     ; preds = %invoke.cont6
-  %6 = load double, ptr %call7, align 8
-  %7 = load double, ptr %call9, align 8
+  %6 = load double, ptr %call7, align 8, !tbaa !106
+  %7 = load double, ptr %call9, align 8, !tbaa !106
   %call13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib5Array2atEm(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i64 noundef %iter.024)
           to label %invoke.cont12 unwind label %lpad5
 

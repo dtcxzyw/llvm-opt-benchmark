@@ -170,7 +170,7 @@ for.body158.lr.ph:                                ; preds = %"_ZSt9transformIN9_
   %dplus_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %45 = load ptr, ptr %dplus_, align 8, !tbaa !13
   %dminus_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %46 = load ptr, ptr %dminus_, align 8, !tbaa !6
+  %46 = load ptr, ptr %dminus_, align 8, !tbaa !13
   br label %for.body158
 
 invoke.cont11:                                    ; preds = %invoke.cont11.lr.ph, %for.cond.cleanup93

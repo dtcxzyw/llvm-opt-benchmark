@@ -4524,7 +4524,7 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4entt16basic_dispatcherISaIvEE6assureI13another_eventEERNS_8internal18dispatcher_handlerIT_S1_EEj(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %id)
   %events.i = getelementptr inbounds i8, ptr %call, i64 32
   %_M_finish.i.i = getelementptr inbounds i8, ptr %call, i64 40
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !53
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !109
   %1 = load ptr, ptr %events.i, align 8, !tbaa !53
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -4674,7 +4674,7 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4entt16basic_dispatcherISaIvEE6assureI8an_eventEERNS_8internal18dispatcher_handlerIT_S1_EEj(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %id)
   %events.i = getelementptr inbounds i8, ptr %call, i64 32
   %_M_finish.i.i = getelementptr inbounds i8, ptr %call, i64 40
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !53
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !61
   %1 = load ptr, ptr %events.i, align 8, !tbaa !53
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -9725,7 +9725,7 @@ invoke.cont90:                                    ; preds = %_ZNSt6vectorI8an_ev
 call.i382.noexc:                                  ; preds = %invoke.cont90
   %events.i.i383 = getelementptr inbounds i8, ptr %call.i382397, i64 32
   %_M_finish.i.i.i384 = getelementptr inbounds i8, ptr %call.i382397, i64 40
-  %84 = load ptr, ptr %_M_finish.i.i.i384, align 8, !tbaa !53
+  %84 = load ptr, ptr %_M_finish.i.i.i384, align 8, !tbaa !61
   %85 = load ptr, ptr %events.i.i383, align 8, !tbaa !53
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %84 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %85 to i64
@@ -10025,7 +10025,7 @@ invoke.cont128:                                   ; preds = %invoke.cont.i.i.i.i
 call.i459.noexc:                                  ; preds = %invoke.cont128
   %events.i.i460 = getelementptr inbounds i8, ptr %call.i459504, i64 32
   %_M_finish.i.i.i461 = getelementptr inbounds i8, ptr %call.i459504, i64 40
-  %122 = load ptr, ptr %_M_finish.i.i.i461, align 8, !tbaa !53
+  %122 = load ptr, ptr %_M_finish.i.i.i461, align 8, !tbaa !61
   %123 = load ptr, ptr %events.i.i460, align 8, !tbaa !53
   %sub.ptr.lhs.cast.i.i.i462 = ptrtoint ptr %122 to i64
   %sub.ptr.rhs.cast.i.i.i463 = ptrtoint ptr %123 to i64
@@ -10382,7 +10382,7 @@ invoke.cont174:                                   ; preds = %invoke.cont.i.i.i.i
 call.i595.noexc:                                  ; preds = %invoke.cont174
   %events.i.i596 = getelementptr inbounds i8, ptr %call.i595640, i64 32
   %_M_finish.i.i.i597 = getelementptr inbounds i8, ptr %call.i595640, i64 40
-  %161 = load ptr, ptr %_M_finish.i.i.i597, align 8, !tbaa !53
+  %161 = load ptr, ptr %_M_finish.i.i.i597, align 8, !tbaa !61
   %162 = load ptr, ptr %events.i.i596, align 8, !tbaa !53
   %sub.ptr.lhs.cast.i.i.i598 = ptrtoint ptr %161 to i64
   %sub.ptr.rhs.cast.i.i.i599 = ptrtoint ptr %162 to i64
@@ -11835,7 +11835,7 @@ if.then.i:                                        ; preds = %cleanup.cont
 
 if.else.i:                                        ; preds = %cleanup.cont
   call void @_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_24basic_dispatcher_handlerEEEESaIS6_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJRKjEESE_IJEEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i, ptr %6, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14)
-  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !53
+  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !36
   br label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_24basic_dispatcher_handlerEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJRKjEESE_IJEEEEERS6_DpOT_.exit
 
 _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_24basic_dispatcher_handlerEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJRKjEESE_IJEEEEERS6_DpOT_.exit: ; preds = %if.else.i, %if.then.i
@@ -12387,7 +12387,7 @@ define linkonce_odr hidden void @_ZN4entt8internal18dispatcher_handlerI8an_event
 entry:
   %events = getelementptr inbounds i8, ptr %this, i64 32
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 40
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !53
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !61
   %1 = load ptr, ptr %events, align 8, !tbaa !53
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
@@ -13317,7 +13317,7 @@ define linkonce_odr hidden void @_ZN4entt8internal18dispatcher_handlerI14one_mor
 entry:
   %events = getelementptr inbounds i8, ptr %this, i64 32
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 40
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !53
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !85
   %1 = load ptr, ptr %events, align 8, !tbaa !53
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
@@ -14052,7 +14052,7 @@ define linkonce_odr hidden void @_ZN4entt8internal18dispatcher_handlerI13another
 entry:
   %events = getelementptr inbounds i8, ptr %this, i64 32
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 40
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !53
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !109
   %1 = load ptr, ptr %events, align 8, !tbaa !53
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64

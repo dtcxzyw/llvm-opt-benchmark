@@ -1711,8 +1711,8 @@ for.cond.i.i:                                     ; preds = %_ZSt10accumulateIN9
 for.body.i12.i:                                   ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET0_T_S9_S8_.exit.i, %for.cond.i.i
   %__begin2.sroa.0.040.i.i = phi ptr [ %incdec.ptr.i.i13.i, %for.cond.i.i ], [ %tuples.sroa.0.0648, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET0_T_S9_S8_.exit.i ]
   %_M_finish.i14.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.040.i.i, i64 8
-  %66 = load ptr, ptr %_M_finish.i14.i.i, align 8, !tbaa !14, !noalias !58
-  %67 = load ptr, ptr %__begin2.sroa.0.040.i.i, align 8, !tbaa !14, !noalias !58
+  %66 = load ptr, ptr %_M_finish.i14.i.i, align 8, !tbaa !56, !noalias !58
+  %67 = load ptr, ptr %__begin2.sroa.0.040.i.i, align 8, !tbaa !53, !noalias !58
   %sub.ptr.lhs.cast.i.i.i178 = ptrtoint ptr %66 to i64
   %sub.ptr.rhs.cast.i.i.i179 = ptrtoint ptr %67 to i64
   %sub.ptr.sub.i.i.i180 = sub i64 %sub.ptr.lhs.cast.i.i.i178, %sub.ptr.rhs.cast.i.i.i179
@@ -2149,8 +2149,8 @@ for.body18.i:                                     ; preds = %for.body.i, %invoke
   %x.i.sroa.18.2 = phi ptr [ %x.i.sroa.18.1, %for.body.i ], [ %x.i.sroa.18.3, %invoke.cont22.i ]
   %__begin3.sroa.0.087.i = phi ptr [ %tuples.sroa.0.0648, %for.body.i ], [ %incdec.ptr.i.i, %invoke.cont22.i ]
   %_M_finish.i.i24.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.087.i, i64 8
-  %112 = load ptr, ptr %_M_finish.i.i24.i, align 8, !tbaa !14, !noalias !58
-  %113 = load ptr, ptr %__begin3.sroa.0.087.i, align 8, !tbaa !14, !noalias !58
+  %112 = load ptr, ptr %_M_finish.i.i24.i, align 8, !tbaa !56, !noalias !58
+  %113 = load ptr, ptr %__begin3.sroa.0.087.i, align 8, !tbaa !53, !noalias !58
   %sub.ptr.lhs.cast.i.i25.i = ptrtoint ptr %112 to i64
   %sub.ptr.rhs.cast.i.i26.i = ptrtoint ptr %113 to i64
   %sub.ptr.sub.i.i27.i = sub i64 %sub.ptr.lhs.cast.i.i25.i, %sub.ptr.rhs.cast.i.i26.i
@@ -3111,7 +3111,7 @@ unreachable:                                      ; preds = %invoke.cont12
 define internal fastcc void @_ZNSt6vectorISt8functionIFdN8QuantLib5ArrayEEESaIS4_EE12emplace_backIJNS1_12_GLOBAL__N_111MultiDimFctEEEERS4_DpOT_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %__args) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_M_finish, align 8, !tbaa !14
+  %0 = load ptr, ptr %_M_finish, align 8, !tbaa !80
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !84
   %cmp.not = icmp eq ptr %0, %1
@@ -3125,7 +3125,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %3 = load ptr, ptr %this, align 8, !tbaa !14
+  %3 = load ptr, ptr %this, align 8, !tbaa !82
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i

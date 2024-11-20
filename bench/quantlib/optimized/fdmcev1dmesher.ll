@@ -297,7 +297,7 @@ invoke.cont36:                                    ; preds = %cond.false.i57, %in
   %16 = load ptr, ptr %_M_finish.i, align 8, !tbaa !18
   %locations_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %16, %15
-  %.pre100 = load ptr, ptr %locations_, align 8, !tbaa !18
+  %.pre100 = load ptr, ptr %locations_, align 8, !tbaa !22
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit, label %if.then.i.i.i.i.i62
 
 if.then.i.i.i.i.i62:                              ; preds = %invoke.cont36
@@ -1397,7 +1397,7 @@ for.body.lr.ph:                                   ; preds = %do.end
   %locations_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %22 = load ptr, ptr %locations_, align 8, !tbaa !22
   %dminus_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %23 = load ptr, ptr %dminus_, align 8, !tbaa !18
+  %23 = load ptr, ptr %dminus_, align 8, !tbaa !22
   %dplus_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %24 = load ptr, ptr %dplus_, align 8, !tbaa !22
   br label %for.body

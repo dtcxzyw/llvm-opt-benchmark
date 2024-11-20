@@ -2917,8 +2917,8 @@ do.end212:                                        ; preds = %do.body170
   %mul219 = fmul double %120, %mul
   %v0_ = getelementptr inbounds nuw i8, ptr %this, i64 376
   %theta_ = getelementptr inbounds nuw i8, ptr %this, i64 400
-  %121 = load double, ptr %v0_, align 8
-  %122 = load double, ptr %theta_, align 8
+  %121 = load double, ptr %v0_, align 8, !tbaa !121
+  %122 = load double, ptr %theta_, align 8, !tbaa !121
   %cmp.i193 = fcmp olt double %121, %122
   %123 = select i1 %cmp.i193, double %122, double %121
   %mul222 = fmul double %call76, %123
@@ -8845,7 +8845,7 @@ lpad.i:                                           ; preds = %init.i
 _ZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEv.exit: ; preds = %do.body112, %init.check.i, %invoke.cont.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #27
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
-  %70 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !30
+  %70 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !197
   %71 = load i64, ptr %ref.tmp.i, align 8, !tbaa !197
   %cmp.i.i = icmp eq i64 %70, %71
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #27

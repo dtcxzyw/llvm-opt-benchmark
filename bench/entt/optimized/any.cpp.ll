@@ -109239,7 +109239,7 @@ invoke.cont:                                      ; preds = %init.i.i.i.i289, %i
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableIcEEPKvNS_8internal13any_operationERKS1_S4_, ptr %vtable.i.i286, align 8, !tbaa !22
   store i8 97, ptr %other, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #22
-  %4 = load ptr, ptr %vtable.i.i, align 8, !noalias !830
+  %4 = load ptr, ptr %vtable.i.i, align 8, !tbaa !22, !noalias !830
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.then.i71, label %cond.true.i.i.i63
 
@@ -110925,7 +110925,7 @@ invoke.cont6:                                     ; preds = %_ZN4entt9basic_anyI
   %inc.i304 = add nsw i32 %5, 1
   store i32 %inc.i304, ptr @_ZN3fat7counterE, align 4, !tbaa !76
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #22
-  %6 = load ptr, ptr %vtable.i.i, align 8, !noalias !839
+  %6 = load ptr, ptr %vtable.i.i, align 8, !tbaa !22, !noalias !839
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %if.then.i71, label %cond.true.i.i.i63
 
@@ -112621,7 +112621,7 @@ invoke.cont:                                      ; preds = %init.i.i.i.i290, %i
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableIiEEPKvNS_8internal13any_operationERKS1_S4_, ptr %vtable.i.i287, align 8, !tbaa !22
   store i32 3, ptr %other, align 8, !tbaa !76
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #22
-  %4 = load ptr, ptr %vtable.i.i, align 8, !noalias !851
+  %4 = load ptr, ptr %vtable.i.i, align 8, !tbaa !22, !noalias !851
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.then.i71, label %cond.true.i.i.i63
 
@@ -114294,7 +114294,7 @@ invoke.cont:                                      ; preds = %init.i.i.i.i290, %i
   store i8 2, ptr %mode.i.i, align 8, !tbaa !23, !alias.scope !860
   store ptr %value, ptr %other, align 8, !tbaa !17, !alias.scope !860
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #22
-  %4 = load ptr, ptr %vtable.i.i, align 8, !noalias !863
+  %4 = load ptr, ptr %vtable.i.i, align 8, !tbaa !22, !noalias !863
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.then.i71, label %cond.true.i.i.i63
 
@@ -115961,7 +115961,7 @@ invoke.cont:                                      ; preds = %init.i.i.i.i289, %i
   store ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableIiEEPKvNS_8internal13any_operationERKS1_S4_, ptr %vtable.i.i286, align 8, !tbaa !22
   store i32 42, ptr %other, align 8, !tbaa !76
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #22
-  %4 = load ptr, ptr %vtable.i.i, align 8, !noalias !872
+  %4 = load ptr, ptr %vtable.i.i, align 8, !tbaa !22, !noalias !872
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.then.i71, label %cond.true.i.i.i63
 
@@ -122054,7 +122054,7 @@ _ZN4entt9basic_anyILm16ELm8EEC2IvJEEESt15in_place_type_tIT_EDpOT0_.exit: ; preds
   store ptr @_ZZN4entt7type_idIvEERKNS_9type_infoEvE8instance, ptr %info.i, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #22
   %vtable.i.i71 = getelementptr inbounds i8, ptr %any, i64 24
-  %2 = load ptr, ptr %vtable.i.i71, align 8, !noalias !920
+  %2 = load ptr, ptr %vtable.i.i71, align 8, !tbaa !22, !noalias !920
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %if.then.i83, label %cond.true.i.i.i
 

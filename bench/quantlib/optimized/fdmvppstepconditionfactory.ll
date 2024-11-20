@@ -820,7 +820,7 @@ for.body.lr.ph.i:                                 ; preds = %.noexc
   %locations_.i = getelementptr inbounds nuw i8, ptr %call33, i64 8
   %27 = load ptr, ptr %locations_.i, align 8, !tbaa !32
   %dminus_.i = getelementptr inbounds nuw i8, ptr %call33, i64 56
-  %28 = load ptr, ptr %dminus_.i, align 8, !tbaa !31
+  %28 = load ptr, ptr %dminus_.i, align 8, !tbaa !32
   %dplus_.i = getelementptr inbounds nuw i8, ptr %call33, i64 32
   %29 = load ptr, ptr %dplus_.i, align 8, !tbaa !32
   br label %for.body.i

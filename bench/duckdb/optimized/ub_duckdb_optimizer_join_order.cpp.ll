@@ -39347,7 +39347,7 @@ entry:
 for.body.lr.ph.i:                                 ; preds = %entry
   %scevgep = getelementptr i8, ptr %__first.coerce, i64 8
   %0 = load i64, ptr %scevgep, align 8, !tbaa !15
-  %1 = load i64, ptr %__first.coerce, align 8
+  %1 = load i64, ptr %__first.coerce, align 8, !tbaa !15
   %cmp.i29.i = icmp ult i64 %0, %1
   br i1 %cmp.i29.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i, label %for.inc.i
 
@@ -44209,7 +44209,7 @@ entry:
 if.then:                                          ; preds = %entry
   %scevgep = getelementptr i8, ptr %__first, i64 8
   %0 = load i64, ptr %scevgep, align 8, !tbaa !15
-  %1 = load i64, ptr %__first, align 8
+  %1 = load i64, ptr %__first, align 8, !tbaa !15
   %cmp.i.i = icmp ult i64 %0, %1
   br i1 %cmp.i.i, label %if.then2.i, label %for.inc.i
 
@@ -50300,7 +50300,7 @@ entry:
 for.body.lr.ph.i:                                 ; preds = %entry
   %scevgep = getelementptr i8, ptr %__first.coerce, i64 8
   %0 = load i64, ptr %scevgep, align 8, !tbaa !15
-  %1 = load i64, ptr %__first.coerce, align 8
+  %1 = load i64, ptr %__first.coerce, align 8, !tbaa !15
   %cmp.i.i.not.i = icmp ult i64 %0, %1
   br i1 %cmp.i.i.not.i, label %for.inc.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i
 

@@ -1496,7 +1496,7 @@ _ZN8QuantLib6MatrixD2Ev.exit18:                   ; preds = %_ZN8QuantLib6Matrix
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #21
   %18 = load i64, ptr %rows_.i, align 8, !tbaa !21
   %cmp45.not = icmp eq i64 %18, 0
-  %.pre = load ptr, ptr %differences, align 8
+  %.pre = load ptr, ptr %differences, align 8, !tbaa !20
   br i1 %cmp45.not, label %for.cond.cleanup, label %for.cond18.preheader.lr.ph
 
 for.cond18.preheader.lr.ph:                       ; preds = %_ZN8QuantLib6MatrixD2Ev.exit18
@@ -1633,7 +1633,7 @@ entry:
   %ref.tmp30 = alloca %"class.std::allocator", align 1
   %ref.tmp33 = alloca %"class.std::__cxx11::basic_string", align 8
   %rows_.i = getelementptr inbounds nuw i8, ptr %m1, i64 8
-  %0 = load i64, ptr %rows_.i, align 8, !tbaa !32
+  %0 = load i64, ptr %rows_.i, align 8, !tbaa !21
   %rows_.i16 = getelementptr inbounds nuw i8, ptr %m2, i64 8
   %1 = load i64, ptr %rows_.i16, align 8, !tbaa !21
   %cmp = icmp eq i64 %0, %1
@@ -1641,7 +1641,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %columns_.i = getelementptr inbounds nuw i8, ptr %m1, i64 16
-  %2 = load i64, ptr %columns_.i, align 8, !tbaa !32
+  %2 = load i64, ptr %columns_.i, align 8, !tbaa !23
   %columns_.i17 = getelementptr inbounds nuw i8, ptr %m2, i64 16
   %3 = load i64, ptr %columns_.i17, align 8, !tbaa !23
   %cmp4 = icmp eq i64 %2, %3

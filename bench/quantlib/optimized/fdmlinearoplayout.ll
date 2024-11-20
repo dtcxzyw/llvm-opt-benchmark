@@ -133,7 +133,7 @@ entry:
   %coordinates_.i = getelementptr inbounds nuw i8, ptr %iterator, i64 32
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %iterator, i64 40
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !15
-  %1 = load ptr, ptr %coordinates_.i, align 8, !tbaa !15
+  %1 = load ptr, ptr %coordinates_.i, align 8, !tbaa !13
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -162,7 +162,7 @@ _ZNSt6vectorImSaImEEC2ERKS1_.exit:                ; preds = %entry, %if.then.i.i
   %add = add nsw i32 %offset, %conv
   %cmp = icmp slt i32 %add, 0
   %dim_16.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %.pre = load ptr, ptr %dim_16.phi.trans.insert, align 8, !tbaa !15
+  %.pre = load ptr, ptr %dim_16.phi.trans.insert, align 8, !tbaa !13
   br i1 %cmp, label %_ZNSt6vectorImSaImEEC2ERKS1_.exit.if.end13_crit_edge, label %if.else
 
 _ZNSt6vectorImSaImEEC2ERKS1_.exit.if.end13_crit_edge: ; preds = %_ZNSt6vectorImSaImEEC2ERKS1_.exit
@@ -226,7 +226,7 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i45: ; preds = %invoke.
 for.body.i.preheader.i:                           ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i45
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i4660, ptr nonnull align 8 %cond.i.i.i.i133, i64 %sub.ptr.sub.i.i, i1 false)
   %spacing_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %6 = load ptr, ptr %spacing_.i, align 8, !tbaa !15
+  %6 = load ptr, ptr %spacing_.i, align 8, !tbaa !17
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
@@ -240,7 +240,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.07.i.i, i64 8
   %incdec.ptr.i2.i.i = getelementptr inbounds nuw i8, ptr %__first2.sroa.0.08.i.i, i64 8
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i.i.i.i.i.i.i
-  br i1 %cmp.i.not.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit75, label %for.body.i.i, !llvm.loop !17
+  br i1 %cmp.i.not.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit75, label %for.body.i.i, !llvm.loop !18
 
 _ZNSt6vectorImSaImEED2Ev.exit75:                  ; preds = %for.body.i.i, %invoke.cont
   %cond.i.i.i.i48147153 = phi ptr [ null, %invoke.cont ], [ %call5.i.i.i.i2.i6.i4660, %for.body.i.i ]
@@ -250,13 +250,13 @@ _ZNSt6vectorImSaImEED2Ev.exit75:                  ; preds = %for.body.i.i, %invo
   %dim_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %cond.i.i.i.i24141, ptr %dim_.i, align 8, !tbaa !13
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store ptr %add.ptr.i.i.i26143, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !19
+  store ptr %add.ptr.i.i.i26143, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !15
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %add.ptr.i.i.i26143, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !20
   %coordinates_.i63 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %cond.i.i.i.i48147153, ptr %coordinates_.i63, align 8, !tbaa !13
   %_M_finish.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
-  store ptr %add.ptr.i.i.i50148152, ptr %_M_finish.i.i.i.i1.i, align 8, !tbaa !19
+  store ptr %add.ptr.i.i.i50148152, ptr %_M_finish.i.i.i.i1.i, align 8, !tbaa !15
   %_M_end_of_storage.i.i.i.i3.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
   store ptr %add.ptr.i.i.i50148152, ptr %_M_end_of_storage.i.i.i.i3.i, align 8, !tbaa !20
   %tobool.not.i.i.i77 = icmp eq ptr %cond.i.i.i.i133, null
@@ -335,9 +335,9 @@ attributes #9 = { builtin nounwind }
 !12 = !{!"any pointer", !6, i64 0}
 !13 = !{!11, !12, i64 0}
 !14 = !{!5, !5, i64 0}
-!15 = !{!12, !12, i64 0}
+!15 = !{!11, !12, i64 8}
 !16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!11, !12, i64 8}
+!17 = !{!12, !12, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.mustprogress"}
 !20 = !{!11, !12, i64 16}

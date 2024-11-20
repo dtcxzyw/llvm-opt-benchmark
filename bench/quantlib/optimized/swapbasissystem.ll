@@ -603,7 +603,7 @@ if.then:                                          ; preds = %_ZNSt6vectorIdSaIdE
   %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 40
   %14 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef double %14(ptr noundef nonnull align 8 dereferenceable(64) %currentState, i64 noundef %add)
-  %15 = load ptr, ptr %_M_finish.i.i9, align 8, !tbaa !13
+  %15 = load ptr, ptr %_M_finish.i.i9, align 8, !tbaa !6
   %16 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !12
   %cmp.not.i.i = icmp eq ptr %15, %16
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i20
@@ -615,7 +615,7 @@ if.then.i.i20:                                    ; preds = %if.then
   br label %if.end
 
 if.else.i.i:                                      ; preds = %if.then
-  %17 = load ptr, ptr %results, align 8, !tbaa !13
+  %17 = load ptr, ptr %results, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i

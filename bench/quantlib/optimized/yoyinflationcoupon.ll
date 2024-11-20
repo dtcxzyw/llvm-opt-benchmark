@@ -1588,14 +1588,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %__x, i64 8
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !3
-  %1 = load ptr, ptr %__x, align 8, !tbaa !3
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !111
+  %1 = load ptr, ptr %__x, align 8, !tbaa !109
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !110
-  %3 = load ptr, ptr %this, align 8, !tbaa !3
+  %3 = load ptr, ptr %this, align 8, !tbaa !109
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
@@ -1803,14 +1803,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %__x, i64 8
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !3
-  %1 = load ptr, ptr %__x, align 8, !tbaa !3
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !116
+  %1 = load ptr, ptr %__x, align 8, !tbaa !114
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !115
-  %3 = load ptr, ptr %this, align 8, !tbaa !3
+  %3 = load ptr, ptr %this, align 8, !tbaa !114
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
@@ -3731,7 +3731,7 @@ invoke.cont440:                                   ; preds = %invoke.cont437
   %203 = load ptr, ptr %pn3.i, align 8, !tbaa !48
   store ptr %203, ptr %pn.i, align 8, !tbaa !48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp426, i8 0, i64 16, i1 false)
-  %204 = load ptr, ptr %_M_finish.i.i393, align 8, !tbaa !3
+  %204 = load ptr, ptr %_M_finish.i.i393, align 8, !tbaa !119
   %205 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !120
   %cmp.not.i.i = icmp eq ptr %204, %205
   br i1 %cmp.not.i.i, label %if.else.i.i, label %invoke.cont442.thread
@@ -3979,7 +3979,7 @@ invoke.cont476:                                   ; preds = %_ZN8QuantLib6detail
   %238 = load ptr, ptr %pn3.i473, align 8, !tbaa !48
   store ptr %238, ptr %pn.i472, align 8, !tbaa !48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp455, i8 0, i64 16, i1 false)
-  %239 = load ptr, ptr %_M_finish.i.i393, align 8, !tbaa !3
+  %239 = load ptr, ptr %_M_finish.i.i393, align 8, !tbaa !119
   %240 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !120
   %cmp.not.i.i476 = icmp eq ptr %239, %240
   br i1 %cmp.not.i.i476, label %if.else.i.i481, label %invoke.cont479.thread
@@ -4278,7 +4278,7 @@ invoke.cont526:                                   ; preds = %invoke.cont524
   %281 = load ptr, ptr %pn3.i597, align 8, !tbaa !48
   store ptr %281, ptr %pn.i596, align 8, !tbaa !48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp490, i8 0, i64 16, i1 false)
-  %282 = load ptr, ptr %_M_finish.i.i393, align 8, !tbaa !3
+  %282 = load ptr, ptr %_M_finish.i.i393, align 8, !tbaa !119
   %283 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !120
   %cmp.not.i.i600 = icmp eq ptr %282, %283
   br i1 %cmp.not.i.i600, label %if.else.i.i605, label %invoke.cont529.thread
@@ -6904,7 +6904,7 @@ define linkonce_odr void @_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib8CashFlowEE
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !119
-  %1 = load ptr, ptr %this, align 8, !tbaa !3
+  %1 = load ptr, ptr %this, align 8, !tbaa !117
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

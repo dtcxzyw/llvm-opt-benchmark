@@ -995,7 +995,7 @@ invoke.cont111:                                   ; preds = %invoke.cont109
   %add.ptr.i255 = getelementptr inbounds nuw i64, ptr %95, i64 %j.0348
   %96 = load ptr, ptr %alive_, align 8, !tbaa !14
   %add.ptr.i256 = getelementptr inbounds nuw i64, ptr %96, i64 %j.0348
-  %97 = load ptr, ptr %_M_finish.i, align 8, !tbaa !17
+  %97 = load ptr, ptr %_M_finish.i, align 8, !tbaa !47
   %98 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !45
   %cmp.not.i257 = icmp eq ptr %97, %98
   br i1 %cmp.not.i257, label %if.else.i, label %if.then.i258
@@ -2600,7 +2600,7 @@ define linkonce_odr void @_ZNSt6vectorIN8QuantLib24LMMNormalDriftCalculatorESaIS
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !47
-  %1 = load ptr, ptr %this, align 8, !tbaa !17
+  %1 = load ptr, ptr %this, align 8, !tbaa !46
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

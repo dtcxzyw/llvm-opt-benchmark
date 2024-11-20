@@ -4518,7 +4518,7 @@ _ZN5boost13property_tree11string_pathINSt7__cxx1112basic_stringIcSt11char_traits
   %46 = load i64, ptr %45, align 8, !tbaa !40
   %47 = and i64 %46, -2
   %48 = icmp eq i64 %47, 0
-  %.pre = load ptr, ptr %9, align 8
+  %.pre = load ptr, ptr %9, align 8, !tbaa !35
   br i1 %48, label %..thread_crit_edge, label %.lr.ph.i.i.i.i
 
 ..thread_crit_edge:                               ; preds = %40
@@ -4959,7 +4959,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost13property_tree11basic_ptreeIN
   %17 = load i64, ptr %16, align 8, !tbaa !40
   %18 = and i64 %17, -2
   %19 = icmp eq i64 %18, 0
-  %.pre14 = load ptr, ptr %3, align 8
+  %.pre14 = load ptr, ptr %3, align 8, !tbaa !35
   br i1 %19, label %.thread, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %11
@@ -6982,7 +6982,7 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPN5boost11multi_in
   %.019.i.idx = phi i64 [ 16, %9 ], [ %.019.i.add, %20 ]
   %.pn18.i = phi ptr [ %0, %9 ], [ %.019.i.ptr, %20 ]
   %.019.i.ptr = getelementptr inbounds i8, ptr %0, i64 %.019.i.idx
-  %11 = load ptr, ptr %.019.i.ptr, align 8, !tbaa !28
+  %11 = load ptr, ptr %.019.i.ptr, align 8, !tbaa !147
   %12 = load ptr, ptr %0, align 8, !tbaa !147
   %13 = icmp ult ptr %11, %12
   br i1 %13, label %14, label %15
@@ -7066,7 +7066,7 @@ _ZSt25__unguarded_linear_insertIPN5boost11multi_index6detail14copy_map_entryINS2
 .lr.ph.i19:                                       ; preds = %27, %44
   %.019.i20 = phi ptr [ %.0.i27, %44 ], [ %.016.i18, %27 ]
   %.pn18.i21 = phi ptr [ %.019.i20, %44 ], [ %0, %27 ]
-  %29 = load ptr, ptr %.019.i20, align 8, !tbaa !28
+  %29 = load ptr, ptr %.019.i20, align 8, !tbaa !147
   %30 = load ptr, ptr %0, align 8, !tbaa !147
   %31 = icmp ult ptr %29, %30
   br i1 %31, label %32, label %39
@@ -12523,7 +12523,7 @@ _ZN5boost13property_tree11string_pathINSt7__cxx1112basic_stringIcSt11char_traits
   %46 = load i64, ptr %45, align 8, !tbaa !40
   %47 = and i64 %46, -2
   %48 = icmp eq i64 %47, 0
-  %.pre = load ptr, ptr %9, align 8
+  %.pre = load ptr, ptr %9, align 8, !tbaa !35
   br i1 %48, label %..thread_crit_edge, label %.lr.ph.i.i.i.i
 
 ..thread_crit_edge:                               ; preds = %40
@@ -12966,7 +12966,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost13property_tree11basic_ptreeIN
   %17 = load i64, ptr %16, align 8, !tbaa !40
   %18 = and i64 %17, -2
   %19 = icmp eq i64 %18, 0
-  %.pre14 = load ptr, ptr %3, align 8
+  %.pre14 = load ptr, ptr %3, align 8, !tbaa !35
   br i1 %19, label %.thread, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %11
@@ -14514,7 +14514,7 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPN5boost11multi_in
   %.019.i.idx = phi i64 [ 16, %9 ], [ %.019.i.add, %20 ]
   %.pn18.i = phi ptr [ %0, %9 ], [ %.019.i.ptr, %20 ]
   %.019.i.ptr = getelementptr inbounds i8, ptr %0, i64 %.019.i.idx
-  %11 = load ptr, ptr %.019.i.ptr, align 8, !tbaa !28
+  %11 = load ptr, ptr %.019.i.ptr, align 8, !tbaa !287
   %12 = load ptr, ptr %0, align 8, !tbaa !287
   %13 = icmp ult ptr %11, %12
   br i1 %13, label %14, label %15
@@ -14598,7 +14598,7 @@ _ZSt25__unguarded_linear_insertIPN5boost11multi_index6detail14copy_map_entryINS2
 .lr.ph.i19:                                       ; preds = %27, %44
   %.019.i20 = phi ptr [ %.0.i27, %44 ], [ %.016.i18, %27 ]
   %.pn18.i21 = phi ptr [ %.019.i20, %44 ], [ %0, %27 ]
-  %29 = load ptr, ptr %.019.i20, align 8, !tbaa !28
+  %29 = load ptr, ptr %.019.i20, align 8, !tbaa !287
   %30 = load ptr, ptr %0, align 8, !tbaa !287
   %31 = icmp ult ptr %29, %30
   br i1 %31, label %32, label %39

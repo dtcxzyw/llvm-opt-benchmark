@@ -4571,7 +4571,7 @@ _ZN5boost4json5array5table10deallocateEPS2_RKNS0_11storage_ptrE.exit: ; preds = 
 33:                                               ; preds = %23
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 %7, ptr %34, align 4, !tbaa !21
-  %35 = load ptr, ptr %2, align 8, !tbaa !42
+  %35 = load ptr, ptr %2, align 8, !tbaa !35
   %36 = load i32, ptr %35, align 8, !tbaa !40
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %_ZN5boost4json5array8relocateEPNS0_5valueES3_m.exit, label %38
@@ -4582,7 +4582,7 @@ _ZN5boost4json5array5table10deallocateEPS2_RKNS0_11storage_ptrE.exit: ; preds = 
   %41 = getelementptr inbounds i8, ptr %32, i64 8
   %42 = mul nuw nsw i64 %39, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull align 1 %40, i64 %42, i1 false)
-  %.pre = load ptr, ptr %2, align 8, !tbaa !42
+  %.pre = load ptr, ptr %2, align 8, !tbaa !35
   %.pre14 = load i32, ptr %.pre, align 8, !tbaa !40
   br label %_ZN5boost4json5array8relocateEPNS0_5valueES3_m.exit
 
@@ -5689,7 +5689,7 @@ _ZN5boost4json5array5table8allocateEmRKNS0_11storage_ptrE.exit: ; preds = %_ZNK5
   %25 = trunc nuw i64 %.0.i to i32
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %25, ptr %26, align 4, !tbaa !21
-  %27 = load ptr, ptr %5, align 8, !tbaa !42
+  %27 = load ptr, ptr %5, align 8, !tbaa !35
   %28 = load i32, ptr %27, align 8, !tbaa !40
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %_ZN5boost4json5array8relocateEPNS0_5valueES3_m.exit, label %30
@@ -5700,7 +5700,7 @@ _ZN5boost4json5array5table8allocateEmRKNS0_11storage_ptrE.exit: ; preds = %_ZNK5
   %33 = getelementptr inbounds i8, ptr %24, i64 8
   %34 = mul nuw nsw i64 %31, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull align 1 %32, i64 %34, i1 false)
-  %.pre = load ptr, ptr %5, align 8, !tbaa !42
+  %.pre = load ptr, ptr %5, align 8, !tbaa !35
   %.pre7 = load i32, ptr %.pre, align 8, !tbaa !40
   br label %_ZN5boost4json5array8relocateEPNS0_5valueES3_m.exit
 
@@ -5953,7 +5953,7 @@ _ZN5boost4json5array8relocateEPNS0_5valueES3_m.exit27: ; preds = %_ZN5boost4json
   br label %_ZN5boost4json5array8relocateEPNS0_5valueES3_m.exit28
 
 _ZN5boost4json5array8relocateEPNS0_5valueES3_m.exit28: ; preds = %_ZN5boost4json5array8relocateEPNS0_5valueES3_m.exit27, %57
-  %64 = load ptr, ptr %4, align 8, !tbaa !42
+  %64 = load ptr, ptr %4, align 8, !tbaa !35
   %65 = load i32, ptr %64, align 8, !tbaa !40
   %66 = add i32 %65, 1
   store i32 %66, ptr %46, align 8, !tbaa !40
@@ -11273,7 +11273,7 @@ _ZN5boost4json6object5table8allocateEmmRKNS0_11storage_ptrE.exit: ; preds = %24,
   %spec.select.i = select i1 %.not.i, i64 %38, i64 %15
   %39 = getelementptr inbounds nuw i8, ptr %.0.i9, i64 8
   store i64 %spec.select.i, ptr %39, align 8, !tbaa !112
-  %40 = load ptr, ptr %5, align 8, !tbaa !42
+  %40 = load ptr, ptr %5, align 8, !tbaa !102
   %41 = load i32, ptr %40, align 8, !tbaa !106
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %.thread, label %43
@@ -11284,7 +11284,7 @@ _ZN5boost4json6object5table8allocateEmmRKNS0_11storage_ptrE.exit: ; preds = %24,
   %46 = zext i32 %41 to i64
   %47 = mul nuw nsw i64 %46, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %44, ptr nonnull align 8 %45, i64 %47, i1 false)
-  %.pre = load ptr, ptr %5, align 8, !tbaa !42
+  %.pre = load ptr, ptr %5, align 8, !tbaa !102
   %.pre17 = load i32, ptr %.pre, align 8, !tbaa !106
   store i32 %.pre17, ptr %.0.i9, align 8, !tbaa !106
   store ptr %.0.i9, ptr %5, align 8, !tbaa !42
@@ -11732,13 +11732,13 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit.i21:     ; preds = %6, %12, %19
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !174
   %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.pre44 = load ptr, ptr %.phi.trans.insert43, align 8
+  %.pre44 = load ptr, ptr %.phi.trans.insert43, align 8, !tbaa !175
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 176
-  store i8 1, ptr %37, align 8, !tbaa !175
-  store i8 0, ptr %24, align 1, !tbaa !176
-  store i8 1, ptr %25, align 2, !tbaa !177
-  store i64 0, ptr %29, align 8, !tbaa !178
+  store i8 1, ptr %37, align 8, !tbaa !176
+  store i8 0, ptr %24, align 1, !tbaa !177
+  store i8 1, ptr %25, align 2, !tbaa !178
+  store i64 0, ptr %29, align 8, !tbaa !179
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.not.i.i2.i22 = icmp eq ptr %.pre, %.pre44
@@ -11746,7 +11746,7 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit.i21:     ; preds = %6, %12, %19
 
 40:                                               ; preds = %_ZN5boost4json11storage_ptrC2ERKS1_.exit.i21
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %42 = load i8, ptr %41, align 8, !tbaa !179, !range !180, !noundef !181
+  %42 = load i8, ptr %41, align 8, !tbaa !180, !range !181, !noundef !182
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %.lr.ph.i.i3.i27, label %.loopexit.i.i.i23
 
@@ -11754,7 +11754,7 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit.i21:     ; preds = %6, %12, %19
   %.06.i.i.i28 = phi ptr [ %44, %.lr.ph.i.i3.i27 ], [ %.pre, %40 ]
   %44 = getelementptr inbounds i8, ptr %.06.i.i.i28, i64 -24
   call void @_ZN5boost4json5valueD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #48
-  %45 = load ptr, ptr %39, align 8, !tbaa !182
+  %45 = load ptr, ptr %39, align 8, !tbaa !175
   %.not4.i.i.i29 = icmp eq ptr %44, %45
   br i1 %.not4.i.i.i29, label %.loopexit.i.i.i23, label %.lr.ph.i.i3.i27, !llvm.loop !183
 
@@ -11792,7 +11792,7 @@ _ZN5boost4json11value_stack5stack5clearEv.exit.i.i24: ; preds = %.loopexit.i.i.i
 _ZN5boost4json11storage_ptrD2Ev.exit:             ; preds = %58, %51, %_ZN5boost4json11value_stack5stack5clearEv.exit.i.i24
   store i64 0, ptr %48, align 8, !tbaa !17
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store i8 1, ptr %62, align 8, !tbaa !179
+  store i8 1, ptr %62, align 8, !tbaa !180
   %63 = load i64, ptr %4, align 8, !tbaa !11
   store i64 0, ptr %4, align 8, !tbaa !11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
@@ -11822,10 +11822,10 @@ _ZN5boost4json6detail5stack11non_trivialIvE7destroyEv.exit.i.i.i: ; preds = %.lr
 
 _ZN5boost4json12basic_parserINS0_6detail7handlerEE5resetEv.exit.i: ; preds = %_ZN5boost4json6detail5stack11non_trivialIvE7destroyEv.exit.i.i.i, %_ZN5boost4json11storage_ptrD2Ev.exit
   store i64 0, ptr %36, align 8, !tbaa !190
-  store i8 1, ptr %37, align 8, !tbaa !175
-  store i8 0, ptr %24, align 1, !tbaa !176
-  store i8 1, ptr %25, align 2, !tbaa !177
-  store i64 0, ptr %29, align 8, !tbaa !178
+  store i8 1, ptr %37, align 8, !tbaa !176
+  store i8 0, ptr %24, align 1, !tbaa !177
+  store i8 1, ptr %25, align 2, !tbaa !178
+  store i64 0, ptr %29, align 8, !tbaa !179
   %73 = and i64 %63, 1
   %.not.i.i1.i = icmp eq i64 %73, 0
   br i1 %.not.i.i1.i, label %_ZN5boost4json11storage_ptrC2ERKS1_.exit.i, label %74
@@ -11839,12 +11839,12 @@ _ZN5boost4json12basic_parserINS0_6detail7handlerEE5resetEv.exit.i: ; preds = %_Z
 
 _ZN5boost4json11storage_ptrC2ERKS1_.exit.i:       ; preds = %74, %_ZN5boost4json12basic_parserINS0_6detail7handlerEE5resetEv.exit.i
   %79 = load ptr, ptr %38, align 8, !tbaa !174
-  %80 = load ptr, ptr %39, align 8
+  %80 = load ptr, ptr %39, align 8, !tbaa !175
   %.not.i.i2.i = icmp eq ptr %79, %80
   br i1 %.not.i.i2.i, label %_ZN5boost4json11value_stack5stack5clearEv.exit.i.i, label %81
 
 81:                                               ; preds = %_ZN5boost4json11storage_ptrC2ERKS1_.exit.i
-  %82 = load i8, ptr %62, align 8, !tbaa !179, !range !180, !noundef !181
+  %82 = load i8, ptr %62, align 8, !tbaa !180, !range !181, !noundef !182
   %83 = trunc nuw i8 %82 to i1
   br i1 %83, label %.lr.ph.i.i3.i, label %.loopexit.i.i.i
 
@@ -11852,7 +11852,7 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit.i:       ; preds = %74, %_ZN5boost4json
   %.06.i.i.i = phi ptr [ %84, %.lr.ph.i.i3.i ], [ %79, %81 ]
   %84 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 -24
   call void @_ZN5boost4json5valueD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %84) #48
-  %85 = load ptr, ptr %39, align 8, !tbaa !182
+  %85 = load ptr, ptr %39, align 8, !tbaa !175
   %.not4.i.i.i = icmp eq ptr %84, %85
   br i1 %.not4.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i3.i, !llvm.loop !183
 
@@ -11890,7 +11890,7 @@ _ZN5boost4json6parser5resetENS0_11storage_ptrE.exit: ; preds = %_ZN5boost4json11
   %100 = and i64 %63, 3
   %101 = icmp ne i64 %100, 2
   %102 = zext i1 %101 to i8
-  store i8 %102, ptr %62, align 8, !tbaa !179
+  store i8 %102, ptr %62, align 8, !tbaa !180
   br i1 %.not.i.i1.i, label %_ZN5boost4json11storage_ptrD2Ev.exit8, label %103
 
 103:                                              ; preds = %_ZN5boost4json6parser5resetENS0_11storage_ptrE.exit
@@ -11995,7 +11995,7 @@ _ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.
   %.sink.i.i = phi i64 [ %139, %137 ], [ %140, %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i.i ]
   %.sroa.5.0..sroa_idx.i1.i.i.i = getelementptr inbounds i8, ptr %9, i64 104
   store i64 %.sink.i.i, ptr %.sroa.5.0..sroa_idx.i1.i.i.i, align 8, !tbaa !11
-  store i8 0, ptr %24, align 1, !tbaa !176
+  store i8 0, ptr %24, align 1, !tbaa !177
   %.pre48 = and i64 %.pr.pre, 1
   br label %_ZN5boost4json6parser5writeENS_4core17basic_string_viewIcEERNS_6system10error_codeE.exit
 
@@ -12083,13 +12083,13 @@ _ZN5boost4json12basic_parserINS0_6detail7handlerEE5resetEv.exit: ; preds = %_ZN5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 0, ptr %14, align 8, !tbaa !190
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i8 1, ptr %15, align 8, !tbaa !175
+  store i8 1, ptr %15, align 8, !tbaa !176
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  store i8 0, ptr %16, align 1, !tbaa !176
+  store i8 0, ptr %16, align 1, !tbaa !177
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 178
-  store i8 1, ptr %17, align 2, !tbaa !177
+  store i8 1, ptr %17, align 2, !tbaa !178
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %18, align 8, !tbaa !178
+  store i64 0, ptr %18, align 8, !tbaa !179
   %19 = load i64, ptr %1, align 8, !tbaa !17
   %20 = and i64 %19, 1
   %.not.i.i1 = icmp eq i64 %20, 0
@@ -12106,13 +12106,13 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit:         ; preds = %_ZN5boost4json12bas
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !174
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !175
   %.not.i.i2 = icmp eq ptr %27, %29
   br i1 %.not.i.i2, label %_ZN5boost4json11value_stack5stack5clearEv.exit.i, label %30
 
 30:                                               ; preds = %_ZN5boost4json11storage_ptrC2ERKS1_.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %32 = load i8, ptr %31, align 8, !tbaa !179, !range !180, !noundef !181
+  %32 = load i8, ptr %31, align 8, !tbaa !180, !range !181, !noundef !182
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %.lr.ph.i.i3, label %.loopexit.i.i
 
@@ -12120,7 +12120,7 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit:         ; preds = %_ZN5boost4json12bas
   %.06.i.i = phi ptr [ %34, %.lr.ph.i.i3 ], [ %27, %30 ]
   %34 = getelementptr inbounds i8, ptr %.06.i.i, i64 -24
   tail call void @_ZN5boost4json5valueD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #48
-  %35 = load ptr, ptr %28, align 8, !tbaa !182
+  %35 = load ptr, ptr %28, align 8, !tbaa !175
   %.not4.i.i = icmp eq ptr %34, %35
   br i1 %.not4.i.i, label %.loopexit.i.i, label %.lr.ph.i.i3, !llvm.loop !183
 
@@ -12161,7 +12161,7 @@ _ZN5boost4json11storage_ptrD2Ev.exit:             ; preds = %48, %41, %_ZN5boost
   %53 = icmp ne i64 %52, 2
   %54 = zext i1 %53 to i8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %54, ptr %55, align 8, !tbaa !179
+  store i8 %54, ptr %55, align 8, !tbaa !180
   ret void
 }
 
@@ -12171,7 +12171,7 @@ define void @_ZN5boost4json6parser7releaseEv(ptr dead_on_unwind noalias nocaptur
   %4 = alloca %"class.boost::system::error_code", align 8
   %5 = alloca %"struct.boost::source_location", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 177
-  %7 = load i8, ptr %6, align 1, !tbaa !176, !range !180, !noundef !181
+  %7 = load i8, ptr %6, align 1, !tbaa !177, !range !181, !noundef !182
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %26, label %9
 
@@ -12640,13 +12640,13 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit.i39:     ; preds = %5, %14, %21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !174
   %.phi.trans.insert72 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.pre73 = load ptr, ptr %.phi.trans.insert72, align 8
+  %.pre73 = load ptr, ptr %.phi.trans.insert72, align 8, !tbaa !175
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 176
-  store i8 1, ptr %39, align 8, !tbaa !175
-  store i8 0, ptr %26, align 1, !tbaa !176
-  store i8 1, ptr %27, align 2, !tbaa !177
-  store i64 0, ptr %31, align 8, !tbaa !178
+  store i8 1, ptr %39, align 8, !tbaa !176
+  store i8 0, ptr %26, align 1, !tbaa !177
+  store i8 1, ptr %27, align 2, !tbaa !178
+  store i64 0, ptr %31, align 8, !tbaa !179
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.not.i.i2.i40 = icmp eq ptr %.pre, %.pre73
@@ -12654,7 +12654,7 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit.i39:     ; preds = %5, %14, %21
 
 42:                                               ; preds = %_ZN5boost4json11storage_ptrC2ERKS1_.exit.i39
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %44 = load i8, ptr %43, align 8, !tbaa !179, !range !180, !noundef !181
+  %44 = load i8, ptr %43, align 8, !tbaa !180, !range !181, !noundef !182
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %.lr.ph.i.i3.i45, label %.loopexit.i.i.i41
 
@@ -12662,7 +12662,7 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit.i39:     ; preds = %5, %14, %21
   %.06.i.i.i46 = phi ptr [ %46, %.lr.ph.i.i3.i45 ], [ %.pre, %42 ]
   %46 = getelementptr inbounds i8, ptr %.06.i.i.i46, i64 -24
   call void @_ZN5boost4json5valueD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #48
-  %47 = load ptr, ptr %41, align 8, !tbaa !182
+  %47 = load ptr, ptr %41, align 8, !tbaa !175
   %.not4.i.i.i47 = icmp eq ptr %46, %47
   br i1 %.not4.i.i.i47, label %.loopexit.i.i.i41, label %.lr.ph.i.i3.i45, !llvm.loop !183
 
@@ -12700,7 +12700,7 @@ _ZN5boost4json11value_stack5stack5clearEv.exit.i.i42: ; preds = %.loopexit.i.i.i
 _ZN5boost4json11storage_ptrD2Ev.exit:             ; preds = %60, %53, %_ZN5boost4json11value_stack5stack5clearEv.exit.i.i42
   store i64 0, ptr %50, align 8, !tbaa !17
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store i8 1, ptr %64, align 8, !tbaa !179
+  store i8 1, ptr %64, align 8, !tbaa !180
   %65 = load i64, ptr %3, align 8, !tbaa !11
   store i64 0, ptr %3, align 8, !tbaa !11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
@@ -12730,10 +12730,10 @@ _ZN5boost4json6detail5stack11non_trivialIvE7destroyEv.exit.i.i.i: ; preds = %.lr
 
 _ZN5boost4json12basic_parserINS0_6detail7handlerEE5resetEv.exit.i: ; preds = %_ZN5boost4json6detail5stack11non_trivialIvE7destroyEv.exit.i.i.i, %_ZN5boost4json11storage_ptrD2Ev.exit
   store i64 0, ptr %38, align 8, !tbaa !190
-  store i8 1, ptr %39, align 8, !tbaa !175
-  store i8 0, ptr %26, align 1, !tbaa !176
-  store i8 1, ptr %27, align 2, !tbaa !177
-  store i64 0, ptr %31, align 8, !tbaa !178
+  store i8 1, ptr %39, align 8, !tbaa !176
+  store i8 0, ptr %26, align 1, !tbaa !177
+  store i8 1, ptr %27, align 2, !tbaa !178
+  store i64 0, ptr %31, align 8, !tbaa !179
   %75 = and i64 %65, 1
   %.not.i.i1.i = icmp eq i64 %75, 0
   br i1 %.not.i.i1.i, label %_ZN5boost4json11storage_ptrC2ERKS1_.exit.i, label %76
@@ -12747,12 +12747,12 @@ _ZN5boost4json12basic_parserINS0_6detail7handlerEE5resetEv.exit.i: ; preds = %_Z
 
 _ZN5boost4json11storage_ptrC2ERKS1_.exit.i:       ; preds = %76, %_ZN5boost4json12basic_parserINS0_6detail7handlerEE5resetEv.exit.i
   %81 = load ptr, ptr %40, align 8, !tbaa !174
-  %82 = load ptr, ptr %41, align 8
+  %82 = load ptr, ptr %41, align 8, !tbaa !175
   %.not.i.i2.i = icmp eq ptr %81, %82
   br i1 %.not.i.i2.i, label %_ZN5boost4json11value_stack5stack5clearEv.exit.i.i, label %83
 
 83:                                               ; preds = %_ZN5boost4json11storage_ptrC2ERKS1_.exit.i
-  %84 = load i8, ptr %64, align 8, !tbaa !179, !range !180, !noundef !181
+  %84 = load i8, ptr %64, align 8, !tbaa !180, !range !181, !noundef !182
   %85 = trunc nuw i8 %84 to i1
   br i1 %85, label %.lr.ph.i.i3.i, label %.loopexit.i.i.i
 
@@ -12760,7 +12760,7 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit.i:       ; preds = %76, %_ZN5boost4json
   %.06.i.i.i = phi ptr [ %86, %.lr.ph.i.i3.i ], [ %81, %83 ]
   %86 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 -24
   call void @_ZN5boost4json5valueD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %86) #48
-  %87 = load ptr, ptr %41, align 8, !tbaa !182
+  %87 = load ptr, ptr %41, align 8, !tbaa !175
   %.not4.i.i.i = icmp eq ptr %86, %87
   br i1 %.not4.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i3.i, !llvm.loop !183
 
@@ -12798,7 +12798,7 @@ _ZN5boost4json13stream_parser5resetENS0_11storage_ptrE.exit: ; preds = %_ZN5boos
   %102 = and i64 %65, 3
   %103 = icmp ne i64 %102, 2
   %104 = zext i1 %103 to i8
-  store i8 %104, ptr %64, align 8, !tbaa !179
+  store i8 %104, ptr %64, align 8, !tbaa !180
   br i1 %.not.i.i1.i, label %_ZN5boost4json11storage_ptrD2Ev.exit16, label %105
 
 105:                                              ; preds = %_ZN5boost4json13stream_parser5resetENS0_11storage_ptrE.exit
@@ -12972,7 +12972,7 @@ _ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.
   %.pr.pre = phi i64 [ %.pr.pre.pre, %164 ], [ %123, %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i ]
   %.sink.i = phi i64 [ %166, %164 ], [ %123, %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i ]
   store i64 %.sink.i, ptr %.sroa.5.0..sroa_idx.i1.i.i, align 8, !tbaa !11
-  store i8 0, ptr %26, align 1, !tbaa !176
+  store i8 0, ptr %26, align 1, !tbaa !177
   %.pre79 = and i64 %.pr.pre, 1
   br label %_ZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeE.exit
 
@@ -13024,7 +13024,7 @@ _ZN5boost4json11storage_ptrD2Ev.exit26:           ; preds = %179
   br label %223
 
 _ZNK5boost6system10error_code6failedEv.exit23.thread62: ; preds = %179, %_ZN5boost4json13stream_parser6finishERNS_6system10error_codeE.exit
-  %186 = load i8, ptr %26, align 1, !tbaa !176, !range !180, !noalias !224, !noundef !181
+  %186 = load i8, ptr %26, align 1, !tbaa !177, !range !181, !noalias !224, !noundef !182
   %187 = trunc nuw i8 %186 to i1
   br i1 %187, label %200, label %188
 
@@ -13163,13 +13163,13 @@ _ZN5boost4json12basic_parserINS0_6detail7handlerEE5resetEv.exit: ; preds = %_ZN5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 0, ptr %14, align 8, !tbaa !190
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i8 1, ptr %15, align 8, !tbaa !175
+  store i8 1, ptr %15, align 8, !tbaa !176
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  store i8 0, ptr %16, align 1, !tbaa !176
+  store i8 0, ptr %16, align 1, !tbaa !177
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 178
-  store i8 1, ptr %17, align 2, !tbaa !177
+  store i8 1, ptr %17, align 2, !tbaa !178
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %18, align 8, !tbaa !178
+  store i64 0, ptr %18, align 8, !tbaa !179
   %19 = load i64, ptr %1, align 8, !tbaa !17
   %20 = and i64 %19, 1
   %.not.i.i1 = icmp eq i64 %20, 0
@@ -13186,13 +13186,13 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit:         ; preds = %_ZN5boost4json12bas
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !174
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !175
   %.not.i.i2 = icmp eq ptr %27, %29
   br i1 %.not.i.i2, label %_ZN5boost4json11value_stack5stack5clearEv.exit.i, label %30
 
 30:                                               ; preds = %_ZN5boost4json11storage_ptrC2ERKS1_.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %32 = load i8, ptr %31, align 8, !tbaa !179, !range !180, !noundef !181
+  %32 = load i8, ptr %31, align 8, !tbaa !180, !range !181, !noundef !182
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %.lr.ph.i.i3, label %.loopexit.i.i
 
@@ -13200,7 +13200,7 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit:         ; preds = %_ZN5boost4json12bas
   %.06.i.i = phi ptr [ %34, %.lr.ph.i.i3 ], [ %27, %30 ]
   %34 = getelementptr inbounds i8, ptr %.06.i.i, i64 -24
   tail call void @_ZN5boost4json5valueD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #48
-  %35 = load ptr, ptr %28, align 8, !tbaa !182
+  %35 = load ptr, ptr %28, align 8, !tbaa !175
   %.not4.i.i = icmp eq ptr %34, %35
   br i1 %.not4.i.i, label %.loopexit.i.i, label %.lr.ph.i.i3, !llvm.loop !183
 
@@ -13241,7 +13241,7 @@ _ZN5boost4json11storage_ptrD2Ev.exit:             ; preds = %48, %41, %_ZN5boost
   %53 = icmp ne i64 %52, 2
   %54 = zext i1 %53 to i8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %54, ptr %55, align 8, !tbaa !179
+  store i8 %54, ptr %55, align 8, !tbaa !180
   ret void
 }
 
@@ -13343,7 +13343,7 @@ _ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.
   %.sroa.5.0..sroa_idx.i1.i = getelementptr inbounds i8, ptr %0, i64 104
   store i64 %.sink, ptr %.sroa.5.0..sroa_idx.i1.i, align 8, !tbaa !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  store i8 0, ptr %35, align 1, !tbaa !176
+  store i8 0, ptr %35, align 1, !tbaa !177
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.513)
   br label %_ZNK5boost6system10error_codecvbEv.exit.thread
 
@@ -13356,7 +13356,7 @@ define void @_ZN5boost4json13stream_parser7releaseEv(ptr dead_on_unwind noalias 
   %3 = alloca %"class.boost::system::error_code", align 8
   %4 = alloca %"struct.boost::source_location", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 177
-  %6 = load i8, ptr %5, align 1, !tbaa !176, !range !180, !noundef !181
+  %6 = load i8, ptr %5, align 1, !tbaa !177, !range !181, !noundef !182
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %20, label %8
 
@@ -13699,16 +13699,16 @@ _ZN5boost4json11storage_ptrD2Ev.exit:             ; preds = %5, %11, %18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  store i8 0, ptr %23, align 1, !tbaa !176
+  store i8 0, ptr %23, align 1, !tbaa !177
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 178
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %22, i8 0, i64 72, i1 false)
-  store i8 1, ptr %24, align 2, !tbaa !177
+  store i8 1, ptr %24, align 2, !tbaa !178
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %25, i8 0, i64 34, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %25, ptr %26, align 8, !tbaa !153
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %27, align 8, !tbaa !178
+  store i64 0, ptr %27, align 8, !tbaa !179
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !155
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -13758,16 +13758,16 @@ _ZN5boost4json11storage_ptrD2Ev.exit:             ; preds = %3, %9, %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  store i8 0, ptr %21, align 1, !tbaa !176
+  store i8 0, ptr %21, align 1, !tbaa !177
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 178
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, i8 0, i64 72, i1 false)
-  store i8 1, ptr %22, align 2, !tbaa !177
+  store i8 1, ptr %22, align 2, !tbaa !178
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, i8 0, i64 34, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %23, ptr %24, align 8, !tbaa !153
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %25, align 8, !tbaa !178
+  store i64 0, ptr %25, align 8, !tbaa !179
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !155
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -13787,13 +13787,13 @@ define void @_ZN5boost4json11value_stack5resetENS0_11storage_ptrE(ptr nocapture 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !174
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !175
   %.not.i = icmp eq ptr %4, %6
   br i1 %.not.i, label %_ZN5boost4json11value_stack5stack5clearEv.exit, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load i8, ptr %8, align 8, !tbaa !179, !range !180, !noundef !181
+  %9 = load i8, ptr %8, align 8, !tbaa !180, !range !181, !noundef !182
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %.lr.ph.i, label %.loopexit.i
 
@@ -13801,7 +13801,7 @@ define void @_ZN5boost4json11value_stack5resetENS0_11storage_ptrE(ptr nocapture 
   %.06.i = phi ptr [ %11, %.lr.ph.i ], [ %4, %7 ]
   %11 = getelementptr inbounds i8, ptr %.06.i, i64 -24
   tail call void @_ZN5boost4json5valueD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #48
-  %12 = load ptr, ptr %5, align 8, !tbaa !182
+  %12 = load ptr, ptr %5, align 8, !tbaa !175
   %.not4.i = icmp eq ptr %11, %12
   br i1 %.not4.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !183
 
@@ -13844,7 +13844,7 @@ _ZN5boost4json11storage_ptrD2Ev.exit:             ; preds = %_ZN5boost4json11val
   %31 = icmp ne i64 %30, 2
   %32 = zext i1 %31 to i8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %32, ptr %33, align 8, !tbaa !179
+  store i8 %32, ptr %33, align 8, !tbaa !180
   ret void
 }
 
@@ -13858,7 +13858,7 @@ define noundef i64 @_ZN5boost4json6parser10write_someEPKcmRNS_6system10error_cod
 define linkonce_odr hidden noundef i64 @_ZN5boost4json12basic_parserINS0_6detail7handlerEE10write_someEbPKcmRNS_6system10error_codeE(ptr noundef nonnull align 8 dereferenceable(274) %0, i1 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = zext i1 %1 to i8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 178
-  %8 = load i8, ptr %7, align 2, !tbaa !177, !range !180, !noundef !181
+  %8 = load i8, ptr %7, align 2, !tbaa !178, !range !181, !noundef !182
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %._ZNK5boost6system10error_codecvbEv.exit.thread_crit_edge, label %10
 
@@ -13927,9 +13927,9 @@ _ZNK5boost6system10error_codecvbEv.exit17.thread: ; preds = %32
   br label %95
 
 _ZNK5boost6system10error_codecvbEv.exit17.thread38: ; preds = %32, %_ZNK5boost6system10error_codecvbEv.exit.thread
-  store i8 0, ptr %7, align 2, !tbaa !177
+  store i8 0, ptr %7, align 2, !tbaa !178
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i8 %6, ptr %36, align 8, !tbaa !175
+  store i8 %6, ptr %36, align 8, !tbaa !176
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %37, ptr %38, align 8, !tbaa !243
@@ -13958,12 +13958,12 @@ _ZNK5boost6system10error_codecvbEv.exit17.thread38: ; preds = %32, %_ZNK5boost6s
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  %53 = load i8, ptr %52, align 1, !tbaa !176, !range !180, !noundef !181
+  %53 = load i8, ptr %52, align 1, !tbaa !177, !range !181, !noundef !182
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %91, label %55
 
 55:                                               ; preds = %51
-  store i8 1, ptr %52, align 1, !tbaa !176
+  store i8 1, ptr %52, align 1, !tbaa !177
   br label %91
 
 56:                                               ; preds = %49
@@ -13980,7 +13980,7 @@ _ZNK5boost6system10error_codecvbEv.exit17.thread38: ; preds = %32, %_ZNK5boost6s
   br i1 %or.cond48, label %_ZNK5boost6system10error_codecvbEv.exit20.thread, label %_ZNK5boost6system10error_codecvbEv.exit20.thread41
 
 _ZNK5boost6system10error_codecvbEv.exit20.thread41: ; preds = %59, %56
-  %63 = load i8, ptr %36, align 8, !tbaa !175, !range !180, !noundef !181
+  %63 = load i8, ptr %36, align 8, !tbaa !176, !range !181, !noundef !182
   %64 = trunc nuw i8 %63 to i1
   br i1 %64, label %75, label %65
 
@@ -14025,12 +14025,12 @@ _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error
 
 85:                                               ; preds = %78
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  %87 = load i8, ptr %86, align 1, !tbaa !176, !range !180, !noundef !181
+  %87 = load i8, ptr %86, align 1, !tbaa !177, !range !181, !noundef !182
   %88 = trunc nuw i8 %87 to i1
   br i1 %88, label %_ZNK5boost6system10error_codecvbEv.exit20.thread, label %89
 
 89:                                               ; preds = %85
-  store i8 1, ptr %86, align 1, !tbaa !176
+  store i8 1, ptr %86, align 1, !tbaa !177
   br label %_ZNK5boost6system10error_codecvbEv.exit20.thread
 
 _ZNK5boost6system10error_codecvbEv.exit20.thread: ; preds = %59, %78, %85, %89, %72, %75
@@ -14040,7 +14040,7 @@ _ZNK5boost6system10error_codecvbEv.exit20.thread: ; preds = %59, %78, %85, %89, 
 91:                                               ; preds = %51, %55, %_ZNK5boost6system10error_codecvbEv.exit20.thread
   %.1 = phi ptr [ %.0, %51 ], [ %.0, %55 ], [ %90, %_ZNK5boost6system10error_codecvbEv.exit20.thread ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false), !tbaa.struct !32
-  store i8 1, ptr %7, align 2, !tbaa !177
+  store i8 1, ptr %7, align 2, !tbaa !178
   %92 = ptrtoint ptr %.1 to i64
   %93 = ptrtoint ptr %2 to i64
   %94 = sub i64 %92, %93
@@ -14218,7 +14218,7 @@ _ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.
   %.sroa.5.0..sroa_idx.i1.i = getelementptr inbounds i8, ptr %0, i64 104
   store i64 %.sink, ptr %.sroa.5.0..sroa_idx.i1.i, align 8, !tbaa !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  store i8 0, ptr %35, align 1, !tbaa !176
+  store i8 0, ptr %35, align 1, !tbaa !177
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.513)
   br label %_ZNK5boost6system10error_codecvbEv.exit.thread
 
@@ -14275,7 +14275,7 @@ _ZNK5boost6system10error_codecvbEv.exit.thread:   ; preds = %6
 
 21:                                               ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread, %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  store i8 0, ptr %22, align 1, !tbaa !176
+  store i8 0, ptr %22, align 1, !tbaa !177
   ret void
 }
 
@@ -14368,7 +14368,7 @@ _ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.
   %.sroa.5.0..sroa_idx.i1.i.i = getelementptr inbounds i8, ptr %0, i64 104
   store i64 %.sink.i, ptr %.sroa.5.0..sroa_idx.i1.i.i, align 8, !tbaa !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  store i8 0, ptr %35, align 1, !tbaa !176
+  store i8 0, ptr %35, align 1, !tbaa !177
   br label %_ZN5boost4json6parser5writeEPKcmRNS_6system10error_codeE.exit
 
 _ZN5boost4json6parser5writeEPKcmRNS_6system10error_codeE.exit: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.i, %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i, %10
@@ -14495,7 +14495,7 @@ _ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.
   %.sroa.5.0..sroa_idx.i1.i.i = getelementptr inbounds i8, ptr %0, i64 104
   store i64 %.sink.i, ptr %.sroa.5.0..sroa_idx.i1.i.i, align 8, !tbaa !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  store i8 0, ptr %35, align 1, !tbaa !176
+  store i8 0, ptr %35, align 1, !tbaa !177
   %.pre12 = and i64 %.pr.pre, 1
   br label %_ZN5boost4json6parser5writeEPKcmRNS_6system10error_codeE.exit
 
@@ -14802,7 +14802,7 @@ _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { ptr, i64 } @_ZN5boost4json6detail12next_segmentERNS_4core17basic_string_viewIcEERNS_6system10error_codeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %1) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !11
+  %4 = load i64, ptr %3, align 8, !tbaa !288
   %5 = icmp eq i64 %4, 0
   %.sroa.054.0.copyload = load ptr, ptr %0, align 8, !tbaa !42
   br i1 %5, label %57, label %6
@@ -14813,16 +14813,16 @@ define hidden { ptr, i64 } @_ZN5boost4json6detail12next_segmentERNS_4core17basic
   br i1 %.not, label %18, label %8
 
 8:                                                ; preds = %6
-  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !288
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !290
   %10 = and i64 %9, -2
   %switch.i.i.i.i = icmp eq i64 %10, -5572340897628102704
   br i1 %switch.i.i.i.i, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit
 
 _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit: ; preds = %8
-  %11 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !288
+  %11 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !290
   %12 = getelementptr inbounds i8, ptr %11, i64 48
-  %13 = load ptr, ptr %12, align 8, !noalias !288
-  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 19) #48, !noalias !288
+  %13 = load ptr, ptr %12, align 8, !noalias !290
+  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 19) #48, !noalias !290
   br i1 %14, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread, label %15
 
 _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit.thread: ; preds = %8, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit
@@ -14859,16 +14859,16 @@ _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error
   br i1 %24, label %25, label %35
 
 25:                                               ; preds = %22
-  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !291
+  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !293
   %27 = and i64 %26, -2
   %switch.i.i.i.i30 = icmp eq i64 %27, -5572340897628102704
   br i1 %switch.i.i.i.i30, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit33.thread, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit33
 
 _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit33: ; preds = %25
-  %28 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !291
+  %28 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !293
   %29 = getelementptr inbounds i8, ptr %28, i64 48
-  %30 = load ptr, ptr %29, align 8, !noalias !291
-  %31 = tail call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 20) #48, !noalias !291
+  %30 = load ptr, ptr %29, align 8, !noalias !293
+  %31 = tail call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 20) #48, !noalias !293
   br i1 %31, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit33.thread, label %32
 
 _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit33.thread: ; preds = %25, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit33
@@ -14886,16 +14886,16 @@ _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error
   br i1 %switch, label %48, label %38
 
 38:                                               ; preds = %35
-  %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !294
+  %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost4json6detail19error_code_categoryE, i64 8), align 8, !tbaa !24, !noalias !296
   %40 = and i64 %39, -2
   %switch.i.i.i.i39 = icmp eq i64 %40, -5572340897628102704
   br i1 %switch.i.i.i.i39, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit42.thread, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit42
 
 _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit42: ; preds = %38
-  %41 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !294
+  %41 = load ptr, ptr @_ZN5boost4json6detail19error_code_categoryE, align 8, !tbaa !19, !noalias !296
   %42 = getelementptr inbounds i8, ptr %41, i64 48
-  %43 = load ptr, ptr %42, align 8, !noalias !294
-  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 20) #48, !noalias !294
+  %43 = load ptr, ptr %42, align 8, !noalias !296
+  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4json6detail19error_code_categoryE, i32 noundef 20) #48, !noalias !296
   br i1 %44, label %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit42.thread, label %45
 
 _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit42.thread: ; preds = %38, %_ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS5_EE5valuesr3std18is_error_code_enumIS5_EE5valueEvE4typeE.exit42
@@ -14927,12 +14927,12 @@ _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error
   %50 = ptrtoint ptr %.1 to i64
   %51 = ptrtoint ptr %.sroa.054.0.copyload to i64
   %52 = sub i64 %50, %51
-  %53 = load ptr, ptr %0, align 8, !tbaa !297
+  %53 = load ptr, ptr %0, align 8, !tbaa !299
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 %52
-  store ptr %54, ptr %0, align 8, !tbaa !297
-  %55 = load i64, ptr %3, align 8, !tbaa !299
+  store ptr %54, ptr %0, align 8, !tbaa !299
+  %55 = load i64, ptr %3, align 8, !tbaa !288
   %56 = sub i64 %55, %52
-  store i64 %56, ptr %3, align 8, !tbaa !299
+  store i64 %56, ptr %3, align 8, !tbaa !288
   br label %57
 
 57:                                               ; preds = %2, %15, %.thread
@@ -15920,12 +15920,12 @@ _ZN5boost4json5array7destroyEPNS0_5valueES3_.exit.loopexit.i.i.i: ; preds = %.lr
   br label %"_ZZN5boost4json5value14set_at_pointerENS_4core17basic_string_viewIcEENS0_9value_refERNS_6system10error_codeERKNS0_19set_pointer_optionsEENK3$_0clERNS0_6objectENS0_6detail13pointer_tokenE.exit.i.backedge"
 
 226:                                              ; preds = %60
-  %227 = load i8, ptr %34, align 2, !tbaa !321, !range !180, !noundef !181
+  %227 = load i8, ptr %34, align 2, !tbaa !321, !range !181, !noundef !182
   %228 = trunc nuw i8 %227 to i1
   br i1 %228, label %229, label %"_ZZN5boost4json5value14set_at_pointerENS_4core17basic_string_viewIcEENS0_9value_refERNS_6system10error_codeERKNS0_19set_pointer_optionsEENK3$_2clERS1_S4_.exit.i"
 
 229:                                              ; preds = %226, %60
-  %230 = load i8, ptr %5, align 8, !tbaa !322, !range !180, !noundef !181
+  %230 = load i8, ptr %5, align 8, !tbaa !322, !range !181, !noundef !182
   %231 = trunc nuw i8 %230 to i1
   br i1 %231, label %232, label %302
 
@@ -16096,7 +16096,7 @@ _ZN5boost4json11storage_ptrD2Ev.exit8.i.i.i:      ; preds = %299, %294, %287, %2
   br label %"_ZZN5boost4json5value14set_at_pointerENS_4core17basic_string_viewIcEENS0_9value_refERNS_6system10error_codeERKNS0_19set_pointer_optionsEENK3$_0clERNS0_6objectENS0_6detail13pointer_tokenE.exit.i.backedge"
 
 302:                                              ; preds = %.thread.i.i, %229
-  %303 = load i8, ptr %37, align 1, !tbaa !326, !range !180, !noundef !181
+  %303 = load i8, ptr %37, align 1, !tbaa !326, !range !181, !noundef !182
   %304 = trunc nuw i8 %303 to i1
   br i1 %304, label %305, label %"_ZZN5boost4json5value14set_at_pointerENS_4core17basic_string_viewIcEENS0_9value_refERNS_6system10error_codeERKNS0_19set_pointer_optionsEENK3$_2clERS1_S4_.exit.i"
 
@@ -16712,7 +16712,7 @@ _ZN5boost4json10serializer4readILm4096EEENS_4core17basic_string_viewIcEERAT__c.e
   br label %47
 
 _ZN5boost4json10serializer4readILm4096EEENS_4core17basic_string_viewIcEERAT__c.exit: ; preds = %30
-  %.pre = load i8, ptr %35, align 8, !tbaa !341, !range !180
+  %.pre = load i8, ptr %35, align 8, !tbaa !341, !range !181
   %41 = trunc nuw i8 %.pre to i1
   %42 = load ptr, ptr %4, align 8, !tbaa !342
   %43 = ptrtoint ptr %42 to i64
@@ -16844,7 +16844,7 @@ _ZN5boost4json10serializer4readEPcm.exit.thread:  ; preds = %91
   br label %.loopexit
 
 _ZN5boost4json10serializer4readEPcm.exit:         ; preds = %91
-  %.pre30 = load i8, ptr %46, align 8, !tbaa !341, !range !180
+  %.pre30 = load i8, ptr %46, align 8, !tbaa !341, !range !181
   %100 = trunc nuw i8 %.pre30 to i1
   %101 = load ptr, ptr %3, align 8, !tbaa !342
   %102 = ptrtoint ptr %101 to i64
@@ -17755,7 +17755,7 @@ _ZN5boost4json6detail5stack11non_trivialIvE7destroyEv.exit.i.i.i.i: ; preds = %.
 
 69:                                               ; preds = %64
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #48
-  %70 = load i8, ptr %41, align 8, !tbaa !341, !range !180, !noundef !181
+  %70 = load i8, ptr %41, align 8, !tbaa !341, !range !181, !noundef !182
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %._crit_edge, label %45, !llvm.loop !348
 
@@ -17866,7 +17866,7 @@ define internal fastcc void @_ZN5boost4jsonL10to_ostreamERSoRNS0_10serializerE(p
   %3 = alloca %"class.boost::json::detail::stream", align 8
   %4 = alloca [4096 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %6 = load i8, ptr %5, align 8, !tbaa !341, !range !180, !noundef !181
+  %6 = load i8, ptr %5, align 8, !tbaa !341, !range !181, !noundef !182
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -17953,7 +17953,7 @@ _ZN5boost4json10serializer4readILm4096EEENS_4core17basic_string_viewIcEERAT__c.e
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #48
   %37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %4, i64 noundef %36)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #48
-  %38 = load i8, ptr %5, align 8, !tbaa !341, !range !180, !noundef !181
+  %38 = load i8, ptr %5, align 8, !tbaa !341, !range !181, !noundef !182
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %._crit_edge, label %15, !llvm.loop !349
 
@@ -18234,7 +18234,7 @@ _ZN5boost4json6detail5stack5clearEv.exit:         ; preds = %_ZN5boost4json6deta
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost4jsonlsERSoRKNS0_17serialize_optionsE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) local_unnamed_addr #5 {
-  %.val = load i8, ptr %1, align 1, !tbaa !350, !range !180, !noundef !181
+  %.val = load i8, ptr %1, align 1, !tbaa !350, !range !181, !noundef !182
   %3 = load ptr, ptr %0, align 8, !tbaa !19
   %4 = getelementptr i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
@@ -18621,7 +18621,7 @@ _ZN5boost4json6detail12write_bufferERNS1_6writerERNS1_6streamE.exit: ; preds = %
 define noundef zeroext i1 @_ZN5boost4json6detail12write_doubleERNS1_6writerERNS1_6streamEd(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, double noundef %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load i8, ptr %5, align 8, !tbaa !357, !range !180, !noundef !181
+  %6 = load i8, ptr %5, align 8, !tbaa !357, !range !181, !noundef !182
   %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8, !tbaa !42
   %.sroa.13.0..sroa_idx22.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.13.0.copyload23.i = load ptr, ptr %.sroa.13.0..sroa_idx22.i, align 8, !tbaa !42
@@ -19749,7 +19749,7 @@ _ZN5boost4json6detail11write_int64ERNS1_6writerERNS1_6streamEl.exit: ; preds = %
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %66 = load double, ptr %65, align 8, !tbaa !15
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %68 = load i8, ptr %67, align 8, !tbaa !357, !range !180, !noundef !181
+  %68 = load i8, ptr %67, align 8, !tbaa !357, !range !181, !noundef !182
   %.sroa.0.0.copyload.i.i34 = load ptr, ptr %1, align 8, !tbaa !42
   %.sroa.13.0..sroa_idx22.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.13.0.copyload23.i.i = load ptr, ptr %.sroa.13.0..sroa_idx22.i.i, align 8, !tbaa !42
@@ -19812,7 +19812,7 @@ _ZN5boost4json6detail12write_doubleERNS1_6writerERNS1_6streamEd.exit: ; preds = 
 
 93:                                               ; preds = %2
   %94 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %95 = load i8, ptr %94, align 8, !tbaa !15, !range !180, !noundef !181
+  %95 = load i8, ptr %94, align 8, !tbaa !15, !range !181, !noundef !182
   %96 = trunc nuw i8 %95 to i1
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !344
@@ -20059,7 +20059,7 @@ _ZN5boost4json6detail11write_int64ERNS1_6writerERNS1_6streamEl.exit: ; preds = %
   %70 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %71 = load double, ptr %70, align 8, !tbaa !15
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %73 = load i8, ptr %72, align 8, !tbaa !357, !range !180, !noundef !181
+  %73 = load i8, ptr %72, align 8, !tbaa !357, !range !181, !noundef !182
   %.sroa.0.0.copyload.i.i44 = load ptr, ptr %1, align 8, !tbaa !42
   %.sroa.13.0..sroa_idx22.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.13.0.copyload23.i.i = load ptr, ptr %.sroa.13.0..sroa_idx22.i.i, align 8, !tbaa !42
@@ -20122,7 +20122,7 @@ _ZN5boost4json6detail12write_doubleERNS1_6writerERNS1_6streamEd.exit: ; preds = 
 
 98:                                               ; preds = %12
   %99 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %100 = load i8, ptr %99, align 8, !tbaa !15, !range !180, !noundef !181
+  %100 = load i8, ptr %99, align 8, !tbaa !15, !range !181, !noundef !182
   %101 = trunc nuw i8 %100 to i1
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !344
@@ -21523,16 +21523,16 @@ _ZN5boost4json11storage_ptrD2Ev.exit:             ; preds = %5, %11, %18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  store i8 0, ptr %23, align 1, !tbaa !176
+  store i8 0, ptr %23, align 1, !tbaa !177
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 178
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %22, i8 0, i64 72, i1 false)
-  store i8 1, ptr %24, align 2, !tbaa !177
+  store i8 1, ptr %24, align 2, !tbaa !178
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %25, i8 0, i64 34, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %25, ptr %26, align 8, !tbaa !153
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %27, align 8, !tbaa !178
+  store i64 0, ptr %27, align 8, !tbaa !179
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !155
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -21582,16 +21582,16 @@ _ZN5boost4json11storage_ptrD2Ev.exit:             ; preds = %3, %9, %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  store i8 0, ptr %21, align 1, !tbaa !176
+  store i8 0, ptr %21, align 1, !tbaa !177
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 178
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, i8 0, i64 72, i1 false)
-  store i8 1, ptr %22, align 2, !tbaa !177
+  store i8 1, ptr %22, align 2, !tbaa !178
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, i8 0, i64 34, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %23, ptr %24, align 8, !tbaa !153
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %25, align 8, !tbaa !178
+  store i64 0, ptr %25, align 8, !tbaa !179
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !155
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -21778,7 +21778,7 @@ _ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.
   %.sroa.5.0..sroa_idx.i1.i.i = getelementptr inbounds i8, ptr %0, i64 104
   store i64 %.sink.i, ptr %.sroa.5.0..sroa_idx.i1.i.i, align 8, !tbaa !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  store i8 0, ptr %35, align 1, !tbaa !176
+  store i8 0, ptr %35, align 1, !tbaa !177
   br label %_ZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeE.exit
 
 _ZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeE.exit: ; preds = %_ZNK5boost6system10error_codecvbEv.exit.i, %_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.exit.i, %10
@@ -21905,7 +21905,7 @@ _ZN5boost4json12basic_parserINS0_6detail7handlerEE4failENS_6system10error_codeE.
   %.sroa.5.0..sroa_idx.i1.i.i = getelementptr inbounds i8, ptr %0, i64 104
   store i64 %.sink.i, ptr %.sroa.5.0..sroa_idx.i1.i.i, align 8, !tbaa !11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  store i8 0, ptr %35, align 1, !tbaa !176
+  store i8 0, ptr %35, align 1, !tbaa !177
   %.pre12 = and i64 %.pr.pre, 1
   br label %_ZN5boost4json13stream_parser5writeEPKcmRNS_6system10error_codeE.exit
 
@@ -22875,7 +22875,7 @@ define void @_ZN5boost4json6detail11string_impl13shrink_to_fitERKNS0_11storage_p
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !15
   %9 = load i32, ptr %8, align 4, !tbaa !315
   %10 = icmp ult i32 %9, 15
   br i1 %10, label %11, label %30
@@ -23681,7 +23681,7 @@ define void @_ZN5boost4json6detail11string_impl6insertEmPKcmRKNS0_11storage_ptrE
 
 _ZNK5boost4json6detail11string_impl4sizeEv.exit:  ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = load i32, ptr %10, align 4, !tbaa !315
   %12 = zext i32 %11 to i64
   %13 = icmp ugt i64 %1, %12
@@ -23956,7 +23956,7 @@ define noundef ptr @_ZN5boost4json6detail11string_impl16insert_uncheckedEmmRKNS0
 
 _ZNK5boost4json6detail11string_impl4sizeEv.exit:  ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !15
   %10 = load i32, ptr %9, align 4, !tbaa !315
   %11 = zext i32 %10 to i64
   %12 = icmp ugt i64 %1, %11
@@ -26111,7 +26111,7 @@ _ZN5boost4json11storage_ptrD2Ev.exit:             ; preds = %3
 
 _ZN5boost4json11storage_ptrD2Ev.exit14:           ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load i8, ptr %12, align 8, !tbaa !15, !range !180, !noundef !181
+  %13 = load i8, ptr %12, align 8, !tbaa !15, !range !181, !noundef !182
   %14 = load i64, ptr %2, align 8, !tbaa !11
   store i64 0, ptr %2, align 8, !tbaa !11
   store i64 %14, ptr %0, align 8, !tbaa !17
@@ -26369,7 +26369,7 @@ _ZN5boost4json11storage_ptrD2Ev.exit:             ; preds = %3
 
 _ZN5boost4json11storage_ptrD2Ev.exit14:           ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load i8, ptr %12, align 8, !tbaa !15, !range !180, !noundef !181
+  %13 = load i8, ptr %12, align 8, !tbaa !15, !range !181, !noundef !182
   %14 = load i64, ptr %2, align 8, !tbaa !11
   store i64 0, ptr %2, align 8, !tbaa !11
   store i64 %14, ptr %0, align 8, !tbaa !17
@@ -28989,7 +28989,7 @@ define void @_ZNK5boost4json5value11try_as_boolEv(ptr dead_on_unwind noalias noc
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load i8, ptr %8, align 8, !tbaa !158, !range !180, !noundef !181
+  %9 = load i8, ptr %8, align 8, !tbaa !158, !range !181, !noundef !182
   store i8 %9, ptr %0, align 8, !tbaa !15
   br label %20
 
@@ -29951,7 +29951,7 @@ _ZN5boost6system10error_codeC2INS_4json5errorEEET_PNSt9enable_ifIXoosr18is_error
 
 _ZNO5boost6system6resultIbNS0_10error_codeEE5valueIbEENSt9enable_ifIXsr3std21is_move_constructibleIT_EE5valueEbE4typeERKNS_15source_locationE.exit: ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load i8, ptr %19, align 8, !tbaa !158, !range !180, !noalias !589, !noundef !181
+  %20 = load i8, ptr %19, align 8, !tbaa !158, !range !181, !noalias !589, !noundef !182
   %21 = trunc nuw i8 %20 to i1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #48
   ret i1 %21
@@ -30155,7 +30155,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5boost4jsonrsERSiRNS0
   %11 = alloca %"class.boost::json::value", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #48
   call void @_ZNSi6sentryC1ERSib(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, i1 noundef zeroext false)
-  %12 = load i8, ptr %6, align 1, !tbaa !595, !range !180, !noundef !181
+  %12 = load i8, ptr %6, align 1, !tbaa !595, !range !181, !noundef !182
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %351
 
@@ -30278,13 +30278,13 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit.i74:     ; preds = %_ZNSt8ios_base5iwor
   %.phi.trans.insert133 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.pre134 = load ptr, ptr %.phi.trans.insert133, align 8, !tbaa !174
   %.phi.trans.insert135 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.pre136 = load ptr, ptr %.phi.trans.insert135, align 8
+  %.pre136 = load ptr, ptr %.phi.trans.insert135, align 8, !tbaa !175
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 176
-  store i8 1, ptr %76, align 8, !tbaa !175
-  store i8 0, ptr %64, align 1, !tbaa !176
-  store i8 1, ptr %65, align 2, !tbaa !177
-  store i64 0, ptr %69, align 8, !tbaa !178
+  store i8 1, ptr %76, align 8, !tbaa !176
+  store i8 0, ptr %64, align 1, !tbaa !177
+  store i8 1, ptr %65, align 2, !tbaa !178
+  store i64 0, ptr %69, align 8, !tbaa !179
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.not.i.i2.i75 = icmp eq ptr %.pre134, %.pre136
@@ -30292,7 +30292,7 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit.i74:     ; preds = %_ZNSt8ios_base5iwor
 
 79:                                               ; preds = %_ZN5boost4json11storage_ptrC2ERKS1_.exit.i74
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %81 = load i8, ptr %80, align 8, !tbaa !179, !range !180, !noundef !181
+  %81 = load i8, ptr %80, align 8, !tbaa !180, !range !181, !noundef !182
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %.lr.ph.i.i3.i80, label %.loopexit.i.i.i76
 
@@ -30300,7 +30300,7 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit.i74:     ; preds = %_ZNSt8ios_base5iwor
   %.06.i.i.i81 = phi ptr [ %83, %.lr.ph.i.i3.i80 ], [ %.pre134, %79 ]
   %83 = getelementptr inbounds i8, ptr %.06.i.i.i81, i64 -24
   call void @_ZN5boost4json5valueD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %83) #48
-  %84 = load ptr, ptr %78, align 8, !tbaa !182
+  %84 = load ptr, ptr %78, align 8, !tbaa !175
   %.not4.i.i.i82 = icmp eq ptr %83, %84
   br i1 %.not4.i.i.i82, label %.loopexit.i.i.i76, label %.lr.ph.i.i3.i80, !llvm.loop !183
 
@@ -30338,7 +30338,7 @@ _ZN5boost4json11value_stack5stack5clearEv.exit.i.i77: ; preds = %.loopexit.i.i.i
 _ZN5boost4json11storage_ptrD2Ev.exit:             ; preds = %97, %90, %_ZN5boost4json11value_stack5stack5clearEv.exit.i.i77
   store i64 0, ptr %87, align 8, !tbaa !17
   %101 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i8 1, ptr %101, align 8, !tbaa !179
+  store i8 1, ptr %101, align 8, !tbaa !180
   %102 = load i64, ptr %1, align 8, !tbaa !17
   %103 = and i64 %102, 1
   %.not.i.i42 = icmp eq i64 %103, 0
@@ -30379,10 +30379,10 @@ _ZN5boost4json6detail5stack11non_trivialIvE7destroyEv.exit.i.i.i: ; preds = %.lr
 
 _ZN5boost4json12basic_parserINS0_6detail7handlerEE5resetEv.exit.i: ; preds = %_ZN5boost4json6detail5stack11non_trivialIvE7destroyEv.exit.i.i.i, %_ZN5boost4json11storage_ptrC2ERKS1_.exit
   store i64 0, ptr %75, align 8, !tbaa !190
-  store i8 1, ptr %76, align 8, !tbaa !175
-  store i8 0, ptr %64, align 1, !tbaa !176
-  store i8 1, ptr %65, align 2, !tbaa !177
-  store i64 0, ptr %69, align 8, !tbaa !178
+  store i8 1, ptr %76, align 8, !tbaa !176
+  store i8 0, ptr %64, align 1, !tbaa !177
+  store i8 1, ptr %65, align 2, !tbaa !178
+  store i64 0, ptr %69, align 8, !tbaa !179
   br i1 %.not.i.i42, label %_ZN5boost4json11storage_ptrC2ERKS1_.exit.i, label %118
 
 118:                                              ; preds = %_ZN5boost4json12basic_parserINS0_6detail7handlerEE5resetEv.exit.i
@@ -30394,12 +30394,12 @@ _ZN5boost4json12basic_parserINS0_6detail7handlerEE5resetEv.exit.i: ; preds = %_Z
 
 _ZN5boost4json11storage_ptrC2ERKS1_.exit.i:       ; preds = %118, %_ZN5boost4json12basic_parserINS0_6detail7handlerEE5resetEv.exit.i
   %123 = load ptr, ptr %77, align 8, !tbaa !174
-  %124 = load ptr, ptr %78, align 8
+  %124 = load ptr, ptr %78, align 8, !tbaa !175
   %.not.i.i2.i = icmp eq ptr %123, %124
   br i1 %.not.i.i2.i, label %_ZN5boost4json11value_stack5stack5clearEv.exit.i.i, label %125
 
 125:                                              ; preds = %_ZN5boost4json11storage_ptrC2ERKS1_.exit.i
-  %126 = load i8, ptr %101, align 8, !tbaa !179, !range !180, !noundef !181
+  %126 = load i8, ptr %101, align 8, !tbaa !180, !range !181, !noundef !182
   %127 = trunc nuw i8 %126 to i1
   br i1 %127, label %.lr.ph.i.i3.i, label %.loopexit.i.i.i
 
@@ -30407,7 +30407,7 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit.i:       ; preds = %118, %_ZN5boost4jso
   %.06.i.i.i = phi ptr [ %128, %.lr.ph.i.i3.i ], [ %123, %125 ]
   %128 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 -24
   call void @_ZN5boost4json5valueD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %128) #48
-  %129 = load ptr, ptr %78, align 8, !tbaa !182
+  %129 = load ptr, ptr %78, align 8, !tbaa !175
   %.not4.i.i.i = icmp eq ptr %128, %129
   br i1 %.not4.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i3.i, !llvm.loop !183
 
@@ -30445,7 +30445,7 @@ _ZN5boost4json13stream_parser5resetENS0_11storage_ptrE.exit: ; preds = %_ZN5boos
   %144 = and i64 %102, 3
   %145 = icmp ne i64 %144, 2
   %146 = zext i1 %145 to i8
-  store i8 %146, ptr %101, align 8, !tbaa !179
+  store i8 %146, ptr %101, align 8, !tbaa !180
   br i1 %.not.i.i42, label %_ZN5boost4json11storage_ptrD2Ev.exit45, label %147
 
 147:                                              ; preds = %_ZN5boost4json13stream_parser5resetENS0_11storage_ptrE.exit
@@ -30533,7 +30533,7 @@ _ZN5boost4json13stream_parser6finishERNS_6system10error_codeE.exit: ; preds = %1
 
 _ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv.exit.thread: ; preds = %189, %_ZN5boost4json13stream_parser6finishERNS_6system10error_codeE.exit, %168, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv.exit
   %.298 = phi i32 [ %.096, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv.exit ], [ %.096, %168 ], [ %185, %_ZN5boost4json13stream_parser6finishERNS_6system10error_codeE.exit ], [ %185, %189 ]
-  %195 = load i8, ptr %64, align 1, !tbaa !176, !range !180, !noundef !181
+  %195 = load i8, ptr %64, align 1, !tbaa !177, !range !181, !noundef !182
   %196 = trunc nuw i8 %195 to i1
   br i1 %196, label %197, label %255
 
@@ -30909,15 +30909,15 @@ declare void @__cxa_rethrow() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5boost4jsonrsERSiRKNS0_13parse_optionsE(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(14) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %4 = load i8, ptr %3, align 1, !tbaa !609, !range !180, !noundef !181
+  %4 = load i8, ptr %3, align 1, !tbaa !609, !range !181, !noundef !182
   %5 = zext nneg i8 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %7 = load i8, ptr %6, align 2, !tbaa !610, !range !180, !noundef !181
+  %7 = load i8, ptr %6, align 2, !tbaa !610, !range !181, !noundef !182
   %8 = trunc nuw i8 %7 to i1
   %9 = select i1 %8, i64 2, i64 0
   %10 = or disjoint i64 %9, %5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %12 = load i8, ptr %11, align 1, !tbaa !611, !range !180, !noundef !181
+  %12 = load i8, ptr %11, align 1, !tbaa !611, !range !181, !noundef !182
   %13 = trunc nuw i8 %12 to i1
   %14 = select i1 %13, i64 4, i64 0
   %15 = or disjoint i64 %10, %14
@@ -31004,9 +31004,9 @@ define noundef zeroext i1 @_ZNK5boost4json5value5equalERKS1_(ptr nocapture nound
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i8, ptr %14, align 8, !tbaa !15, !range !180, !noundef !181
+  %15 = load i8, ptr %14, align 8, !tbaa !15, !range !181, !noundef !182
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load i8, ptr %16, align 8, !tbaa !15, !range !180, !noundef !181
+  %17 = load i8, ptr %16, align 8, !tbaa !15, !range !181, !noundef !182
   %.not = icmp eq i8 %15, %17
   br label %_ZN5boost4jsoneqINS0_6stringES2_EENSt9enable_ifIXoosr21string_and_stringlikeIT_T0_EE5valuesr21string_and_stringlikeIS5_S4_EE5valueEbE4typeERKS4_RKS5_.exit
 
@@ -31562,7 +31562,7 @@ _ZNK5boost4json12_GLOBAL__N_112value_hasherclIRKNS0_6objectEEEvOT_.exit: ; preds
 
 144:                                              ; preds = %2
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %146 = load i8, ptr %145, align 8, !tbaa !15, !range !180, !noundef !181
+  %146 = load i8, ptr %145, align 8, !tbaa !15, !range !181, !noundef !182
   %.val16 = load ptr, ptr %0, align 8, !tbaa !613
   %147 = load i64, ptr %.val16, align 8, !tbaa !11
   %148 = zext nneg i8 %146 to i64
@@ -31677,13 +31677,13 @@ _ZN5boost4json11storage_ptrD2Ev.exit:             ; preds = %1, %5, %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !174
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !175
   %.not.i.i1 = icmp eq ptr %17, %19
   br i1 %.not.i.i1, label %_ZN5boost4json11value_stack5stack5clearEv.exit.i, label %20
 
 20:                                               ; preds = %_ZN5boost4json11storage_ptrD2Ev.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %22 = load i8, ptr %21, align 8, !tbaa !179, !range !180, !noundef !181
+  %22 = load i8, ptr %21, align 8, !tbaa !180, !range !181, !noundef !182
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %.lr.ph.i.i, label %.loopexit.i.i
 
@@ -31691,7 +31691,7 @@ _ZN5boost4json11storage_ptrD2Ev.exit:             ; preds = %1, %5, %12
   %.06.i.i = phi ptr [ %24, %.lr.ph.i.i ], [ %17, %20 ]
   %24 = getelementptr inbounds i8, ptr %.06.i.i, i64 -24
   tail call void @_ZN5boost4json5valueD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #48
-  %25 = load ptr, ptr %18, align 8, !tbaa !182
+  %25 = load ptr, ptr %18, align 8, !tbaa !175
   %.not4.i.i = icmp eq ptr %24, %25
   br i1 %.not4.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !183
 
@@ -31772,7 +31772,7 @@ define void @_ZN5boost4json11value_stackC2ENS0_11storage_ptrEPhm(ptr nocapture n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8, !tbaa !184
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 1, ptr %8, align 8, !tbaa !179
+  store i8 1, ptr %8, align 8, !tbaa !180
   %9 = icmp ugt i64 %3, 383
   br i1 %9, label %10, label %_ZN5boost4json11storage_ptrD2Ev.exit
 
@@ -31785,7 +31785,7 @@ _ZN5boost4json11storage_ptrD2Ev.exit:             ; preds = %10, %4
   %.sink5.i = phi ptr [ %2, %10 ], [ null, %4 ]
   %.sink.i = phi ptr [ %12, %10 ], [ null, %4 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink5.i, ptr %13, align 8, !tbaa !182
+  store ptr %.sink5.i, ptr %13, align 8, !tbaa !175
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink5.i, ptr %14, align 8, !tbaa !174
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -31909,7 +31909,7 @@ define linkonce_odr hidden void @_ZN5boost4json11value_stack5stack10maybe_growEv
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !182
+  %8 = load ptr, ptr %7, align 8, !tbaa !175
   %9 = ptrtoint ptr %5 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -31935,7 +31935,7 @@ define linkonce_odr hidden void @_ZN5boost4json11value_stack5stack10maybe_growEv
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i, i64 noundef %21, i64 noundef 16)
   %26 = load ptr, ptr %2, align 8, !tbaa !174
-  %27 = load ptr, ptr %7, align 8, !tbaa !182
+  %27 = load ptr, ptr %7, align 8, !tbaa !175
   %.not.i = icmp eq ptr %27, null
   %.pre.i = ptrtoint ptr %26 to i64
   %.pre15.i = ptrtoint ptr %27 to i64
@@ -31944,7 +31944,7 @@ define linkonce_odr hidden void @_ZN5boost4json11value_stack5stack10maybe_growEv
 
 28:                                               ; preds = %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr nonnull align 1 %27, i64 %.pre17.i, i1 false)
-  %29 = load ptr, ptr %7, align 8, !tbaa !182
+  %29 = load ptr, ptr %7, align 8, !tbaa !175
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !615
   %.not12.i = icmp eq ptr %29, %31
@@ -31967,7 +31967,7 @@ _ZN5boost4json11value_stack5stack8grow_oneEv.exit: ; preds = %17, %28, %32
   store ptr %39, ptr %2, align 8, !tbaa !174
   %40 = getelementptr inbounds nuw %"class.boost::json::value", ptr %25, i64 %.0.i
   store ptr %40, ptr %4, align 8, !tbaa !616
-  store ptr %25, ptr %7, align 8, !tbaa !182
+  store ptr %25, ptr %7, align 8, !tbaa !175
   br label %41
 
 41:                                               ; preds = %_ZN5boost4json11value_stack5stack8grow_oneEv.exit, %1
@@ -32115,7 +32115,7 @@ define void @_ZN5boost4json11value_stack10push_charsENS_4core17basic_string_view
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !182
+  %18 = load ptr, ptr %17, align 8, !tbaa !175
   %19 = ptrtoint ptr %18 to i64
   %20 = sub i64 %9, %19
   %21 = sdiv exact i64 %20, 24
@@ -32144,7 +32144,7 @@ define void @_ZN5boost4json11value_stack10push_charsENS_4core17basic_string_view
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i.i, i64 noundef %34, i64 noundef 16)
   %39 = load ptr, ptr %6, align 8, !tbaa !174
-  %40 = load ptr, ptr %17, align 8, !tbaa !182
+  %40 = load ptr, ptr %17, align 8, !tbaa !175
   %.not.i.i = icmp eq ptr %40, null
   %.pre.i.i = ptrtoint ptr %39 to i64
   %.pre20.i.i = ptrtoint ptr %40 to i64
@@ -32158,7 +32158,7 @@ define void @_ZN5boost4json11value_stack10push_charsENS_4core17basic_string_view
   %44 = select i1 %.not16.i.i, i64 0, i64 %43
   %.0.i.i = add i64 %44, %.pre22.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr nonnull align 1 %40, i64 %.0.i.i, i1 false)
-  %45 = load ptr, ptr %17, align 8, !tbaa !182
+  %45 = load ptr, ptr %17, align 8, !tbaa !175
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !615
   %.not17.i.i = icmp eq ptr %45, %47
@@ -32181,7 +32181,7 @@ _ZN5boost4json11value_stack5stack4growEm.exit.i:  ; preds = %48, %41, %29
   store ptr %55, ptr %6, align 8, !tbaa !174
   %56 = getelementptr inbounds nuw %"class.boost::json::value", ptr %38, i64 %.014.i.i
   store ptr %56, ptr %4, align 8, !tbaa !616
-  store ptr %38, ptr %17, align 8, !tbaa !182
+  store ptr %38, ptr %17, align 8, !tbaa !175
   %.pre.i = load i64, ptr %11, align 8, !tbaa !184
   br label %_ZN5boost4json11value_stack5stack6appendENS_4core17basic_string_viewIcEE.exit
 
@@ -32249,7 +32249,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !182
+  %11 = load ptr, ptr %10, align 8, !tbaa !175
   %12 = ptrtoint ptr %8 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
@@ -32275,7 +32275,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i, i64 noundef %24, i64 noundef 16)
   %29 = load ptr, ptr %5, align 8, !tbaa !174
-  %30 = load ptr, ptr %10, align 8, !tbaa !182
+  %30 = load ptr, ptr %10, align 8, !tbaa !175
   %.not.i = icmp eq ptr %30, null
   %.pre.i = ptrtoint ptr %29 to i64
   %.pre15.i = ptrtoint ptr %30 to i64
@@ -32284,7 +32284,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
 
 31:                                               ; preds = %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr nonnull align 1 %30, i64 %.pre17.i, i1 false)
-  %32 = load ptr, ptr %10, align 8, !tbaa !182
+  %32 = load ptr, ptr %10, align 8, !tbaa !175
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !615
   %.not12.i = icmp eq ptr %32, %34
@@ -32307,7 +32307,7 @@ _ZN5boost4json11value_stack5stack8grow_oneEv.exit: ; preds = %20, %31, %35
   store ptr %42, ptr %5, align 8, !tbaa !174
   %43 = getelementptr inbounds nuw %"class.boost::json::value", ptr %28, i64 %.0.i
   store ptr %43, ptr %7, align 8, !tbaa !616
-  store ptr %28, ptr %10, align 8, !tbaa !182
+  store ptr %28, ptr %10, align 8, !tbaa !175
   br label %44
 
 44:                                               ; preds = %_ZN5boost4json11value_stack5stack8grow_oneEv.exit, %4
@@ -32379,7 +32379,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !182
+  %12 = load ptr, ptr %11, align 8, !tbaa !175
   %13 = ptrtoint ptr %9 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -32405,7 +32405,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i, i64 noundef %25, i64 noundef 16)
   %30 = load ptr, ptr %6, align 8, !tbaa !174
-  %31 = load ptr, ptr %11, align 8, !tbaa !182
+  %31 = load ptr, ptr %11, align 8, !tbaa !175
   %.not.i = icmp eq ptr %31, null
   %.pre.i = ptrtoint ptr %30 to i64
   %.pre15.i = ptrtoint ptr %31 to i64
@@ -32414,7 +32414,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
 
 32:                                               ; preds = %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr nonnull align 1 %31, i64 %.pre17.i, i1 false)
-  %33 = load ptr, ptr %11, align 8, !tbaa !182
+  %33 = load ptr, ptr %11, align 8, !tbaa !175
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !615
   %.not12.i = icmp eq ptr %33, %35
@@ -32437,7 +32437,7 @@ _ZN5boost4json11value_stack5stack8grow_oneEv.exit: ; preds = %21, %32, %36
   store ptr %43, ptr %6, align 8, !tbaa !174
   %44 = getelementptr inbounds nuw %"class.boost::json::value", ptr %29, i64 %.0.i
   store ptr %44, ptr %8, align 8, !tbaa !616
-  store ptr %29, ptr %11, align 8, !tbaa !182
+  store ptr %29, ptr %11, align 8, !tbaa !175
   br label %45
 
 45:                                               ; preds = %_ZN5boost4json11value_stack5stack8grow_oneEv.exit, %5
@@ -32530,7 +32530,7 @@ define void @_ZN5boost4json11value_stack11push_stringENS_4core17basic_string_vie
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !182
+  %20 = load ptr, ptr %19, align 8, !tbaa !175
   %21 = ptrtoint ptr %17 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
@@ -32556,7 +32556,7 @@ define void @_ZN5boost4json11value_stack11push_stringENS_4core17basic_string_vie
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i.i, i64 noundef %33, i64 noundef 16)
   %38 = load ptr, ptr %12, align 8, !tbaa !174
-  %39 = load ptr, ptr %19, align 8, !tbaa !182
+  %39 = load ptr, ptr %19, align 8, !tbaa !175
   %.not.i.i = icmp eq ptr %39, null
   %.pre.i.i = ptrtoint ptr %38 to i64
   %.pre15.i.i = ptrtoint ptr %39 to i64
@@ -32565,7 +32565,7 @@ define void @_ZN5boost4json11value_stack11push_stringENS_4core17basic_string_vie
 
 40:                                               ; preds = %29
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %37, ptr nonnull align 1 %39, i64 %.pre17.i.i, i1 false)
-  %41 = load ptr, ptr %19, align 8, !tbaa !182
+  %41 = load ptr, ptr %19, align 8, !tbaa !175
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !615
   %.not12.i.i = icmp eq ptr %41, %43
@@ -32588,7 +32588,7 @@ _ZN5boost4json11value_stack5stack8grow_oneEv.exit.i: ; preds = %44, %40, %29
   store ptr %51, ptr %12, align 8, !tbaa !174
   %52 = getelementptr inbounds nuw %"class.boost::json::value", ptr %37, i64 %.0.i.i
   store ptr %52, ptr %16, align 8, !tbaa !616
-  store ptr %37, ptr %19, align 8, !tbaa !182
+  store ptr %37, ptr %19, align 8, !tbaa !175
   br label %53
 
 53:                                               ; preds = %_ZN5boost4json11value_stack5stack8grow_oneEv.exit.i, %11
@@ -32713,7 +32713,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !182
+  %11 = load ptr, ptr %10, align 8, !tbaa !175
   %12 = ptrtoint ptr %8 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
@@ -32739,7 +32739,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i, i64 noundef %24, i64 noundef 16)
   %29 = load ptr, ptr %5, align 8, !tbaa !174
-  %30 = load ptr, ptr %10, align 8, !tbaa !182
+  %30 = load ptr, ptr %10, align 8, !tbaa !175
   %.not.i = icmp eq ptr %30, null
   %.pre.i = ptrtoint ptr %29 to i64
   %.pre15.i = ptrtoint ptr %30 to i64
@@ -32748,7 +32748,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
 
 31:                                               ; preds = %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr nonnull align 1 %30, i64 %.pre17.i, i1 false)
-  %32 = load ptr, ptr %10, align 8, !tbaa !182
+  %32 = load ptr, ptr %10, align 8, !tbaa !175
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !615
   %.not12.i = icmp eq ptr %32, %34
@@ -32771,7 +32771,7 @@ _ZN5boost4json11value_stack5stack8grow_oneEv.exit: ; preds = %20, %31, %35
   store ptr %42, ptr %5, align 8, !tbaa !174
   %43 = getelementptr inbounds nuw %"class.boost::json::value", ptr %28, i64 %.0.i
   store ptr %43, ptr %7, align 8, !tbaa !616
-  store ptr %28, ptr %10, align 8, !tbaa !182
+  store ptr %28, ptr %10, align 8, !tbaa !175
   br label %44
 
 44:                                               ; preds = %_ZN5boost4json11value_stack5stack8grow_oneEv.exit, %3
@@ -32868,7 +32868,7 @@ define void @_ZN5boost4json11value_stack10push_int64El(ptr nocapture noundef non
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !182
+  %10 = load ptr, ptr %9, align 8, !tbaa !175
   %11 = ptrtoint ptr %7 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -32894,7 +32894,7 @@ define void @_ZN5boost4json11value_stack10push_int64El(ptr nocapture noundef non
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i.i, i64 noundef %23, i64 noundef 16)
   %28 = load ptr, ptr %4, align 8, !tbaa !174
-  %29 = load ptr, ptr %9, align 8, !tbaa !182
+  %29 = load ptr, ptr %9, align 8, !tbaa !175
   %.not.i.i = icmp eq ptr %29, null
   %.pre.i.i = ptrtoint ptr %28 to i64
   %.pre15.i.i = ptrtoint ptr %29 to i64
@@ -32903,7 +32903,7 @@ define void @_ZN5boost4json11value_stack10push_int64El(ptr nocapture noundef non
 
 30:                                               ; preds = %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr nonnull align 1 %29, i64 %.pre17.i.i, i1 false)
-  %31 = load ptr, ptr %9, align 8, !tbaa !182
+  %31 = load ptr, ptr %9, align 8, !tbaa !175
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !615
   %.not12.i.i = icmp eq ptr %31, %33
@@ -32926,7 +32926,7 @@ _ZN5boost4json11value_stack5stack8grow_oneEv.exit.i: ; preds = %34, %30, %19
   store ptr %41, ptr %4, align 8, !tbaa !174
   %42 = getelementptr inbounds nuw %"class.boost::json::value", ptr %27, i64 %.0.i.i
   store ptr %42, ptr %6, align 8, !tbaa !616
-  store ptr %27, ptr %9, align 8, !tbaa !182
+  store ptr %27, ptr %9, align 8, !tbaa !175
   br label %43
 
 43:                                               ; preds = %_ZN5boost4json11value_stack5stack8grow_oneEv.exit.i, %2
@@ -32967,7 +32967,7 @@ define void @_ZN5boost4json11value_stack11push_uint64Em(ptr nocapture noundef no
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !182
+  %10 = load ptr, ptr %9, align 8, !tbaa !175
   %11 = ptrtoint ptr %7 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -32993,7 +32993,7 @@ define void @_ZN5boost4json11value_stack11push_uint64Em(ptr nocapture noundef no
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i.i, i64 noundef %23, i64 noundef 16)
   %28 = load ptr, ptr %4, align 8, !tbaa !174
-  %29 = load ptr, ptr %9, align 8, !tbaa !182
+  %29 = load ptr, ptr %9, align 8, !tbaa !175
   %.not.i.i = icmp eq ptr %29, null
   %.pre.i.i = ptrtoint ptr %28 to i64
   %.pre15.i.i = ptrtoint ptr %29 to i64
@@ -33002,7 +33002,7 @@ define void @_ZN5boost4json11value_stack11push_uint64Em(ptr nocapture noundef no
 
 30:                                               ; preds = %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr nonnull align 1 %29, i64 %.pre17.i.i, i1 false)
-  %31 = load ptr, ptr %9, align 8, !tbaa !182
+  %31 = load ptr, ptr %9, align 8, !tbaa !175
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !615
   %.not12.i.i = icmp eq ptr %31, %33
@@ -33025,7 +33025,7 @@ _ZN5boost4json11value_stack5stack8grow_oneEv.exit.i: ; preds = %34, %30, %19
   store ptr %41, ptr %4, align 8, !tbaa !174
   %42 = getelementptr inbounds nuw %"class.boost::json::value", ptr %27, i64 %.0.i.i
   store ptr %42, ptr %6, align 8, !tbaa !616
-  store ptr %27, ptr %9, align 8, !tbaa !182
+  store ptr %27, ptr %9, align 8, !tbaa !175
   br label %43
 
 43:                                               ; preds = %_ZN5boost4json11value_stack5stack8grow_oneEv.exit.i, %2
@@ -33066,7 +33066,7 @@ define void @_ZN5boost4json11value_stack11push_doubleEd(ptr nocapture noundef no
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !182
+  %10 = load ptr, ptr %9, align 8, !tbaa !175
   %11 = ptrtoint ptr %7 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -33092,7 +33092,7 @@ define void @_ZN5boost4json11value_stack11push_doubleEd(ptr nocapture noundef no
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i.i, i64 noundef %23, i64 noundef 16)
   %28 = load ptr, ptr %4, align 8, !tbaa !174
-  %29 = load ptr, ptr %9, align 8, !tbaa !182
+  %29 = load ptr, ptr %9, align 8, !tbaa !175
   %.not.i.i = icmp eq ptr %29, null
   %.pre.i.i = ptrtoint ptr %28 to i64
   %.pre15.i.i = ptrtoint ptr %29 to i64
@@ -33101,7 +33101,7 @@ define void @_ZN5boost4json11value_stack11push_doubleEd(ptr nocapture noundef no
 
 30:                                               ; preds = %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr nonnull align 1 %29, i64 %.pre17.i.i, i1 false)
-  %31 = load ptr, ptr %9, align 8, !tbaa !182
+  %31 = load ptr, ptr %9, align 8, !tbaa !175
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !615
   %.not12.i.i = icmp eq ptr %31, %33
@@ -33124,7 +33124,7 @@ _ZN5boost4json11value_stack5stack8grow_oneEv.exit.i: ; preds = %34, %30, %19
   store ptr %41, ptr %4, align 8, !tbaa !174
   %42 = getelementptr inbounds nuw %"class.boost::json::value", ptr %27, i64 %.0.i.i
   store ptr %42, ptr %6, align 8, !tbaa !616
-  store ptr %27, ptr %9, align 8, !tbaa !182
+  store ptr %27, ptr %9, align 8, !tbaa !175
   br label %43
 
 43:                                               ; preds = %_ZN5boost4json11value_stack5stack8grow_oneEv.exit.i, %2
@@ -33165,7 +33165,7 @@ define void @_ZN5boost4json11value_stack9push_boolEb(ptr nocapture noundef nonnu
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !182
+  %10 = load ptr, ptr %9, align 8, !tbaa !175
   %11 = ptrtoint ptr %7 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -33191,7 +33191,7 @@ define void @_ZN5boost4json11value_stack9push_boolEb(ptr nocapture noundef nonnu
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i.i, i64 noundef %23, i64 noundef 16)
   %28 = load ptr, ptr %4, align 8, !tbaa !174
-  %29 = load ptr, ptr %9, align 8, !tbaa !182
+  %29 = load ptr, ptr %9, align 8, !tbaa !175
   %.not.i.i = icmp eq ptr %29, null
   %.pre.i.i = ptrtoint ptr %28 to i64
   %.pre15.i.i = ptrtoint ptr %29 to i64
@@ -33200,7 +33200,7 @@ define void @_ZN5boost4json11value_stack9push_boolEb(ptr nocapture noundef nonnu
 
 30:                                               ; preds = %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr nonnull align 1 %29, i64 %.pre17.i.i, i1 false)
-  %31 = load ptr, ptr %9, align 8, !tbaa !182
+  %31 = load ptr, ptr %9, align 8, !tbaa !175
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !615
   %.not12.i.i = icmp eq ptr %31, %33
@@ -33223,7 +33223,7 @@ _ZN5boost4json11value_stack5stack8grow_oneEv.exit.i: ; preds = %34, %30, %19
   store ptr %41, ptr %4, align 8, !tbaa !174
   %42 = getelementptr inbounds nuw %"class.boost::json::value", ptr %27, i64 %.0.i.i
   store ptr %42, ptr %6, align 8, !tbaa !616
-  store ptr %27, ptr %9, align 8, !tbaa !182
+  store ptr %27, ptr %9, align 8, !tbaa !175
   br label %43
 
 43:                                               ; preds = %_ZN5boost4json11value_stack5stack8grow_oneEv.exit.i, %2
@@ -33265,7 +33265,7 @@ define void @_ZN5boost4json11value_stack9push_nullEv(ptr nocapture noundef nonnu
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !182
+  %9 = load ptr, ptr %8, align 8, !tbaa !175
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -33291,7 +33291,7 @@ define void @_ZN5boost4json11value_stack9push_nullEv(ptr nocapture noundef nonnu
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i.i, i64 noundef %22, i64 noundef 16)
   %27 = load ptr, ptr %3, align 8, !tbaa !174
-  %28 = load ptr, ptr %8, align 8, !tbaa !182
+  %28 = load ptr, ptr %8, align 8, !tbaa !175
   %.not.i.i = icmp eq ptr %28, null
   %.pre.i.i = ptrtoint ptr %27 to i64
   %.pre15.i.i = ptrtoint ptr %28 to i64
@@ -33300,7 +33300,7 @@ define void @_ZN5boost4json11value_stack9push_nullEv(ptr nocapture noundef nonnu
 
 29:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr nonnull align 1 %28, i64 %.pre17.i.i, i1 false)
-  %30 = load ptr, ptr %8, align 8, !tbaa !182
+  %30 = load ptr, ptr %8, align 8, !tbaa !175
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !615
   %.not12.i.i = icmp eq ptr %30, %32
@@ -33323,7 +33323,7 @@ _ZN5boost4json11value_stack5stack8grow_oneEv.exit.i: ; preds = %33, %29, %18
   store ptr %40, ptr %3, align 8, !tbaa !174
   %41 = getelementptr inbounds nuw %"class.boost::json::value", ptr %26, i64 %.0.i.i
   store ptr %41, ptr %5, align 8, !tbaa !616
-  store ptr %26, ptr %8, align 8, !tbaa !182
+  store ptr %26, ptr %8, align 8, !tbaa !175
   br label %42
 
 42:                                               ; preds = %_ZN5boost4json11value_stack5stack8grow_oneEv.exit.i, %1
@@ -35245,7 +35245,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost4json6detail8charconv6detail21
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %12
-  %16 = load i8, ptr %5, align 1, !tbaa !158, !range !180, !noundef !181
+  %16 = load i8, ptr %5, align 1, !tbaa !158, !range !181, !noundef !182
   %17 = trunc nuw i8 %16 to i1
   %18 = select i1 %17, double -0.000000e+00, double 0.000000e+00
   store double %18, ptr %2, align 8, !tbaa !459
@@ -35254,7 +35254,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost4json6detail8charconv6detail21
 19:                                               ; preds = %12
   %20 = load i64, ptr %7, align 8, !tbaa !11
   %21 = icmp eq i64 %20, -1
-  %.pre = load i8, ptr %5, align 1, !tbaa !158, !range !180
+  %.pre = load i8, ptr %5, align 1, !tbaa !158, !range !181
   %22 = trunc nuw i8 %.pre to i1
   br i1 %21, label %23, label %._crit_edge
 
@@ -35270,7 +35270,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost4json6detail8charconv6detail21
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #48
   store i8 0, ptr %8, align 1, !tbaa !158
   %28 = call noundef double @_ZN5boost4json6detail8charconv6detail15compute_float64ElmbRb(i64 noundef %20, i64 noundef %13, i1 noundef zeroext %22, ptr noundef nonnull align 1 dereferenceable(1) %8) #48
-  %29 = load i8, ptr %8, align 1, !tbaa !158, !range !180, !noundef !181
+  %29 = load i8, ptr %8, align 1, !tbaa !158, !range !181, !noundef !182
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %50, label %31
 
@@ -35300,7 +35300,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost4json6detail8charconv6detail21
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %40
-  %43 = load i8, ptr %5, align 1, !tbaa !158, !range !180, !noundef !181
+  %43 = load i8, ptr %5, align 1, !tbaa !158, !range !181, !noundef !182
   %44 = trunc nuw i8 %43 to i1
   %45 = select i1 %44, double -0.000000e+00, double 0.000000e+00
   store double %45, ptr %2, align 8, !tbaa !459
@@ -38118,17 +38118,17 @@ _ZN5boost4json6detail16count_whitespaceEPKcS3_.exit: ; preds = %.lr.ph.i, %27, %
 
 36:                                               ; preds = %_ZN5boost4json6detail16count_whitespaceEPKcS3_.exit
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 257
-  %38 = load i8, ptr %37, align 1, !tbaa !662, !range !180, !noundef !181
+  %38 = load i8, ptr %37, align 1, !tbaa !662, !range !181, !noundef !182
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 258
-  %40 = load i8, ptr %39, align 2, !tbaa !663, !range !180, !noundef !181
+  %40 = load i8, ptr %39, align 2, !tbaa !663, !range !181, !noundef !182
   %41 = shl nuw nsw i8 %40, 1
   %42 = or disjoint i8 %41, %38
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 259
-  %44 = load i8, ptr %43, align 1, !tbaa !664, !range !180, !noundef !181
+  %44 = load i8, ptr %43, align 1, !tbaa !664, !range !181, !noundef !182
   %45 = shl nuw nsw i8 %44, 2
   %46 = or disjoint i8 %42, %45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  %48 = load i8, ptr %47, align 4, !tbaa !665, !range !180, !noundef !181
+  %48 = load i8, ptr %47, align 4, !tbaa !665, !range !181, !noundef !182
   %49 = trunc nuw i8 %48 to i1
   switch i8 %46, label %default.unreachable91 [
     i8 1, label %52
@@ -38255,7 +38255,7 @@ _ZN5boost4json6detail16count_whitespaceEPKcS3_.exit14: ; preds = %.lr.ph.i8, %91
 
 98:                                               ; preds = %_ZN5boost4json6detail16count_whitespaceEPKcS3_.exit14
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %100 = load i8, ptr %99, align 8, !tbaa !175, !range !180, !noundef !181
+  %100 = load i8, ptr %99, align 8, !tbaa !176, !range !181, !noundef !182
   %101 = trunc nuw i8 %100 to i1
   br i1 %101, label %102, label %.loopexit
 
@@ -38264,7 +38264,7 @@ _ZN5boost4json6detail16count_whitespaceEPKcS3_.exit14: ; preds = %.lr.ph.i8, %91
   br label %.loopexit
 
 104:                                              ; preds = %_ZN5boost4json6detail16count_whitespaceEPKcS3_.exit14
-  %105 = load i8, ptr %37, align 1, !tbaa !662, !range !180, !noundef !181
+  %105 = load i8, ptr %37, align 1, !tbaa !662, !range !181, !noundef !182
   %106 = trunc nuw i8 %105 to i1
   br i1 %106, label %107, label %.loopexit
 
@@ -38394,17 +38394,17 @@ _ZN5boost4json6detail16count_whitespaceEPKcS3_.exit: ; preds = %.lr.ph.i, %40, %
 .thread85:                                        ; preds = %8, %_ZN5boost4json6detail16count_whitespaceEPKcS3_.exit
   %.083 = phi ptr [ %.035.i, %_ZN5boost4json6detail16count_whitespaceEPKcS3_.exit ], [ %1, %8 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 257
-  %50 = load i8, ptr %49, align 1, !tbaa !662, !range !180, !noundef !181
+  %50 = load i8, ptr %49, align 1, !tbaa !662, !range !181, !noundef !182
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 258
-  %52 = load i8, ptr %51, align 2, !tbaa !663, !range !180, !noundef !181
+  %52 = load i8, ptr %51, align 2, !tbaa !663, !range !181, !noundef !182
   %53 = shl nuw nsw i8 %52, 1
   %54 = or disjoint i8 %53, %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 259
-  %56 = load i8, ptr %55, align 1, !tbaa !664, !range !180, !noundef !181
+  %56 = load i8, ptr %55, align 1, !tbaa !664, !range !181, !noundef !182
   %57 = shl nuw nsw i8 %56, 2
   %58 = or disjoint i8 %54, %57
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  %60 = load i8, ptr %59, align 4, !tbaa !665, !range !180, !noundef !181
+  %60 = load i8, ptr %59, align 4, !tbaa !665, !range !181, !noundef !182
   %61 = trunc nuw i8 %60 to i1
   switch i8 %58, label %default.unreachable95 [
     i8 1, label %64
@@ -38528,7 +38528,7 @@ _ZN5boost4json6detail16count_whitespaceEPKcS3_.exit15: ; preds = %.lr.ph.i9, %10
 
 111:                                              ; preds = %_ZN5boost4json6detail16count_whitespaceEPKcS3_.exit15
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %113 = load i8, ptr %112, align 8, !tbaa !175, !range !180, !noundef !181
+  %113 = load i8, ptr %112, align 8, !tbaa !176, !range !181, !noundef !182
   %114 = trunc nuw i8 %113 to i1
   br i1 %114, label %115, label %127
 
@@ -38538,7 +38538,7 @@ _ZN5boost4json6detail16count_whitespaceEPKcS3_.exit15: ; preds = %.lr.ph.i9, %10
 
 117:                                              ; preds = %_ZN5boost4json6detail16count_whitespaceEPKcS3_.exit15
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 257
-  %119 = load i8, ptr %118, align 1, !tbaa !662, !range !180, !noundef !181
+  %119 = load i8, ptr %118, align 1, !tbaa !662, !range !181, !noundef !182
   %120 = trunc nuw i8 %119 to i1
   br i1 %120, label %121, label %127
 
@@ -38575,7 +38575,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 7:                                                ; preds = %5, %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %9 = load i8, ptr %8, align 8, !tbaa !175, !range !180, !noundef !181
+  %9 = load i8, ptr %8, align 8, !tbaa !176, !range !181, !noundef !182
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %30, !prof !244
 
@@ -38736,7 +38736,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 47:                                               ; preds = %9
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 261
-  %49 = load i8, ptr %48, align 1, !tbaa !667, !range !180, !noundef !181
+  %49 = load i8, ptr %48, align 1, !tbaa !667, !range !181, !noundef !182
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %53, label %51
 
@@ -38750,7 +38750,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 55:                                               ; preds = %9
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 261
-  %57 = load i8, ptr %56, align 1, !tbaa !667, !range !180, !noundef !181
+  %57 = load i8, ptr %56, align 1, !tbaa !667, !range !181, !noundef !182
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %61, label %59
 
@@ -38974,7 +38974,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 46:                                               ; preds = %8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 261
-  %48 = load i8, ptr %47, align 1, !tbaa !667, !range !180, !noundef !181
+  %48 = load i8, ptr %47, align 1, !tbaa !667, !range !181, !noundef !182
   %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %52, label %50
 
@@ -38988,7 +38988,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 54:                                               ; preds = %8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 261
-  %56 = load i8, ptr %55, align 1, !tbaa !667, !range !180, !noundef !181
+  %56 = load i8, ptr %55, align 1, !tbaa !667, !range !181, !noundef !182
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %60, label %58
 
@@ -39190,7 +39190,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 25:                                               ; preds = %.thread101
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %27 = load i8, ptr %26, align 8, !tbaa !175, !range !180, !noundef !181
+  %27 = load i8, ptr %26, align 8, !tbaa !176, !range !181, !noundef !182
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %50
 
@@ -40836,7 +40836,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %9, align 8, !tbaa !178
+  store i64 0, ptr %9, align 8, !tbaa !179
   %10 = ptrtoint ptr %5 to i64
   %11 = ptrtoint ptr %1 to i64
   %12 = sub i64 %10, %11
@@ -40994,7 +40994,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %59,
 ._crit_edge:                                      ; preds = %116, %.preheader
   %.8290.lcssa = phi ptr [ %161, %.preheader ], [ %scevgep, %116 ]
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %105 = load i8, ptr %104, align 8, !tbaa !175, !range !180, !noundef !181
+  %105 = load i8, ptr %104, align 8, !tbaa !176, !range !181, !noundef !182
   %106 = trunc nuw i8 %105 to i1
   br i1 %106, label %107, label %.thread306, !prof !245
 
@@ -41025,7 +41025,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %59,
 
 119:                                              ; preds = %101
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %121 = load i8, ptr %120, align 8, !tbaa !175, !range !180, !noundef !181
+  %121 = load i8, ptr %120, align 8, !tbaa !176, !range !181, !noundef !182
   %122 = trunc nuw i8 %121 to i1
   br i1 %122, label %123, label %251, !prof !245
 
@@ -41054,7 +41054,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %59,
 
 135:                                              ; preds = %132
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %137 = load i8, ptr %136, align 8, !tbaa !175, !range !180, !noundef !181
+  %137 = load i8, ptr %136, align 8, !tbaa !176, !range !181, !noundef !182
   %138 = trunc nuw i8 %137 to i1
   br i1 %138, label %139, label %141, !prof !245
 
@@ -41091,7 +41091,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %59,
   store i64 %.lcssa441, ptr %3, align 8, !tbaa !682
   store i32 %.lcssa445, ptr %6, align 8, !tbaa !684
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %151 = load i8, ptr %150, align 8, !tbaa !175, !range !180, !noundef !181
+  %151 = load i8, ptr %150, align 8, !tbaa !176, !range !181, !noundef !182
   %152 = trunc nuw i8 %151 to i1
   br i1 %152, label %153, label %.thread306, !prof !245
 
@@ -41187,7 +41187,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %59,
 
 193:                                              ; preds = %190
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %195 = load i8, ptr %194, align 8, !tbaa !175, !range !180, !noundef !181
+  %195 = load i8, ptr %194, align 8, !tbaa !176, !range !181, !noundef !182
   %196 = trunc nuw i8 %195 to i1
   br i1 %196, label %197, label %199, !prof !245
 
@@ -41226,7 +41226,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %59,
   %211 = phi i32 [ %208, %206 ], [ %storemerge, %230 ]
   %.15.lcssa = phi ptr [ %.15373, %206 ], [ %scevgep408, %230 ]
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %213 = load i8, ptr %212, align 8, !tbaa !175, !range !180, !noundef !181
+  %213 = load i8, ptr %212, align 8, !tbaa !176, !range !181, !noundef !182
   %214 = trunc nuw i8 %213 to i1
   br i1 %214, label %215, label %.thread343, !prof !245
 
@@ -41410,7 +41410,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %1, ptr %5, align 8, !tbaa !243
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %7 = load i8, ptr %6, align 8, !tbaa !175, !range !180, !noundef !181
+  %7 = load i8, ptr %6, align 8, !tbaa !176, !range !181, !noundef !182
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %29, !prof !244
 
@@ -41463,7 +41463,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %11, align 8, !tbaa !178
+  store i64 0, ptr %11, align 8, !tbaa !179
   %12 = ptrtoint ptr %6 to i64
   %13 = ptrtoint ptr %1 to i64
   %14 = sub i64 %12, %13
@@ -41621,7 +41621,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %61,
 ._crit_edge:                                      ; preds = %121, %.preheader
   %.8326.lcssa = phi ptr [ %171, %.preheader ], [ %scevgep, %121 ]
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %107 = load i8, ptr %106, align 8, !tbaa !175, !range !180, !noundef !181
+  %107 = load i8, ptr %106, align 8, !tbaa !176, !range !181, !noundef !182
   %108 = trunc nuw i8 %107 to i1
   br i1 %108, label %109, label %269, !prof !245
 
@@ -41655,7 +41655,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %61,
 
 124:                                              ; preds = %103
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %126 = load i8, ptr %125, align 8, !tbaa !175, !range !180, !noundef !181
+  %126 = load i8, ptr %125, align 8, !tbaa !176, !range !181, !noundef !182
   %127 = trunc nuw i8 %126 to i1
   br i1 %127, label %128, label %268, !prof !245
 
@@ -41685,7 +41685,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %61,
 
 141:                                              ; preds = %138
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %143 = load i8, ptr %142, align 8, !tbaa !175, !range !180, !noundef !181
+  %143 = load i8, ptr %142, align 8, !tbaa !176, !range !181, !noundef !182
   %144 = trunc nuw i8 %143 to i1
   br i1 %144, label %145, label %148, !prof !245
 
@@ -41723,7 +41723,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %61,
   store i64 %.lcssa478, ptr %3, align 8, !tbaa !682
   store i32 %.lcssa482, ptr %7, align 8, !tbaa !684
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %158 = load i8, ptr %157, align 8, !tbaa !175, !range !180, !noundef !181
+  %158 = load i8, ptr %157, align 8, !tbaa !176, !range !181, !noundef !182
   %159 = trunc nuw i8 %158 to i1
   br i1 %159, label %160, label %269, !prof !245
 
@@ -41825,7 +41825,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %61,
 
 206:                                              ; preds = %203
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %208 = load i8, ptr %207, align 8, !tbaa !175, !range !180, !noundef !181
+  %208 = load i8, ptr %207, align 8, !tbaa !176, !range !181, !noundef !182
   %209 = trunc nuw i8 %208 to i1
   br i1 %209, label %210, label %214, !prof !245
 
@@ -41866,7 +41866,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %61,
   %226 = phi i32 [ %223, %221 ], [ %storemerge, %248 ]
   %.15.lcssa = phi ptr [ %.15410, %221 ], [ %scevgep445, %248 ]
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %228 = load i8, ptr %227, align 8, !tbaa !175, !range !180, !noundef !181
+  %228 = load i8, ptr %227, align 8, !tbaa !176, !range !181, !noundef !182
   %229 = trunc nuw i8 %228 to i1
   br i1 %229, label %230, label %.thread380, !prof !245
 
@@ -41979,7 +41979,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %61,
 define linkonce_odr hidden noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 comdat align 2 {
   %.not.i = icmp eq i64 %2, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.pre5 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !178
+  %.pre5 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !179
   br i1 %.not.i, label %._ZN5boost4json6detail10sbo_bufferILm34EE4growEm.exit.thread_crit_edge, label %4
 
 ._ZN5boost4json6detail10sbo_bufferILm34EE4growEm.exit.thread_crit_edge: ; preds = %3
@@ -42018,7 +42018,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE
 
 19:                                               ; preds = %17
   tail call void @_ZdaPv(ptr noundef nonnull %10) #51
-  %.pre.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !178
+  %.pre.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !179
   br label %20
 
 20:                                               ; preds = %19, %17
@@ -42040,7 +42040,7 @@ _ZN5boost4json6detail10sbo_bufferILm34EE4growEm.exit.thread: ; preds = %._ZN5boo
   %26 = phi i64 [ %.pre5, %._ZN5boost4json6detail10sbo_bufferILm34EE4growEm.exit.thread_crit_edge ], [ %23, %22 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = add i64 %26, %2
-  store i64 %28, ptr %27, align 8, !tbaa !178
+  store i64 %28, ptr %27, align 8, !tbaa !179
   ret ptr %25
 }
 
@@ -42058,7 +42058,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %10, align 8, !tbaa !178
+  store i64 0, ptr %10, align 8, !tbaa !179
   %11 = ptrtoint ptr %1 to i64
   %12 = sub i64 %6, %11
   %13 = icmp ugt i64 %12, 32
@@ -42129,7 +42129,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 45:                                               ; preds = %.preheader
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %47 = load i8, ptr %46, align 8, !tbaa !175, !range !180, !noundef !181
+  %47 = load i8, ptr %46, align 8, !tbaa !176, !range !181, !noundef !182
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %.thread294, !prof !245
 
@@ -42154,7 +42154,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 59:                                               ; preds = %41
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %61 = load i8, ptr %60, align 8, !tbaa !175, !range !180, !noundef !181
+  %61 = load i8, ptr %60, align 8, !tbaa !176, !range !181, !noundef !182
   %62 = trunc nuw i8 %61 to i1
   br i1 %62, label %63, label %136, !prof !245
 
@@ -42183,7 +42183,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %77 = load i8, ptr %76, align 8, !tbaa !175, !range !180, !noundef !181
+  %77 = load i8, ptr %76, align 8, !tbaa !176, !range !181, !noundef !182
   %78 = trunc nuw i8 %77 to i1
   br i1 %78, label %79, label %81, !prof !245
 
@@ -42212,7 +42212,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 90:                                               ; preds = %.thread286
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %92 = load i8, ptr %91, align 8, !tbaa !175, !range !180, !noundef !181
+  %92 = load i8, ptr %91, align 8, !tbaa !176, !range !181, !noundef !182
   %93 = trunc nuw i8 %92 to i1
   br i1 %93, label %94, label %.thread294, !prof !245
 
@@ -42259,7 +42259,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 109:                                              ; preds = %107
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %111 = load i8, ptr %110, align 8, !tbaa !175, !range !180, !noundef !181
+  %111 = load i8, ptr %110, align 8, !tbaa !176, !range !181, !noundef !182
   %112 = trunc nuw i8 %111 to i1
   br i1 %112, label %113, label %115, !prof !245
 
@@ -42297,7 +42297,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 ._crit_edge:                                      ; preds = %135, %122
   %.14.lcssa = phi ptr [ %.14333, %122 ], [ %scevgep341, %135 ]
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %128 = load i8, ptr %127, align 8, !tbaa !175, !range !180, !noundef !181
+  %128 = load i8, ptr %127, align 8, !tbaa !176, !range !181, !noundef !182
   %129 = trunc nuw i8 %128 to i1
   br i1 %129, label %130, label %.thread294, !prof !245
 
@@ -42344,7 +42344,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %10, align 8, !tbaa !178
+  store i64 0, ptr %10, align 8, !tbaa !179
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 17
   store i8 1, ptr %12, align 1, !tbaa !690
@@ -42372,7 +42372,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 27:                                               ; preds = %19
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 261
-  %29 = load i8, ptr %28, align 1, !tbaa !667, !range !180, !noundef !181
+  %29 = load i8, ptr %28, align 1, !tbaa !667, !range !181, !noundef !182
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %33
 
@@ -42647,7 +42647,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit161: ; preds = %._crit_edge.i151
 
 200:                                              ; preds = %198
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 261
-  %202 = load i8, ptr %201, align 1, !tbaa !667, !range !180, !noundef !181
+  %202 = load i8, ptr %201, align 1, !tbaa !667, !range !181, !noundef !182
   %203 = trunc nuw i8 %202 to i1
   br i1 %203, label %204, label %209
 
@@ -42696,7 +42696,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit161: ; preds = %._crit_edge.i151
   %.10431.lcssa = phi ptr [ %.3424, %.thread445 ], [ %scevgep, %235 ]
   store i64 %.lcssa569, ptr %3, align 8, !tbaa !682
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %221 = load i8, ptr %220, align 8, !tbaa !175, !range !180, !noundef !181
+  %221 = load i8, ptr %220, align 8, !tbaa !176, !range !181, !noundef !182
   %222 = trunc nuw i8 %221 to i1
   br i1 %222, label %223, label %420, !prof !245
 
@@ -42742,7 +42742,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit161: ; preds = %._crit_edge.i151
   %.13434.lcssa = phi ptr [ %230, %239 ], [ %scevgep, %257 ]
   store i32 %storemerge543.lcssa, ptr %7, align 8, !tbaa !684
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %242 = load i8, ptr %241, align 8, !tbaa !175, !range !180, !noundef !181
+  %242 = load i8, ptr %241, align 8, !tbaa !176, !range !181, !noundef !182
   %243 = trunc nuw i8 %242 to i1
   br i1 %243, label %244, label %.thread461, !prof !245
 
@@ -42821,7 +42821,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit161: ; preds = %._crit_edge.i151
 ._crit_edge593:                                   ; preds = %287, %.thread524
   %.17.lcssa = phi ptr [ %.16437, %.thread524 ], [ %scevgep649, %287 ]
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %277 = load i8, ptr %276, align 8, !tbaa !175, !range !180, !noundef !181
+  %277 = load i8, ptr %276, align 8, !tbaa !176, !range !181, !noundef !182
   %278 = trunc nuw i8 %277 to i1
   br i1 %278, label %279, label %.thread461, !prof !245
 
@@ -42855,7 +42855,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit161: ; preds = %._crit_edge.i151
 
 291:                                              ; preds = %.thread482
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %293 = load i8, ptr %292, align 8, !tbaa !175, !range !180, !noundef !181
+  %293 = load i8, ptr %292, align 8, !tbaa !176, !range !181, !noundef !182
   %294 = trunc nuw i8 %293 to i1
   br i1 %294, label %295, label %420, !prof !245
 
@@ -42885,7 +42885,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit161: ; preds = %._crit_edge.i151
 
 305:                                              ; preds = %.thread449
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %307 = load i8, ptr %306, align 8, !tbaa !175, !range !180, !noundef !181
+  %307 = load i8, ptr %306, align 8, !tbaa !176, !range !181, !noundef !182
   %308 = trunc nuw i8 %307 to i1
   br i1 %308, label %309, label %311, !prof !245
 
@@ -42925,7 +42925,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit161: ; preds = %._crit_edge.i151
   %322 = phi i64 [ %.promoted585, %.thread453 ], [ %346, %342 ]
   %.20.lcssa = phi ptr [ %.5426, %.thread453 ], [ %334, %342 ]
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %324 = load i8, ptr %323, align 8, !tbaa !175, !range !180, !noundef !181
+  %324 = load i8, ptr %323, align 8, !tbaa !176, !range !181, !noundef !182
   %325 = trunc nuw i8 %324 to i1
   br i1 %325, label %326, label %.thread461, !prof !245
 
@@ -43007,7 +43007,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit161: ; preds = %._crit_edge.i151
 
 362:                                              ; preds = %359
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %364 = load i8, ptr %363, align 8, !tbaa !175, !range !180, !noundef !181
+  %364 = load i8, ptr %363, align 8, !tbaa !176, !range !181, !noundef !182
   %365 = trunc nuw i8 %364 to i1
   br i1 %365, label %366, label %368, !prof !245
 
@@ -43046,7 +43046,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit161: ; preds = %._crit_edge.i151
   %380 = phi i32 [ %377, %375 ], [ %storemerge, %399 ]
   %.24.lcssa = phi ptr [ %.24596, %375 ], [ %.24, %399 ]
   %381 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %382 = load i8, ptr %381, align 8, !tbaa !175, !range !180, !noundef !181
+  %382 = load i8, ptr %381, align 8, !tbaa !176, !range !181, !noundef !182
   %383 = trunc nuw i8 %382 to i1
   br i1 %383, label %384, label %.thread539, !prof !245
 
@@ -43457,7 +43457,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %12, align 8, !tbaa !178
+  store i64 0, ptr %12, align 8, !tbaa !179
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 17
   store i8 1, ptr %14, align 1, !tbaa !690
@@ -43485,7 +43485,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 29:                                               ; preds = %21
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 261
-  %31 = load i8, ptr %30, align 1, !tbaa !667, !range !180, !noundef !181
+  %31 = load i8, ptr %30, align 1, !tbaa !667, !range !181, !noundef !182
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %35
 
@@ -43760,7 +43760,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit192: ; preds = %._crit_edge.i182
 
 202:                                              ; preds = %200
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 261
-  %204 = load i8, ptr %203, align 1, !tbaa !667, !range !180, !noundef !181
+  %204 = load i8, ptr %203, align 1, !tbaa !667, !range !181, !noundef !182
   %205 = trunc nuw i8 %204 to i1
   br i1 %205, label %206, label %211
 
@@ -43810,7 +43810,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit192: ; preds = %._crit_edge.i182
   %.10483.lcssa = phi ptr [ %.3476, %.thread498 ], [ %scevgep, %242 ]
   store i64 %.lcssa622, ptr %3, align 8, !tbaa !682
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %224 = load i8, ptr %223, align 8, !tbaa !175, !range !180, !noundef !181
+  %224 = load i8, ptr %223, align 8, !tbaa !176, !range !181, !noundef !182
   %225 = trunc nuw i8 %224 to i1
   br i1 %225, label %226, label %458, !prof !245
 
@@ -43860,7 +43860,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit192: ; preds = %._crit_edge.i182
   %.13486.lcssa = phi ptr [ %237, %246 ], [ %scevgep, %268 ]
   store i32 %storemerge596.lcssa, ptr %8, align 8, !tbaa !684
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %249 = load i8, ptr %248, align 8, !tbaa !175, !range !180, !noundef !181
+  %249 = load i8, ptr %248, align 8, !tbaa !176, !range !181, !noundef !182
   %250 = trunc nuw i8 %249 to i1
   br i1 %250, label %251, label %463, !prof !245
 
@@ -43946,7 +43946,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit192: ; preds = %._crit_edge.i182
 ._crit_edge646:                                   ; preds = %305, %.thread577
   %.17490.lcssa = phi ptr [ %.16489, %.thread577 ], [ %scevgep702, %305 ]
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %291 = load i8, ptr %290, align 8, !tbaa !175, !range !180, !noundef !181
+  %291 = load i8, ptr %290, align 8, !tbaa !176, !range !181, !noundef !182
   %292 = trunc nuw i8 %291 to i1
   br i1 %292, label %293, label %463, !prof !245
 
@@ -43984,7 +43984,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit192: ; preds = %._crit_edge.i182
 
 309:                                              ; preds = %.thread535
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %311 = load i8, ptr %310, align 8, !tbaa !175, !range !180, !noundef !181
+  %311 = load i8, ptr %310, align 8, !tbaa !176, !range !181, !noundef !182
   %312 = trunc nuw i8 %311 to i1
   br i1 %312, label %313, label %458, !prof !245
 
@@ -44018,7 +44018,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit192: ; preds = %._crit_edge.i182
 
 327:                                              ; preds = %.thread502
   %328 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %329 = load i8, ptr %328, align 8, !tbaa !175, !range !180, !noundef !181
+  %329 = load i8, ptr %328, align 8, !tbaa !176, !range !181, !noundef !182
   %330 = trunc nuw i8 %329 to i1
   br i1 %330, label %331, label %337, !prof !245
 
@@ -44060,7 +44060,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit192: ; preds = %._crit_edge.i182
 ._crit_edge642:                                   ; preds = %370, %.thread506
   %.20.lcssa = phi ptr [ %.5478, %.thread506 ], [ %362, %370 ]
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %348 = load i8, ptr %347, align 8, !tbaa !175, !range !180, !noundef !181
+  %348 = load i8, ptr %347, align 8, !tbaa !176, !range !181, !noundef !182
   %349 = trunc nuw i8 %348 to i1
   br i1 %349, label %350, label %463, !prof !245
 
@@ -44150,7 +44150,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit192: ; preds = %._crit_edge.i182
 
 394:                                              ; preds = %391
   %395 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %396 = load i8, ptr %395, align 8, !tbaa !175, !range !180, !noundef !181
+  %396 = load i8, ptr %395, align 8, !tbaa !176, !range !181, !noundef !182
   %397 = trunc nuw i8 %396 to i1
   br i1 %397, label %398, label %403, !prof !245
 
@@ -44192,7 +44192,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit192: ; preds = %._crit_edge.i182
   %415 = phi i32 [ %412, %410 ], [ %storemerge, %438 ]
   %.24.lcssa = phi ptr [ %.24649, %410 ], [ %.24, %438 ]
   %416 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %417 = load i8, ptr %416, align 8, !tbaa !175, !range !180, !noundef !181
+  %417 = load i8, ptr %416, align 8, !tbaa !176, !range !181, !noundef !182
   %418 = trunc nuw i8 %417 to i1
   br i1 %418, label %419, label %.thread592, !prof !245
 
@@ -44322,7 +44322,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %11, align 8, !tbaa !178
+  store i64 0, ptr %11, align 8, !tbaa !179
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 17
   store i8 1, ptr %13, align 1, !tbaa !690
@@ -44348,7 +44348,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 261
-  %28 = load i8, ptr %27, align 1, !tbaa !667, !range !180, !noundef !181
+  %28 = load i8, ptr %27, align 1, !tbaa !667, !range !181, !noundef !182
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %32
 
@@ -44444,7 +44444,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 79:                                               ; preds = %77
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 261
-  %81 = load i8, ptr %80, align 1, !tbaa !667, !range !180, !noundef !181
+  %81 = load i8, ptr %80, align 1, !tbaa !667, !range !181, !noundef !182
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %83, label %88
 
@@ -44501,7 +44501,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 .split.us:                                        ; preds = %99, %.thread417.split.split.us
   %.us-phi = phi ptr [ %.3398, %.thread417.split.split.us ], [ %scevgep, %99 ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %102 = load i8, ptr %101, align 8, !tbaa !175, !range !180, !noundef !181
+  %102 = load i8, ptr %101, align 8, !tbaa !176, !range !181, !noundef !182
   %103 = trunc nuw i8 %102 to i1
   br i1 %103, label %104, label %199, !prof !245
 
@@ -44523,7 +44523,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 ._crit_edge533:                                   ; preds = %121, %106
   %.16.lcssa = phi ptr [ %107, %106 ], [ %scevgep566, %121 ]
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %111 = load i8, ptr %110, align 8, !tbaa !175, !range !180, !noundef !181
+  %111 = load i8, ptr %110, align 8, !tbaa !176, !range !181, !noundef !182
   %112 = trunc nuw i8 %111 to i1
   br i1 %112, label %113, label %.thread433, !prof !245
 
@@ -44556,7 +44556,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 125:                                              ; preds = %.thread455
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %127 = load i8, ptr %126, align 8, !tbaa !175, !range !180, !noundef !181
+  %127 = load i8, ptr %126, align 8, !tbaa !176, !range !181, !noundef !182
   %128 = trunc nuw i8 %127 to i1
   br i1 %128, label %129, label %199, !prof !245
 
@@ -44585,7 +44585,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 139:                                              ; preds = %.thread421
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %141 = load i8, ptr %140, align 8, !tbaa !175, !range !180, !noundef !181
+  %141 = load i8, ptr %140, align 8, !tbaa !176, !range !181, !noundef !182
   %142 = trunc nuw i8 %141 to i1
   br i1 %142, label %143, label %145, !prof !245
 
@@ -44614,7 +44614,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 154:                                              ; preds = %.thread425
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %156 = load i8, ptr %155, align 8, !tbaa !175, !range !180, !noundef !181
+  %156 = load i8, ptr %155, align 8, !tbaa !176, !range !181, !noundef !182
   %157 = trunc nuw i8 %156 to i1
   br i1 %157, label %158, label %.thread433, !prof !245
 
@@ -44656,7 +44656,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 172:                                              ; preds = %170
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %174 = load i8, ptr %173, align 8, !tbaa !175, !range !180, !noundef !181
+  %174 = load i8, ptr %173, align 8, !tbaa !176, !range !181, !noundef !182
   %175 = trunc nuw i8 %174 to i1
   br i1 %175, label %176, label %178, !prof !245
 
@@ -44694,7 +44694,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 ._crit_edge539:                                   ; preds = %198, %185
   %.23.lcssa = phi ptr [ %.23535, %185 ], [ %scevgep569, %198 ]
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %191 = load i8, ptr %190, align 8, !tbaa !175, !range !180, !noundef !181
+  %191 = load i8, ptr %190, align 8, !tbaa !176, !range !181, !noundef !182
   %192 = trunc nuw i8 %191 to i1
   br i1 %192, label %193, label %.thread433, !prof !245
 
@@ -44746,7 +44746,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %9, align 8, !tbaa !178
+  store i64 0, ptr %9, align 8, !tbaa !179
   %10 = ptrtoint ptr %5 to i64
   %11 = ptrtoint ptr %1 to i64
   %12 = sub i64 %10, %11
@@ -45019,7 +45019,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit148: ; preds = %._crit_edge.i138
   %.8390.lcssa = phi ptr [ %.2384, %.thread403 ], [ %scevgep, %194 ]
   store i64 %.lcssa520, ptr %3, align 8, !tbaa !682
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %180 = load i8, ptr %179, align 8, !tbaa !175, !range !180, !noundef !181
+  %180 = load i8, ptr %179, align 8, !tbaa !176, !range !181, !noundef !182
   %181 = trunc nuw i8 %180 to i1
   br i1 %181, label %182, label %370, !prof !245
 
@@ -45065,7 +45065,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit148: ; preds = %._crit_edge.i138
   %.11393.lcssa = phi ptr [ %189, %198 ], [ %scevgep, %216 ]
   store i32 %storemerge493.lcssa, ptr %6, align 8, !tbaa !684
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %201 = load i8, ptr %200, align 8, !tbaa !175, !range !180, !noundef !181
+  %201 = load i8, ptr %200, align 8, !tbaa !176, !range !181, !noundef !182
   %202 = trunc nuw i8 %201 to i1
   br i1 %202, label %203, label %.thread419, !prof !245
 
@@ -45144,7 +45144,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit148: ; preds = %._crit_edge.i138
 ._crit_edge544:                                   ; preds = %246, %.thread474
   %.15.lcssa = phi ptr [ %.14396, %.thread474 ], [ %scevgep600, %246 ]
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %236 = load i8, ptr %235, align 8, !tbaa !175, !range !180, !noundef !181
+  %236 = load i8, ptr %235, align 8, !tbaa !176, !range !181, !noundef !182
   %237 = trunc nuw i8 %236 to i1
   br i1 %237, label %238, label %.thread419, !prof !245
 
@@ -45191,7 +45191,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit148: ; preds = %._crit_edge.i138
 
 255:                                              ; preds = %.thread407
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %257 = load i8, ptr %256, align 8, !tbaa !175, !range !180, !noundef !181
+  %257 = load i8, ptr %256, align 8, !tbaa !176, !range !181, !noundef !182
   %258 = trunc nuw i8 %257 to i1
   br i1 %258, label %259, label %261, !prof !245
 
@@ -45231,7 +45231,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit148: ; preds = %._crit_edge.i138
   %272 = phi i64 [ %.promoted525, %.thread411 ], [ %296, %292 ]
   %.18.lcssa = phi ptr [ %.4386, %.thread411 ], [ %scevgep594, %292 ]
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %274 = load i8, ptr %273, align 8, !tbaa !175, !range !180, !noundef !181
+  %274 = load i8, ptr %273, align 8, !tbaa !176, !range !181, !noundef !182
   %275 = trunc nuw i8 %274 to i1
   br i1 %275, label %276, label %.thread419, !prof !245
 
@@ -45313,7 +45313,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit148: ; preds = %._crit_edge.i138
 
 312:                                              ; preds = %309
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %314 = load i8, ptr %313, align 8, !tbaa !175, !range !180, !noundef !181
+  %314 = load i8, ptr %313, align 8, !tbaa !176, !range !181, !noundef !182
   %315 = trunc nuw i8 %314 to i1
   br i1 %315, label %316, label %318, !prof !245
 
@@ -45352,7 +45352,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit148: ; preds = %._crit_edge.i138
   %330 = phi i32 [ %327, %325 ], [ %storemerge, %349 ]
   %.22.lcssa = phi ptr [ %.22547, %325 ], [ %.22, %349 ]
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %332 = load i8, ptr %331, align 8, !tbaa !175, !range !180, !noundef !181
+  %332 = load i8, ptr %331, align 8, !tbaa !176, !range !181, !noundef !182
   %333 = trunc nuw i8 %332 to i1
   br i1 %333, label %334, label %.thread489, !prof !245
 
@@ -45517,7 +45517,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %11, align 8, !tbaa !178
+  store i64 0, ptr %11, align 8, !tbaa !179
   %12 = ptrtoint ptr %6 to i64
   %13 = ptrtoint ptr %1 to i64
   %14 = sub i64 %12, %13
@@ -45790,7 +45790,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit177: ; preds = %._crit_edge.i167
   %.8438.lcssa = phi ptr [ %.2432, %.thread452 ], [ %scevgep, %199 ]
   store i64 %.lcssa569, ptr %3, align 8, !tbaa !682
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %182 = load i8, ptr %181, align 8, !tbaa !175, !range !180, !noundef !181
+  %182 = load i8, ptr %181, align 8, !tbaa !176, !range !181, !noundef !182
   %183 = trunc nuw i8 %182 to i1
   br i1 %183, label %184, label %394, !prof !245
 
@@ -45839,7 +45839,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit177: ; preds = %._crit_edge.i167
   %.11441.lcssa = phi ptr [ %194, %203 ], [ %scevgep, %224 ]
   store i32 %storemerge542.lcssa, ptr %7, align 8, !tbaa !684
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %206 = load i8, ptr %205, align 8, !tbaa !175, !range !180, !noundef !181
+  %206 = load i8, ptr %205, align 8, !tbaa !176, !range !181, !noundef !182
   %207 = trunc nuw i8 %206 to i1
   br i1 %207, label %208, label %400, !prof !245
 
@@ -45923,7 +45923,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit177: ; preds = %._crit_edge.i167
 ._crit_edge593:                                   ; preds = %259, %.thread523
   %.15445.lcssa = phi ptr [ %.14444, %.thread523 ], [ %scevgep649, %259 ]
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %246 = load i8, ptr %245, align 8, !tbaa !175, !range !180, !noundef !181
+  %246 = load i8, ptr %245, align 8, !tbaa !176, !range !181, !noundef !182
   %247 = trunc nuw i8 %246 to i1
   br i1 %247, label %248, label %400, !prof !245
 
@@ -45973,7 +45973,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit177: ; preds = %._crit_edge.i167
 
 268:                                              ; preds = %.thread456
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %270 = load i8, ptr %269, align 8, !tbaa !175, !range !180, !noundef !181
+  %270 = load i8, ptr %269, align 8, !tbaa !176, !range !181, !noundef !182
   %271 = trunc nuw i8 %270 to i1
   br i1 %271, label %272, label %277, !prof !245
 
@@ -46014,7 +46014,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit177: ; preds = %._crit_edge.i167
 ._crit_edge578:                                   ; preds = %309, %.thread460
   %.18.lcssa = phi ptr [ %.4434, %.thread460 ], [ %scevgep643, %309 ]
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %288 = load i8, ptr %287, align 8, !tbaa !175, !range !180, !noundef !181
+  %288 = load i8, ptr %287, align 8, !tbaa !176, !range !181, !noundef !182
   %289 = trunc nuw i8 %288 to i1
   br i1 %289, label %290, label %400, !prof !245
 
@@ -46102,7 +46102,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit177: ; preds = %._crit_edge.i167
 
 332:                                              ; preds = %329
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %334 = load i8, ptr %333, align 8, !tbaa !175, !range !180, !noundef !181
+  %334 = load i8, ptr %333, align 8, !tbaa !176, !range !181, !noundef !182
   %335 = trunc nuw i8 %334 to i1
   br i1 %335, label %336, label %340, !prof !245
 
@@ -46143,7 +46143,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit177: ; preds = %._crit_edge.i167
   %352 = phi i32 [ %349, %347 ], [ %storemerge, %374 ]
   %.22.lcssa = phi ptr [ %.22596, %347 ], [ %.22, %374 ]
   %353 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %354 = load i8, ptr %353, align 8, !tbaa !175, !range !180, !noundef !181
+  %354 = load i8, ptr %353, align 8, !tbaa !176, !range !181, !noundef !182
   %355 = trunc nuw i8 %354 to i1
   br i1 %355, label %356, label %.thread538, !prof !245
 
@@ -46273,7 +46273,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %9, align 8, !tbaa !178
+  store i64 0, ptr %9, align 8, !tbaa !179
   %10 = ptrtoint ptr %5 to i64
   %11 = ptrtoint ptr %1 to i64
   %12 = sub i64 %10, %11
@@ -46386,7 +46386,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %.fr494529 = phi i64 [ %52, %.thread375.split.us ], [ %.fr494531, %.thread375.split.split.us ], [ %.fr494531, %64 ]
   %.us-phi = phi ptr [ %50, %.thread375.split.us ], [ %.2358532, %.thread375.split.split.us ], [ %scevgep, %64 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %67 = load i8, ptr %66, align 8, !tbaa !175, !range !180, !noundef !181
+  %67 = load i8, ptr %66, align 8, !tbaa !176, !range !181, !noundef !182
   %68 = trunc nuw i8 %67 to i1
   br i1 %68, label %69, label %188, !prof !245
 
@@ -46415,7 +46415,7 @@ select.unfold398:                                 ; preds = %55
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %select.unfold398
   %.10366.lcssa = phi ptr [ %71, %select.unfold398 ], [ %scevgep516, %._crit_edge.loopexit ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %75 = load i8, ptr %74, align 8, !tbaa !175, !range !180, !noundef !181
+  %75 = load i8, ptr %74, align 8, !tbaa !176, !range !181, !noundef !182
   %76 = trunc nuw i8 %75 to i1
   br i1 %76, label %77, label %.thread391, !prof !245
 
@@ -46494,7 +46494,7 @@ select.unfold398:                                 ; preds = %55
 ._crit_edge486:                                   ; preds = %118, %104
   %.14.lcssa = phi ptr [ %.13, %104 ], [ %scevgep519, %118 ]
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %108 = load i8, ptr %107, align 8, !tbaa !175, !range !180, !noundef !181
+  %108 = load i8, ptr %107, align 8, !tbaa !176, !range !181, !noundef !182
   %109 = trunc nuw i8 %108 to i1
   br i1 %109, label %110, label %.thread391, !prof !245
 
@@ -46542,7 +46542,7 @@ select.unfold398:                                 ; preds = %55
 
 127:                                              ; preds = %.thread379
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %129 = load i8, ptr %128, align 8, !tbaa !175, !range !180, !noundef !181
+  %129 = load i8, ptr %128, align 8, !tbaa !176, !range !181, !noundef !182
   %130 = trunc nuw i8 %129 to i1
   br i1 %130, label %131, label %133, !prof !245
 
@@ -46571,7 +46571,7 @@ select.unfold398:                                 ; preds = %55
 
 142:                                              ; preds = %.thread383
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %144 = load i8, ptr %143, align 8, !tbaa !175, !range !180, !noundef !181
+  %144 = load i8, ptr %143, align 8, !tbaa !176, !range !181, !noundef !182
   %145 = trunc nuw i8 %144 to i1
   br i1 %145, label %146, label %.thread391, !prof !245
 
@@ -46617,7 +46617,7 @@ select.unfold398:                                 ; preds = %55
 
 161:                                              ; preds = %159
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %163 = load i8, ptr %162, align 8, !tbaa !175, !range !180, !noundef !181
+  %163 = load i8, ptr %162, align 8, !tbaa !176, !range !181, !noundef !182
   %164 = trunc nuw i8 %163 to i1
   br i1 %164, label %165, label %167, !prof !245
 
@@ -46655,7 +46655,7 @@ select.unfold398:                                 ; preds = %55
 ._crit_edge492:                                   ; preds = %187, %174
   %.21.lcssa = phi ptr [ %.21488, %174 ], [ %scevgep522, %187 ]
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %180 = load i8, ptr %179, align 8, !tbaa !175, !range !180, !noundef !181
+  %180 = load i8, ptr %179, align 8, !tbaa !176, !range !181, !noundef !182
   %181 = trunc nuw i8 %180 to i1
   br i1 %181, label %182, label %.thread391, !prof !245
 
@@ -46707,7 +46707,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %1, ptr %5, align 8, !tbaa !243
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %7 = load i8, ptr %6, align 8, !tbaa !175, !range !180, !noundef !181
+  %7 = load i8, ptr %6, align 8, !tbaa !176, !range !181, !noundef !182
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %32, !prof !244
 
@@ -47907,7 +47907,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 _ZNK5boost6system10error_codecvbEv.exit.thread4:  ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %9 = load i8, ptr %8, align 8, !range !180
+  %9 = load i8, ptr %8, align 8, !range !181
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %18, label %.thread, !prof !677
 
@@ -47920,7 +47920,7 @@ _ZNK5boost6system10error_codecvbEv.exit:          ; preds = %11
   %.fr = freeze i32 %13
   %14 = icmp eq i32 %.fr, 0
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %16 = load i8, ptr %15, align 8, !range !180
+  %16 = load i8, ptr %15, align 8, !range !181
   %17 = trunc nuw i8 %16 to i1
   %brmerge.not = select i1 %14, i1 %17, i1 false
   br i1 %brmerge.not, label %18, label %.thread, !prof !698
@@ -49561,7 +49561,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 50:                                               ; preds = %12
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 261
-  %52 = load i8, ptr %51, align 1, !tbaa !667, !range !180, !noundef !181
+  %52 = load i8, ptr %51, align 1, !tbaa !667, !range !181, !noundef !182
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %56, label %54
 
@@ -49575,7 +49575,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 58:                                               ; preds = %12
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 261
-  %60 = load i8, ptr %59, align 1, !tbaa !667, !range !180, !noundef !181
+  %60 = load i8, ptr %59, align 1, !tbaa !667, !range !181, !noundef !182
   %61 = trunc nuw i8 %60 to i1
   br i1 %61, label %64, label %62
 
@@ -49809,7 +49809,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 49:                                               ; preds = %11
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 261
-  %51 = load i8, ptr %50, align 1, !tbaa !667, !range !180, !noundef !181
+  %51 = load i8, ptr %50, align 1, !tbaa !667, !range !181, !noundef !182
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %55, label %53
 
@@ -49823,7 +49823,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 57:                                               ; preds = %11
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 261
-  %59 = load i8, ptr %58, align 1, !tbaa !667, !range !180, !noundef !181
+  %59 = load i8, ptr %58, align 1, !tbaa !667, !range !181, !noundef !182
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %63, label %61
 
@@ -50021,7 +50021,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 35:                                               ; preds = %.thread109
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %37 = load i8, ptr %36, align 8, !tbaa !175, !range !180, !noundef !181
+  %37 = load i8, ptr %36, align 8, !tbaa !176, !range !181, !noundef !182
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %39, label %63
 
@@ -53619,7 +53619,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %14, align 8, !tbaa !178
+  store i64 0, ptr %14, align 8, !tbaa !179
   %15 = ptrtoint ptr %1 to i64
   %16 = sub i64 %7, %15
   %17 = icmp ugt i64 %16, 32
@@ -53817,13 +53817,13 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
 
 124:                                              ; preds = %122
   %125 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  %126 = load i8, ptr %125, align 1, !tbaa !690, !range !180, !noundef !181
+  %126 = load i8, ptr %125, align 1, !tbaa !690, !range !181, !noundef !182
   %127 = trunc nuw i8 %126 to i1
   br i1 %127, label %128, label %136
 
 128:                                              ; preds = %124
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 261
-  %130 = load i8, ptr %129, align 1, !tbaa !667, !range !180, !noundef !181
+  %130 = load i8, ptr %129, align 1, !tbaa !667, !range !181, !noundef !182
   %131 = trunc nuw i8 %130 to i1
   br i1 %131, label %132, label %136
 
@@ -53855,7 +53855,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
   %.7438 = phi ptr [ %119, %.thread497 ], [ %1, %105 ]
   %.7438654 = ptrtoint ptr %.7438 to i64
   %142 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  %143 = load i8, ptr %142, align 1, !tbaa !690, !range !180, !noundef !181
+  %143 = load i8, ptr %142, align 1, !tbaa !690, !range !181, !noundef !182
   %144 = trunc nuw i8 %143 to i1
   %.promoted586 = load i64, ptr %3, align 8, !tbaa !682
   %145 = icmp ult ptr %.7438, %6
@@ -53882,7 +53882,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
   %.15446.lcssa = phi ptr [ %.7438, %.preheader ], [ %scevgep655, %163 ]
   store i64 %.lcssa587, ptr %3, align 8, !tbaa !682
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %149 = load i8, ptr %148, align 8, !tbaa !175, !range !180, !noundef !181
+  %149 = load i8, ptr %148, align 8, !tbaa !176, !range !181, !noundef !182
   %150 = trunc nuw i8 %149 to i1
   br i1 %150, label %151, label %387, !prof !245
 
@@ -53921,7 +53921,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
   %.19450.lcssa = phi ptr [ %.7438, %.preheader552 ], [ %scevgep, %182 ]
   store i64 %.lcssa581, ptr %3, align 8, !tbaa !682
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %168 = load i8, ptr %167, align 8, !tbaa !175, !range !180, !noundef !181
+  %168 = load i8, ptr %167, align 8, !tbaa !176, !range !181, !noundef !182
   %169 = trunc nuw i8 %168 to i1
   br i1 %169, label %170, label %387, !prof !245
 
@@ -53984,7 +53984,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
 ._crit_edge597:                                   ; preds = %214, %.thread476
   %.21.lcssa = phi ptr [ %.8439, %.thread476 ], [ %scevgep659, %214 ]
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %195 = load i8, ptr %194, align 8, !tbaa !175, !range !180, !noundef !181
+  %195 = load i8, ptr %194, align 8, !tbaa !176, !range !181, !noundef !182
   %196 = trunc nuw i8 %195 to i1
   br i1 %196, label %197, label %.thread465, !prof !245
 
@@ -54069,7 +54069,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
 ._crit_edge604:                                   ; preds = %241, %.thread480
   %.24.lcssa = phi ptr [ %.10441, %.thread480 ], [ %scevgep662, %241 ]
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %230 = load i8, ptr %229, align 8, !tbaa !175, !range !180, !noundef !181
+  %230 = load i8, ptr %229, align 8, !tbaa !176, !range !181, !noundef !182
   %231 = trunc nuw i8 %230 to i1
   br i1 %231, label %232, label %.thread465, !prof !245
 
@@ -54111,7 +54111,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
 
 244:                                              ; preds = %.thread482
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %246 = load i8, ptr %245, align 8, !tbaa !175, !range !180, !noundef !181
+  %246 = load i8, ptr %245, align 8, !tbaa !176, !range !181, !noundef !182
   %247 = trunc nuw i8 %246 to i1
   br i1 %247, label %248, label %387, !prof !245
 
@@ -54142,7 +54142,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
 
 258:                                              ; preds = %.thread484
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %260 = load i8, ptr %259, align 8, !tbaa !175, !range !180, !noundef !181
+  %260 = load i8, ptr %259, align 8, !tbaa !176, !range !181, !noundef !182
   %261 = trunc nuw i8 %260 to i1
   br i1 %261, label %262, label %264, !prof !245
 
@@ -54181,7 +54181,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
 
 277:                                              ; preds = %273
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %279 = load i8, ptr %278, align 8, !tbaa !175, !range !180, !noundef !181
+  %279 = load i8, ptr %278, align 8, !tbaa !176, !range !181, !noundef !182
   %280 = trunc nuw i8 %279 to i1
   br i1 %280, label %281, label %.thread465, !prof !245
 
@@ -54272,7 +54272,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
 
 317:                                              ; preds = %.thread490
   %318 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %319 = load i8, ptr %318, align 8, !tbaa !175, !range !180, !noundef !181
+  %319 = load i8, ptr %318, align 8, !tbaa !176, !range !181, !noundef !182
   %320 = trunc nuw i8 %319 to i1
   br i1 %320, label %321, label %323, !prof !245
 
@@ -54318,7 +54318,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
 ._crit_edge609:                                   ; preds = %358, %335
   %.30.lcssa = phi ptr [ %.13444, %335 ], [ %359, %358 ]
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %340 = load i8, ptr %339, align 8, !tbaa !175, !range !180, !noundef !181
+  %340 = load i8, ptr %339, align 8, !tbaa !176, !range !181, !noundef !182
   %341 = trunc nuw i8 %340 to i1
   br i1 %341, label %342, label %.thread545, !prof !245
 
@@ -54360,10 +54360,10 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
 .thread545:                                       ; preds = %344, %._crit_edge609
   %.30556 = phi ptr [ %.30.lcssa, %._crit_edge609 ], [ %.30606, %344 ]
   %360 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %361 = load i8, ptr %360, align 8, !tbaa !685, !range !180, !noundef !181
+  %361 = load i8, ptr %360, align 8, !tbaa !685, !range !181, !noundef !182
   %362 = trunc nuw i8 %361 to i1
   %363 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %364 = load i32, ptr %363, align 8
+  %364 = load i32, ptr %363, align 8, !tbaa !684
   %365 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %366 = load i32, ptr %365, align 4, !tbaa !686
   br i1 %362, label %367, label %377
@@ -54407,7 +54407,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
 387:                                              ; preds = %254, %244, %._crit_edge, %._crit_edge592
   %.16447 = phi ptr [ %.11442, %244 ], [ %.15446.lcssa, %._crit_edge592 ], [ %.19450.lcssa, %._crit_edge ], [ %spec.select, %254 ]
   %388 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  %389 = load i8, ptr %388, align 1, !tbaa !690, !range !180, !noundef !181
+  %389 = load i8, ptr %388, align 1, !tbaa !690, !range !181, !noundef !182
   %390 = trunc nuw i8 %389 to i1
   %391 = load i64, ptr %3, align 8, !tbaa !682
   br i1 %390, label %392, label %394
@@ -54442,7 +54442,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
   %400 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %401 = load i32, ptr %400, align 8, !tbaa !684
   %402 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %403 = load i8, ptr %402, align 8, !tbaa !685, !range !180, !noundef !181
+  %403 = load i8, ptr %402, align 8, !tbaa !685, !range !181, !noundef !182
   %404 = trunc nuw i8 %403 to i1
   %405 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %406 = load i32, ptr %405, align 4
@@ -54450,7 +54450,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
   %408 = select i1 %404, i32 %407, i32 %406
   %409 = add nsw i32 %408, %401
   %410 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  %411 = load i8, ptr %410, align 1, !tbaa !690, !range !180, !noundef !181
+  %411 = load i8, ptr %410, align 1, !tbaa !690, !range !181, !noundef !182
   %412 = trunc nuw i8 %411 to i1
   %413 = uitofp i64 %399 to double
   %414 = fneg double %413
@@ -54520,7 +54520,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %15, align 8, !tbaa !178
+  store i64 0, ptr %15, align 8, !tbaa !179
   %16 = ptrtoint ptr %1 to i64
   %17 = sub i64 %8, %16
   %18 = icmp ugt i64 %17, 32
@@ -54718,13 +54718,13 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
 
 125:                                              ; preds = %123
   %126 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  %127 = load i8, ptr %126, align 1, !tbaa !690, !range !180, !noundef !181
+  %127 = load i8, ptr %126, align 1, !tbaa !690, !range !181, !noundef !182
   %128 = trunc nuw i8 %127 to i1
   br i1 %128, label %129, label %137
 
 129:                                              ; preds = %125
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 261
-  %131 = load i8, ptr %130, align 1, !tbaa !667, !range !180, !noundef !181
+  %131 = load i8, ptr %130, align 1, !tbaa !667, !range !181, !noundef !182
   %132 = trunc nuw i8 %131 to i1
   br i1 %132, label %133, label %137
 
@@ -54758,7 +54758,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
   %.7494 = phi ptr [ %120, %.thread554 ], [ %1, %106 ]
   %.7494711 = ptrtoint ptr %.7494 to i64
   %145 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  %146 = load i8, ptr %145, align 1, !tbaa !690, !range !180, !noundef !181
+  %146 = load i8, ptr %145, align 1, !tbaa !690, !range !181, !noundef !182
   %147 = trunc nuw i8 %146 to i1
   %.promoted643 = load i64, ptr %3, align 8, !tbaa !682
   %148 = icmp ult ptr %.7494, %7
@@ -54785,7 +54785,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
   %.15502.lcssa = phi ptr [ %.7494, %.preheader ], [ %scevgep712, %171 ]
   store i64 %.lcssa644, ptr %3, align 8, !tbaa !682
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %152 = load i8, ptr %151, align 8, !tbaa !175, !range !180, !noundef !181
+  %152 = load i8, ptr %151, align 8, !tbaa !176, !range !181, !noundef !182
   %153 = trunc nuw i8 %152 to i1
   br i1 %153, label %154, label %445, !prof !245
 
@@ -54829,7 +54829,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
   %.19506.lcssa = phi ptr [ %.7494, %.preheader609 ], [ %scevgep, %195 ]
   store i64 %.lcssa638, ptr %3, align 8, !tbaa !682
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %176 = load i8, ptr %175, align 8, !tbaa !175, !range !180, !noundef !181
+  %176 = load i8, ptr %175, align 8, !tbaa !176, !range !181, !noundef !182
   %177 = trunc nuw i8 %176 to i1
   br i1 %177, label %178, label %445, !prof !245
 
@@ -54897,7 +54897,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
 ._crit_edge654:                                   ; preds = %232, %.thread533
   %.21.lcssa = phi ptr [ %.8495, %.thread533 ], [ %scevgep716, %232 ]
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %208 = load i8, ptr %207, align 8, !tbaa !175, !range !180, !noundef !181
+  %208 = load i8, ptr %207, align 8, !tbaa !176, !range !181, !noundef !182
   %209 = trunc nuw i8 %208 to i1
   br i1 %209, label %210, label %.thread522, !prof !245
 
@@ -54992,7 +54992,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
 ._crit_edge661:                                   ; preds = %269, %.thread537
   %.24.lcssa = phi ptr [ %.10497, %.thread537 ], [ %scevgep719, %269 ]
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %253 = load i8, ptr %252, align 8, !tbaa !175, !range !180, !noundef !181
+  %253 = load i8, ptr %252, align 8, !tbaa !176, !range !181, !noundef !182
   %254 = trunc nuw i8 %253 to i1
   br i1 %254, label %255, label %.thread522, !prof !245
 
@@ -55039,7 +55039,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
 
 272:                                              ; preds = %.thread539
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %274 = load i8, ptr %273, align 8, !tbaa !175, !range !180, !noundef !181
+  %274 = load i8, ptr %273, align 8, !tbaa !176, !range !181, !noundef !182
   %275 = trunc nuw i8 %274 to i1
   br i1 %275, label %276, label %445, !prof !245
 
@@ -55075,7 +55075,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
 
 291:                                              ; preds = %.thread541
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %293 = load i8, ptr %292, align 8, !tbaa !175, !range !180, !noundef !181
+  %293 = load i8, ptr %292, align 8, !tbaa !176, !range !181, !noundef !182
   %294 = trunc nuw i8 %293 to i1
   br i1 %294, label %295, label %302, !prof !245
 
@@ -55119,7 +55119,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
 
 315:                                              ; preds = %311
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %317 = load i8, ptr %316, align 8, !tbaa !175, !range !180, !noundef !181
+  %317 = load i8, ptr %316, align 8, !tbaa !176, !range !181, !noundef !182
   %318 = trunc nuw i8 %317 to i1
   br i1 %318, label %319, label %.thread522, !prof !245
 
@@ -55220,7 +55220,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
 
 365:                                              ; preds = %.thread547
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %367 = load i8, ptr %366, align 8, !tbaa !175, !range !180, !noundef !181
+  %367 = load i8, ptr %366, align 8, !tbaa !176, !range !181, !noundef !182
   %368 = trunc nuw i8 %367 to i1
   br i1 %368, label %369, label %376, !prof !245
 
@@ -55271,7 +55271,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
 ._crit_edge666:                                   ; preds = %416, %388
   %.30.lcssa = phi ptr [ %.13500, %388 ], [ %417, %416 ]
   %392 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %393 = load i8, ptr %392, align 8, !tbaa !175, !range !180, !noundef !181
+  %393 = load i8, ptr %392, align 8, !tbaa !176, !range !181, !noundef !182
   %394 = trunc nuw i8 %393 to i1
   br i1 %394, label %395, label %.thread602, !prof !245
 
@@ -55318,10 +55318,10 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
 .thread602:                                       ; preds = %402, %._crit_edge666
   %.30613 = phi ptr [ %.30.lcssa, %._crit_edge666 ], [ %.30663, %402 ]
   %418 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %419 = load i8, ptr %418, align 8, !tbaa !685, !range !180, !noundef !181
+  %419 = load i8, ptr %418, align 8, !tbaa !685, !range !181, !noundef !182
   %420 = trunc nuw i8 %419 to i1
   %421 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %422 = load i32, ptr %421, align 8
+  %422 = load i32, ptr %421, align 8, !tbaa !684
   %423 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %424 = load i32, ptr %423, align 4, !tbaa !686
   br i1 %420, label %425, label %435
@@ -55365,7 +55365,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
 445:                                              ; preds = %287, %272, %._crit_edge, %._crit_edge649
   %.16503 = phi ptr [ %.11498, %272 ], [ %.15502.lcssa, %._crit_edge649 ], [ %.19506.lcssa, %._crit_edge ], [ %spec.select, %287 ]
   %446 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  %447 = load i8, ptr %446, align 1, !tbaa !690, !range !180, !noundef !181
+  %447 = load i8, ptr %446, align 1, !tbaa !690, !range !181, !noundef !182
   %448 = trunc nuw i8 %447 to i1
   %449 = load i64, ptr %3, align 8, !tbaa !682
   br i1 %448, label %450, label %452
@@ -55401,14 +55401,14 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
   %458 = ptrtoint ptr %1 to i64
   %459 = sub i64 %457, %458
   %460 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %461 = load i64, ptr %460, align 8, !tbaa !178
+  %461 = load i64, ptr %460, align 8, !tbaa !179
   %.not182 = icmp eq i64 %461, 0
   br i1 %.not182, label %466, label %462, !prof !244
 
 462:                                              ; preds = %.thread522
   %463 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %464 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %463, ptr noundef %1, i64 noundef %459)
-  %465 = load i64, ptr %460, align 8, !tbaa !178
+  %465 = load i64, ptr %460, align 8, !tbaa !179
   br label %466
 
 466:                                              ; preds = %462, %.thread522
@@ -55444,7 +55444,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 0, ptr %14, align 8, !tbaa !178
+  store i64 0, ptr %14, align 8, !tbaa !179
   %15 = ptrtoint ptr %1 to i64
   %16 = sub i64 %7, %15
   %17 = icmp ugt i64 %16, 32
@@ -55551,13 +55551,13 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 64:                                               ; preds = %62
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  %66 = load i8, ptr %65, align 1, !tbaa !690, !range !180, !noundef !181
+  %66 = load i8, ptr %65, align 1, !tbaa !690, !range !181, !noundef !182
   %67 = trunc nuw i8 %66 to i1
   br i1 %67, label %68, label %76
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 261
-  %70 = load i8, ptr %69, align 1, !tbaa !667, !range !180, !noundef !181
+  %70 = load i8, ptr %69, align 1, !tbaa !667, !range !181, !noundef !182
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %72, label %76
 
@@ -55590,7 +55590,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %.6424 = phi ptr [ %59, %.thread482 ], [ %1, %45 ]
   %.6424624 = ptrtoint ptr %.6424 to i64
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  %83 = load i8, ptr %82, align 1, !tbaa !690, !range !180, !noundef !181
+  %83 = load i8, ptr %82, align 1, !tbaa !690, !range !181, !noundef !182
   %84 = trunc nuw i8 %83 to i1
   %85 = load i64, ptr %3, align 8
   %.fr = freeze i64 %85
@@ -55690,7 +55690,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 .split569.us:                                     ; preds = %114, %.preheader.split.split, %.preheader.split.split.us, %.preheader.split.us
   %.us-phi570 = phi ptr [ %.6424, %.preheader.split.us ], [ %.6424, %.preheader.split.split.us ], [ %.14432, %.preheader.split.split ], [ %scevgep625, %114 ]
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %118 = load i8, ptr %117, align 8, !tbaa !175, !range !180, !noundef !181
+  %118 = load i8, ptr %117, align 8, !tbaa !176, !range !181, !noundef !182
   %119 = trunc nuw i8 %118 to i1
   br i1 %119, label %120, label %323, !prof !245
 
@@ -55717,7 +55717,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 .split.us:                                        ; preds = %99, %.preheader543.split.split, %.preheader543.split.split.us, %.preheader543.split.us
   %.us-phi = phi ptr [ %.6424, %.preheader543.split.us ], [ %.6424, %.preheader543.split.split.us ], [ %.18, %.preheader543.split.split ], [ %scevgep, %99 ]
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %131 = load i8, ptr %130, align 8, !tbaa !175, !range !180, !noundef !181
+  %131 = load i8, ptr %130, align 8, !tbaa !176, !range !181, !noundef !182
   %132 = trunc nuw i8 %131 to i1
   br i1 %132, label %133, label %323, !prof !245
 
@@ -55763,7 +55763,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 ._crit_edge:                                      ; preds = %170, %.thread461
   %.20.lcssa = phi ptr [ %.7425, %.thread461 ], [ %scevgep629, %170 ]
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %151 = load i8, ptr %150, align 8, !tbaa !175, !range !180, !noundef !181
+  %151 = load i8, ptr %150, align 8, !tbaa !176, !range !181, !noundef !182
   %152 = trunc nuw i8 %151 to i1
   br i1 %152, label %153, label %.thread450, !prof !245
 
@@ -55848,7 +55848,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 ._crit_edge588:                                   ; preds = %197, %.thread465
   %.23.lcssa = phi ptr [ %.9427, %.thread465 ], [ %scevgep632, %197 ]
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %186 = load i8, ptr %185, align 8, !tbaa !175, !range !180, !noundef !181
+  %186 = load i8, ptr %185, align 8, !tbaa !176, !range !181, !noundef !182
   %187 = trunc nuw i8 %186 to i1
   br i1 %187, label %188, label %.thread450, !prof !245
 
@@ -55884,7 +55884,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 200:                                              ; preds = %.thread467
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %202 = load i8, ptr %201, align 8, !tbaa !175, !range !180, !noundef !181
+  %202 = load i8, ptr %201, align 8, !tbaa !176, !range !181, !noundef !182
   %203 = trunc nuw i8 %202 to i1
   br i1 %203, label %204, label %323, !prof !245
 
@@ -55915,7 +55915,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 214:                                              ; preds = %.thread469
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %216 = load i8, ptr %215, align 8, !tbaa !175, !range !180, !noundef !181
+  %216 = load i8, ptr %215, align 8, !tbaa !176, !range !181, !noundef !182
   %217 = trunc nuw i8 %216 to i1
   br i1 %217, label %218, label %220, !prof !245
 
@@ -55944,7 +55944,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 229:                                              ; preds = %.thread442
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %231 = load i8, ptr %230, align 8, !tbaa !175, !range !180, !noundef !181
+  %231 = load i8, ptr %230, align 8, !tbaa !176, !range !181, !noundef !182
   %232 = trunc nuw i8 %231 to i1
   br i1 %232, label %233, label %.thread450, !prof !245
 
@@ -56004,7 +56004,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 255:                                              ; preds = %.thread475
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %257 = load i8, ptr %256, align 8, !tbaa !175, !range !180, !noundef !181
+  %257 = load i8, ptr %256, align 8, !tbaa !176, !range !181, !noundef !182
   %258 = trunc nuw i8 %257 to i1
   br i1 %258, label %259, label %261, !prof !245
 
@@ -56050,7 +56050,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 ._crit_edge593:                                   ; preds = %293, %273
   %.29.lcssa = phi ptr [ %.12430, %273 ], [ %scevgep635, %293 ]
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %278 = load i8, ptr %277, align 8, !tbaa !175, !range !180, !noundef !181
+  %278 = load i8, ptr %277, align 8, !tbaa !176, !range !181, !noundef !182
   %279 = trunc nuw i8 %278 to i1
   br i1 %279, label %280, label %.thread538, !prof !245
 
@@ -56089,10 +56089,10 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 .thread538:                                       ; preds = %282, %._crit_edge593
   %.29547 = phi ptr [ %.29.lcssa, %._crit_edge593 ], [ %.29590, %282 ]
   %296 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %297 = load i8, ptr %296, align 8, !tbaa !685, !range !180, !noundef !181
+  %297 = load i8, ptr %296, align 8, !tbaa !685, !range !181, !noundef !182
   %298 = trunc nuw i8 %297 to i1
   %299 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %300 = load i32, ptr %299, align 8
+  %300 = load i32, ptr %299, align 8, !tbaa !684
   %301 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %302 = load i32, ptr %301, align 4, !tbaa !686
   br i1 %298, label %303, label %313
@@ -56136,7 +56136,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 323:                                              ; preds = %210, %200, %.split.us, %.split569.us
   %.15433 = phi ptr [ %.10428, %200 ], [ %.us-phi570, %.split569.us ], [ %.us-phi, %.split.us ], [ %spec.select, %210 ]
   %324 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  %325 = load i8, ptr %324, align 1, !tbaa !690, !range !180, !noundef !181
+  %325 = load i8, ptr %324, align 1, !tbaa !690, !range !181, !noundef !182
   %326 = trunc nuw i8 %325 to i1
   %327 = load i64, ptr %3, align 8, !tbaa !682
   br i1 %326, label %328, label %330
@@ -59673,7 +59673,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float10digit_compIdcEENS4_17adjusted
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #48
   %.fca.0.extract = extractvalue { i64, i32 } %.pn.i132, 0
   %.fca.1.extract = extractvalue { i64, i32 } %.pn.i132, 1
-  %.pre = load i8, ptr %16, align 8, !tbaa !717, !range !180
+  %.pre = load i8, ptr %16, align 8, !tbaa !717, !range !181
   %.pre280 = load i64, ptr %202, align 8, !tbaa !731
   br label %.thread183
 
@@ -59909,817 +59909,829 @@ _ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit:
 
 .preheader279.lr.ph:                              ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %.promoted479 = load i16, ptr %20, align 8, !tbaa !743
   br label %.preheader279
 
 .preheader279:                                    ; preds = %.preheader279.lr.ph, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit122
+  %21 = phi i16 [ %.promoted479, %.preheader279.lr.ph ], [ %184, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit122 ]
   %.0332 = phi ptr [ %.8302, %.preheader279.lr.ph ], [ %.2.lcssa, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit122 ]
-  %.promoted = load i64, ptr %3, align 8
-  %21 = ptrtoint ptr %.0332 to i64
-  %22 = sub i64 %10, %21
-  %23 = icmp sgt i64 %22, 7
-  br i1 %23, label %.lr.ph311, label %.critedge
+  %.promoted = load i64, ptr %3, align 8, !tbaa !11
+  %22 = ptrtoint ptr %.0332 to i64
+  %23 = sub i64 %10, %22
+  %24 = icmp sgt i64 %23, 7
+  br i1 %24, label %.lr.ph311, label %.critedge
 
-.lr.ph311:                                        ; preds = %.preheader279, %28
-  %.1310 = phi ptr [ %43, %28 ], [ %.0332, %.preheader279 ]
-  %.1243309 = phi i64 [ %42, %28 ], [ 0, %.preheader279 ]
-  %24 = phi i1 [ false, %28 ], [ true, %.preheader279 ]
-  %.1250308 = phi i64 [ 8, %28 ], [ 0, %.preheader279 ]
-  %25 = phi i64 [ %44, %28 ], [ %.promoted, %.preheader279 ]
-  %26 = sub i64 %2, %25
-  %27 = icmp ugt i64 %26, 7
-  br i1 %27, label %28, label %.critedge
+.lr.ph311:                                        ; preds = %.preheader279, %29
+  %.1310 = phi ptr [ %44, %29 ], [ %.0332, %.preheader279 ]
+  %.1243309 = phi i64 [ %43, %29 ], [ 0, %.preheader279 ]
+  %25 = phi i1 [ false, %29 ], [ true, %.preheader279 ]
+  %.1250308 = phi i64 [ 8, %29 ], [ 0, %.preheader279 ]
+  %26 = phi i64 [ %45, %29 ], [ %.promoted, %.preheader279 ]
+  %27 = sub i64 %2, %26
+  %28 = icmp ugt i64 %27, 7
+  br i1 %28, label %29, label %.critedge
 
-28:                                               ; preds = %.lr.ph311
-  %29 = mul i64 %.1243309, 100000000
-  %30 = load i64, ptr %.1310, align 1
-  %31 = add i64 %30, -3472328296227680304
-  %32 = mul i64 %31, 10
-  %33 = lshr i64 %31, 8
-  %34 = add i64 %32, %33
-  %35 = and i64 %34, 1095216660735
-  %36 = mul i64 %35, 4294967296000100
-  %37 = lshr i64 %34, 16
-  %38 = and i64 %37, 1095216660735
-  %39 = mul i64 %38, 42949672960001
-  %40 = add i64 %39, %36
-  %41 = lshr i64 %40, 32
-  %42 = add i64 %41, %29
-  %43 = getelementptr inbounds i8, ptr %.1310, i64 8
-  %44 = add i64 %25, 8
-  store i64 %44, ptr %3, align 8, !tbaa !11
-  %45 = ptrtoint ptr %43 to i64
-  %46 = sub i64 %10, %45
-  %47 = icmp sgt i64 %46, 7
-  %or.cond259 = and i1 %47, %24
-  br i1 %or.cond259, label %.lr.ph311, label %.critedge.loopexit.split.loop.exit, !llvm.loop !743
+29:                                               ; preds = %.lr.ph311
+  %30 = mul i64 %.1243309, 100000000
+  %31 = load i64, ptr %.1310, align 1
+  %32 = add i64 %31, -3472328296227680304
+  %33 = mul i64 %32, 10
+  %34 = lshr i64 %32, 8
+  %35 = add i64 %33, %34
+  %36 = and i64 %35, 1095216660735
+  %37 = mul i64 %36, 4294967296000100
+  %38 = lshr i64 %35, 16
+  %39 = and i64 %38, 1095216660735
+  %40 = mul i64 %39, 42949672960001
+  %41 = add i64 %40, %37
+  %42 = lshr i64 %41, 32
+  %43 = add i64 %42, %30
+  %44 = getelementptr inbounds i8, ptr %.1310, i64 8
+  %45 = add i64 %26, 8
+  store i64 %45, ptr %3, align 8, !tbaa !11
+  %46 = ptrtoint ptr %44 to i64
+  %47 = sub i64 %10, %46
+  %48 = icmp sgt i64 %47, 7
+  %or.cond259 = and i1 %48, %25
+  br i1 %or.cond259, label %.lr.ph311, label %.critedge.loopexit.split.loop.exit, !llvm.loop !745
 
-.critedge.loopexit.split.loop.exit:               ; preds = %28
-  %48 = add nuw nsw i64 %.1250308, 8
+.critedge.loopexit.split.loop.exit:               ; preds = %29
+  %49 = add nuw nsw i64 %.1250308, 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph311, %.critedge.loopexit.split.loop.exit, %.preheader279
-  %.promoted319 = phi i64 [ %.promoted, %.preheader279 ], [ %44, %.critedge.loopexit.split.loop.exit ], [ %25, %.lr.ph311 ]
-  %.1250.lcssa = phi i64 [ 0, %.preheader279 ], [ %48, %.critedge.loopexit.split.loop.exit ], [ %.1250308, %.lr.ph311 ]
-  %.1243.lcssa = phi i64 [ 0, %.preheader279 ], [ %42, %.critedge.loopexit.split.loop.exit ], [ %.1243309, %.lr.ph311 ]
-  %.1.lcssa = phi ptr [ %.0332, %.preheader279 ], [ %43, %.critedge.loopexit.split.loop.exit ], [ %.1310, %.lr.ph311 ]
+  %.promoted319 = phi i64 [ %.promoted, %.preheader279 ], [ %45, %.critedge.loopexit.split.loop.exit ], [ %26, %.lr.ph311 ]
+  %.1250.lcssa = phi i64 [ 0, %.preheader279 ], [ %49, %.critedge.loopexit.split.loop.exit ], [ %.1250308, %.lr.ph311 ]
+  %.1243.lcssa = phi i64 [ 0, %.preheader279 ], [ %43, %.critedge.loopexit.split.loop.exit ], [ %.1243309, %.lr.ph311 ]
+  %.1.lcssa = phi ptr [ %.0332, %.preheader279 ], [ %44, %.critedge.loopexit.split.loop.exit ], [ %.1310, %.lr.ph311 ]
   %.not60320 = icmp ne ptr %.1.lcssa, %9
-  %49 = icmp ult i64 %.promoted319, %2
-  %or.cond63322 = select i1 %.not60320, i1 %49, i1 false
+  %50 = icmp ult i64 %.promoted319, %2
+  %or.cond63322 = select i1 %.not60320, i1 %50, i1 false
   br i1 %or.cond63322, label %.lr.ph326, label %.critedge2
 
 .lr.ph326:                                        ; preds = %.critedge, %.lr.ph326
-  %.2325 = phi ptr [ %56, %.lr.ph326 ], [ %.1.lcssa, %.critedge ]
-  %.2244324 = phi i64 [ %55, %.lr.ph326 ], [ %.1243.lcssa, %.critedge ]
-  %.2251323 = phi i64 [ %57, %.lr.ph326 ], [ %.1250.lcssa, %.critedge ]
-  %50 = phi i64 [ %58, %.lr.ph326 ], [ %.promoted319, %.critedge ]
-  %51 = mul i64 %.2244324, 10
-  %52 = load i8, ptr %.2325, align 1, !tbaa !15
-  %53 = sext i8 %52 to i64
-  %54 = add i64 %51, -48
-  %55 = add i64 %54, %53
-  %56 = getelementptr inbounds nuw i8, ptr %.2325, i64 1
-  %57 = add nuw nsw i64 %.2251323, 1
-  %58 = add nuw i64 %50, 1
-  store i64 %58, ptr %3, align 8, !tbaa !11
-  %59 = icmp samesign ult i64 %.2251323, 18
-  %.not60 = icmp ne ptr %56, %9
-  %or.cond.not268 = select i1 %59, i1 %.not60, i1 false
-  %60 = icmp ult i64 %58, %2
-  %or.cond63 = select i1 %or.cond.not268, i1 %60, i1 false
-  br i1 %or.cond63, label %.lr.ph326, label %.critedge2, !llvm.loop !744
+  %.2325 = phi ptr [ %57, %.lr.ph326 ], [ %.1.lcssa, %.critedge ]
+  %.2244324 = phi i64 [ %56, %.lr.ph326 ], [ %.1243.lcssa, %.critedge ]
+  %.2251323 = phi i64 [ %58, %.lr.ph326 ], [ %.1250.lcssa, %.critedge ]
+  %51 = phi i64 [ %59, %.lr.ph326 ], [ %.promoted319, %.critedge ]
+  %52 = mul i64 %.2244324, 10
+  %53 = load i8, ptr %.2325, align 1, !tbaa !15
+  %54 = sext i8 %53 to i64
+  %55 = add i64 %52, -48
+  %56 = add i64 %55, %54
+  %57 = getelementptr inbounds nuw i8, ptr %.2325, i64 1
+  %58 = add nuw nsw i64 %.2251323, 1
+  %59 = add nuw i64 %51, 1
+  store i64 %59, ptr %3, align 8, !tbaa !11
+  %60 = icmp samesign ult i64 %.2251323, 18
+  %.not60 = icmp ne ptr %57, %9
+  %or.cond.not268 = select i1 %60, i1 %.not60, i1 false
+  %61 = icmp ult i64 %59, %2
+  %or.cond63 = select i1 %or.cond.not268, i1 %61, i1 false
+  br i1 %or.cond63, label %.lr.ph326, label %.critedge2, !llvm.loop !746
 
 .critedge2:                                       ; preds = %.lr.ph326, %.critedge
-  %.2251.lcssa = phi i64 [ %.1250.lcssa, %.critedge ], [ %57, %.lr.ph326 ]
-  %.2244.lcssa = phi i64 [ %.1243.lcssa, %.critedge ], [ %55, %.lr.ph326 ]
-  %.2.lcssa = phi ptr [ %.1.lcssa, %.critedge ], [ %56, %.lr.ph326 ]
-  %.lcssa292 = phi i64 [ %.promoted319, %.critedge ], [ %58, %.lr.ph326 ]
-  %61 = icmp eq i64 %.lcssa292, %2
-  %62 = load i16, ptr %20, align 8, !tbaa !745
-  %63 = zext i16 %62 to i64
-  %.not19.i.i = icmp eq i16 %62, 0
-  br i1 %61, label %64, label %150
+  %.2251.lcssa = phi i64 [ %.1250.lcssa, %.critedge ], [ %58, %.lr.ph326 ]
+  %.2244.lcssa = phi i64 [ %.1243.lcssa, %.critedge ], [ %56, %.lr.ph326 ]
+  %.2.lcssa = phi ptr [ %.1.lcssa, %.critedge ], [ %57, %.lr.ph326 ]
+  %.lcssa292 = phi i64 [ %.promoted319, %.critedge ], [ %59, %.lr.ph326 ]
+  %62 = icmp eq i64 %.lcssa292, %2
+  br i1 %62, label %63, label %151
 
-64:                                               ; preds = %.critedge2
+63:                                               ; preds = %.critedge2
+  %64 = load i16, ptr %20, align 8, !tbaa !743
+  %65 = zext i16 %64 to i64
+  %.not19.i.i = icmp eq i16 %64, 0
   br i1 %.not19.i.i, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %64
-  %65 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5boost4json6detail8charconv6detail10fast_floatL20powers_of_ten_uint64E, i64 0, i64 %.2251.lcssa
-  %66 = load i64, ptr %65, align 8, !tbaa !11
-  %67 = zext i64 %66 to i128
-  br label %69
+.lr.ph.i.i:                                       ; preds = %63
+  %66 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5boost4json6detail8charconv6detail10fast_floatL20powers_of_ten_uint64E, i64 0, i64 %.2251.lcssa
+  %67 = load i64, ptr %66, align 8, !tbaa !11
+  %68 = zext i64 %67 to i128
+  br label %70
 
-._crit_edge.i.i:                                  ; preds = %69
-  %.not.i.i82 = icmp ne i64 %77, 0
-  %68 = icmp ult i16 %62, 62
-  %or.cond260 = and i1 %68, %.not.i.i82
+._crit_edge.i.i:                                  ; preds = %70
+  %.not.i.i82 = icmp ne i64 %78, 0
+  %69 = icmp ult i16 %64, 62
+  %or.cond260 = and i1 %69, %.not.i.i82
   br i1 %or.cond260, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit
 
-69:                                               ; preds = %69, %.lr.ph.i.i
-  %.016.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %79, %69 ]
-  %.01215.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %77, %69 ]
-  %70 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.016.i.i
-  %71 = load i64, ptr %70, align 8, !tbaa !11
-  %72 = zext i64 %71 to i128
-  %73 = mul nuw i128 %72, %67
-  %74 = zext i64 %.01215.i.i to i128
-  %75 = add nuw i128 %73, %74
-  %76 = lshr i128 %75, 64
-  %77 = trunc nuw i128 %76 to i64
-  %78 = trunc i128 %75 to i64
-  store i64 %78, ptr %70, align 8, !tbaa !11
-  %79 = add nuw nsw i64 %.016.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %79, %63
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %69, !llvm.loop !747
+70:                                               ; preds = %70, %.lr.ph.i.i
+  %.016.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %80, %70 ]
+  %.01215.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %78, %70 ]
+  %71 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.016.i.i
+  %72 = load i64, ptr %71, align 8, !tbaa !11
+  %73 = zext i64 %72 to i128
+  %74 = mul nuw i128 %73, %68
+  %75 = zext i64 %.01215.i.i to i128
+  %76 = add nuw i128 %74, %75
+  %77 = lshr i128 %76, 64
+  %78 = trunc nuw i128 %77 to i64
+  %79 = trunc i128 %76 to i64
+  store i64 %79, ptr %71, align 8, !tbaa !11
+  %80 = add nuw nsw i64 %.016.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %80, %65
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %70, !llvm.loop !747
 
 _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i: ; preds = %._crit_edge.i.i
-  %80 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %63
-  store i64 %77, ptr %80, align 8, !tbaa !11
-  %81 = add nuw nsw i16 %62, 1
-  store i16 %81, ptr %20, align 8, !tbaa !745
+  %81 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %65
+  store i64 %78, ptr %81, align 8, !tbaa !11
+  %82 = add nuw nsw i16 %64, 1
+  store i16 %82, ptr %20, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit
 
-_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit: ; preds = %64, %._crit_edge.i.i, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i
-  %82 = phi i16 [ 0, %64 ], [ %62, %._crit_edge.i.i ], [ %81, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i ]
+_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit: ; preds = %63, %._crit_edge.i.i, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i
+  %83 = phi i16 [ 0, %63 ], [ %64, %._crit_edge.i.i ], [ %82, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i ]
   %.not20.i.i = icmp eq i64 %.2244.lcssa, 0
   br i1 %.not20.i.i, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit, label %.lr.ph.i.i84
 
 .lr.ph.i.i84:                                     ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit
-  %83 = zext i16 %82 to i64
-  br label %84
+  %84 = zext i16 %83 to i64
+  br label %85
 
-84:                                               ; preds = %85, %.lr.ph.i.i84
-  %.022.i.i = phi i64 [ %.2244.lcssa, %.lr.ph.i.i84 ], [ 1, %85 ]
-  %.01421.i.i = phi i64 [ 0, %.lr.ph.i.i84 ], [ %91, %85 ]
-  %exitcond.not.i = icmp eq i64 %.01421.i.i, %83
-  br i1 %exitcond.not.i, label %.critedge.i.i, label %85
+85:                                               ; preds = %86, %.lr.ph.i.i84
+  %.022.i.i = phi i64 [ %.2244.lcssa, %.lr.ph.i.i84 ], [ 1, %86 ]
+  %.01421.i.i = phi i64 [ 0, %.lr.ph.i.i84 ], [ %92, %86 ]
+  %exitcond.not.i = icmp eq i64 %.01421.i.i, %84
+  br i1 %exitcond.not.i, label %.critedge.i.i, label %86
 
-85:                                               ; preds = %84
-  %86 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.01421.i.i
-  %87 = load i64, ptr %86, align 8, !tbaa !11
-  %88 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %87, i64 %.022.i.i)
-  %89 = extractvalue { i64, i1 } %88, 1
-  %90 = extractvalue { i64, i1 } %88, 0
-  store i64 %90, ptr %86, align 8, !tbaa !11
-  %91 = add nuw nsw i64 %.01421.i.i, 1
-  br i1 %89, label %84, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit, !llvm.loop !748
+86:                                               ; preds = %85
+  %87 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.01421.i.i
+  %88 = load i64, ptr %87, align 8, !tbaa !11
+  %89 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %88, i64 %.022.i.i)
+  %90 = extractvalue { i64, i1 } %89, 1
+  %91 = extractvalue { i64, i1 } %89, 0
+  store i64 %91, ptr %87, align 8, !tbaa !11
+  %92 = add nuw nsw i64 %.01421.i.i, 1
+  br i1 %90, label %85, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit, !llvm.loop !748
 
-.critedge.i.i:                                    ; preds = %84
-  %92 = icmp ult i16 %82, 62
-  br i1 %92, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i85, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit
+.critedge.i.i:                                    ; preds = %85
+  %93 = icmp ult i16 %83, 62
+  br i1 %93, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i85, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit
 
 _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i85: ; preds = %.critedge.i.i
-  %93 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %83
-  store i64 %.022.i.i, ptr %93, align 8, !tbaa !11
-  %94 = add nuw nsw i16 %82, 1
-  store i16 %94, ptr %20, align 8, !tbaa !745
+  %94 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %84
+  store i64 %.022.i.i, ptr %94, align 8, !tbaa !11
+  %95 = add nuw nsw i16 %83, 1
+  store i16 %95, ptr %20, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit
 
-_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit: ; preds = %85, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit, %.critedge.i.i, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i85
-  %.pr = phi i16 [ %82, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit ], [ %82, %.critedge.i.i ], [ %94, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i85 ], [ %82, %85 ]
-  %95 = ptrtoint ptr %.2.lcssa to i64
-  %96 = sub i64 %10, %95
-  %97 = icmp sgt i64 %96, 7
-  br i1 %97, label %.lr.ph335, label %.preheader277
+_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit: ; preds = %86, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit, %.critedge.i.i, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i85
+  %.pr = phi i16 [ %83, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit ], [ %83, %.critedge.i.i ], [ %95, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i85 ], [ %83, %86 ]
+  %96 = ptrtoint ptr %.2.lcssa to i64
+  %97 = sub i64 %10, %96
+  %98 = icmp sgt i64 %97, 7
+  br i1 %98, label %.lr.ph335, label %.preheader277
 
-.preheader277:                                    ; preds = %98, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit
-  %.09.i.lcssa = phi ptr [ %.2.lcssa, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit ], [ %99, %98 ]
+.preheader277:                                    ; preds = %99, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit
+  %.09.i.lcssa = phi ptr [ %.2.lcssa, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit ], [ %100, %99 ]
   %.not.i72337 = icmp eq ptr %.09.i.lcssa, %9
   br i1 %.not.i72337, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit.thread, label %.lr.ph339
 
-.lr.ph335:                                        ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit, %98
-  %.09.i334 = phi ptr [ %99, %98 ], [ %.2.lcssa, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit ]
+.lr.ph335:                                        ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit, %99
+  %.09.i334 = phi ptr [ %100, %99 ], [ %.2.lcssa, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit ]
   %.0.copyload.i73 = load i64, ptr %.09.i334, align 1
   %.not11.i = icmp eq i64 %.0.copyload.i73, 3472328296227680304
-  br i1 %.not11.i, label %98, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit
+  br i1 %.not11.i, label %99, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit
 
-98:                                               ; preds = %.lr.ph335
-  %99 = getelementptr inbounds i8, ptr %.09.i334, i64 8
-  %100 = ptrtoint ptr %99 to i64
-  %101 = sub i64 %10, %100
-  %102 = icmp sgt i64 %101, 7
-  br i1 %102, label %.lr.ph335, label %.preheader277, !llvm.loop !749
+99:                                               ; preds = %.lr.ph335
+  %100 = getelementptr inbounds i8, ptr %.09.i334, i64 8
+  %101 = ptrtoint ptr %100 to i64
+  %102 = sub i64 %10, %101
+  %103 = icmp sgt i64 %102, 7
+  br i1 %103, label %.lr.ph335, label %.preheader277, !llvm.loop !749
 
 .lr.ph339:                                        ; preds = %.preheader277, %.lr.ph339
-  %.1.i338 = phi ptr [ %104, %.lr.ph339 ], [ %.09.i.lcssa, %.preheader277 ]
-  %103 = load i8, ptr %.1.i338, align 1, !tbaa !15
-  %.not10.i.not = icmp ne i8 %103, 48
-  %104 = getelementptr inbounds nuw i8, ptr %.1.i338, i64 1
-  %.not.i72 = icmp eq ptr %104, %9
+  %.1.i338 = phi ptr [ %105, %.lr.ph339 ], [ %.09.i.lcssa, %.preheader277 ]
+  %104 = load i8, ptr %.1.i338, align 1, !tbaa !15
+  %.not10.i.not = icmp ne i8 %104, 48
+  %105 = getelementptr inbounds nuw i8, ptr %.1.i338, i64 1
+  %.not.i72 = icmp eq ptr %105, %9
   %or.cond = select i1 %.not10.i.not, i1 true, i1 %.not.i72
   br i1 %or.cond, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit, label %.lr.ph339, !llvm.loop !750
 
 _ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit: ; preds = %.lr.ph335, %.lr.ph339
   %.0.i = phi i1 [ %.not10.i.not, %.lr.ph339 ], [ true, %.lr.ph335 ]
-  %105 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %106 = load ptr, ptr %105, align 8, !tbaa !42
-  %.not61 = icmp eq ptr %106, null
-  br i1 %.not61, label %122, label %109
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %107 = load ptr, ptr %106, align 8, !tbaa !751
+  %.not61 = icmp eq ptr %107, null
+  br i1 %.not61, label %123, label %110
 
 _ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit.thread: ; preds = %.preheader277
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %108 = load ptr, ptr %107, align 8, !tbaa !42
-  %.not61434 = icmp eq ptr %108, null
-  br i1 %.not61434, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %109
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %109 = load ptr, ptr %108, align 8, !tbaa !751
+  %.not61434 = icmp eq ptr %109, null
+  br i1 %.not61434, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %110
 
-109:                                              ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit.thread, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit
-  %110 = phi ptr [ %108, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit.thread ], [ %106, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit ]
+110:                                              ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit.thread, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit
+  %111 = phi ptr [ %109, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit.thread ], [ %107, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit ]
   %.0.i436 = phi i1 [ false, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit.thread ], [ %.0.i, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit ]
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 56
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !11
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %.sroa.2.0.copyload
-  %112 = ptrtoint ptr %111 to i64
-  %113 = icmp sgt i64 %.sroa.2.0.copyload, 7
-  br i1 %113, label %.lr.ph345, label %.preheader275
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 %.sroa.2.0.copyload
+  %113 = ptrtoint ptr %112 to i64
+  %114 = icmp sgt i64 %.sroa.2.0.copyload, 7
+  br i1 %114, label %.lr.ph345, label %.preheader275
 
-.preheader275:                                    ; preds = %114, %109
-  %.09.i.i.lcssa = phi ptr [ %110, %109 ], [ %115, %114 ]
-  %.not.i.i347 = icmp eq ptr %.09.i.i.lcssa, %111
+.preheader275:                                    ; preds = %115, %110
+  %.09.i.i.lcssa = phi ptr [ %111, %110 ], [ %116, %115 ]
+  %.not.i.i347 = icmp eq ptr %.09.i.i.lcssa, %112
   br i1 %.not.i.i347, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit, label %.lr.ph349
 
-.lr.ph345:                                        ; preds = %109, %114
-  %.09.i.i343 = phi ptr [ %115, %114 ], [ %110, %109 ]
+.lr.ph345:                                        ; preds = %110, %115
+  %.09.i.i343 = phi ptr [ %116, %115 ], [ %111, %110 ]
   %.0.copyload.i.i = load i64, ptr %.09.i.i343, align 1
   %.not11.i.i = icmp eq i64 %.0.copyload.i.i, 3472328296227680304
-  br i1 %.not11.i.i, label %114, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread
+  br i1 %.not11.i.i, label %115, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread
 
-114:                                              ; preds = %.lr.ph345
-  %115 = getelementptr inbounds i8, ptr %.09.i.i343, i64 8
-  %116 = ptrtoint ptr %115 to i64
-  %117 = sub i64 %112, %116
-  %118 = icmp sgt i64 %117, 7
-  br i1 %118, label %.lr.ph345, label %.preheader275, !llvm.loop !749
+115:                                              ; preds = %.lr.ph345
+  %116 = getelementptr inbounds i8, ptr %.09.i.i343, i64 8
+  %117 = ptrtoint ptr %116 to i64
+  %118 = sub i64 %113, %117
+  %119 = icmp sgt i64 %118, 7
+  br i1 %119, label %.lr.ph345, label %.preheader275, !llvm.loop !749
 
-119:                                              ; preds = %.lr.ph349
-  %120 = getelementptr inbounds nuw i8, ptr %.1.i.i348, i64 1
-  %.not.i.i = icmp eq ptr %120, %111
+120:                                              ; preds = %.lr.ph349
+  %121 = getelementptr inbounds nuw i8, ptr %.1.i.i348, i64 1
+  %.not.i.i = icmp eq ptr %121, %112
   br i1 %.not.i.i, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit, label %.lr.ph349, !llvm.loop !750
 
-.lr.ph349:                                        ; preds = %.preheader275, %119
-  %.1.i.i348 = phi ptr [ %120, %119 ], [ %.09.i.i.lcssa, %.preheader275 ]
-  %121 = load i8, ptr %.1.i.i348, align 1, !tbaa !15
-  %.not10.i.i = icmp eq i8 %121, 48
-  br i1 %.not10.i.i, label %119, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread
+.lr.ph349:                                        ; preds = %.preheader275, %120
+  %.1.i.i348 = phi ptr [ %121, %120 ], [ %.09.i.i.lcssa, %.preheader275 ]
+  %122 = load i8, ptr %.1.i.i348, align 1, !tbaa !15
+  %.not10.i.i = icmp eq i8 %122, 48
+  br i1 %.not10.i.i, label %120, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread
 
-_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit: ; preds = %119, %.preheader275
+_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit: ; preds = %120, %.preheader275
   br i1 %.0.i436, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81
 
-122:                                              ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit
+123:                                              ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit
   br i1 %.0.i, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81
 
-_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread: ; preds = %.lr.ph345, %.lr.ph349, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit, %122
-  %123 = zext i16 %.pr to i64
+_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread: ; preds = %.lr.ph345, %.lr.ph349, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit, %123
+  %124 = zext i16 %.pr to i64
   %.not19.i.i86 = icmp eq i16 %.pr, 0
   br i1 %.not19.i.i86, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit95, label %.lr.ph.i.i87
 
 ._crit_edge.i.i91:                                ; preds = %.lr.ph.i.i87
-  %.not.i.i92 = icmp ne i64 %132, 0
-  %124 = icmp ult i16 %.pr, 62
-  %or.cond261 = and i1 %124, %.not.i.i92
+  %.not.i.i92 = icmp ne i64 %133, 0
+  %125 = icmp ult i16 %.pr, 62
+  %or.cond261 = and i1 %125, %.not.i.i92
   br i1 %or.cond261, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i94, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit95
 
 .lr.ph.i.i87:                                     ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread, %.lr.ph.i.i87
-  %.016.i.i88 = phi i64 [ %134, %.lr.ph.i.i87 ], [ 0, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread ]
-  %.01215.i.i89 = phi i64 [ %132, %.lr.ph.i.i87 ], [ 0, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread ]
-  %125 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.016.i.i88
-  %126 = load i64, ptr %125, align 8, !tbaa !11
-  %127 = zext i64 %126 to i128
-  %128 = mul nuw nsw i128 %127, 10
-  %129 = zext nneg i64 %.01215.i.i89 to i128
-  %130 = add nuw nsw i128 %128, %129
-  %131 = lshr i128 %130, 64
-  %132 = trunc nuw nsw i128 %131 to i64
-  %133 = trunc i128 %130 to i64
-  store i64 %133, ptr %125, align 8, !tbaa !11
-  %134 = add nuw nsw i64 %.016.i.i88, 1
-  %exitcond.not.i.i90 = icmp eq i64 %134, %123
+  %.016.i.i88 = phi i64 [ %135, %.lr.ph.i.i87 ], [ 0, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread ]
+  %.01215.i.i89 = phi i64 [ %133, %.lr.ph.i.i87 ], [ 0, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread ]
+  %126 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.016.i.i88
+  %127 = load i64, ptr %126, align 8, !tbaa !11
+  %128 = zext i64 %127 to i128
+  %129 = mul nuw nsw i128 %128, 10
+  %130 = zext nneg i64 %.01215.i.i89 to i128
+  %131 = add nuw nsw i128 %129, %130
+  %132 = lshr i128 %131, 64
+  %133 = trunc nuw nsw i128 %132 to i64
+  %134 = trunc i128 %131 to i64
+  store i64 %134, ptr %126, align 8, !tbaa !11
+  %135 = add nuw nsw i64 %.016.i.i88, 1
+  %exitcond.not.i.i90 = icmp eq i64 %135, %124
   br i1 %exitcond.not.i.i90, label %._crit_edge.i.i91, label %.lr.ph.i.i87, !llvm.loop !747
 
 _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i94: ; preds = %._crit_edge.i.i91
-  %135 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %123
-  store i64 %132, ptr %135, align 8, !tbaa !11
-  %136 = add nuw nsw i16 %.pr, 1
-  store i16 %136, ptr %20, align 8, !tbaa !745
+  %136 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %124
+  store i64 %133, ptr %136, align 8, !tbaa !11
+  %137 = add nuw nsw i16 %.pr, 1
+  store i16 %137, ptr %20, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit95
 
 _ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit95: ; preds = %._crit_edge.i.i91, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i94
-  %137 = phi i16 [ 0, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread ], [ %136, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i94 ], [ %.pr, %._crit_edge.i.i91 ]
-  %138 = zext i16 %137 to i64
-  br label %139
+  %138 = phi i16 [ 0, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit.thread ], [ %137, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i94 ], [ %.pr, %._crit_edge.i.i91 ]
+  %139 = zext i16 %138 to i64
+  br label %140
 
-139:                                              ; preds = %140, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit95
-  %.01421.i.i98 = phi i64 [ 0, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit95 ], [ %146, %140 ]
-  %exitcond.not.i99 = icmp eq i64 %.01421.i.i98, %138
-  br i1 %exitcond.not.i99, label %.critedge.i.i101, label %140
+140:                                              ; preds = %141, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit95
+  %.01421.i.i98 = phi i64 [ 0, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit95 ], [ %147, %141 ]
+  %exitcond.not.i99 = icmp eq i64 %.01421.i.i98, %139
+  br i1 %exitcond.not.i99, label %.critedge.i.i101, label %141
 
-140:                                              ; preds = %139
-  %141 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.01421.i.i98
-  %142 = load i64, ptr %141, align 8, !tbaa !11
-  %143 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %142, i64 1)
-  %144 = extractvalue { i64, i1 } %143, 1
-  %145 = extractvalue { i64, i1 } %143, 0
-  store i64 %145, ptr %141, align 8, !tbaa !11
-  %146 = add nuw nsw i64 %.01421.i.i98, 1
-  br i1 %144, label %139, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81.sink.split, !llvm.loop !748
+141:                                              ; preds = %140
+  %142 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.01421.i.i98
+  %143 = load i64, ptr %142, align 8, !tbaa !11
+  %144 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %143, i64 1)
+  %145 = extractvalue { i64, i1 } %144, 1
+  %146 = extractvalue { i64, i1 } %144, 0
+  store i64 %146, ptr %142, align 8, !tbaa !11
+  %147 = add nuw nsw i64 %.01421.i.i98, 1
+  br i1 %145, label %140, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81.sink.split, !llvm.loop !748
 
-.critedge.i.i101:                                 ; preds = %139
-  %147 = icmp ult i16 %137, 62
-  br i1 %147, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i102, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81.sink.split
+.critedge.i.i101:                                 ; preds = %140
+  %148 = icmp ult i16 %138, 62
+  br i1 %148, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i102, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81.sink.split
 
 _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i102: ; preds = %.critedge.i.i101
-  %148 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %138
-  store i64 1, ptr %148, align 8, !tbaa !11
-  %149 = add nuw nsw i16 %137, 1
-  store i16 %149, ptr %20, align 8, !tbaa !745
+  %149 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %139
+  store i64 1, ptr %149, align 8, !tbaa !11
+  %150 = add nuw nsw i16 %138, 1
+  store i16 %150, ptr %20, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81.sink.split
 
-150:                                              ; preds = %.critedge2
-  br i1 %.not19.i.i, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit113, label %.lr.ph.i.i105
+151:                                              ; preds = %.critedge2
+  %152 = zext i16 %21 to i64
+  %.not19.i.i104 = icmp eq i16 %21, 0
+  br i1 %.not19.i.i104, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit113, label %.lr.ph.i.i105
 
-.lr.ph.i.i105:                                    ; preds = %150
-  %151 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5boost4json6detail8charconv6detail10fast_floatL20powers_of_ten_uint64E, i64 0, i64 %.2251.lcssa
-  %152 = load i64, ptr %151, align 8, !tbaa !11
-  %153 = zext i64 %152 to i128
-  br label %155
+.lr.ph.i.i105:                                    ; preds = %151
+  %153 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5boost4json6detail8charconv6detail10fast_floatL20powers_of_ten_uint64E, i64 0, i64 %.2251.lcssa
+  %154 = load i64, ptr %153, align 8, !tbaa !11
+  %155 = zext i64 %154 to i128
+  br label %157
 
-._crit_edge.i.i109:                               ; preds = %155
-  %.not.i.i110 = icmp ne i64 %163, 0
-  %154 = icmp ult i16 %62, 62
-  %or.cond262 = and i1 %154, %.not.i.i110
+._crit_edge.i.i109:                               ; preds = %157
+  %.not.i.i110 = icmp ne i64 %165, 0
+  %156 = icmp ult i16 %21, 62
+  %or.cond262 = and i1 %156, %.not.i.i110
   br i1 %or.cond262, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i112, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit113
 
-155:                                              ; preds = %155, %.lr.ph.i.i105
-  %.016.i.i106 = phi i64 [ 0, %.lr.ph.i.i105 ], [ %165, %155 ]
-  %.01215.i.i107 = phi i64 [ 0, %.lr.ph.i.i105 ], [ %163, %155 ]
-  %156 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.016.i.i106
-  %157 = load i64, ptr %156, align 8, !tbaa !11
-  %158 = zext i64 %157 to i128
-  %159 = mul nuw i128 %158, %153
-  %160 = zext i64 %.01215.i.i107 to i128
-  %161 = add nuw i128 %159, %160
-  %162 = lshr i128 %161, 64
-  %163 = trunc nuw i128 %162 to i64
-  %164 = trunc i128 %161 to i64
-  store i64 %164, ptr %156, align 8, !tbaa !11
-  %165 = add nuw nsw i64 %.016.i.i106, 1
-  %exitcond.not.i.i108 = icmp eq i64 %165, %63
-  br i1 %exitcond.not.i.i108, label %._crit_edge.i.i109, label %155, !llvm.loop !747
+157:                                              ; preds = %157, %.lr.ph.i.i105
+  %.016.i.i106 = phi i64 [ 0, %.lr.ph.i.i105 ], [ %167, %157 ]
+  %.01215.i.i107 = phi i64 [ 0, %.lr.ph.i.i105 ], [ %165, %157 ]
+  %158 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.016.i.i106
+  %159 = load i64, ptr %158, align 8, !tbaa !11
+  %160 = zext i64 %159 to i128
+  %161 = mul nuw i128 %160, %155
+  %162 = zext i64 %.01215.i.i107 to i128
+  %163 = add nuw i128 %161, %162
+  %164 = lshr i128 %163, 64
+  %165 = trunc nuw i128 %164 to i64
+  %166 = trunc i128 %163 to i64
+  store i64 %166, ptr %158, align 8, !tbaa !11
+  %167 = add nuw nsw i64 %.016.i.i106, 1
+  %exitcond.not.i.i108 = icmp eq i64 %167, %152
+  br i1 %exitcond.not.i.i108, label %._crit_edge.i.i109, label %157, !llvm.loop !747
 
 _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i112: ; preds = %._crit_edge.i.i109
-  %166 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %63
-  store i64 %163, ptr %166, align 8, !tbaa !11
-  %167 = add nuw nsw i16 %62, 1
-  store i16 %167, ptr %20, align 8, !tbaa !745
+  %168 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %152
+  store i64 %165, ptr %168, align 8, !tbaa !11
+  %169 = add nuw nsw i16 %21, 1
+  store i16 %169, ptr %20, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit113
 
-_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit113: ; preds = %150, %._crit_edge.i.i109, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i112
-  %168 = phi i16 [ 0, %150 ], [ %62, %._crit_edge.i.i109 ], [ %167, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i112 ]
+_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit113: ; preds = %151, %._crit_edge.i.i109, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i112
+  %170 = phi i16 [ %21, %151 ], [ %21, %._crit_edge.i.i109 ], [ %169, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i112 ]
+  %171 = phi i16 [ 0, %151 ], [ %21, %._crit_edge.i.i109 ], [ %169, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i112 ]
   %.not20.i.i114 = icmp eq i64 %.2244.lcssa, 0
   br i1 %.not20.i.i114, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit122, label %.lr.ph.i.i115
 
 .lr.ph.i.i115:                                    ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit113
-  %169 = zext i16 %168 to i64
-  br label %170
+  %172 = zext i16 %171 to i64
+  br label %173
 
-170:                                              ; preds = %171, %.lr.ph.i.i115
-  %.022.i.i116 = phi i64 [ %.2244.lcssa, %.lr.ph.i.i115 ], [ 1, %171 ]
-  %.01421.i.i117 = phi i64 [ 0, %.lr.ph.i.i115 ], [ %177, %171 ]
-  %exitcond.not.i118 = icmp eq i64 %.01421.i.i117, %169
-  br i1 %exitcond.not.i118, label %.critedge.i.i120, label %171
+173:                                              ; preds = %174, %.lr.ph.i.i115
+  %.022.i.i116 = phi i64 [ %.2244.lcssa, %.lr.ph.i.i115 ], [ 1, %174 ]
+  %.01421.i.i117 = phi i64 [ 0, %.lr.ph.i.i115 ], [ %180, %174 ]
+  %exitcond.not.i118 = icmp eq i64 %.01421.i.i117, %172
+  br i1 %exitcond.not.i118, label %.critedge.i.i120, label %174
 
-171:                                              ; preds = %170
-  %172 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.01421.i.i117
-  %173 = load i64, ptr %172, align 8, !tbaa !11
-  %174 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %173, i64 %.022.i.i116)
-  %175 = extractvalue { i64, i1 } %174, 1
-  %176 = extractvalue { i64, i1 } %174, 0
-  store i64 %176, ptr %172, align 8, !tbaa !11
-  %177 = add nuw nsw i64 %.01421.i.i117, 1
-  br i1 %175, label %170, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit122, !llvm.loop !748
+174:                                              ; preds = %173
+  %175 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.01421.i.i117
+  %176 = load i64, ptr %175, align 8, !tbaa !11
+  %177 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %176, i64 %.022.i.i116)
+  %178 = extractvalue { i64, i1 } %177, 1
+  %179 = extractvalue { i64, i1 } %177, 0
+  store i64 %179, ptr %175, align 8, !tbaa !11
+  %180 = add nuw nsw i64 %.01421.i.i117, 1
+  br i1 %178, label %173, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit122, !llvm.loop !748
 
-.critedge.i.i120:                                 ; preds = %170
-  %178 = icmp ult i16 %168, 62
-  br i1 %178, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i121, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit122
+.critedge.i.i120:                                 ; preds = %173
+  %181 = icmp ult i16 %171, 62
+  br i1 %181, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i121, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit122
 
 _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i121: ; preds = %.critedge.i.i120
-  %179 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %169
-  store i64 %.022.i.i116, ptr %179, align 8, !tbaa !11
-  %180 = add nuw nsw i16 %168, 1
-  store i16 %180, ptr %20, align 8, !tbaa !745
+  %182 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %172
+  store i64 %.022.i.i116, ptr %182, align 8, !tbaa !11
+  %183 = add nuw nsw i16 %171, 1
+  store i16 %183, ptr %20, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit122
 
-_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit122: ; preds = %171, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit113, %.critedge.i.i120, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i121
+_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit122: ; preds = %174, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit113, %.critedge.i.i120, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i121
+  %184 = phi i16 [ %170, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit113 ], [ %170, %.critedge.i.i120 ], [ %183, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i121 ], [ %170, %174 ]
   %.not = icmp eq ptr %.2.lcssa, %9
-  br i1 %.not, label %._crit_edge333, label %.preheader279, !llvm.loop !751
+  br i1 %.not, label %._crit_edge333, label %.preheader279, !llvm.loop !752
 
 ._crit_edge333:                                   ; preds = %18, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit122, %._crit_edge, %_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit
-  %181 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %182 = load ptr, ptr %181, align 8, !tbaa !752
-  %.not55 = icmp eq ptr %182, null
-  br i1 %.not55, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %183
+  %185 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %186 = load ptr, ptr %185, align 8, !tbaa !751
+  %.not55 = icmp eq ptr %186, null
+  br i1 %.not55, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %187
 
-183:                                              ; preds = %._crit_edge333
-  %184 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %185 = load i64, ptr %184, align 8, !tbaa !740
-  %186 = getelementptr inbounds nuw i8, ptr %182, i64 %185
-  %187 = load i64, ptr %3, align 8, !tbaa !11
-  %188 = icmp eq i64 %187, 0
-  br i1 %188, label %.preheader274, label %_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit71
+187:                                              ; preds = %._crit_edge333
+  %188 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %189 = load i64, ptr %188, align 8, !tbaa !740
+  %190 = getelementptr inbounds nuw i8, ptr %186, i64 %189
+  %191 = load i64, ptr %3, align 8, !tbaa !11
+  %192 = icmp eq i64 %191, 0
+  br i1 %192, label %.preheader274, label %_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit71
 
-.preheader274:                                    ; preds = %183
-  %189 = ptrtoint ptr %186 to i64
-  %190 = icmp sgt i64 %185, 7
-  br i1 %190, label %.lr.ph351, label %._crit_edge352
+.preheader274:                                    ; preds = %187
+  %193 = ptrtoint ptr %190 to i64
+  %194 = icmp sgt i64 %189, 7
+  br i1 %194, label %.lr.ph351, label %._crit_edge352
 
-.lr.ph351:                                        ; preds = %.preheader274, %191
-  %.9350 = phi ptr [ %192, %191 ], [ %182, %.preheader274 ]
+.lr.ph351:                                        ; preds = %.preheader274, %195
+  %.9350 = phi ptr [ %196, %195 ], [ %186, %.preheader274 ]
   %.0.copyload.i69 = load i64, ptr %.9350, align 1
   %.not.i70 = icmp eq i64 %.0.copyload.i69, 3472328296227680304
-  br i1 %.not.i70, label %191, label %._crit_edge352
+  br i1 %.not.i70, label %195, label %._crit_edge352
 
-191:                                              ; preds = %.lr.ph351
-  %192 = getelementptr inbounds i8, ptr %.9350, i64 8
-  %193 = ptrtoint ptr %192 to i64
-  %194 = sub i64 %189, %193
-  %195 = icmp sgt i64 %194, 7
-  br i1 %195, label %.lr.ph351, label %._crit_edge352, !llvm.loop !741
+195:                                              ; preds = %.lr.ph351
+  %196 = getelementptr inbounds i8, ptr %.9350, i64 8
+  %197 = ptrtoint ptr %196 to i64
+  %198 = sub i64 %193, %197
+  %199 = icmp sgt i64 %198, 7
+  br i1 %199, label %.lr.ph351, label %._crit_edge352, !llvm.loop !741
 
-._crit_edge352:                                   ; preds = %191, %.lr.ph351, %.preheader274
-  %.9.lcssa = phi ptr [ %182, %.preheader274 ], [ %.9350, %.lr.ph351 ], [ %192, %191 ]
-  %.not8.i67356 = icmp eq ptr %.9.lcssa, %186
+._crit_edge352:                                   ; preds = %195, %.lr.ph351, %.preheader274
+  %.9.lcssa = phi ptr [ %186, %.preheader274 ], [ %.9350, %.lr.ph351 ], [ %196, %195 ]
+  %.not8.i67356 = icmp eq ptr %.9.lcssa, %190
   br i1 %.not8.i67356, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %.lr.ph359
 
-.lr.ph359:                                        ; preds = %._crit_edge352, %197
-  %.10357 = phi ptr [ %198, %197 ], [ %.9.lcssa, %._crit_edge352 ]
-  %196 = load i8, ptr %.10357, align 1, !tbaa !15
-  %.not9.i68 = icmp eq i8 %196, 48
-  br i1 %.not9.i68, label %197, label %_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit71
+.lr.ph359:                                        ; preds = %._crit_edge352, %201
+  %.10357 = phi ptr [ %202, %201 ], [ %.9.lcssa, %._crit_edge352 ]
+  %200 = load i8, ptr %.10357, align 1, !tbaa !15
+  %.not9.i68 = icmp eq i8 %200, 48
+  br i1 %.not9.i68, label %201, label %_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit71
 
-197:                                              ; preds = %.lr.ph359
-  %198 = getelementptr inbounds nuw i8, ptr %.10357, i64 1
-  %.not8.i67 = icmp eq ptr %198, %186
+201:                                              ; preds = %.lr.ph359
+  %202 = getelementptr inbounds nuw i8, ptr %.10357, i64 1
+  %.not8.i67 = icmp eq ptr %202, %190
   br i1 %.not8.i67, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %.lr.ph359, !llvm.loop !742
 
-_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit71: ; preds = %.lr.ph359, %183
-  %.3 = phi ptr [ %182, %183 ], [ %.10357, %.lr.ph359 ]
-  %.not56389 = icmp eq ptr %.3, %186
+_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit71: ; preds = %.lr.ph359, %187
+  %.3 = phi ptr [ %186, %187 ], [ %.10357, %.lr.ph359 ]
+  %.not56389 = icmp eq ptr %.3, %190
   br i1 %.not56389, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %.preheader272.lr.ph
 
 .preheader272.lr.ph:                              ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit71
-  %199 = ptrtoint ptr %186 to i64
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %203 = ptrtoint ptr %190 to i64
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %.promoted485 = load i16, ptr %204, align 8, !tbaa !743
   br label %.preheader272
 
 .preheader272:                                    ; preds = %.preheader272.lr.ph, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit178
+  %205 = phi i16 [ %.promoted485, %.preheader272.lr.ph ], [ %351, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit178 ]
   %.4390 = phi ptr [ %.3, %.preheader272.lr.ph ], [ %.6.lcssa, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit178 ]
-  %.promoted363 = load i64, ptr %3, align 8
-  %201 = ptrtoint ptr %.4390 to i64
-  %202 = sub i64 %199, %201
-  %203 = icmp sgt i64 %202, 7
-  br i1 %203, label %.lr.ph367, label %.critedge4
+  %.promoted363 = load i64, ptr %3, align 8, !tbaa !11
+  %206 = ptrtoint ptr %.4390 to i64
+  %207 = sub i64 %203, %206
+  %208 = icmp sgt i64 %207, 7
+  br i1 %208, label %.lr.ph367, label %.critedge4
 
-.lr.ph367:                                        ; preds = %.preheader272, %208
-  %.5366 = phi ptr [ %223, %208 ], [ %.4390, %.preheader272 ]
-  %.5247365 = phi i64 [ %222, %208 ], [ 0, %.preheader272 ]
-  %204 = phi i1 [ false, %208 ], [ true, %.preheader272 ]
-  %.5254364 = phi i64 [ 8, %208 ], [ 0, %.preheader272 ]
-  %205 = phi i64 [ %224, %208 ], [ %.promoted363, %.preheader272 ]
-  %206 = sub i64 %2, %205
-  %207 = icmp ugt i64 %206, 7
-  br i1 %207, label %208, label %.critedge4
+.lr.ph367:                                        ; preds = %.preheader272, %213
+  %.5366 = phi ptr [ %228, %213 ], [ %.4390, %.preheader272 ]
+  %.5247365 = phi i64 [ %227, %213 ], [ 0, %.preheader272 ]
+  %209 = phi i1 [ false, %213 ], [ true, %.preheader272 ]
+  %.5254364 = phi i64 [ 8, %213 ], [ 0, %.preheader272 ]
+  %210 = phi i64 [ %229, %213 ], [ %.promoted363, %.preheader272 ]
+  %211 = sub i64 %2, %210
+  %212 = icmp ugt i64 %211, 7
+  br i1 %212, label %213, label %.critedge4
 
-208:                                              ; preds = %.lr.ph367
-  %209 = mul i64 %.5247365, 100000000
-  %210 = load i64, ptr %.5366, align 1
-  %211 = add i64 %210, -3472328296227680304
-  %212 = mul i64 %211, 10
-  %213 = lshr i64 %211, 8
-  %214 = add i64 %212, %213
-  %215 = and i64 %214, 1095216660735
-  %216 = mul i64 %215, 4294967296000100
-  %217 = lshr i64 %214, 16
-  %218 = and i64 %217, 1095216660735
-  %219 = mul i64 %218, 42949672960001
-  %220 = add i64 %219, %216
-  %221 = lshr i64 %220, 32
-  %222 = add i64 %221, %209
-  %223 = getelementptr inbounds i8, ptr %.5366, i64 8
-  %224 = add i64 %205, 8
-  store i64 %224, ptr %3, align 8, !tbaa !11
-  %225 = ptrtoint ptr %223 to i64
-  %226 = sub i64 %199, %225
-  %227 = icmp sgt i64 %226, 7
-  %or.cond263 = and i1 %227, %204
+213:                                              ; preds = %.lr.ph367
+  %214 = mul i64 %.5247365, 100000000
+  %215 = load i64, ptr %.5366, align 1
+  %216 = add i64 %215, -3472328296227680304
+  %217 = mul i64 %216, 10
+  %218 = lshr i64 %216, 8
+  %219 = add i64 %217, %218
+  %220 = and i64 %219, 1095216660735
+  %221 = mul i64 %220, 4294967296000100
+  %222 = lshr i64 %219, 16
+  %223 = and i64 %222, 1095216660735
+  %224 = mul i64 %223, 42949672960001
+  %225 = add i64 %224, %221
+  %226 = lshr i64 %225, 32
+  %227 = add i64 %226, %214
+  %228 = getelementptr inbounds i8, ptr %.5366, i64 8
+  %229 = add i64 %210, 8
+  store i64 %229, ptr %3, align 8, !tbaa !11
+  %230 = ptrtoint ptr %228 to i64
+  %231 = sub i64 %203, %230
+  %232 = icmp sgt i64 %231, 7
+  %or.cond263 = and i1 %232, %209
   br i1 %or.cond263, label %.lr.ph367, label %.critedge4.loopexit.split.loop.exit, !llvm.loop !753
 
-.critedge4.loopexit.split.loop.exit:              ; preds = %208
-  %228 = add nuw nsw i64 %.5254364, 8
+.critedge4.loopexit.split.loop.exit:              ; preds = %213
+  %233 = add nuw nsw i64 %.5254364, 8
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.lr.ph367, %.critedge4.loopexit.split.loop.exit, %.preheader272
-  %.promoted377 = phi i64 [ %.promoted363, %.preheader272 ], [ %224, %.critedge4.loopexit.split.loop.exit ], [ %205, %.lr.ph367 ]
-  %.5254.lcssa = phi i64 [ 0, %.preheader272 ], [ %228, %.critedge4.loopexit.split.loop.exit ], [ %.5254364, %.lr.ph367 ]
-  %.5247.lcssa = phi i64 [ 0, %.preheader272 ], [ %222, %.critedge4.loopexit.split.loop.exit ], [ %.5247365, %.lr.ph367 ]
-  %.5.lcssa = phi ptr [ %.4390, %.preheader272 ], [ %223, %.critedge4.loopexit.split.loop.exit ], [ %.5366, %.lr.ph367 ]
-  %.not58378 = icmp ne ptr %.5.lcssa, %186
-  %229 = icmp ult i64 %.promoted377, %2
-  %or.cond66380 = select i1 %.not58378, i1 %229, i1 false
+  %.promoted377 = phi i64 [ %.promoted363, %.preheader272 ], [ %229, %.critedge4.loopexit.split.loop.exit ], [ %210, %.lr.ph367 ]
+  %.5254.lcssa = phi i64 [ 0, %.preheader272 ], [ %233, %.critedge4.loopexit.split.loop.exit ], [ %.5254364, %.lr.ph367 ]
+  %.5247.lcssa = phi i64 [ 0, %.preheader272 ], [ %227, %.critedge4.loopexit.split.loop.exit ], [ %.5247365, %.lr.ph367 ]
+  %.5.lcssa = phi ptr [ %.4390, %.preheader272 ], [ %228, %.critedge4.loopexit.split.loop.exit ], [ %.5366, %.lr.ph367 ]
+  %.not58378 = icmp ne ptr %.5.lcssa, %190
+  %234 = icmp ult i64 %.promoted377, %2
+  %or.cond66380 = select i1 %.not58378, i1 %234, i1 false
   br i1 %or.cond66380, label %.lr.ph384, label %.critedge6
 
 .lr.ph384:                                        ; preds = %.critedge4, %.lr.ph384
-  %.6383 = phi ptr [ %236, %.lr.ph384 ], [ %.5.lcssa, %.critedge4 ]
-  %.6248382 = phi i64 [ %235, %.lr.ph384 ], [ %.5247.lcssa, %.critedge4 ]
-  %.6255381 = phi i64 [ %237, %.lr.ph384 ], [ %.5254.lcssa, %.critedge4 ]
-  %230 = phi i64 [ %238, %.lr.ph384 ], [ %.promoted377, %.critedge4 ]
-  %231 = mul i64 %.6248382, 10
-  %232 = load i8, ptr %.6383, align 1, !tbaa !15
-  %233 = sext i8 %232 to i64
-  %234 = add i64 %231, -48
-  %235 = add i64 %234, %233
-  %236 = getelementptr inbounds nuw i8, ptr %.6383, i64 1
-  %237 = add nuw nsw i64 %.6255381, 1
-  %238 = add nuw i64 %230, 1
-  store i64 %238, ptr %3, align 8, !tbaa !11
-  %239 = icmp samesign ult i64 %.6255381, 18
-  %.not58 = icmp ne ptr %236, %186
-  %or.cond64.not270 = select i1 %239, i1 %.not58, i1 false
-  %240 = icmp ult i64 %238, %2
-  %or.cond66 = select i1 %or.cond64.not270, i1 %240, i1 false
+  %.6383 = phi ptr [ %241, %.lr.ph384 ], [ %.5.lcssa, %.critedge4 ]
+  %.6248382 = phi i64 [ %240, %.lr.ph384 ], [ %.5247.lcssa, %.critedge4 ]
+  %.6255381 = phi i64 [ %242, %.lr.ph384 ], [ %.5254.lcssa, %.critedge4 ]
+  %235 = phi i64 [ %243, %.lr.ph384 ], [ %.promoted377, %.critedge4 ]
+  %236 = mul i64 %.6248382, 10
+  %237 = load i8, ptr %.6383, align 1, !tbaa !15
+  %238 = sext i8 %237 to i64
+  %239 = add i64 %236, -48
+  %240 = add i64 %239, %238
+  %241 = getelementptr inbounds nuw i8, ptr %.6383, i64 1
+  %242 = add nuw nsw i64 %.6255381, 1
+  %243 = add nuw i64 %235, 1
+  store i64 %243, ptr %3, align 8, !tbaa !11
+  %244 = icmp samesign ult i64 %.6255381, 18
+  %.not58 = icmp ne ptr %241, %190
+  %or.cond64.not270 = select i1 %244, i1 %.not58, i1 false
+  %245 = icmp ult i64 %243, %2
+  %or.cond66 = select i1 %or.cond64.not270, i1 %245, i1 false
   br i1 %or.cond66, label %.lr.ph384, label %.critedge6, !llvm.loop !754
 
 .critedge6:                                       ; preds = %.lr.ph384, %.critedge4
-  %.6255.lcssa = phi i64 [ %.5254.lcssa, %.critedge4 ], [ %237, %.lr.ph384 ]
-  %.6248.lcssa = phi i64 [ %.5247.lcssa, %.critedge4 ], [ %235, %.lr.ph384 ]
-  %.6.lcssa = phi ptr [ %.5.lcssa, %.critedge4 ], [ %236, %.lr.ph384 ]
-  %.lcssa284 = phi i64 [ %.promoted377, %.critedge4 ], [ %238, %.lr.ph384 ]
-  %241 = icmp eq i64 %.lcssa284, %2
-  %242 = load i16, ptr %200, align 8, !tbaa !745
-  %243 = zext i16 %242 to i64
-  %.not19.i.i123 = icmp eq i16 %242, 0
-  br i1 %241, label %244, label %313
+  %.6255.lcssa = phi i64 [ %.5254.lcssa, %.critedge4 ], [ %242, %.lr.ph384 ]
+  %.6248.lcssa = phi i64 [ %.5247.lcssa, %.critedge4 ], [ %240, %.lr.ph384 ]
+  %.6.lcssa = phi ptr [ %.5.lcssa, %.critedge4 ], [ %241, %.lr.ph384 ]
+  %.lcssa284 = phi i64 [ %.promoted377, %.critedge4 ], [ %243, %.lr.ph384 ]
+  %246 = icmp eq i64 %.lcssa284, %2
+  br i1 %246, label %247, label %318
 
-244:                                              ; preds = %.critedge6
+247:                                              ; preds = %.critedge6
+  %248 = load i16, ptr %204, align 8, !tbaa !743
+  %249 = zext i16 %248 to i64
+  %.not19.i.i123 = icmp eq i16 %248, 0
   br i1 %.not19.i.i123, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit132, label %.lr.ph.i.i124
 
-.lr.ph.i.i124:                                    ; preds = %244
-  %245 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5boost4json6detail8charconv6detail10fast_floatL20powers_of_ten_uint64E, i64 0, i64 %.6255.lcssa
-  %246 = load i64, ptr %245, align 8, !tbaa !11
-  %247 = zext i64 %246 to i128
-  br label %249
-
-._crit_edge.i.i128:                               ; preds = %249
-  %.not.i.i129 = icmp ne i64 %257, 0
-  %248 = icmp ult i16 %242, 62
-  %or.cond264 = and i1 %248, %.not.i.i129
-  br i1 %or.cond264, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i131, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit132
-
-249:                                              ; preds = %249, %.lr.ph.i.i124
-  %.016.i.i125 = phi i64 [ 0, %.lr.ph.i.i124 ], [ %259, %249 ]
-  %.01215.i.i126 = phi i64 [ 0, %.lr.ph.i.i124 ], [ %257, %249 ]
-  %250 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.016.i.i125
+.lr.ph.i.i124:                                    ; preds = %247
+  %250 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5boost4json6detail8charconv6detail10fast_floatL20powers_of_ten_uint64E, i64 0, i64 %.6255.lcssa
   %251 = load i64, ptr %250, align 8, !tbaa !11
   %252 = zext i64 %251 to i128
-  %253 = mul nuw i128 %252, %247
-  %254 = zext i64 %.01215.i.i126 to i128
-  %255 = add nuw i128 %253, %254
-  %256 = lshr i128 %255, 64
-  %257 = trunc nuw i128 %256 to i64
-  %258 = trunc i128 %255 to i64
-  store i64 %258, ptr %250, align 8, !tbaa !11
-  %259 = add nuw nsw i64 %.016.i.i125, 1
-  %exitcond.not.i.i127 = icmp eq i64 %259, %243
-  br i1 %exitcond.not.i.i127, label %._crit_edge.i.i128, label %249, !llvm.loop !747
+  br label %254
+
+._crit_edge.i.i128:                               ; preds = %254
+  %.not.i.i129 = icmp ne i64 %262, 0
+  %253 = icmp ult i16 %248, 62
+  %or.cond264 = and i1 %253, %.not.i.i129
+  br i1 %or.cond264, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i131, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit132
+
+254:                                              ; preds = %254, %.lr.ph.i.i124
+  %.016.i.i125 = phi i64 [ 0, %.lr.ph.i.i124 ], [ %264, %254 ]
+  %.01215.i.i126 = phi i64 [ 0, %.lr.ph.i.i124 ], [ %262, %254 ]
+  %255 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.016.i.i125
+  %256 = load i64, ptr %255, align 8, !tbaa !11
+  %257 = zext i64 %256 to i128
+  %258 = mul nuw i128 %257, %252
+  %259 = zext i64 %.01215.i.i126 to i128
+  %260 = add nuw i128 %258, %259
+  %261 = lshr i128 %260, 64
+  %262 = trunc nuw i128 %261 to i64
+  %263 = trunc i128 %260 to i64
+  store i64 %263, ptr %255, align 8, !tbaa !11
+  %264 = add nuw nsw i64 %.016.i.i125, 1
+  %exitcond.not.i.i127 = icmp eq i64 %264, %249
+  br i1 %exitcond.not.i.i127, label %._crit_edge.i.i128, label %254, !llvm.loop !747
 
 _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i131: ; preds = %._crit_edge.i.i128
-  %260 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %243
-  store i64 %257, ptr %260, align 8, !tbaa !11
-  %261 = add nuw nsw i16 %242, 1
-  store i16 %261, ptr %200, align 8, !tbaa !745
+  %265 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %249
+  store i64 %262, ptr %265, align 8, !tbaa !11
+  %266 = add nuw nsw i16 %248, 1
+  store i16 %266, ptr %204, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit132
 
-_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit132: ; preds = %244, %._crit_edge.i.i128, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i131
-  %262 = phi i16 [ 0, %244 ], [ %242, %._crit_edge.i.i128 ], [ %261, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i131 ]
+_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit132: ; preds = %247, %._crit_edge.i.i128, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i131
+  %267 = phi i16 [ 0, %247 ], [ %248, %._crit_edge.i.i128 ], [ %266, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i131 ]
   %.not20.i.i133 = icmp eq i64 %.6248.lcssa, 0
   br i1 %.not20.i.i133, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141, label %.lr.ph.i.i134
 
 .lr.ph.i.i134:                                    ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit132
-  %263 = zext i16 %262 to i64
-  br label %264
+  %268 = zext i16 %267 to i64
+  br label %269
 
-264:                                              ; preds = %265, %.lr.ph.i.i134
-  %.022.i.i135 = phi i64 [ %.6248.lcssa, %.lr.ph.i.i134 ], [ 1, %265 ]
-  %.01421.i.i136 = phi i64 [ 0, %.lr.ph.i.i134 ], [ %271, %265 ]
-  %exitcond.not.i137 = icmp eq i64 %.01421.i.i136, %263
-  br i1 %exitcond.not.i137, label %.critedge.i.i139, label %265
+269:                                              ; preds = %270, %.lr.ph.i.i134
+  %.022.i.i135 = phi i64 [ %.6248.lcssa, %.lr.ph.i.i134 ], [ 1, %270 ]
+  %.01421.i.i136 = phi i64 [ 0, %.lr.ph.i.i134 ], [ %276, %270 ]
+  %exitcond.not.i137 = icmp eq i64 %.01421.i.i136, %268
+  br i1 %exitcond.not.i137, label %.critedge.i.i139, label %270
 
-265:                                              ; preds = %264
-  %266 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.01421.i.i136
-  %267 = load i64, ptr %266, align 8, !tbaa !11
-  %268 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %267, i64 %.022.i.i135)
-  %269 = extractvalue { i64, i1 } %268, 1
-  %270 = extractvalue { i64, i1 } %268, 0
-  store i64 %270, ptr %266, align 8, !tbaa !11
-  %271 = add nuw nsw i64 %.01421.i.i136, 1
-  br i1 %269, label %264, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141, !llvm.loop !748
+270:                                              ; preds = %269
+  %271 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.01421.i.i136
+  %272 = load i64, ptr %271, align 8, !tbaa !11
+  %273 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %272, i64 %.022.i.i135)
+  %274 = extractvalue { i64, i1 } %273, 1
+  %275 = extractvalue { i64, i1 } %273, 0
+  store i64 %275, ptr %271, align 8, !tbaa !11
+  %276 = add nuw nsw i64 %.01421.i.i136, 1
+  br i1 %274, label %269, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141, !llvm.loop !748
 
-.critedge.i.i139:                                 ; preds = %264
-  %272 = icmp ult i16 %262, 62
-  br i1 %272, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i140, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141
+.critedge.i.i139:                                 ; preds = %269
+  %277 = icmp ult i16 %267, 62
+  br i1 %277, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i140, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141
 
 _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i140: ; preds = %.critedge.i.i139
-  %273 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %263
-  store i64 %.022.i.i135, ptr %273, align 8, !tbaa !11
-  %274 = add nuw nsw i16 %262, 1
-  store i16 %274, ptr %200, align 8, !tbaa !745
+  %278 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %268
+  store i64 %.022.i.i135, ptr %278, align 8, !tbaa !11
+  %279 = add nuw nsw i16 %267, 1
+  store i16 %279, ptr %204, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141
 
-_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141: ; preds = %265, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit132, %.critedge.i.i139, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i140
-  %.pr257 = phi i16 [ %262, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit132 ], [ %262, %.critedge.i.i139 ], [ %274, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i140 ], [ %262, %265 ]
-  %275 = ptrtoint ptr %.6.lcssa to i64
-  %276 = sub i64 %199, %275
-  %277 = icmp sgt i64 %276, 7
-  br i1 %277, label %.lr.ph392, label %.preheader
+_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141: ; preds = %270, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit132, %.critedge.i.i139, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i140
+  %.pr257 = phi i16 [ %267, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit132 ], [ %267, %.critedge.i.i139 ], [ %279, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i140 ], [ %267, %270 ]
+  %280 = ptrtoint ptr %.6.lcssa to i64
+  %281 = sub i64 %203, %280
+  %282 = icmp sgt i64 %281, 7
+  br i1 %282, label %.lr.ph392, label %.preheader
 
-.preheader:                                       ; preds = %278, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141
-  %.09.i74.lcssa = phi ptr [ %.6.lcssa, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141 ], [ %279, %278 ]
-  %.not.i76394 = icmp eq ptr %.09.i74.lcssa, %186
+.preheader:                                       ; preds = %283, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141
+  %.09.i74.lcssa = phi ptr [ %.6.lcssa, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141 ], [ %284, %283 ]
+  %.not.i76394 = icmp eq ptr %.09.i74.lcssa, %190
   br i1 %.not.i76394, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %.lr.ph396
 
-.lr.ph392:                                        ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141, %278
-  %.09.i74391 = phi ptr [ %279, %278 ], [ %.6.lcssa, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141 ]
+.lr.ph392:                                        ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141, %283
+  %.09.i74391 = phi ptr [ %284, %283 ], [ %.6.lcssa, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit141 ]
   %.0.copyload.i79 = load i64, ptr %.09.i74391, align 1
   %.not11.i80 = icmp eq i64 %.0.copyload.i79, 3472328296227680304
-  br i1 %.not11.i80, label %278, label %.loopexit
+  br i1 %.not11.i80, label %283, label %.loopexit
 
-278:                                              ; preds = %.lr.ph392
-  %279 = getelementptr inbounds i8, ptr %.09.i74391, i64 8
-  %280 = ptrtoint ptr %279 to i64
-  %281 = sub i64 %199, %280
-  %282 = icmp sgt i64 %281, 7
-  br i1 %282, label %.lr.ph392, label %.preheader, !llvm.loop !749
+283:                                              ; preds = %.lr.ph392
+  %284 = getelementptr inbounds i8, ptr %.09.i74391, i64 8
+  %285 = ptrtoint ptr %284 to i64
+  %286 = sub i64 %203, %285
+  %287 = icmp sgt i64 %286, 7
+  br i1 %287, label %.lr.ph392, label %.preheader, !llvm.loop !749
 
-283:                                              ; preds = %.lr.ph396
-  %284 = getelementptr inbounds nuw i8, ptr %.1.i75395, i64 1
-  %.not.i76 = icmp eq ptr %284, %186
+288:                                              ; preds = %.lr.ph396
+  %289 = getelementptr inbounds nuw i8, ptr %.1.i75395, i64 1
+  %.not.i76 = icmp eq ptr %289, %190
   br i1 %.not.i76, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %.lr.ph396, !llvm.loop !750
 
-.lr.ph396:                                        ; preds = %.preheader, %283
-  %.1.i75395 = phi ptr [ %284, %283 ], [ %.09.i74.lcssa, %.preheader ]
-  %285 = load i8, ptr %.1.i75395, align 1, !tbaa !15
-  %.not10.i77 = icmp eq i8 %285, 48
-  br i1 %.not10.i77, label %283, label %.loopexit
+.lr.ph396:                                        ; preds = %.preheader, %288
+  %.1.i75395 = phi ptr [ %289, %288 ], [ %.09.i74.lcssa, %.preheader ]
+  %290 = load i8, ptr %.1.i75395, align 1, !tbaa !15
+  %.not10.i77 = icmp eq i8 %290, 48
+  br i1 %.not10.i77, label %288, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph392, %.lr.ph396
-  %286 = zext i16 %.pr257 to i64
+  %291 = zext i16 %.pr257 to i64
   %.not19.i.i142 = icmp eq i16 %.pr257, 0
   br i1 %.not19.i.i142, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit151, label %.lr.ph.i.i143
 
 ._crit_edge.i.i147:                               ; preds = %.lr.ph.i.i143
-  %.not.i.i148 = icmp ne i64 %295, 0
-  %287 = icmp ult i16 %.pr257, 62
-  %or.cond265 = and i1 %287, %.not.i.i148
+  %.not.i.i148 = icmp ne i64 %300, 0
+  %292 = icmp ult i16 %.pr257, 62
+  %or.cond265 = and i1 %292, %.not.i.i148
   br i1 %or.cond265, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i150, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit151
 
 .lr.ph.i.i143:                                    ; preds = %.loopexit, %.lr.ph.i.i143
-  %.016.i.i144 = phi i64 [ %297, %.lr.ph.i.i143 ], [ 0, %.loopexit ]
-  %.01215.i.i145 = phi i64 [ %295, %.lr.ph.i.i143 ], [ 0, %.loopexit ]
-  %288 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.016.i.i144
-  %289 = load i64, ptr %288, align 8, !tbaa !11
-  %290 = zext i64 %289 to i128
-  %291 = mul nuw nsw i128 %290, 10
-  %292 = zext nneg i64 %.01215.i.i145 to i128
-  %293 = add nuw nsw i128 %291, %292
-  %294 = lshr i128 %293, 64
-  %295 = trunc nuw nsw i128 %294 to i64
-  %296 = trunc i128 %293 to i64
-  store i64 %296, ptr %288, align 8, !tbaa !11
-  %297 = add nuw nsw i64 %.016.i.i144, 1
-  %exitcond.not.i.i146 = icmp eq i64 %297, %286
+  %.016.i.i144 = phi i64 [ %302, %.lr.ph.i.i143 ], [ 0, %.loopexit ]
+  %.01215.i.i145 = phi i64 [ %300, %.lr.ph.i.i143 ], [ 0, %.loopexit ]
+  %293 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.016.i.i144
+  %294 = load i64, ptr %293, align 8, !tbaa !11
+  %295 = zext i64 %294 to i128
+  %296 = mul nuw nsw i128 %295, 10
+  %297 = zext nneg i64 %.01215.i.i145 to i128
+  %298 = add nuw nsw i128 %296, %297
+  %299 = lshr i128 %298, 64
+  %300 = trunc nuw nsw i128 %299 to i64
+  %301 = trunc i128 %298 to i64
+  store i64 %301, ptr %293, align 8, !tbaa !11
+  %302 = add nuw nsw i64 %.016.i.i144, 1
+  %exitcond.not.i.i146 = icmp eq i64 %302, %291
   br i1 %exitcond.not.i.i146, label %._crit_edge.i.i147, label %.lr.ph.i.i143, !llvm.loop !747
 
 _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i150: ; preds = %._crit_edge.i.i147
-  %298 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %286
-  store i64 %295, ptr %298, align 8, !tbaa !11
-  %299 = add nuw nsw i16 %.pr257, 1
-  store i16 %299, ptr %200, align 8, !tbaa !745
+  %303 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %291
+  store i64 %300, ptr %303, align 8, !tbaa !11
+  %304 = add nuw nsw i16 %.pr257, 1
+  store i16 %304, ptr %204, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit151
 
 _ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit151: ; preds = %._crit_edge.i.i147, %.loopexit, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i150
-  %300 = phi i16 [ 0, %.loopexit ], [ %299, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i150 ], [ %.pr257, %._crit_edge.i.i147 ]
-  %301 = zext i16 %300 to i64
-  br label %302
+  %305 = phi i16 [ 0, %.loopexit ], [ %304, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i150 ], [ %.pr257, %._crit_edge.i.i147 ]
+  %306 = zext i16 %305 to i64
+  br label %307
 
-302:                                              ; preds = %303, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit151
-  %.01421.i.i154 = phi i64 [ 0, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit151 ], [ %309, %303 ]
-  %exitcond.not.i155 = icmp eq i64 %.01421.i.i154, %301
-  br i1 %exitcond.not.i155, label %.critedge.i.i157, label %303
+307:                                              ; preds = %308, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit151
+  %.01421.i.i154 = phi i64 [ 0, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit151 ], [ %314, %308 ]
+  %exitcond.not.i155 = icmp eq i64 %.01421.i.i154, %306
+  br i1 %exitcond.not.i155, label %.critedge.i.i157, label %308
 
-303:                                              ; preds = %302
-  %304 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.01421.i.i154
-  %305 = load i64, ptr %304, align 8, !tbaa !11
-  %306 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %305, i64 1)
-  %307 = extractvalue { i64, i1 } %306, 1
-  %308 = extractvalue { i64, i1 } %306, 0
-  store i64 %308, ptr %304, align 8, !tbaa !11
-  %309 = add nuw nsw i64 %.01421.i.i154, 1
-  br i1 %307, label %302, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81.sink.split, !llvm.loop !748
+308:                                              ; preds = %307
+  %309 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.01421.i.i154
+  %310 = load i64, ptr %309, align 8, !tbaa !11
+  %311 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %310, i64 1)
+  %312 = extractvalue { i64, i1 } %311, 1
+  %313 = extractvalue { i64, i1 } %311, 0
+  store i64 %313, ptr %309, align 8, !tbaa !11
+  %314 = add nuw nsw i64 %.01421.i.i154, 1
+  br i1 %312, label %307, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81.sink.split, !llvm.loop !748
 
-.critedge.i.i157:                                 ; preds = %302
-  %310 = icmp ult i16 %300, 62
-  br i1 %310, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i158, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81.sink.split
+.critedge.i.i157:                                 ; preds = %307
+  %315 = icmp ult i16 %305, 62
+  br i1 %315, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i158, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81.sink.split
 
 _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i158: ; preds = %.critedge.i.i157
-  %311 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %301
-  store i64 1, ptr %311, align 8, !tbaa !11
-  %312 = add nuw nsw i16 %300, 1
-  store i16 %312, ptr %200, align 8, !tbaa !745
+  %316 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %306
+  store i64 1, ptr %316, align 8, !tbaa !11
+  %317 = add nuw nsw i16 %305, 1
+  store i16 %317, ptr %204, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81.sink.split
 
-313:                                              ; preds = %.critedge6
-  br i1 %.not19.i.i123, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit169, label %.lr.ph.i.i161
+318:                                              ; preds = %.critedge6
+  %319 = zext i16 %205 to i64
+  %.not19.i.i160 = icmp eq i16 %205, 0
+  br i1 %.not19.i.i160, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit169, label %.lr.ph.i.i161
 
-.lr.ph.i.i161:                                    ; preds = %313
-  %314 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5boost4json6detail8charconv6detail10fast_floatL20powers_of_ten_uint64E, i64 0, i64 %.6255.lcssa
-  %315 = load i64, ptr %314, align 8, !tbaa !11
-  %316 = zext i64 %315 to i128
-  br label %318
+.lr.ph.i.i161:                                    ; preds = %318
+  %320 = getelementptr inbounds nuw [20 x i64], ptr @_ZN5boost4json6detail8charconv6detail10fast_floatL20powers_of_ten_uint64E, i64 0, i64 %.6255.lcssa
+  %321 = load i64, ptr %320, align 8, !tbaa !11
+  %322 = zext i64 %321 to i128
+  br label %324
 
-._crit_edge.i.i165:                               ; preds = %318
-  %.not.i.i166 = icmp ne i64 %326, 0
-  %317 = icmp ult i16 %242, 62
-  %or.cond266 = and i1 %317, %.not.i.i166
+._crit_edge.i.i165:                               ; preds = %324
+  %.not.i.i166 = icmp ne i64 %332, 0
+  %323 = icmp ult i16 %205, 62
+  %or.cond266 = and i1 %323, %.not.i.i166
   br i1 %or.cond266, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i168, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit169
 
-318:                                              ; preds = %318, %.lr.ph.i.i161
-  %.016.i.i162 = phi i64 [ 0, %.lr.ph.i.i161 ], [ %328, %318 ]
-  %.01215.i.i163 = phi i64 [ 0, %.lr.ph.i.i161 ], [ %326, %318 ]
-  %319 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.016.i.i162
-  %320 = load i64, ptr %319, align 8, !tbaa !11
-  %321 = zext i64 %320 to i128
-  %322 = mul nuw i128 %321, %316
-  %323 = zext i64 %.01215.i.i163 to i128
-  %324 = add nuw i128 %322, %323
-  %325 = lshr i128 %324, 64
-  %326 = trunc nuw i128 %325 to i64
-  %327 = trunc i128 %324 to i64
-  store i64 %327, ptr %319, align 8, !tbaa !11
-  %328 = add nuw nsw i64 %.016.i.i162, 1
-  %exitcond.not.i.i164 = icmp eq i64 %328, %243
-  br i1 %exitcond.not.i.i164, label %._crit_edge.i.i165, label %318, !llvm.loop !747
+324:                                              ; preds = %324, %.lr.ph.i.i161
+  %.016.i.i162 = phi i64 [ 0, %.lr.ph.i.i161 ], [ %334, %324 ]
+  %.01215.i.i163 = phi i64 [ 0, %.lr.ph.i.i161 ], [ %332, %324 ]
+  %325 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.016.i.i162
+  %326 = load i64, ptr %325, align 8, !tbaa !11
+  %327 = zext i64 %326 to i128
+  %328 = mul nuw i128 %327, %322
+  %329 = zext i64 %.01215.i.i163 to i128
+  %330 = add nuw i128 %328, %329
+  %331 = lshr i128 %330, 64
+  %332 = trunc nuw i128 %331 to i64
+  %333 = trunc i128 %330 to i64
+  store i64 %333, ptr %325, align 8, !tbaa !11
+  %334 = add nuw nsw i64 %.016.i.i162, 1
+  %exitcond.not.i.i164 = icmp eq i64 %334, %319
+  br i1 %exitcond.not.i.i164, label %._crit_edge.i.i165, label %324, !llvm.loop !747
 
 _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i168: ; preds = %._crit_edge.i.i165
-  %329 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %243
-  store i64 %326, ptr %329, align 8, !tbaa !11
-  %330 = add nuw nsw i16 %242, 1
-  store i16 %330, ptr %200, align 8, !tbaa !745
+  %335 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %319
+  store i64 %332, ptr %335, align 8, !tbaa !11
+  %336 = add nuw nsw i16 %205, 1
+  store i16 %336, ptr %204, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit169
 
-_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit169: ; preds = %313, %._crit_edge.i.i165, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i168
-  %331 = phi i16 [ 0, %313 ], [ %242, %._crit_edge.i.i165 ], [ %330, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i168 ]
+_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit169: ; preds = %318, %._crit_edge.i.i165, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i168
+  %337 = phi i16 [ %205, %318 ], [ %205, %._crit_edge.i.i165 ], [ %336, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i168 ]
+  %338 = phi i16 [ 0, %318 ], [ %205, %._crit_edge.i.i165 ], [ %336, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i168 ]
   %.not20.i.i170 = icmp eq i64 %.6248.lcssa, 0
   br i1 %.not20.i.i170, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit178, label %.lr.ph.i.i171
 
 .lr.ph.i.i171:                                    ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit169
-  %332 = zext i16 %331 to i64
-  br label %333
+  %339 = zext i16 %338 to i64
+  br label %340
 
-333:                                              ; preds = %334, %.lr.ph.i.i171
-  %.022.i.i172 = phi i64 [ %.6248.lcssa, %.lr.ph.i.i171 ], [ 1, %334 ]
-  %.01421.i.i173 = phi i64 [ 0, %.lr.ph.i.i171 ], [ %340, %334 ]
-  %exitcond.not.i174 = icmp eq i64 %.01421.i.i173, %332
-  br i1 %exitcond.not.i174, label %.critedge.i.i176, label %334
+340:                                              ; preds = %341, %.lr.ph.i.i171
+  %.022.i.i172 = phi i64 [ %.6248.lcssa, %.lr.ph.i.i171 ], [ 1, %341 ]
+  %.01421.i.i173 = phi i64 [ 0, %.lr.ph.i.i171 ], [ %347, %341 ]
+  %exitcond.not.i174 = icmp eq i64 %.01421.i.i173, %339
+  br i1 %exitcond.not.i174, label %.critedge.i.i176, label %341
 
-334:                                              ; preds = %333
-  %335 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.01421.i.i173
-  %336 = load i64, ptr %335, align 8, !tbaa !11
-  %337 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %336, i64 %.022.i.i172)
-  %338 = extractvalue { i64, i1 } %337, 1
-  %339 = extractvalue { i64, i1 } %337, 0
-  store i64 %339, ptr %335, align 8, !tbaa !11
-  %340 = add nuw nsw i64 %.01421.i.i173, 1
-  br i1 %338, label %333, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit178, !llvm.loop !748
+341:                                              ; preds = %340
+  %342 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %.01421.i.i173
+  %343 = load i64, ptr %342, align 8, !tbaa !11
+  %344 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %343, i64 %.022.i.i172)
+  %345 = extractvalue { i64, i1 } %344, 1
+  %346 = extractvalue { i64, i1 } %344, 0
+  store i64 %346, ptr %342, align 8, !tbaa !11
+  %347 = add nuw nsw i64 %.01421.i.i173, 1
+  br i1 %345, label %340, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit178, !llvm.loop !748
 
-.critedge.i.i176:                                 ; preds = %333
-  %341 = icmp ult i16 %331, 62
-  br i1 %341, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i177, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit178
+.critedge.i.i176:                                 ; preds = %340
+  %348 = icmp ult i16 %338, 62
+  br i1 %348, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i177, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit178
 
 _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i177: ; preds = %.critedge.i.i176
-  %342 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %332
-  store i64 %.022.i.i172, ptr %342, align 8, !tbaa !11
-  %343 = add nuw nsw i16 %331, 1
-  store i16 %343, ptr %200, align 8, !tbaa !745
+  %349 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %339
+  store i64 %.022.i.i172, ptr %349, align 8, !tbaa !11
+  %350 = add nuw nsw i16 %338, 1
+  store i16 %350, ptr %204, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit178
 
-_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit178: ; preds = %334, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit169, %.critedge.i.i176, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i177
-  %.not56 = icmp eq ptr %.6.lcssa, %186
+_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit178: ; preds = %341, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit169, %.critedge.i.i176, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i177
+  %351 = phi i16 [ %337, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3mulEm.exit169 ], [ %337, %.critedge.i.i176 ], [ %350, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i177 ], [ %337, %341 ]
+  %.not56 = icmp eq ptr %.6.lcssa, %190
   br i1 %.not56, label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81, label %.preheader272, !llvm.loop !755
 
-_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81.sink.split: ; preds = %140, %303, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i158, %.critedge.i.i157, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i102, %.critedge.i.i101
-  %344 = load i64, ptr %3, align 8, !tbaa !11
-  %345 = add i64 %344, 1
-  store i64 %345, ptr %3, align 8, !tbaa !11
+_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81.sink.split: ; preds = %141, %308, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i158, %.critedge.i.i157, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i102, %.critedge.i.i101
+  %352 = load i64, ptr %3, align 8, !tbaa !11
+  %353 = add i64 %352, 1
+  store i64 %353, ptr %3, align 8, !tbaa !11
   br label %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81
 
-_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81: ; preds = %197, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit178, %283, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81.sink.split, %._crit_edge352, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit.thread, %_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit71, %.preheader, %._crit_edge333, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit, %122
+_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81: ; preds = %201, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint3addEm.exit178, %288, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit81.sink.split, %._crit_edge352, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbPKT_S8_.exit.thread, %_ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit71, %.preheader, %._crit_edge333, %_ZN5boost4json6detail8charconv6detail10fast_float12is_truncatedIcEEbNS4_4spanIKT_EE.exit, %123
   ret void
 }
 
@@ -60738,7 +60750,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN5boost4json6detail8charconv6detail10
 8:                                                ; preds = %4
   %9 = sub nuw nsw i64 64, %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %11 = load i16, ptr %10, align 8, !tbaa !745
+  %11 = load i16, ptr %10, align 8, !tbaa !743
   %12 = zext i16 %11 to i64
   %.not25.i.i.i.i = icmp eq i16 %11, 0
   br i1 %.not25.i.i.i.i, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i, label %.lr.ph.i.i.i.i
@@ -60769,7 +60781,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN5boost4json6detail8charconv6detail10
   %23 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %12
   store i64 %13, ptr %23, align 8, !tbaa !11
   %24 = add nuw nsw i16 %11, 1
-  store i16 %24, ptr %10, align 8, !tbaa !745
+  store i16 %24, ptr %10, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i
 
 _ZN5boost4json6detail8charconv6detail10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i: ; preds = %22, %._crit_edge.i.i.i.i, %8, %4
@@ -60778,7 +60790,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float6bigint8shl_bitsEm.exit.thread.
 
 25:                                               ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %27 = load i16, ptr %26, align 8, !tbaa !745
+  %27 = load i16, ptr %26, align 8, !tbaa !743
   %28 = zext i16 %27 to i64
   %29 = add nuw nsw i64 %7, %28
   %30 = icmp samesign ult i64 %29, 63
@@ -60792,15 +60804,15 @@ _ZSt13copy_backwardIPKmPmET0_T_S4_S3_.exit.i.i.i.i: ; preds = %25
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 8 dereferenceable(504) %0, i64 %.idx.i.i.i.i, i1 false)
   %33 = shl nuw nsw i64 %7, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 dereferenceable(504) %0, i8 0, i64 %33, i1 false), !tbaa !11
-  %34 = load i16, ptr %26, align 8, !tbaa !745
+  %34 = load i16, ptr %26, align 8, !tbaa !743
   %35 = trunc nuw i64 %7 to i16
   %36 = add i16 %34, %35
-  store i16 %36, ptr %26, align 8, !tbaa !745
+  store i16 %36, ptr %26, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint5pow10Ej.exit
 
 _ZN5boost4json6detail8charconv6detail10fast_float6bigint5pow10Ej.exit: ; preds = %25, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i, %_ZSt13copy_backwardIPKmPmET0_T_S4_S3_.exit.i.i.i.i, %2, %20
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %38 = load i16, ptr %37, align 8, !tbaa !745
+  %38 = load i16, ptr %37, align 8, !tbaa !743
   %39 = zext i16 %38 to i64
   switch i16 %38, label %45 [
     i16 0, label %.thread
@@ -60956,7 +60968,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float11to_extendedIdEENS4_17adjusted
   %34 = getelementptr inbounds i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(496) %34, i8 0, i64 496, i1 false)
   store i64 %32, ptr %5, align 8, !tbaa !11
-  store i16 1, ptr %33, align 8, !tbaa !745
+  store i16 1, ptr %33, align 8, !tbaa !743
   %35 = sub nsw i32 %.sroa.4.0, %3
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %39, label %36
@@ -60979,7 +60991,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float11to_extendedIdEENS4_17adjusted
 
 45:                                               ; preds = %41
   %46 = sub nuw nsw i64 64, %43
-  %47 = load i16, ptr %33, align 8, !tbaa !745
+  %47 = load i16, ptr %33, align 8, !tbaa !743
   %48 = zext i16 %47 to i64
   %.not25.i.i.i = icmp eq i16 %47, 0
   br i1 %.not25.i.i.i, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint8shl_bitsEm.exit.thread.i.i, label %.lr.ph.i.i.i
@@ -61010,7 +61022,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float11to_extendedIdEENS4_17adjusted
   %59 = getelementptr inbounds nuw [62 x i64], ptr %5, i64 0, i64 %48
   store i64 %49, ptr %59, align 8, !tbaa !11
   %60 = add nuw nsw i16 %47, 1
-  store i16 %60, ptr %33, align 8, !tbaa !745
+  store i16 %60, ptr %33, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint8shl_bitsEm.exit.thread.i.i
 
 _ZN5boost4json6detail8charconv6detail10fast_float6bigint8shl_bitsEm.exit.thread.i.i: ; preds = %58, %._crit_edge.i.i.i, %45, %41
@@ -61018,7 +61030,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float6bigint8shl_bitsEm.exit.thread.
   br i1 %.not9.i.i, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint4pow2Ej.exit, label %61
 
 61:                                               ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float6bigint8shl_bitsEm.exit.thread.i.i
-  %62 = load i16, ptr %33, align 8, !tbaa !745
+  %62 = load i16, ptr %33, align 8, !tbaa !743
   %63 = zext i16 %62 to i64
   %64 = add nuw nsw i64 %44, %63
   %65 = icmp samesign ult i64 %64, 63
@@ -61032,10 +61044,10 @@ _ZSt13copy_backwardIPKmPmET0_T_S4_S3_.exit.i.i.i: ; preds = %61
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %67, ptr nonnull align 8 dereferenceable(504) %5, i64 %.idx.i.i.i, i1 false)
   %68 = shl nuw nsw i64 %44, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 dereferenceable(504) %5, i8 0, i64 %68, i1 false), !tbaa !11
-  %69 = load i16, ptr %33, align 8, !tbaa !745
+  %69 = load i16, ptr %33, align 8, !tbaa !743
   %70 = trunc nuw i64 %44 to i16
   %71 = add i16 %69, %70
-  store i16 %71, ptr %33, align 8, !tbaa !745
+  store i16 %71, ptr %33, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint4pow2Ej.exit
 
 72:                                               ; preds = %39
@@ -61053,7 +61065,7 @@ _ZSt13copy_backwardIPKmPmET0_T_S4_S3_.exit.i.i.i: ; preds = %61
 79:                                               ; preds = %74
   %80 = sub nuw nsw i64 64, %77
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %82 = load i16, ptr %81, align 8, !tbaa !745
+  %82 = load i16, ptr %81, align 8, !tbaa !743
   %83 = zext i16 %82 to i64
   %.not25.i.i.i34 = icmp eq i16 %82, 0
   br i1 %.not25.i.i.i34, label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint8shl_bitsEm.exit.thread.i.i42, label %.lr.ph.i.i.i35
@@ -61084,7 +61096,7 @@ _ZSt13copy_backwardIPKmPmET0_T_S4_S3_.exit.i.i.i: ; preds = %61
   %94 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %83
   store i64 %84, ptr %94, align 8, !tbaa !11
   %95 = add nuw nsw i16 %82, 1
-  store i16 %95, ptr %81, align 8, !tbaa !745
+  store i16 %95, ptr %81, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint8shl_bitsEm.exit.thread.i.i42
 
 _ZN5boost4json6detail8charconv6detail10fast_float6bigint8shl_bitsEm.exit.thread.i.i42: ; preds = %93, %._crit_edge.i.i.i39, %79, %74
@@ -61093,7 +61105,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float6bigint8shl_bitsEm.exit.thread.
 
 96:                                               ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float6bigint8shl_bitsEm.exit.thread.i.i42
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %98 = load i16, ptr %97, align 8, !tbaa !745
+  %98 = load i16, ptr %97, align 8, !tbaa !743
   %99 = zext i16 %98 to i64
   %100 = add nuw nsw i64 %78, %99
   %101 = icmp samesign ult i64 %100, 63
@@ -61107,16 +61119,16 @@ _ZSt13copy_backwardIPKmPmET0_T_S4_S3_.exit.i.i.i46: ; preds = %96
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %103, ptr nonnull align 8 dereferenceable(504) %0, i64 %.idx.i.i.i47, i1 false)
   %104 = shl nuw nsw i64 %78, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 dereferenceable(504) %0, i8 0, i64 %104, i1 false), !tbaa !11
-  %105 = load i16, ptr %97, align 8, !tbaa !745
+  %105 = load i16, ptr %97, align 8, !tbaa !743
   %106 = trunc nuw i64 %78 to i16
   %107 = add i16 %105, %106
-  store i16 %107, ptr %97, align 8, !tbaa !745
+  store i16 %107, ptr %97, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float6bigint4pow2Ej.exit
 
 _ZN5boost4json6detail8charconv6detail10fast_float6bigint4pow2Ej.exit: ; preds = %96, %61, %91, %_ZSt13copy_backwardIPKmPmET0_T_S4_S3_.exit.i.i.i46, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint8shl_bitsEm.exit.thread.i.i42, %56, %_ZSt13copy_backwardIPKmPmET0_T_S4_S3_.exit.i.i.i, %_ZN5boost4json6detail8charconv6detail10fast_float6bigint8shl_bitsEm.exit.thread.i.i, %72
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %109 = load i16, ptr %108, align 8, !tbaa !745
-  %110 = load i16, ptr %33, align 8, !tbaa !745
+  %109 = load i16, ptr %108, align 8, !tbaa !743
+  %110 = load i16, ptr %33, align 8, !tbaa !743
   %111 = icmp ugt i16 %109, %110
   br i1 %111, label %_ZNK5boost4json6detail8charconv6detail10fast_float6bigint7compareERKS5_.exit, label %112
 
@@ -61210,7 +61222,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost4json6detail8charconv6de
 
 .lr.ph28:                                         ; preds = %.preheader
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %.promoted = load i16, ptr %5, align 8, !tbaa !745
+  %.promoted = load i16, ptr %5, align 8, !tbaa !743
   br label %10
 
 .lr.ph:                                           ; preds = %2, %7
@@ -61259,7 +61271,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exi
   %25 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %12
   store i64 %20, ptr %25, align 8, !tbaa !11
   %26 = add nuw nsw i16 %11, 1
-  store i16 %26, ptr %5, align 8, !tbaa !745
+  store i16 %26, ptr %5, align 8, !tbaa !743
   br label %27
 
 27:                                               ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i, %._crit_edge.i, %10
@@ -61275,7 +61287,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exi
 
 31:                                               ; preds = %._crit_edge
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %33 = load i16, ptr %32, align 8, !tbaa !745
+  %33 = load i16, ptr %32, align 8, !tbaa !743
   %34 = zext i16 %33 to i64
   %.not19.i9 = icmp eq i16 %33, 0
   br i1 %.not19.i9, label %_ZN5boost4json6detail8charconv6detail10fast_float9large_mulILt62EEEbRNS4_8stackvecIXT_EEENS4_4spanImEE.exit, label %.lr.ph.i10
@@ -61316,7 +61328,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exi
   %52 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %34
   store i64 %47, ptr %52, align 8, !tbaa !11
   %53 = add nuw nsw i16 %33, 1
-  store i16 %53, ptr %32, align 8, !tbaa !745
+  store i16 %53, ptr %32, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float9large_mulILt62EEEbRNS4_8stackvecIXT_EEENS4_4spanImEE.exit
 
 _ZN5boost4json6detail8charconv6detail10fast_float9large_mulILt62EEEbRNS4_8stackvecIXT_EEENS4_4spanImEE.exit: ; preds = %.lr.ph, %23, %31, %._crit_edge.i14, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i17, %._crit_edge, %50
@@ -61329,11 +61341,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost4json6detail8charconv6de
   %4 = alloca %"struct.boost::json::detail::charconv::detail::fast_float::stackvec", align 8
   %5 = alloca %"struct.boost::json::detail::charconv::detail::fast_float::stackvec", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %7 = load i16, ptr %6, align 8, !tbaa !745
+  %7 = load i16, ptr %6, align 8, !tbaa !743
   %8 = zext i16 %7 to i64
   call void @llvm.lifetime.start.p0(i64 504, ptr nonnull %4)
   %.496..496..496..sroa_idx = getelementptr inbounds i8, ptr %4, i64 496
-  store i16 0, ptr %.496..496..496..sroa_idx, align 8, !tbaa !745
+  store i16 0, ptr %.496..496..496..sroa_idx, align 8, !tbaa !743
   %.not.i.i = icmp ult i16 %7, 63
   br i1 %.not.i.i, label %9, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EEC2ENS4_4spanImEE.exit
 
@@ -61345,7 +61357,7 @@ _ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i: ; p
   %.idx.i.i.i.i.i = shl nuw nsw i64 %8, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(498) %4, ptr nonnull align 8 %0, i64 %.idx.i.i.i.i.i, i1 false)
   %.496..496..496..sroa_idx94 = getelementptr inbounds i8, ptr %4, i64 496
-  %.496..496..496..pre.i.i = load i16, ptr %.496..496..496..sroa_idx94, align 8, !tbaa !745
+  %.496..496..496..pre.i.i = load i16, ptr %.496..496..496..sroa_idx94, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE16extend_uncheckedENS4_4spanImEE.exit.i.i
 
 _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE16extend_uncheckedENS4_4spanImEE.exit.i.i: ; preds = %_ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i, %9
@@ -61353,7 +61365,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE16extend_unchec
   %12 = add i16 %11, %7
   %13 = freeze i16 %12
   %.496..496..496..sroa_idx95 = getelementptr inbounds i8, ptr %4, i64 496
-  store i16 %13, ptr %.496..496..496..sroa_idx95, align 8, !tbaa !745
+  store i16 %13, ptr %.496..496..496..sroa_idx95, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EEC2ENS4_4spanImEE.exit
 
 _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EEC2ENS4_4spanImEE.exit: ; preds = %3, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE16extend_uncheckedENS4_4spanImEE.exit.i.i
@@ -61399,7 +61411,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exi
   %30 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %8
   store i64 %25, ptr %30, align 8, !tbaa !11
   %31 = add nuw nsw i16 %7, 1
-  store i16 %31, ptr %6, align 8, !tbaa !745
+  store i16 %31, ptr %6, align 8, !tbaa !743
   br label %_ZN5boost4json6detail8charconv6detail10fast_float9small_mulILt62EEEbRNS4_8stackvecIXT_EEEm.exit
 
 _ZN5boost4json6detail8charconv6detail10fast_float9small_mulILt62EEEbRNS4_8stackvecIXT_EEEm.exit: ; preds = %14, %._crit_edge.i, %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i
@@ -61426,12 +61438,12 @@ _ZN5boost4json6detail8charconv6detail10fast_float9small_mulILt62EEEbRNS4_8stackv
   br i1 %.not29.us, label %.critedge.us, label %38
 
 38:                                               ; preds = %.lr.ph.split.us
-  store i16 0, ptr %32, align 8, !tbaa !745
+  store i16 0, ptr %32, align 8, !tbaa !743
   br i1 %33, label %39, label %_ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.us
 
 _ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.us: ; preds = %38
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 8 %4, i64 %.idx.i.i.i.i, i1 false)
-  %.pre.i.us = load i16, ptr %32, align 8, !tbaa !745
+  %.pre.i.us = load i16, ptr %32, align 8, !tbaa !743
   br label %39
 
 39:                                               ; preds = %_ZSt8__copy_nIPKmmPmET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.us, %38
@@ -61504,7 +61516,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE10try_resizeEmm
 
 .sink.split.i.us:                                 ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE10try_resizeEmm.exit.i.us, %69
   %storemerge.i.i.i.us = trunc nuw i64 %67 to i16
-  store i16 %storemerge.i.i.i.us, ptr %6, align 8, !tbaa !745
+  store i16 %storemerge.i.i.i.us, ptr %6, align 8, !tbaa !743
   br label %74
 
 74:                                               ; preds = %.sink.split.i.us, %59
@@ -61564,7 +61576,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exi
   %100 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %96
   store i64 1, ptr %100, align 8, !tbaa !11
   %101 = add nuw nsw i16 %75, 1
-  store i16 %101, ptr %6, align 8, !tbaa !745
+  store i16 %101, ptr %6, align 8, !tbaa !743
   br label %.critedge.us
 
 102:                                              ; preds = %97
@@ -61618,7 +61630,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE10try_extendENS
 
 120:                                              ; preds = %.lr.ph.i50
   %121 = add i16 %114, -1
-  store i16 %121, ptr %6, align 8, !tbaa !745
+  store i16 %121, ptr %6, align 8, !tbaa !743
   %.not.i51 = icmp eq i16 %121, 0
   br i1 %.not.i51, label %.critedge32, label %.lr.ph.i50, !llvm.loop !763
 
@@ -63061,14 +63073,14 @@ attributes #56 = { nounwind allocsize(0) }
 !172 = !{!161, !9, i64 272}
 !173 = !{!161, !9, i64 273}
 !174 = !{!164, !8, i64 24}
-!175 = !{!161, !159, i64 176}
-!176 = !{!161, !159, i64 177}
-!177 = !{!161, !159, i64 178}
-!178 = !{!154, !12, i64 48}
-!179 = !{!164, !159, i64 48}
-!180 = !{i8 0, i8 2}
-!181 = !{}
-!182 = !{!164, !8, i64 16}
+!175 = !{!164, !8, i64 16}
+!176 = !{!161, !159, i64 176}
+!177 = !{!161, !159, i64 177}
+!178 = !{!161, !159, i64 178}
+!179 = !{!154, !12, i64 48}
+!180 = !{!164, !159, i64 48}
+!181 = !{i8 0, i8 2}
+!182 = !{}
 !183 = distinct !{!183, !44}
 !184 = !{!164, !12, i64 40}
 !185 = !{!167, !8, i64 24}
@@ -63174,18 +63186,18 @@ attributes #56 = { nounwind allocsize(0) }
 !285 = !{!286}
 !286 = distinct !{!286, !287, !"_ZN5boost4json15make_error_codeENS0_5errorE: argument 0"}
 !287 = distinct !{!287, !"_ZN5boost4json15make_error_codeENS0_5errorE"}
-!288 = !{!289}
-!289 = distinct !{!289, !290, !"_ZN5boost4json15make_error_codeENS0_5errorE: argument 0"}
-!290 = distinct !{!290, !"_ZN5boost4json15make_error_codeENS0_5errorE"}
-!291 = !{!292}
-!292 = distinct !{!292, !293, !"_ZN5boost4json15make_error_codeENS0_5errorE: argument 0"}
-!293 = distinct !{!293, !"_ZN5boost4json15make_error_codeENS0_5errorE"}
-!294 = !{!295}
-!295 = distinct !{!295, !296, !"_ZN5boost4json15make_error_codeENS0_5errorE: argument 0"}
-!296 = distinct !{!296, !"_ZN5boost4json15make_error_codeENS0_5errorE"}
-!297 = !{!298, !8, i64 0}
-!298 = !{!"_ZTSN5boost4core17basic_string_viewIcEE", !8, i64 0, !12, i64 8}
-!299 = !{!298, !12, i64 8}
+!288 = !{!289, !12, i64 8}
+!289 = !{!"_ZTSN5boost4core17basic_string_viewIcEE", !8, i64 0, !12, i64 8}
+!290 = !{!291}
+!291 = distinct !{!291, !292, !"_ZN5boost4json15make_error_codeENS0_5errorE: argument 0"}
+!292 = distinct !{!292, !"_ZN5boost4json15make_error_codeENS0_5errorE"}
+!293 = !{!294}
+!294 = distinct !{!294, !295, !"_ZN5boost4json15make_error_codeENS0_5errorE: argument 0"}
+!295 = distinct !{!295, !"_ZN5boost4json15make_error_codeENS0_5errorE"}
+!296 = !{!297}
+!297 = distinct !{!297, !298, !"_ZN5boost4json15make_error_codeENS0_5errorE: argument 0"}
+!298 = distinct !{!298, !"_ZN5boost4json15make_error_codeENS0_5errorE"}
+!299 = !{!289, !8, i64 0}
 !300 = distinct !{!300, !44}
 !301 = distinct !{!301, !44}
 !302 = !{!303}
@@ -63629,16 +63641,16 @@ attributes #56 = { nounwind allocsize(0) }
 !740 = !{!719, !12, i64 8}
 !741 = distinct !{!741, !44}
 !742 = distinct !{!742, !44}
-!743 = distinct !{!743, !44}
-!744 = distinct !{!744, !44}
-!745 = !{!746, !169, i64 496}
-!746 = !{!"_ZTSN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EEE", !9, i64 0, !169, i64 496}
+!743 = !{!744, !169, i64 496}
+!744 = !{!"_ZTSN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EEE", !9, i64 0, !169, i64 496}
+!745 = distinct !{!745, !44}
+!746 = distinct !{!746, !44}
 !747 = distinct !{!747, !44}
 !748 = distinct !{!748, !44}
 !749 = distinct !{!749, !44}
 !750 = distinct !{!750, !44}
-!751 = distinct !{!751, !44}
-!752 = !{!718, !8, i64 48}
+!751 = !{!718, !8, i64 48}
+!752 = distinct !{!752, !44}
 !753 = distinct !{!753, !44}
 !754 = distinct !{!754, !44}
 !755 = distinct !{!755, !44}

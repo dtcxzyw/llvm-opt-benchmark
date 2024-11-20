@@ -90,7 +90,7 @@ entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib12PrimeNumbers13primeNumbers_E, i64 8), align 8, !tbaa !9
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !13
-  %2 = load ptr, ptr @_ZN8QuantLib12PrimeNumbers13primeNumbers_E, align 8, !tbaa !9
+  %2 = load ptr, ptr @_ZN8QuantLib12PrimeNumbers13primeNumbers_E, align 8, !tbaa !3
   br label %do.body
 
 do.body:                                          ; preds = %do.end, %entry
@@ -196,7 +196,7 @@ if.then:                                          ; preds = %entry
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !8
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !9
+  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !10
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast

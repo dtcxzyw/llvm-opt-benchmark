@@ -39567,7 +39567,7 @@ ehcleanup105:                                     ; preds = %ehcleanup104, %lpad
   br label %ehcleanup667
 
 do.end108:                                        ; preds = %do.body56
-  %55 = load i64, ptr %this, align 8, !tbaa !45
+  %55 = load i64, ptr %this, align 8, !tbaa !3
   %cmp.i.i318 = icmp ugt i64 %55, 2305843009213693951
   br i1 %cmp.i.i318, label %if.then.i.i331, label %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i319
 

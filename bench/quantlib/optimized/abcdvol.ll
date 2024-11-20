@@ -3505,7 +3505,7 @@ cond.end.i.i:                                     ; preds = %cond.true.i.i, %for
   %columns_6.i.i = getelementptr inbounds nuw i8, ptr %__cur.010, i64 16
   store i64 %0, ptr %columns_6.i.i, align 8, !tbaa !53
   %6 = load i64, ptr %rows_.i.i.i, align 8, !tbaa !45
-  %7 = load i64, ptr %columns_.i.i.i, align 8
+  %7 = load i64, ptr %columns_.i.i.i, align 8, !tbaa !53
   %mul.i.i.i = mul i64 %7, %6
   %tobool.not.i.i.i.i.i.i.i = icmp eq i64 %mul.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i.i.i, label %for.inc, label %if.then.i.i.i.i.i.i.i

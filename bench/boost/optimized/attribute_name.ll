@@ -1893,7 +1893,7 @@ define linkonce_odr hidden void @_ZNSt5dequeIN5boost3log11v2_mt_posix14attribute
   %12 = add nsw i64 %11, 1
   %13 = add i64 %12, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !8
+  %15 = load i64, ptr %14, align 8, !tbaa !107
   %16 = shl i64 %13, 1
   %17 = icmp ugt i64 %15, %16
   br i1 %17, label %18, label %39
@@ -2279,7 +2279,7 @@ define linkonce_odr hidden void @_ZN5boost9intrusive17rbtree_algorithmsINS0_18rb
   br i1 %.not, label %33, label %28
 
 28:                                               ; preds = %26
-  %29 = load ptr, ptr %27, align 8, !tbaa !27
+  %29 = load ptr, ptr %27, align 8, !tbaa !49
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, 1
   %32 = icmp eq i64 %31, 0
@@ -2806,7 +2806,7 @@ define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %8 = load ptr, ptr %7, align 8, !tbaa !27
+  %8 = load ptr, ptr %7, align 8, !tbaa !49
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, -2
   %.not.i.i.i.i.i = icmp eq i64 %10, 0
@@ -2879,7 +2879,7 @@ define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %8 = load ptr, ptr %7, align 8, !tbaa !27
+  %8 = load ptr, ptr %7, align 8, !tbaa !49
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, -2
   %.not.i.i.i.i.i.i = icmp eq i64 %10, 0
@@ -2951,7 +2951,7 @@ define linkonce_odr hidden void @_ZN5boost6detail18sp_counted_impl_pdIPNS_3log11
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %8 = load ptr, ptr %7, align 8, !tbaa !27
+  %8 = load ptr, ptr %7, align 8, !tbaa !49
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, -2
   %.not.i.i.i.i.i = icmp eq i64 %10, 0

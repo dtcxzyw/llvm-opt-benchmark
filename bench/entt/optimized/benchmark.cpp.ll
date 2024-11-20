@@ -40698,7 +40698,7 @@ entry:
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !1584
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !55
+  %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !35
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %_ZNSt6vectorIN4entt6entityESaIS1_EE13shrink_to_fitEv.exit, label %if.end.i.i
 
@@ -42113,7 +42113,7 @@ if.then.i:                                        ; preds = %cleanup.cont
 
 if.else.i:                                        ; preds = %cleanup.cont
   call void @_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS0_16basic_sparse_setINS0_6entityESaIS5_EEEEEESaIS9_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJRKjEESH_IJEEEEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i, ptr %6, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14)
-  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !55
+  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !72
   br label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS0_16basic_sparse_setINS0_6entityESaIS5_EEEEEESaIS9_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJRKjEESH_IJEEEEERS9_DpOT_.exit
 
 _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS0_16basic_sparse_setINS0_6entityESaIS5_EEEEEESaIS9_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJRKjEESH_IJEEEEERS9_DpOT_.exit: ; preds = %if.else.i, %if.then.i
@@ -43258,7 +43258,7 @@ entry:
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !1584
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !35
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE13shrink_to_fitEv.exit, label %if.end.i.i.i
 
@@ -46069,7 +46069,7 @@ entry:
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !1584
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !35
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE13shrink_to_fitEv.exit, label %if.end.i.i.i
 
@@ -48179,7 +48179,7 @@ entry:
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !1584
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !35
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE13shrink_to_fitEv.exit, label %if.end.i.i.i
 
@@ -50446,7 +50446,7 @@ entry:
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !1584
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !35
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE13shrink_to_fitEv.exit, label %if.end.i.i.i
 
@@ -52695,7 +52695,7 @@ entry:
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !1584
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !35
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE13shrink_to_fitEv.exit, label %if.end.i.i.i
 
@@ -54694,7 +54694,7 @@ entry:
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !1584
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !35
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE13shrink_to_fitEv.exit, label %if.end.i.i.i
 
@@ -60386,7 +60386,7 @@ _ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_1
 
 if.else.i:                                        ; preds = %cleanup.cont
   call void @_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJEEENS0_5get_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISN_EvEENS0_14basic_registryISO_SaISO_EEEEENSL_INSM_I8velocitySO_SaISV_EvEEST_EEEEENS0_9exclude_tIJEEEEEEEEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i, ptr %6, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14)
-  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !55
+  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !59
   br label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJEEENS0_5get_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISN_EvEENS0_14basic_registryISO_SaISO_EEEEENSL_INSM_I8velocitySO_SaISV_EvEEST_EEEEENS0_9exclude_tIJEEEEEEEEEEERS6_DpOT_.exit
 
 _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJEEENS0_5get_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISN_EvEENS0_14basic_registryISO_SaISO_EEEEENSL_INSM_I8velocitySO_SaISV_EvEEST_EEEEENS0_9exclude_tIJEEEEEEEEEEERS6_DpOT_.exit: ; preds = %if.else.i, %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEEEE9constructIS6_JRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJEEENS0_5get_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISN_EvEENS0_14basic_registryISO_SaISO_EEEEENSL_INSM_I8velocitySO_SaISV_EvEEST_EEEEENS0_9exclude_tIJEEEEEEEEEEEvRS7_PT_DpOT0_.exit.i
@@ -61749,7 +61749,7 @@ _ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_1
 
 if.else.i:                                        ; preds = %cleanup.cont
   call void @_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EEEEENS0_5get_tIJEEENS0_9exclude_tIJEEEEEEEEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i, ptr %6, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14)
-  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !55
+  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !59
   br label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EEEEENS0_5get_tIJEEENS0_9exclude_tIJEEEEEEEEEEERS6_DpOT_.exit
 
 _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EEEEENS0_5get_tIJEEENS0_9exclude_tIJEEEEEEEEEEERS6_DpOT_.exit: ; preds = %if.else.i, %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEEEE9constructIS6_JRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EEEEENS0_5get_tIJEEENS0_9exclude_tIJEEEEEEEEEEEvRS7_PT_DpOT0_.exit.i
@@ -63106,7 +63106,7 @@ _ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_1
 
 if.else.i:                                        ; preds = %cleanup.cont
   call void @_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEEEEENS0_5get_tIJNSJ_INSK_I8velocitySM_SaISV_EvEESR_EEEEENS0_9exclude_tIJEEEEEEEEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i, ptr %6, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14)
-  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !55
+  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !59
   br label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEEEEENS0_5get_tIJNSJ_INSK_I8velocitySM_SaISV_EvEESR_EEEEENS0_9exclude_tIJEEEEEEEEEEERS6_DpOT_.exit
 
 _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEEEEENS0_5get_tIJNSJ_INSK_I8velocitySM_SaISV_EvEESR_EEEEENS0_9exclude_tIJEEEEEEEEEEERS6_DpOT_.exit: ; preds = %if.else.i, %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEEEE9constructIS6_JRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEEEEENS0_5get_tIJNSJ_INSK_I8velocitySM_SaISV_EvEESR_EEEEENS0_9exclude_tIJEEEEEEEEEEEvRS7_PT_DpOT0_.exit.i
@@ -64667,7 +64667,7 @@ _ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_1
 
 if.else.i:                                        ; preds = %cleanup.cont
   call void @_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJEEENS0_5get_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISN_EvEENS0_14basic_registryISO_SaISO_EEEEENSL_INSM_I8velocitySO_SaISV_EvEEST_EENSL_INSM_I4compILi0EESO_SaIS10_EvEEST_EEEEENS0_9exclude_tIJEEEEEEEEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i, ptr %6, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14)
-  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !55
+  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !59
   br label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJEEENS0_5get_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISN_EvEENS0_14basic_registryISO_SaISO_EEEEENSL_INSM_I8velocitySO_SaISV_EvEEST_EENSL_INSM_I4compILi0EESO_SaIS10_EvEEST_EEEEENS0_9exclude_tIJEEEEEEEEEEERS6_DpOT_.exit
 
 _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJEEENS0_5get_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISN_EvEENS0_14basic_registryISO_SaISO_EEEEENSL_INSM_I8velocitySO_SaISV_EvEEST_EENSL_INSM_I4compILi0EESO_SaIS10_EvEEST_EEEEENS0_9exclude_tIJEEEEEEEEEEERS6_DpOT_.exit: ; preds = %if.else.i, %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEEEE9constructIS6_JRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJEEENS0_5get_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISN_EvEENS0_14basic_registryISO_SaISO_EEEEENSL_INSM_I8velocitySO_SaISV_EvEEST_EENSL_INSM_I4compILi0EESO_SaIS10_EvEEST_EEEEENS0_9exclude_tIJEEEEEEEEEEEvRS7_PT_DpOT0_.exit.i
@@ -66212,7 +66212,7 @@ _ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_1
 
 if.else.i:                                        ; preds = %cleanup.cont
   call void @_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EENSJ_INSK_I4compILi0EESM_SaISY_EvEESR_EEEEENS0_5get_tIJEEENS0_9exclude_tIJEEEEEEEEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i, ptr %6, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14)
-  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !55
+  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !59
   br label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EENSJ_INSK_I4compILi0EESM_SaISY_EvEESR_EEEEENS0_5get_tIJEEENS0_9exclude_tIJEEEEEEEEEEERS6_DpOT_.exit
 
 _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EENSJ_INSK_I4compILi0EESM_SaISY_EvEESR_EEEEENS0_5get_tIJEEENS0_9exclude_tIJEEEEEEEEEEERS6_DpOT_.exit: ; preds = %if.else.i, %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEEEE9constructIS6_JRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EENSJ_INSK_I4compILi0EESM_SaISY_EvEESR_EEEEENS0_5get_tIJEEENS0_9exclude_tIJEEEEEEEEEEEvRS7_PT_DpOT0_.exit.i
@@ -67801,7 +67801,7 @@ _ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_1
 
 if.else.i:                                        ; preds = %cleanup.cont
   call void @_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EEEEENS0_5get_tIJNSJ_INSK_I4compILi0EESM_SaIS10_EvEESR_EEEEENS0_9exclude_tIJEEEEEEEEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i, ptr %6, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14)
-  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !55
+  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !59
   br label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EEEEENS0_5get_tIJNSJ_INSK_I4compILi0EESM_SaIS10_EvEESR_EEEEENS0_9exclude_tIJEEEEEEEEEEERS6_DpOT_.exit
 
 _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EEEEENS0_5get_tIJNSJ_INSK_I4compILi0EESM_SaIS10_EvEESR_EEEEENS0_9exclude_tIJEEEEEEEEEEERS6_DpOT_.exit: ; preds = %if.else.i, %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEEEE9constructIS6_JRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EEEEENS0_5get_tIJNSJ_INSK_I4compILi0EESM_SaIS10_EvEESR_EEEEENS0_9exclude_tIJEEEEEEEEEEEvRS7_PT_DpOT0_.exit.i
@@ -69975,7 +69975,7 @@ _ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_1
 
 if.else.i:                                        ; preds = %cleanup.cont
   call void @_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJEEENS0_5get_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISN_EvEENS0_14basic_registryISO_SaISO_EEEEENSL_INSM_I8velocitySO_SaISV_EvEEST_EENSL_INSM_I4compILi0EESO_SaIS10_EvEEST_EENSL_INSM_ISZ_ILi1EESO_SaIS14_EvEEST_EENSL_INSM_ISZ_ILi2EESO_SaIS18_EvEEST_EEEEENS0_9exclude_tIJEEEEEEEEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i, ptr %6, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14)
-  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !55
+  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !59
   br label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJEEENS0_5get_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISN_EvEENS0_14basic_registryISO_SaISO_EEEEENSL_INSM_I8velocitySO_SaISV_EvEEST_EENSL_INSM_I4compILi0EESO_SaIS10_EvEEST_EENSL_INSM_ISZ_ILi1EESO_SaIS14_EvEEST_EENSL_INSM_ISZ_ILi2EESO_SaIS18_EvEEST_EEEEENS0_9exclude_tIJEEEEEEEEEEERS6_DpOT_.exit
 
 _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJEEENS0_5get_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISN_EvEENS0_14basic_registryISO_SaISO_EEEEENSL_INSM_I8velocitySO_SaISV_EvEEST_EENSL_INSM_I4compILi0EESO_SaIS10_EvEEST_EENSL_INSM_ISZ_ILi1EESO_SaIS14_EvEEST_EENSL_INSM_ISZ_ILi2EESO_SaIS18_EvEEST_EEEEENS0_9exclude_tIJEEEEEEEEEEERS6_DpOT_.exit: ; preds = %if.else.i, %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEEEE9constructIS6_JRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJEEENS0_5get_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISN_EvEENS0_14basic_registryISO_SaISO_EEEEENSL_INSM_I8velocitySO_SaISV_EvEEST_EENSL_INSM_I4compILi0EESO_SaIS10_EvEEST_EENSL_INSM_ISZ_ILi1EESO_SaIS14_EvEEST_EENSL_INSM_ISZ_ILi2EESO_SaIS18_EvEEST_EEEEENS0_9exclude_tIJEEEEEEEEEEEvRS7_PT_DpOT0_.exit.i
@@ -72277,7 +72277,7 @@ _ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_1
 
 if.else.i:                                        ; preds = %cleanup.cont
   call void @_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EENSJ_INSK_I4compILi0EESM_SaISY_EvEESR_EENSJ_INSK_ISX_ILi1EESM_SaIS12_EvEESR_EENSJ_INSK_ISX_ILi2EESM_SaIS16_EvEESR_EEEEENS0_5get_tIJEEENS0_9exclude_tIJEEEEEEEEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i, ptr %6, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14)
-  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !55
+  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !59
   br label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EENSJ_INSK_I4compILi0EESM_SaISY_EvEESR_EENSJ_INSK_ISX_ILi1EESM_SaIS12_EvEESR_EENSJ_INSK_ISX_ILi2EESM_SaIS16_EvEESR_EEEEENS0_5get_tIJEEENS0_9exclude_tIJEEEEEEEEEEERS6_DpOT_.exit
 
 _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EENSJ_INSK_I4compILi0EESM_SaISY_EvEESR_EENSJ_INSK_ISX_ILi1EESM_SaIS12_EvEESR_EENSJ_INSK_ISX_ILi2EESM_SaIS16_EvEESR_EEEEENS0_5get_tIJEEENS0_9exclude_tIJEEEEEEEEEEERS6_DpOT_.exit: ; preds = %if.else.i, %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEEEE9constructIS6_JRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EENSJ_INSK_I4compILi0EESM_SaISY_EvEESR_EENSJ_INSK_ISX_ILi1EESM_SaIS12_EvEESR_EENSJ_INSK_ISX_ILi2EESM_SaIS16_EvEESR_EEEEENS0_5get_tIJEEENS0_9exclude_tIJEEEEEEEEEEEvRS7_PT_DpOT0_.exit.i
@@ -74578,7 +74578,7 @@ _ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_1
 
 if.else.i:                                        ; preds = %cleanup.cont
   call void @_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EENSJ_INSK_I4compILi0EESM_SaISY_EvEESR_EENSJ_INSK_ISX_ILi1EESM_SaIS12_EvEESR_EEEEENS0_5get_tIJNSJ_INSK_ISX_ILi2EESM_SaIS18_EvEESR_EEEEENS0_9exclude_tIJEEEEEEEEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i, ptr %6, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14)
-  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !55
+  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !59
   br label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EENSJ_INSK_I4compILi0EESM_SaISY_EvEESR_EENSJ_INSK_ISX_ILi1EESM_SaIS12_EvEESR_EEEEENS0_5get_tIJNSJ_INSK_ISX_ILi2EESM_SaIS18_EvEESR_EEEEENS0_9exclude_tIJEEEEEEEEEEERS6_DpOT_.exit
 
 _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EENSJ_INSK_I4compILi0EESM_SaISY_EvEESR_EENSJ_INSK_ISX_ILi1EESM_SaIS12_EvEESR_EEEEENS0_5get_tIJNSJ_INSK_ISX_ILi2EESM_SaIS18_EvEESR_EEEEENS0_9exclude_tIJEEEEEEEEEEERS6_DpOT_.exit: ; preds = %if.else.i, %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEEEE9constructIS6_JRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EENSJ_INSK_I4compILi0EESM_SaISY_EvEESR_EENSJ_INSK_ISX_ILi1EESM_SaIS12_EvEESR_EEEEENS0_5get_tIJNSJ_INSK_ISX_ILi2EESM_SaIS18_EvEESR_EEEEENS0_9exclude_tIJEEEEEEEEEEEvRS7_PT_DpOT0_.exit.i
@@ -76884,7 +76884,7 @@ _ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_1
 
 if.else.i:                                        ; preds = %cleanup.cont
   call void @_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EENSJ_INSK_I4compILi0EESM_SaISY_EvEESR_EEEEENS0_5get_tIJNSJ_INSK_ISX_ILi1EESM_SaIS14_EvEESR_EENSJ_INSK_ISX_ILi2EESM_SaIS18_EvEESR_EEEEENS0_9exclude_tIJEEEEEEEEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i, ptr %6, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14)
-  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !55
+  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !59
   br label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EENSJ_INSK_I4compILi0EESM_SaISY_EvEESR_EEEEENS0_5get_tIJNSJ_INSK_ISX_ILi1EESM_SaIS14_EvEESR_EENSJ_INSK_ISX_ILi2EESM_SaIS18_EvEESR_EEEEENS0_9exclude_tIJEEEEEEEEEEERS6_DpOT_.exit
 
 _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEESaIS6_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EENSJ_INSK_I4compILi0EESM_SaISY_EvEESR_EEEEENS0_5get_tIJNSJ_INSK_ISX_ILi1EESM_SaIS14_EvEESR_EENSJ_INSK_ISX_ILi2EESM_SaIS18_EvEESR_EEEEENS0_9exclude_tIJEEEEEEEEEEERS6_DpOT_.exit: ; preds = %if.else.i, %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS1_16group_descriptorEEEEEE9constructIS6_JRmRKSt21piecewise_construct_tSt5tupleIJOjEESE_IJRS3_INS1_13group_handlerINS0_7owned_tIJNS0_16basic_sigh_mixinINS0_13basic_storageI8positionNS0_6entityESaISL_EvEENS0_14basic_registryISM_SaISM_EEEEENSJ_INSK_I8velocitySM_SaIST_EvEESR_EENSJ_INSK_I4compILi0EESM_SaISY_EvEESR_EEEEENS0_5get_tIJNSJ_INSK_ISX_ILi1EESM_SaIS14_EvEESR_EENSJ_INSK_ISX_ILi2EESM_SaIS18_EvEESR_EEEEENS0_9exclude_tIJEEEEEEEEEEEvRS7_PT_DpOT0_.exit.i

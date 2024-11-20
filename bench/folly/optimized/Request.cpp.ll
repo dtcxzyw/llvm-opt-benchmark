@@ -7258,7 +7258,7 @@ _ZNSt6vectorISt4pairIN5folly12RequestTokenEPNS1_11RequestDataEESaIS5_EE17_M_real
 
 _ZNSt6vectorISt4pairIN5folly12RequestTokenEPNS1_11RequestDataEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit: ; preds = %_ZNSt6vectorISt4pairIN5folly12RequestTokenEPNS1_11RequestDataEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, %if.then.i347
   %next_.i.i.i = getelementptr inbounds i8, ptr %replaced.1, i64 8
-  %63 = load ptr, ptr %next_.i.i.i, align 8, !tbaa !59
+  %63 = load ptr, ptr %next_.i.i.i, align 8, !tbaa !143
   %cmp.not.i.i.i355 = icmp eq ptr %63, %replaced.1
   br i1 %cmp.not.i.i.i355, label %_ZN5folly15hazptr_obj_baseINS_14RequestContext5State8CombinedESt6atomicSt14default_deleteIS3_EE6retireES6_RNS_13hazptr_domainIS4_EE.exit, label %if.else.i.i
 
@@ -9548,7 +9548,7 @@ if.end36.i:                                       ; preds = %_ZNSt7__cxx1112basi
 
 if.then38.i:                                      ; preds = %if.end36.i
   %next_.i.i.i227 = getelementptr inbounds i8, ptr %replaced.3.i296, i64 8
-  %90 = load ptr, ptr %next_.i.i.i227, align 8, !tbaa !59
+  %90 = load ptr, ptr %next_.i.i.i227, align 8, !tbaa !143
   %cmp.not.i.i.i = icmp eq ptr %90, %replaced.3.i296
   br i1 %cmp.not.i.i.i, label %_ZN5folly15hazptr_obj_baseINS_14RequestContext5State8CombinedESt6atomicSt14default_deleteIS3_EE6retireES6_RNS_13hazptr_domainIS4_EE.exit, label %if.else.i.i
 
@@ -9974,7 +9974,7 @@ lpad.i:                                           ; preds = %if.end34.i, %call9.
 
 if.then38.i:                                      ; preds = %_ZN5folly14RequestContext5State9LockGuardD2Ev.exit
   %next_.i.i.i77 = getelementptr inbounds i8, ptr %retval.sroa.5149.0.i, i64 8
-  %44 = load ptr, ptr %next_.i.i.i77, align 8, !tbaa !59
+  %44 = load ptr, ptr %next_.i.i.i77, align 8, !tbaa !143
   %cmp.not.i.i.i = icmp eq ptr %44, %retval.sroa.5149.0.i
   br i1 %cmp.not.i.i.i, label %_ZN5folly15hazptr_obj_baseINS_14RequestContext5State8CombinedESt6atomicSt14default_deleteIS3_EE6retireES6_RNS_13hazptr_domainIS4_EE.exit, label %if.else.i.i
 
@@ -11144,7 +11144,7 @@ if.end36.i:                                       ; preds = %_ZN5folly14RequestC
 
 if.then38.i:                                      ; preds = %if.end36.i
   %next_.i.i.i537 = getelementptr inbounds i8, ptr %spec.select151.i63.pn, i64 8
-  %126 = load ptr, ptr %next_.i.i.i537, align 8, !tbaa !59
+  %126 = load ptr, ptr %next_.i.i.i537, align 8, !tbaa !143
   %cmp.not.i.i.i = icmp eq ptr %126, %spec.select151.i63.pn
   br i1 %cmp.not.i.i.i, label %_ZN5folly15hazptr_obj_baseINS_14RequestContext5State8CombinedESt6atomicSt14default_deleteIS3_EE6retireES6_RNS_13hazptr_domainIS4_EE.exit, label %if.else.i.i20
 

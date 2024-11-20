@@ -5306,7 +5306,7 @@ _ZN5boost6nowide4test8test_monEv.exit85:          ; preds = %229, %227, %224
   br label %317
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit90: ; preds = %248
-  %255 = load i64, ptr %8, align 8, !tbaa !12
+  %255 = load i64, ptr %8, align 8, !tbaa !82
   %256 = sub nsw i64 %249, %255
   %.sroa.4.0.copyload.i = load i64, ptr %106, align 8
   store i64 %249, ptr %10, align 8, !tbaa !12

@@ -2576,8 +2576,8 @@ entry:
   %knots_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 184
   %knots_3.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
-  %1 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !28, !noalias !71
-  %2 = load ptr, ptr %knots_3.i.i.i, align 8, !tbaa !28, !noalias !71
+  %1 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !60, !noalias !71
+  %2 = load ptr, ptr %knots_3.i.i.i, align 8, !tbaa !62, !noalias !71
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i

@@ -465,7 +465,7 @@ invoke.cont17:                                    ; preds = %invoke.cont15
   br i1 %call18, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont17
-  %32 = load ptr, ptr %_M_finish.i61, align 8, !tbaa !69
+  %32 = load ptr, ptr %_M_finish.i61, align 8, !tbaa !70
   %33 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !77
   %cmp.not.i62 = icmp eq ptr %32, %33
   br i1 %cmp.not.i62, label %if.else.i, label %if.then.i
@@ -518,7 +518,7 @@ invoke.cont24:                                    ; preds = %.noexc68, %invoke.c
           to label %invoke.cont28 unwind label %lpad23.loopexit
 
 invoke.cont28:                                    ; preds = %invoke.cont24
-  %41 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !69
+  %41 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !54
   %42 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !55
   %cmp.not.i.i = icmp eq ptr %41, %42
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -530,7 +530,7 @@ if.then.i.i:                                      ; preds = %invoke.cont28
   br label %if.end
 
 if.else.i.i:                                      ; preds = %invoke.cont28
-  %43 = load ptr, ptr %dividendDates_, align 8, !tbaa !69
+  %43 = load ptr, ptr %dividendDates_, align 8, !tbaa !53
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %41 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %43 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -1290,7 +1290,7 @@ invoke.cont247:                                   ; preds = %invoke.cont244
           to label %invoke.cont248 unwind label %lpad246.loopexit
 
 invoke.cont248:                                   ; preds = %invoke.cont247
-  %136 = load ptr, ptr %_M_finish.i.i181, align 8, !tbaa !69
+  %136 = load ptr, ptr %_M_finish.i.i181, align 8, !tbaa !60
   %137 = load ptr, ptr %_M_end_of_storage.i.i229, align 8, !tbaa !61
   %cmp.not.i.i230 = icmp eq ptr %136, %137
   br i1 %cmp.not.i.i230, label %if.else.i.i233, label %if.then.i.i231
@@ -1302,7 +1302,7 @@ if.then.i.i231:                                   ; preds = %invoke.cont248
   br label %invoke.cont250
 
 if.else.i.i233:                                   ; preds = %invoke.cont248
-  %138 = load ptr, ptr %couponTimes_, align 8, !tbaa !69
+  %138 = load ptr, ptr %couponTimes_, align 8, !tbaa !59
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %136 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %138 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -1386,7 +1386,7 @@ invoke.cont261:                                   ; preds = %.noexc241, %invoke.
           to label %invoke.cont265 unwind label %lpad260.loopexit
 
 invoke.cont265:                                   ; preds = %invoke.cont261
-  %144 = load ptr, ptr %_M_finish.i.i184, align 8, !tbaa !69
+  %144 = load ptr, ptr %_M_finish.i.i184, align 8, !tbaa !60
   %145 = load ptr, ptr %_M_end_of_storage.i.i244, align 8, !tbaa !61
   %cmp.not.i.i245 = icmp eq ptr %144, %145
   br i1 %cmp.not.i.i245, label %if.else.i.i248, label %if.then.i.i246
@@ -1398,7 +1398,7 @@ if.then.i.i246:                                   ; preds = %invoke.cont265
   br label %for.inc270
 
 if.else.i.i248:                                   ; preds = %invoke.cont265
-  %146 = load ptr, ptr %couponAmounts_, align 8, !tbaa !69
+  %146 = load ptr, ptr %couponAmounts_, align 8, !tbaa !59
   %sub.ptr.lhs.cast.i.i.i.i.i249 = ptrtoint ptr %144 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i250 = ptrtoint ptr %146 to i64
   %sub.ptr.sub.i.i.i.i.i251 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i249, %sub.ptr.rhs.cast.i.i.i.i.i250
@@ -3879,10 +3879,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.then17:                                        ; preds = %for.body
   %14 = load double, ptr %conversionRatio, align 8, !tbaa !124
   %mul26 = fmul double %13, %14
-  %15 = load double, ptr %add.ptr.i33, align 8
+  %15 = load double, ptr %add.ptr.i33, align 8, !tbaa !73
   %cmp.i = fcmp olt double %15, %mul26
   %arrayidx.i35 = getelementptr inbounds nuw double, ptr %12, i64 %j.0106
-  %16 = load double, ptr %arrayidx.i35, align 8
+  %16 = load double, ptr %arrayidx.i35, align 8, !tbaa !73
   %17 = select i1 %cmp.i, double %mul26, double %15
   %cmp.i36 = fcmp olt double %16, %17
   %18 = select i1 %cmp.i36, double %16, double %17
@@ -3930,10 +3930,10 @@ for.body45:                                       ; preds = %for.body45.lr.ph, %
   %arrayidx.i41 = getelementptr inbounds nuw double, ptr %23, i64 %j.1104
   %26 = load double, ptr %arrayidx.i41, align 8, !tbaa !73
   %mul55 = fmul double %25, %26
-  %27 = load double, ptr %add.ptr.i40, align 8
+  %27 = load double, ptr %add.ptr.i40, align 8, !tbaa !73
   %cmp.i42 = fcmp olt double %27, %mul55
   %arrayidx.i44 = getelementptr inbounds nuw double, ptr %24, i64 %j.1104
-  %28 = load double, ptr %arrayidx.i44, align 8
+  %28 = load double, ptr %arrayidx.i44, align 8, !tbaa !73
   %29 = select i1 %cmp.i42, double %mul55, double %27
   %cmp.i45 = fcmp olt double %28, %29
   %30 = select i1 %cmp.i45, double %28, double %29
@@ -3945,8 +3945,8 @@ for.body45:                                       ; preds = %for.body45.lr.ph, %
 for.body76:                                       ; preds = %for.body76.lr.ph, %for.body76
   %j.2102 = phi i64 [ 0, %for.body76.lr.ph ], [ %inc89, %for.body76 ]
   %arrayidx.i50 = getelementptr inbounds nuw double, ptr %21, i64 %j.2102
-  %31 = load double, ptr %arrayidx.i50, align 8
-  %32 = load double, ptr %add.ptr.i49, align 8
+  %31 = load double, ptr %arrayidx.i50, align 8, !tbaa !73
+  %32 = load double, ptr %add.ptr.i49, align 8, !tbaa !73
   %cmp.i51 = fcmp olt double %31, %32
   %33 = select i1 %cmp.i51, double %31, double %32
   store double %33, ptr %arrayidx.i50, align 8, !tbaa !73
@@ -3957,8 +3957,8 @@ for.body76:                                       ; preds = %for.body76.lr.ph, %
 for.body99:                                       ; preds = %for.body99.lr.ph, %for.body99
   %j.3100 = phi i64 [ 0, %for.body99.lr.ph ], [ %inc112, %for.body99 ]
   %arrayidx.i55 = getelementptr inbounds nuw double, ptr %3, i64 %j.3100
-  %34 = load double, ptr %arrayidx.i55, align 8
-  %35 = load double, ptr %add.ptr.i56, align 8
+  %34 = load double, ptr %arrayidx.i55, align 8, !tbaa !73
+  %35 = load double, ptr %add.ptr.i56, align 8, !tbaa !73
   %cmp.i57 = fcmp olt double %34, %35
   %36 = select i1 %cmp.i57, double %35, double %34
   store double %36, ptr %arrayidx.i55, align 8, !tbaa !73
@@ -5087,7 +5087,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 8
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 16
-  %.pre = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !69
+  %.pre = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !60
   %.pre7 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !61
   br label %for.body
 
@@ -5110,7 +5110,7 @@ if.then.i.i:                                      ; preds = %for.body
   br label %_ZNSt20back_insert_iteratorISt6vectorIdSaIdEEEaSERKd.exit
 
 if.else.i.i:                                      ; preds = %for.body
-  %3 = load ptr, ptr %__result.coerce, align 8, !tbaa !69
+  %3 = load ptr, ptr %__result.coerce, align 8, !tbaa !59
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -5187,7 +5187,7 @@ define linkonce_odr void @_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib8DividendEE
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !70
-  %1 = load ptr, ptr %this, align 8, !tbaa !69
+  %1 = load ptr, ptr %this, align 8, !tbaa !72
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

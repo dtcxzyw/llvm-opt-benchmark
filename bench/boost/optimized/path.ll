@@ -2082,7 +2082,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
 111:                                              ; preds = %3
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %113 = load i64, ptr %112, align 8, !tbaa !10
-  %114 = load ptr, ptr %0, align 8
+  %114 = load ptr, ptr %0, align 8, !tbaa !3
   %115 = icmp eq i64 %113, 0
   br i1 %115, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i, label %116
 
@@ -2331,7 +2331,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms12increment_v3ERNS0_11
   br label %.critedge44
 
 13:                                               ; preds = %1
-  %14 = load ptr, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %10
   %16 = load i8, ptr %15, align 1, !tbaa !11
   %17 = icmp eq i8 %16, 47
@@ -2621,7 +2621,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms12increment_v4ERNS0_11
   br label %.critedge51
 
 23:                                               ; preds = %._crit_edge55
-  %24 = load ptr, ptr %3, align 8
+  %24 = load ptr, ptr %3, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %20
   %26 = load i8, ptr %25, align 1, !tbaa !11
   %27 = icmp eq i8 %26, 47
@@ -3457,7 +3457,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms25erase_redundant_sepa
 define void @_ZN5boost10filesystem6detail15path_algorithms18remove_filename_v3ERNS0_4pathE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !10
-  %4 = load ptr, ptr %0, align 8
+  %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i, label %6
 
@@ -3559,7 +3559,7 @@ _ZN5boost10filesystem4path39remove_filename_and_trailing_separatorsEv.exit: ; pr
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5boost10filesystem4path39remove_filename_and_trailing_separatorsEv(ptr noundef nonnull returned align 8 dereferenceable(32) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !10
-  %4 = load ptr, ptr %0, align 8
+  %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i, label %6
 
@@ -3661,7 +3661,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__norma
 define void @_ZN5boost10filesystem6detail15path_algorithms18remove_filename_v4ERNS0_4pathE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !10
-  %4 = load ptr, ptr %0, align 8
+  %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i, label %6
 
@@ -3728,7 +3728,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__norma
 define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms21find_filename_v4_sizeERKNS0_4pathE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !10
-  %4 = load ptr, ptr %0, align 8
+  %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %6
 
@@ -4126,7 +4126,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds
 define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms22find_extension_v4_sizeERKNS0_4pathE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !10
-  %4 = load ptr, ptr %0, align 8
+  %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %6
 
@@ -4463,7 +4463,7 @@ _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread: ; preds = %.pre
 define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms21find_parent_path_sizeERKNS0_4pathE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !10
-  %4 = load ptr, ptr %0, align 8
+  %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %6
 
@@ -4564,7 +4564,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms11filename_v3ERKNS0_4p
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !10
-  %7 = load ptr, ptr %1, align 8
+  %7 = load ptr, ptr %1, align 8, !tbaa !3
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %9
 
@@ -4875,7 +4875,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms7stem_v4ERKNS0_4pathE(
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !10, !noalias !50
-  %6 = load ptr, ptr %1, align 8, !noalias !50
+  %6 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !50
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i, label %8
 
@@ -5057,7 +5057,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5boost10filesystem4pa
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5boost10filesystem4path16replace_filenameERKS1_(ptr noundef nonnull returned align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !10
-  %5 = load ptr, ptr %0, align 8
+  %5 = load ptr, ptr %0, align 8, !tbaa !3
   %6 = icmp eq i64 %4, 0
   br i1 %6, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i, label %7
 
@@ -6176,7 +6176,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms12decrement_v3ERNS0_11
   %3 = load ptr, ptr %2, align 8, !tbaa !23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !10
-  %6 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %8
 
@@ -6340,7 +6340,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms12decrement_v4ERNS0_11
   %3 = load ptr, ptr %2, align 8, !tbaa !23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !10
-  %6 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %8
 

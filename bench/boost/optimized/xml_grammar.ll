@@ -6658,8 +6658,8 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPN5boost6spirit7classic7utility
 
 32:                                               ; preds = %31
   %33 = getelementptr inbounds i8, ptr %.sroa.011.0.lcssa.i.i, i64 -8
-  %34 = load i32, ptr %33, align 4
-  %35 = load i32, ptr %1, align 4
+  %34 = load i32, ptr %33, align 4, !tbaa !62
+  %35 = load i32, ptr %1, align 4, !tbaa !62
   %.not.i20 = icmp sle i32 %34, %35
   %36 = getelementptr inbounds i8, ptr %.sroa.011.0.lcssa.i.i, i64 -4
   %37 = load i32, ptr %36, align 4
@@ -6684,7 +6684,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPN5boost6spirit7classic7utility
 50:                                               ; preds = %42
   %51 = tail call i32 @llvm.smin.i32(i32 %35, i32 %34)
   store i32 %51, ptr %33, align 4, !tbaa !62
-  %52 = load i32, ptr %38, align 4
+  %52 = load i32, ptr %38, align 4, !tbaa !60
   %53 = tail call i32 @llvm.smax.i32(i32 %37, i32 %52)
   store i32 %53, ptr %36, align 4, !tbaa !64
   br i1 %.not, label %.critedge, label %.lr.ph.i
@@ -6712,7 +6712,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPN5boost6spirit7classic7utility
   %.sroa.06.0.add.i = add nuw nsw i64 %.sroa.06.0.idx19.i, 8
   %67 = tail call i32 @llvm.smin.i32(i32 %62, i32 %55)
   store i32 %67, ptr %33, align 4, !tbaa !62
-  %68 = load i32, ptr %60, align 4
+  %68 = load i32, ptr %60, align 4, !tbaa !60
   %69 = tail call i32 @llvm.smax.i32(i32 %54, i32 %68)
   store i32 %69, ptr %36, align 4, !tbaa !64
   %.sroa.06.0.ptr.i = getelementptr i8, ptr %.sroa.011.0.lcssa.i.i, i64 %.sroa.06.0.idx19.i
@@ -6765,11 +6765,11 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost6spirit7classic7utility4impl5ra
   br i1 %.not, label %.critedge6, label %89
 
 89:                                               ; preds = %.critedge4
-  %90 = load i32, ptr %.sroa.011.0.lcssa.i.i, align 4
+  %90 = load i32, ptr %.sroa.011.0.lcssa.i.i, align 4, !tbaa !62
   %91 = icmp eq i32 %90, -2147483648
   %92 = add nsw i32 %90, -1
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.011.0.lcssa.i.i, i64 4
-  %94 = load i32, ptr %93, align 4
+  %94 = load i32, ptr %93, align 4, !tbaa !64
   %95 = icmp eq i32 %94, 2147483647
   %96 = add nsw i32 %94, 1
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -6785,7 +6785,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost6spirit7classic7utility4impl5ra
 103:                                              ; preds = %89
   %104 = tail call i32 @llvm.smin.i32(i32 %99, i32 %90)
   store i32 %104, ptr %.sroa.011.0.lcssa.i.i, align 4, !tbaa !62
-  %105 = load i32, ptr %97, align 4
+  %105 = load i32, ptr %97, align 4, !tbaa !60
   %106 = tail call i32 @llvm.smax.i32(i32 %94, i32 %105)
   store i32 %106, ptr %93, align 4, !tbaa !64
   %.ptr15.i24 = getelementptr inbounds i8, ptr %.sroa.011.0.lcssa.i.i, i64 8
@@ -6815,7 +6815,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost6spirit7classic7utility4impl5ra
   %.sroa.06.0.add.i39 = add nuw nsw i64 %.sroa.06.0.idx19.i28, 8
   %120 = tail call i32 @llvm.smin.i32(i32 %115, i32 %108)
   store i32 %120, ptr %.sroa.011.0.lcssa.i.i, align 4, !tbaa !62
-  %121 = load i32, ptr %113, align 4
+  %121 = load i32, ptr %113, align 4, !tbaa !60
   %122 = tail call i32 @llvm.smax.i32(i32 %107, i32 %121)
   store i32 %122, ptr %93, align 4, !tbaa !64
   %.sroa.06.0.ptr.i40 = getelementptr inbounds i8, ptr %.sroa.011.0.lcssa.i.i, i64 %.sroa.06.0.add.i39
@@ -6952,7 +6952,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 define linkonce_odr hidden void @_ZNSt6vectorIN5boost6spirit7classic7utility4impl5rangeIwEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !88
-  %6 = load ptr, ptr %0, align 8, !tbaa !10
+  %6 = load ptr, ptr %0, align 8, !tbaa !83
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -8598,8 +8598,8 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classiccoIwEENS1_5chsetIT_EERK
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
   %5 = load ptr, ptr %1, align 8, !tbaa !58
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !10
-  %8 = load ptr, ptr %5, align 8, !tbaa !10
+  %7 = load ptr, ptr %6, align 8, !tbaa !88
+  %8 = load ptr, ptr %5, align 8, !tbaa !83
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -8717,8 +8717,8 @@ _ZN5boost6spirit7classic5chsetIwEC2ERKS3_.exit:   ; preds = %.loopexit.i
 .noexc:                                           ; preds = %42
   %44 = load ptr, ptr %41, align 8, !tbaa !58
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !10
-  %47 = load ptr, ptr %44, align 8, !tbaa !10
+  %46 = load ptr, ptr %45, align 8, !tbaa !88
+  %47 = load ptr, ptr %44, align 8, !tbaa !83
   %48 = ptrtoint ptr %46 to i64
   %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %48, %49
@@ -8961,8 +8961,8 @@ _ZNK5boost10shared_ptrINS_6spirit7classic11basic_chsetIwEEE6uniqueEv.exit.thread
   %8 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
   %9 = load ptr, ptr %0, align 8, !tbaa !58
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !10
-  %12 = load ptr, ptr %9, align 8, !tbaa !10
+  %11 = load ptr, ptr %10, align 8, !tbaa !88
+  %12 = load ptr, ptr %9, align 8, !tbaa !83
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -9417,8 +9417,8 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic5unaryINS1_5chsetIwEENS
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
   %4 = load ptr, ptr %1, align 8, !tbaa !58
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !10
-  %7 = load ptr, ptr %4, align 8, !tbaa !10
+  %6 = load ptr, ptr %5, align 8, !tbaa !88
+  %7 = load ptr, ptr %4, align 8, !tbaa !83
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -9506,8 +9506,8 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl15concrete_parserI
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
   %4 = load ptr, ptr %1, align 8, !tbaa !58
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !10
-  %7 = load ptr, ptr %4, align 8, !tbaa !10
+  %6 = load ptr, ptr %5, align 8, !tbaa !88
+  %7 = load ptr, ptr %4, align 8, !tbaa !83
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -11799,8 +11799,8 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic5unaryINS1_5chsetIwEENS
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
   %4 = load ptr, ptr %1, align 8, !tbaa !58
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !10
-  %7 = load ptr, ptr %4, align 8, !tbaa !10
+  %6 = load ptr, ptr %5, align 8, !tbaa !88
+  %7 = load ptr, ptr %4, align 8, !tbaa !83
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -11887,8 +11887,8 @@ define linkonce_odr hidden void @_ZN5boost7details19compressed_pair_impINS_6spir
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
   %6 = load ptr, ptr %2, align 8, !tbaa !58
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !10
-  %9 = load ptr, ptr %6, align 8, !tbaa !10
+  %8 = load ptr, ptr %7, align 8, !tbaa !88
+  %9 = load ptr, ptr %6, align 8, !tbaa !83
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -11983,8 +11983,8 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl15concrete_parserI
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
   %6 = load ptr, ptr %4, align 8, !tbaa !58
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !10
-  %9 = load ptr, ptr %6, align 8, !tbaa !10
+  %8 = load ptr, ptr %7, align 8, !tbaa !88
+  %9 = load ptr, ptr %6, align 8, !tbaa !83
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -13068,8 +13068,8 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic5unaryINS1_5chsetIwEENS
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
   %4 = load ptr, ptr %1, align 8, !tbaa !58
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !10
-  %7 = load ptr, ptr %4, align 8, !tbaa !10
+  %6 = load ptr, ptr %5, align 8, !tbaa !88
+  %7 = load ptr, ptr %4, align 8, !tbaa !83
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -13157,8 +13157,8 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl15concrete_parserI
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
   %4 = load ptr, ptr %1, align 8, !tbaa !58
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !10
-  %7 = load ptr, ptr %4, align 8, !tbaa !10
+  %6 = load ptr, ptr %5, align 8, !tbaa !88
+  %7 = load ptr, ptr %4, align 8, !tbaa !83
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9

@@ -5440,7 +5440,7 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl26object_with_id_b
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = load ptr, ptr %12, align 8, !tbaa !17
+  %13 = load ptr, ptr %12, align 8, !tbaa !155
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load ptr, ptr %14, align 8, !tbaa !157
   %.not.i = icmp eq ptr %13, %15
@@ -5453,7 +5453,7 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl26object_with_id_b
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
 18:                                               ; preds = %10
-  %19 = load ptr, ptr %11, align 8, !tbaa !17
+  %19 = load ptr, ptr %11, align 8, !tbaa !163
   %20 = ptrtoint ptr %13 to i64
   %21 = ptrtoint ptr %19 to i64
   %22 = sub i64 %20, %21
@@ -6225,7 +6225,7 @@ _ZNSt6vectorIPN5boost4wave8grammars14intlit_grammar10definitionINS0_6spirit7clas
 
 _ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit:   ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %36 = load ptr, ptr %35, align 8, !tbaa !17
+  %36 = load ptr, ptr %35, align 8, !tbaa !228
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %38 = load ptr, ptr %37, align 8, !tbaa !80
   %.not.i.i20 = icmp eq ptr %36, %38
@@ -6239,7 +6239,7 @@ _ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit:   ; preds = %32
   br label %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars14intlit_grammarENS1_15closure_contextINS6_8closures14intlit_closureEEEEEE9push_backEPNS2_19grammar_helper_baseISC_EE.exit
 
 42:                                               ; preds = %_ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit
-  %43 = load ptr, ptr %5, align 8, !tbaa !17
+  %43 = load ptr, ptr %5, align 8, !tbaa !78
   %44 = ptrtoint ptr %36 to i64
   %45 = ptrtoint ptr %43 to i64
   %46 = sub i64 %44, %45
@@ -8527,7 +8527,7 @@ _ZNSt6vectorIPN5boost4wave8grammars13chlit_grammar10definitionINS0_6spirit7class
 
 _ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit:   ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %36 = load ptr, ptr %35, align 8, !tbaa !17
+  %36 = load ptr, ptr %35, align 8, !tbaa !325
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %38 = load ptr, ptr %37, align 8, !tbaa !125
   %.not.i.i20 = icmp eq ptr %36, %38
@@ -8541,7 +8541,7 @@ _ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit:   ; preds = %32
   br label %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars13chlit_grammarENS1_15closure_contextINS6_8closures13chlit_closureEEEEEE9push_backEPNS2_19grammar_helper_baseISC_EE.exit
 
 42:                                               ; preds = %_ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit
-  %43 = load ptr, ptr %5, align 8, !tbaa !17
+  %43 = load ptr, ptr %5, align 8, !tbaa !124
   %44 = ptrtoint ptr %36 to i64
   %45 = ptrtoint ptr %43 to i64
   %46 = sub i64 %44, %45

@@ -302,7 +302,7 @@ lpad.i:                                           ; preds = %init.i
 _ZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEv.exit: ; preds = %lor.rhs, %init.check.i, %invoke.cont.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #14
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
-  %10 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !19
+  %10 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !15
   %11 = load i64, ptr %ref.tmp.i, align 8, !tbaa !15
   %cmp.i.i = icmp eq i64 %10, %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #14
@@ -387,7 +387,7 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp3) #14
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3)
-  %2 = load i64, ptr %refDate, align 8, !tbaa !19
+  %2 = load i64, ptr %refDate, align 8, !tbaa !15
   %3 = load i64, ptr %ref.tmp3, align 8, !tbaa !15
   %cmp.i2.not = icmp eq i64 %2, %3
   br i1 %cmp.i2.not, label %cond.false, label %cond.end
@@ -420,7 +420,7 @@ lpad.i:                                           ; preds = %init.i
 _ZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEv.exit: ; preds = %cond.false, %init.check.i, %invoke.cont.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #14
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
-  %8 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !19
+  %8 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !15
   %9 = load i64, ptr %ref.tmp.i, align 8, !tbaa !15
   %cmp.i.i = icmp eq i64 %8, %9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #14
@@ -674,7 +674,7 @@ declare void @_ZN8QuantLib8SettingsC1Ev(ptr noundef nonnull align 8 dereferencea
 define linkonce_odr void @_ZN8QuantLib8SettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %pn.i.i, align 8, !tbaa !20
+  %0 = load ptr, ptr %pn.i.i, align 8, !tbaa !19
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZN8QuantLib15ObservableValueINS_4DateEED2Ev.exit, label %if.then.i.i.i
 
@@ -757,7 +757,6 @@ attributes #16 = { noreturn }
 !16 = !{!"_ZTSN8QuantLib4DateE", !17, i64 0}
 !17 = !{!"long", !6, i64 0}
 !18 = !{!"branch_weights", i32 1, i32 1048575}
-!19 = !{!17, !17, i64 0}
-!20 = !{!21, !22, i64 0}
-!21 = !{!"_ZTSN5boost6detail12shared_countE", !22, i64 0}
-!22 = !{!"any pointer", !6, i64 0}
+!19 = !{!20, !21, i64 0}
+!20 = !{!"_ZTSN5boost6detail12shared_countE", !21, i64 0}
+!21 = !{!"any pointer", !6, i64 0}

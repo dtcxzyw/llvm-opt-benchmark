@@ -2948,8 +2948,8 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %cv, i64 8
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !37
-  %1 = load ptr, ptr %cv, align 8, !tbaa !37
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !32
+  %1 = load ptr, ptr %cv, align 8, !tbaa !30
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

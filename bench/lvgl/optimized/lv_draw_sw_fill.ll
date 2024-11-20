@@ -409,15 +409,15 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   br label %187
 
 187:                                              ; preds = %180, %185, %183, %181
-  %188 = load i32, ptr %18, align 4
+  %188 = load i32, ptr %18, align 4, !tbaa !15
   %189 = add nsw i32 %188, %50
   %190 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %191 = load i32, ptr %190, align 4
+  %191 = load i32, ptr %190, align 4, !tbaa !15
   %192 = call i32 @llvm.smax.i32(i32 %189, i32 %191)
-  %193 = load i32, ptr %24, align 4
+  %193 = load i32, ptr %24, align 4, !tbaa !17
   %194 = sub nsw i32 %193, %50
   %195 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %196 = load i32, ptr %195, align 4
+  %196 = load i32, ptr %195, align 4, !tbaa !17
   %197 = call i32 @llvm.smin.i32(i32 %194, i32 %196)
   %.not166194 = icmp sgt i32 %192, %197
   br i1 %.not166194, label %.loopexit, label %.lr.ph197

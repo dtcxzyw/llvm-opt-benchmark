@@ -26633,7 +26633,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   %63 = load i64, ptr %add.ptr.i.i.i28.i, align 8, !tbaa !426
   store i64 %63, ptr %curr.0.i.i.i, align 8, !tbaa !54
   call void @_ZN4entt9dense_mapIjSt10shared_ptrImENS_8identityESt8equal_toIjESaISt4pairIKjS2_EEE12move_and_popEm(ptr noundef nonnull align 8 dereferenceable(52) %cache, i64 noundef %61)
-  %.pre.i.i773 = load ptr, ptr %packed.i.i.i.i.i, align 8
+  %.pre.i.i773 = load ptr, ptr %packed.i.i.i.i.i, align 8, !tbaa !33
   %.pre139 = load ptr, ptr %cache, align 16, !tbaa !32
   %element.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pre.i.i773, i64 40
   %.pre140 = load i32, ptr %element.i.i.phi.trans.insert, align 4, !tbaa !55
@@ -36376,7 +36376,7 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEESaIS5_EE
 
 if.else:                                          ; preds = %if.then
   %_M_finish.i94 = getelementptr inbounds i8, ptr %this, i64 8
-  %21 = load ptr, ptr %_M_finish.i94, align 8, !tbaa !33
+  %21 = load ptr, ptr %_M_finish.i94, align 8, !tbaa !131
   %sub.ptr.lhs.cast.i95 = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i97 = sub i64 %sub.ptr.lhs.cast.i95, %sub.ptr.rhs.cast.i90
   %cmp26.not = icmp ult i64 %sub.ptr.sub.i97, %sub.ptr.sub.i
@@ -38560,7 +38560,7 @@ if.then.i:                                        ; preds = %cleanup.cont
 
 if.else.i:                                        ; preds = %cleanup.cont
   call void @_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrIiEEESaIS5_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJRKjEESD_IJOS4_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i, ptr %6, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14)
-  %.pre49 = load ptr, ptr %_M_finish.i.i59, align 8, !tbaa !33
+  %.pre49 = load ptr, ptr %_M_finish.i.i59, align 8, !tbaa !58
   %.pre50 = load ptr, ptr %packed.i.i, align 8, !tbaa !59
   %.pre51 = load ptr, ptr %this, align 8, !tbaa !32
   %.pre52 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !53
@@ -40704,7 +40704,7 @@ if.then.i:                                        ; preds = %cleanup.cont
 
 if.else.i:                                        ; preds = %cleanup.cont
   call void @_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEESaIS5_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJRKjEESD_IJOS4_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i, ptr %6, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14)
-  %.pre49 = load ptr, ptr %_M_finish.i.i59, align 8, !tbaa !33
+  %.pre49 = load ptr, ptr %_M_finish.i.i59, align 8, !tbaa !131
   %.pre50 = load ptr, ptr %packed.i.i, align 8, !tbaa !130
   %.pre51 = load ptr, ptr %this, align 8, !tbaa !32
   %.pre52 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !53
@@ -45491,7 +45491,7 @@ if.then.i:                                        ; preds = %cleanup.cont
 
 if.else.i:                                        ; preds = %cleanup.cont
   tail call void @_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrIiEEESaIS5_EE17_M_realloc_insertIJRmRKjS4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i, ptr %14, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %key, ptr noundef nonnull align 8 dereferenceable(16) %value)
-  %.pre54 = load ptr, ptr %_M_finish.i.i64, align 8, !tbaa !33
+  %.pre54 = load ptr, ptr %_M_finish.i.i64, align 8, !tbaa !58
   %.pre55 = load ptr, ptr %packed.i.i, align 8, !tbaa !59
   %.pre56 = load ptr, ptr %this, align 8, !tbaa !32
   %.pre57 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !53
@@ -47861,7 +47861,7 @@ if.then.i:                                        ; preds = %cleanup.cont
 if.else.i:                                        ; preds = %cleanup.cont
   %packed = getelementptr inbounds i8, ptr %this, i64 48
   call void @_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEEN4test18throwing_allocatorIS5_EEE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJRKjEESF_IJOS4_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %packed, ptr %6, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr2.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14)
-  %.pre52 = load ptr, ptr %_M_finish.i.i62, align 8, !tbaa !33
+  %.pre52 = load ptr, ptr %_M_finish.i.i62, align 8, !tbaa !595
   %.pre53 = load ptr, ptr %add.ptr.i.i.i34, align 8, !tbaa !593
   %.pre54 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !546
   %.pre55 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !544
@@ -48266,7 +48266,7 @@ if.then.i:                                        ; preds = %cleanup.cont
 if.else.i:                                        ; preds = %cleanup.cont
   %packed = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrImEEEN4test18throwing_allocatorIS5_EEE17_M_realloc_insertIJRmRKjS4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %packed, ptr %14, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr2.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %key, ptr noundef nonnull align 8 dereferenceable(16) %value)
-  %.pre57 = load ptr, ptr %_M_finish.i.i67, align 8, !tbaa !33
+  %.pre57 = load ptr, ptr %_M_finish.i.i67, align 8, !tbaa !595
   %.pre58 = load ptr, ptr %add.ptr.i.i.i38, align 8, !tbaa !593
   %.pre59 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !546
   %.pre60 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !544

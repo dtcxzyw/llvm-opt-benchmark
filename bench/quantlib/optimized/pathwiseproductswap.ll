@@ -274,8 +274,8 @@ invoke.cont5:                                     ; preds = %if.then.i.i.i.i.i.i
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %evolTimes) #22
-  %14 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !13
-  %15 = load ptr, ptr %rateTimes_, align 8, !tbaa !13
+  %14 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !6
+  %15 = load ptr, ptr %rateTimes_, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i.i83 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i84 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i85 = sub i64 %sub.ptr.lhs.cast.i.i83, %sub.ptr.rhs.cast.i.i84
@@ -1945,8 +1945,8 @@ define void @_ZNK8QuantLib23MarketModelPathwiseSwap21possibleCashFlowTimesEv(ptr
 entry:
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !13
-  %1 = load ptr, ptr %rateTimes_, align 8, !tbaa !13
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !6
+  %1 = load ptr, ptr %rateTimes_, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

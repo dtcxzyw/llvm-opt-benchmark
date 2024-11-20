@@ -3571,7 +3571,7 @@ if.else:                                          ; preds = %if.then45
 if.end55:                                         ; preds = %if.else, %if.then48, %if.then43
   %combinedBuf.1 = phi ptr [ %12, %if.else ], [ %combinedBuf.0423, %if.then43 ], [ %call52, %if.then48 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %combinedBuf.1, ptr align 1 %add.ptr40, i64 %sub, i1 false)
-  %.pre = load i64, ptr %minWriteSize_, align 8
+  %.pre = load i64, ptr %minWriteSize_, align 8, !tbaa !238
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end55

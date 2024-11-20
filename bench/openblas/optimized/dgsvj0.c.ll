@@ -497,7 +497,7 @@ thread-pre-split:                                 ; preds = %201, %218
   br label %339
 
 339:                                              ; preds = %336, %324
-  %340 = load double, ptr %26, align 8
+  %340 = load double, ptr %26, align 8, !tbaa !7
   %341 = fmul double %313, %340
   %342 = call double @llvm.fmuladd.f64(double %341, double %297, double 1.000000e+00)
   %343 = load double, ptr %23, align 8, !tbaa !7
@@ -1111,7 +1111,7 @@ thread-pre-split:                                 ; preds = %201, %218
   br label %733
 
 733:                                              ; preds = %730, %718
-  %734 = load double, ptr %26, align 8
+  %734 = load double, ptr %26, align 8, !tbaa !7
   %735 = fmul double %704, %734
   %736 = call double @llvm.fmuladd.f64(double %735, double %690, double 1.000000e+00)
   %737 = load double, ptr %23, align 8, !tbaa !7

@@ -1401,7 +1401,7 @@ define internal void @_ZN5boost5debug12_GLOBAL__N_118start_gdb_in_emacsERKNS0_16
   call void @llvm.lifetime.start.p0(i64 500, ptr nonnull %2) #32
   %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 500, ptr noundef nonnull @.str.25, ptr noundef nonnull %3) #32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !18
   %10 = ptrtoint ptr %9 to i64
@@ -1473,7 +1473,7 @@ _ZN5boost5debug12_GLOBAL__N_123start_debugger_in_emacsERKNS0_16dbg_startup_infoE
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5boost5debug12_GLOBAL__N_118start_gdb_in_xtermERKNS0_16dbg_startup_infoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !18
   %6 = ptrtoint ptr %5 to i64
@@ -1567,7 +1567,7 @@ define internal void @_ZN5boost5debug12_GLOBAL__N_118start_dbx_in_emacsERKNS0_16
 define internal void @_ZN5boost5debug12_GLOBAL__N_118start_dbx_in_xtermERKNS0_16dbg_startup_infoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) #15 {
   %2 = alloca [16 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   %7 = ptrtoint ptr %6 to i64
@@ -1640,7 +1640,7 @@ define internal void @_ZN5boost5debug12_GLOBAL__N_119start_dbx_in_xemacsERKNS0_1
 define internal void @_ZN5boost5debug12_GLOBAL__N_116start_dbx_in_dddERKNS0_16dbg_startup_infoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) #15 {
   %2 = alloca [16 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   %7 = ptrtoint ptr %6 to i64

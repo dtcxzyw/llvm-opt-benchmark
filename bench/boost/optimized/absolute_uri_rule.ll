@@ -138,7 +138,7 @@ define void @_ZNK5boost4urls22implementation_defined19absolute_uri_rule_t5parseE
 
 _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i.i.i.i.i: ; preds = %20
   %.sroa.54.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.54.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.54.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !noalias !17
+  %.sroa.54.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.54.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !tbaa !30, !noalias !17
   %24 = and i64 %.sroa.54.0.copyload.i.i.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %24, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %32, label %25
@@ -172,9 +172,9 @@ _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5erro
   %.sroa.034.0 = phi i64 [ 0, %29 ], [ %.sroa.5.i.i.sroa.0.0.copyload37, %.thread ], [ %.sroa.5.i.i.sroa.0.0.copyload, %27 ]
   store i64 %.sroa.034.0, ptr %0, align 8
   %.sroa.535.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.535.0, ptr %.sroa.535.0..sroa_idx, align 8, !tbaa !30
+  store ptr %.sroa.535.0, ptr %.sroa.535.0..sroa_idx, align 8, !tbaa !31
   %.sroa.636.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.636.0, ptr %.sroa.636.0..sroa_idx, align 8, !tbaa !31
+  store i64 %.sroa.636.0, ptr %.sroa.636.0..sroa_idx, align 8, !tbaa !30
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 2, ptr %31, align 8, !tbaa !32
   br label %69
@@ -264,7 +264,7 @@ _ZN5boost6system6resultINS_4urls6detail16hier_part_rule_t10value_typeENS0_10erro
   br i1 %56, label %_ZN5boost4urls7grammar5parseINS0_6detail17query_part_rule_tEEENS_6system6resultINT_10value_typeENS5_10error_codeEEERPKcSC_RKS7_.exit, label %57
 
 57:                                               ; preds = %54
-  %58 = load i8, ptr %55, align 1, !tbaa !30, !noalias !56
+  %58 = load i8, ptr %55, align 1, !tbaa !31, !noalias !56
   %.not.i.i = icmp eq i8 %58, 63
   br i1 %.not.i.i, label %59, label %_ZN5boost4urls7grammar5parseINS0_6detail17query_part_rule_tEEENS_6system6resultINT_10value_typeENS5_10error_codeEEERPKcSC_RKS7_.exit
 
@@ -395,13 +395,13 @@ attributes #6 = { nounwind }
 !27 = !{!28, !29, i64 24}
 !28 = !{!"_ZTSN5boost8variant26detail17variant_base_implILb1ELb1EJNS_4core17basic_string_viewIcEENS_6system10error_codeEEEE", !6, i64 0, !29, i64 24}
 !29 = !{!"int", !6, i64 0}
-!30 = !{!6, !6, i64 0}
-!31 = !{!8, !8, i64 0}
+!30 = !{!8, !8, i64 0}
+!31 = !{!6, !6, i64 0}
 !32 = !{!33, !29, i64 192}
 !33 = !{!"_ZTSN5boost8variant26detail17variant_base_implILb1ELb1EJNS_4urls8url_viewENS_6system10error_codeEEEE", !6, i64 0, !29, i64 192}
 !34 = !{!35, !29, i64 224}
 !35 = !{!"_ZTSN5boost8variant26detail17variant_base_implILb0ELb1EJNS_4urls6detail16hier_part_rule_t10value_typeENS_6system10error_codeEEEE", !6, i64 0, !29, i64 224}
-!36 = !{i64 0, i64 16, !30, i64 16, i64 8, !31}
+!36 = !{i64 0, i64 16, !31, i64 16, i64 8, !30}
 !37 = !{!38}
 !38 = distinct !{!38, !39, !"_ZNKR5boost6system6resultINS_4urls6detail16hier_part_rule_t10value_typeENS0_10error_codeEE5errorEv: argument 0"}
 !39 = distinct !{!39, !"_ZNKR5boost6system6resultINS_4urls6detail16hier_part_rule_t10value_typeENS0_10error_codeEE5errorEv"}

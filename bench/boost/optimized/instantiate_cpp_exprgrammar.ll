@@ -6075,7 +6075,7 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl26object_with_id_b
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = load ptr, ptr %12, align 8, !tbaa !22
+  %13 = load ptr, ptr %12, align 8, !tbaa !137
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load ptr, ptr %14, align 8, !tbaa !139
   %.not.i = icmp eq ptr %13, %15
@@ -6088,7 +6088,7 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl26object_with_id_b
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
 18:                                               ; preds = %10
-  %19 = load ptr, ptr %11, align 8, !tbaa !22
+  %19 = load ptr, ptr %11, align 8, !tbaa !146
   %20 = ptrtoint ptr %13 to i64
   %21 = ptrtoint ptr %19 to i64
   %22 = sub i64 %20, %21
@@ -7407,7 +7407,7 @@ _ZNSt6vectorIPN5boost4wave8grammars18expression_grammar10definitionINS0_6spirit7
 
 _ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit:   ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %36 = load ptr, ptr %35, align 8, !tbaa !22
+  %36 = load ptr, ptr %35, align 8, !tbaa !249
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %38 = load ptr, ptr %37, align 8, !tbaa !96
   %.not.i.i20 = icmp eq ptr %36, %38
@@ -7421,7 +7421,7 @@ _ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit:   ; preds = %32
   br label %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars18expression_grammarENS1_15closure_contextINS6_8closures16cpp_expr_closureEEEEEE9push_backEPNS2_19grammar_helper_baseISC_EE.exit
 
 42:                                               ; preds = %_ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit
-  %43 = load ptr, ptr %5, align 8, !tbaa !22
+  %43 = load ptr, ptr %5, align 8, !tbaa !94
   %44 = ptrtoint ptr %36 to i64
   %45 = ptrtoint ptr %43 to i64
   %46 = sub i64 %44, %45
@@ -18919,7 +18919,7 @@ _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit: ; preds =
 
 58:                                               ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %60 = load i64, ptr %59, align 8
+  %60 = load i64, ptr %59, align 8, !tbaa !15
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %62 = load i64, ptr %61, align 8, !tbaa !15
   %63 = sub i64 %60, %62
@@ -23494,7 +23494,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcE7reserveEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !22
+  %3 = load ptr, ptr %0, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !32
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -23546,7 +23546,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i: ; preds = %_
   store ptr %.sroa.0.0.i, ptr %0, align 8, !tbaa !28
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 16
   store i8 1, ptr %31, align 1, !tbaa !15
-  %.pre = load ptr, ptr %0, align 8, !tbaa !22
+  %.pre = load ptr, ptr %0, align 8, !tbaa !28
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre2 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !32
   %.pre3 = ptrtoint ptr %.pre2 to i64
@@ -23627,7 +23627,7 @@ define linkonce_odr hidden void @_ZN5boost4wave4util22AllocatorStringStorageIcSa
   %4 = ptrtoint ptr %2 to i64
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
-  %7 = load ptr, ptr %0, align 8, !tbaa !22
+  %7 = load ptr, ptr %0, align 8, !tbaa !28
   %8 = load ptr, ptr %7, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = ptrtoint ptr %8 to i64
@@ -23904,7 +23904,7 @@ _ZSt4copyIPKcPcET0_T_S4_S3_.exit17:               ; preds = %_ZN5boost4wave4util
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, i8 noundef signext %2) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !22
+  %4 = load ptr, ptr %0, align 8, !tbaa !28
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !32
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16

@@ -345,8 +345,8 @@ do.end:                                           ; preds = %do.body
   %amount = getelementptr inbounds nuw i8, ptr %this, i64 200
   store double 0.000000e+00, ptr %amount, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %evolutionTimes) #23
-  %31 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !13
-  %32 = load ptr, ptr %rateTimes_, align 8, !tbaa !13
+  %31 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !6
+  %32 = load ptr, ptr %rateTimes_, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i.i47 = ptrtoint ptr %31 to i64
   %sub.ptr.rhs.cast.i.i48 = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i.i49 = sub i64 %sub.ptr.lhs.cast.i.i47, %sub.ptr.rhs.cast.i.i48
@@ -1238,8 +1238,8 @@ define void @_ZNK8QuantLib20NothingExerciseValue21possibleCashFlowTimesEv(ptr de
 entry:
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !13
-  %1 = load ptr, ptr %rateTimes_, align 8, !tbaa !13
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !6
+  %1 = load ptr, ptr %rateTimes_, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

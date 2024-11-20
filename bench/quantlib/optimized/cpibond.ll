@@ -1232,7 +1232,7 @@ invoke.cont60:                                    ; preds = %_ZN8QuantLib8Schedu
   %97 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %97, i64 -16
   %_M_finish.i96 = getelementptr inbounds nuw i8, ptr %this, i64 208
-  %98 = load ptr, ptr %_M_finish.i96, align 8, !tbaa !3
+  %98 = load ptr, ptr %_M_finish.i96, align 8, !tbaa !48
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 216
   %99 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !51
   %cmp.not.i = icmp eq ptr %98, %99
@@ -3749,7 +3749,7 @@ invoke.cont56:                                    ; preds = %_ZN8QuantLib8Schedu
   %95 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %95, i64 -16
   %_M_finish.i100 = getelementptr inbounds nuw i8, ptr %this, i64 208
-  %96 = load ptr, ptr %_M_finish.i100, align 8, !tbaa !3
+  %96 = load ptr, ptr %_M_finish.i100, align 8, !tbaa !48
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 216
   %97 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !51
   %cmp.not.i = icmp eq ptr %96, %97
@@ -6407,7 +6407,7 @@ define linkonce_odr void @_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib8CashFlowEE
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !48
-  %1 = load ptr, ptr %this, align 8, !tbaa !3
+  %1 = load ptr, ptr %this, align 8, !tbaa !46
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

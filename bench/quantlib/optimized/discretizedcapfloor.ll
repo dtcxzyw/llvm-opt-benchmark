@@ -1568,8 +1568,8 @@ define void @_ZNK8QuantLib19DiscretizedCapFloor14mandatoryTimesEv(ptr dead_on_un
 entry:
   %startTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 344
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 352
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !56
-  %1 = load ptr, ptr %startTimes_, align 8, !tbaa !56
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !33
+  %1 = load ptr, ptr %startTimes_, align 8, !tbaa !35
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2846,7 +2846,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 8
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 16
-  %.pre = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !56
+  %.pre = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !33
   %.pre7 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !40
   br label %for.body
 
@@ -2869,7 +2869,7 @@ if.then.i.i:                                      ; preds = %for.body
   br label %_ZNSt20back_insert_iteratorISt6vectorIdSaIdEEEaSERKd.exit
 
 if.else.i.i:                                      ; preds = %for.body
-  %3 = load ptr, ptr %__result.coerce, align 8, !tbaa !56
+  %3 = load ptr, ptr %__result.coerce, align 8, !tbaa !35
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i

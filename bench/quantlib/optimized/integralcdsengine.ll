@@ -1558,7 +1558,7 @@ _ZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEv.exi
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #26
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   %73 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !95
-  %74 = load i64, ptr %ref.tmp.i, align 8, !tbaa !96
+  %74 = load i64, ptr %ref.tmp.i, align 8, !tbaa !95
   %cmp.i.i = icmp eq i64 %73, %74
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #26
   br i1 %cmp.i.i, label %if.then.i, label %_ZNK8QuantLib8Settings9DateProxycvNS_4DateEEv.exit
@@ -1586,8 +1586,8 @@ _ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit: ; preds = %_ZN
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %77 = load ptr, ptr %vfn, align 8
   %call113 = call noundef nonnull align 8 dereferenceable(8) ptr %77(ptr noundef nonnull align 8 dereferenceable(64) %76)
-  %78 = load i64, ptr %call113, align 8, !tbaa !95
-  store i64 %78, ptr %settlementDate, align 8, !tbaa !95
+  %78 = load i64, ptr %call113, align 8, !tbaa !96
+  store i64 %78, ptr %settlementDate, align 8, !tbaa !96
   %upfrontNPV = getelementptr inbounds nuw i8, ptr %this, i64 384
   store double 0.000000e+00, ptr %upfrontNPV, align 8, !tbaa !97
   %upfrontPayment = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -1834,9 +1834,9 @@ invoke.cont200:                                   ; preds = %invoke.cont196
   %cmp203 = icmp eq i64 %i.0427, 0
   %accrualStartDate_.i = getelementptr inbounds nuw i8, ptr %113, i64 40
   %spec.select = select i1 %cmp203, ptr %protectionStart, ptr %accrualStartDate_.i
-  %115 = load i64, ptr %spec.select, align 8, !tbaa !95
+  %115 = load i64, ptr %spec.select, align 8, !tbaa !96
   %accrualEndDate_.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %113, i64 48
-  %.pre = load i64, ptr %accrualEndDate_.i.phi.trans.insert, align 8, !tbaa !95
+  %.pre = load i64, ptr %accrualEndDate_.i.phi.trans.insert, align 8, !tbaa !96
   %cmp.i173 = icmp sle i64 %115, %retval.sroa.0.0.i
   %cmp.i174 = icmp sle i64 %retval.sroa.0.0.i, %.pre
   %or.cond = select i1 %cmp.i173, i1 %cmp.i174, i1 false
@@ -1909,14 +1909,14 @@ invoke.cont246:                                   ; preds = %call.i193.noexc
   %step.sroa.6.0.extract.shift = lshr i64 %122, 32
   %step.sroa.6.0.extract.trunc = trunc nuw i64 %step.sroa.6.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d0) #26
-  store i64 %cond224.sroa.speculated, ptr %d0, align 8, !tbaa !95
+  store i64 %cond224.sroa.speculated, ptr %d0, align 8, !tbaa !96
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d1) #26
   %call3.i197198 = invoke i64 @_ZN8QuantLib4Date7advanceERKS0_iNS_8TimeUnitE(ptr noundef nonnull align 8 dereferenceable(8) %d0, i32 noundef %step.sroa.0.0.extract.trunc, i32 noundef %step.sroa.6.0.extract.trunc)
           to label %invoke.cont257 unwind label %lpad253
 
 invoke.cont257:                                   ; preds = %invoke.cont246
   %.sroa.speculated336 = call i64 @llvm.smin.i64(i64 %.pre, i64 %call3.i197198)
-  store i64 %.sroa.speculated336, ptr %d1, align 8, !tbaa !95
+  store i64 %.sroa.speculated336, ptr %d1, align 8, !tbaa !96
   %call263 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_31DefaultProbabilityTermStructureEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %probability_)
           to label %invoke.cont262 unwind label %lpad261
 
@@ -2330,15 +2330,15 @@ invoke.cont330:                                   ; preds = %invoke.cont325
   %176 = load double, ptr %defaultLegNPV, align 8, !tbaa !115
   %177 = call double @llvm.fmuladd.f64(double %mul332, double %sub, double %176)
   store double %177, ptr %defaultLegNPV, align 8, !tbaa !115
-  %178 = load i64, ptr %d1, align 8, !tbaa !95
-  store i64 %178, ptr %d0, align 8, !tbaa !95
+  %178 = load i64, ptr %d1, align 8, !tbaa !96
+  store i64 %178, ptr %d0, align 8, !tbaa !96
   %call3.i248249 = invoke i64 @_ZN8QuantLib4Date7advanceERKS0_iNS_8TimeUnitE(ptr noundef nonnull align 8 dereferenceable(8) %d0, i32 noundef %step.sroa.0.0.extract.trunc, i32 noundef %step.sroa.6.0.extract.trunc)
           to label %invoke.cont341 unwind label %lpad337
 
 invoke.cont341:                                   ; preds = %invoke.cont330
   %.sroa.speculated = call i64 @llvm.smin.i64(i64 %.pre, i64 %call3.i248249)
-  store i64 %.sroa.speculated, ptr %d1, align 8, !tbaa !95
-  %179 = load i64, ptr %d0, align 8, !tbaa !96
+  store i64 %.sroa.speculated, ptr %d1, align 8, !tbaa !96
+  %179 = load i64, ptr %d0, align 8, !tbaa !95
   %cmp.i253 = icmp slt i64 %179, %.pre
   br i1 %cmp.i253, label %do.body276, label %do.end350, !llvm.loop !116
 
@@ -2709,14 +2709,14 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i) #26
-  store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !95
+  store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !96
   %cmp.i = icmp ugt i64 %call.i, 15
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
   %call2.i5 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i, i64 noundef 0)
   store ptr %call2.i5, ptr %this, align 8, !tbaa !85
-  %1 = load i64, ptr %__dnew.i, align 8, !tbaa !95
+  %1 = load i64, ptr %__dnew.i, align 8, !tbaa !96
   store i64 %1, ptr %0, align 8, !tbaa !89
   br label %if.end.i
 
@@ -2737,7 +2737,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i
-  %4 = load i64, ptr %__dnew.i, align 8, !tbaa !95
+  %4 = load i64, ptr %__dnew.i, align 8, !tbaa !96
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %4, ptr %_M_string_length.i.i.i, align 8, !tbaa !88
   %5 = load ptr, ptr %this, align 8, !tbaa !85
@@ -4927,8 +4927,8 @@ attributes #31 = { builtin nounwind }
 !92 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib18YieldTermStructureEEE", !4, i64 0, !32, i64 8}
 !93 = !{!94, !4, i64 0}
 !94 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib31DefaultProbabilityTermStructureEEE", !4, i64 0, !32, i64 8}
-!95 = !{!12, !12, i64 0}
-!96 = !{!57, !12, i64 0}
+!95 = !{!57, !12, i64 0}
+!96 = !{!12, !12, i64 0}
 !97 = !{!37, !48, i64 384}
 !98 = !{!55, !4, i64 0}
 !99 = !{!37, !48, i64 392}

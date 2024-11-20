@@ -365,7 +365,7 @@ define void @_ZN5ZXing10DataMatrix6EncodeERKNSt7__cxx1112basic_stringIwSt11char_
   br label %967
 
 148:                                              ; preds = %141
-  %149 = load ptr, ptr %26, align 8
+  %149 = load ptr, ptr %26, align 8, !tbaa !3
   %150 = sext i32 %142 to i64
   %151 = getelementptr inbounds i8, ptr %149, i64 %150
   %152 = getelementptr inbounds i8, ptr %149, i64 %.val62

@@ -707,9 +707,8 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i: ; preds = %if.then.i.i, %
   br label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.then, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i
-  %.ph = phi ptr [ %call5.i.i.i.i6, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ %0, %if.then ]
-  %.ph9 = phi ptr [ %add.ptr21.i, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ %2, %if.then ]
-  %.ph10 = phi ptr [ %call5.i.i.i.i6, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ %1, %if.then ]
+  %.ph = phi ptr [ %add.ptr21.i, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ %2, %if.then ]
+  %.ph9 = phi ptr [ %call5.i.i.i.i6, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ %1, %if.then ]
   br label %for.body
 
 lpad:                                             ; preds = %entry
@@ -726,22 +725,22 @@ lpad2:                                            ; preds = %_ZNSt12_Vector_base
 for.body:                                         ; preds = %for.body.preheader, %invoke.cont5
   %5 = phi ptr [ %11, %invoke.cont5 ], [ %.ph, %for.body.preheader ]
   %6 = phi ptr [ %12, %invoke.cont5 ], [ %.ph9, %for.body.preheader ]
-  %7 = phi ptr [ %13, %invoke.cont5 ], [ %.ph10, %for.body.preheader ]
   %__begin2.0.idx8 = phi i64 [ %__begin2.0.add, %invoke.cont5 ], [ 0, %for.body.preheader ]
   %__begin2.0.ptr = getelementptr inbounds i8, ptr @_ZN8QuantLib12_GLOBAL__N_17values4E, i64 %__begin2.0.idx8
-  %cmp.not.i = icmp eq ptr %7, %6
+  %cmp.not.i = icmp eq ptr %6, %5
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  %8 = load double, ptr %__begin2.0.ptr, align 8, !tbaa !77
-  store double %8, ptr %7, align 8, !tbaa !77
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %7 = load double, ptr %__begin2.0.ptr, align 8, !tbaa !77
+  store double %7, ptr %6, align 8, !tbaa !77
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %incdec.ptr.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib30ExponentialFittingHestonEngine10moneyness_E, i64 8), align 8, !tbaa !76
   br label %invoke.cont5
 
 if.else.i:                                        ; preds = %for.body
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
+  %8 = load ptr, ptr @_ZN8QuantLib30ExponentialFittingHestonEngine10moneyness_E, align 8, !tbaa !39
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i
@@ -777,17 +776,17 @@ _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i,
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %5, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %8, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i
 
 _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
-  %tobool.not.i.i.i = icmp eq ptr %5, null
+  %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %sub.ptr.sub.i.i.i.i) #31
+  call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %sub.ptr.sub.i.i.i.i) #31
   br label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i
@@ -798,9 +797,8 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i, %if.then.i
-  %11 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %5, %if.then.i ]
-  %12 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %6, %if.then.i ]
-  %13 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
+  %11 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %5, %if.then.i ]
+  %12 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
   %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx8, 1032
   %cmp.not = icmp eq i64 %__begin2.0.add, 151704
   br i1 %cmp.not, label %if.end, label %for.body
@@ -2502,8 +2500,8 @@ lpad266:                                          ; preds = %cond.end
 if.else:                                          ; preds = %cond.end300
   %mul308 = fmul double %sub172, %cond301
   %157 = call double @llvm.fabs.f64(double %mul308)
-  %158 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib30ExponentialFittingHestonEngine10moneyness_E, i64 8), align 8, !tbaa !3
-  %159 = load ptr, ptr @_ZN8QuantLib30ExponentialFittingHestonEngine10moneyness_E, align 8, !tbaa !3
+  %158 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib30ExponentialFittingHestonEngine10moneyness_E, i64 8), align 8, !tbaa !76
+  %159 = load ptr, ptr @_ZN8QuantLib30ExponentialFittingHestonEngine10moneyness_E, align 8, !tbaa !39
   %sub.ptr.lhs.cast.i = ptrtoint ptr %158 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %159 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i

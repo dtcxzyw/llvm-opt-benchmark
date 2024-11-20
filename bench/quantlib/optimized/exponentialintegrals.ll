@@ -605,7 +605,7 @@ entry:
   %ref.tmp241 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp242 = alloca %"class.std::allocator", align 1
   %ref.tmp245 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load double, ptr %z, align 8
+  %0 = load double, ptr %z, align 8, !tbaa !20
   %cmp = fcmp oeq double %0, 0.000000e+00
   %_M_value.imagp.i = getelementptr inbounds nuw i8, ptr %z, i64 8
   %1 = load double, ptr %_M_value.imagp.i, align 8
@@ -868,11 +868,11 @@ if.end76:                                         ; preds = %for.body, %"_ZZN8Qu
   %mul_r.i = fsub double %mul_ac.i, %mul_bd.i
   %mul_i.i = fadd double %mul_ad.i, %mul_bc.i
   %isnan_cmp.i = fcmp uno double %mul_r.i, 0.000000e+00
-  br i1 %isnan_cmp.i, label %complex_mul_imag_nan.i, label %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit, !prof !20
+  br i1 %isnan_cmp.i, label %complex_mul_imag_nan.i, label %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit, !prof !22
 
 complex_mul_imag_nan.i:                           ; preds = %if.end76
   %isnan_cmp4.i = fcmp uno double %mul_i.i, 0.000000e+00
-  br i1 %isnan_cmp4.i, label %complex_mul_libcall.i, label %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit, !prof !20
+  br i1 %isnan_cmp4.i, label %complex_mul_libcall.i, label %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit, !prof !22
 
 complex_mul_libcall.i:                            ; preds = %complex_mul_imag_nan.i
   %call5.i = tail call noundef { double, double } @__muldc3(double noundef %s.sroa.0.0455, double noundef %s.sroa.9.0456, double noundef %38, double noundef %39) #21
@@ -886,7 +886,7 @@ _ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit:          ; preds = %if.end76, %complex_
   %inc = add i64 %i.0459, 1
   %conv66 = uitofp i64 %inc to double
   %cmp68 = fcmp ult double %add67, %conv66
-  br i1 %cmp68, label %do.body84, label %for.body, !llvm.loop !21
+  br i1 %cmp68, label %do.body84, label %for.body, !llvm.loop !23
 
 do.body84:                                        ; preds = %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit, %if.then53
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream85) #21
@@ -1064,7 +1064,7 @@ land.lhs.true133:                                 ; preds = %if.end131
   br i1 %or.cond442, label %for.body144, label %if.end189
 
 for.cond.cleanup143:                              ; preds = %for.body144
-  %64 = load double, ptr %_M_value.imagp.i, align 8
+  %64 = load double, ptr %_M_value.imagp.i, align 8, !tbaa !20
   %cmp.i180 = fcmp oeq double %64, 0.000000e+00
   %65 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %64)
   %66 = fmul double %65, 0x400921FB54442D18
@@ -1078,8 +1078,8 @@ for.cond.cleanup143:                              ; preds = %for.body144
   %call.i.i198 = tail call noundef { double, double } @cexp(double noundef %_M_value.real.i.i195, double noundef %64) #21
   %67 = extractvalue { double, double } %call.i.i198, 0
   %68 = extractvalue { double, double } %call.i.i198, 1
-  %69 = load double, ptr %z, align 8, !tbaa !23
-  %70 = load double, ptr %_M_value.imagp.i, align 8, !tbaa !23
+  %69 = load double, ptr %z, align 8, !tbaa !20
+  %70 = load double, ptr %_M_value.imagp.i, align 8, !tbaa !20
   %add.r.i.i200 = fsub double 1.000000e+00, %69
   %add.r.i.i209 = fadd double %76, %add.r.i.i200
   %add.i.i.i210 = fsub double %77, %70
@@ -1099,8 +1099,8 @@ for.body144:                                      ; preds = %land.lhs.true133, %
   %fneg149 = fneg double %conv148
   %conv153 = uitofp i64 %k.0453 to double
   %73 = tail call double @llvm.fmuladd.f64(double %conv153, double 2.000000e+00, double 1.000000e+00)
-  %74 = load double, ptr %z, align 8, !tbaa !23
-  %75 = load double, ptr %_M_value.imagp.i, align 8, !tbaa !23
+  %74 = load double, ptr %z, align 8, !tbaa !20
+  %75 = load double, ptr %_M_value.imagp.i, align 8, !tbaa !20
   %add.r.i.i230 = fsub double %73, %74
   %add.r.i.i239 = fadd double %ei140.sroa.0.0451, %add.r.i.i230
   %add.i.i.i240 = fsub double %ei140.sroa.6.0452, %75
@@ -1147,9 +1147,9 @@ if.then206:                                       ; preds = %for.body200
 
 if.end211:                                        ; preds = %if.then206, %for.body200
   %nn.1 = phi double [ %nn.0445, %for.body200 ], [ %add210, %if.then206 ]
-  %80 = load double, ptr %z, align 8, !tbaa !23
+  %80 = load double, ptr %z, align 8, !tbaa !20
   %fneg.i = fneg double %80
-  %81 = load double, ptr %_M_value.imagp.i, align 8, !tbaa !23
+  %81 = load double, ptr %_M_value.imagp.i, align 8, !tbaa !20
   %fneg2.i = fneg double %81
   %mul217 = shl nuw nsw i64 %n.0450, 1
   %conv218 = uitofp nneg i64 %mul217 to double
@@ -1162,11 +1162,11 @@ if.end211:                                        ; preds = %if.then206, %for.bo
   %mul_r.i298 = fsub double %mul_ac.i294, %mul_bd.i295
   %mul_i.i299 = fadd double %mul_bc.i297, %mul_ad.i296
   %isnan_cmp.i300 = fcmp uno double %mul_r.i298, 0.000000e+00
-  br i1 %isnan_cmp.i300, label %complex_mul_imag_nan.i303, label %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit307, !prof !20
+  br i1 %isnan_cmp.i300, label %complex_mul_imag_nan.i303, label %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit307, !prof !22
 
 complex_mul_imag_nan.i303:                        ; preds = %if.end211
   %isnan_cmp4.i304 = fcmp uno double %mul_i.i299, 0.000000e+00
-  br i1 %isnan_cmp4.i304, label %complex_mul_libcall.i305, label %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit307, !prof !20
+  br i1 %isnan_cmp4.i304, label %complex_mul_libcall.i305, label %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit307, !prof !22
 
 complex_mul_libcall.i305:                         ; preds = %complex_mul_imag_nan.i303
   %call5.i306 = tail call noundef { double, double } @__muldc3(double noundef %sn.sroa.0.0446, double noundef %sn.sroa.8.0447, double noundef %82, double noundef %83) #21
@@ -1371,11 +1371,11 @@ do.end269:                                        ; preds = %land.rhs
   %mul_r.i.i = fsub double %mul_ac.i.i, %mul_bd.i.i
   %mul_i.i.i = fadd double %mul_bc.i.i, %mul_ad.i.i
   %isnan_cmp.i.i = fcmp uno double %mul_r.i.i, 0.000000e+00
-  br i1 %isnan_cmp.i.i, label %complex_mul_imag_nan.i.i, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, !prof !20
+  br i1 %isnan_cmp.i.i, label %complex_mul_imag_nan.i.i, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, !prof !22
 
 complex_mul_imag_nan.i.i:                         ; preds = %do.end269
   %isnan_cmp4.i.i = fcmp uno double %mul_i.i.i, 0.000000e+00
-  br i1 %isnan_cmp4.i.i, label %complex_mul_libcall.i.i, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, !prof !20
+  br i1 %isnan_cmp4.i.i, label %complex_mul_libcall.i.i, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, !prof !22
 
 complex_mul_libcall.i.i:                          ; preds = %complex_mul_imag_nan.i.i
   %call5.i.i = tail call noundef { double, double } @__muldc3(double noundef %109, double noundef %110, double noundef %s190.sroa.0.0448, double noundef %s190.sroa.9.0449) #21
@@ -1388,12 +1388,12 @@ _ZStmlIdESt7complexIT_ERKS2_S4_.exit:             ; preds = %do.end269, %complex
   %imag_mul_phi.i.i = phi double [ %mul_i.i.i, %do.end269 ], [ %mul_i.i.i, %complex_mul_imag_nan.i.i ], [ %112, %complex_mul_libcall.i.i ]
   %add.r.i.i379 = fadd double %add.r.i.i350, %real_mul_phi.i.i
   %add.i.i.i380 = fadd double %add.i.i.i351, %imag_mul_phi.i.i
-  %113 = load double, ptr %_M_value.imagp.i, align 8, !tbaa !23
+  %113 = load double, ptr %_M_value.imagp.i, align 8, !tbaa !20
   %cmp293 = fcmp une double %113, 0.000000e+00
   br i1 %cmp293, label %return, label %if.else
 
 if.else:                                          ; preds = %_ZStmlIdESt7complexIT_ERKS2_S4_.exit
-  %114 = load double, ptr %retval.sroa.4.0.__y.sroa_idx.i, align 8, !tbaa !23
+  %114 = load double, ptr %retval.sroa.4.0.__y.sroa_idx.i, align 8, !tbaa !20
   br label %return
 
 ehcleanup313:                                     ; preds = %ehcleanup122, %ehcleanup265, %ehcleanup34
@@ -1440,13 +1440,13 @@ entry:
   %ref.tmp17 = alloca %"class.std::complex", align 8
   %ref.tmp24 = alloca %"class.std::complex", align 8
   %_M_value.imagp.i = getelementptr inbounds nuw i8, ptr %z, i64 8
-  %0 = load double, ptr %_M_value.imagp.i, align 8, !tbaa !23
+  %0 = load double, ptr %_M_value.imagp.i, align 8, !tbaa !20
   %cmp = fcmp olt double %0, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp1) #21
-  %1 = load double, ptr %z, align 8, !tbaa !23
+  %1 = load double, ptr %z, align 8, !tbaa !20
   %fneg.i = fneg double %1
   %fneg2.i = fneg double %0
   store double %fneg.i, ptr %ref.tmp1, align 8
@@ -1467,7 +1467,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %cmp9 = fcmp ogt double %0, 0.000000e+00
-  %.pre = load double, ptr %z, align 8, !tbaa !23
+  %.pre = load double, ptr %z, align 8, !tbaa !20
   %cmp11 = fcmp olt double %.pre, 0.000000e+00
   %or.cond = select i1 %cmp9, i1 true, i1 %cmp11
   %fneg.i14 = fneg double %.pre
@@ -1553,9 +1553,9 @@ land.rhs:                                         ; preds = %if.then, %_ZNSt7com
   br i1 %0, label %for.body, label %return
 
 for.body:                                         ; preds = %land.rhs
-  %1 = load double, ptr %z, align 8
+  %1 = load double, ptr %z, align 8, !tbaa !20
   %fneg.i = fneg double %1
-  %2 = load double, ptr %_M_value.imagp.i.i, align 8
+  %2 = load double, ptr %_M_value.imagp.i.i, align 8, !tbaa !20
   %fneg2.i = fneg double %2
   %mul_ad.i.i = fmul double %2, %fneg.i
   %3 = fmul double %2, %2
@@ -1564,11 +1564,11 @@ for.body:                                         ; preds = %land.rhs
   %5 = fmul double %1, %2
   %mul_i.i.i = fsub double %mul_ad.i.i, %5
   %isnan_cmp.i.i = fcmp uno double %mul_r.i.i, 0.000000e+00
-  br i1 %isnan_cmp.i.i, label %complex_mul_imag_nan.i.i, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, !prof !20
+  br i1 %isnan_cmp.i.i, label %complex_mul_imag_nan.i.i, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, !prof !22
 
 complex_mul_imag_nan.i.i:                         ; preds = %for.body
   %isnan_cmp4.i.i = fcmp uno double %mul_i.i.i, 0.000000e+00
-  br i1 %isnan_cmp4.i.i, label %complex_mul_libcall.i.i, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, !prof !20
+  br i1 %isnan_cmp4.i.i, label %complex_mul_libcall.i.i, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, !prof !22
 
 complex_mul_libcall.i.i:                          ; preds = %complex_mul_imag_nan.i.i
   %call5.i.i = tail call noundef { double, double } @__muldc3(double noundef %fneg.i, double noundef %fneg2.i, double noundef %1, double noundef %2) #21
@@ -1598,11 +1598,11 @@ _ZStmlIdESt7complexIT_ERKS2_S4_.exit:             ; preds = %for.body, %complex_
   %mul_r.i = fsub double %mul_ac.i, %mul_bd.i
   %mul_i.i = fadd double %mul_bc.i, %mul_ad.i
   %isnan_cmp.i = fcmp uno double %mul_r.i, 0.000000e+00
-  br i1 %isnan_cmp.i, label %complex_mul_imag_nan.i, label %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit, !prof !20
+  br i1 %isnan_cmp.i, label %complex_mul_imag_nan.i, label %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit, !prof !22
 
 complex_mul_imag_nan.i:                           ; preds = %_ZStmlIdESt7complexIT_ERKS2_S4_.exit
   %isnan_cmp4.i = fcmp uno double %mul_i.i, 0.000000e+00
-  br i1 %isnan_cmp4.i, label %complex_mul_libcall.i, label %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit, !prof !20
+  br i1 %isnan_cmp4.i, label %complex_mul_libcall.i, label %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit, !prof !22
 
 complex_mul_libcall.i:                            ; preds = %complex_mul_imag_nan.i
   %call5.i = tail call noundef { double, double } @__muldc3(double noundef %nn.sroa.0.0192, double noundef %nn.sroa.8.0193, double noundef %mul.rl.i.i, double noundef %mul.il.i.i) #21
@@ -1790,11 +1790,11 @@ if.else:                                          ; preds = %entry
   %35 = fsub double %_M_value.imag.i.i.i90, %mul_ac.i.i91
   %mul_i.i.i96 = fsub double %mul_ad.i.i93, %_M_value.real.i.i.i88
   %isnan_cmp.i.i97 = fcmp uno double %35, 0.000000e+00
-  br i1 %isnan_cmp.i.i97, label %complex_mul_imag_nan.i.i102, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit106, !prof !20
+  br i1 %isnan_cmp.i.i97, label %complex_mul_imag_nan.i.i102, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit106, !prof !22
 
 complex_mul_imag_nan.i.i102:                      ; preds = %if.else
   %isnan_cmp4.i.i103 = fcmp uno double %mul_i.i.i96, 0.000000e+00
-  br i1 %isnan_cmp4.i.i103, label %complex_mul_libcall.i.i104, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit106, !prof !20
+  br i1 %isnan_cmp4.i.i103, label %complex_mul_libcall.i.i104, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit106, !prof !22
 
 complex_mul_libcall.i.i104:                       ; preds = %complex_mul_imag_nan.i.i102
   %call5.i.i105 = tail call noundef { double, double } @__muldc3(double noundef -0.000000e+00, double noundef -1.000000e+00, double noundef %_M_value.real.i.i.i88, double noundef %_M_value.imag.i.i.i90) #21
@@ -1819,11 +1819,11 @@ _ZStmlIdESt7complexIT_ERKS2_S4_.exit106:          ; preds = %if.else, %complex_m
   %mul_r.i.i117 = fsub double %mul_ac.i.i113, %_M_value.imag.i.i.i112
   %mul_i.i.i118 = fadd double %_M_value.real.i.i.i110, %mul_ad.i.i115
   %isnan_cmp.i.i119 = fcmp uno double %mul_r.i.i117, 0.000000e+00
-  br i1 %isnan_cmp.i.i119, label %complex_mul_imag_nan.i.i124, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit128, !prof !20
+  br i1 %isnan_cmp.i.i119, label %complex_mul_imag_nan.i.i124, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit128, !prof !22
 
 complex_mul_imag_nan.i.i124:                      ; preds = %_ZStmlIdESt7complexIT_ERKS2_S4_.exit106
   %isnan_cmp4.i.i125 = fcmp uno double %mul_i.i.i118, 0.000000e+00
-  br i1 %isnan_cmp4.i.i125, label %complex_mul_libcall.i.i126, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit128, !prof !20
+  br i1 %isnan_cmp4.i.i125, label %complex_mul_libcall.i.i126, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit128, !prof !22
 
 complex_mul_libcall.i.i126:                       ; preds = %complex_mul_imag_nan.i.i124
   %call5.i.i127 = tail call noundef { double, double } @__muldc3(double noundef 0.000000e+00, double noundef 1.000000e+00, double noundef %_M_value.real.i.i.i110, double noundef %_M_value.imag.i.i.i112) #21
@@ -1842,7 +1842,7 @@ _ZStmlIdESt7complexIT_ERKS2_S4_.exit128:          ; preds = %_ZStmlIdESt7complex
   %45 = extractvalue { double, double } %call80, 1
   %sub.r.i.i = fsub double %39, %44
   %sub.i.i.i = fsub double %40, %45
-  %46 = load double, ptr %z, align 8, !tbaa !23
+  %46 = load double, ptr %z, align 8, !tbaa !20
   %cmp86 = fcmp ult double %46, 0.000000e+00
   %47 = load double, ptr %_M_value.imagp.i.i, align 8
   %cmp88 = fcmp ult double %47, 0.000000e+00
@@ -1868,11 +1868,11 @@ lor.end:                                          ; preds = %_ZStmlIdESt7complex
   %mul_r.i.i160 = fsub double %mul_ac.i.i156, %mul_bd.i.i157
   %mul_i.i.i161 = fadd double %mul_bc.i.i159, %mul_ad.i.i158
   %isnan_cmp.i.i162 = fcmp uno double %mul_r.i.i160, 0.000000e+00
-  br i1 %isnan_cmp.i.i162, label %complex_mul_imag_nan.i.i167, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit171, !prof !20
+  br i1 %isnan_cmp.i.i162, label %complex_mul_imag_nan.i.i167, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit171, !prof !22
 
 complex_mul_imag_nan.i.i167:                      ; preds = %lor.end
   %isnan_cmp4.i.i168 = fcmp uno double %mul_i.i.i161, 0.000000e+00
-  br i1 %isnan_cmp4.i.i168, label %complex_mul_libcall.i.i169, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit171, !prof !20
+  br i1 %isnan_cmp4.i.i168, label %complex_mul_libcall.i.i169, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit171, !prof !22
 
 complex_mul_libcall.i.i169:                       ; preds = %complex_mul_imag_nan.i.i167
   %call5.i.i170 = tail call noundef { double, double } @__muldc3(double noundef 0.000000e+00, double noundef 5.000000e-01, double noundef %sub.r.i.i, double noundef %sub.i.i.i147) #21
@@ -1903,7 +1903,7 @@ define { double, double } @_ZN8QuantLib19ExponentialIntegral2CiERKSt7complexIdE(
 entry:
   %ref.tmp13 = alloca %"class.std::complex", align 8
   %ref.tmp21 = alloca %"class.std::complex", align 8
-  %0 = load double, ptr %z, align 8
+  %0 = load double, ptr %z, align 8, !tbaa !20
   %cmp = fcmp uge double %0, 0.000000e+00
   %_M_value.imagp.i7 = getelementptr inbounds nuw i8, ptr %z, i64 8
   %1 = load double, ptr %_M_value.imagp.i7, align 8
@@ -1928,11 +1928,11 @@ if.end9:                                          ; preds = %entry, %if.else, %i
   %2 = fsub double %1, %mul_ac.i.i
   %mul_i.i.i = fsub double %mul_ad.i.i, %0
   %isnan_cmp.i.i = fcmp uno double %2, 0.000000e+00
-  br i1 %isnan_cmp.i.i, label %complex_mul_imag_nan.i.i, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, !prof !20
+  br i1 %isnan_cmp.i.i, label %complex_mul_imag_nan.i.i, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, !prof !22
 
 complex_mul_imag_nan.i.i:                         ; preds = %if.end9
   %isnan_cmp4.i.i = fcmp uno double %mul_i.i.i, 0.000000e+00
-  br i1 %isnan_cmp4.i.i, label %complex_mul_libcall.i.i, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, !prof !20
+  br i1 %isnan_cmp4.i.i, label %complex_mul_libcall.i.i, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit, !prof !22
 
 complex_mul_libcall.i.i:                          ; preds = %complex_mul_imag_nan.i.i
   %call5.i.i = tail call noundef { double, double } @__muldc3(double noundef -0.000000e+00, double noundef -1.000000e+00, double noundef %0, double noundef %1) #21
@@ -1955,11 +1955,11 @@ _ZStmlIdESt7complexIT_ERKS2_S4_.exit:             ; preds = %if.end9, %complex_m
   %mul_r.i.i23 = fsub double %mul_ac.i.i19, %_M_value.imag.i.i.i18
   %mul_i.i.i24 = fadd double %_M_value.real.i.i.i16, %mul_ad.i.i21
   %isnan_cmp.i.i25 = fcmp uno double %mul_r.i.i23, 0.000000e+00
-  br i1 %isnan_cmp.i.i25, label %complex_mul_imag_nan.i.i30, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit34, !prof !20
+  br i1 %isnan_cmp.i.i25, label %complex_mul_imag_nan.i.i30, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit34, !prof !22
 
 complex_mul_imag_nan.i.i30:                       ; preds = %_ZStmlIdESt7complexIT_ERKS2_S4_.exit
   %isnan_cmp4.i.i31 = fcmp uno double %mul_i.i.i24, 0.000000e+00
-  br i1 %isnan_cmp4.i.i31, label %complex_mul_libcall.i.i32, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit34, !prof !20
+  br i1 %isnan_cmp4.i.i31, label %complex_mul_libcall.i.i32, label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit34, !prof !22
 
 complex_mul_libcall.i.i32:                        ; preds = %complex_mul_imag_nan.i.i30
   %call5.i.i33 = tail call noundef { double, double } @__muldc3(double noundef 0.000000e+00, double noundef 1.000000e+00, double noundef %_M_value.real.i.i.i16, double noundef %_M_value.imag.i.i.i18) #21
@@ -2092,11 +2092,11 @@ attributes #24 = { noreturn nounwind }
 !17 = !{!"vtable pointer", !6, i64 0}
 !18 = !{!19, !10, i64 0}
 !19 = !{!"_ZTSN5boost6detail12shared_countE", !10, i64 0}
-!20 = !{!"branch_weights", i32 1, i32 1048575}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"double", !5, i64 0}
-!25 = distinct !{!25, !22}
-!26 = distinct !{!26, !22}
-!27 = distinct !{!27, !22}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"double", !5, i64 0}
+!22 = !{!"branch_weights", i32 1, i32 1048575}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.mustprogress"}
+!25 = distinct !{!25, !24}
+!26 = distinct !{!26, !24}
+!27 = distinct !{!27, !24}

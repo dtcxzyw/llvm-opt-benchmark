@@ -693,7 +693,7 @@ define void @lv_textarea_add_char(ptr noundef %0, i32 noundef %1) local_unnamed_
   br label %insert_handler.exit.thread
 
 insert_handler.exit:                              ; preds = %10, %17
-  %21 = load ptr, ptr @lv_text_encoded_next, align 8
+  %21 = load ptr, ptr @lv_text_encoded_next, align 8, !tbaa !45
   %22 = call i32 %21(ptr noundef nonnull %5, ptr noundef null) #10
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %24 = load i32, ptr %23, align 8, !tbaa !14

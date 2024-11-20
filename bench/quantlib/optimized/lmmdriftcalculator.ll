@@ -2388,7 +2388,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i
   %oneOverTaus_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %6 = load ptr, ptr %oneOverTaus_.i.i, align 8, !tbaa !8
   %tmp_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %7 = load ptr, ptr %tmp_.i.i, align 8, !tbaa !34
+  %7 = load ptr, ptr %tmp_.i.i, align 8, !tbaa !8
   br label %for.body.i.i
 
 for.cond8.preheader.i.i:                          ; preds = %for.body.i.i
@@ -2492,7 +2492,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then
   %oneOverTaus_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %5 = load ptr, ptr %oneOverTaus_.i, align 8, !tbaa !8
   %tmp_.i = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %6 = load ptr, ptr %tmp_.i, align 8, !tbaa !34
+  %6 = load ptr, ptr %tmp_.i, align 8, !tbaa !8
   br label %for.body.i
 
 for.cond8.preheader.i:                            ; preds = %for.body.i
@@ -2987,7 +2987,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
   %oneOverTaus_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %5 = load ptr, ptr %oneOverTaus_.i, align 8, !tbaa !8
   %tmp_.i = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %6 = load ptr, ptr %tmp_.i, align 8, !tbaa !34
+  %6 = load ptr, ptr %tmp_.i, align 8, !tbaa !8
   br label %for.body.i
 
 for.cond8.preheader.i:                            ; preds = %for.body.i

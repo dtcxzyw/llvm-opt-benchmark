@@ -3736,7 +3736,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %for.body
-  %35 = load ptr, ptr %_M_finish.i26, align 8, !tbaa !3
+  %35 = load ptr, ptr %_M_finish.i26, align 8, !tbaa !48
   %36 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !78
   %cmp.not.i = icmp eq ptr %35, %36
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -4467,7 +4467,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %for.body
-  %33 = load ptr, ptr %_M_finish.i31, align 8, !tbaa !3
+  %33 = load ptr, ptr %_M_finish.i31, align 8, !tbaa !48
   %34 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !78
   %cmp.not.i = icmp eq ptr %33, %34
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -5018,7 +5018,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
           to label %invoke.cont66 unwind label %lpad65
 
 invoke.cont66:                                    ; preds = %for.body
-  %62 = load ptr, ptr %_M_finish.i36, align 8, !tbaa !3
+  %62 = load ptr, ptr %_M_finish.i36, align 8, !tbaa !48
   %63 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !78
   %cmp.not.i37 = icmp eq ptr %62, %63
   br i1 %cmp.not.i37, label %if.else.i, label %if.then.i
@@ -5580,7 +5580,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
           to label %invoke.cont61 unwind label %lpad60
 
 invoke.cont61:                                    ; preds = %for.body
-  %59 = load ptr, ptr %_M_finish.i41, align 8, !tbaa !3
+  %59 = load ptr, ptr %_M_finish.i41, align 8, !tbaa !48
   %60 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !78
   %cmp.not.i42 = icmp eq ptr %59, %60
   br i1 %cmp.not.i42, label %if.else.i, label %if.then.i
@@ -17007,8 +17007,8 @@ entry:
   %ref.tmp26 = alloca %"class.std::allocator.6", align 1
   %ref.tmp29 = alloca %"class.std::__cxx11::basic_string", align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %factorWeights, i64 8
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !3
-  %1 = load ptr, ptr %factorWeights, align 8, !tbaa !3
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !99
+  %1 = load ptr, ptr %factorWeights, align 8, !tbaa !98
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -18176,7 +18176,7 @@ define linkonce_odr void @_ZNSt6vectorIN8QuantLib6HandleINS0_17RecoveryRateQuote
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !48
-  %1 = load ptr, ptr %this, align 8, !tbaa !3
+  %1 = load ptr, ptr %this, align 8, !tbaa !50
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

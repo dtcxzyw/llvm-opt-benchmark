@@ -143,7 +143,7 @@ do.body:                                          ; preds = %call.i176.noexc, %c
   br i1 %cmp.not, label %if.then, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.body
-  %10 = load i64, ptr %columns_.i, align 8
+  %10 = load i64, ptr %columns_.i, align 8, !tbaa !18
   %cmp11.not = icmp eq i64 %10, 0
   br i1 %cmp11.not, label %if.then, label %do.body40
 
@@ -2012,8 +2012,8 @@ while.body:                                       ; preds = %entry, %_ZNSt4pairI
   %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %mul
   %sub3 = or disjoint i64 %add, 1
   %add.ptr.i17 = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %sub3
-  %0 = load double, ptr %add.ptr.i17, align 8, !tbaa !19
-  %1 = load double, ptr %add.ptr.i, align 8, !tbaa !19
+  %0 = load double, ptr %add.ptr.i17, align 8, !tbaa !45
+  %1 = load double, ptr %add.ptr.i, align 8, !tbaa !45
   %cmp.i.i.i.i.i = fcmp olt double %0, %1
   br i1 %cmp.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit.thread, label %lor.rhs.i.i.i.i.i
 
@@ -2223,7 +2223,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %_Z
   %__parent.034 = sdiv i64 %__parent.034.in, 2
   %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__parent.034
   %0 = load double, ptr %__value, align 8, !tbaa !45
-  %1 = load double, ptr %add.ptr.i, align 8, !tbaa !19
+  %1 = load double, ptr %add.ptr.i, align 8, !tbaa !45
   %cmp.i.i.i.i.i = fcmp olt double %0, %1
   br i1 %cmp.i.i.i.i.i, label %land.rhs.while.body_crit_edge, label %lor.rhs.i.i.i.i.i
 
@@ -2348,8 +2348,8 @@ _ZNSt4pairIdSt6vectorIdSaIdEEEaSEOS3_.exit21:     ; preds = %while.end, %if.then
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES3_IS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterISt7greaterIvEEEEvT_SG_SG_SG_T0_(ptr %__result.coerce, ptr %__a.coerce, ptr %__b.coerce, ptr %__c.coerce) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load double, ptr %__b.coerce, align 8, !tbaa !19
-  %1 = load double, ptr %__a.coerce, align 8, !tbaa !19
+  %0 = load double, ptr %__b.coerce, align 8, !tbaa !45
+  %1 = load double, ptr %__a.coerce, align 8, !tbaa !45
   %cmp.i.i.i.i.i = fcmp olt double %0, %1
   br i1 %cmp.i.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i.i
 
@@ -2402,7 +2402,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt
   br i1 %cmp9.i.i.i.i.i.i.i.i.i.i.i.not, label %if.else33, label %if.then
 
 if.then:                                          ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i, %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit
-  %8 = load double, ptr %__c.coerce, align 8, !tbaa !19
+  %8 = load double, ptr %__c.coerce, align 8, !tbaa !45
   %cmp.i.i.i.i.i1 = fcmp olt double %8, %0
   br i1 %cmp.i.i.i.i.i1, label %if.then.if.then12_crit_edge, label %lor.rhs.i.i.i.i.i2
 
@@ -2531,7 +2531,7 @@ if.else27:                                        ; preds = %_ZN9__gnu_cxx5__ops
   br label %if.end62
 
 if.else33:                                        ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i, %lor.rhs.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit
-  %21 = load double, ptr %__c.coerce, align 8, !tbaa !19
+  %21 = load double, ptr %__c.coerce, align 8, !tbaa !45
   %cmp.i.i.i.i.i78 = fcmp olt double %21, %1
   br i1 %cmp.i.i.i.i.i78, label %if.else33.if.then39_crit_edge, label %lor.rhs.i.i.i.i.i79
 
@@ -2701,7 +2701,7 @@ while.body:                                       ; preds = %if.end, %entry
 
 while.cond3:                                      ; preds = %while.body7, %while.body
   %__first.sroa.0.1 = phi ptr [ %__first.sroa.0.0, %while.body ], [ %incdec.ptr.i, %while.body7 ]
-  %1 = load double, ptr %__first.sroa.0.1, align 8, !tbaa !19
+  %1 = load double, ptr %__first.sroa.0.1, align 8, !tbaa !45
   %cmp.i.i.i.i.i = fcmp olt double %0, %1
   br i1 %cmp.i.i.i.i.i, label %while.body7, label %lor.rhs.i.i.i.i.i
 
@@ -2761,7 +2761,7 @@ while.cond10.preheader:                           ; preds = %lor.rhs.i.i.i.i.i, 
 while.cond10:                                     ; preds = %while.cond10.backedge, %while.cond10.preheader
   %__last.sroa.0.0.pn = phi ptr [ %__last.sroa.0.0, %while.cond10.preheader ], [ %__last.sroa.0.1, %while.cond10.backedge ]
   %__last.sroa.0.1 = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn, i64 -32
-  %8 = load double, ptr %__last.sroa.0.1, align 8, !tbaa !19
+  %8 = load double, ptr %__last.sroa.0.1, align 8, !tbaa !45
   %cmp.i.i.i.i.i2 = fcmp olt double %8, %0
   br i1 %cmp.i.i.i.i.i2, label %while.cond10.backedge, label %lor.rhs.i.i.i.i.i3
 
@@ -3032,7 +3032,7 @@ entry:
 while.cond:                                       ; preds = %while.cond.backedge, %entry
   %__last.sroa.0.0 = phi ptr [ %__last.coerce, %entry ], [ %__next.sroa.0.0, %while.cond.backedge ]
   %__next.sroa.0.0 = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 -32
-  %4 = load double, ptr %__next.sroa.0.0, align 8, !tbaa !19
+  %4 = load double, ptr %__next.sroa.0.0, align 8, !tbaa !45
   %cmp.i.i.i.i.i = fcmp olt double %4, %0
   br i1 %cmp.i.i.i.i.i, label %while.cond.while.body_crit_edge, label %lor.rhs.i.i.i.i.i
 

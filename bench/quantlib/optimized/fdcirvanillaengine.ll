@@ -4272,8 +4272,8 @@ if.then.i.i13:                                    ; preds = %_ZN5boost10shared_p
 
 _ZN5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEEC2ERKS3_.exit: ; preds = %_ZN5boost10shared_ptrIN8QuantLib23CoxIngersollRossProcessEEC2ERKS3_.exit, %if.then.i.i13
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %args3, i64 8
-  %12 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !3
-  %13 = load ptr, ptr %args3, align 8, !tbaa !3
+  %12 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !85
+  %13 = load ptr, ptr %args3, align 8, !tbaa !84
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

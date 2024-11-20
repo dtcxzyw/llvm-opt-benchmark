@@ -467,7 +467,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.0639 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %37 = load ptr, ptr %cashFlowTimes, align 8, !tbaa !28
   %add.ptr.i180 = getelementptr inbounds nuw double, ptr %37, i64 %i.0639
-  %38 = load ptr, ptr %_M_finish.i181, align 8, !tbaa !31
+  %38 = load ptr, ptr %_M_finish.i181, align 8, !tbaa !34
   %39 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !35
   %cmp.not.i = icmp eq ptr %38, %39
   br i1 %cmp.not.i, label %if.else.i185, label %if.then.i182
@@ -588,7 +588,7 @@ for.body78:                                       ; preds = %for.body78.lr.ph, %
   %i.1641 = phi i64 [ 0, %for.body78.lr.ph ], [ %inc83, %for.inc82 ]
   %51 = load ptr, ptr %rebateTimes, align 8, !tbaa !28
   %add.ptr.i224 = getelementptr inbounds nuw double, ptr %51, i64 %i.1641
-  %52 = load ptr, ptr %_M_finish.i225, align 8, !tbaa !31
+  %52 = load ptr, ptr %_M_finish.i225, align 8, !tbaa !34
   %53 = load ptr, ptr %_M_end_of_storage.i.i195, align 8, !tbaa !35
   %cmp.not.i227 = icmp eq ptr %52, %53
   br i1 %cmp.not.i227, label %if.else.i232, label %if.then.i228
@@ -674,7 +674,7 @@ for.body90:                                       ; preds = %for.body90.lr.ph, %
   %i.2643 = phi i64 [ 0, %for.body90.lr.ph ], [ %inc95, %for.inc94 ]
   %58 = load ptr, ptr %controlTimes, align 8, !tbaa !28
   %add.ptr.i273 = getelementptr inbounds nuw double, ptr %58, i64 %i.2643
-  %59 = load ptr, ptr %_M_finish.i274, align 8, !tbaa !31
+  %59 = load ptr, ptr %_M_finish.i274, align 8, !tbaa !34
   %60 = load ptr, ptr %_M_end_of_storage.i.i244, align 8, !tbaa !35
   %cmp.not.i276 = icmp eq ptr %59, %60
   br i1 %cmp.not.i276, label %if.else.i281, label %if.then.i277
@@ -2619,7 +2619,7 @@ define linkonce_odr void @_ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_E
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !34
-  %1 = load ptr, ptr %this, align 8, !tbaa !31
+  %1 = load ptr, ptr %this, align 8, !tbaa !32
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

@@ -1611,7 +1611,7 @@ lpad.i:                                           ; preds = %init.i
 _ZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEv.exit: ; preds = %entry, %init.check.i, %invoke.cont.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #27
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
-  %4 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !37
+  %4 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !80
   %5 = load i64, ptr %ref.tmp.i, align 8, !tbaa !80
   %cmp.i.i = icmp eq i64 %4, %5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #27
@@ -1630,7 +1630,7 @@ _ZNK8QuantLib8Settings9DateProxycvNS_4DateEEv.exit: ; preds = %_ZN8QuantLib9Sing
   %call4 = call i64 @_ZNK8QuantLib8Calendar7advanceERKNS_4DateEiNS_8TimeUnitENS_21BusinessDayConventionEb(ptr noundef nonnull align 8 dereferenceable(16) %calendar_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i32 noundef %6, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #27
   %valueDate_ = getelementptr inbounds nuw i8, ptr %this, i64 176
-  %7 = load i64, ptr %valueDate_, align 8, !tbaa !37
+  %7 = load i64, ptr %valueDate_, align 8, !tbaa !80
   %retval.sroa.0.0.copyload.sroa.speculated = call i64 @llvm.smax.i64(i64 %call4, i64 %7)
   ret i64 %retval.sroa.0.0.copyload.sroa.speculated
 }

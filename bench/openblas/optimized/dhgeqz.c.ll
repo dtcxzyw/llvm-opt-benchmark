@@ -1021,7 +1021,7 @@ define void @dhgeqz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %681 = sext i32 %680 to i64
   %682 = getelementptr inbounds double, ptr %67, i64 %681
   call void @dlag2_(ptr noundef %678, ptr noundef nonnull %7, ptr noundef %682, ptr noundef nonnull %9, ptr noundef nonnull %24, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %45, ptr noundef nonnull %52, ptr noundef nonnull %43) #5
-  %683 = load double, ptr %45, align 8
+  %683 = load double, ptr %45, align 8, !tbaa !7
   %684 = load double, ptr %31, align 8, !tbaa !7
   %685 = fdiv double %683, %684
   %686 = load double, ptr %354, align 8, !tbaa !7

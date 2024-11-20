@@ -477,8 +477,8 @@ ehcleanup33:                                      ; preds = %ehcleanup32, %lpad6
 
 do.end:                                           ; preds = %do.body
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %evolveTimes) #21
-  %31 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !18
-  %32 = load ptr, ptr %rateTimes_102, align 8, !tbaa !18
+  %31 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !43
+  %32 = load ptr, ptr %rateTimes_102, align 8, !tbaa !42
   %sub.ptr.lhs.cast.i.i34 = ptrtoint ptr %31 to i64
   %sub.ptr.rhs.cast.i.i35 = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i.i36 = sub i64 %sub.ptr.lhs.cast.i.i34, %sub.ptr.rhs.cast.i.i35
@@ -1027,8 +1027,8 @@ define void @_ZNK8QuantLib29BermudanSwaptionExerciseValue21possibleCashFlowTimes
 entry:
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !18
-  %1 = load ptr, ptr %rateTimes_, align 8, !tbaa !18
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !43
+  %1 = load ptr, ptr %rateTimes_, align 8, !tbaa !42
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

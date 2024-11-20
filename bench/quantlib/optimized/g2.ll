@@ -13317,7 +13317,7 @@ invoke.cont221:                                   ; preds = %invoke.cont217
   %109 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !216
   %and.i.i.i.i = and i32 %109, -261
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 256
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !216
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !222
   %110 = load double, ptr %fxMin_332341346352, align 8, !tbaa !213
   %call.i206 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i199, double noundef %110)
           to label %invoke.cont224 unwind label %lpad208
@@ -13840,7 +13840,7 @@ ehcleanup362:                                     ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 do.end365:                                        ; preds = %do.body316
-  store double %guess, ptr %this, align 8, !tbaa !218
+  store double %guess, ptr %this, align 8, !tbaa !223
   %call367 = tail call noundef double @_ZNK8QuantLib5Brent9solveImplINS_2G223SwaptionPricingFunction15SolvingFunctionEEEdRKT_d(ptr noundef nonnull align 8 dereferenceable(74) %this, ptr noundef nonnull align 8 dereferenceable(16) %f, double noundef %.sroa.speculated)
   br label %return
 
@@ -13867,7 +13867,7 @@ entry:
   %ref.tmp136 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp137 = alloca %"class.std::allocator.6", align 1
   %ref.tmp140 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load double, ptr %this, align 8, !tbaa !218
+  %0 = load double, ptr %this, align 8, !tbaa !223
   %1 = load ptr, ptr %f, align 8, !tbaa !209
   %n_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load i64, ptr %n_.i.i, align 8, !tbaa !89
@@ -13984,7 +13984,7 @@ if.end26:                                         ; preds = %if.then18, %lor.lhs
 
 if.then29:                                        ; preds = %if.end26
   store double %storemerge143145, ptr %xMin_19, align 8, !tbaa !203
-  store double %22, ptr %this, align 8, !tbaa !218
+  store double %22, ptr %this, align 8, !tbaa !223
   store double %storemerge143145, ptr %xMax_8, align 8, !tbaa !204
   store double %froot.0146, ptr %fxMin_, align 8, !tbaa !213
   store double %froot.0146, ptr %fxMax_12, align 8, !tbaa !214
@@ -14136,7 +14136,7 @@ if.else118:                                       ; preds = %if.end111
 if.end122:                                        ; preds = %if.end111, %if.else118
   %cond.i.pn = phi double [ %cond.i, %if.else118 ], [ %d.2, %if.end111 ]
   %storemerge = fadd double %storemerge142, %cond.i.pn
-  store double %storemerge, ptr %this, align 8, !tbaa !218
+  store double %storemerge, ptr %this, align 8, !tbaa !223
   br i1 %cmp6.not.i, label %_ZNK8QuantLib2G223SwaptionPricingFunction15SolvingFunctionclEd.exit93, label %for.body.lr.ph.i79
 
 for.body.lr.ph.i79:                               ; preds = %if.end122
@@ -14165,7 +14165,7 @@ _ZNK8QuantLib2G223SwaptionPricingFunction15SolvingFunctionclEd.exit93: ; preds =
   %inc126 = add i64 %17, 1
   store i64 %inc126, ptr %evaluationNumber_, align 8, !tbaa !215
   %cmp10.not = icmp ugt i64 %inc126, %14
-  br i1 %cmp10.not, label %do.body, label %while.body, !llvm.loop !219
+  br i1 %cmp10.not, label %do.body, label %while.body, !llvm.loop !224
 
 do.body:                                          ; preds = %_ZNK8QuantLib2G223SwaptionPricingFunction15SolvingFunctionclEd.exit93, %if.end
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream) #27
@@ -14662,7 +14662,12 @@ attributes #32 = { builtin allocsize(0) }
 !213 = !{!201, !91, i64 24}
 !214 = !{!201, !91, i64 32}
 !215 = !{!201, !12, i64 48}
-!216 = !{!217, !217, i64 0}
-!217 = !{!"_ZTSSt13_Ios_Fmtflags", !5, i64 0}
-!218 = !{!201, !91, i64 0}
-!219 = distinct !{!219, !80}
+!216 = !{!217, !218, i64 24}
+!217 = !{!"_ZTSSt8ios_base", !12, i64 8, !12, i64 16, !218, i64 24, !219, i64 28, !219, i64 32, !4, i64 40, !220, i64 48, !5, i64 64, !62, i64 192, !4, i64 200, !221, i64 208}
+!218 = !{!"_ZTSSt13_Ios_Fmtflags", !5, i64 0}
+!219 = !{!"_ZTSSt12_Ios_Iostate", !5, i64 0}
+!220 = !{!"_ZTSNSt8ios_base6_WordsE", !4, i64 0, !12, i64 8}
+!221 = !{!"_ZTSSt6locale", !4, i64 0}
+!222 = !{!218, !218, i64 0}
+!223 = !{!201, !91, i64 0}
+!224 = distinct !{!224, !80}

@@ -400,7 +400,7 @@ lv_bidi_calculate_align.exit.i:                   ; preds = %156, %151
   br i1 %switch.i, label %176, label %192
 
 176:                                              ; preds = %173
-  %177 = load i32, ptr %153, align 4
+  %177 = load i32, ptr %153, align 4, !tbaa !42
   %178 = and i32 %177, -2
   %or.cond5.i = icmp eq i32 %178, 2
   br i1 %or.cond5.i, label %179, label %192
@@ -409,11 +409,11 @@ lv_bidi_calculate_align.exit.i:                   ; preds = %156, %151
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   %180 = load ptr, ptr %128, align 8, !tbaa !3
   %181 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %182 = load ptr, ptr %181, align 8, !tbaa !42
+  %182 = load ptr, ptr %181, align 8, !tbaa !43
   %183 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %184 = load i32, ptr %183, align 8, !tbaa !43
+  %184 = load i32, ptr %183, align 8, !tbaa !44
   %185 = getelementptr inbounds nuw i8, ptr %4, i64 84
-  %186 = load i32, ptr %185, align 4, !tbaa !44
+  %186 = load i32, ptr %185, align 4, !tbaa !45
   call void @lv_text_get_size(ptr noundef nonnull %5, ptr noundef %180, ptr noundef %182, i32 noundef %184, i32 noundef %186, i32 noundef 536870911, i32 noundef %.2.i.i) #7
   %187 = load i32, ptr %5, align 4, !tbaa !24
   %188 = call i32 @lv_area_get_width(ptr noundef nonnull %3) #7
@@ -421,7 +421,7 @@ lv_bidi_calculate_align.exit.i:                   ; preds = %156, %151
   br i1 %189, label %190, label %191
 
 190:                                              ; preds = %179
-  store i32 1, ptr %153, align 4, !tbaa !45
+  store i32 1, ptr %153, align 4, !tbaa !42
   br label %191
 
 191:                                              ; preds = %190, %179
@@ -483,11 +483,11 @@ lv_bidi_calculate_align.exit.i:                   ; preds = %156, %151
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
   %215 = load ptr, ptr %128, align 8, !tbaa !3
   %216 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %217 = load ptr, ptr %216, align 8, !tbaa !42
+  %217 = load ptr, ptr %216, align 8, !tbaa !43
   %218 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %219 = load i32, ptr %218, align 8, !tbaa !43
+  %219 = load i32, ptr %218, align 8, !tbaa !44
   %220 = getelementptr inbounds nuw i8, ptr %4, i64 84
-  %221 = load i32, ptr %220, align 4, !tbaa !44
+  %221 = load i32, ptr %220, align 4, !tbaa !45
   call void @lv_text_get_size(ptr noundef nonnull %9, ptr noundef %215, ptr noundef %217, i32 noundef %219, i32 noundef %221, i32 noundef 536870911, i32 noundef %.2.i.i) #7
   %222 = load i32, ptr %9, align 4, !tbaa !24
   %223 = call i32 @lv_area_get_width(ptr noundef nonnull %3) #7
@@ -498,7 +498,7 @@ lv_bidi_calculate_align.exit.i:                   ; preds = %156, %151
   %226 = load i32, ptr %138, align 4, !tbaa !33
   %227 = load i32, ptr %9, align 4, !tbaa !24
   %228 = add nsw i32 %227, %226
-  %229 = load ptr, ptr %216, align 8, !tbaa !42
+  %229 = load ptr, ptr %216, align 8, !tbaa !43
   %230 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %229, i32 noundef 32, i32 noundef 32) #7
   %231 = zext i16 %230 to i32
   %232 = mul nuw nsw i32 %231, 3
@@ -522,7 +522,7 @@ lv_bidi_calculate_align.exit.i:                   ; preds = %156, %151
   %242 = load i32, ptr %141, align 4, !tbaa !35
   %243 = load i32, ptr %236, align 4, !tbaa !26
   %244 = add nsw i32 %243, %242
-  %245 = load ptr, ptr %216, align 8, !tbaa !42
+  %245 = load ptr, ptr %216, align 8, !tbaa !43
   %246 = call i32 @lv_font_get_line_height(ptr noundef %245) #7
   %247 = add nsw i32 %244, %246
   store i32 %247, ptr %143, align 8, !tbaa !36
@@ -2698,10 +2698,10 @@ attributes #7 = { nounwind }
 !39 = !{!10, !10, i64 0}
 !40 = !{!29, !10, i64 64}
 !41 = !{!29, !10, i64 68}
-!42 = !{!29, !6, i64 56}
-!43 = !{!29, !10, i64 88}
-!44 = !{!29, !10, i64 84}
-!45 = !{!29, !10, i64 108}
+!42 = !{!29, !10, i64 108}
+!43 = !{!29, !6, i64 56}
+!44 = !{!29, !10, i64 88}
+!45 = !{!29, !10, i64 84}
 !46 = !{!5, !10, i64 52}
 !47 = !{!9, !10, i64 12}
 !48 = !{i64 0, i64 4, !39, i64 4, i64 4, !39, i64 8, i64 4, !39, i64 12, i64 4, !39}

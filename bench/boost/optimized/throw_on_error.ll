@@ -1622,7 +1622,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix9build_cmdIcEE
   br label %82
 
 24:                                               ; preds = %15
-  %25 = load ptr, ptr %12, align 8, !tbaa !66
+  %25 = load ptr, ptr %12, align 8, !tbaa !29
   %26 = load ptr, ptr %13, align 8, !tbaa !38
   %.not.i = icmp eq ptr %25, %26
   br i1 %.not.i, label %45, label %27
@@ -1705,7 +1705,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #31
   store ptr %.lcssa, ptr %7, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !66
+  %57 = load ptr, ptr %56, align 8, !tbaa !29
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !38
   %.not.i14 = icmp eq ptr %57, %59
@@ -1800,7 +1800,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix11cmd_setter_I
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit19
   %.pre = load ptr, ptr %7, align 8, !tbaa !26
-  store ptr %66, ptr %0, align 8, !tbaa !66
+  store ptr %66, ptr %0, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i.i = icmp eq ptr %65, %.pre
@@ -1896,7 +1896,7 @@ _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iterato
   br i1 %47, label %48, label %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i10
 
 48:                                               ; preds = %43
-  store ptr %38, ptr %0, align 8, !tbaa !66
+  store ptr %38, ptr %0, align 8, !tbaa !24
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.52) #34
           to label %.noexc17 unwind label %.loopexit.split-lp
 
@@ -1955,7 +1955,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit19:    ; preds = %_ZNSt6vectorIPcSaIS
 .loopexit:                                        ; preds = %54
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %38, ptr %0, align 8, !tbaa !66
+  store ptr %38, ptr %0, align 8, !tbaa !24
   br label %70
 
 .loopexit.split-lp:                               ; preds = %48
@@ -1994,7 +1994,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !29
-  %8 = load ptr, ptr %0, align 8, !tbaa !66
+  %8 = load ptr, ptr %0, align 8, !tbaa !27
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -2229,7 +2229,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !29
-  %8 = load ptr, ptr %0, align 8, !tbaa !66
+  %8 = load ptr, ptr %0, align 8, !tbaa !27
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -6606,7 +6606,7 @@ _ZN5boost9iteratorsneINS0_18transform_iteratorINS_9algorithm6detail20copy_iterat
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 %60
   store i8 0, ptr %62, align 1, !tbaa !35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #31, !noalias !178
-  %63 = load ptr, ptr %18, align 8, !tbaa !66
+  %63 = load ptr, ptr %18, align 8, !tbaa !29
   %64 = load ptr, ptr %19, align 8, !tbaa !38
   %.not.i = icmp eq ptr %63, %64
   br i1 %.not.i, label %78, label %65
@@ -6821,7 +6821,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE15_M_er
 define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !29
-  %6 = load ptr, ptr %0, align 8, !tbaa !66
+  %6 = load ptr, ptr %0, align 8, !tbaa !27
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8

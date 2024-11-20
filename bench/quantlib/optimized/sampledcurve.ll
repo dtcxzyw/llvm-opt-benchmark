@@ -6794,8 +6794,8 @@ for.body1532:                                     ; preds = %for.body1532.lr.ph,
   %i1526.01933 = phi i64 [ 1, %for.body1532.lr.ph ], [ %inc1575, %if.end1573 ]
   %gep1935 = getelementptr double, ptr %invariant.gep1934, i64 %i1526.01933
   %add.ptr.i1434 = getelementptr inbounds nuw double, ptr %527, i64 %i1526.01933
-  %588 = load double, ptr %add.ptr.i1434, align 8
-  %589 = load double, ptr %gep1935, align 8
+  %588 = load double, ptr %add.ptr.i1434, align 8, !tbaa !21
+  %589 = load double, ptr %gep1935, align 8, !tbaa !21
   %cmp.i = fcmp olt double %588, %589
   %590 = select i1 %cmp.i, double %588, double %589
   %cmp.i1437 = fcmp olt double %589, %588
@@ -9345,7 +9345,7 @@ entry:
   %rows_.i = getelementptr inbounds nuw i8, ptr %m1, i64 8
   %0 = load i64, ptr %rows_.i, align 8, !tbaa !80
   %rows_.i16 = getelementptr inbounds nuw i8, ptr %m2, i64 8
-  %1 = load i64, ptr %rows_.i16, align 8, !tbaa !24
+  %1 = load i64, ptr %rows_.i16, align 8, !tbaa !80
   %cmp = icmp eq i64 %0, %1
   br i1 %cmp, label %land.lhs.true, label %if.then
 
@@ -9353,7 +9353,7 @@ land.lhs.true:                                    ; preds = %entry
   %columns_.i = getelementptr inbounds nuw i8, ptr %m1, i64 16
   %2 = load i64, ptr %columns_.i, align 8, !tbaa !82
   %columns_.i17 = getelementptr inbounds nuw i8, ptr %m2, i64 16
-  %3 = load i64, ptr %columns_.i17, align 8, !tbaa !24
+  %3 = load i64, ptr %columns_.i17, align 8, !tbaa !82
   %cmp4 = icmp eq i64 %2, %3
   br i1 %cmp4, label %do.end, label %if.then
 

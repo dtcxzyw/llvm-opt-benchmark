@@ -381,7 +381,7 @@ invoke.cont93:                                    ; preds = %invoke.cont85, %inv
   %add.ptr.i.i82 = getelementptr inbounds nuw double, ptr %37, i64 %mul.i.i81
   %arrayidx95 = getelementptr inbounds nuw double, ptr %add.ptr.i.i82, i64 %iCol87.0248
   %39 = load double, ptr %arrayidx95, align 8, !tbaa !24
-  %40 = load ptr, ptr %_M_finish.i, align 8, !tbaa !27
+  %40 = load ptr, ptr %_M_finish.i, align 8, !tbaa !26
   %41 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !23
   %cmp.not.i = icmp eq ptr %40, %41
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -393,7 +393,7 @@ if.then.i:                                        ; preds = %invoke.cont93
   br label %invoke.cont96
 
 if.else.i:                                        ; preds = %invoke.cont93
-  %42 = load ptr, ptr %newCorrels, align 8, !tbaa !27
+  %42 = load ptr, ptr %newCorrels, align 8, !tbaa !21
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %40 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %42 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -1017,14 +1017,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %__x, i64 8
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !27
-  %1 = load ptr, ptr %__x, align 8, !tbaa !27
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !26
+  %1 = load ptr, ptr %__x, align 8, !tbaa !21
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !23
-  %3 = load ptr, ptr %this, align 8, !tbaa !27
+  %3 = load ptr, ptr %this, align 8, !tbaa !21
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15

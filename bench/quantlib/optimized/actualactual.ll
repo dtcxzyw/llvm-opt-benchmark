@@ -837,8 +837,8 @@ if.end5:                                          ; preds = %if.else
   %schedule_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %dates_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %2 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !3, !noalias !41
-  %3 = load ptr, ptr %dates_.i.i, align 8, !tbaa !3, !noalias !41
+  %2 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !19, !noalias !41
+  %3 = load ptr, ptr %dates_.i.i, align 8, !tbaa !17, !noalias !41
   %cmp.not.i.i.i.not.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i.i.i.not.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i.i
 
@@ -1132,7 +1132,7 @@ invoke.cont73.i:                                  ; preds = %invoke.cont69.i
 
 invoke.cont75.i:                                  ; preds = %invoke.cont73.i
   store i64 %call76.i, ptr %notionalLastCoupon.i, align 8, !noalias !41
-  %32 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !3, !noalias !41
+  %32 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !19, !noalias !41
   %33 = load ptr, ptr %dates_.i.i, align 8, !tbaa !17, !noalias !41
   %sub.ptr.lhs.cast.i.i85.i = ptrtoint ptr %32 to i64
   %sub.ptr.rhs.cast.i.i86.i = ptrtoint ptr %33 to i64
@@ -1868,7 +1868,7 @@ if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %refPeriodStart) #20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #20
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %2 = load i64, ptr %d3, align 8
+  %2 = load i64, ptr %d3, align 8, !tbaa !39
   %3 = load i64, ptr %ref.tmp, align 8, !tbaa !39
   %cmp.i49.not = icmp eq i64 %2, %3
   %d1.val = load i64, ptr %d1, align 8
@@ -1878,7 +1878,7 @@ if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %refPeriodEnd) #20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp7) #20
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7)
-  %5 = load i64, ptr %d4, align 8
+  %5 = load i64, ptr %d4, align 8, !tbaa !39
   %6 = load i64, ptr %ref.tmp7, align 8, !tbaa !39
   %cmp.i50.not = icmp eq i64 %5, %6
   %d2.val = load i64, ptr %d2, align 8
@@ -1890,7 +1890,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp.i51, label %land.lhs.true, label %if.then15
 
 land.lhs.true:                                    ; preds = %if.end5
-  %9 = load i64, ptr %d1, align 8, !tbaa !38
+  %9 = load i64, ptr %d1, align 8, !tbaa !39
   %cmp.i52 = icmp sgt i64 %7, %9
   br i1 %cmp.i52, label %do.end, label %if.then15
 
@@ -2447,7 +2447,7 @@ entry:
   %ref.tmp28 = alloca %"class.QuantLib::Date", align 8
   %ref.tmp39 = alloca %"class.QuantLib::Date", align 8
   %2 = load i64, ptr %d1, align 8, !tbaa !39
-  %3 = load i64, ptr %d2, align 8, !tbaa !38
+  %3 = load i64, ptr %d2, align 8, !tbaa !39
   %cmp.i = icmp eq i64 %2, %3
   br i1 %cmp.i, label %return, label %if.end
 
@@ -2505,7 +2505,7 @@ if.then19:                                        ; preds = %land.lhs.true16
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then19, %land.lhs.true16, %land.lhs.true, %while.body
-  %4 = load i64, ptr %temp, align 8, !tbaa !38
+  %4 = load i64, ptr %temp, align 8, !tbaa !39
   %5 = load i64, ptr %d1, align 8, !tbaa !39
   %cmp.i21.not = icmp slt i64 %4, %5
   br i1 %cmp.i21.not, label %if.end24, label %if.then23

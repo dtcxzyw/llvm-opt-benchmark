@@ -19,8 +19,8 @@ define void @_ZN5boost7process2v25posix6detail9close_allERKSt6vectorIiSaIiEERNS_
 9:                                                ; preds = %7
   %10 = add nsw i32 %8, -1
   %11 = tail call i32 @close_range(i32 noundef 0, i32 noundef %10, i32 noundef 2) #2
-  %.pre = load ptr, ptr %4, align 8, !tbaa !3
-  %.pre23 = load ptr, ptr %0, align 8, !tbaa !9
+  %.pre = load ptr, ptr %4, align 8, !tbaa !9
+  %.pre23 = load ptr, ptr %0, align 8, !tbaa !11
   br label %12
 
 12:                                               ; preds = %9, %7
@@ -57,8 +57,8 @@ define void @_ZN5boost7process2v25posix6detail9close_allERKSt6vectorIiSaIiEERNS_
 29:                                               ; preds = %.lr.ph
   %30 = add nsw i32 %27, -1
   %31 = tail call i32 @close_range(i32 noundef %28, i32 noundef %30, i32 noundef 2) #2
-  %.pre24 = load ptr, ptr %4, align 8, !tbaa !3
-  %.pre25 = load ptr, ptr %0, align 8, !tbaa !9
+  %.pre24 = load ptr, ptr %4, align 8, !tbaa !9
+  %.pre25 = load ptr, ptr %0, align 8, !tbaa !11
   br label %32
 
 32:                                               ; preds = %29, %.lr.ph
@@ -70,7 +70,7 @@ define void @_ZN5boost7process2v25posix6detail9close_allERKSt6vectorIiSaIiEERNS_
   %38 = ashr exact i64 %37, 2
   %39 = add nsw i64 %38, -1
   %40 = icmp ult i64 %25, %39
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 41:                                               ; preds = %2, %._crit_edge
   %.sink = phi i32 [ %20, %._crit_edge ], [ 0, %2 ]
@@ -96,7 +96,8 @@ attributes #2 = { nounwind }
 !6 = !{!"Simple C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"int", !5, i64 0}
-!9 = !{!10, !4, i64 0}
+!9 = !{!10, !4, i64 8}
 !10 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !4, i64 0, !4, i64 8, !4, i64 16}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.mustprogress"}
+!11 = !{!10, !4, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}

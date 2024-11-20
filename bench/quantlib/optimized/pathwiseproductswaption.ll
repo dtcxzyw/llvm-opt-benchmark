@@ -252,8 +252,8 @@ invoke.cont3:                                     ; preds = %if.then.i.i.i.i.i.i
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %evolTimes) #25
-  %10 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !13
-  %11 = load ptr, ptr %rateTimes_, align 8, !tbaa !13
+  %10 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !6
+  %11 = load ptr, ptr %rateTimes_, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i.i49 = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i50 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i51 = sub i64 %sub.ptr.lhs.cast.i.i49, %sub.ptr.rhs.cast.i.i50
@@ -1652,8 +1652,8 @@ define void @_ZNK8QuantLib46MarketModelPathwiseCoterminalSwaptionsDeflated21poss
 entry:
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !13
-  %1 = load ptr, ptr %rateTimes_, align 8, !tbaa !13
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !6
+  %1 = load ptr, ptr %rateTimes_, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -1907,8 +1907,8 @@ invoke.cont10:                                    ; preds = %_ZNSt6vectorIdSaIdE
 
 invoke.cont12:                                    ; preds = %invoke.cont10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %evolTimes) #25
-  %12 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !13
-  %13 = load ptr, ptr %rateTimes_, align 8, !tbaa !13
+  %12 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !6
+  %13 = load ptr, ptr %rateTimes_, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i.i60 = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i61 = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i62 = sub i64 %sub.ptr.lhs.cast.i.i60, %sub.ptr.rhs.cast.i.i61
@@ -2861,14 +2861,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %__x, i64 8
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !13
-  %1 = load ptr, ptr %__x, align 8, !tbaa !13
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !6
+  %1 = load ptr, ptr %__x, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !12
-  %3 = load ptr, ptr %this, align 8, !tbaa !13
+  %3 = load ptr, ptr %this, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
@@ -3304,8 +3304,8 @@ define void @_ZNK8QuantLib55MarketModelPathwiseCoterminalSwaptionsNumericalDefla
 entry:
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !13
-  %1 = load ptr, ptr %rateTimes_, align 8, !tbaa !13
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !6
+  %1 = load ptr, ptr %rateTimes_, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

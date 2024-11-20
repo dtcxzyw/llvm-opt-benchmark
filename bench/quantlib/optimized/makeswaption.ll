@@ -980,7 +980,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i, %ini
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont
-  %7 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !30
+  %7 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !67
   %8 = load i64, ptr %ref.tmp.i, align 8, !tbaa !67
   %cmp.i.i = icmp eq i64 %7, %8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #24

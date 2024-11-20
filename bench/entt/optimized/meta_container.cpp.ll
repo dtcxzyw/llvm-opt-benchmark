@@ -125674,7 +125674,7 @@ entry:
   %agg.tmp = alloca %"struct.std::_Deque_iterator", align 8
   %0 = load ptr, ptr %__position, align 8, !tbaa !2074
   %_M_start = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load ptr, ptr %_M_start, align 8, !tbaa !2063
+  %1 = load ptr, ptr %_M_start, align 8, !tbaa !1837
   %cmp = icmp eq ptr %0, %1
   br i1 %cmp, label %if.then, label %if.else
 

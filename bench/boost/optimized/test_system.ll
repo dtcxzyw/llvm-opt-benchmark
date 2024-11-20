@@ -1215,8 +1215,8 @@ define hidden void @_Z21compare_string_arraysPPcS0_b(ptr nocapture noundef reado
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %34
   store i8 0, ptr %36, align 1, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
-  %37 = load ptr, ptr %16, align 8, !tbaa !29
-  %38 = load ptr, ptr %17, align 8, !tbaa !42
+  %37 = load ptr, ptr %16, align 8, !tbaa !42
+  %38 = load ptr, ptr %17, align 8, !tbaa !44
   %.not.i.i = icmp eq ptr %37, %38
   br i1 %.not.i.i, label %51, label %39
 
@@ -1249,7 +1249,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   store ptr %14, ptr %8, align 8, !tbaa !31
   store i64 0, ptr %15, align 8, !tbaa !14
   %50 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  store ptr %50, ptr %16, align 8, !tbaa !44
+  store ptr %50, ptr %16, align 8, !tbaa !42
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
 
 51:                                               ; preds = %33
@@ -1353,8 +1353,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZN
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 %80
   store i8 0, ptr %82, align 1, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
-  %83 = load ptr, ptr %21, align 8, !tbaa !29
-  %84 = load ptr, ptr %22, align 8, !tbaa !42
+  %83 = load ptr, ptr %21, align 8, !tbaa !42
+  %84 = load ptr, ptr %22, align 8, !tbaa !44
   %.not.i.i44 = icmp eq ptr %83, %84
   br i1 %.not.i.i44, label %97, label %85
 
@@ -1387,7 +1387,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   store ptr %19, ptr %9, align 8, !tbaa !31
   store i64 0, ptr %20, align 8, !tbaa !14
   %96 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  store ptr %96, ptr %21, align 8, !tbaa !44
+  store ptr %96, ptr %21, align 8, !tbaa !42
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i50
 
 97:                                               ; preds = %79
@@ -1468,7 +1468,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %_ZN
 _ZN5boost6nowide4test8test_monEv.exit:            ; preds = %119, %117, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #28
   %121 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %122 = load ptr, ptr %121, align 8, !tbaa !44
+  %122 = load ptr, ptr %121, align 8, !tbaa !42
   %123 = load ptr, ptr %6, align 8, !tbaa !47
   %124 = ptrtoint ptr %122 to i64
   %125 = ptrtoint ptr %123 to i64
@@ -1477,7 +1477,7 @@ _ZN5boost6nowide4test8test_monEv.exit:            ; preds = %119, %117, %._crit_
   store i64 %127, ptr %10, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #28
   %128 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %129 = load ptr, ptr %128, align 8, !tbaa !44
+  %129 = load ptr, ptr %128, align 8, !tbaa !42
   %130 = load ptr, ptr %7, align 8, !tbaa !47
   %131 = ptrtoint ptr %129 to i64
   %132 = ptrtoint ptr %130 to i64
@@ -1603,7 +1603,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_tr
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit69 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit69: ; preds = %.noexc67, %.noexc66, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit, %168, %135
-  %169 = load ptr, ptr %121, align 8, !tbaa !44
+  %169 = load ptr, ptr %121, align 8, !tbaa !42
   %170 = load ptr, ptr %6, align 8, !tbaa !47
   %.not122 = icmp eq ptr %169, %170
   br i1 %.not122, label %._crit_edge121, label %.lr.ph120
@@ -1615,7 +1615,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_tr
 
 ._crit_edge121:                                   ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread96, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit69
   %173 = load ptr, ptr %7, align 8, !tbaa !47
-  %174 = load ptr, ptr %128, align 8, !tbaa !44
+  %174 = load ptr, ptr %128, align 8, !tbaa !42
   %.not4.i.i.i.i70 = icmp eq ptr %173, %174
   br i1 %.not4.i.i.i.i70, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i71
 
@@ -1655,7 +1655,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 185:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
   %186 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %187 = load ptr, ptr %186, align 8, !tbaa !42
+  %187 = load ptr, ptr %186, align 8, !tbaa !44
   %188 = ptrtoint ptr %187 to i64
   %189 = ptrtoint ptr %184 to i64
   %190 = sub i64 %188, %189
@@ -1665,7 +1665,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %185
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #28
   %191 = load ptr, ptr %6, align 8, !tbaa !47
-  %192 = load ptr, ptr %121, align 8, !tbaa !44
+  %192 = load ptr, ptr %121, align 8, !tbaa !42
   %.not4.i.i.i.i73 = icmp eq ptr %191, %192
   br i1 %.not4.i.i.i.i73, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i81, label %.lr.ph.i.i.i.i74
 
@@ -1705,7 +1705,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 203:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i81
   %204 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %205 = load ptr, ptr %204, align 8, !tbaa !42
+  %205 = load ptr, ptr %204, align 8, !tbaa !44
   %206 = ptrtoint ptr %205 to i64
   %207 = ptrtoint ptr %202 to i64
   %208 = sub i64 %206, %207
@@ -1887,7 +1887,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i88
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i89, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i88
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #28
-  %.pre130 = load ptr, ptr %121, align 8, !tbaa !44
+  %.pre130 = load ptr, ptr %121, align 8, !tbaa !42
   %.pre131 = load ptr, ptr %6, align 8, !tbaa !47
   br label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread96
 
@@ -2331,7 +2331,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
 define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !47
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !44
+  %4 = load ptr, ptr %3, align 8, !tbaa !42
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -2371,7 +2371,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 15:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !42
+  %17 = load ptr, ptr %16, align 8, !tbaa !44
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -4951,8 +4951,8 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !44
-  %6 = load ptr, ptr %0, align 8, !tbaa !29
+  %5 = load ptr, ptr %4, align 8, !tbaa !42
+  %6 = load ptr, ptr %0, align 8, !tbaa !47
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -5116,7 +5116,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
   br i1 %.not.i27, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit, label %70
 
 70:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26
-  %71 = load ptr, ptr %69, align 8, !tbaa !42
+  %71 = load ptr, ptr %69, align 8, !tbaa !44
   %72 = ptrtoint ptr %71 to i64
   %73 = sub i64 %72, %8
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %73) #31
@@ -5124,9 +5124,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %70
   store ptr %23, ptr %0, align 8, !tbaa !47
-  store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !44
+  store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !42
   %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %16
-  store ptr %74, ptr %69, align 8, !tbaa !42
+  store ptr %74, ptr %69, align 8, !tbaa !44
   ret void
 }
 
@@ -7005,9 +7005,9 @@ attributes #33 = { builtin allocsize(0) }
 !39 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
 !40 = !{!20, !22, i64 32}
 !41 = !{!20, !16, i64 16}
-!42 = !{!43, !13, i64 16}
+!42 = !{!43, !13, i64 8}
 !43 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !13, i64 0, !13, i64 8, !13, i64 16}
-!44 = !{!43, !13, i64 8}
+!44 = !{!43, !13, i64 16}
 !45 = distinct !{!45, !33}
 !46 = distinct !{!46, !33}
 !47 = !{!43, !13, i64 0}

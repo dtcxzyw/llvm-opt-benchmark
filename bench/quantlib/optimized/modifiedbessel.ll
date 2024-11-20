@@ -688,7 +688,7 @@ _ZSt3powIdESt7complexIT_ERKS2_RKS1_.exit:         ; preds = %if.then.i, %if.end.
   %3 = fdiv double %retval.sroa.3.0.i, %call8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp7) #17
   %retval.sroa.0.0.copyload.i33 = load double, ptr %x, align 8
-  %retval.sroa.4.0.copyload.i35 = load double, ptr %_M_value.imagp.i.i, align 8
+  %retval.sroa.4.0.copyload.i35 = load double, ptr %_M_value.imagp.i.i, align 8, !tbaa !13
   %mul.rl.i.i36 = fmul double %retval.sroa.0.0.copyload.i33, 2.500000e-01
   %mul.il.i.i37 = fmul double %retval.sroa.4.0.copyload.i35, 2.500000e-01
   %mul_ac.i.i = fmul double %retval.sroa.0.0.copyload.i33, %mul.rl.i.i36
@@ -1739,7 +1739,7 @@ _ZSt3powIdESt7complexIT_ERKS2_RKS1_.exit:         ; preds = %if.then.i, %if.end.
   %3 = fdiv double %retval.sroa.3.0.i, %call8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp7) #17
   %retval.sroa.0.0.copyload.i33 = load double, ptr %x, align 8
-  %retval.sroa.4.0.copyload.i35 = load double, ptr %_M_value.imagp.i.i, align 8
+  %retval.sroa.4.0.copyload.i35 = load double, ptr %_M_value.imagp.i.i, align 8, !tbaa !13
   %mul.rl.i.i36 = fmul double %retval.sroa.0.0.copyload.i33, 2.500000e-01
   %mul.il.i.i37 = fmul double %retval.sroa.4.0.copyload.i35, 2.500000e-01
   %mul_ac.i.i = fmul double %retval.sroa.0.0.copyload.i33, %mul.rl.i.i36

@@ -1335,7 +1335,7 @@ invoke.cont240:                                   ; preds = %if.then.i.i.i.i.i.i
           to label %invoke.cont243 unwind label %lpad242
 
 invoke.cont243:                                   ; preds = %invoke.cont240
-  %157 = load ptr, ptr %_M_finish.i289, align 8, !tbaa !16
+  %157 = load ptr, ptr %_M_finish.i289, align 8, !tbaa !36
   %158 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !47
   %cmp.not.i = icmp eq ptr %157, %158
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -1386,8 +1386,8 @@ if.else.i:                                        ; preds = %invoke.cont243
           to label %invoke.cont246 unwind label %lpad242
 
 invoke.cont246:                                   ; preds = %_ZNSt16allocator_traitsISaIN8QuantLib6MatrixEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i, %if.else.i
-  %169 = load ptr, ptr %_M_finish.i296, align 8, !tbaa !16
-  %170 = load ptr, ptr %_M_end_of_storage.i297, align 8, !tbaa !48
+  %169 = load ptr, ptr %_M_finish.i296, align 8, !tbaa !48
+  %170 = load ptr, ptr %_M_end_of_storage.i297, align 8, !tbaa !49
   %cmp.not.i298 = icmp eq ptr %169, %170
   br i1 %cmp.not.i298, label %if.else.i302, label %if.then.i299
 
@@ -1398,9 +1398,9 @@ if.then.i299:                                     ; preds = %invoke.cont246
           to label %.noexc303 unwind label %lpad242
 
 .noexc303:                                        ; preds = %if.then.i299
-  %173 = load ptr, ptr %_M_finish.i296, align 8, !tbaa !49
+  %173 = load ptr, ptr %_M_finish.i296, align 8, !tbaa !48
   %incdec.ptr.i300 = getelementptr inbounds nuw i8, ptr %173, i64 232
-  store ptr %incdec.ptr.i300, ptr %_M_finish.i296, align 8, !tbaa !49
+  store ptr %incdec.ptr.i300, ptr %_M_finish.i296, align 8, !tbaa !48
   br label %invoke.cont248
 
 if.else.i302:                                     ; preds = %invoke.cont246
@@ -1907,7 +1907,7 @@ define linkonce_odr void @_ZNSt6vectorIN8QuantLib18LMMDriftCalculatorESaIS1_EED2
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !58
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !49
+  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !48
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
@@ -1929,7 +1929,7 @@ invoke.cont:                                      ; preds = %invoke.contthread-p
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %3 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !48
+  %3 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !49
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -3707,7 +3707,7 @@ for.cond.cleanup243:                              ; preds = %for.inc250, %for.co
 for.body244:                                      ; preds = %for.body244.lr.ph, %for.inc250
   %157 = phi i64 [ %sub.ptr.div.i93, %for.body244.lr.ph ], [ %165, %for.inc250 ]
   %i240.0368 = phi i64 [ 0, %for.body244.lr.ph ], [ %inc251, %for.inc250 ]
-  %158 = load ptr, ptr %_M_finish.i240, align 8, !tbaa !16
+  %158 = load ptr, ptr %_M_finish.i240, align 8, !tbaa !36
   %159 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !47
   %cmp.not.i241 = icmp eq ptr %158, %159
   br i1 %cmp.not.i241, label %if.else.i, label %if.then.i
@@ -5388,8 +5388,8 @@ entry:
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %_M_finish.i92 = getelementptr inbounds nuw i8, ptr %B, i64 8
-  %2 = load ptr, ptr %_M_finish.i92, align 8, !tbaa !16
-  %3 = load ptr, ptr %B, align 8, !tbaa !16
+  %2 = load ptr, ptr %_M_finish.i92, align 8, !tbaa !36
+  %3 = load ptr, ptr %B, align 8, !tbaa !37
   %sub.ptr.lhs.cast.i93 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i94 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
@@ -6262,7 +6262,7 @@ define linkonce_odr void @_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE17_M_realloc_in
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !36
-  %1 = load ptr, ptr %this, align 8, !tbaa !16
+  %1 = load ptr, ptr %this, align 8, !tbaa !37
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -6461,8 +6461,8 @@ declare void @__cxa_end_catch() local_unnamed_addr
 define linkonce_odr void @_ZNSt6vectorIN8QuantLib18LMMDriftCalculatorESaIS1_EE17_M_realloc_insertIJRNS0_6MatrixERKS_IdSaIdEESA_RmSB_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 8 dereferenceable(8) %__args7) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !49
-  %1 = load ptr, ptr %this, align 8, !tbaa !16
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !48
+  %1 = load ptr, ptr %this, align 8, !tbaa !58
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -6508,7 +6508,7 @@ invoke.cont:                                      ; preds = %_ZNSt12_Vector_base
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN8QuantLib18LMMDriftCalculatorESaIS1_EE13_M_deallocateEPS1_m.exit, label %if.then.i18
 
 if.then.i18:                                      ; preds = %invoke.cont
-  %5 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !48
+  %5 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !49
   %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef %sub.ptr.sub) #24
@@ -6516,9 +6516,9 @@ if.then.i18:                                      ; preds = %invoke.cont
 
 _ZNSt12_Vector_baseIN8QuantLib18LMMDriftCalculatorESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %invoke.cont, %if.then.i18
   store ptr %cond.i17, ptr %this, align 8, !tbaa !58
-  store ptr %call21, ptr %_M_finish.i.i, align 8, !tbaa !49
+  store ptr %call21, ptr %_M_finish.i.i, align 8, !tbaa !48
   %add.ptr34 = getelementptr inbounds nuw %"class.QuantLib::LMMDriftCalculator", ptr %cond.i17, i64 %cond.i
-  store ptr %add.ptr34, ptr %_M_end_of_storage, align 8, !tbaa !48
+  store ptr %add.ptr34, ptr %_M_end_of_storage, align 8, !tbaa !49
   ret void
 
 lpad:                                             ; preds = %_ZNSt12_Vector_baseIN8QuantLib18LMMDriftCalculatorESaIS1_EE11_M_allocateEm.exit
@@ -6805,7 +6805,7 @@ define linkonce_odr void @_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE17_M_realloc_in
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !36
-  %1 = load ptr, ptr %this, align 8, !tbaa !16
+  %1 = load ptr, ptr %this, align 8, !tbaa !37
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -7074,8 +7074,8 @@ attributes #25 = { noreturn nounwind }
 !45 = !{!43, !4, i64 8}
 !46 = !{!5, !5, i64 0}
 !47 = !{!27, !15, i64 16}
-!48 = !{!31, !15, i64 16}
-!49 = !{!31, !15, i64 8}
+!48 = !{!31, !15, i64 8}
+!49 = !{!31, !15, i64 16}
 !50 = distinct !{!50, !51}
 !51 = !{!"llvm.loop.mustprogress"}
 !52 = !{!44, !15, i64 0}

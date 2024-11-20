@@ -293,8 +293,8 @@ for.body.us.i:                                    ; preds = %for.body.us.i, %for
   %i.08.us.i = phi i64 [ 0, %for.body.lr.ph.split.us.i ], [ %inc.us.i, %for.body.us.i ]
   %arrayidx.i.us.i = getelementptr inbounds nuw double, ptr %24, i64 %i.08.us.i
   %arrayidx.i5.us.i = getelementptr inbounds nuw double, ptr %25, i64 %i.08.us.i
-  %26 = load double, ptr %arrayidx.i.us.i, align 8
-  %27 = load double, ptr %arrayidx.i5.us.i, align 8
+  %26 = load double, ptr %arrayidx.i.us.i, align 8, !tbaa !21
+  %27 = load double, ptr %arrayidx.i5.us.i, align 8, !tbaa !21
   %cmp.i.us.i = fcmp olt double %26, %27
   %28 = select i1 %cmp.i.us.i, double %27, double %26
   store double %28, ptr %arrayidx.i5.us.i, align 8, !tbaa !21
@@ -323,8 +323,8 @@ _ZNK5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEptEv.exit.i: ; preds = %con
   %arrayidx.i.i = getelementptr inbounds nuw double, ptr %33, i64 %i.08.i
   %34 = load ptr, ptr %values_.i, align 8, !tbaa !44
   %arrayidx.i5.i = getelementptr inbounds nuw double, ptr %34, i64 %i.08.i
-  %35 = load double, ptr %arrayidx.i.i, align 8
-  %36 = load double, ptr %arrayidx.i5.i, align 8
+  %35 = load double, ptr %arrayidx.i.i, align 8, !tbaa !21
+  %36 = load double, ptr %arrayidx.i5.i, align 8, !tbaa !21
   %cmp.i.i15 = fcmp olt double %35, %36
   %37 = select i1 %cmp.i.i15, double %36, double %35
   store double %37, ptr %arrayidx.i5.i, align 8, !tbaa !21
@@ -417,8 +417,8 @@ for.body.us.i44:                                  ; preds = %for.body.us.i44, %f
   %i.08.us.i45 = phi i64 [ 0, %for.body.lr.ph.split.us.i42 ], [ %inc.us.i49, %for.body.us.i44 ]
   %arrayidx.i.us.i46 = getelementptr inbounds nuw double, ptr %54, i64 %i.08.us.i45
   %arrayidx.i5.us.i47 = getelementptr inbounds nuw double, ptr %55, i64 %i.08.us.i45
-  %56 = load double, ptr %arrayidx.i.us.i46, align 8
-  %57 = load double, ptr %arrayidx.i5.us.i47, align 8
+  %56 = load double, ptr %arrayidx.i.us.i46, align 8, !tbaa !21
+  %57 = load double, ptr %arrayidx.i5.us.i47, align 8, !tbaa !21
   %cmp.i.us.i48 = fcmp olt double %56, %57
   %58 = select i1 %cmp.i.us.i48, double %57, double %56
   store double %58, ptr %arrayidx.i5.us.i47, align 8, !tbaa !21
@@ -447,8 +447,8 @@ _ZNK5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEptEv.exit.i54: ; preds = %c
   %arrayidx.i.i56 = getelementptr inbounds nuw double, ptr %63, i64 %i.08.i52
   %64 = load ptr, ptr %values_.i37, align 8, !tbaa !44
   %arrayidx.i5.i57 = getelementptr inbounds nuw double, ptr %64, i64 %i.08.i52
-  %65 = load double, ptr %arrayidx.i.i56, align 8
-  %66 = load double, ptr %arrayidx.i5.i57, align 8
+  %65 = load double, ptr %arrayidx.i.i56, align 8, !tbaa !21
+  %66 = load double, ptr %arrayidx.i5.i57, align 8, !tbaa !21
   %cmp.i.i58 = fcmp olt double %65, %66
   %67 = select i1 %cmp.i.i58, double %66, double %65
   store double %67, ptr %arrayidx.i5.i57, align 8, !tbaa !21

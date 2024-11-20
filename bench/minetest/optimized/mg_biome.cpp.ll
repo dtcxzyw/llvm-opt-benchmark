@@ -5380,7 +5380,7 @@ entry:
 for.body.lr.ph.i:                                 ; preds = %entry
   %scevgep = getelementptr i8, ptr %__first.coerce, i64 2
   %0 = load i16, ptr %scevgep, align 2, !tbaa !45
-  %1 = load i16, ptr %__first.coerce, align 2
+  %1 = load i16, ptr %__first.coerce, align 2, !tbaa !45
   %cmp.i.i.i = icmp sgt i16 %0, %1
   br i1 %cmp.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPsSt6vectorIsSaIsEEEES6_ET0_T_S8_S7_.exit.i, label %for.inc.i
 

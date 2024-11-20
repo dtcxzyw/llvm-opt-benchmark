@@ -469,7 +469,7 @@ entry:
   %n_.i = getelementptr inbounds nuw i8, ptr %v1, i64 8
   %0 = load i64, ptr %n_.i, align 8, !tbaa !7
   %n_.i10 = getelementptr inbounds nuw i8, ptr %v2, i64 8
-  %1 = load i64, ptr %n_.i10, align 8, !tbaa !28
+  %1 = load i64, ptr %n_.i10, align 8, !tbaa !7
   %cmp = icmp eq i64 %0, %1
   br i1 %cmp, label %do.end, label %if.then
 
@@ -1751,8 +1751,8 @@ _ZN8QuantLib5ArrayC2Emd.exit.i:                   ; preds = %call.i.i186.noexc, 
   br i1 %cmp.i.not40.i, label %for.cond.cleanup.i, label %for.body.i
 
 for.cond.cleanup.loopexit.i:                      ; preds = %invoke.cont.i188
-  %.pre.i = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !20
-  %.pre45.i = load ptr, ptr %vertices_, align 8, !tbaa !20
+  %.pre.i = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !54
+  %.pre45.i = load ptr, ptr %vertices_, align 8, !tbaa !23
   %.pre46.i = load ptr, ptr %center.i, align 8, !tbaa !20
   %.pre47.i = load i64, ptr %n_.i11.i, align 8, !tbaa !7
   br label %for.cond.cleanup.i

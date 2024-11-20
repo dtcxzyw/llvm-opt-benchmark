@@ -36135,7 +36135,7 @@ entry:
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !344
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !41
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE13shrink_to_fitEv.exit, label %if.end.i.i.i
 
@@ -36606,7 +36606,7 @@ entry:
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !344
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !55
+  %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !41
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %_ZNSt6vectorIN4entt6entityESaIS1_EE13shrink_to_fitEv.exit, label %if.end.i.i
 
@@ -37733,7 +37733,7 @@ entry:
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !344
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !41
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE13shrink_to_fitEv.exit, label %if.end.i.i.i
 
@@ -38889,7 +38889,7 @@ entry:
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !344
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !41
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE13shrink_to_fitEv.exit, label %if.end.i.i.i
 
@@ -40352,7 +40352,7 @@ entry:
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !344
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !41
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZN4entt16basic_sparse_setINS_6entityESaIS1_EE13shrink_to_fitEv.exit, label %if.end.i.i.i
 
@@ -65651,7 +65651,7 @@ entry:
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !1105
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1080
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZN4entt16basic_sparse_setIN4test13custom_entityESaIS2_EE13shrink_to_fitEv.exit, label %if.end.i.i.i
 
@@ -66917,7 +66917,7 @@ entry:
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !1105
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !55
+  %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !1080
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %_ZNSt6vectorIN4test13custom_entityESaIS1_EE13shrink_to_fitEv.exit, label %if.end.i.i
 
@@ -71489,7 +71489,7 @@ entry:
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !1105
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !55
+  %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !1080
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZN4entt16basic_sparse_setIN4test13custom_entityESaIS2_EE13shrink_to_fitEv.exit, label %if.end.i.i.i
 
@@ -115685,7 +115685,7 @@ cond.true.i:                                      ; preds = %_ZNK4entt16basic_sp
 
 _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE4findES1_.exit: ; preds = %cond.true.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i, %land.lhs.true.i.i.i, %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_ESaIN4test13throwing_typeEEE7publishES5_S2_.exit
   %inc.i.i.pn.i = phi i64 [ %inc.i.i.i, %cond.true.i ], [ 0, %_ZNK4entt4sighIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_ESaIN4test13throwing_typeEEE7publishES5_S2_.exit ], [ 0, %land.lhs.true.i.i.i ], [ 0, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i ]
-  %29 = load ptr, ptr %packed.i.i.pn.i, align 8
+  %29 = load ptr, ptr %packed.i.i.pn.i, align 8, !tbaa !42
   %invariant.gep.i12 = getelementptr i8, ptr %29, i64 -4
   %30 = load ptr, ptr %payload.i.i14, align 8, !tbaa !538
   %gep.i22 = getelementptr i32, ptr %invariant.gep.i12, i64 %inc.i.i.pn.i

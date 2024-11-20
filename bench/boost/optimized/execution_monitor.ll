@@ -2992,14 +2992,14 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit.i: ; preds = %9
 
 17:                                               ; preds = %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit.i
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
+  %19 = load ptr, ptr %18, align 8, !tbaa !120
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %21 = load i32, ptr %20, align 8, !tbaa !24
+  %21 = load i32, ptr %20, align 8, !tbaa !123
   %.not.i.i.i.i = icmp eq i32 %21, -1
   %spec.select.i.i = select i1 %.not.i.i.i.i, i32 0, i32 %21
   %22 = sext i32 %spec.select.i.i to i64
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !32
+  %24 = load ptr, ptr %23, align 8, !tbaa !124
   br label %_ZN5boost6detail7extractINS_10error_infoINS_15throw_function_EPKcEEEENT_10value_typeEPKNS_9exceptionE.exit.i
 
 _ZN5boost6detail7extractINS_10error_infoINS_15throw_function_EPKcEEEENT_10value_typeEPKNS_9exceptionE.exit.i: ; preds = %17, %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit.i
@@ -3056,7 +3056,7 @@ define void @_ZN5boost17execution_monitor8vexecuteERKNS_8functionIFvvEEE(ptr noc
   br i1 %or.cond, label %12, label %_ZN5boost10function_nIiJEED2Ev.exit
 
 12:                                               ; preds = %8
-  %13 = load ptr, ptr %9, align 8, !tbaa !120
+  %13 = load ptr, ptr %9, align 8, !tbaa !125
   %.not.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i, label %_ZN5boost10function_nIiJEED2Ev.exit, label %14
 
@@ -3096,7 +3096,7 @@ define linkonce_odr hidden void @_ZN5boost10function_nIiJEED2Ev(ptr noundef nonn
   br i1 %.not1.i, label %6, label %_ZNK5boost6detail8function12basic_vtableIiJEE5clearERNS1_15function_bufferE.exit.i
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %2, align 8, !tbaa !120
+  %7 = load ptr, ptr %2, align 8, !tbaa !125
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %_ZNK5boost6detail8function12basic_vtableIiJEE5clearERNS1_15function_bufferE.exit.i, label %8
 
@@ -3133,7 +3133,7 @@ define hidden void @_ZN5boost12system_errorC2EPKc(ptr nocapture noundef nonnull 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5boost19execution_exceptionC2ENS0_10error_codeENS_9unit_test13basic_cstringIKcEERKNS0_8locationE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %3) unnamed_addr #20 align 2 {
-  store i32 %1, ptr %0, align 8, !tbaa !121
+  store i32 %1, ptr %0, align 8, !tbaa !126
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   %7 = load ptr, ptr %2, align 8, !tbaa !13
@@ -3153,8 +3153,8 @@ define void @_ZN5boost19execution_exceptionC2ENS0_10error_codeENS_9unit_test13ba
   store ptr %15, ptr %13, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i64, ptr %17, align 8, !tbaa !125
-  store i64 %18, ptr %16, align 8, !tbaa !125
+  %18 = load i64, ptr %17, align 8, !tbaa !130
+  store i64 %18, ptr %16, align 8, !tbaa !130
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !13
@@ -3188,7 +3188,7 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit: ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 %12
   store ptr %14, ptr %13, align 8, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %15, align 8, !tbaa !125
+  store i64 %2, ptr %15, align 8, !tbaa !130
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %.thread.i, label %17
@@ -3232,7 +3232,7 @@ define void @_ZN5boost19execution_exception8locationC2ENS_9unit_test13basic_cstr
   %8 = load ptr, ptr %7, align 8, !tbaa !17
   store ptr %8, ptr %6, align 8, !tbaa !17
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %9, align 8, !tbaa !125
+  store i64 %2, ptr %9, align 8, !tbaa !130
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %.thread.i, label %11
@@ -3307,8 +3307,8 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost19execution_exceptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #18 comdat align 2 {
-  %3 = load i32, ptr %1, align 8, !tbaa !121
-  store i32 %3, ptr %0, align 8, !tbaa !121
+  %3 = load i32, ptr %1, align 8, !tbaa !126
+  store i32 %3, ptr %0, align 8, !tbaa !126
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !13
@@ -3327,8 +3327,8 @@ define linkonce_odr hidden void @_ZN5boost19execution_exceptionC2ERKS0_(ptr noun
   store ptr %15, ptr %13, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %18 = load i64, ptr %17, align 8, !tbaa !125
-  store i64 %18, ptr %16, align 8, !tbaa !125
+  %18 = load i64, ptr %17, align 8, !tbaa !130
+  store i64 %18, ptr %16, align 8, !tbaa !130
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !13
@@ -3407,9 +3407,9 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_17bad_function_callEEC
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store i32 -1, ptr %6, align 8, !tbaa !126
+  store i32 -1, ptr %6, align 8, !tbaa !123
   %7 = getelementptr inbounds i8, ptr %0, i64 60
-  store i32 -1, ptr %7, align 4, !tbaa !129
+  store i32 -1, ptr %7, align 4, !tbaa !131
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_17bad_function_callEEE, i64 16), ptr %0, align 8, !tbaa !43
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_17bad_function_callEEE, i64 64), ptr %3, align 8, !tbaa !43
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_17bad_function_callEEE, i64 104), ptr %4, align 8, !tbaa !43
@@ -3421,7 +3421,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_17bad_function_callEED
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !43
   %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !130
+  %4 = load ptr, ptr %3, align 8, !tbaa !132
   %.not.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i, label %_ZN5boost9exceptionD2Ev.exit, label %5
 
@@ -3436,7 +3436,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_17bad_function_callEED
   br i1 %9, label %10, label %_ZN5boost9exceptionD2Ev.exit
 
 10:                                               ; preds = %.noexc.i.i
-  store ptr null, ptr %3, align 8, !tbaa !130
+  store ptr null, ptr %3, align 8, !tbaa !132
   br label %_ZN5boost9exceptionD2Ev.exit
 
 11:                                               ; preds = %5
@@ -3464,8 +3464,8 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_17bad_function
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !43
   %6 = getelementptr inbounds i8, ptr %2, i64 32
   %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !130
-  store ptr %8, ptr %6, align 8, !tbaa !130
+  %8 = load ptr, ptr %7, align 8, !tbaa !132
+  store ptr %8, ptr %6, align 8, !tbaa !132
   %.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i, label %14, label %9
 
@@ -3533,7 +3533,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_17bad_function_callEED
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !43
   %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !130
+  %4 = load ptr, ptr %3, align 8, !tbaa !132
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZN5boost10wrapexceptINS_17bad_function_callEED2Ev.exit, label %5
 
@@ -3548,7 +3548,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_17bad_function_callEED
   br i1 %9, label %10, label %_ZN5boost10wrapexceptINS_17bad_function_callEED2Ev.exit
 
 10:                                               ; preds = %.noexc.i.i.i
-  store ptr null, ptr %3, align 8, !tbaa !130
+  store ptr null, ptr %3, align 8, !tbaa !132
   br label %_ZN5boost10wrapexceptINS_17bad_function_callEED2Ev.exit
 
 11:                                               ; preds = %5
@@ -3570,7 +3570,7 @@ define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_17bad_function_ca
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !43
   %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !130
+  %4 = load ptr, ptr %3, align 8, !tbaa !132
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZN5boost10wrapexceptINS_17bad_function_callEED2Ev.exit, label %5
 
@@ -3585,7 +3585,7 @@ define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_17bad_function_ca
   br i1 %9, label %10, label %_ZN5boost10wrapexceptINS_17bad_function_callEED2Ev.exit
 
 10:                                               ; preds = %.noexc.i.i.i
-  store ptr null, ptr %3, align 8, !tbaa !130
+  store ptr null, ptr %3, align 8, !tbaa !132
   br label %_ZN5boost10wrapexceptINS_17bad_function_callEED2Ev.exit
 
 11:                                               ; preds = %5
@@ -3605,7 +3605,7 @@ define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_17bad_function_ca
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !43
   %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !130
+  %4 = load ptr, ptr %3, align 8, !tbaa !132
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN5boost10wrapexceptINS_17bad_function_callEED0Ev.exit, label %5
 
@@ -3620,7 +3620,7 @@ define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_17bad_function_ca
   br i1 %9, label %10, label %_ZN5boost10wrapexceptINS_17bad_function_callEED0Ev.exit
 
 10:                                               ; preds = %.noexc.i.i.i.i
-  store ptr null, ptr %3, align 8, !tbaa !130
+  store ptr null, ptr %3, align 8, !tbaa !132
   br label %_ZN5boost10wrapexceptINS_17bad_function_callEED0Ev.exit
 
 11:                                               ; preds = %5
@@ -3644,7 +3644,7 @@ declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 de
 define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_17bad_function_callEED1Ev(ptr noundef %0) unnamed_addr #33 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !43
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !130
+  %3 = load ptr, ptr %2, align 8, !tbaa !132
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5boost10wrapexceptINS_17bad_function_callEED2Ev.exit, label %4
 
@@ -3659,7 +3659,7 @@ define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_17bad_function_c
   br i1 %8, label %9, label %_ZN5boost10wrapexceptINS_17bad_function_callEED2Ev.exit
 
 9:                                                ; preds = %.noexc.i.i.i
-  store ptr null, ptr %2, align 8, !tbaa !130
+  store ptr null, ptr %2, align 8, !tbaa !132
   br label %_ZN5boost10wrapexceptINS_17bad_function_callEED2Ev.exit
 
 10:                                               ; preds = %4
@@ -3679,7 +3679,7 @@ _ZN5boost10wrapexceptINS_17bad_function_callEED2Ev.exit: ; preds = %1, %.noexc.i
 define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_17bad_function_callEED0Ev(ptr noundef %0) unnamed_addr #33 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !43
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !130
+  %3 = load ptr, ptr %2, align 8, !tbaa !132
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5boost10wrapexceptINS_17bad_function_callEED0Ev.exit, label %4
 
@@ -3694,7 +3694,7 @@ define linkonce_odr hidden void @_ZThn24_N5boost10wrapexceptINS_17bad_function_c
   br i1 %8, label %9, label %_ZN5boost10wrapexceptINS_17bad_function_callEED0Ev.exit
 
 9:                                                ; preds = %.noexc.i.i.i.i
-  store ptr null, ptr %2, align 8, !tbaa !130
+  store ptr null, ptr %2, align 8, !tbaa !132
   br label %_ZN5boost10wrapexceptINS_17bad_function_callEED0Ev.exit
 
 10:                                               ; preds = %4
@@ -3740,7 +3740,7 @@ define linkonce_odr hidden void @_ZN5boost17bad_function_callD0Ev(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !130
+  %2 = load ptr, ptr %0, align 8, !tbaa !132
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit, label %3
 
@@ -3755,7 +3755,7 @@ define linkonce_odr hidden void @_ZN5boost16exception_detail12refcount_ptrINS0_2
   br i1 %7, label %8, label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit
 
 8:                                                ; preds = %.noexc
-  store ptr null, ptr %0, align 8, !tbaa !130
+  store ptr null, ptr %0, align 8, !tbaa !132
   br label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit
 
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit: ; preds = %8, %.noexc, %1
@@ -3783,8 +3783,8 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_17bad_function_callEEC
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %5, align 8, !tbaa !43
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = getelementptr inbounds i8, ptr %1, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !130
-  store ptr %8, ptr %6, align 8, !tbaa !130
+  %8 = load ptr, ptr %7, align 8, !tbaa !132
+  store ptr %8, ptr %6, align 8, !tbaa !132
   %.not.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i, label %13, label %9
 
@@ -3815,7 +3815,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_17bad_function_callEEC
 define linkonce_odr hidden void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #18 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::exception_detail::refcount_ptr", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !130
+  %5 = load ptr, ptr %4, align 8, !tbaa !132
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %36, label %6
 
@@ -3828,7 +3828,7 @@ define linkonce_odr hidden void @_ZN5boost16exception_detail20copy_boost_excepti
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i unwind label %23
 
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i: ; preds = %6
-  %10 = load ptr, ptr %3, align 8, !tbaa !130
+  %10 = load ptr, ptr %3, align 8, !tbaa !132
   %.not.i2.i.i = icmp eq ptr %10, null
   br i1 %.not.i2.i.i, label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit, label %11
 
@@ -3840,7 +3840,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit unwind label %25
 
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit: ; preds = %11
-  %.pr = load ptr, ptr %3, align 8, !tbaa !130
+  %.pr = load ptr, ptr %3, align 8, !tbaa !132
   %.not.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i, label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit, label %15
 
@@ -3870,7 +3870,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit:
 25:                                               ; preds = %11
   %26 = landingpad { ptr, i32 }
           cleanup
-  %27 = load ptr, ptr %3, align 8, !tbaa !130
+  %27 = load ptr, ptr %3, align 8, !tbaa !132
   %.not.i.i20 = icmp eq ptr %27, null
   br i1 %.not.i.i20, label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit22, label %28
 
@@ -3897,23 +3897,23 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit2
 36:                                               ; preds = %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit, %2
   %.sroa.0.0 = phi ptr [ null, %2 ], [ %10, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !131
+  %38 = load ptr, ptr %37, align 8, !tbaa !120
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %38, ptr %39, align 8, !tbaa !131
+  store ptr %38, ptr %39, align 8, !tbaa !120
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %41 = load i32, ptr %40, align 8, !tbaa !126
+  %41 = load i32, ptr %40, align 8, !tbaa !123
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %41, ptr %42, align 8, !tbaa !126
+  store i32 %41, ptr %42, align 8, !tbaa !123
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !132
+  %44 = load ptr, ptr %43, align 8, !tbaa !124
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %44, ptr %45, align 8, !tbaa !132
+  store ptr %44, ptr %45, align 8, !tbaa !124
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %47 = load i32, ptr %46, align 4, !tbaa !129
+  %47 = load i32, ptr %46, align 4, !tbaa !131
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %47, ptr %48, align 4, !tbaa !129
+  store i32 %47, ptr %48, align 4, !tbaa !131
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !130
+  %50 = load ptr, ptr %49, align 8, !tbaa !132
   %.not.i.i.i23 = icmp eq ptr %50, null
   br i1 %.not.i.i.i23, label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i24, label %51
 
@@ -3925,7 +3925,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit2
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i24 unwind label %67
 
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i24: ; preds = %51, %36
-  store ptr %.sroa.0.0, ptr %49, align 8, !tbaa !130
+  store ptr %.sroa.0.0, ptr %49, align 8, !tbaa !132
   %.not.i2.i.i25 = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i2.i.i25, label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit31, label %56
 
@@ -4056,7 +4056,7 @@ define linkonce_odr hidden void @_ZN5boost16exception_detail27diagnostic_informa
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %.0196, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !130
+  %42 = load ptr, ptr %41, align 8, !tbaa !132
   %.not.i = icmp eq ptr %42, null
   br i1 %.not.i, label %43, label %._ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE5adoptEPS2_.exit_crit_edge.i
 
@@ -4087,7 +4087,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
   store i64 0, ptr %52, align 8, !tbaa !119
   store i8 0, ptr %51, align 1, !tbaa !11
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 88
-  store ptr %44, ptr %41, align 8, !tbaa !130
+  store ptr %44, ptr %41, align 8, !tbaa !132
   store i32 1, ptr %53, align 8, !tbaa !142
   br label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE5adoptEPS2_.exit.i
 
@@ -4188,13 +4188,13 @@ _ZN5boost16exception_detail26get_diagnostic_informationERKNS_9exceptionEPKc.exit
 
 81:                                               ; preds = %.thread203
   %82 = getelementptr inbounds nuw i8, ptr %.0196, i64 24
-  %83 = load ptr, ptr %82, align 8, !tbaa !32
+  %83 = load ptr, ptr %82, align 8, !tbaa !120
   %.not.i.i = icmp ne ptr %83, null
   %84 = getelementptr inbounds nuw i8, ptr %.0196, i64 32
-  %85 = load i32, ptr %84, align 8, !tbaa !126
+  %85 = load i32, ptr %84, align 8, !tbaa !123
   %.not.i.i101 = icmp ne i32 %85, -1
   %86 = getelementptr inbounds nuw i8, ptr %.0196, i64 16
-  %87 = load ptr, ptr %86, align 8, !tbaa !132
+  %87 = load ptr, ptr %86, align 8, !tbaa !124
   %.not.i.i102 = icmp ne ptr %87, null
   %or.cond5 = or i1 %.not.i.i, %.not.i.i101
   %or.cond7 = or i1 %or.cond5, %.not.i.i102
@@ -4600,7 +4600,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; preds = %249, %234
   %251 = load ptr, ptr %17, align 8, !tbaa !72
   %252 = getelementptr inbounds nuw i8, ptr %.0196207223, i64 8
-  %253 = load ptr, ptr %252, align 8, !tbaa !130
+  %253 = load ptr, ptr %252, align 8, !tbaa !132
   %.not.i159 = icmp eq ptr %253, null
   br i1 %.not.i159, label %254, label %._ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE5adoptEPS2_.exit_crit_edge.i160
 
@@ -4631,7 +4631,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
   store i64 0, ptr %263, align 8, !tbaa !119
   store i8 0, ptr %262, align 1, !tbaa !11
   %264 = getelementptr inbounds nuw i8, ptr %255, i64 88
-  store ptr %255, ptr %252, align 8, !tbaa !130
+  store ptr %255, ptr %252, align 8, !tbaa !132
   store i32 1, ptr %264, align 8, !tbaa !142
   br label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE5adoptEPS2_.exit.i162
 
@@ -5417,7 +5417,7 @@ _ZN5boost16exception_detail25error_info_container_implD2Ev.exit: ; preds = %_ZNS
 define linkonce_odr hidden void @_ZNK5boost16exception_detail25error_info_container_impl5cloneEv(ptr dead_on_unwind noalias writable sret(%"class.boost::exception_detail::refcount_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::shared_ptr.20", align 8
   %4 = alloca %"struct.std::pair.27", align 8
-  store ptr null, ptr %0, align 8, !tbaa !130
+  store ptr null, ptr %0, align 8, !tbaa !132
   %5 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #45
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i unwind label %22
 
@@ -5440,7 +5440,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
   store i64 0, ptr %13, align 8, !tbaa !119
   store i8 0, ptr %12, align 1, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store ptr %5, ptr %0, align 8, !tbaa !130
+  store ptr %5, ptr %0, align 8, !tbaa !132
   store i32 1, ptr %14, align 8, !tbaa !142
   %15 = getelementptr inbounds i8, ptr %1, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !139
@@ -6938,19 +6938,19 @@ attributes #48 = { nounwind willreturn memory(read) }
 !117 = distinct !{!117, !118, !"_ZN5boost6detail11typeid_nameISt9exceptionEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
 !118 = distinct !{!118, !"_ZN5boost6detail11typeid_nameISt9exceptionEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
 !119 = !{!73, !27, i64 8}
-!120 = !{!67, !5, i64 0}
-!121 = !{!122, !123, i64 0}
-!122 = !{!"_ZTSN5boost19execution_exceptionE", !123, i64 0, !14, i64 8, !124, i64 24}
-!123 = !{!"_ZTSN5boost19execution_exception10error_codeE", !6, i64 0}
-!124 = !{!"_ZTSN5boost19execution_exception8locationE", !14, i64 0, !27, i64 16, !14, i64 24}
-!125 = !{!124, !27, i64 16}
-!126 = !{!127, !10, i64 32}
-!127 = !{!"_ZTSN5boost9exceptionE", !128, i64 8, !5, i64 16, !5, i64 24, !10, i64 32, !10, i64 36}
-!128 = !{!"_ZTSN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEE", !5, i64 0}
-!129 = !{!127, !10, i64 36}
-!130 = !{!128, !5, i64 0}
-!131 = !{!127, !5, i64 24}
-!132 = !{!127, !5, i64 16}
+!120 = !{!121, !5, i64 24}
+!121 = !{!"_ZTSN5boost9exceptionE", !122, i64 8, !5, i64 16, !5, i64 24, !10, i64 32, !10, i64 36}
+!122 = !{!"_ZTSN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEE", !5, i64 0}
+!123 = !{!121, !10, i64 32}
+!124 = !{!121, !5, i64 16}
+!125 = !{!67, !5, i64 0}
+!126 = !{!127, !128, i64 0}
+!127 = !{!"_ZTSN5boost19execution_exceptionE", !128, i64 0, !14, i64 8, !129, i64 24}
+!128 = !{!"_ZTSN5boost19execution_exception10error_codeE", !6, i64 0}
+!129 = !{!"_ZTSN5boost19execution_exception8locationE", !14, i64 0, !27, i64 16, !14, i64 24}
+!130 = !{!129, !27, i64 16}
+!131 = !{!121, !10, i64 36}
+!132 = !{!122, !5, i64 0}
 !133 = !{!74, !5, i64 0}
 !134 = !{!135, !137, i64 0}
 !135 = !{!"_ZTSSt15_Rb_tree_header", !136, i64 0, !27, i64 32}

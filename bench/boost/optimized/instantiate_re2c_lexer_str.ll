@@ -2265,7 +2265,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE7reserveEm.exit: ; preds = %4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, i8 noundef signext %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !24
+  %4 = load ptr, ptr %0, align 8, !tbaa !28
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2435,7 +2435,7 @@ define linkonce_odr hidden void @_ZN5boost4wave4util22AllocatorStringStorageIcSa
   %4 = ptrtoint ptr %2 to i64
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
-  %7 = load ptr, ptr %0, align 8, !tbaa !24
+  %7 = load ptr, ptr %0, align 8, !tbaa !28
   %8 = load ptr, ptr %7, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = ptrtoint ptr %8 to i64
@@ -41615,7 +41615,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcE7reserveEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !24
+  %3 = load ptr, ptr %0, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -41667,7 +41667,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i: ; preds = %_
   store ptr %.sroa.0.0.i, ptr %0, align 8, !tbaa !28
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 16
   store i8 1, ptr %31, align 1, !tbaa !11
-  %.pre = load ptr, ptr %0, align 8, !tbaa !24
+  %.pre = load ptr, ptr %0, align 8, !tbaa !28
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre2 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !10
   %.pre3 = ptrtoint ptr %.pre2 to i64
@@ -41821,7 +41821,7 @@ define linkonce_odr hidden void @_ZN5boost4wave4util22AllocatorStringStorageIcSa
   %4 = ptrtoint ptr %2 to i64
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
-  %7 = load ptr, ptr %0, align 8, !tbaa !24
+  %7 = load ptr, ptr %0, align 8, !tbaa !28
   %8 = load ptr, ptr %7, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = ptrtoint ptr %8 to i64
@@ -44906,7 +44906,7 @@ declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN5boost4poolINS_33default_user_allocator_new_deleteEE18malloc_need_resizeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i64, ptr %2, align 8
+  %3 = load i64, ptr %2, align 8, !tbaa !128
   %4 = tail call i64 @llvm.umax.i64(i64 %3, i64 8)
   %.biased.i = add i64 %4, 7
   %.0.i = and i64 %.biased.i, -8

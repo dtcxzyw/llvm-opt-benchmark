@@ -1985,8 +1985,8 @@ entry:
   %call.i.i = tail call noundef { double, double } @csqrt(double noundef %add.r.i.i, double noundef %fneg2.i.i) #29
   %3 = extractvalue { double, double } %call.i.i, 0
   %4 = extractvalue { double, double } %call.i.i, 1
-  %5 = load double, ptr %kappa_, align 8, !tbaa !127
-  %6 = load double, ptr %sigma_, align 8, !tbaa !127
+  %5 = load double, ptr %kappa_, align 8, !tbaa !113
+  %6 = load double, ptr %sigma_, align 8, !tbaa !117
   %mul21 = fmul double %6, 2.000000e+00
   %7 = fneg double %6
   %neg = fmul double %mul21, %7
@@ -3867,7 +3867,7 @@ invoke.cont206:                                   ; preds = %.noexc195, %for.bod
           to label %invoke.cont210 unwind label %lpad205.loopexit
 
 invoke.cont210:                                   ; preds = %invoke.cont206
-  %129 = load ptr, ptr %_M_finish.i1891124, align 8, !tbaa !3
+  %129 = load ptr, ptr %_M_finish.i1891124, align 8, !tbaa !128
   %130 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !126
   %cmp.not.i.i = icmp eq ptr %129, %130
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i197
@@ -3879,7 +3879,7 @@ if.then.i.i197:                                   ; preds = %invoke.cont210
   br label %invoke.cont212
 
 if.else.i.i:                                      ; preds = %invoke.cont210
-  %131 = load ptr, ptr %fixingTimes, align 8, !tbaa !3
+  %131 = load ptr, ptr %fixingTimes, align 8, !tbaa !125
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %129 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %131 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -3954,14 +3954,14 @@ lpad205.loopexit.split-lp:                        ; preds = %if.then.i.i.i.i
 
 invoke.cont227:                                   ; preds = %for.inc.i21.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i, %invoke.cont194, %if.else.i.i.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_.exit.i.i.i, %for.cond.cleanup
   %_M_finish.i1891126 = phi ptr [ %_M_finish.i189, %if.else.i.i.i ], [ %_M_finish.i189, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_.exit.i.i.i ], [ %_M_finish.i189, %for.cond.cleanup ], [ %_M_finish.i1891124, %invoke.cont194 ], [ %_M_finish.i189, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ %_M_finish.i189, %for.inc.i21.i.i.i ]
-  %134 = load ptr, ptr %_M_finish.i1891126, align 8, !tbaa !3
-  %135 = load ptr, ptr %fixingTimes, align 8, !tbaa !3
+  %134 = load ptr, ptr %_M_finish.i1891126, align 8, !tbaa !128
+  %135 = load ptr, ptr %fixingTimes, align 8, !tbaa !125
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %134 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %135 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %_M_end_of_storage.i.i203 = getelementptr inbounds nuw i8, ptr %tauK, i64 16
   %136 = load ptr, ptr %_M_end_of_storage.i.i203, align 8, !tbaa !126
-  %137 = load ptr, ptr %tauK, align 8, !tbaa !3
+  %137 = load ptr, ptr %tauK, align 8, !tbaa !125
   %sub.ptr.lhs.cast.i14.i = ptrtoint ptr %136 to i64
   %sub.ptr.rhs.cast.i15.i = ptrtoint ptr %137 to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i15.i
@@ -4053,7 +4053,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZSt4copyIPdS0_ET0_
   br label %invoke.cont228
 
 invoke.cont228:                                   ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit.i, %if.then.i.i.i.i.i.i204, %if.then27.i, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i
-  %142 = load ptr, ptr %tauK, align 8, !tbaa !3
+  %142 = load ptr, ptr %tauK, align 8, !tbaa !125
   %add.ptr72.i = getelementptr inbounds nuw i8, ptr %142, i64 %sub.ptr.sub.i.i
   %_M_finish74.i = getelementptr inbounds nuw i8, ptr %tauK, i64 8
   store ptr %add.ptr72.i, ptr %_M_finish74.i, align 8, !tbaa !128
@@ -4061,7 +4061,7 @@ invoke.cont228:                                   ; preds = %if.then.i.i.i.i.i.i
           to label %invoke.cont236 unwind label %lpad235
 
 invoke.cont236:                                   ; preds = %invoke.cont228
-  %143 = load ptr, ptr %_M_finish74.i, align 8, !tbaa !3
+  %143 = load ptr, ptr %_M_finish74.i, align 8, !tbaa !128
   %144 = load ptr, ptr %_M_end_of_storage.i.i203, align 8, !tbaa !126
   %cmp.not.i210 = icmp eq ptr %143, %144
   br i1 %cmp.not.i210, label %if.else.i212, label %if.then.i
@@ -4073,7 +4073,7 @@ if.then.i:                                        ; preds = %invoke.cont236
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
 
 if.else.i212:                                     ; preds = %invoke.cont236
-  %145 = load ptr, ptr %tauK, align 8, !tbaa !3
+  %145 = load ptr, ptr %tauK, align 8, !tbaa !125
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %143 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %145 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -4335,7 +4335,7 @@ for.body320:                                      ; preds = %invoke.cont304, %if
   br i1 %cmp322, label %if.then323, label %if.else329
 
 if.then323:                                       ; preds = %for.body320
-  %172 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !3
+  %172 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !128
   %173 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !126
   %cmp.not.i.i263 = icmp eq ptr %172, %173
   br i1 %cmp.not.i.i263, label %if.else.i.i266, label %if.then.i.i264
@@ -4347,7 +4347,7 @@ if.then.i.i264:                                   ; preds = %if.then323
   br label %if.end352
 
 if.else.i.i266:                                   ; preds = %if.then323
-  %174 = load ptr, ptr %tkr_tk_, align 8, !tbaa !3
+  %174 = load ptr, ptr %tkr_tk_, align 8, !tbaa !125
   %sub.ptr.lhs.cast.i.i.i.i.i267 = ptrtoint ptr %172 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i268 = ptrtoint ptr %174 to i64
   %sub.ptr.sub.i.i.i.i.i269 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i267, %sub.ptr.rhs.cast.i.i.i.i.i268
@@ -4462,7 +4462,7 @@ invoke.cont345:                                   ; preds = %invoke.cont343
   %div347 = fdiv double %call339, %call346
   %call348 = call double @log(double noundef %div347) #29, !tbaa !121
   %fneg349 = fneg double %call348
-  %180 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !3
+  %180 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !128
   %181 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !126
   %cmp.not.i.i309 = icmp eq ptr %180, %181
   br i1 %cmp.not.i.i309, label %if.else.i.i312, label %if.then.i.i310
@@ -4474,7 +4474,7 @@ if.then.i.i310:                                   ; preds = %invoke.cont345
   br label %if.end352
 
 if.else.i.i312:                                   ; preds = %invoke.cont345
-  %182 = load ptr, ptr %tkr_tk_, align 8, !tbaa !3
+  %182 = load ptr, ptr %tkr_tk_, align 8, !tbaa !125
   %sub.ptr.lhs.cast.i.i.i.i.i313 = ptrtoint ptr %180 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i314 = ptrtoint ptr %182 to i64
   %sub.ptr.sub.i.i.i.i.i315 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i313, %sub.ptr.rhs.cast.i.i.i.i.i314
@@ -4552,8 +4552,8 @@ invoke.cont373:                                   ; preds = %for.cond.cleanup319
   %mul = fmul double %sub, 5.000000e-01
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %integrand) #29
   %185 = load double, ptr %startTime, align 8, !tbaa !127
-  %186 = load ptr, ptr %_M_finish.i1891126, align 8, !tbaa !3
-  %187 = load ptr, ptr %fixingTimes, align 8, !tbaa !3
+  %186 = load ptr, ptr %_M_finish.i1891126, align 8, !tbaa !128
+  %187 = load ptr, ptr %fixingTimes, align 8, !tbaa !125
   %sub.ptr.lhs.cast.i.i345 = ptrtoint ptr %186 to i64
   %sub.ptr.rhs.cast.i.i346 = ptrtoint ptr %187 to i64
   %sub.ptr.sub.i.i347 = sub i64 %sub.ptr.lhs.cast.i.i345, %sub.ptr.rhs.cast.i.i346
@@ -4582,8 +4582,8 @@ if.then.i.i.i.i.i.i.i.i.i357:                     ; preds = %_ZNSt16allocator_tr
 invoke.cont378:                                   ; preds = %invoke.cont373, %if.then.i.i.i.i.i.i.i.i.i357
   %cond.i.i.i.i3511011 = phi ptr [ %call5.i.i.i.i2.i6.i359, %if.then.i.i.i.i.i.i.i.i.i357 ], [ null, %invoke.cont373 ]
   %add.ptr.i.i.i3521013 = getelementptr inbounds i8, ptr %cond.i.i.i.i3511011, i64 %sub.ptr.sub.i.i347
-  %188 = load ptr, ptr %_M_finish74.i, align 8, !tbaa !3
-  %189 = load ptr, ptr %tauK, align 8, !tbaa !3
+  %188 = load ptr, ptr %_M_finish74.i, align 8, !tbaa !128
+  %189 = load ptr, ptr %tauK, align 8, !tbaa !125
   %sub.ptr.lhs.cast.i.i361 = ptrtoint ptr %188 to i64
   %sub.ptr.rhs.cast.i.i362 = ptrtoint ptr %189 to i64
   %sub.ptr.sub.i.i363 = sub i64 %sub.ptr.lhs.cast.i.i361, %sub.ptr.rhs.cast.i.i362
@@ -5303,8 +5303,8 @@ invoke.cont566:                                   ; preds = %_ZNSt7__cxx1112basi
 call.i.i649.noexc:                                ; preds = %invoke.cont566
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost3any6holderISt6vectorIdSaIdEEEE, i64 16), ptr %call.i.i649660, align 8, !tbaa !35
   %held.i.i.i650 = getelementptr inbounds nuw i8, ptr %call.i.i649660, i64 8
-  %274 = load ptr, ptr %_M_finish.i1891126, align 8, !tbaa !3
-  %275 = load ptr, ptr %fixingTimes, align 8, !tbaa !3
+  %274 = load ptr, ptr %_M_finish.i1891126, align 8, !tbaa !128
+  %275 = load ptr, ptr %fixingTimes, align 8, !tbaa !125
   %sub.ptr.lhs.cast.i.i.i.i.i652 = ptrtoint ptr %274 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i653 = ptrtoint ptr %275 to i64
   %sub.ptr.sub.i.i.i.i.i654 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i652, %sub.ptr.rhs.cast.i.i.i.i.i653
@@ -5405,8 +5405,8 @@ invoke.cont581:                                   ; preds = %_ZNSt7__cxx1112basi
 call.i.i681.noexc:                                ; preds = %invoke.cont581
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost3any6holderISt6vectorIdSaIdEEEE, i64 16), ptr %call.i.i681711, align 8, !tbaa !35
   %held.i.i.i682 = getelementptr inbounds nuw i8, ptr %call.i.i681711, i64 8
-  %283 = load ptr, ptr %_M_finish74.i, align 8, !tbaa !3
-  %284 = load ptr, ptr %tauK, align 8, !tbaa !3
+  %283 = load ptr, ptr %_M_finish74.i, align 8, !tbaa !128
+  %284 = load ptr, ptr %tauK, align 8, !tbaa !125
   %sub.ptr.lhs.cast.i.i.i.i.i684 = ptrtoint ptr %283 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i685 = ptrtoint ptr %284 to i64
   %sub.ptr.sub.i.i.i.i.i686 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i684, %sub.ptr.rhs.cast.i.i.i.i.i685
@@ -6293,7 +6293,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !3
+  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !128
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !126
   %cmp.not = icmp eq ptr %1, %2
@@ -10508,7 +10508,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !3
+  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !128
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !126
   %cmp.not = icmp eq ptr %1, %2
@@ -11293,8 +11293,8 @@ entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost3any6holderISt6vectorIdSaIdEEEE, i64 16), ptr %call, align 8, !tbaa !35
   %held.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !3
-  %1 = load ptr, ptr %held, align 8, !tbaa !3
+  %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !128
+  %1 = load ptr, ptr %held, align 8, !tbaa !125
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i

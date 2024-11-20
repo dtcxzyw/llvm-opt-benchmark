@@ -400,7 +400,7 @@ define i32 @lv_fs_read(ptr nocapture noundef readonly %0, ptr noundef %1, i32 no
   %71 = load i32, ptr %70, align 4, !tbaa !27
   %72 = add i32 %71, 1
   store i32 %72, ptr %69, align 8, !tbaa !24
-  %73 = load i32, ptr %5, align 4
+  %73 = load i32, ptr %5, align 4, !tbaa !29
   %74 = add i32 %73, %71
   store i32 %74, ptr %70, align 4, !tbaa !27
   %75 = call i32 @llvm.umin.i32(i32 %58, i32 %73)
@@ -412,7 +412,7 @@ define i32 @lv_fs_read(ptr nocapture noundef readonly %0, ptr noundef %1, i32 no
 
 80:                                               ; preds = %67, %64
   %.1.i = phi i32 [ %66, %64 ], [ %68, %67 ]
-  %81 = load i32, ptr %5, align 4
+  %81 = load i32, ptr %5, align 4, !tbaa !29
   %82 = add i32 %81, %37
   %83 = call i32 @llvm.umin.i32(i32 %82, i32 %.0.i)
   store i32 %83, ptr %7, align 4, !tbaa !29
@@ -460,7 +460,7 @@ define i32 @lv_fs_read(ptr nocapture noundef readonly %0, ptr noundef %1, i32 no
   %106 = call i32 %104(ptr noundef %102, ptr noundef %105, ptr noundef nonnull %.0102.i, i32 noundef %15, ptr noundef nonnull %6) #6
   %107 = load ptr, ptr %26, align 8, !tbaa !19
   store i32 %29, ptr %107, align 8, !tbaa !24
-  %108 = load i32, ptr %6, align 4
+  %108 = load i32, ptr %6, align 4, !tbaa !29
   %109 = add i32 %29, -1
   %110 = add i32 %109, %108
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 4

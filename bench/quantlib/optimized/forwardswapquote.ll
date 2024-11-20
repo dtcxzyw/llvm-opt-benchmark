@@ -1267,7 +1267,7 @@ invoke.cont51:                                    ; preds = %invoke.cont.i158, %
           to label %.noexc unwind label %lpad50
 
 .noexc:                                           ; preds = %invoke.cont51
-  %98 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !37
+  %98 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !61
   %99 = load i64, ptr %ref.tmp.i, align 8, !tbaa !61
   %cmp.i.i = icmp eq i64 %98, %99
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #25
@@ -2617,7 +2617,7 @@ invoke.cont44:                                    ; preds = %invoke.cont.i160, %
           to label %.noexc unwind label %lpad43
 
 .noexc:                                           ; preds = %invoke.cont44
-  %85 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !37
+  %85 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !61
   %86 = load i64, ptr %ref.tmp.i, align 8, !tbaa !61
   %cmp.i.i = icmp eq i64 %85, %86
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #25
@@ -2776,7 +2776,7 @@ lpad.i:                                           ; preds = %init.i
 _ZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEv.exit: ; preds = %entry, %init.check.i, %invoke.cont.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #25
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
-  %4 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !37
+  %4 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !61
   %5 = load i64, ptr %ref.tmp.i, align 8, !tbaa !61
   %cmp.i.i = icmp eq i64 %4, %5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #25
@@ -2820,7 +2820,7 @@ lpad.i5:                                          ; preds = %init.i4
 _ZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEv.exit7: ; preds = %if.then, %init.check.i2, %invoke.cont.i6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i8) #25
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i8)
-  %11 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !37
+  %11 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !61
   %12 = load i64, ptr %ref.tmp.i8, align 8, !tbaa !61
   %cmp.i.i9 = icmp eq i64 %11, %12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i8) #25

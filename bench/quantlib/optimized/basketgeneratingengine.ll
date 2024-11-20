@@ -1636,7 +1636,7 @@ invoke.cont95:                                    ; preds = %invoke.cont.i, %ini
           to label %.noexc220 unwind label %lpad94
 
 .noexc220:                                        ; preds = %invoke.cont95
-  %73 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !30
+  %73 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !75
   %74 = load i64, ptr %ref.tmp.i, align 8, !tbaa !75
   %cmp.i.i = icmp eq i64 %73, %74
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #27
@@ -5164,8 +5164,8 @@ if.then.i.i1115:                                  ; preds = %sw.epilog
   br label %_ZN5boost10shared_ptrIN8QuantLib22BlackCalibrationHelperEEC2INS1_14SwaptionHelperEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
 
 _ZN5boost10shared_ptrIN8QuantLib22BlackCalibrationHelperEEC2INS1_14SwaptionHelperEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit: ; preds = %sw.epilog, %if.then.i.i1115
-  %538 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !3
-  %539 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !145
+  %538 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !145
+  %539 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !147
   %cmp.not.i.i1117 = icmp eq ptr %538, %539
   br i1 %cmp.not.i.i1117, label %if.else.i.i, label %invoke.cont875.thread
 
@@ -5175,7 +5175,7 @@ invoke.cont875.thread:                            ; preds = %_ZN5boost10shared_p
   %540 = load ptr, ptr %pn.i1112, align 8, !tbaa !37
   store ptr %540, ptr %pn.i.i.i.i.i, align 8, !tbaa !37
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %538, i64 16
-  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8, !tbaa !147
+  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8, !tbaa !145
   br label %_ZN5boost10shared_ptrIN8QuantLib22BlackCalibrationHelperEED2Ev.exit
 
 if.else.i.i:                                      ; preds = %_ZN5boost10shared_ptrIN8QuantLib22BlackCalibrationHelperEEC2INS1_14SwaptionHelperEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
@@ -8554,7 +8554,7 @@ define linkonce_odr void @_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib22BlackCali
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !194
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !147
+  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !145
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
@@ -8614,7 +8614,7 @@ invoke.cont:                                      ; preds = %invoke.contthread-p
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %10 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !145
+  %10 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !147
   %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -12452,8 +12452,8 @@ declare void @_ZN8QuantLib14SwaptionHelperC1ERKNS_4DateERKNS_6PeriodERKNS_6Handl
 define linkonce_odr void @_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib22BlackCalibrationHelperEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__args) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !147
-  %1 = load ptr, ptr %this, align 8, !tbaa !3
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !145
+  %1 = load ptr, ptr %this, align 8, !tbaa !194
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -12542,7 +12542,7 @@ _ZNSt6vectorIN5boost10shared_ptrIN8QuantLib22BlackCalibrationHelperEEESaIS4_EE11
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib22BlackCalibrationHelperEEESaIS4_EE13_M_deallocateEPS4_m.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib22BlackCalibrationHelperEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21
-  %9 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !145
+  %9 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !147
   %sub.ptr.lhs.cast = ptrtoint ptr %9 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef %sub.ptr.sub) #30
@@ -12550,9 +12550,9 @@ if.then.i22:                                      ; preds = %_ZNSt6vectorIN5boos
 
 _ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib22BlackCalibrationHelperEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib22BlackCalibrationHelperEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, %if.then.i22
   store ptr %cond.i10, ptr %this, align 8, !tbaa !194
-  store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8, !tbaa !147
+  store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8, !tbaa !145
   %add.ptr19 = getelementptr inbounds nuw %"class.boost::shared_ptr.86", ptr %cond.i10, i64 %cond.i
-  store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !145
+  store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !147
   ret void
 }
 
@@ -12752,9 +12752,9 @@ attributes #32 = { nounwind willreturn memory(read) }
 !142 = distinct !{!142, !"_ZNK8QuantLib9SwapIndex9iborIndexEv"}
 !143 = !{!144, !4, i64 0}
 !144 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib22BlackCalibrationHelperEEE", !4, i64 0, !38, i64 8}
-!145 = !{!146, !4, i64 16}
+!145 = !{!146, !4, i64 8}
 !146 = !{!"_ZTSNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib22BlackCalibrationHelperEEESaIS4_EE17_Vector_impl_dataE", !4, i64 0, !4, i64 8, !4, i64 16}
-!147 = !{!146, !4, i64 8}
+!147 = !{!146, !4, i64 16}
 !148 = distinct !{!148, !79}
 !149 = !{!150, !4, i64 8}
 !150 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE17_Vector_impl_dataE", !4, i64 0, !4, i64 8, !4, i64 16}

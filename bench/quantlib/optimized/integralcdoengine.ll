@@ -585,7 +585,7 @@ lpad.i:                                           ; preds = %init.i
 _ZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEv.exit: ; preds = %entry, %init.check.i, %invoke.cont.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #26
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
-  %4 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !30
+  %4 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !39
   %5 = load i64, ptr %ref.tmp.i, align 8, !tbaa !39
   %cmp.i.i = icmp eq i64 %4, %5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #26
@@ -761,7 +761,7 @@ lpad:                                             ; preds = %cond.false.i39, %in
 
 if.end:                                           ; preds = %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit, %_ZNK5boost10shared_ptrIN8QuantLib8CashFlowEEptEv.exit
   %e1.0 = phi double [ 0.000000e+00, %_ZNK5boost10shared_ptrIN8QuantLib8CashFlowEEptEv.exit ], [ %call41, %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit ]
-  %32 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !3
+  %32 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !74
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 368
   %33 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !108
   %cmp.not.i42 = icmp eq ptr %32, %33
@@ -774,7 +774,7 @@ if.then.i43:                                      ; preds = %if.end
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
 
 if.else.i:                                        ; preds = %if.end
-  %34 = load ptr, ptr %expectedTrancheLoss, align 8, !tbaa !3
+  %34 = load ptr, ptr %expectedTrancheLoss, align 8, !tbaa !73
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %32 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %34 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -891,7 +891,7 @@ _ZNK5boost10shared_ptrIN8QuantLib8CashFlowEEptEv.exit55: ; preds = %for.body, %c
   br i1 %call58, label %if.then59, label %if.end63
 
 if.then59:                                        ; preds = %_ZNK5boost10shared_ptrIN8QuantLib8CashFlowEEptEv.exit55
-  %45 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !3
+  %45 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !74
   %46 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !108
   %cmp.not.i.i57 = icmp eq ptr %45, %46
   br i1 %cmp.not.i.i57, label %if.else.i.i, label %if.then.i.i58
@@ -903,7 +903,7 @@ if.then.i.i58:                                    ; preds = %if.then59
   br label %cleanup
 
 if.else.i.i:                                      ; preds = %if.then59
-  %47 = load ptr, ptr %expectedTrancheLoss, align 8, !tbaa !3
+  %47 = load ptr, ptr %expectedTrancheLoss, align 8, !tbaa !73
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %45 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %47 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -1518,7 +1518,7 @@ invoke.cont134:                                   ; preds = %call.i116.noexc
   br i1 %cmp.i120, label %do.body, label %do.end, !llvm.loop !126
 
 do.end:                                           ; preds = %invoke.cont134
-  %116 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !3
+  %116 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !74
   %117 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !108
   %cmp.not.i123 = icmp eq ptr %116, %117
   br i1 %cmp.not.i123, label %if.else.i126, label %if.then.i124
@@ -1530,7 +1530,7 @@ if.then.i124:                                     ; preds = %do.end
   br label %invoke.cont143
 
 if.else.i126:                                     ; preds = %do.end
-  %118 = load ptr, ptr %expectedTrancheLoss, align 8, !tbaa !3
+  %118 = load ptr, ptr %expectedTrancheLoss, align 8, !tbaa !73
   %sub.ptr.lhs.cast.i.i.i.i127 = ptrtoint ptr %116 to i64
   %sub.ptr.rhs.cast.i.i.i.i128 = ptrtoint ptr %118 to i64
   %sub.ptr.sub.i.i.i.i129 = sub i64 %sub.ptr.lhs.cast.i.i.i.i127, %sub.ptr.rhs.cast.i.i.i.i128

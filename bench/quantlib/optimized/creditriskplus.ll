@@ -2969,9 +2969,9 @@ for.cond.cleanup264:                              ; preds = %for.body265, %for.c
   %add295 = fadd double %div294, 1.000000e+00
   %div296 = fdiv double %div294, %add295
   %loss_ = getelementptr inbounds nuw i8, ptr %this, i64 240
-  %114 = load ptr, ptr %loss_, align 8, !tbaa !14
+  %114 = load ptr, ptr %loss_, align 8, !tbaa !3
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 248
-  %115 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !14
+  %115 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !8
   %tobool.not.i.i = icmp eq ptr %115, %114
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIdSaIdEE5clearEv.exit, label %invoke.cont.i.i
 

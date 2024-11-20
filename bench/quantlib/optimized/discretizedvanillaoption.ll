@@ -1261,8 +1261,8 @@ define linkonce_odr void @_ZNK8QuantLib24DiscretizedVanillaOption14mandatoryTime
 entry:
   %stoppingTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !42
-  %1 = load ptr, ptr %stoppingTimes_, align 8, !tbaa !42
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !35
+  %1 = load ptr, ptr %stoppingTimes_, align 8, !tbaa !37
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

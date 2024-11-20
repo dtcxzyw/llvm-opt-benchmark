@@ -131,7 +131,7 @@ define ptr @lv_malloc_core(i64 noundef %0) local_unnamed_addr #0 {
   %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !22
   %7 = add i64 %6, %5
   store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !22
-  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !23
   %9 = tail call i64 @llvm.umax.i64(i64 %7, i64 %8)
   store i64 %9, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !23
   br label %10
@@ -160,7 +160,7 @@ define ptr @lv_realloc_core(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !22
   %11 = add i64 %10, %9
   store i64 %11, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 792), align 8, !tbaa !22
-  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !23
   %13 = tail call i64 @llvm.umax.i64(i64 %11, i64 %12)
   store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 800), align 8, !tbaa !23
   br label %14

@@ -13099,7 +13099,7 @@ define internal noundef i32 @_ZN5boost10filesystem6detail12_GLOBAL__N_113check_f
   br i1 %12, label %6, label %.thread23
 
 13:                                               ; preds = %6
-  %14 = load i64, ptr %5, align 8
+  %14 = load i64, ptr %5, align 8, !tbaa !199
   switch i64 %14, label %16 [
     i64 1953653091, label %.thread23
     i64 1650812274, label %.thread23
@@ -13115,7 +13115,7 @@ define internal noundef i32 @_ZN5boost10filesystem6detail12_GLOBAL__N_113check_f
 16:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #27
   %or.cond.i.i = icmp sgt i64 %2, 0
-  br i1 %or.cond.i.i, label %.preheader.i.i, label %_ZN5boost10filesystem6detail12_GLOBAL__N_119preallocate_storageEim.exit.thread.i, !prof !199
+  br i1 %or.cond.i.i, label %.preheader.i.i, label %_ZN5boost10filesystem6detail12_GLOBAL__N_119preallocate_storageEim.exit.thread.i, !prof !202
 
 .preheader.i.i:                                   ; preds = %16, %18
   %17 = call i32 @fallocate64(i32 noundef %1, i32 noundef 1, i64 noundef 0, i64 noundef %2)
@@ -13130,7 +13130,7 @@ define internal noundef i32 @_ZN5boost10filesystem6detail12_GLOBAL__N_113check_f
     i32 38, label %_ZN5boost10filesystem6detail12_GLOBAL__N_119preallocate_storageEim.exit.thread.i
     i32 4, label %.preheader.i.i
     i32 0, label %_ZN5boost10filesystem6detail12_GLOBAL__N_119preallocate_storageEim.exit.thread.i
-  ], !prof !200
+  ], !prof !203
 
 _ZN5boost10filesystem6detail12_GLOBAL__N_119preallocate_storageEim.exit.thread.i: ; preds = %18, %18, %18, %.preheader.i.i, %16
   %.not.i.i = icmp eq i64 %2, 0
@@ -13156,7 +13156,7 @@ _ZN5boost10filesystem6detail12_GLOBAL__N_119preallocate_storageEim.exit.thread.i
   %29 = tail call ptr @__errno_location() #30
   %30 = load i32, ptr %29, align 4, !tbaa !19
   %31 = icmp eq i32 %30, 4
-  br i1 %31, label %37, label %32, !llvm.loop !201
+  br i1 %31, label %37, label %32, !llvm.loop !204
 
 32:                                               ; preds = %28
   %33 = icmp eq i64 %.02642.i.i, 0
@@ -13204,7 +13204,7 @@ define internal noundef i32 @_ZN5boost10filesystem6detail12_GLOBAL__N_113check_f
   br i1 %12, label %6, label %.thread23
 
 13:                                               ; preds = %6
-  %14 = load i64, ptr %5, align 8
+  %14 = load i64, ptr %5, align 8, !tbaa !199
   switch i64 %14, label %16 [
     i64 1953653091, label %.thread23
     i64 1650812274, label %.thread23
@@ -13220,7 +13220,7 @@ define internal noundef i32 @_ZN5boost10filesystem6detail12_GLOBAL__N_113check_f
 16:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #27
   %or.cond.i.i = icmp sgt i64 %2, 0
-  br i1 %or.cond.i.i, label %.preheader.i.i, label %_ZN5boost10filesystem6detail12_GLOBAL__N_119preallocate_storageEim.exit.thread.i, !prof !199
+  br i1 %or.cond.i.i, label %.preheader.i.i, label %_ZN5boost10filesystem6detail12_GLOBAL__N_119preallocate_storageEim.exit.thread.i, !prof !202
 
 .preheader.i.i:                                   ; preds = %16, %18
   %17 = call i32 @fallocate64(i32 noundef %1, i32 noundef 1, i64 noundef 0, i64 noundef %2)
@@ -13235,7 +13235,7 @@ define internal noundef i32 @_ZN5boost10filesystem6detail12_GLOBAL__N_113check_f
     i32 38, label %_ZN5boost10filesystem6detail12_GLOBAL__N_119preallocate_storageEim.exit.thread.i
     i32 4, label %.preheader.i.i
     i32 0, label %_ZN5boost10filesystem6detail12_GLOBAL__N_119preallocate_storageEim.exit.thread.i
-  ], !prof !200
+  ], !prof !203
 
 _ZN5boost10filesystem6detail12_GLOBAL__N_119preallocate_storageEim.exit.thread.i: ; preds = %18, %18, %18, %.preheader.i.i, %16
   %.not.i.i = icmp eq i64 %2, 0
@@ -13261,7 +13261,7 @@ _ZN5boost10filesystem6detail12_GLOBAL__N_119preallocate_storageEim.exit.thread.i
   %29 = tail call ptr @__errno_location() #30
   %30 = load i32, ptr %29, align 4, !tbaa !19
   %31 = icmp eq i32 %30, 4
-  br i1 %31, label %39, label %32, !llvm.loop !202
+  br i1 %31, label %39, label %32, !llvm.loop !205
 
 32:                                               ; preds = %28
   %33 = icmp eq i64 %.03349.i.i, 0
@@ -13388,7 +13388,7 @@ define internal fastcc noundef range(i32 5, 4) i32 @_ZN5boost10filesystem6detail
   %13 = tail call ptr @__errno_location() #30
   %14 = load i32, ptr %13, align 4, !tbaa !19
   %15 = icmp eq i32 %14, 4
-  br i1 %15, label %21, label %16, !llvm.loop !201
+  br i1 %15, label %21, label %16, !llvm.loop !204
 
 16:                                               ; preds = %12
   %17 = icmp eq i64 %.02642, 0
@@ -13943,7 +13943,10 @@ attributes #34 = { builtin nounwind allocsize(0) }
 !196 = distinct !{!196, !197, !"_ZN5boost6system6detail30generic_error_category_messageB5cxx11Ei: argument 0"}
 !197 = distinct !{!197, !"_ZN5boost6system6detail30generic_error_category_messageB5cxx11Ei"}
 !198 = !{!196, !193}
-!199 = !{!"branch_weights", i32 4000000, i32 4001}
-!200 = !{!"branch_weights", i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 0}
-!201 = distinct !{!201, !65}
-!202 = distinct !{!202, !65}
+!199 = !{!200, !12, i64 0}
+!200 = !{!"_ZTS6statfs", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !201, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !9, i64 88}
+!201 = !{!"_ZTS8__fsid_t", !9, i64 0}
+!202 = !{!"branch_weights", i32 4000000, i32 4001}
+!203 = !{!"branch_weights", i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 0}
+!204 = distinct !{!204, !65}
+!205 = distinct !{!205, !65}

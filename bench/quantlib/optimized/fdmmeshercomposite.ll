@@ -2610,9 +2610,9 @@ invoke.cont:                                      ; preds = %_ZNK5boost10shared_
   %n_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %2, ptr %n_.i, align 8, !tbaa !48
   %dim_.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre46 = load ptr, ptr %dim_.i.phi.trans.insert, align 8, !tbaa !32, !noalias !56
+  %.pre46 = load ptr, ptr %dim_.i.phi.trans.insert, align 8, !tbaa !18, !noalias !56
   %_M_finish.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre = load ptr, ptr %_M_finish.i.i.i.phi.trans.insert, align 8, !tbaa !32, !noalias !56
+  %.pre = load ptr, ptr %_M_finish.i.i.i.phi.trans.insert, align 8, !tbaa !23, !noalias !56
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %__begin1) #20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %.pre to i64
@@ -3335,8 +3335,8 @@ entry:
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dim, i8 0, i64 24, i1 false)
   %spacing_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %3 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !32
-  %4 = load ptr, ptr %dim_, align 8, !tbaa !32
+  %3 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !23
+  %4 = load ptr, ptr %dim_, align 8, !tbaa !18
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i

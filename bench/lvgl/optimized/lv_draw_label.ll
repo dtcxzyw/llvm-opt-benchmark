@@ -953,14 +953,14 @@ lv_text_is_marker.exit.i:                         ; preds = %346
   br i1 %.not.i, label %419, label %385
 
 385:                                              ; preds = %383
-  %386 = load i32, ptr %198, align 4
+  %386 = load i32, ptr %198, align 4, !tbaa !70
   %387 = add i32 %386, -1
   %or.cond6.i = icmp ult i32 %387, 8
   br i1 %or.cond6.i, label %388, label %415
 
 388:                                              ; preds = %385
-  %389 = load ptr, ptr %199, align 8, !tbaa !70
-  %390 = load i16, ptr %192, align 2, !tbaa !71
+  %389 = load ptr, ptr %199, align 8, !tbaa !71
+  %390 = load i16, ptr %192, align 2, !tbaa !72
   %391 = zext i16 %390 to i32
   %392 = load i16, ptr %191, align 4, !tbaa !67
   %393 = zext i16 %392 to i32
@@ -969,7 +969,7 @@ lv_text_is_marker.exit.i:                         ; preds = %346
   br i1 %395, label %396, label %415
 
 396:                                              ; preds = %388
-  %397 = load ptr, ptr %199, align 8, !tbaa !70
+  %397 = load ptr, ptr %199, align 8, !tbaa !71
   %.not41.i = icmp eq ptr %397, null
   br i1 %.not41.i, label %399, label %398
 
@@ -980,7 +980,7 @@ lv_text_is_marker.exit.i:                         ; preds = %346
 399:                                              ; preds = %398, %396
   %400 = load i16, ptr %191, align 4, !tbaa !67
   %401 = zext i16 %400 to i32
-  %402 = load i16, ptr %192, align 2, !tbaa !71
+  %402 = load i16, ptr %192, align 2, !tbaa !72
   %403 = zext i16 %402 to i32
   %404 = mul nuw i32 %403, %401
   %405 = icmp ult i32 %404, 64
@@ -1001,13 +1001,13 @@ lv_text_is_marker.exit.i:                         ; preds = %346
   %413 = and i64 %411, 281474976710655
   %414 = or disjoint i64 %413, %412
   store i64 %414, ptr %407, align 8
-  store ptr %407, ptr %199, align 8, !tbaa !70
+  store ptr %407, ptr %199, align 8, !tbaa !71
   br label %415
 
 415:                                              ; preds = %408, %388, %385
   %.037.i = phi ptr [ %407, %408 ], [ %394, %388 ], [ null, %385 ]
   %416 = call ptr @lv_font_get_glyph_bitmap(ptr noundef nonnull %5, ptr noundef %.037.i) #6
-  store ptr %416, ptr %11, align 8, !tbaa !72
+  store ptr %416, ptr %11, align 8, !tbaa !73
   %.not43.i = icmp eq ptr %416, null
   %417 = load i32, ptr %198, align 4
   %418 = select i1 %.not43.i, i32 0, i32 %417
@@ -1015,9 +1015,9 @@ lv_text_is_marker.exit.i:                         ; preds = %346
 
 419:                                              ; preds = %415, %383
   %.sink.i = phi i32 [ %418, %415 ], [ 0, %383 ]
-  store i32 %.sink.i, ptr %200, align 8, !tbaa !73
-  store ptr %6, ptr %201, align 8, !tbaa !74
-  store ptr %5, ptr %202, align 8, !tbaa !75
+  store i32 %.sink.i, ptr %200, align 8, !tbaa !74
+  store ptr %6, ptr %201, align 8, !tbaa !75
+  store ptr %5, ptr %202, align 8, !tbaa !76
   call void %3(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef null, ptr noundef null) #6
   call void @lv_font_glyph_release_draw_data(ptr noundef nonnull %5) #6
   br label %420
@@ -1113,7 +1113,7 @@ draw_letter.exit:                                 ; preds = %342, %345, %345, %3
   br i1 %462, label %463, label %203
 
 463:                                              ; preds = %456, %203
-  %464 = load ptr, ptr %199, align 8, !tbaa !70
+  %464 = load ptr, ptr %199, align 8, !tbaa !71
   %.not243 = icmp eq ptr %464, null
   br i1 %.not243, label %466, label %465
 
@@ -1263,9 +1263,10 @@ attributes #6 = { nounwind }
 !67 = !{!29, !30, i64 12}
 !68 = !{!29, !30, i64 14}
 !69 = !{!29, !30, i64 16}
-!70 = !{!52, !6, i64 48}
-!71 = !{!29, !30, i64 10}
-!72 = !{!52, !6, i64 0}
-!73 = !{!52, !9, i64 8}
-!74 = !{!52, !6, i64 16}
-!75 = !{!52, !6, i64 32}
+!70 = !{!29, !9, i64 20}
+!71 = !{!52, !6, i64 48}
+!72 = !{!29, !30, i64 10}
+!73 = !{!52, !6, i64 0}
+!74 = !{!52, !9, i64 8}
+!75 = !{!52, !6, i64 16}
+!76 = !{!52, !6, i64 32}

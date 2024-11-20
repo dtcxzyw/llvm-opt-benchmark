@@ -300,7 +300,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN5boost3log11v2_mt_posix13attribute_se
   %5 = and i32 %1, 15
   %6 = zext nneg i32 %5 to i64
   %7 = getelementptr inbounds nuw [16 x %"struct.boost::log::v2_mt_posix::attribute_set::implementation::bucket"], ptr %4, i64 0, i64 %6
-  %8 = load ptr, ptr %7, align 8, !tbaa !17
+  %8 = load ptr, ptr %7, align 8, !tbaa !26
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %20, label %9
 
@@ -431,7 +431,7 @@ define noundef range(i64 0, 2) i64 @_ZN5boost3log11v2_mt_posix13attribute_set5er
   %5 = and i32 %1, 15
   %6 = zext nneg i32 %5 to i64
   %7 = getelementptr inbounds nuw [16 x %"struct.boost::log::v2_mt_posix::attribute_set::implementation::bucket"], ptr %4, i64 0, i64 %6
-  %8 = load ptr, ptr %7, align 8, !tbaa !17
+  %8 = load ptr, ptr %7, align 8, !tbaa !26
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation5eraseENS2_4iterILb0EEE.exit, label %9
 
@@ -797,7 +797,7 @@ define ptr @_ZN5boost3log11v2_mt_posix13attribute_set4findENS1_14attribute_nameE
   %5 = and i32 %1, 15
   %6 = zext nneg i32 %5 to i64
   %7 = getelementptr inbounds nuw [16 x %"struct.boost::log::v2_mt_posix::attribute_set::implementation::bucket"], ptr %4, i64 0, i64 %6
-  %8 = load ptr, ptr %7, align 8, !tbaa !17
+  %8 = load ptr, ptr %7, align 8, !tbaa !26
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %20, label %9
 

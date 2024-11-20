@@ -1673,7 +1673,7 @@ entry:
   %ref.tmp32 = alloca %"class.std::vector", align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %variates, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !46
-  %1 = load ptr, ptr %variates, align 8, !tbaa !66
+  %1 = load ptr, ptr %variates, align 8, !tbaa !45
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -2890,13 +2890,13 @@ entry:
 
 entry._ZNK8QuantLib8SobolRsg12nextSequenceEv.exit_crit_edge: ; preds = %entry
   %sequence_4.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %.pre = load ptr, ptr %sequence_4.i.phi.trans.insert, align 8, !tbaa !66
+  %.pre = load ptr, ptr %sequence_4.i.phi.trans.insert, align 8, !tbaa !40
   br label %_ZNK8QuantLib8SobolRsg12nextSequenceEv.exit
 
 for.body.lr.ph.i:                                 ; preds = %entry
   %1 = load ptr, ptr %call.i, align 8, !tbaa !77
   %sequence_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load ptr, ptr %sequence_.i, align 8, !tbaa !66
+  %2 = load ptr, ptr %sequence_.i, align 8, !tbaa !40
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -2914,7 +2914,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK8QuantLib8SobolRsg12nextSequenceEv.exit:      ; preds = %for.body.i, %entry._ZNK8QuantLib8SobolRsg12nextSequenceEv.exit_crit_edge
   %4 = phi ptr [ %.pre, %entry._ZNK8QuantLib8SobolRsg12nextSequenceEv.exit_crit_edge ], [ %2, %for.body.i ]
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %5 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !66
+  %5 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !44
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -3377,8 +3377,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8QuantL
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8QuantLib18Burley2020SobolRsg12nextSequenceEv(ptr noundef nonnull align 8 dereferenceable(128) %this)
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
-  %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !66
-  %1 = load ptr, ptr %call, align 8, !tbaa !66
+  %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !44
+  %1 = load ptr, ptr %call, align 8, !tbaa !40
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i

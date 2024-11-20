@@ -5677,7 +5677,7 @@ for.body.i.i.i.preheader.i:                       ; preds = %_ZNK8QuantLib13Tree
   br label %_ZN8QuantLib5ArrayC2Emd.exit
 
 _ZN8QuantLib5ArrayC2Emd.exit:                     ; preds = %for.body.i.i.i.preheader.i, %cond.end.thread.i
-  %18 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !18
+  %18 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !152
   %19 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !153
   %cmp.not.i.i18 = icmp eq ptr %18, %19
   br i1 %cmp.not.i.i18, label %if.else.i.i, label %invoke.cont.thread
@@ -6107,7 +6107,7 @@ define linkonce_odr void @_ZNSt6vectorIN8QuantLib5ArrayESaIS1_EE17_M_realloc_ins
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !152
-  %1 = load ptr, ptr %this, align 8, !tbaa !18
+  %1 = load ptr, ptr %this, align 8, !tbaa !115
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

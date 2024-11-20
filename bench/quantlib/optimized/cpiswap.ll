@@ -1787,7 +1787,7 @@ invoke.cont185:                                   ; preds = %invoke.cont183
   store ptr %call181, ptr %px_.i.i.i.i, align 8, !tbaa !130
   store ptr %call.i.i.i, ptr %pn.i138, align 8, !tbaa !42
   %_M_finish.i143 = getelementptr inbounds nuw i8, ptr %floatingLeg, i64 8
-  %158 = load ptr, ptr %_M_finish.i143, align 8, !tbaa !3
+  %158 = load ptr, ptr %_M_finish.i143, align 8, !tbaa !118
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %floatingLeg, i64 16
   %159 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !119
   %cmp.not.i144 = icmp eq ptr %158, %159
@@ -3995,15 +3995,15 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %__x, i64 8
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !3
-  %1 = load ptr, ptr %__x, align 8, !tbaa !3
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !118
+  %1 = load ptr, ptr %__x, align 8, !tbaa !116
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !119
-  %3 = load ptr, ptr %this, align 8, !tbaa !3
+  %3 = load ptr, ptr %this, align 8, !tbaa !116
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
@@ -4127,7 +4127,7 @@ _ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib8CashFlowEEESaIS4_EE13_M_deall
 
 if.else:                                          ; preds = %if.then
   %_M_finish.i20 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %18 = load ptr, ptr %_M_finish.i20, align 8, !tbaa !3
+  %18 = load ptr, ptr %_M_finish.i20, align 8, !tbaa !118
   %sub.ptr.lhs.cast.i21 = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i23 = sub i64 %sub.ptr.lhs.cast.i21, %sub.ptr.rhs.cast.i15
   %cmp26.not = icmp ult i64 %sub.ptr.sub.i23, %sub.ptr.sub.i
@@ -5689,7 +5689,7 @@ invoke.cont182:                                   ; preds = %invoke.cont180
   store ptr %call178, ptr %px_.i.i.i.i, align 8, !tbaa !130
   store ptr %call.i.i.i, ptr %pn.i143, align 8, !tbaa !42
   %_M_finish.i148 = getelementptr inbounds nuw i8, ptr %floatingLeg, i64 8
-  %157 = load ptr, ptr %_M_finish.i148, align 8, !tbaa !3
+  %157 = load ptr, ptr %_M_finish.i148, align 8, !tbaa !118
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %floatingLeg, i64 16
   %158 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !119
   %cmp.not.i149 = icmp eq ptr %157, %158
@@ -10648,7 +10648,7 @@ define linkonce_odr void @_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib8CashFlowEE
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !118
-  %1 = load ptr, ptr %this, align 8, !tbaa !3
+  %1 = load ptr, ptr %this, align 8, !tbaa !116
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

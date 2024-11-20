@@ -5193,7 +5193,7 @@ _ZN5boost6detail23get_current_thread_dataEv.exit: ; preds = %1, %_ZN5boost6detai
 
 _ZN5boost10shared_ptrINS_6detail17shared_state_baseEEC2ERKS3_.exit: ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 288
-  %13 = load ptr, ptr %12, align 8, !tbaa !19
+  %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %15 = load ptr, ptr %14, align 8, !tbaa !33
   %.not.i.i3 = icmp eq ptr %13, %15
@@ -5203,7 +5203,7 @@ _ZN5boost10shared_ptrINS_6detail17shared_state_baseEEC2ERKS3_.exit.thread: ; pre
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %17 = atomicrmw add ptr %16, i32 1 monotonic, align 4
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 288
-  %19 = load ptr, ptr %18, align 8, !tbaa !19
+  %19 = load ptr, ptr %18, align 8, !tbaa !29
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %21 = load ptr, ptr %20, align 8, !tbaa !33
   %.not.i.i35 = icmp eq ptr %19, %21
@@ -5485,7 +5485,7 @@ _ZN5boost6system6detail30generic_error_category_messageEiPcm.exit: ; preds = %6,
 define linkonce_odr hidden void @_ZN5boost6detail16thread_data_base25notify_all_at_thread_exitEPNS_18condition_variableEPNS_5mutexE(ptr noundef nonnull align 8 dereferenceable(306) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #9 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %6 = load ptr, ptr %5, align 8, !tbaa !19
+  %6 = load ptr, ptr %5, align 8, !tbaa !180
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %8 = load ptr, ptr %7, align 8, !tbaa !36
   %.not.i.i = icmp eq ptr %6, %8
@@ -5501,7 +5501,7 @@ define linkonce_odr hidden void @_ZN5boost6detail16thread_data_base25notify_all_
   br label %_ZNSt6vectorISt4pairIPN5boost18condition_variableEPNS1_5mutexEESaIS6_EE9push_backEOS6_.exit
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr %4, align 8, !tbaa !19
+  %13 = load ptr, ptr %4, align 8, !tbaa !34
   %14 = ptrtoint ptr %6 to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
@@ -9432,7 +9432,7 @@ declare i32 @pthread_cond_broadcast(ptr noundef) local_unnamed_addr #8
 define linkonce_odr hidden void @_ZNSt6vectorIN5boost10shared_ptrINS0_6detail17shared_state_baseEEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !29
-  %6 = load ptr, ptr %0, align 8, !tbaa !19
+  %6 = load ptr, ptr %0, align 8, !tbaa !27
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8

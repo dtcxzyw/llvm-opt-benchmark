@@ -112,7 +112,7 @@ define internal void @lv_checkbox_event(ptr nocapture readnone %0, ptr noundef %
   %40 = add i32 %39, %36
   store i32 %40, ptr %15, align 4, !tbaa !12
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %42 = load i32, ptr %41, align 4
+  %42 = load i32, ptr %41, align 4, !tbaa !14
   %43 = call i32 @llvm.smax.i32(i32 %35, i32 %42)
   %44 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %43, ptr %44, align 4, !tbaa !14

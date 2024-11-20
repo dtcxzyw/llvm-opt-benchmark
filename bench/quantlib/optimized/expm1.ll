@@ -58,7 +58,7 @@ declare double @exp(double noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define { double, double } @_ZN8QuantLib5log1pERKSt7complexIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %z) local_unnamed_addr #0 {
 entry:
-  %0 = load double, ptr %z, align 8
+  %0 = load double, ptr %z, align 8, !tbaa !7
   %_M_value.imagp.i = getelementptr inbounds nuw i8, ptr %z, i64 8
   %1 = load double, ptr %_M_value.imagp.i, align 8, !tbaa !7
   %2 = tail call noundef double @llvm.fabs.f64(double %0)
@@ -75,7 +75,7 @@ if.then:                                          ; preds = %entry
   %call6 = tail call double @log1p(double noundef %5) #5, !tbaa !3
   %mul = fmul double %call6, 5.000000e-01
   %retval.sroa.0.0.copyload.i = load double, ptr %z, align 8
-  %retval.sroa.4.0.copyload.i = load double, ptr %_M_value.imagp.i, align 8, !tbaa !7
+  %retval.sroa.4.0.copyload.i = load double, ptr %_M_value.imagp.i, align 8, !tbaa !9
   %add.r.i.i = fadd double %retval.sroa.0.0.copyload.i, 1.000000e+00
   %call.i.i = tail call noundef double @carg(double noundef %add.r.i.i, double noundef %retval.sroa.4.0.copyload.i) #5, !tbaa !3
   br label %cleanup
@@ -129,4 +129,6 @@ attributes #5 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = !{!5, !5, i64 0}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"double", !5, i64 0}
+!9 = !{!5, !5, i64 0}

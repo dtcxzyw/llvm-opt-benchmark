@@ -26493,7 +26493,7 @@ define internal fastcc void @_ZN4crow7utilityL17sanitize_filenameERNSt7__cxx1112
   %13 = phi i64 [ %378, %375 ], [ 0, %7 ]
   %14 = phi i1 [ %376, %375 ], [ true, %7 ]
   %15 = phi i32 [ %377, %375 ], [ 0, %7 ]
-  %.pre49 = load ptr, ptr %0, align 8
+  %.pre49 = load ptr, ptr %0, align 8, !tbaa !12
   br i1 %14, label %16, label %364
 
 16:                                               ; preds = %.preheader.split
@@ -47706,7 +47706,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4asio6detail11timer_queueIN
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !27
-  %17 = load ptr, ptr %14, align 8, !tbaa !27
+  %17 = load ptr, ptr %14, align 8, !tbaa !1075
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
@@ -50755,7 +50755,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4asio6detail11timer_queueIN
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !27
-  %17 = load ptr, ptr %14, align 8, !tbaa !27
+  %17 = load ptr, ptr %14, align 8, !tbaa !188
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
@@ -72831,7 +72831,7 @@ _ZNSt6vectorIN4asio12const_bufferESaIS1_EE17_M_realloc_insertIJPKcmEEEvN9__gnu_c
   br label %645
 
 645:                                              ; preds = %_ZNSt6vectorIN4asio12const_bufferESaIS1_EE17_M_realloc_insertIJPKcmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, %609
-  %646 = load i32, ptr %58, align 8, !tbaa !81
+  %646 = load i32, ptr %58, align 8, !tbaa !1482
   %647 = icmp sgt i32 %646, 399
   br i1 %647, label %648, label %754
 

@@ -754,7 +754,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 465:                                              ; preds = %451
   %466 = load double, ptr %458, align 8, !tbaa !7
   store double %466, ptr %20, align 8, !tbaa !7
-  %467 = load i32, ptr %29, align 4
+  %467 = load i32, ptr %29, align 4, !tbaa !3
   %468 = icmp sgt i32 %467, 0
   br i1 %468, label %469, label %.thread49
 
@@ -907,7 +907,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br i1 %568, label %.loopexit60.loopexit, label %533, !llvm.loop !17
 
 .loopexit60.loopexit:                             ; preds = %566
-  %.pre99 = load i32, ptr %29, align 4
+  %.pre99 = load i32, ptr %29, align 4, !tbaa !3
   br label %.loopexit60
 
 .loopexit60:                                      ; preds = %.loopexit60.loopexit, %.loopexit61

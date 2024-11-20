@@ -3504,7 +3504,7 @@ invoke.cont221:                                   ; preds = %invoke.cont217
   %104 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !61
   %and.i.i.i.i = and i32 %104, -261
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 256
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !61
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !67
   %105 = load double, ptr %fxMin_, align 8, !tbaa !58
   %call.i195196 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i186187, double noundef %105)
           to label %invoke.cont224 unwind label %lpad208
@@ -4029,7 +4029,7 @@ ehcleanup362:                                     ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 do.end365:                                        ; preds = %do.body316
-  store double %guess, ptr %this, align 8, !tbaa !63
+  store double %guess, ptr %this, align 8, !tbaa !68
   %call367 = tail call noundef double @_ZNK8QuantLib5Brent9solveImplINS_36BlackDeltaPremiumAdjustedSolverClassEEEdRKT_d(ptr noundef nonnull align 8 dereferenceable(74) %this, ptr noundef nonnull align 8 dereferenceable(80) %f, double noundef %.sroa.speculated)
   br label %return
 
@@ -4883,7 +4883,7 @@ invoke.cont221:                                   ; preds = %invoke.cont217
   %102 = load i32, ptr %_M_flags.i.i, align 8, !tbaa !61
   %and.i.i.i.i = and i32 %102, -261
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 256
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !61
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !67
   %103 = load double, ptr %fxMin_, align 8, !tbaa !58
   %call.i187 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i180, double noundef %103)
           to label %invoke.cont224 unwind label %lpad208
@@ -5408,7 +5408,7 @@ ehcleanup362:                                     ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 do.end365:                                        ; preds = %do.body316
-  store double %guess, ptr %this, align 8, !tbaa !63
+  store double %guess, ptr %this, align 8, !tbaa !68
   %call367 = tail call noundef double @_ZNK8QuantLib5Brent9solveImplINS_39BlackDeltaPremiumAdjustedMaxStrikeClassEEEdRKT_d(ptr noundef nonnull align 8 dereferenceable(74) %this, ptr noundef nonnull align 8 dereferenceable(80) %f, double noundef %.sroa.speculated)
   br label %return
 
@@ -5903,7 +5903,7 @@ define void @_ZN8QuantLib39BlackDeltaPremiumAdjustedMaxStrikeClassC2ENS_6Option4
 entry:
   tail call void @_ZN8QuantLib20BlackDeltaCalculatorC1ENS_6Option4TypeENS_13DeltaVolQuote9DeltaTypeEdddd(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %ot, i32 noundef %dt, double noundef %spot, double noundef %dDiscount, double noundef %fDiscount, double noundef %stdDev)
   %stdDev_ = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store double %stdDev, ptr %stdDev_, align 8, !tbaa !64
+  store double %stdDev, ptr %stdDev_, align 8, !tbaa !69
   ret void
 }
 
@@ -5980,7 +5980,7 @@ _ZNK8QuantLib20BlackDeltaCalculator5cumD2Ed.exit: ; preds = %if.then3.i, %if.the
   %retval.0.i = phi double [ %call8.i, %if.then3.i ], [ %call21.i, %if.then15.i ], [ %cum_d2_pos_.0.cum_d2_neg_.0.i, %if.end24.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %f.i) #19
   %stdDev_ = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %7 = load double, ptr %stdDev_, align 8, !tbaa !64
+  %7 = load double, ptr %stdDev_, align 8, !tbaa !69
   %8 = load double, ptr %stdDev_.i, align 8, !tbaa !27
   %cmp.i3 = fcmp oge double %8, 0x3CB0000000000000
   %cmp2.i4 = fcmp ogt double %strike, 0.000000e+00
@@ -6044,7 +6044,7 @@ entry:
   %ref.tmp136 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp137 = alloca %"class.std::allocator.6", align 1
   %ref.tmp140 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load double, ptr %this, align 8, !tbaa !63
+  %0 = load double, ptr %this, align 8, !tbaa !68
   %call.i = tail call noundef double @_ZNK8QuantLib20BlackDeltaCalculator15deltaFromStrikeEd(ptr noundef nonnull readonly align 8 dereferenceable(80) %f, double noundef %0)
   %delta_.i = getelementptr inbounds nuw i8, ptr %f, i64 72
   %1 = load double, ptr %delta_.i, align 8, !tbaa !56
@@ -6086,7 +6086,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp10.not110, label %do.body, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %9 = load double, ptr %this, align 8, !tbaa !63
+  %9 = load double, ptr %this, align 8, !tbaa !68
   %sub = fsub double %9, %7
   %fxMax_12 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %xMin_19 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -6104,14 +6104,14 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %or.cond, label %while.body.if.then18_crit_edge, label %lor.lhs.false
 
 while.body.if.then18_crit_edge:                   ; preds = %while.body
-  %.pre118 = load double, ptr %this, align 8, !tbaa !63
+  %.pre118 = load double, ptr %this, align 8, !tbaa !68
   br label %if.then18
 
 lor.lhs.false:                                    ; preds = %while.body
   %cmp14 = fcmp olt double %froot.0111, 0.000000e+00
   %cmp17 = fcmp olt double %10, 0.000000e+00
   %or.cond49 = select i1 %cmp14, i1 %cmp17, i1 false
-  %.pre119 = load double, ptr %this, align 8, !tbaa !63
+  %.pre119 = load double, ptr %this, align 8, !tbaa !68
   br i1 %or.cond49, label %if.then18, label %lor.lhs.false.if.end26_crit_edge
 
 lor.lhs.false.if.end26_crit_edge:                 ; preds = %lor.lhs.false
@@ -6140,7 +6140,7 @@ if.end26:                                         ; preds = %lor.lhs.false.if.en
 
 if.then29:                                        ; preds = %if.end26
   store double %.pre, ptr %xMin_19, align 8, !tbaa !48
-  store double %.pre115, ptr %this, align 8, !tbaa !63
+  store double %.pre115, ptr %this, align 8, !tbaa !68
   store double %.pre, ptr %xMax_8, align 8, !tbaa !49
   store double %froot.0111, ptr %fxMin_, align 8, !tbaa !58
   store double %froot.0111, ptr %fxMax_12, align 8, !tbaa !59
@@ -6169,7 +6169,7 @@ if.then52:                                        ; preds = %if.end40
   %24 = load i64, ptr %evaluationNumber_, align 8, !tbaa !60
   %inc56 = add i64 %24, 1
   store i64 %inc56, ptr %evaluationNumber_, align 8, !tbaa !60
-  %25 = load double, ptr %this, align 8, !tbaa !63
+  %25 = load double, ptr %this, align 8, !tbaa !68
   ret double %25
 
 if.end58:                                         ; preds = %if.end40
@@ -6279,7 +6279,7 @@ if.else118:                                       ; preds = %if.end111
 if.end122:                                        ; preds = %if.end111, %if.else118
   %cond.i.pn = phi double [ %cond.i, %if.else118 ], [ %d.2, %if.end111 ]
   %storemerge = fadd double %19, %cond.i.pn
-  store double %storemerge, ptr %this, align 8, !tbaa !63
+  store double %storemerge, ptr %this, align 8, !tbaa !68
   %call.i62 = tail call noundef double @_ZNK8QuantLib20BlackDeltaCalculator15deltaFromStrikeEd(ptr noundef nonnull readonly align 8 dereferenceable(80) %f, double noundef %storemerge)
   %41 = load double, ptr %delta_.i, align 8, !tbaa !56
   %sub.i64 = fsub double %call.i62, %41
@@ -6288,7 +6288,7 @@ if.end122:                                        ; preds = %if.end111, %if.else
   store i64 %inc126, ptr %evaluationNumber_, align 8, !tbaa !60
   %43 = load i64, ptr %maxEvaluations_, align 8, !tbaa !45
   %cmp10.not = icmp ugt i64 %inc126, %43
-  br i1 %cmp10.not, label %do.body, label %while.body, !llvm.loop !66
+  br i1 %cmp10.not, label %do.body, label %while.body, !llvm.loop !71
 
 do.body:                                          ; preds = %if.end122, %if.end
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream) #19
@@ -6470,7 +6470,7 @@ entry:
   %ref.tmp136 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp137 = alloca %"class.std::allocator.6", align 1
   %ref.tmp140 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load double, ptr %this, align 8, !tbaa !63
+  %0 = load double, ptr %this, align 8, !tbaa !68
   %call = tail call noundef double @_ZNK8QuantLib39BlackDeltaPremiumAdjustedMaxStrikeClassclEd(ptr noundef nonnull align 8 dereferenceable(80) %f, double noundef %0)
   %evaluationNumber_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load i64, ptr %evaluationNumber_, align 8, !tbaa !60
@@ -6509,7 +6509,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp10.not101, label %do.body, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %8 = load double, ptr %this, align 8, !tbaa !63
+  %8 = load double, ptr %this, align 8, !tbaa !68
   %sub = fsub double %8, %6
   %fxMax_12 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %xMin_19 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -6527,14 +6527,14 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %or.cond, label %while.body.if.then18_crit_edge, label %lor.lhs.false
 
 while.body.if.then18_crit_edge:                   ; preds = %while.body
-  %.pre109 = load double, ptr %this, align 8, !tbaa !63
+  %.pre109 = load double, ptr %this, align 8, !tbaa !68
   br label %if.then18
 
 lor.lhs.false:                                    ; preds = %while.body
   %cmp14 = fcmp olt double %froot.0102, 0.000000e+00
   %cmp17 = fcmp olt double %9, 0.000000e+00
   %or.cond49 = select i1 %cmp14, i1 %cmp17, i1 false
-  %.pre110 = load double, ptr %this, align 8, !tbaa !63
+  %.pre110 = load double, ptr %this, align 8, !tbaa !68
   br i1 %or.cond49, label %if.then18, label %lor.lhs.false.if.end26_crit_edge
 
 lor.lhs.false.if.end26_crit_edge:                 ; preds = %lor.lhs.false
@@ -6563,7 +6563,7 @@ if.end26:                                         ; preds = %lor.lhs.false.if.en
 
 if.then29:                                        ; preds = %if.end26
   store double %.pre, ptr %xMin_19, align 8, !tbaa !48
-  store double %.pre106, ptr %this, align 8, !tbaa !63
+  store double %.pre106, ptr %this, align 8, !tbaa !68
   store double %.pre, ptr %xMax_8, align 8, !tbaa !49
   store double %froot.0102, ptr %fxMin_, align 8, !tbaa !58
   store double %froot.0102, ptr %fxMax_12, align 8, !tbaa !59
@@ -6592,7 +6592,7 @@ if.then52:                                        ; preds = %if.end40
   %23 = load i64, ptr %evaluationNumber_, align 8, !tbaa !60
   %inc56 = add i64 %23, 1
   store i64 %inc56, ptr %evaluationNumber_, align 8, !tbaa !60
-  %24 = load double, ptr %this, align 8, !tbaa !63
+  %24 = load double, ptr %this, align 8, !tbaa !68
   ret double %24
 
 if.end58:                                         ; preds = %if.end40
@@ -6702,14 +6702,14 @@ if.else118:                                       ; preds = %if.end111
 if.end122:                                        ; preds = %if.end111, %if.else118
   %cond.i.pn = phi double [ %cond.i, %if.else118 ], [ %d.2, %if.end111 ]
   %storemerge = fadd double %18, %cond.i.pn
-  store double %storemerge, ptr %this, align 8, !tbaa !63
+  store double %storemerge, ptr %this, align 8, !tbaa !68
   %call124 = tail call noundef double @_ZNK8QuantLib39BlackDeltaPremiumAdjustedMaxStrikeClassclEd(ptr noundef nonnull align 8 dereferenceable(80) %f, double noundef %storemerge)
   %40 = load i64, ptr %evaluationNumber_, align 8, !tbaa !60
   %inc126 = add i64 %40, 1
   store i64 %inc126, ptr %evaluationNumber_, align 8, !tbaa !60
   %41 = load i64, ptr %maxEvaluations_, align 8, !tbaa !45
   %cmp10.not = icmp ugt i64 %inc126, %41
-  br i1 %cmp10.not, label %do.body, label %while.body, !llvm.loop !68
+  br i1 %cmp10.not, label %do.body, label %while.body, !llvm.loop !73
 
 do.body:                                          ; preds = %if.end122, %if.end
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream) #19
@@ -6973,11 +6973,16 @@ attributes #22 = { builtin nounwind }
 !58 = !{!46, !22, i64 24}
 !59 = !{!46, !22, i64 32}
 !60 = !{!46, !9, i64 48}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
-!63 = !{!46, !22, i64 0}
-!64 = !{!65, !22, i64 72}
-!65 = !{!"_ZTSN8QuantLib39BlackDeltaPremiumAdjustedMaxStrikeClassE", !19, i64 0, !22, i64 72}
-!66 = distinct !{!66, !67}
-!67 = !{!"llvm.loop.mustprogress"}
-!68 = distinct !{!68, !67}
+!61 = !{!62, !63, i64 24}
+!62 = !{!"_ZTSSt8ios_base", !9, i64 8, !9, i64 16, !63, i64 24, !64, i64 28, !64, i64 32, !5, i64 40, !65, i64 48, !6, i64 64, !23, i64 192, !5, i64 200, !66, i64 208}
+!63 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
+!64 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
+!65 = !{!"_ZTSNSt8ios_base6_WordsE", !5, i64 0, !9, i64 8}
+!66 = !{!"_ZTSSt6locale", !5, i64 0}
+!67 = !{!63, !63, i64 0}
+!68 = !{!46, !22, i64 0}
+!69 = !{!70, !22, i64 72}
+!70 = !{!"_ZTSN8QuantLib39BlackDeltaPremiumAdjustedMaxStrikeClassE", !19, i64 0, !22, i64 72}
+!71 = distinct !{!71, !72}
+!72 = !{!"llvm.loop.mustprogress"}
+!73 = distinct !{!73, !72}

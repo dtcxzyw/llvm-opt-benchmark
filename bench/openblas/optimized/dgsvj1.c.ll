@@ -460,7 +460,7 @@ cdce.end:                                         ; preds = %cdce.call, %84
   br label %321
 
 321:                                              ; preds = %318, %306
-  %322 = load double, ptr %26, align 8
+  %322 = load double, ptr %26, align 8, !tbaa !7
   %323 = fmul double %292, %322
   %324 = call double @llvm.fmuladd.f64(double %323, double %278, double 1.000000e+00)
   %325 = load double, ptr %23, align 8, !tbaa !7

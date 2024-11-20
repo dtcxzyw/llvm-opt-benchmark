@@ -11252,7 +11252,7 @@ if.end1698:                                       ; preds = %invoke.cont1695, %i
 
 if.then1716:                                      ; preds = %if.end1698
   %bsPriceWithSmile_1717 = getelementptr inbounds nuw i8, ptr %this, i64 472
-  %892 = load double, ptr %bsPriceWithSmile_1717, align 8, !tbaa !123
+  %892 = load double, ptr %bsPriceWithSmile_1717, align 8, !tbaa !94
   %sub1718 = fsub double %892, %call375
   %893 = call double @llvm.fmuladd.f64(double %sub1699, double %sub1718, double %890)
   %cmp.i2180 = fcmp olt double %893, %892
@@ -12544,7 +12544,7 @@ cond.true.i.i:                                    ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %cond.true.i.i
-  %6 = load i64, ptr %args, align 8, !tbaa !50
+  %6 = load i64, ptr %args, align 8, !tbaa !244
   %7 = load i64, ptr %ref.tmp.i, align 8, !tbaa !244
   %cmp.i.i = icmp eq i64 %6, %7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #28
@@ -21639,7 +21639,7 @@ for.body:                                         ; preds = %entry, %_ZNSt6vecto
   %mul6 = fmul double %8, %call5
   %10 = load double, ptr %dDiscount_, align 8, !tbaa !327
   %call8 = tail call noundef double @_ZN8QuantLib12blackFormulaENS_6Option4TypeEddddd(i32 noundef 1, double noundef %6, double noundef %7, double noundef %mul6, double noundef %10, double noundef 0.000000e+00)
-  %11 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !3
+  %11 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !335
   %12 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !331
   %cmp.not.i.i = icmp eq ptr %11, %12
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -21651,7 +21651,7 @@ if.then.i.i:                                      ; preds = %for.body
   br label %_ZNSt6vectorIdSaIdEE9push_backEOd.exit
 
 if.else.i.i:                                      ; preds = %for.body
-  %13 = load ptr, ptr %premiaBS, align 8, !tbaa !3
+  %13 = load ptr, ptr %premiaBS, align 8, !tbaa !330
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -21718,7 +21718,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %if.then.i.i, %_ZNSt
   %mul17 = fmul double %19, %call16
   %21 = load double, ptr %dDiscount_, align 8, !tbaa !327
   %call19 = tail call noundef double @_ZN8QuantLib12blackFormulaENS_6Option4TypeEddddd(i32 noundef 1, double noundef %16, double noundef %17, double noundef %mul17, double noundef %21, double noundef 0.000000e+00)
-  %22 = load ptr, ptr %_M_finish.i.i9, align 8, !tbaa !3
+  %22 = load ptr, ptr %_M_finish.i.i9, align 8, !tbaa !335
   %23 = load ptr, ptr %_M_end_of_storage.i.i10, align 8, !tbaa !331
   %cmp.not.i.i11 = icmp eq ptr %22, %23
   br i1 %cmp.not.i.i11, label %if.else.i.i14, label %if.then.i.i12
@@ -21730,7 +21730,7 @@ if.then.i.i12:                                    ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEE9push_backEOd.exit42
 
 if.else.i.i14:                                    ; preds = %_ZNSt6vectorIdSaIdEE9push_backEOd.exit
-  %24 = load ptr, ptr %premiaMKT, align 8, !tbaa !3
+  %24 = load ptr, ptr %premiaMKT, align 8, !tbaa !330
   %sub.ptr.lhs.cast.i.i.i.i.i15 = ptrtoint ptr %22 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i16 = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i.i.i.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i15, %sub.ptr.rhs.cast.i.i.i.i.i16
@@ -21818,7 +21818,7 @@ _ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iterator
   %mul9.i = fmul double %32, %33
   %mul12.i = fmul double %mul9.i, %call11.i
   %mul14.i = fmul double %mul12.i, %cond.i.i
-  %35 = load ptr, ptr %_M_finish.i.i44, align 8, !tbaa !3
+  %35 = load ptr, ptr %_M_finish.i.i44, align 8, !tbaa !335
   %36 = load ptr, ptr %_M_end_of_storage.i.i45, align 8, !tbaa !331
   %cmp.not.i.i46 = icmp eq ptr %35, %36
   br i1 %cmp.not.i.i46, label %if.else.i.i49, label %if.then.i.i47
@@ -21830,7 +21830,7 @@ if.then.i.i47:                                    ; preds = %_ZNK8QuantLib6detai
   br label %_ZNSt6vectorIdSaIdEE9push_backEOd.exit77
 
 if.else.i.i49:                                    ; preds = %_ZNK8QuantLib6detail27VannaVolgaInterpolationImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_E4vegaEd.exit
-  %37 = load ptr, ptr %vegas, align 8, !tbaa !3
+  %37 = load ptr, ptr %vegas, align 8, !tbaa !330
   %sub.ptr.lhs.cast.i.i.i.i.i50 = ptrtoint ptr %35 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i51 = ptrtoint ptr %37 to i64
   %sub.ptr.sub.i.i.i.i.i52 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i50, %sub.ptr.rhs.cast.i.i.i.i.i51

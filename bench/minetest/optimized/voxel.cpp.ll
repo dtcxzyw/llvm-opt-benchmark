@@ -1309,7 +1309,7 @@ if.then:                                          ; preds = %for.body37
   %arrayidx45 = getelementptr inbounds %struct.MapNode, ptr %dst, i64 %indvars.iv109
   %56 = load i32, ptr %arrayidx, align 4, !tbaa.struct !48
   store i32 %56, ptr %arrayidx45, align 4, !tbaa.struct !48
-  %.pre = load i16, ptr %size, align 2
+  %.pre = load i16, ptr %size, align 2, !tbaa !16
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body37

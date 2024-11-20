@@ -4439,8 +4439,8 @@ while.end62:                                      ; preds = %while.body56, %_ZSt
 define linkonce_odr void @_ZN5boost7numeric5ublas17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS5_IdSaIdEEEE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(112) %this, i64 noundef %non_zeros, i1 noundef zeroext %preserve) local_unnamed_addr #4 comdat align 2 {
 entry:
   %size2_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %size2_.i, align 8
-  %1 = load i64, ptr %this, align 8
+  %0 = load i64, ptr %size2_.i, align 8, !tbaa !31
+  %1 = load i64, ptr %this, align 8, !tbaa !31
   %2 = tail call i64 @llvm.umin.i64(i64 %0, i64 %1)
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %non_zeros, i64 %2)
   %cmp.not.i = icmp eq i64 %1, 0
@@ -4562,7 +4562,7 @@ if.then38.i.i:                                    ; preds = %if.end36.i.i
 
 if.end40.i.i:                                     ; preds = %if.then38.i.i, %if.end36.i.i
   store i64 %non_zeros.addr.0.i, ptr %size_.i.i, align 8, !tbaa !67
-  %.pre97 = load i64, ptr %capacity_, align 8
+  %.pre97 = load i64, ptr %capacity_, align 8, !tbaa !53
   br label %_ZN5boost7numeric5ublas15unbounded_arrayImSaImEE6resizeEmm.exit
 
 _ZN5boost7numeric5ublas15unbounded_arrayImSaImEE6resizeEmm.exit: ; preds = %if.then, %if.end40.i.i
@@ -4669,13 +4669,13 @@ if.then38.i.i34:                                  ; preds = %if.end36.i.i32
 
 if.end40.i.i33:                                   ; preds = %if.then38.i.i34, %if.end36.i.i32
   store i64 %12, ptr %size_.i.i1, align 8, !tbaa !69
-  %.pre98 = load i64, ptr %capacity_, align 8
+  %.pre98 = load i64, ptr %capacity_, align 8, !tbaa !31
   br label %_ZN5boost7numeric5ublas15unbounded_arrayIdSaIdEE6resizeEmd.exit
 
 _ZN5boost7numeric5ublas15unbounded_arrayIdSaIdEE6resizeEmd.exit: ; preds = %_ZN5boost7numeric5ublas15unbounded_arrayImSaImEE6resizeEmm.exit, %if.end40.i.i33
   %22 = phi i64 [ %12, %_ZN5boost7numeric5ublas15unbounded_arrayImSaImEE6resizeEmm.exit ], [ %.pre98, %if.end40.i.i33 ]
   %filled2_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %23 = load i64, ptr %filled2_, align 8
+  %23 = load i64, ptr %filled2_, align 8, !tbaa !31
   %24 = tail call i64 @llvm.umin.i64(i64 %23, i64 %22)
   store i64 %24, ptr %filled2_, align 8, !tbaa !52
   br label %if.end
@@ -4820,8 +4820,8 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 define linkonce_odr void @_ZN5boost7numeric5ublas17compressed_matrixIiNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS5_IiSaIiEEEE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(112) %this, i64 noundef %non_zeros, i1 noundef zeroext %preserve) local_unnamed_addr #4 comdat align 2 {
 entry:
   %size2_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %size2_.i, align 8
-  %1 = load i64, ptr %this, align 8
+  %0 = load i64, ptr %size2_.i, align 8, !tbaa !31
+  %1 = load i64, ptr %this, align 8, !tbaa !31
   %2 = tail call i64 @llvm.umin.i64(i64 %0, i64 %1)
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %non_zeros, i64 %2)
   %cmp.not.i = icmp eq i64 %1, 0
@@ -4943,7 +4943,7 @@ if.then38.i.i:                                    ; preds = %if.end36.i.i
 
 if.end40.i.i:                                     ; preds = %if.then38.i.i, %if.end36.i.i
   store i64 %non_zeros.addr.0.i, ptr %size_.i.i, align 8, !tbaa !67
-  %.pre97 = load i64, ptr %capacity_, align 8
+  %.pre97 = load i64, ptr %capacity_, align 8, !tbaa !61
   br label %_ZN5boost7numeric5ublas15unbounded_arrayImSaImEE6resizeEmm.exit
 
 _ZN5boost7numeric5ublas15unbounded_arrayImSaImEE6resizeEmm.exit: ; preds = %if.then, %if.end40.i.i
@@ -5050,13 +5050,13 @@ if.then38.i.i34:                                  ; preds = %if.end36.i.i32
 
 if.end40.i.i33:                                   ; preds = %if.then38.i.i34, %if.end36.i.i32
   store i64 %12, ptr %size_.i.i1, align 8, !tbaa !66
-  %.pre98 = load i64, ptr %capacity_, align 8
+  %.pre98 = load i64, ptr %capacity_, align 8, !tbaa !31
   br label %_ZN5boost7numeric5ublas15unbounded_arrayIiSaIiEE6resizeEmi.exit
 
 _ZN5boost7numeric5ublas15unbounded_arrayIiSaIiEE6resizeEmi.exit: ; preds = %_ZN5boost7numeric5ublas15unbounded_arrayImSaImEE6resizeEmm.exit, %if.end40.i.i33
   %22 = phi i64 [ %12, %_ZN5boost7numeric5ublas15unbounded_arrayImSaImEE6resizeEmm.exit ], [ %.pre98, %if.end40.i.i33 ]
   %filled2_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %23 = load i64, ptr %filled2_, align 8
+  %23 = load i64, ptr %filled2_, align 8, !tbaa !31
   %24 = tail call i64 @llvm.umin.i64(i64 %23, i64 %22)
   store i64 %24, ptr %filled2_, align 8, !tbaa !60
   br label %if.end

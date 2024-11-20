@@ -364,7 +364,7 @@ _ZN5boost6locale4util10try_to_intERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 48:                                               ; preds = %43
   %49 = load ptr, ptr %0, align 8, !tbaa !36
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %51 = load i32, ptr %50, align 8, !tbaa !44
+  %51 = load i32, ptr %50, align 8, !tbaa !31
   %52 = and i32 %51, -75
   %53 = or disjoint i32 %52, 8
   store i32 %53, ptr %50, align 4, !tbaa !44
@@ -378,7 +378,7 @@ _ZN5boost6locale4util10try_to_intERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 57:                                               ; preds = %54
   %58 = load ptr, ptr %0, align 8, !tbaa !36
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %60 = load i32, ptr %59, align 8, !tbaa !44
+  %60 = load i32, ptr %59, align 8, !tbaa !31
   %61 = and i32 %60, -75
   %62 = or disjoint i32 %61, 64
   store i32 %62, ptr %59, align 4, !tbaa !44
@@ -397,7 +397,7 @@ _ZN5boost6locale4util10try_to_intERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 69:                                               ; preds = %66, %63
   %70 = load ptr, ptr %0, align 8, !tbaa !36
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %72 = load i32, ptr %71, align 8, !tbaa !44
+  %72 = load i32, ptr %71, align 8, !tbaa !31
   %73 = and i32 %72, -261
   %74 = or disjoint i32 %73, 256
   store i32 %74, ptr %71, align 4, !tbaa !44
@@ -416,7 +416,7 @@ _ZN5boost6locale4util10try_to_intERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 81:                                               ; preds = %78, %75
   %82 = load ptr, ptr %0, align 8, !tbaa !36
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  %84 = load i32, ptr %83, align 8, !tbaa !44
+  %84 = load i32, ptr %83, align 8, !tbaa !31
   %85 = and i32 %84, -261
   %86 = or disjoint i32 %85, 4
   store i32 %86, ptr %83, align 4, !tbaa !44
@@ -756,7 +756,7 @@ _ZN5boost6locale4util10try_to_intERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 277:                                              ; preds = %274, %271
   %278 = load ptr, ptr %0, align 8, !tbaa !36
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 24
-  %280 = load i32, ptr %279, align 8, !tbaa !44
+  %280 = load i32, ptr %279, align 8, !tbaa !31
   %281 = and i32 %280, -177
   %282 = or disjoint i32 %281, 32
   store i32 %282, ptr %279, align 4, !tbaa !44
@@ -775,7 +775,7 @@ _ZN5boost6locale4util10try_to_intERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 289:                                              ; preds = %286, %283
   %290 = load ptr, ptr %0, align 8, !tbaa !36
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 24
-  %292 = load i32, ptr %291, align 8, !tbaa !44
+  %292 = load i32, ptr %291, align 8, !tbaa !31
   %293 = and i32 %292, -177
   %294 = or disjoint i32 %293, 128
   store i32 %294, ptr %291, align 4, !tbaa !44

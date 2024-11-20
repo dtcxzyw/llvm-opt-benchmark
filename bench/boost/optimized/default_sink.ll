@@ -3303,7 +3303,7 @@ define linkonce_odr hidden noundef ptr @_ZSt27__unguarded_partition_pivotIPSt4pa
   %16 = icmp eq i8 %15, 42
   %.idx.i.i3.i.i.i.i.i = zext i1 %16 to i64
   %17 = getelementptr inbounds i8, ptr %14, i64 %.idx.i.i3.i.i.i.i.i
-  %18 = load ptr, ptr %.0.i, align 8
+  %18 = load ptr, ptr %.0.i, align 8, !tbaa !36
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !33
   %21 = load i8, ptr %20, align 1, !tbaa !35
@@ -3331,7 +3331,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_m
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.122.i13 = phi ptr [ %28, %.lr.ph.i ], [ %.0.i, %.lr.ph.i.preheader ]
   %28 = getelementptr inbounds nuw i8, ptr %.122.i13, i64 16
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !36
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !33
   %32 = load i8, ptr %31, align 1, !tbaa !35

@@ -334,10 +334,10 @@ declare void @_ZSt9terminatev() local_unnamed_addr #4
 define void @_ZN5boost3log11v2_mt_posix10attributes16named_scope_list4swapERS3_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(25) %1) local_unnamed_addr #5 align 2 {
   %3 = alloca %"struct.boost::log::v2_mt_posix::attributes::aux::named_scope_list_node", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !32
+  %5 = load i64, ptr %4, align 8, !tbaa !20
   %6 = icmp eq i64 %5, 0
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !32
+  %8 = load i64, ptr %7, align 8, !tbaa !20
   %9 = icmp eq i64 %8, 0
   br i1 %6, label %32, label %10
 
@@ -346,9 +346,9 @@ define void @_ZN5boost3log11v2_mt_posix10attributes16named_scope_list4swapERS3_(
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !33
+  %13 = load ptr, ptr %12, align 8, !tbaa !32
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !33
+  %15 = load ptr, ptr %14, align 8, !tbaa !32
   %16 = load ptr, ptr %13, align 8, !tbaa !3
   %17 = load ptr, ptr %15, align 8, !tbaa !3
   store ptr %17, ptr %13, align 8, !tbaa !3
@@ -366,8 +366,8 @@ define void @_ZN5boost3log11v2_mt_posix10attributes16named_scope_list4swapERS3_(
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %24 = load i64, ptr %4, align 8, !tbaa !32
-  %25 = load i64, ptr %7, align 8, !tbaa !32
+  %24 = load i64, ptr %4, align 8, !tbaa !33
+  %25 = load i64, ptr %7, align 8, !tbaa !33
   br label %.sink.split
 
 26:                                               ; preds = %10
@@ -375,12 +375,12 @@ define void @_ZN5boost3log11v2_mt_posix10attributes16named_scope_list4swapERS3_(
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %1, ptr %28, align 8, !tbaa !17
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !33
+  %30 = load ptr, ptr %29, align 8, !tbaa !32
   store ptr %1, ptr %30, align 8, !tbaa !19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !27
   store ptr %0, ptr %0, align 8, !tbaa !26
-  store ptr %0, ptr %29, align 8, !tbaa !33
-  %31 = load i64, ptr %4, align 8, !tbaa !32
+  store ptr %0, ptr %29, align 8, !tbaa !32
+  %31 = load i64, ptr %4, align 8, !tbaa !33
   br label %.sink.split
 
 32:                                               ; preds = %2
@@ -391,19 +391,19 @@ define void @_ZN5boost3log11v2_mt_posix10attributes16named_scope_list4swapERS3_(
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %0, ptr %35, align 8, !tbaa !17
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !33
+  %37 = load ptr, ptr %36, align 8, !tbaa !32
   store ptr %0, ptr %37, align 8, !tbaa !19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !27
   store ptr %1, ptr %1, align 8, !tbaa !26
-  store ptr %1, ptr %36, align 8, !tbaa !33
-  %38 = load i64, ptr %7, align 8, !tbaa !32
+  store ptr %1, ptr %36, align 8, !tbaa !32
+  %38 = load i64, ptr %7, align 8, !tbaa !33
   br label %.sink.split
 
 .sink.split:                                      ; preds = %26, %11, %33
   %.sink25 = phi i64 [ %38, %33 ], [ %25, %11 ], [ 0, %26 ]
   %.sink = phi i64 [ 0, %33 ], [ %24, %11 ], [ %31, %26 ]
-  store i64 %.sink25, ptr %4, align 8, !tbaa !32
-  store i64 %.sink, ptr %7, align 8, !tbaa !32
+  store i64 %.sink25, ptr %4, align 8, !tbaa !33
+  store i64 %.sink, ptr %7, align 8, !tbaa !33
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %41 = load i8, ptr %39, align 8, !tbaa !34, !range !35, !noundef !36
@@ -678,7 +678,7 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5boost3log11v2_mt_posix10att
 
 ._crit_edge.i.i:                                  ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !33
+  %8 = load ptr, ptr %7, align 8, !tbaa !32
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !20
   %11 = mul i64 %10, 56
@@ -713,7 +713,7 @@ define void @_ZN5boost3log11v2_mt_posix10attributes16named_scope_listD2Ev(ptr no
 
 ._crit_edge:                                      ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !33
+  %6 = load ptr, ptr %5, align 8, !tbaa !32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !20
   %9 = mul i64 %8, 56
@@ -931,7 +931,7 @@ define linkonce_odr hidden void @_ZN5boost19thread_specific_ptrINS_3log11v2_mt_p
 
 ._crit_edge.i:                                    ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !33
+  %8 = load ptr, ptr %7, align 8, !tbaa !32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !20
   %11 = mul i64 %10, 56
@@ -1113,8 +1113,8 @@ attributes #23 = { builtin nounwind }
 !29 = !{!"_ZTSN5boost3log11v2_mt_posix20basic_string_literalIcSt11char_traitsIcEEE", !4, i64 0, !22, i64 8}
 !30 = !{!29, !22, i64 8}
 !31 = distinct !{!31, !15}
-!32 = !{!22, !22, i64 0}
-!33 = !{!21, !4, i64 8}
+!32 = !{!21, !4, i64 8}
+!33 = !{!22, !22, i64 0}
 !34 = !{!23, !23, i64 0}
 !35 = !{i8 0, i8 2}
 !36 = !{}

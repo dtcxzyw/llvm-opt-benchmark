@@ -177,7 +177,7 @@ define void @_ZNK5boost4urls22implementation_defined10uri_rule_t5parseERPKcS4_(p
 
 _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i.i.i.i.i: ; preds = %23
   %.sroa.54.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
-  %.sroa.54.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.54.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !noalias !17
+  %.sroa.54.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.54.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !tbaa !30, !noalias !17
   %27 = and i64 %.sroa.54.0.copyload.i.i.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %27, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %35, label %28
@@ -211,9 +211,9 @@ _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5erro
   %.sroa.043.0 = phi i64 [ 0, %32 ], [ %.sroa.5.i.i.sroa.0.0.copyload46, %.thread ], [ %.sroa.5.i.i.sroa.0.0.copyload, %30 ]
   store i64 %.sroa.043.0, ptr %0, align 8
   %.sroa.544.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.544.0, ptr %.sroa.544.0..sroa_idx, align 8, !tbaa !30
+  store ptr %.sroa.544.0, ptr %.sroa.544.0..sroa_idx, align 8, !tbaa !31
   %.sroa.645.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.645.0, ptr %.sroa.645.0..sroa_idx, align 8, !tbaa !31
+  store i64 %.sroa.645.0, ptr %.sroa.645.0..sroa_idx, align 8, !tbaa !30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 2, ptr %34, align 8, !tbaa !32
   br label %89
@@ -303,7 +303,7 @@ _ZN5boost6system6resultINS_4urls6detail16hier_part_rule_t10value_typeENS0_10erro
   br i1 %59, label %_ZN5boost4urls7grammar5parseINS0_6detail17query_part_rule_tEEENS_6system6resultINT_10value_typeENS5_10error_codeEEERPKcSC_RKS7_.exit, label %60
 
 60:                                               ; preds = %57
-  %61 = load i8, ptr %58, align 1, !tbaa !30, !noalias !56
+  %61 = load i8, ptr %58, align 1, !tbaa !31, !noalias !56
   %.not.i.i = icmp eq i8 %61, 63
   br i1 %.not.i.i, label %62, label %_ZN5boost4urls7grammar5parseINS0_6detail17query_part_rule_tEEENS_6system6resultINT_10value_typeENS5_10error_codeEEERPKcSC_RKS7_.exit
 
@@ -339,7 +339,7 @@ _ZN5boost4urls7grammar5parseINS0_6detail17query_part_rule_tEEENS_6system6resultI
   br i1 %72, label %87, label %73
 
 73:                                               ; preds = %_ZN5boost4urls7grammar5parseINS0_6detail17query_part_rule_tEEENS_6system6resultINT_10value_typeENS5_10error_codeEEERPKcSC_RKS7_.exit
-  %74 = load i8, ptr %71, align 1, !tbaa !30, !noalias !61
+  %74 = load i8, ptr %71, align 1, !tbaa !31, !noalias !61
   %.not.i.i22 = icmp eq i8 %74, 35
   br i1 %.not.i.i22, label %75, label %87
 
@@ -481,7 +481,7 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   br label %16
 
 12:                                               ; preds = %16
-  %13 = load <16 x i8>, ptr %5, align 16, !tbaa !30
+  %13 = load <16 x i8>, ptr %5, align 16, !tbaa !31
   %14 = icmp slt <16 x i8> %13, zeroinitializer
   %15 = bitcast <16 x i1> %14 to i16
   %.not26.not.i.i.i.i = icmp eq i16 %15, 0
@@ -490,11 +490,11 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
 16:                                               ; preds = %16, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %16 ]
   %17 = getelementptr inbounds i8, ptr %.02134.i.i.i.i, i64 %indvars.iv.i.i.i.i
-  %18 = load i8, ptr %17, align 1, !tbaa !30
+  %18 = load i8, ptr %17, align 1, !tbaa !31
   %19 = and i8 %18, 3
   %20 = zext nneg i8 %19 to i64
   %21 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %20
-  %22 = load i64, ptr %21, align 8, !tbaa !31
+  %22 = load i64, ptr %21, align 8, !tbaa !30
   %23 = lshr i8 %18, 2
   %24 = zext nneg i8 %23 to i64
   %25 = shl nuw i64 1, %24
@@ -502,7 +502,7 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   %.not31.i.i.i.i = icmp eq i64 %26, 0
   %27 = sext i1 %.not31.i.i.i.i to i8
   %28 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i
-  store i8 %27, ptr %28, align 1, !tbaa !30
+  store i8 %27, ptr %28, align 1, !tbaa !31
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 16
   br i1 %exitcond.not.i.i.i.i, label %12, label %16, !llvm.loop !72
@@ -524,11 +524,11 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
 
 .lr.ph37.i.i.i.i:                                 ; preds = %46, %.lr.ph37.preheader.i.i.i.i
   %.22336.i.i.i.i = phi ptr [ %47, %46 ], [ %.021.lcssa.i.i.i.i, %.lr.ph37.preheader.i.i.i.i ]
-  %37 = load i8, ptr %.22336.i.i.i.i, align 1, !tbaa !30
+  %37 = load i8, ptr %.22336.i.i.i.i, align 1, !tbaa !31
   %38 = and i8 %37, 3
   %39 = zext nneg i8 %38 to i64
   %40 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %39
-  %41 = load i64, ptr %40, align 8, !tbaa !31
+  %41 = load i64, ptr %40, align 8, !tbaa !30
   %42 = lshr i8 %37, 2
   %43 = zext nneg i8 %42 to i64
   %44 = shl nuw i64 1, %43
@@ -551,7 +551,7 @@ _ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit: ; preds
   br i1 %51, label %.thread107, label %52
 
 52:                                               ; preds = %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit
-  %53 = load i8, ptr %.2.i.i.i.i, align 1, !tbaa !30
+  %53 = load i8, ptr %.2.i.i.i.i, align 1, !tbaa !31
   %.not = icmp eq i8 %53, 37
   br i1 %.not, label %.preheader, label %.thread107
 
@@ -584,11 +584,11 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   %65 = or disjoint i64 %64, ptrtoint (ptr @_ZZN5boost4urls6detail13parse_encodedINS0_7grammar9lut_charsEEENS_6system6resultINS0_15pct_string_viewENS5_10error_codeEEERPKcSB_RKT_E11loc__LINE__ to i64)
   store i64 5, ptr %0, align 8
   %.sroa.579.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.579.0..sroa_idx, align 8, !tbaa !30
+  store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.579.0..sroa_idx, align 8, !tbaa !31
   br label %.thread
 
 66:                                               ; preds = %.preheader
-  %67 = load i8, ptr %55, align 1, !tbaa !30
+  %67 = load i8, ptr %55, align 1, !tbaa !31
   switch i8 %67, label %_ZN5boost4urls7grammar12hexdig_valueEc.exit [
     i8 48, label %76
     i8 49, label %76
@@ -635,7 +635,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43: ; preds = %_
   %75 = or disjoint i64 %74, ptrtoint (ptr @_ZZN5boost4urls6detail13parse_encodedINS0_7grammar9lut_charsEEENS_6system6resultINS0_15pct_string_viewENS5_10error_codeEEERPKcSB_RKT_E11loc__LINE___0 to i64)
   store i64 5, ptr %0, align 8
   %.sroa.573.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.573.0..sroa_idx, align 8, !tbaa !30
+  store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.573.0..sroa_idx, align 8, !tbaa !31
   br label %.thread
 
 76:                                               ; preds = %66, %66, %66, %66, %66, %66, %66, %66, %66, %66, %66, %66, %66, %66, %66, %66, %66, %66, %66, %66, %66, %66
@@ -665,11 +665,11 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49: ; preds = %_
   %87 = or disjoint i64 %86, ptrtoint (ptr @_ZZN5boost4urls6detail13parse_encodedINS0_7grammar9lut_charsEEENS_6system6resultINS0_15pct_string_viewENS5_10error_codeEEERPKcSB_RKT_E11loc__LINE___1 to i64)
   store i64 5, ptr %0, align 8
   %.sroa.567.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.567.0..sroa_idx, align 8, !tbaa !30
+  store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.567.0..sroa_idx, align 8, !tbaa !31
   br label %.thread
 
 88:                                               ; preds = %76
-  %89 = load i8, ptr %77, align 1, !tbaa !30
+  %89 = load i8, ptr %77, align 1, !tbaa !31
   switch i8 %89, label %_ZN5boost4urls7grammar12hexdig_valueEc.exit51 [
     i8 48, label %98
     i8 49, label %98
@@ -716,7 +716,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57: ; preds = %_
   %97 = or disjoint i64 %96, ptrtoint (ptr @_ZZN5boost4urls6detail13parse_encodedINS0_7grammar9lut_charsEEENS_6system6resultINS0_15pct_string_viewENS5_10error_codeEEERPKcSB_RKT_E11loc__LINE___2 to i64)
   store i64 5, ptr %0, align 8
   %.sroa.561.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.561.0..sroa_idx, align 8, !tbaa !30
+  store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.561.0..sroa_idx, align 8, !tbaa !31
   br label %.thread
 
 98:                                               ; preds = %88, %88, %88, %88, %88, %88, %88, %88, %88, %88, %88, %88, %88, %88, %88, %88, %88, %88, %88, %88, %88, %88
@@ -727,7 +727,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57: ; preds = %_
   br i1 %101, label %.thread107, label %select.unfold
 
 select.unfold:                                    ; preds = %98
-  %102 = load i8, ptr %100, align 1, !tbaa !30
+  %102 = load i8, ptr %100, align 1, !tbaa !31
   %.not37 = icmp eq i8 %102, 37
   br i1 %.not37, label %.preheader, label %.loopexit
 
@@ -799,13 +799,13 @@ attributes #8 = { nounwind }
 !27 = !{!28, !29, i64 24}
 !28 = !{!"_ZTSN5boost8variant26detail17variant_base_implILb1ELb1EJNS_4core17basic_string_viewIcEENS_6system10error_codeEEEE", !6, i64 0, !29, i64 24}
 !29 = !{!"int", !6, i64 0}
-!30 = !{!6, !6, i64 0}
-!31 = !{!8, !8, i64 0}
+!30 = !{!8, !8, i64 0}
+!31 = !{!6, !6, i64 0}
 !32 = !{!33, !29, i64 192}
 !33 = !{!"_ZTSN5boost8variant26detail17variant_base_implILb1ELb1EJNS_4urls8url_viewENS_6system10error_codeEEEE", !6, i64 0, !29, i64 192}
 !34 = !{!35, !29, i64 224}
 !35 = !{!"_ZTSN5boost8variant26detail17variant_base_implILb0ELb1EJNS_4urls6detail16hier_part_rule_t10value_typeENS_6system10error_codeEEEE", !6, i64 0, !29, i64 224}
-!36 = !{i64 0, i64 16, !30, i64 16, i64 8, !31}
+!36 = !{i64 0, i64 16, !31, i64 16, i64 8, !30}
 !37 = !{!38}
 !38 = distinct !{!38, !39, !"_ZNKR5boost6system6resultINS_4urls6detail16hier_part_rule_t10value_typeENS0_10error_codeEE5errorEv: argument 0"}
 !39 = distinct !{!39, !"_ZNKR5boost6system6resultINS_4urls6detail16hier_part_rule_t10value_typeENS0_10error_codeEE5errorEv"}
@@ -835,7 +835,7 @@ attributes #8 = { nounwind }
 !63 = distinct !{!63, !"_ZNK5boost4urls6detail20fragment_part_rule_t5parseERPKcS4_"}
 !64 = distinct !{!64, !65, !"_ZN5boost4urls7grammar5parseINS0_6detail20fragment_part_rule_tEEENS_6system6resultINT_10value_typeENS5_10error_codeEEERPKcSC_RKS7_: argument 0"}
 !65 = distinct !{!65, !"_ZN5boost4urls7grammar5parseINS0_6detail20fragment_part_rule_tEEENS_6system6resultINT_10value_typeENS5_10error_codeEEERPKcSC_RKS7_"}
-!66 = !{i64 0, i64 32, !30}
+!66 = !{i64 0, i64 32, !31}
 !67 = !{!68, !29, i64 24}
 !68 = !{!"_ZTSN5boost8variant26detail17variant_base_implILb1ELb1EJNS_4urls15pct_string_viewENS_6system10error_codeEEEE", !6, i64 0, !29, i64 24}
 !69 = !{!70}

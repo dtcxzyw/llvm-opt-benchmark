@@ -12034,7 +12034,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   %75 = phi i64 [ %32, %20 ], [ %44, %40 ], [ %72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ %.pre27.pre, %47 ]
   %76 = getelementptr inbounds i8, ptr %0, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  %78 = load i32, ptr %77, align 8, !tbaa !312
+  %78 = load i32, ptr %77, align 8, !tbaa !309
   %79 = or i32 %78, %27
   store i32 %79, ptr %77, align 4, !tbaa !312
   br label %80
@@ -12068,14 +12068,14 @@ define linkonce_odr hidden void @_ZN5boost6nowide4test11print_valueERKNSt7__cxx1
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !54
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %12 = load i32, ptr %11, align 8, !tbaa !312
+  %12 = load i32, ptr %11, align 8, !tbaa !309
   %13 = and i32 %12, -75
   %14 = or disjoint i32 %13, 8
   store i32 %14, ptr %11, align 4, !tbaa !312
   %15 = load i64, ptr %6, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %18 = load i32, ptr %17, align 8, !tbaa !312
+  %18 = load i32, ptr %17, align 8, !tbaa !309
   %19 = or i32 %18, 16384
   store i32 %19, ptr %17, align 4, !tbaa !312
   %20 = load i64, ptr %6, align 8
@@ -12433,7 +12433,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEpLEw.exit: ; preds = %_ZNKS
   %74 = phi i64 [ %32, %20 ], [ %44, %40 ], [ %71, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEpLEw.exit ], [ %.pre27.pre, %47 ]
   %75 = getelementptr inbounds i8, ptr %0, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %77 = load i32, ptr %76, align 8, !tbaa !312
+  %77 = load i32, ptr %76, align 8, !tbaa !309
   %78 = or i32 %77, %27
   store i32 %78, ptr %76, align 4, !tbaa !312
   br label %79

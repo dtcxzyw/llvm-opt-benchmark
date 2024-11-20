@@ -941,7 +941,7 @@ define void @dlarrv_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   store i32 %664, ptr %29, align 4, !tbaa !3
   call void @dlar1v_(ptr noundef nonnull %40, ptr noundef nonnull @c__1, ptr noundef nonnull %40, ptr noundef nonnull %38, ptr noundef nonnull %244, ptr noundef nonnull %245, ptr noundef nonnull %255, ptr noundef %250, ptr noundef %5, ptr noundef nonnull %46, ptr noundef %634, ptr noundef nonnull %29, ptr noundef nonnull %43, ptr noundef nonnull %53, ptr noundef nonnull %42, ptr noundef nonnull %630, ptr noundef %638, ptr noundef nonnull %50, ptr noundef nonnull %36, ptr noundef nonnull %51, ptr noundef nonnull %124) #6
   %665 = icmp eq i32 %643, 0
-  %666 = load double, ptr %36, align 8
+  %666 = load double, ptr %36, align 8, !tbaa !7
   br i1 %665, label %667, label %669
 
 667:                                              ; preds = %660

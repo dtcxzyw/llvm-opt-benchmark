@@ -4618,8 +4618,8 @@ call.i.i433.noexc:                                ; preds = %invoke.cont254
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost3any6holderISt6vectorIdSaIdEEEE, i64 16), ptr %call.i.i433463, align 8, !tbaa !35
   %held.i.i.i434 = getelementptr inbounds nuw i8, ptr %call.i.i433463, i64 8
   %_M_finish.i.i.i.i.i435 = getelementptr inbounds nuw i8, ptr %this, i64 280
-  %114 = load ptr, ptr %_M_finish.i.i.i.i.i435, align 8, !tbaa !3
-  %115 = load ptr, ptr %forwards246, align 8, !tbaa !3
+  %114 = load ptr, ptr %_M_finish.i.i.i.i.i435, align 8, !tbaa !136
+  %115 = load ptr, ptr %forwards246, align 8, !tbaa !126
   %sub.ptr.lhs.cast.i.i.i.i.i436 = ptrtoint ptr %114 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i437 = ptrtoint ptr %115 to i64
   %sub.ptr.sub.i.i.i.i.i438 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i436, %sub.ptr.rhs.cast.i.i.i.i.i437
@@ -8878,8 +8878,8 @@ entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost3any6holderISt6vectorIdSaIdEEEE, i64 16), ptr %call, align 8, !tbaa !35
   %held.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !3
-  %1 = load ptr, ptr %held, align 8, !tbaa !3
+  %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !136
+  %1 = load ptr, ptr %held, align 8, !tbaa !126
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i

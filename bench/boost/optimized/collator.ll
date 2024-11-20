@@ -3996,7 +3996,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale8impl_icu12collate_impl
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #23
   call void @_ZNK5boost6locale8impl_icu12collate_implIcE18do_basic_transformENS0_13collate_levelEPKcS6_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %5, ptr noundef nonnull align 8 dereferenceable(297) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !89
+  %7 = load ptr, ptr %6, align 8, !tbaa !95
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !94
   %.not.i.i = icmp eq ptr %7, %9
@@ -4011,7 +4011,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale8impl_icu12collate_impl
   br label %_ZNSt6vectorIhSaIhEE9push_backEOh.exit
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr %5, align 8, !tbaa !89
+  %14 = load ptr, ptr %5, align 8, !tbaa !92
   %15 = ptrtoint ptr %7 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
@@ -5353,7 +5353,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale8impl_icu12collate_impl
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #23
   call void @_ZNK5boost6locale8impl_icu12collate_implIwE18do_basic_transformENS0_13collate_levelEPKwS6_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %5, ptr noundef nonnull align 8 dereferenceable(281) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !89
+  %7 = load ptr, ptr %6, align 8, !tbaa !95
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !94
   %.not.i.i = icmp eq ptr %7, %9
@@ -5368,7 +5368,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale8impl_icu12collate_impl
   br label %_ZNSt6vectorIhSaIhEE9push_backEOh.exit
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr %5, align 8, !tbaa !89
+  %14 = load ptr, ptr %5, align 8, !tbaa !92
   %15 = ptrtoint ptr %7 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16

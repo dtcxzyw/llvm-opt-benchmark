@@ -593,8 +593,8 @@ do.end:                                           ; preds = %entry
   %25 = load i64, ptr %pastFixings_, align 8, !tbaa !37
   %fixingIndices_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %26 = load ptr, ptr %_M_finish.i, align 8, !tbaa !43
-  %27 = load ptr, ptr %fixingIndices_, align 8, !tbaa !43
+  %26 = load ptr, ptr %_M_finish.i, align 8, !tbaa !34
+  %27 = load ptr, ptr %fixingIndices_, align 8, !tbaa !33
   %cmp.i.not44 = icmp eq ptr %27, %26
   br i1 %cmp.i.not44, label %for.cond.cleanup, label %for.body.lr.ph
 

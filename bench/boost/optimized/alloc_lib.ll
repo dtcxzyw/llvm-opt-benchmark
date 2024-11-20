@@ -2820,7 +2820,7 @@ spin_acquire_lock.exit:                           ; preds = %9, %2, %6
 387:                                              ; preds = %373
   %388 = getelementptr inbounds nuw i8, ptr %.0291, i64 16
   %389 = load ptr, ptr %388, align 8, !tbaa !43
-  %390 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 24), align 8
+  %390 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 24), align 8, !tbaa !19
   %391 = icmp uge ptr %.0291, %390
   %392 = icmp uge ptr %389, %390
   %393 = select i1 %391, i1 %392, i1 false, !prof !22
@@ -9098,7 +9098,7 @@ define hidden i64 @boost_cont_allocated_memory() local_unnamed_addr #0 {
   br label %.preheader, !llvm.loop !14
 
 spin_acquire_lock.exit:                           ; preds = %9, %3, %6
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 40), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 40), align 8, !tbaa !29
   %.not47 = icmp eq ptr %16, null
   br i1 %.not47, label %49, label %17
 
@@ -9249,7 +9249,7 @@ define hidden void @boost_cont_malloc_stats(ptr dead_on_unwind noalias nocapture
   br label %.preheader.i, !llvm.loop !14
 
 spin_acquire_lock.exit.i:                         ; preds = %10, %7, %4
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 40), align 8, !noalias !97
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 40), align 8, !tbaa !29, !noalias !97
   %.not40.i = icmp eq ptr %17, null
   br i1 %.not40.i, label %.loopexit.i, label %18
 

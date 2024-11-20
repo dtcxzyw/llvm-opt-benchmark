@@ -507,7 +507,7 @@ lpad.i:                                           ; preds = %init.i
 _ZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEv.exit: ; preds = %entry, %init.check.i, %invoke.cont.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #26
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
-  %4 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !30
+  %4 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !39
   %5 = load i64, ptr %ref.tmp.i, align 8, !tbaa !39
   %cmp.i.i = icmp eq i64 %4, %5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #26
@@ -683,7 +683,7 @@ lpad:                                             ; preds = %cond.false.i36, %in
 
 if.end:                                           ; preds = %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit, %_ZNK5boost10shared_ptrIN8QuantLib8CashFlowEEptEv.exit
   %e1.0 = phi double [ 0.000000e+00, %_ZNK5boost10shared_ptrIN8QuantLib8CashFlowEEptEv.exit ], [ %call41, %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit ]
-  %32 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !3
+  %32 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !74
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 368
   %33 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !108
   %cmp.not.i39 = icmp eq ptr %32, %33
@@ -696,7 +696,7 @@ if.then.i40:                                      ; preds = %if.end
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
 
 if.else.i:                                        ; preds = %if.end
-  %34 = load ptr, ptr %expectedTrancheLoss, align 8, !tbaa !3
+  %34 = load ptr, ptr %expectedTrancheLoss, align 8, !tbaa !73
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %32 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %34 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -806,7 +806,7 @@ _ZNK5boost10shared_ptrIN8QuantLib8CashFlowEEptEv.exit52: ; preds = %for.body, %c
   br i1 %call58, label %if.then59, label %if.end63
 
 if.then59:                                        ; preds = %_ZNK5boost10shared_ptrIN8QuantLib8CashFlowEEptEv.exit52
-  %45 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !3
+  %45 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !74
   %46 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !108
   %cmp.not.i.i54 = icmp eq ptr %45, %46
   br i1 %cmp.not.i.i54, label %if.else.i.i, label %if.then.i.i55
@@ -818,7 +818,7 @@ if.then.i.i55:                                    ; preds = %if.then59
   br label %cleanup
 
 if.else.i.i:                                      ; preds = %if.then59
-  %47 = load ptr, ptr %expectedTrancheLoss, align 8, !tbaa !3
+  %47 = load ptr, ptr %expectedTrancheLoss, align 8, !tbaa !73
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %45 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %47 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -944,8 +944,8 @@ invoke.cont79:                                    ; preds = %.noexc83, %invoke.c
           to label %invoke.cont88 unwind label %lpad72
 
 invoke.cont88:                                    ; preds = %invoke.cont79
-  %60 = load i64, ptr %accrualStartDate_.i79, align 8
-  %61 = load i64, ptr %call84, align 8
+  %60 = load i64, ptr %accrualStartDate_.i79, align 8, !tbaa !39
+  %61 = load i64, ptr %call84, align 8, !tbaa !39
   %62 = call i64 @llvm.smax.i64(i64 %60, i64 %61)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endDate) #26
   %accrualEndDate_.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %54, i64 48
@@ -981,7 +981,7 @@ invoke.cont101:                                   ; preds = %.noexc94, %invoke.c
           to label %invoke.cont103 unwind label %lpad100.loopexit
 
 invoke.cont103:                                   ; preds = %invoke.cont101
-  %66 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !3
+  %66 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !74
   %67 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !108
   %cmp.not.i98 = icmp eq ptr %66, %67
   br i1 %cmp.not.i98, label %if.else.i101, label %if.then.i99
@@ -993,7 +993,7 @@ if.then.i99:                                      ; preds = %invoke.cont103
   br label %invoke.cont110
 
 if.else.i101:                                     ; preds = %invoke.cont103
-  %68 = load ptr, ptr %expectedTrancheLoss, align 8, !tbaa !3
+  %68 = load ptr, ptr %expectedTrancheLoss, align 8, !tbaa !73
   %sub.ptr.lhs.cast.i.i.i.i102 = ptrtoint ptr %66 to i64
   %sub.ptr.rhs.cast.i.i.i.i103 = ptrtoint ptr %68 to i64
   %sub.ptr.sub.i.i.i.i104 = sub i64 %sub.ptr.lhs.cast.i.i.i.i102, %sub.ptr.rhs.cast.i.i.i.i103

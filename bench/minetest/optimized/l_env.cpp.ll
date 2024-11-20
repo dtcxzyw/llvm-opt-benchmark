@@ -11582,7 +11582,7 @@ for.body.i140.i.preheader.split:                  ; preds = %invoke.cont29.i
   %m_cache_extent.i.i163.i = getelementptr inbounds i8, ptr %1, i64 20
   %m_data.i172.i = getelementptr inbounds i8, ptr %1, i64 32
   %92 = icmp sgt i16 %cropped.sroa.0.0, %44
-  %.pre83 = load ptr, ptr %filter, align 8, !tbaa !114
+  %.pre83 = load ptr, ptr %filter, align 8, !tbaa !234
   br i1 %92, label %invoke.cont33.i, label %for.body.i140.i.preheader
 
 for.body.i140.i.preheader:                        ; preds = %for.body.i140.i.preheader.split

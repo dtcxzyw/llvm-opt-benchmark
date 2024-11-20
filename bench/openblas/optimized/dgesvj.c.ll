@@ -1384,7 +1384,7 @@ cdce.end:                                         ; preds = %cdce.call, %118
   br label %909
 
 909:                                              ; preds = %902, %884
-  %910 = load double, ptr %25, align 8
+  %910 = load double, ptr %25, align 8, !tbaa !7
   %911 = fmul double %873, %910
   %912 = call double @llvm.fmuladd.f64(double %911, double %857, double 1.000000e+00)
   %913 = load double, ptr %21, align 8, !tbaa !7
@@ -2167,7 +2167,7 @@ cdce.end:                                         ; preds = %cdce.call, %118
   br label %1465
 
 1465:                                             ; preds = %1458, %1440
-  %1466 = load double, ptr %25, align 8
+  %1466 = load double, ptr %25, align 8, !tbaa !7
   %1467 = fmul double %1426, %1466
   %1468 = call double @llvm.fmuladd.f64(double %1467, double %1412, double 1.000000e+00)
   %1469 = load double, ptr %21, align 8, !tbaa !7
@@ -3104,7 +3104,7 @@ cdce.end:                                         ; preds = %cdce.call, %118
 
 2090:                                             ; preds = %2086, %.loopexit
   %2091 = fcmp olt double %2084, 1.000000e+00
-  %.pre228 = load i32, ptr %29, align 4
+  %.pre228 = load i32, ptr %29, align 4, !tbaa !3
   br i1 %2091, label %2092, label %2113
 
 2092:                                             ; preds = %2090

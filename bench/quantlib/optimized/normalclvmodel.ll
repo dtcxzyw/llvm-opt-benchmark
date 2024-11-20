@@ -4122,9 +4122,9 @@ invoke.cont58:                                    ; preds = %invoke.cont31
   %add.ptr.i60 = getelementptr inbounds nuw double, ptr %29, i64 %mul.i
   store ptr %add.ptr.i60, ptr %ref.tmp55, align 8, !tbaa !3
   %_M_finish.i61 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %31 = load ptr, ptr %_M_finish.i61, align 8, !tbaa !3
+  %31 = load ptr, ptr %_M_finish.i61, align 8, !tbaa !134
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %32 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !134
+  %32 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !136
   %cmp.not.i62 = icmp eq ptr %31, %32
   br i1 %cmp.not.i62, label %if.else.i, label %if.then.i
 
@@ -4133,9 +4133,9 @@ if.then.i:                                        ; preds = %invoke.cont58
           to label %.noexc64 unwind label %ehcleanup67
 
 .noexc64:                                         ; preds = %if.then.i
-  %33 = load ptr, ptr %_M_finish.i61, align 8, !tbaa !136
+  %33 = load ptr, ptr %_M_finish.i61, align 8, !tbaa !134
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %33, i64 32
-  store ptr %incdec.ptr.i, ptr %_M_finish.i61, align 8, !tbaa !136
+  store ptr %incdec.ptr.i, ptr %_M_finish.i61, align 8, !tbaa !134
   br label %invoke.cont63
 
 if.else.i:                                        ; preds = %invoke.cont58
@@ -6214,7 +6214,7 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %_ZNSt6vectorIdSaIdE
   %interpl_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %10 = load ptr, ptr %interpl_, align 8, !tbaa !142
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %11 = load ptr, ptr %_M_finish.i, align 8, !tbaa !136
+  %11 = load ptr, ptr %_M_finish.i, align 8, !tbaa !134
   %cmp.not3.i.i.i.i = icmp eq ptr %10, %11
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
@@ -6238,7 +6238,7 @@ invoke.cont.i:                                    ; preds = %invoke.contthread-p
 
 if.then.i.i.i4:                                   ; preds = %invoke.cont.i
   %_M_end_of_storage.i.i5 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %14 = load ptr, ptr %_M_end_of_storage.i.i5, align 8, !tbaa !134
+  %14 = load ptr, ptr %_M_end_of_storage.i.i5, align 8, !tbaa !136
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i6, %sub.ptr.rhs.cast.i.i7
@@ -6264,7 +6264,7 @@ define linkonce_odr void @_ZNSt6vectorIN8QuantLib19LinearInterpolationESaIS1_EED
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !142
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !136
+  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !134
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
@@ -6288,7 +6288,7 @@ invoke.cont:                                      ; preds = %invoke.contthread-p
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %4 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !134
+  %4 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !136
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -8295,8 +8295,8 @@ declare double @llvm.fabs.f64(double) #19
 define linkonce_odr void @_ZNSt6vectorIN8QuantLib19LinearInterpolationESaIS1_EE17_M_realloc_insertIJN9__gnu_cxx17__normal_iteratorIPKdS_IdSaIdEEEESB_PdEEEvNS6_IPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 8 dereferenceable(8) %__args3) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !136
-  %1 = load ptr, ptr %this, align 8, !tbaa !3
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !134
+  %1 = load ptr, ptr %this, align 8, !tbaa !142
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -8418,7 +8418,7 @@ _ZNSt6vectorIN8QuantLib19LinearInterpolationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN8QuantLib19LinearInterpolationESaIS1_EE13_M_deallocateEPS1_m.exit, label %if.then.i38
 
 if.then.i38:                                      ; preds = %_ZNSt6vectorIN8QuantLib19LinearInterpolationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37
-  %13 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !134
+  %13 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !136
   %sub.ptr.lhs.cast = ptrtoint ptr %13 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef %sub.ptr.sub) #32
@@ -8426,9 +8426,9 @@ if.then.i38:                                      ; preds = %_ZNSt6vectorIN8Quan
 
 _ZNSt12_Vector_baseIN8QuantLib19LinearInterpolationESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN8QuantLib19LinearInterpolationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37, %if.then.i38
   store ptr %cond.i17, ptr %this, align 8, !tbaa !142
-  store ptr %__cur.0.lcssa.i.i.i36, ptr %_M_finish.i.i, align 8, !tbaa !136
+  store ptr %__cur.0.lcssa.i.i.i36, ptr %_M_finish.i.i, align 8, !tbaa !134
   %add.ptr30 = getelementptr inbounds nuw %"class.QuantLib::LinearInterpolation", ptr %cond.i17, i64 %cond.i
-  store ptr %add.ptr30, ptr %_M_end_of_storage, align 8, !tbaa !134
+  store ptr %add.ptr30, ptr %_M_end_of_storage, align 8, !tbaa !136
   ret void
 
 lpad:                                             ; preds = %_ZNSt12_Vector_baseIN8QuantLib19LinearInterpolationESaIS1_EE11_M_allocateEm.exit
@@ -9435,14 +9435,14 @@ lor.end:                                          ; preds = %if.end5.i12, %if.th
 define linkonce_odr noundef double @_ZNK8QuantLib6detail23LinearInterpolationImplIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEPdE5valueEd(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef %x) unnamed_addr #9 comdat align 2 {
 entry:
   %xBegin_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %xBegin_.i, align 8, !tbaa !3
+  %0 = load ptr, ptr %xBegin_.i, align 8, !tbaa !222
   %1 = load double, ptr %0, align 8, !tbaa !57
   %cmp.i = fcmp olt double %x, %1
   br i1 %cmp.i, label %_ZNK8QuantLib13Interpolation12templateImplIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEPdE6locateEd.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
   %xEnd_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load ptr, ptr %xEnd_.i, align 8, !tbaa !3
+  %2 = load ptr, ptr %xEnd_.i, align 8, !tbaa !222
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   %3 = load double, ptr %add.ptr.i.i, align 8, !tbaa !57
   %cmp4.i = fcmp ogt double %x, %3
@@ -9510,14 +9510,14 @@ _ZNK8QuantLib13Interpolation12templateImplIN9__gnu_cxx17__normal_iteratorIPKdSt6
 define linkonce_odr noundef double @_ZNK8QuantLib6detail23LinearInterpolationImplIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEPdE9primitiveEd(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef %x) unnamed_addr #9 comdat align 2 {
 entry:
   %xBegin_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %xBegin_.i, align 8, !tbaa !3
+  %0 = load ptr, ptr %xBegin_.i, align 8, !tbaa !222
   %1 = load double, ptr %0, align 8, !tbaa !57
   %cmp.i = fcmp olt double %x, %1
   br i1 %cmp.i, label %_ZNK8QuantLib13Interpolation12templateImplIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEPdE6locateEd.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
   %xEnd_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load ptr, ptr %xEnd_.i, align 8, !tbaa !3
+  %2 = load ptr, ptr %xEnd_.i, align 8, !tbaa !222
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   %3 = load double, ptr %add.ptr.i.i, align 8, !tbaa !57
   %cmp4.i = fcmp ogt double %x, %3
@@ -9591,14 +9591,14 @@ _ZNK8QuantLib13Interpolation12templateImplIN9__gnu_cxx17__normal_iteratorIPKdSt6
 define linkonce_odr noundef double @_ZNK8QuantLib6detail23LinearInterpolationImplIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEPdE10derivativeEd(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef %x) unnamed_addr #9 comdat align 2 {
 entry:
   %xBegin_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %xBegin_.i, align 8, !tbaa !3
+  %0 = load ptr, ptr %xBegin_.i, align 8, !tbaa !222
   %1 = load double, ptr %0, align 8, !tbaa !57
   %cmp.i = fcmp olt double %x, %1
   br i1 %cmp.i, label %_ZNK8QuantLib13Interpolation12templateImplIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEPdE6locateEd.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
   %xEnd_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load ptr, ptr %xEnd_.i, align 8, !tbaa !3
+  %2 = load ptr, ptr %xEnd_.i, align 8, !tbaa !222
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   %3 = load double, ptr %add.ptr.i.i, align 8, !tbaa !57
   %cmp4.i = fcmp ogt double %x, %3
@@ -10145,9 +10145,9 @@ attributes #33 = { nounwind willreturn memory(read) }
 !131 = distinct !{!131, !60}
 !132 = distinct !{!132, !60}
 !133 = !{!130, !12, i64 8}
-!134 = !{!135, !4, i64 16}
+!134 = !{!135, !4, i64 8}
 !135 = !{!"_ZTSNSt12_Vector_baseIN8QuantLib19LinearInterpolationESaIS1_EE17_Vector_impl_dataE", !4, i64 0, !4, i64 8, !4, i64 16}
-!136 = !{!135, !4, i64 8}
+!136 = !{!135, !4, i64 16}
 !137 = distinct !{!137, !60}
 !138 = !{!139, !4, i64 16}
 !139 = !{!"_ZTSN5boost6detail18sp_counted_impl_pdIPN8QuantLib14NormalCLVModel15MappingFunction17InterpolationDataENS0_13sp_ms_deleterIS5_EEEE", !93, i64 0, !4, i64 16, !140, i64 24}

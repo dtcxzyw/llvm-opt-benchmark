@@ -599,7 +599,7 @@ invoke.cont30:                                    ; preds = %.noexc66, %invoke.c
   %dim_.i67 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %28, i64 16
   %29 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !41, !noalias !38
-  %30 = load ptr, ptr %dim_.i67, align 8, !tbaa !41, !noalias !38
+  %30 = load ptr, ptr %dim_.i67, align 8, !tbaa !36, !noalias !38
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %29 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %30 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -610,9 +610,9 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.thread.i: ; preds = %inv
   %add.ptr.i.i.i2830.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i
   %_M_finish.i.i.i.i.i32.i = getelementptr inbounds nuw i8, ptr %__begin1, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__begin1, i8 0, i64 16, i1 false), !alias.scope !38
-  store ptr %add.ptr.i.i.i2830.i, ptr %_M_finish.i.i.i.i.i32.i, align 8, !tbaa !42, !alias.scope !38
+  store ptr %add.ptr.i.i.i2830.i, ptr %_M_finish.i.i.i.i.i32.i, align 8, !tbaa !41, !alias.scope !38
   %_M_end_of_storage.i.i.i.i.i33.i = getelementptr inbounds nuw i8, ptr %__begin1, i64 24
-  store ptr %add.ptr.i.i.i2830.i, ptr %_M_end_of_storage.i.i.i.i.i33.i, align 8, !tbaa !43, !alias.scope !38
+  store ptr %add.ptr.i.i.i2830.i, ptr %_M_end_of_storage.i.i.i.i.i33.i, align 8, !tbaa !42, !alias.scope !38
   %coordinates_.i34.i = getelementptr inbounds nuw i8, ptr %__begin1, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %coordinates_.i34.i, i8 0, i64 24, i1 false), !alias.scope !38
   br label %invoke.cont33
@@ -635,13 +635,13 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %cond.true.i.i.i.i.i
 call5.i.i.i.i2.i6.i.i.noexc:                      ; preds = %if.end.i.i.i.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i.i69, ptr align 8 %30, i64 %sub.ptr.sub.i.i.i, i1 false), !noalias !38
   %add.ptr.i.i.i28.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6.i.i69, i64 %sub.ptr.sub.i.i.i
-  store i64 0, ptr %__begin1, align 8, !tbaa !44, !alias.scope !38
+  store i64 0, ptr %__begin1, align 8, !tbaa !43, !alias.scope !38
   %dim_.i.i = getelementptr inbounds nuw i8, ptr %__begin1, i64 8
   store ptr %call5.i.i.i.i2.i6.i.i69, ptr %dim_.i.i, align 8, !tbaa !36, !alias.scope !38
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin1, i64 16
-  store ptr %add.ptr.i.i.i28.i, ptr %_M_finish.i.i.i.i.i.i, align 8, !tbaa !42, !alias.scope !38
+  store ptr %add.ptr.i.i.i28.i, ptr %_M_finish.i.i.i.i.i.i, align 8, !tbaa !41, !alias.scope !38
   %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin1, i64 24
-  store ptr %add.ptr.i.i.i28.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !tbaa !43, !alias.scope !38
+  store ptr %add.ptr.i.i.i28.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !tbaa !42, !alias.scope !38
   %call5.i.i.i.i2.i.i1.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i) #23
           to label %call5.i.i.i.i2.i.i.noexc.i.i unwind label %_ZNSt6vectorImSaImEED2Ev.exit17.i, !noalias !38
 
@@ -650,7 +650,7 @@ call5.i.i.i.i2.i.i.noexc.i.i:                     ; preds = %call5.i.i.i.i2.i6.i
   store ptr %call5.i.i.i.i2.i.i1.i.i, ptr %coordinates_.i.i, align 8, !tbaa !36, !alias.scope !38
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i.i, i64 %sub.ptr.sub.i.i.i
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin1, i64 48
-  store ptr %add.ptr.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !43, !alias.scope !38
+  store ptr %add.ptr.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !42, !alias.scope !38
   %31 = and i64 %sub.ptr.sub.i.i.i, 9223372036854775800
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i1.i.i, i8 0, i64 %31, i1 false), !tbaa !8, !noalias !38
   br label %invoke.cont33
@@ -665,13 +665,13 @@ invoke.cont33:                                    ; preds = %call5.i.i.i.i2.i.i.
   %33 = phi ptr [ %call5.i.i.i.i2.i6.i.i69, %call5.i.i.i.i2.i.i.noexc.i.i ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.thread.i ]
   %retval.0.i.i.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc.i.i ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.thread.i ]
   %_M_finish.i.i7.i.i.i = getelementptr inbounds nuw i8, ptr %__begin1, i64 40
-  store ptr %retval.0.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i.i, align 8, !tbaa !42, !alias.scope !38
+  store ptr %retval.0.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i.i, align 8, !tbaa !41, !alias.scope !38
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %__end1) #20
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  %34 = load i64, ptr %28, align 8, !tbaa !52, !noalias !49
-  store i64 %34, ptr %__end1, align 8, !tbaa !44, !alias.scope !49
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
+  %34 = load i64, ptr %28, align 8, !tbaa !51, !noalias !48
+  store i64 %34, ptr %__end1, align 8, !tbaa !43, !alias.scope !48
   %dim_.i.i70 = getelementptr inbounds nuw i8, ptr %__end1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %dim_.i.i70, i8 0, i64 48, i1 false), !alias.scope !49
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %dim_.i.i70, i8 0, i64 48, i1 false), !alias.scope !48
   %cmp.i71.not180 = icmp eq i64 %34, 0
   br i1 %cmp.i71.not180, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit, label %for.body.lr.ph
 
@@ -693,7 +693,7 @@ _ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit:       ; preds = %_ZN8QuantLib19FdmLi
 
 if.then.i.i.i.i78:                                ; preds = %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit
   %_M_end_of_storage.i.i.i79 = getelementptr inbounds nuw i8, ptr %__begin1, i64 48
-  %36 = load ptr, ptr %_M_end_of_storage.i.i.i79, align 8, !tbaa !43
+  %36 = load ptr, ptr %_M_end_of_storage.i.i.i79, align 8, !tbaa !42
   %sub.ptr.lhs.cast.i.i.i80 = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i.i.i81 = ptrtoint ptr %.pre181 to i64
   %sub.ptr.sub.i.i.i82 = sub i64 %sub.ptr.lhs.cast.i.i.i80, %sub.ptr.rhs.cast.i.i.i81
@@ -709,7 +709,7 @@ _ZNSt6vectorImSaImEED2Ev.exit.i83:                ; preds = %if.then.i.i.i.i78, 
 
 if.then.i.i.i2.i86:                               ; preds = %_ZNSt6vectorImSaImEED2Ev.exit.i83
   %_M_end_of_storage.i.i3.i87 = getelementptr inbounds nuw i8, ptr %__begin1, i64 24
-  %38 = load ptr, ptr %_M_end_of_storage.i.i3.i87, align 8, !tbaa !43
+  %38 = load ptr, ptr %_M_end_of_storage.i.i3.i87, align 8, !tbaa !42
   %sub.ptr.lhs.cast.i.i4.i88 = ptrtoint ptr %38 to i64
   %sub.ptr.rhs.cast.i.i5.i89 = ptrtoint ptr %37 to i64
   %sub.ptr.sub.i.i6.i90 = sub i64 %sub.ptr.lhs.cast.i.i4.i88, %sub.ptr.rhs.cast.i.i5.i89
@@ -764,19 +764,19 @@ invoke.cont48:                                    ; preds = %.noexc97, %if.then
           to label %invoke.cont50 unwind label %lpad47.loopexit
 
 invoke.cont50:                                    ; preds = %invoke.cont48
-  %47 = load ptr, ptr %_M_finish.i.i99, align 8, !tbaa !41
+  %47 = load ptr, ptr %_M_finish.i.i99, align 8, !tbaa !20
   %48 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !21
   %cmp.not.i.i = icmp eq ptr %47, %48
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i101
 
 if.then.i.i101:                                   ; preds = %invoke.cont50
-  store double %call51, ptr %47, align 8, !tbaa !54
+  store double %call51, ptr %47, align 8, !tbaa !53
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i99, align 8, !tbaa !20
   br label %if.end
 
 if.else.i.i:                                      ; preds = %invoke.cont50
-  %49 = load ptr, ptr %x_, align 8, !tbaa !41
+  %49 = load ptr, ptr %x_, align 8, !tbaa !18
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %47 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %49 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -808,7 +808,7 @@ cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIdSaId
 _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i
   %cond.i10.i.i.i = phi ptr [ null, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i105, %cond.true.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
-  store double %call51, ptr %add.ptr.i.i.i, align 8, !tbaa !54
+  store double %call51, ptr %add.ptr.i.i.i, align 8, !tbaa !53
   %cmp.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i
 
@@ -871,19 +871,19 @@ invoke.cont62:                                    ; preds = %.noexc111, %if.then
           to label %invoke.cont66 unwind label %lpad61.loopexit
 
 invoke.cont66:                                    ; preds = %invoke.cont62
-  %56 = load ptr, ptr %_M_finish.i.i113, align 8, !tbaa !41
+  %56 = load ptr, ptr %_M_finish.i.i113, align 8, !tbaa !20
   %57 = load ptr, ptr %_M_end_of_storage.i.i33, align 8, !tbaa !21
   %cmp.not.i.i115 = icmp eq ptr %56, %57
   br i1 %cmp.not.i.i115, label %if.else.i.i118, label %if.then.i.i116
 
 if.then.i.i116:                                   ; preds = %invoke.cont66
-  store double %call67, ptr %56, align 8, !tbaa !54
+  store double %call67, ptr %56, align 8, !tbaa !53
   %incdec.ptr.i.i117 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %incdec.ptr.i.i117, ptr %_M_finish.i.i113, align 8, !tbaa !20
   br label %if.end69
 
 if.else.i.i118:                                   ; preds = %invoke.cont66
-  %58 = load ptr, ptr %y_, align 8, !tbaa !41
+  %58 = load ptr, ptr %y_, align 8, !tbaa !18
   %sub.ptr.lhs.cast.i.i.i.i.i119 = ptrtoint ptr %56 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i120 = ptrtoint ptr %58 to i64
   %sub.ptr.sub.i.i.i.i.i121 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i119, %sub.ptr.rhs.cast.i.i.i.i.i120
@@ -915,7 +915,7 @@ cond.true.i.i.i.i130:                             ; preds = %_ZNKSt6vectorIdSaId
 _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i.i132: ; preds = %cond.true.i.i.i.i130, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i123
   %cond.i10.i.i.i133 = phi ptr [ null, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i123 ], [ %call5.i.i.i.i.i.i147, %cond.true.i.i.i.i130 ]
   %add.ptr.i.i.i134 = getelementptr inbounds nuw double, ptr %cond.i10.i.i.i133, i64 %sub.ptr.div.i.i.i.i.i124
-  store double %call67, ptr %add.ptr.i.i.i134, align 8, !tbaa !54
+  store double %call67, ptr %add.ptr.i.i.i134, align 8, !tbaa !53
   %cmp.i.i.i.i.i.i135 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i121, 0
   br i1 %cmp.i.i.i.i.i.i135, label %if.then.i.i.i.i.i.i143, label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i136
 
@@ -951,10 +951,10 @@ lpad61.loopexit.split-lp:                         ; preds = %if.then.i.i.i.i144
   br label %ehcleanup
 
 if.end69:                                         ; preds = %if.then.i.i116, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i141, %if.end
-  %60 = load i64, ptr %__begin1, align 8, !tbaa !44
+  %60 = load i64, ptr %__begin1, align 8, !tbaa !43
   %inc.i = add i64 %60, 1
-  store i64 %inc.i, ptr %__begin1, align 8, !tbaa !44
-  %61 = load ptr, ptr %_M_finish.i.i150, align 8, !tbaa !42
+  store i64 %inc.i, ptr %__begin1, align 8, !tbaa !43
+  %61 = load ptr, ptr %_M_finish.i.i150, align 8, !tbaa !41
   %62 = load ptr, ptr %dim_.i149, align 8, !tbaa !36
   %cmp7.not.i = icmp eq ptr %61, %62
   br i1 %cmp7.not.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit, label %for.body.lr.ph.i
@@ -983,10 +983,10 @@ if.then.i156:                                     ; preds = %for.body.i
   store i64 0, ptr %add.ptr.i.i, align 8, !tbaa !8
   %inc9.i = add nuw i64 %i.08.i, 1
   %exitcond.not.i = icmp eq i64 %inc9.i, %umax.i
-  br i1 %exitcond.not.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit, label %for.body.i, !llvm.loop !55
+  br i1 %exitcond.not.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit, label %for.body.i, !llvm.loop !54
 
 _ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit: ; preds = %if.then.i156, %for.body.i
-  %.pre = load i64, ptr %__begin1, align 8, !tbaa !44
+  %.pre = load i64, ptr %__begin1, align 8, !tbaa !43
   br label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit
 
 _ZN8QuantLib19FdmLinearOpIteratorppEv.exit:       ; preds = %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit, %if.end69
@@ -1064,7 +1064,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %1 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !43
+  %1 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !42
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -1079,7 +1079,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 
 if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorImSaImEED2Ev.exit
   %_M_end_of_storage.i.i3 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %3 = load ptr, ptr %_M_end_of_storage.i.i3, align 8, !tbaa !43
+  %3 = load ptr, ptr %_M_end_of_storage.i.i3, align 8, !tbaa !42
   %sub.ptr.lhs.cast.i.i4 = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i5 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i6 = sub i64 %sub.ptr.lhs.cast.i.i4, %sub.ptr.rhs.cast.i.i5
@@ -1198,9 +1198,9 @@ entry:
   %__begin2 = alloca %"class.QuantLib::FdmLinearOpIterator", align 8
   %__end2 = alloca %"class.QuantLib::FdmLinearOpIterator", align 8
   %exerciseTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %exerciseTimes_, align 8, !tbaa !41
+  %0 = load ptr, ptr %exerciseTimes_, align 8, !tbaa !56
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
+  %1 = load ptr, ptr %_M_finish.i, align 8, !tbaa !56
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -1216,25 +1216,25 @@ for.body.lr.ph.i.i.i:                             ; preds = %entry
 for.body.i.i.i:                                   ; preds = %if.end22.i.i.i, %for.body.lr.ph.i.i.i
   %__trip_count.052.i.i.i = phi i64 [ %shr.i.i.i, %for.body.lr.ph.i.i.i ], [ %dec.i.i.i, %if.end22.i.i.i ]
   %__first.sroa.0.051.i.i.i = phi ptr [ %0, %for.body.lr.ph.i.i.i ], [ %incdec.ptr.i14.i.i.i, %if.end22.i.i.i ]
-  %3 = load double, ptr %__first.sroa.0.051.i.i.i, align 8, !tbaa !54
+  %3 = load double, ptr %__first.sroa.0.051.i.i.i, align 8, !tbaa !53
   %cmp.i.i.i.i = fcmp oeq double %3, %t
   br i1 %cmp.i.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.051.i.i.i, i64 8
-  %4 = load double, ptr %incdec.ptr.i.i.i.i, align 8, !tbaa !54
+  %4 = load double, ptr %incdec.ptr.i.i.i.i, align 8, !tbaa !53
   %cmp.i9.i.i.i = fcmp oeq double %4, %t
   br i1 %cmp.i9.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit.split.loop.exit, label %if.end10.i.i.i
 
 if.end10.i.i.i:                                   ; preds = %if.end.i.i.i
   %incdec.ptr.i10.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.051.i.i.i, i64 16
-  %5 = load double, ptr %incdec.ptr.i10.i.i.i, align 8, !tbaa !54
+  %5 = load double, ptr %incdec.ptr.i10.i.i.i, align 8, !tbaa !53
   %cmp.i11.i.i.i = fcmp oeq double %5, %t
   br i1 %cmp.i11.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit.split.loop.exit246, label %if.end16.i.i.i
 
 if.end16.i.i.i:                                   ; preds = %if.end10.i.i.i
   %incdec.ptr.i12.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.051.i.i.i, i64 24
-  %6 = load double, ptr %incdec.ptr.i12.i.i.i, align 8, !tbaa !54
+  %6 = load double, ptr %incdec.ptr.i12.i.i.i, align 8, !tbaa !53
   %cmp.i13.i.i.i = fcmp oeq double %6, %t
   br i1 %cmp.i13.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit.split.loop.exit248, label %if.end22.i.i.i
 
@@ -1260,7 +1260,7 @@ for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.
   ]
 
 sw.bb.i.i.i:                                      ; preds = %for.end.i.i.i
-  %7 = load double, ptr %__first.sroa.0.0.lcssa.i.i.i, align 8, !tbaa !54
+  %7 = load double, ptr %__first.sroa.0.0.lcssa.i.i.i, align 8, !tbaa !53
   %cmp.i19.i.i.i = fcmp oeq double %7, %t
   br i1 %cmp.i19.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit, label %if.end29.i.i.i
 
@@ -1270,7 +1270,7 @@ if.end29.i.i.i:                                   ; preds = %sw.bb.i.i.i
 
 sw.bb31.i.i.i:                                    ; preds = %for.end.i.i.i, %if.end29.i.i.i
   %__first.sroa.0.1.i.i.i = phi ptr [ %incdec.ptr.i20.i.i.i, %if.end29.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
-  %8 = load double, ptr %__first.sroa.0.1.i.i.i, align 8, !tbaa !54
+  %8 = load double, ptr %__first.sroa.0.1.i.i.i, align 8, !tbaa !53
   %cmp.i21.i.i.i = fcmp oeq double %8, %t
   br i1 %cmp.i21.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit, label %if.end36.i.i.i
 
@@ -1280,7 +1280,7 @@ if.end36.i.i.i:                                   ; preds = %sw.bb31.i.i.i
 
 sw.bb38.i.i.i:                                    ; preds = %for.end.i.i.i, %if.end36.i.i.i
   %__first.sroa.0.2.i.i.i = phi ptr [ %incdec.ptr.i22.i.i.i, %if.end36.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
-  %9 = load double, ptr %__first.sroa.0.2.i.i.i, align 8, !tbaa !54
+  %9 = load double, ptr %__first.sroa.0.2.i.i.i, align 8, !tbaa !53
   %cmp.i23.i.i.i = fcmp oeq double %9, %t
   br i1 %cmp.i23.i.i.i, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit, label %if.end229
 
@@ -1319,16 +1319,16 @@ _ZN8QuantLib5ArrayC2Em.exit:                      ; preds = %if.then, %cond.true
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %m) #20
   %y_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %_M_finish.i45 = getelementptr inbounds nuw i8, ptr %this, i64 104
-  %14 = load ptr, ptr %_M_finish.i45, align 8, !tbaa !41
-  %15 = load ptr, ptr %y_, align 8, !tbaa !41
+  %14 = load ptr, ptr %_M_finish.i45, align 8, !tbaa !20
+  %15 = load ptr, ptr %y_, align 8, !tbaa !18
   %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %x_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %_M_finish.i46 = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %16 = load ptr, ptr %_M_finish.i46, align 8, !tbaa !41
-  %17 = load ptr, ptr %x_, align 8, !tbaa !41
+  %16 = load ptr, ptr %_M_finish.i46, align 8, !tbaa !20
+  %17 = load ptr, ptr %x_, align 8, !tbaa !18
   %sub.ptr.lhs.cast.i47 = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i48 = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i49 = sub i64 %sub.ptr.lhs.cast.i47, %sub.ptr.rhs.cast.i48
@@ -1346,7 +1346,7 @@ cond.true.i52:                                    ; preds = %_ZN8QuantLib5ArrayC
 
 invoke.cont:                                      ; preds = %_ZN8QuantLib5ArrayC2Em.exit, %cond.true.i52
   %cond.i54 = phi ptr [ null, %_ZN8QuantLib5ArrayC2Em.exit ], [ %call.i5355, %cond.true.i52 ]
-  store ptr %cond.i54, ptr %m, align 8, !tbaa !41
+  store ptr %cond.i54, ptr %m, align 8, !tbaa !56
   %rows_.i = getelementptr inbounds nuw i8, ptr %m, i64 8
   store i64 %sub.ptr.div.i, ptr %rows_.i, align 8, !tbaa !66
   %columns_.i = getelementptr inbounds nuw i8, ptr %m, i64 16
@@ -1354,7 +1354,7 @@ invoke.cont:                                      ; preds = %_ZN8QuantLib5ArrayC
   br i1 %cmp.not.i, label %invoke.cont24, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont
-  %21 = load ptr, ptr %a, align 8, !tbaa !41
+  %21 = load ptr, ptr %a, align 8, !tbaa !56
   %add.ptr.i.idx = shl nuw nsw i64 %10, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %cond.i54, ptr align 8 %21, i64 %add.ptr.i.idx, i1 false)
   br label %invoke.cont24
@@ -1407,7 +1407,7 @@ cond.false.i61:                                   ; preds = %invoke.cont45
 
 invoke.cont49:                                    ; preds = %.noexc63, %invoke.cont45
   %25 = phi ptr [ %24, %invoke.cont45 ], [ %.pre.i62, %.noexc63 ]
-  %26 = load i64, ptr %25, align 8, !tbaa !52
+  %26 = load i64, ptr %25, align 8, !tbaa !51
   %27 = load i64, ptr %n_.i, align 8, !tbaa !58
   %cmp = icmp eq i64 %26, %27
   br i1 %cmp, label %do.end, label %if.then55
@@ -1634,7 +1634,7 @@ invoke.cont91:                                    ; preds = %.noexc90, %invoke.c
   %dim_.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %56, i64 16
   %57 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !41, !noalias !69
-  %58 = load ptr, ptr %dim_.i, align 8, !tbaa !41, !noalias !69
+  %58 = load ptr, ptr %dim_.i, align 8, !tbaa !36, !noalias !69
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %57 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %58 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -1645,9 +1645,9 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.thread.i: ; preds = %inv
   %add.ptr.i.i.i2830.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i
   %_M_finish.i.i.i.i.i32.i = getelementptr inbounds nuw i8, ptr %__begin2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__begin2, i8 0, i64 16, i1 false), !alias.scope !69
-  store ptr %add.ptr.i.i.i2830.i, ptr %_M_finish.i.i.i.i.i32.i, align 8, !tbaa !42, !alias.scope !69
+  store ptr %add.ptr.i.i.i2830.i, ptr %_M_finish.i.i.i.i.i32.i, align 8, !tbaa !41, !alias.scope !69
   %_M_end_of_storage.i.i.i.i.i33.i = getelementptr inbounds nuw i8, ptr %__begin2, i64 24
-  store ptr %add.ptr.i.i.i2830.i, ptr %_M_end_of_storage.i.i.i.i.i33.i, align 8, !tbaa !43, !alias.scope !69
+  store ptr %add.ptr.i.i.i2830.i, ptr %_M_end_of_storage.i.i.i.i.i33.i, align 8, !tbaa !42, !alias.scope !69
   %coordinates_.i34.i = getelementptr inbounds nuw i8, ptr %__begin2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %coordinates_.i34.i, i8 0, i64 24, i1 false), !alias.scope !69
   br label %invoke.cont94
@@ -1670,13 +1670,13 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %cond.true.i.i.i.i.i
 call5.i.i.i.i2.i6.i.i.noexc:                      ; preds = %if.end.i.i.i.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i.i93, ptr align 8 %58, i64 %sub.ptr.sub.i.i.i, i1 false), !noalias !69
   %add.ptr.i.i.i28.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6.i.i93, i64 %sub.ptr.sub.i.i.i
-  store i64 0, ptr %__begin2, align 8, !tbaa !44, !alias.scope !69
+  store i64 0, ptr %__begin2, align 8, !tbaa !43, !alias.scope !69
   %dim_.i.i = getelementptr inbounds nuw i8, ptr %__begin2, i64 8
   store ptr %call5.i.i.i.i2.i6.i.i93, ptr %dim_.i.i, align 8, !tbaa !36, !alias.scope !69
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2, i64 16
-  store ptr %add.ptr.i.i.i28.i, ptr %_M_finish.i.i.i.i.i.i, align 8, !tbaa !42, !alias.scope !69
+  store ptr %add.ptr.i.i.i28.i, ptr %_M_finish.i.i.i.i.i.i, align 8, !tbaa !41, !alias.scope !69
   %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2, i64 24
-  store ptr %add.ptr.i.i.i28.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !tbaa !43, !alias.scope !69
+  store ptr %add.ptr.i.i.i28.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !tbaa !42, !alias.scope !69
   %call5.i.i.i.i2.i.i1.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i) #23
           to label %call5.i.i.i.i2.i.i.noexc.i.i unwind label %_ZNSt6vectorImSaImEED2Ev.exit17.i, !noalias !69
 
@@ -1685,7 +1685,7 @@ call5.i.i.i.i2.i.i.noexc.i.i:                     ; preds = %call5.i.i.i.i2.i6.i
   store ptr %call5.i.i.i.i2.i.i1.i.i, ptr %coordinates_.i.i, align 8, !tbaa !36, !alias.scope !69
   %add.ptr.i.i.i.i.i91 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i.i, i64 %sub.ptr.sub.i.i.i
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2, i64 48
-  store ptr %add.ptr.i.i.i.i.i91, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !43, !alias.scope !69
+  store ptr %add.ptr.i.i.i.i.i91, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !42, !alias.scope !69
   %59 = and i64 %sub.ptr.sub.i.i.i, 9223372036854775800
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i1.i.i, i8 0, i64 %59, i1 false), !tbaa !8, !noalias !69
   br label %invoke.cont94
@@ -1700,11 +1700,11 @@ invoke.cont94:                                    ; preds = %call5.i.i.i.i2.i.i.
   %61 = phi ptr [ %call5.i.i.i.i2.i6.i.i93, %call5.i.i.i.i2.i.i.noexc.i.i ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.thread.i ]
   %retval.0.i.i.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i91, %call5.i.i.i.i2.i.i.noexc.i.i ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.thread.i ]
   %_M_finish.i.i7.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2, i64 40
-  store ptr %retval.0.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i.i, align 8, !tbaa !42, !alias.scope !69
+  store ptr %retval.0.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i.i, align 8, !tbaa !41, !alias.scope !69
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %__end2) #20
   call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  %62 = load i64, ptr %56, align 8, !tbaa !52, !noalias !72
-  store i64 %62, ptr %__end2, align 8, !tbaa !44, !alias.scope !72
+  %62 = load i64, ptr %56, align 8, !tbaa !51, !noalias !72
+  store i64 %62, ptr %__end2, align 8, !tbaa !43, !alias.scope !72
   %dim_.i.i94 = getelementptr inbounds nuw i8, ptr %__end2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %dim_.i.i94, i8 0, i64 48, i1 false), !alias.scope !72
   %cmp.i95.not237 = icmp eq i64 %62, 0
@@ -1729,7 +1729,7 @@ _ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit:       ; preds = %_ZN8QuantLib19FdmLi
 
 if.then.i.i.i.i102:                               ; preds = %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit
   %_M_end_of_storage.i.i.i103 = getelementptr inbounds nuw i8, ptr %__begin2, i64 48
-  %64 = load ptr, ptr %_M_end_of_storage.i.i.i103, align 8, !tbaa !43
+  %64 = load ptr, ptr %_M_end_of_storage.i.i.i103, align 8, !tbaa !42
   %sub.ptr.lhs.cast.i.i.i104 = ptrtoint ptr %64 to i64
   %sub.ptr.rhs.cast.i.i.i105 = ptrtoint ptr %.pre244 to i64
   %sub.ptr.sub.i.i.i106 = sub i64 %sub.ptr.lhs.cast.i.i.i104, %sub.ptr.rhs.cast.i.i.i105
@@ -1745,7 +1745,7 @@ _ZNSt6vectorImSaImEED2Ev.exit.i107:               ; preds = %if.then.i.i.i.i102,
 
 if.then.i.i.i2.i110:                              ; preds = %_ZNSt6vectorImSaImEED2Ev.exit.i107
   %_M_end_of_storage.i.i3.i111 = getelementptr inbounds nuw i8, ptr %__begin2, i64 24
-  %66 = load ptr, ptr %_M_end_of_storage.i.i3.i111, align 8, !tbaa !43
+  %66 = load ptr, ptr %_M_end_of_storage.i.i3.i111, align 8, !tbaa !42
   %sub.ptr.lhs.cast.i.i4.i112 = ptrtoint ptr %66 to i64
   %sub.ptr.rhs.cast.i.i5.i113 = ptrtoint ptr %65 to i64
   %sub.ptr.sub.i.i6.i114 = sub i64 %sub.ptr.lhs.cast.i.i4.i112, %sub.ptr.rhs.cast.i.i5.i113
@@ -1769,8 +1769,8 @@ call.i.i116.noexc:                                ; preds = %if.then.i.i.i.i.i.i
 
 _ZN8QuantLib5ArrayC2ERKS0_.exit.i:                ; preds = %call.i.i116.noexc, %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit115
   %temp.sroa.0.0.i = phi ptr [ %call.i.i116117, %call.i.i116.noexc ], [ null, %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit115 ]
-  %70 = load ptr, ptr %a, align 8, !tbaa !41
-  store ptr %temp.sroa.0.0.i, ptr %a, align 8, !tbaa !41
+  %70 = load ptr, ptr %a, align 8, !tbaa !56
+  store ptr %temp.sroa.0.0.i, ptr %a, align 8, !tbaa !56
   store i64 %10, ptr %n_.i, align 8, !tbaa !8
   %cmp.not.i.i.i = icmp eq ptr %70, null
   br i1 %cmp.not.i.i.i, label %invoke.cont221, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
@@ -1794,12 +1794,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %74 = load i64, ptr %73, align 8, !tbaa !8
   %75 = load ptr, ptr %x_, align 8, !tbaa !18
   %add.ptr.i120 = getelementptr inbounds nuw double, ptr %75, i64 %74
-  %76 = load double, ptr %add.ptr.i120, align 8, !tbaa !54
+  %76 = load double, ptr %add.ptr.i120, align 8, !tbaa !53
   %add.ptr.i121 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %77 = load i64, ptr %add.ptr.i121, align 8, !tbaa !8
   %78 = load ptr, ptr %y_, align 8, !tbaa !18
   %add.ptr.i122 = getelementptr inbounds nuw double, ptr %78, i64 %77
-  %79 = load double, ptr %add.ptr.i122, align 8, !tbaa !54
+  %79 = load double, ptr %add.ptr.i122, align 8, !tbaa !53
   %80 = load ptr, ptr %calculator_, align 8, !tbaa !24
   %cmp.not.i123 = icmp eq ptr %80, null
   br i1 %cmp.not.i123, label %cond.false.i124, label %invoke.cont114, !prof !33
@@ -1821,10 +1821,10 @@ invoke.cont114:                                   ; preds = %.noexc126, %for.bod
           to label %invoke.cont116 unwind label %lpad113
 
 invoke.cont116:                                   ; preds = %invoke.cont114
-  %83 = load ptr, ptr %y_, align 8, !tbaa !41
-  %84 = load double, ptr %83, align 8, !tbaa !54
+  %83 = load ptr, ptr %y_, align 8, !tbaa !56
+  %84 = load double, ptr %83, align 8, !tbaa !53
   %sub = fsub double %79, %84
-  %85 = load double, ptr %changeRate_, align 8, !tbaa !54
+  %85 = load double, ptr %changeRate_, align 8, !tbaa !53
   %cmp.i127 = fcmp olt double %85, %sub
   %.sroa.speculated197 = select i1 %cmp.i127, double %85, double %sub
   %sub125 = fsub double %79, %.sroa.speculated197
@@ -1853,11 +1853,11 @@ _ZNK5boost10shared_ptrIN8QuantLib15Interpolation2D4ImplEEptEv.exit.i: ; preds = 
           to label %invoke.cont127 unwind label %lpad126
 
 invoke.cont127:                                   ; preds = %_ZNK5boost10shared_ptrIN8QuantLib15Interpolation2D4ImplEEptEv.exit.i
-  %89 = load ptr, ptr %_M_finish.i45, align 8, !tbaa !41
+  %89 = load ptr, ptr %_M_finish.i45, align 8, !tbaa !56
   %add.ptr.i.i = getelementptr inbounds i8, ptr %89, i64 -8
-  %90 = load double, ptr %add.ptr.i.i, align 8, !tbaa !54
+  %90 = load double, ptr %add.ptr.i.i, align 8, !tbaa !53
   %sub132 = fsub double %90, %79
-  %91 = load double, ptr %changeRate_, align 8, !tbaa !54
+  %91 = load double, ptr %changeRate_, align 8, !tbaa !53
   %cmp.i132 = fcmp olt double %91, %sub132
   %.sroa.speculated195 = select i1 %cmp.i132, double %91, double %sub132
   %add = fadd double %79, %.sroa.speculated195
@@ -1886,19 +1886,19 @@ _ZNK5boost10shared_ptrIN8QuantLib15Interpolation2D4ImplEEptEv.exit.i136: ; preds
           to label %invoke.cont139 unwind label %lpad138
 
 invoke.cont139:                                   ; preds = %_ZNK5boost10shared_ptrIN8QuantLib15Interpolation2D4ImplEEptEv.exit.i136
-  %95 = load i64, ptr %__begin2, align 8, !tbaa !44
-  %96 = load ptr, ptr %a, align 8, !tbaa !41
+  %95 = load i64, ptr %__begin2, align 8, !tbaa !43
+  %96 = load ptr, ptr %a, align 8, !tbaa !56
   %arrayidx.i = getelementptr inbounds nuw double, ptr %96, i64 %95
   %neg = fneg double %call117
   %97 = call double @llvm.fmuladd.f64(double %neg, double %.sroa.speculated195, double %call2.i143)
   %98 = call double @llvm.fmuladd.f64(double %call117, double %.sroa.speculated197, double %call2.i131)
   %cmp.i145 = fcmp olt double %97, %98
-  %99 = load double, ptr %arrayidx.i, align 8
+  %99 = load double, ptr %arrayidx.i, align 8, !tbaa !53
   %100 = select i1 %cmp.i145, double %98, double %97
   %cmp.i147 = fcmp olt double %99, %100
   %101 = select i1 %cmp.i147, double %100, double %99
-  %102 = load ptr, ptr %y_, align 8, !tbaa !41
-  %103 = load ptr, ptr %_M_finish.i45, align 8, !tbaa !41
+  %102 = load ptr, ptr %y_, align 8, !tbaa !56
+  %103 = load ptr, ptr %_M_finish.i45, align 8, !tbaa !56
   %sub.ptr.lhs.cast.i.i.i.i.i150 = ptrtoint ptr %103 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i151 = ptrtoint ptr %102 to i64
   %sub.ptr.sub.i.i.i.i.i152 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i150, %sub.ptr.rhs.cast.i.i.i.i.i151
@@ -1911,7 +1911,7 @@ while.body.i.i:                                   ; preds = %invoke.cont139, %wh
   %__first.sroa.0.07.i.i = phi ptr [ %__first.sroa.0.1.i.i, %while.body.i.i ], [ %102, %invoke.cont139 ]
   %shr.i.i = lshr i64 %__len.08.i.i, 1
   %add.ptr.i.i.i.i.i154 = getelementptr inbounds double, ptr %__first.sroa.0.07.i.i, i64 %shr.i.i
-  %104 = load double, ptr %add.ptr.i.i.i.i.i154, align 8, !tbaa !54
+  %104 = load double, ptr %add.ptr.i.i.i.i.i154, align 8, !tbaa !53
   %cmp.i.i.i155 = fcmp olt double %sub125, %104
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i154, i64 8
   %105 = xor i64 %shr.i.i, -1
@@ -1930,7 +1930,7 @@ land.rhs:                                         ; preds = %invoke.cont168, %if
   %106 = phi ptr [ %116, %if.end197 ], [ %103, %invoke.cont168 ]
   %currentValue.0235 = phi double [ %currentValue.1, %if.end197 ], [ %101, %invoke.cont168 ]
   %yIter.sroa.0.0234 = phi ptr [ %incdec.ptr.i, %if.end197 ], [ %__first.sroa.0.0.lcssa.i.i, %invoke.cont168 ]
-  %107 = load double, ptr %yIter.sroa.0.0234, align 8, !tbaa !54
+  %107 = load double, ptr %yIter.sroa.0.0234, align 8, !tbaa !53
   %cmp179 = fcmp olt double %107, %add
   br i1 %cmp179, label %while.body, label %while.end.loopexit
 
@@ -1969,7 +1969,7 @@ invoke.cont187:                                   ; preds = %_ZNK5boost10shared_
   %111 = call double @llvm.fmuladd.f64(double %neg190, double %call117, double %call2.i167)
   %cmp.i169 = fcmp olt double %currentValue.0235, %111
   %.sroa.speculated = select i1 %cmp.i169, double %111, double %currentValue.0235
-  %.pre = load ptr, ptr %_M_finish.i45, align 8, !tbaa !41
+  %.pre = load ptr, ptr %_M_finish.i45, align 8, !tbaa !56
   br label %if.end197
 
 lpad113:                                          ; preds = %cond.false.i124, %invoke.cont114
@@ -2001,17 +2001,17 @@ if.end197:                                        ; preds = %invoke.cont187, %wh
 
 while.end.loopexit:                               ; preds = %if.end197, %land.rhs
   %currentValue.0.lcssa.ph = phi double [ %currentValue.0235, %land.rhs ], [ %currentValue.1, %if.end197 ]
-  %.pre242 = load i64, ptr %__begin2, align 8, !tbaa !44
+  %.pre242 = load i64, ptr %__begin2, align 8, !tbaa !43
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %invoke.cont168
   %117 = phi i64 [ %95, %invoke.cont168 ], [ %.pre242, %while.end.loopexit ]
   %currentValue.0.lcssa = phi double [ %101, %invoke.cont168 ], [ %currentValue.0.lcssa.ph, %while.end.loopexit ]
   %arrayidx.i171 = getelementptr inbounds nuw double, ptr %cond.i, i64 %117
-  store double %currentValue.0.lcssa, ptr %arrayidx.i171, align 8, !tbaa !54
+  store double %currentValue.0.lcssa, ptr %arrayidx.i171, align 8, !tbaa !53
   %inc.i = add i64 %117, 1
-  store i64 %inc.i, ptr %__begin2, align 8, !tbaa !44
-  %118 = load ptr, ptr %_M_finish.i.i173, align 8, !tbaa !42
+  store i64 %inc.i, ptr %__begin2, align 8, !tbaa !43
+  %118 = load ptr, ptr %_M_finish.i.i173, align 8, !tbaa !41
   %119 = load ptr, ptr %dim_.i172, align 8, !tbaa !36
   %cmp7.not.i = icmp eq ptr %118, %119
   br i1 %cmp7.not.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit, label %for.body.lr.ph.i
@@ -2040,10 +2040,10 @@ if.then.i:                                        ; preds = %for.body.i
   store i64 0, ptr %add.ptr.i.i175, align 8, !tbaa !8
   %inc9.i = add nuw i64 %i.08.i, 1
   %exitcond.not.i = icmp eq i64 %inc9.i, %umax.i
-  br i1 %exitcond.not.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit, label %for.body.i, !llvm.loop !55
+  br i1 %exitcond.not.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit, label %for.body.i, !llvm.loop !54
 
 _ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit: ; preds = %if.then.i, %for.body.i
-  %.pre243 = load i64, ptr %__begin2, align 8, !tbaa !44
+  %.pre243 = load i64, ptr %__begin2, align 8, !tbaa !43
   br label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit
 
 _ZN8QuantLib19FdmLinearOpIteratorppEv.exit:       ; preds = %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit, %while.end
@@ -2105,7 +2105,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i17
 
 _ZN8QuantLib15Interpolation2DD2Ev.exit:           ; preds = %invoke.cont221, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i.i179
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %interpl) #20
-  %131 = load ptr, ptr %m, align 8, !tbaa !41
+  %131 = load ptr, ptr %m, align 8, !tbaa !56
   %cmp.not.i.i180 = icmp eq ptr %131, null
   br i1 %cmp.not.i.i180, label %_ZN8QuantLib6MatrixD2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
@@ -2130,7 +2130,7 @@ ehcleanup223:                                     ; preds = %lpad86, %ehcleanup2
 ehcleanup224:                                     ; preds = %ehcleanup223, %lpad42
   %.pn31.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn31.pn.pn.pn.pn.pn.pn.pn, %ehcleanup223 ], [ %29, %lpad42 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %interpl) #20
-  %132 = load ptr, ptr %m, align 8, !tbaa !41
+  %132 = load ptr, ptr %m, align 8, !tbaa !56
   %cmp.not.i.i183 = icmp eq ptr %132, null
   br i1 %cmp.not.i.i183, label %ehcleanup226, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i184
 
@@ -2224,7 +2224,7 @@ invoke.cont4:                                     ; preds = %invoke.cont3
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call, ptr %px_.i.i.i.i, align 8, !tbaa !86
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
-  store ptr %call, ptr %impl_.i, align 8, !tbaa !41
+  store ptr %call, ptr %impl_.i, align 8, !tbaa !56
   %pn3.i2.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %6 = load ptr, ptr %pn3.i2.i, align 8, !tbaa !16
   store ptr %call.i.i.i, ptr %pn3.i2.i, align 8, !tbaa !16
@@ -3044,19 +3044,19 @@ entry:
   %ref.tmp65 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN8QuantLib15Interpolation2D12templateImplIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEES9_NS_6MatrixEEE, i64 16), ptr %this, align 8, !tbaa !14
   %xBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %xBegin, align 8, !tbaa !41
-  store i64 %0, ptr %xBegin_, align 8, !tbaa !41
+  %0 = load i64, ptr %xBegin, align 8, !tbaa !56
+  store i64 %0, ptr %xBegin_, align 8, !tbaa !56
   %xEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load i64, ptr %xEnd, align 8, !tbaa !41
-  store i64 %1, ptr %xEnd_, align 8, !tbaa !41
+  %1 = load i64, ptr %xEnd, align 8, !tbaa !56
+  store i64 %1, ptr %xEnd_, align 8, !tbaa !56
   %yBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %2 = load i64, ptr %yBegin, align 8, !tbaa !41
-  store i64 %2, ptr %yBegin_, align 8, !tbaa !41
+  %2 = load i64, ptr %yBegin, align 8, !tbaa !56
+  store i64 %2, ptr %yBegin_, align 8, !tbaa !56
   %yEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %3 = load i64, ptr %yEnd, align 8, !tbaa !41
-  store i64 %3, ptr %yEnd_, align 8, !tbaa !41
+  %3 = load i64, ptr %yEnd, align 8, !tbaa !56
+  store i64 %3, ptr %yEnd_, align 8, !tbaa !56
   %zData_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store ptr %zData, ptr %zData_, align 8, !tbaa !41
+  store ptr %zData, ptr %zData_, align 8, !tbaa !56
   %sub.ptr.sub.i = sub i64 %1, %0
   %cmp = icmp sgt i64 %sub.ptr.sub.i, 8
   br i1 %cmp, label %do.body37, label %if.then
@@ -3071,8 +3071,8 @@ invoke.cont:                                      ; preds = %if.then
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %4 = load ptr, ptr %xEnd_, align 8, !tbaa !41
-  %5 = load ptr, ptr %xBegin_, align 8, !tbaa !41
+  %4 = load ptr, ptr %xEnd_, align 8, !tbaa !56
+  %5 = load ptr, ptr %xBegin_, align 8, !tbaa !56
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
@@ -3258,8 +3258,8 @@ invoke.cont45:                                    ; preds = %if.then42
           to label %invoke.cont47 unwind label %lpad46
 
 invoke.cont47:                                    ; preds = %invoke.cont45
-  %28 = load ptr, ptr %yEnd_, align 8, !tbaa !41
-  %29 = load ptr, ptr %yBegin_, align 8, !tbaa !41
+  %28 = load ptr, ptr %yEnd_, align 8, !tbaa !56
+  %29 = load ptr, ptr %yBegin_, align 8, !tbaa !56
   %sub.ptr.lhs.cast.i43 = ptrtoint ptr %28 to i64
   %sub.ptr.rhs.cast.i44 = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i45 = sub i64 %sub.ptr.lhs.cast.i43, %sub.ptr.rhs.cast.i44
@@ -3465,7 +3465,7 @@ define linkonce_odr noundef double @_ZNK8QuantLib15Interpolation2D12templateImpl
 entry:
   %xBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %xBegin_, align 8, !tbaa !90
-  %1 = load double, ptr %0, align 8, !tbaa !54
+  %1 = load double, ptr %0, align 8, !tbaa !53
   ret double %1
 }
 
@@ -3475,7 +3475,7 @@ entry:
   %xEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %xEnd_, align 8, !tbaa !90
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 -8
-  %1 = load double, ptr %add.ptr.i, align 8, !tbaa !54
+  %1 = load double, ptr %add.ptr.i, align 8, !tbaa !53
   ret double %1
 }
 
@@ -3483,9 +3483,9 @@ entry:
 define linkonce_odr void @_ZNK8QuantLib15Interpolation2D12templateImplIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEES9_NS_6MatrixEE7xValuesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %xBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %agg.tmp.sroa.0.0.copyload = load ptr, ptr %xBegin_, align 8, !tbaa !41
+  %agg.tmp.sroa.0.0.copyload = load ptr, ptr %xBegin_, align 8, !tbaa !56
   %xEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %xEnd_, align 8, !tbaa !41
+  %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %xEnd_, align 8, !tbaa !56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %agg.tmp2.sroa.0.0.copyload to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %agg.tmp.sroa.0.0.copyload to i64
@@ -3528,16 +3528,16 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
 define linkonce_odr noundef i64 @_ZNK8QuantLib15Interpolation2D12templateImplIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEES9_NS_6MatrixEE7locateXEd(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef %x) unnamed_addr #4 comdat align 2 {
 entry:
   %xBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %xBegin_, align 8, !tbaa !41
-  %1 = load double, ptr %0, align 8, !tbaa !54
+  %0 = load ptr, ptr %xBegin_, align 8, !tbaa !90
+  %1 = load double, ptr %0, align 8, !tbaa !53
   %cmp = fcmp olt double %x, %1
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
   %xEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load ptr, ptr %xEnd_, align 8, !tbaa !41
+  %2 = load ptr, ptr %xEnd_, align 8, !tbaa !90
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 -8
-  %3 = load double, ptr %add.ptr.i, align 8, !tbaa !54
+  %3 = load double, ptr %add.ptr.i, align 8, !tbaa !53
   %cmp4 = fcmp ogt double %x, %3
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   br i1 %cmp4, label %if.then5, label %if.else9
@@ -3561,7 +3561,7 @@ while.body.i.i:                                   ; preds = %if.else9, %while.bo
   %__first.sroa.0.07.i.i = phi ptr [ %__first.sroa.0.1.i.i, %while.body.i.i ], [ %0, %if.else9 ]
   %shr.i.i = lshr i64 %__len.08.i.i, 1
   %add.ptr.i.i.i.i.i = getelementptr inbounds double, ptr %__first.sroa.0.07.i.i, i64 %shr.i.i
-  %4 = load double, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !54
+  %4 = load double, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !53
   %cmp.i.i.i = fcmp olt double %x, %4
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %5 = xor i64 %shr.i.i, -1
@@ -3592,7 +3592,7 @@ define linkonce_odr noundef double @_ZNK8QuantLib15Interpolation2D12templateImpl
 entry:
   %yBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %yBegin_, align 8, !tbaa !90
-  %1 = load double, ptr %0, align 8, !tbaa !54
+  %1 = load double, ptr %0, align 8, !tbaa !53
   ret double %1
 }
 
@@ -3602,7 +3602,7 @@ entry:
   %yEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %yEnd_, align 8, !tbaa !90
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 -8
-  %1 = load double, ptr %add.ptr.i, align 8, !tbaa !54
+  %1 = load double, ptr %add.ptr.i, align 8, !tbaa !53
   ret double %1
 }
 
@@ -3610,9 +3610,9 @@ entry:
 define linkonce_odr void @_ZNK8QuantLib15Interpolation2D12templateImplIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEES9_NS_6MatrixEE7yValuesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %yBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %agg.tmp.sroa.0.0.copyload = load ptr, ptr %yBegin_, align 8, !tbaa !41
+  %agg.tmp.sroa.0.0.copyload = load ptr, ptr %yBegin_, align 8, !tbaa !56
   %yEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %yEnd_, align 8, !tbaa !41
+  %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %yEnd_, align 8, !tbaa !56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %agg.tmp2.sroa.0.0.copyload to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %agg.tmp.sroa.0.0.copyload to i64
@@ -3655,16 +3655,16 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
 define linkonce_odr noundef i64 @_ZNK8QuantLib15Interpolation2D12templateImplIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEES9_NS_6MatrixEE7locateYEd(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef %y) unnamed_addr #4 comdat align 2 {
 entry:
   %yBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %yBegin_, align 8, !tbaa !41
-  %1 = load double, ptr %0, align 8, !tbaa !54
+  %0 = load ptr, ptr %yBegin_, align 8, !tbaa !90
+  %1 = load double, ptr %0, align 8, !tbaa !53
   %cmp = fcmp olt double %y, %1
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
   %yEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %2 = load ptr, ptr %yEnd_, align 8, !tbaa !41
+  %2 = load ptr, ptr %yEnd_, align 8, !tbaa !90
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 -8
-  %3 = load double, ptr %add.ptr.i, align 8, !tbaa !54
+  %3 = load double, ptr %add.ptr.i, align 8, !tbaa !53
   %cmp4 = fcmp ogt double %y, %3
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   br i1 %cmp4, label %if.then5, label %if.else9
@@ -3688,7 +3688,7 @@ while.body.i.i:                                   ; preds = %if.else9, %while.bo
   %__first.sroa.0.07.i.i = phi ptr [ %__first.sroa.0.1.i.i, %while.body.i.i ], [ %0, %if.else9 ]
   %shr.i.i = lshr i64 %__len.08.i.i, 1
   %add.ptr.i.i.i.i.i = getelementptr inbounds double, ptr %__first.sroa.0.07.i.i, i64 %shr.i.i
-  %4 = load double, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !54
+  %4 = load double, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !53
   %cmp.i.i.i = fcmp olt double %y, %4
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %5 = xor i64 %shr.i.i, -1
@@ -3868,39 +3868,39 @@ entry:
   %call4 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef %y)
   %zData_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %zData_, align 8, !tbaa !92
-  %3 = load ptr, ptr %2, align 8, !tbaa !41
+  %3 = load ptr, ptr %2, align 8, !tbaa !56
   %columns_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %columns_.i.i, align 8, !tbaa !68
   %mul.i.i = mul i64 %4, %call4
   %add.ptr.i.i = getelementptr inbounds nuw double, ptr %3, i64 %mul.i.i
   %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %call
-  %5 = load double, ptr %arrayidx, align 8, !tbaa !54
+  %5 = load double, ptr %arrayidx, align 8, !tbaa !53
   %add = add i64 %call, 1
   %arrayidx8 = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %add
-  %6 = load double, ptr %arrayidx8, align 8, !tbaa !54
+  %6 = load double, ptr %arrayidx8, align 8, !tbaa !53
   %add10 = add i64 %call4, 1
   %mul.i.i25 = mul i64 %4, %add10
   %add.ptr.i.i26 = getelementptr inbounds nuw double, ptr %3, i64 %mul.i.i25
   %arrayidx12 = getelementptr inbounds nuw double, ptr %add.ptr.i.i26, i64 %call
-  %7 = load double, ptr %arrayidx12, align 8, !tbaa !54
+  %7 = load double, ptr %arrayidx12, align 8, !tbaa !53
   %arrayidx17 = getelementptr inbounds nuw double, ptr %add.ptr.i.i26, i64 %add
-  %8 = load double, ptr %arrayidx17, align 8, !tbaa !54
+  %8 = load double, ptr %arrayidx17, align 8, !tbaa !53
   %xBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %9 = load ptr, ptr %xBegin_, align 8, !tbaa !90
   %arrayidx.i = getelementptr inbounds double, ptr %9, i64 %call
-  %10 = load double, ptr %arrayidx.i, align 8, !tbaa !54
+  %10 = load double, ptr %arrayidx.i, align 8, !tbaa !53
   %sub = fsub double %x, %10
   %arrayidx.i30 = getelementptr inbounds double, ptr %9, i64 %add
-  %11 = load double, ptr %arrayidx.i30, align 8, !tbaa !54
+  %11 = load double, ptr %arrayidx.i30, align 8, !tbaa !53
   %sub24 = fsub double %11, %10
   %div = fdiv double %sub, %sub24
   %yBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %12 = load ptr, ptr %yBegin_, align 8, !tbaa !90
   %arrayidx.i32 = getelementptr inbounds double, ptr %12, i64 %call4
-  %13 = load double, ptr %arrayidx.i32, align 8, !tbaa !54
+  %13 = load double, ptr %arrayidx.i32, align 8, !tbaa !53
   %sub26 = fsub double %y, %13
   %arrayidx.i33 = getelementptr inbounds double, ptr %12, i64 %add10
-  %14 = load double, ptr %arrayidx.i33, align 8, !tbaa !54
+  %14 = load double, ptr %arrayidx.i33, align 8, !tbaa !53
   %sub32 = fsub double %14, %13
   %div33 = fdiv double %sub26, %sub32
   %sub34 = fsub double 1.000000e+00, %div
@@ -4072,23 +4072,23 @@ attributes #24 = { builtin nounwind }
 !38 = !{!39}
 !39 = distinct !{!39, !40, !"_ZNK8QuantLib17FdmLinearOpLayout5beginEv: %agg.result"}
 !40 = distinct !{!40, !"_ZNK8QuantLib17FdmLinearOpLayout5beginEv"}
-!41 = !{!5, !5, i64 0}
-!42 = !{!37, !5, i64 8}
-!43 = !{!37, !5, i64 16}
-!44 = !{!45, !9, i64 0}
-!45 = !{!"_ZTSN8QuantLib19FdmLinearOpIteratorE", !9, i64 0, !46, i64 8, !46, i64 32}
-!46 = !{!"_ZTSSt6vectorImSaImEE", !47, i64 0}
-!47 = !{!"_ZTSSt12_Vector_baseImSaImEE", !48, i64 0}
-!48 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !37, i64 0}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZNK8QuantLib17FdmLinearOpLayout3endEv: %agg.result"}
-!51 = distinct !{!51, !"_ZNK8QuantLib17FdmLinearOpLayout3endEv"}
-!52 = !{!53, !9, i64 0}
-!53 = !{!"_ZTSN8QuantLib17FdmLinearOpLayoutE", !9, i64 0, !46, i64 8, !46, i64 32}
-!54 = !{!32, !32, i64 0}
-!55 = distinct !{!55, !56}
-!56 = !{!"llvm.loop.mustprogress"}
-!57 = distinct !{!57, !56}
+!41 = !{!37, !5, i64 8}
+!42 = !{!37, !5, i64 16}
+!43 = !{!44, !9, i64 0}
+!44 = !{!"_ZTSN8QuantLib19FdmLinearOpIteratorE", !9, i64 0, !45, i64 8, !45, i64 32}
+!45 = !{!"_ZTSSt6vectorImSaImEE", !46, i64 0}
+!46 = !{!"_ZTSSt12_Vector_baseImSaImEE", !47, i64 0}
+!47 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !37, i64 0}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZNK8QuantLib17FdmLinearOpLayout3endEv: %agg.result"}
+!50 = distinct !{!50, !"_ZNK8QuantLib17FdmLinearOpLayout3endEv"}
+!51 = !{!52, !9, i64 0}
+!52 = !{!"_ZTSN8QuantLib17FdmLinearOpLayoutE", !9, i64 0, !45, i64 8, !45, i64 32}
+!53 = !{!32, !32, i64 0}
+!54 = distinct !{!54, !55}
+!55 = !{!"llvm.loop.mustprogress"}
+!56 = !{!5, !5, i64 0}
+!57 = distinct !{!57, !55}
 !58 = !{!59, !9, i64 8}
 !59 = !{!"_ZTSN8QuantLib5ArrayE", !60, i64 0, !9, i64 8}
 !60 = !{!"_ZTSSt10unique_ptrIA_dSt14default_deleteIS0_EE", !61, i64 0}
@@ -4108,8 +4108,8 @@ attributes #24 = { builtin nounwind }
 !74 = distinct !{!74, !"_ZNK8QuantLib17FdmLinearOpLayout3endEv"}
 !75 = !{!76, !5, i64 0}
 !76 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib15Interpolation2D4ImplEEE", !5, i64 0, !17, i64 8}
-!77 = distinct !{!77, !56}
-!78 = distinct !{!78, !56}
+!77 = distinct !{!77, !55}
+!78 = distinct !{!78, !55}
 !79 = !{!80, !81, i64 8}
 !80 = !{!"_ZTSN8QuantLib12ExtrapolatorE", !81, i64 8}
 !81 = !{!"bool", !6, i64 0}

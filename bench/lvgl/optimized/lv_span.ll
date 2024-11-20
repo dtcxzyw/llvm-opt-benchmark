@@ -2435,7 +2435,7 @@ define internal fastcc void @make_span_coords(ptr dead_on_unwind noalias writabl
 27:                                               ; preds = %8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %30 = load i32, ptr %29, align 4, !tbaa !23
+  %30 = load i32, ptr %29, align 4, !tbaa !82
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %33 = load i32, ptr %32, align 4, !tbaa !82

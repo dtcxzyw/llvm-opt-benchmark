@@ -408,7 +408,7 @@ _ZNK5boost4urls6detail8url_impl6offsetEi.exit3:   ; preds = %_ZNK5boost4urls6det
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5boost4urls6detail8url_impl10apply_pathENS0_15pct_string_viewEm(ptr nocapture noundef nonnull align 8 dereferenceable(171) %0, ptr nocapture noundef readonly byval(%"class.boost::urls::pct_string_view") align 8 %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !13
+  %5 = load i64, ptr %4, align 8, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8, !tbaa !13

@@ -2331,7 +2331,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit286: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #34
   %557 = load ptr, ptr %376, align 8, !tbaa !59
   %.not10.i.i.i291 = icmp eq ptr %557, null
-  %.pre = load ptr, ptr %20, align 8
+  %.pre = load ptr, ptr %20, align 8, !tbaa !11
   br i1 %.not10.i.i.i291, label %576, label %.lr.ph.i.i.i292
 
 .lr.ph.i.i.i292:                                  ; preds = %.noexc289
@@ -7304,7 +7304,7 @@ define linkonce_odr hidden void @_ZN5boost12this_process11get_handlesEv(ptr dead
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #40
   store ptr %6, ptr %5, align 8, !tbaa !153, !noalias !148
   call void @_ZN5boost7process2v16detail5posix11get_handlesERSt10error_code(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  %7 = load i32, ptr %3, align 8, !tbaa !18, !noalias !148
+  %7 = load i32, ptr %3, align 8, !tbaa !151, !noalias !148
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %_ZN5boost7process2v16detail5posix11get_handlesEv.exit, label %8
 
@@ -13862,7 +13862,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5
 19:                                               ; preds = %17, %15, %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !90
-  %22 = load ptr, ptr %0, align 8, !tbaa !63
+  %22 = load ptr, ptr %0, align 8, !tbaa !88
   %23 = ptrtoint ptr %21 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
@@ -20236,15 +20236,15 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !63
-  %6 = load ptr, ptr %1, align 8, !tbaa !63
+  %5 = load ptr, ptr %4, align 8, !tbaa !90
+  %6 = load ptr, ptr %1, align 8, !tbaa !88
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !89
-  %13 = load ptr, ptr %0, align 8, !tbaa !63
+  %13 = load ptr, ptr %0, align 8, !tbaa !88
   %14 = ptrtoint ptr %12 to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
@@ -20309,7 +20309,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 39:                                               ; preds = %3
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !63
+  %41 = load ptr, ptr %40, align 8, !tbaa !90
   %42 = ptrtoint ptr %41 to i64
   %43 = sub i64 %42, %15
   %.not24 = icmp ult i64 %43, %9
@@ -20686,7 +20686,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
           to label %46 unwind label %102
 
 46:                                               ; preds = %45
-  %47 = load ptr, ptr %37, align 8, !tbaa !63
+  %47 = load ptr, ptr %37, align 8, !tbaa !90
   %48 = load ptr, ptr %38, align 8, !tbaa !89
   %.not.i.i29 = icmp eq ptr %47, %48
   br i1 %.not.i.i29, label %62, label %49
@@ -21143,8 +21143,8 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost3any6holderISt6vectorINSt7__cx
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost3any6holderISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE, i64 16), ptr %2, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !63
-  %7 = load ptr, ptr %3, align 8, !tbaa !63
+  %6 = load ptr, ptr %5, align 8, !tbaa !90
+  %7 = load ptr, ptr %3, align 8, !tbaa !88
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -21209,7 +21209,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !90
-  %7 = load ptr, ptr %0, align 8, !tbaa !63
+  %7 = load ptr, ptr %0, align 8, !tbaa !88
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -21432,7 +21432,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !90
-  %6 = load ptr, ptr %0, align 8, !tbaa !63
+  %6 = load ptr, ptr %0, align 8, !tbaa !88
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -21998,7 +21998,7 @@ define linkonce_odr hidden void @_ZN5boost15program_options11to_internalINSt7__c
           to label %15 unwind label %46
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr %7, align 8, !tbaa !63
+  %16 = load ptr, ptr %7, align 8, !tbaa !90
   %17 = load ptr, ptr %8, align 8, !tbaa !89
   %.not.i.i = icmp eq ptr %16, %17
   br i1 %.not.i.i, label %31, label %18
@@ -23264,7 +23264,7 @@ define linkonce_odr hidden void @_ZN5boost9iostreams6detail18indirect_streambufI
   %sext17 = shl i64 %6, 32
   %8 = ashr exact i64 %sext17, 32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %10 = load i64, ptr %9, align 8, !tbaa !9
+  %10 = load i64, ptr %9, align 8, !tbaa !181
   %.not.i18 = icmp eq i64 %10, %8
   br i1 %.not.i18, label %16, label %11
 

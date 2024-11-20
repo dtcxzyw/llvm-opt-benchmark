@@ -649,8 +649,8 @@ invoke.cont74:                                    ; preds = %.noexc70, %invoke.c
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %dim_.i71 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %56 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !33, !noalias !56
-  %57 = load ptr, ptr %dim_.i71, align 8, !tbaa !33, !noalias !56
+  %56 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !59, !noalias !56
+  %57 = load ptr, ptr %dim_.i71, align 8, !tbaa !41, !noalias !56
   %sub.ptr.lhs.cast.i.i.i72 = ptrtoint ptr %56 to i64
   %sub.ptr.rhs.cast.i.i.i73 = ptrtoint ptr %57 to i64
   %sub.ptr.sub.i.i.i74 = sub i64 %sub.ptr.lhs.cast.i.i.i72, %sub.ptr.rhs.cast.i.i.i73

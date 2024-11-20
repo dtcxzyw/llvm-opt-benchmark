@@ -153,21 +153,21 @@ define void @lv_image_buf_get_transformed_area(ptr nocapture noundef writeonly %
   call void @lv_point_transform(ptr noundef nonnull %16, i32 noundef %3, i32 noundef %14, i32 noundef %13, ptr noundef %6, i1 noundef zeroext true) #6
   call void @lv_point_transform(ptr noundef nonnull %18, i32 noundef %3, i32 noundef %14, i32 noundef %13, ptr noundef %6, i1 noundef zeroext true) #6
   call void @lv_point_transform(ptr noundef nonnull %20, i32 noundef %3, i32 noundef %14, i32 noundef %13, ptr noundef %6, i1 noundef zeroext true) #6
-  %22 = load i32, ptr %8, align 16
-  %23 = load i32, ptr %16, align 8
+  %22 = load i32, ptr %8, align 16, !tbaa !31
+  %23 = load i32, ptr %16, align 8, !tbaa !31
   %24 = call i32 @llvm.smin.i32(i32 %22, i32 %23)
-  %25 = load i32, ptr %18, align 16
-  %26 = load i32, ptr %20, align 8
+  %25 = load i32, ptr %18, align 16, !tbaa !31
+  %26 = load i32, ptr %20, align 8, !tbaa !31
   %27 = call i32 @llvm.smin.i32(i32 %25, i32 %26)
   %. = call i32 @llvm.smin.i32(i32 %24, i32 %27)
   %28 = call i32 @llvm.smax.i32(i32 %22, i32 %23)
   %29 = call i32 @llvm.smax.i32(i32 %25, i32 %26)
   %30 = call i32 @llvm.smax.i32(i32 %28, i32 %29)
-  %31 = load i32, ptr %15, align 4
-  %32 = load i32, ptr %17, align 4
+  %31 = load i32, ptr %15, align 4, !tbaa !32
+  %32 = load i32, ptr %17, align 4, !tbaa !32
   %33 = call i32 @llvm.smin.i32(i32 %31, i32 %32)
-  %34 = load i32, ptr %19, align 4
-  %35 = load i32, ptr %21, align 4
+  %34 = load i32, ptr %19, align 4, !tbaa !32
+  %35 = load i32, ptr %21, align 4, !tbaa !32
   %36 = call i32 @llvm.smin.i32(i32 %34, i32 %35)
   %37 = call i32 @llvm.smin.i32(i32 %33, i32 %36)
   %38 = call i32 @llvm.smax.i32(i32 %31, i32 %32)

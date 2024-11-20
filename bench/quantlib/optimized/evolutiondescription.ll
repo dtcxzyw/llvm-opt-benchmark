@@ -394,7 +394,7 @@ invoke.cont42:                                    ; preds = %invoke.cont38
           to label %invoke.cont44 unwind label %lpad41
 
 invoke.cont44:                                    ; preds = %invoke.cont42
-  %21 = load ptr, ptr %_M_finish.i97, align 8, !tbaa !3
+  %21 = load ptr, ptr %_M_finish.i97, align 8, !tbaa !24
   %22 = load ptr, ptr %evolutionTimes_, align 8, !tbaa !23
   %sub.ptr.lhs.cast.i119 = ptrtoint ptr %21 to i64
   %sub.ptr.rhs.cast.i120 = ptrtoint ptr %22 to i64

@@ -457,9 +457,9 @@ define void @_ZN5boost6fibers7context12reset_activeEv() local_unnamed_addr #9 al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost7context5fiberD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !13
+  %2 = load ptr, ptr %0, align 8, !tbaa !55
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %5, label %3, !prof !55
+  br i1 %.not, label %5, label %3, !prof !56
 
 3:                                                ; preds = %1
   store ptr null, ptr %0, align 8, !tbaa !13
@@ -500,18 +500,18 @@ define void @_ZN5boost6fibers7context6resumeEv(ptr noundef nonnull align 8 deref
   store ptr %0, ptr %3, align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = ptrtoint ptr %4 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8, !noalias !56
-  store i64 %6, ptr %2, align 8, !tbaa !13, !noalias !56
-  %7 = load ptr, ptr %5, align 8, !tbaa !13, !noalias !56
-  store ptr null, ptr %5, align 8, !tbaa !13, !noalias !56
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8, !noalias !57
+  store i64 %6, ptr %2, align 8, !tbaa !13, !noalias !57
+  %7 = load ptr, ptr %5, align 8, !tbaa !13, !noalias !57
+  store ptr null, ptr %5, align 8, !tbaa !13, !noalias !57
   %8 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef %7, ptr noundef nonnull %2, ptr noundef nonnull @"_ZN5boost7context6detail11fiber_ontopINS0_5fiberEZNS_6fibers7context6resumeEvE3$_0EENS1_10transfer_tES7_")
           to label %9 unwind label %16
 
 9:                                                ; preds = %1
   %10 = extractvalue { ptr, ptr } %8, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8, !noalias !56
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8, !noalias !57
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %_ZN5boost7context5fiberD2Ev.exit, label %11, !prof !55
+  br i1 %.not.i, label %_ZN5boost7context5fiberD2Ev.exit, label %11, !prof !56
 
 11:                                               ; preds = %9
   %12 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull @_ZN5boost7context6detail12fiber_unwindENS1_10transfer_tE)
@@ -542,20 +542,20 @@ define void @_ZN5boost6fibers7context6resumeERSt11unique_lockINS0_6detail13spinl
   %5 = load ptr, ptr %4, align 8, !tbaa !13
   store ptr %0, ptr %4, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8, !noalias !59
-  store ptr %5, ptr %3, align 8, !tbaa !13, !noalias !59
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8, !noalias !60
+  store ptr %5, ptr %3, align 8, !tbaa !13, !noalias !60
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !13, !noalias !59
-  %7 = load ptr, ptr %6, align 8, !tbaa !13, !noalias !59
-  store ptr null, ptr %6, align 8, !tbaa !13, !noalias !59
+  store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !13, !noalias !60
+  %7 = load ptr, ptr %6, align 8, !tbaa !13, !noalias !60
+  store ptr null, ptr %6, align 8, !tbaa !13, !noalias !60
   %8 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef %7, ptr noundef nonnull %3, ptr noundef nonnull @"_ZN5boost7context6detail11fiber_ontopINS0_5fiberEZNS_6fibers7context6resumeERSt11unique_lockINS4_6detail13spinlock_ttasEEE3$_0EENS1_10transfer_tESC_")
           to label %9 unwind label %16
 
 9:                                                ; preds = %2
   %10 = extractvalue { ptr, ptr } %8, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8, !noalias !59
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8, !noalias !60
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %_ZN5boost7context5fiberD2Ev.exit, label %11, !prof !55
+  br i1 %.not.i, label %_ZN5boost7context5fiberD2Ev.exit, label %11, !prof !56
 
 11:                                               ; preds = %9
   %12 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull @_ZN5boost7context6detail12fiber_unwindENS1_10transfer_tE)
@@ -586,20 +586,20 @@ define void @_ZN5boost6fibers7context6resumeEPS1_(ptr noundef nonnull align 8 de
   %5 = load ptr, ptr %4, align 8, !tbaa !13
   store ptr %0, ptr %4, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8, !noalias !62
-  store ptr %5, ptr %3, align 8, !tbaa !13, !noalias !62
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8, !noalias !63
+  store ptr %5, ptr %3, align 8, !tbaa !13, !noalias !63
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !13, !noalias !62
-  %7 = load ptr, ptr %6, align 8, !tbaa !13, !noalias !62
-  store ptr null, ptr %6, align 8, !tbaa !13, !noalias !62
+  store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !13, !noalias !63
+  %7 = load ptr, ptr %6, align 8, !tbaa !13, !noalias !63
+  store ptr null, ptr %6, align 8, !tbaa !13, !noalias !63
   %8 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef %7, ptr noundef nonnull %3, ptr noundef nonnull @"_ZN5boost7context6detail11fiber_ontopINS0_5fiberEZNS_6fibers7context6resumeEPS5_E3$_0EENS1_10transfer_tES8_")
           to label %9 unwind label %16
 
 9:                                                ; preds = %2
   %10 = extractvalue { ptr, ptr } %8, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8, !noalias !62
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8, !noalias !63
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %_ZN5boost7context5fiberD2Ev.exit, label %11, !prof !55
+  br i1 %.not.i, label %_ZN5boost7context5fiberD2Ev.exit, label %11, !prof !56
 
 11:                                               ; preds = %9
   %12 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull @_ZN5boost7context6detail12fiber_unwindENS1_10transfer_tE)
@@ -680,12 +680,12 @@ _ZN5boost6fibers7context6activeEv.exit:           ; preds = %1, %_ZN5boost6fiber
   %14 = load ptr, ptr %13, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %15, ptr %2, align 8, !tbaa !65
+  store ptr %15, ptr %2, align 8, !tbaa !66
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @_ZN5boost6fibers6detail13spinlock_ttas4lockEv(ptr noundef nonnull align 4 dereferenceable(4) %15) #8
-  store i8 1, ptr %16, align 8, !tbaa !67
+  store i8 1, ptr %16, align 8, !tbaa !68
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %18 = load i8, ptr %17, align 4, !tbaa !68, !range !69, !noundef !70
+  %18 = load i8, ptr %17, align 4, !tbaa !69, !range !70, !noundef !71
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %.thread, label %20
 
@@ -697,12 +697,12 @@ _ZN5boost6fibers7context6activeEv.exit:           ; preds = %1, %_ZN5boost6fiber
 22:                                               ; preds = %20
   %23 = landingpad { ptr, i32 }
           cleanup
-  %24 = load i8, ptr %16, align 8, !tbaa !67, !range !69, !noundef !70
+  %24 = load i8, ptr %16, align 8, !tbaa !68, !range !70, !noundef !71
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit
 
 26:                                               ; preds = %22
-  %27 = load ptr, ptr %2, align 8, !tbaa !65
+  %27 = load ptr, ptr %2, align 8, !tbaa !66
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit, label %28
 
@@ -715,12 +715,12 @@ _ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit: ; preds = %2
   resume { ptr, i32 } %23
 
 29:                                               ; preds = %20
-  %.pre = load i8, ptr %16, align 8, !tbaa !67, !range !69
+  %.pre = load i8, ptr %16, align 8, !tbaa !68, !range !70
   %30 = trunc nuw i8 %.pre to i1
   br i1 %30, label %.thread, label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit4
 
 .thread:                                          ; preds = %_ZN5boost6fibers7context6activeEv.exit, %29
-  %31 = load ptr, ptr %2, align 8, !tbaa !65
+  %31 = load ptr, ptr %2, align 8, !tbaa !66
   %.not.i.i3 = icmp eq ptr %31, null
   br i1 %.not.i.i3, label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit4, label %32
 
@@ -784,18 +784,18 @@ define void @_ZN5boost6fibers7context15suspend_with_ccEv(ptr dead_on_unwind noal
   store ptr %1, ptr %4, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %7 = ptrtoint ptr %5 to i64
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8, !noalias !71
-  store i64 %7, ptr %3, align 8, !tbaa !13, !noalias !71
-  %8 = load ptr, ptr %6, align 8, !tbaa !13, !noalias !71
-  store ptr null, ptr %6, align 8, !tbaa !13, !noalias !71
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8, !noalias !72
+  store i64 %7, ptr %3, align 8, !tbaa !13, !noalias !72
+  %8 = load ptr, ptr %6, align 8, !tbaa !13, !noalias !72
+  store ptr null, ptr %6, align 8, !tbaa !13, !noalias !72
   %9 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef %8, ptr noundef nonnull %3, ptr noundef nonnull @"_ZN5boost7context6detail11fiber_ontopINS0_5fiberEZNS_6fibers7context15suspend_with_ccEvE3$_0EENS1_10transfer_tES7_")
           to label %10 unwind label %12
 
 10:                                               ; preds = %2
   %11 = extractvalue { ptr, ptr } %9, 0
-  store ptr %11, ptr %0, align 8, !tbaa !74, !alias.scope !71
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8, !noalias !71
+  store ptr %11, ptr %0, align 8, !tbaa !55, !alias.scope !72
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8, !noalias !72
   ret void
 
 12:                                               ; preds = %2
@@ -811,12 +811,12 @@ define void @_ZN5boost6fibers7context9terminateEv(ptr dead_on_unwind noalias wri
   %3 = alloca %"class.std::unique_lock", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %4, ptr %3, align 8, !tbaa !65
+  store ptr %4, ptr %3, align 8, !tbaa !66
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @_ZN5boost6fibers6detail13spinlock_ttas4lockEv(ptr noundef nonnull align 4 dereferenceable(4) %4) #8
-  store i8 1, ptr %5, align 8, !tbaa !67
+  store i8 1, ptr %5, align 8, !tbaa !68
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i8 1, ptr %6, align 4, !tbaa !68
+  store i8 1, ptr %6, align 4, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   invoke void @_ZN5boost6fibers10wait_queue10notify_allEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %8 unwind label %.loopexit.split-lp
@@ -852,12 +852,12 @@ _ZNSt3mapImN5boost6fibers7context8fss_dataESt4lessImESaISt4pairIKmS3_EEE5clearEv
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %21 = load ptr, ptr %20, align 8, !tbaa !14
   call void @_ZN5boost6fibers9scheduler9terminateERSt11unique_lockINS0_6detail13spinlock_ttasEEPNS0_7contextE(ptr dead_on_unwind writable sret(%"class.boost::context::fiber") align 8 %0, ptr noundef nonnull align 8 dereferenceable(137) %21, ptr noundef nonnull align 8 dereferenceable(9) %3, ptr noundef nonnull %1) #8
-  %22 = load i8, ptr %5, align 8, !tbaa !67, !range !69, !noundef !70
+  %22 = load i8, ptr %5, align 8, !tbaa !68, !range !70, !noundef !71
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %24, label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit
 
 24:                                               ; preds = %_ZNSt3mapImN5boost6fibers7context8fss_dataESt4lessImESaISt4pairIKmS3_EEE5clearEv.exit
-  %25 = load ptr, ptr %3, align 8, !tbaa !65
+  %25 = load ptr, ptr %3, align 8, !tbaa !66
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit, label %26
 
@@ -1501,7 +1501,7 @@ define linkonce_odr hidden void @_ZN5boost6fibers19context_initializer10initiali
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 1, ptr %10, align 4, !tbaa !104
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i8 0, ptr %11, align 4, !tbaa !68
+  store i8 0, ptr %11, align 4, !tbaa !69
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %12, ptr %12, align 8, !tbaa !95
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -1609,7 +1609,7 @@ _ZN5boost13intrusive_ptrINS_6fibers4algo9algorithmEED2Ev.exit: ; preds = %_ZN5bo
 64:                                               ; preds = %58
   %65 = extractvalue { ptr, ptr } %63, 0
   %.not.i.i.i = icmp eq ptr %65, null
-  br i1 %.not.i.i.i, label %_ZN5boost13intrusive_ptrINS_6fibers7contextEED2Ev.exit, label %66, !prof !55
+  br i1 %.not.i.i.i, label %_ZN5boost13intrusive_ptrINS_6fibers7contextEED2Ev.exit, label %66, !prof !56
 
 66:                                               ; preds = %64
   %67 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef nonnull %65, ptr noundef null, ptr noundef nonnull @_ZN5boost7context6detail12fiber_unwindENS1_10transfer_tE)
@@ -1664,7 +1664,7 @@ define linkonce_odr hidden void @_ZN5boost6fibers18dispatcher_contextC2ERKNS_7co
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store i32 1, ptr %5, align 8, !tbaa !104
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 0, ptr %6, align 4, !tbaa !68
+  store i8 0, ptr %6, align 4, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %7, align 8, !tbaa !95
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1728,7 +1728,7 @@ define linkonce_odr hidden void @_ZN5boost6fibers18dispatcher_contextC2ERKNS_7co
   %36 = load ptr, ptr %35, align 8, !tbaa !13
   store ptr %34, ptr %35, align 8, !tbaa !13
   %.not.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i, label %_ZN5boost7context5fiberD2Ev.exit, label %37, !prof !55
+  br i1 %.not.i.i, label %_ZN5boost7context5fiberD2Ev.exit, label %37, !prof !56
 
 37:                                               ; preds = %33
   %38 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef nonnull %36, ptr noundef null, ptr noundef nonnull @_ZN5boost7context6detail12fiber_unwindENS1_10transfer_tE)
@@ -1779,9 +1779,9 @@ define void @_ZN5boost6fibers7contextD2Ev(ptr noundef nonnull align 8 dereferenc
 _ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit: ; preds = %1, %6
   store atomic i32 1, ptr %2 release, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %11 = load ptr, ptr %10, align 8, !tbaa !13
+  %11 = load ptr, ptr %10, align 8, !tbaa !55
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %_ZN5boost7context5fiberD2Ev.exit, label %12, !prof !55
+  br i1 %.not.i, label %_ZN5boost7context5fiberD2Ev.exit, label %12, !prof !56
 
 12:                                               ; preds = %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit
   store ptr null, ptr %10, align 8, !tbaa !13
@@ -1902,7 +1902,7 @@ define linkonce_odr hidden void @_ZN5boost7context6detail11fiber_entryINS1_12fib
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  store ptr %7, ptr %4, align 8, !tbaa !74
+  store ptr %7, ptr %4, align 8, !tbaa !55
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !13, !noalias !123
   %.unpack.i.i.i.i.i.i.i.i = load i64, ptr %8, align 8, !tbaa !138, !noalias !123
@@ -1917,7 +1917,7 @@ define linkonce_odr hidden void @_ZN5boost7context6detail11fiber_entryINS1_12fib
   %14 = load ptr, ptr %11, align 8, !tbaa !10, !noalias !123
   %15 = getelementptr i8, ptr %14, i64 %.unpack.i.i.i.i.i.i.i.i
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !noalias !123, !nosanitize !70
+  %17 = load ptr, ptr %16, align 8, !noalias !123, !nosanitize !71
   br label %_ZSt8__invokeIRSt5_BindIFMN5boost6fibers18dispatcher_contextEFNS1_7context5fiberEOS5_EPS3_St12_PlaceholderILi1EEEEJS5_EENSt15__invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.exit.i.i
 
 18:                                               ; preds = %6
@@ -1930,9 +1930,9 @@ _ZSt8__invokeIRSt5_BindIFMN5boost6fibers18dispatcher_contextEFNS1_7context5fiber
           to label %_ZSt6invokeIRSt5_BindIFMN5boost6fibers18dispatcher_contextEFNS1_7context5fiberEOS5_EPS3_St12_PlaceholderILi1EEEEJS5_EENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.exit.i unwind label %27
 
 _ZSt6invokeIRSt5_BindIFMN5boost6fibers18dispatcher_contextEFNS1_7context5fiberEOS5_EPS3_St12_PlaceholderILi1EEEEJS5_EENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.exit.i: ; preds = %_ZSt8__invokeIRSt5_BindIFMN5boost6fibers18dispatcher_contextEFNS1_7context5fiberEOS5_EPS3_St12_PlaceholderILi1EEEEJS5_EENSt15__invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.exit.i.i
-  %21 = load ptr, ptr %4, align 8, !tbaa !13
+  %21 = load ptr, ptr %4, align 8, !tbaa !55
   %.not.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i, label %_ZN5boost7context6detail12fiber_recordINS0_5fiberENS_6fibers23stack_allocator_wrapperESt5_BindIFMNS4_18dispatcher_contextEFS3_OS3_EPS7_St12_PlaceholderILi1EEEEE3runEPv.exit, label %22, !prof !55
+  br i1 %.not.i.i, label %_ZN5boost7context6detail12fiber_recordINS0_5fiberENS_6fibers23stack_allocator_wrapperESt5_BindIFMNS4_18dispatcher_contextEFS3_OS3_EPS7_St12_PlaceholderILi1EEEEE3runEPv.exit, label %22, !prof !56
 
 22:                                               ; preds = %_ZSt6invokeIRSt5_BindIFMN5boost6fibers18dispatcher_contextEFNS1_7context5fiberEOS5_EPS3_St12_PlaceholderILi1EEEEJS5_EENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.exit.i
   store ptr null, ptr %4, align 8, !tbaa !13
@@ -2498,7 +2498,7 @@ define internal { ptr, ptr } @"_ZN5boost7context6detail11fiber_ontopINS0_5fiberE
   %6 = load ptr, ptr %5, align 8, !tbaa !13, !noalias !176
   store ptr %0, ptr %5, align 8, !tbaa !13, !noalias !176
   %.not.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i, label %_ZN5boost7context5fiberD2Ev.exit4, label %7, !prof !55
+  br i1 %.not.i.i.i, label %_ZN5boost7context5fiberD2Ev.exit4, label %7, !prof !56
 
 7:                                                ; preds = %2
   %8 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull @_ZN5boost7context6detail12fiber_unwindENS1_10transfer_tE)
@@ -2522,7 +2522,7 @@ define internal { ptr, ptr } @"_ZN5boost7context6detail11fiber_ontopINS0_5fiberE
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  store ptr %0, ptr %3, align 8, !tbaa !74
+  store ptr %0, ptr %3, align 8, !tbaa !55
   %4 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.copyload, i64 208
   %.not.i.i = icmp eq ptr %4, %3
   br i1 %.not.i.i, label %_ZN5boost7context5fiberaSEOS1_.exit.i, label %5, !prof !179
@@ -2532,7 +2532,7 @@ define internal { ptr, ptr } @"_ZN5boost7context6detail11fiber_ontopINS0_5fiberE
   %6 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !180
   store ptr %0, ptr %4, align 8, !tbaa !13, !noalias !180
   %.not.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i, label %_ZN5boost7context5fiberaSEOS1_.exit.i, label %7, !prof !55
+  br i1 %.not.i.i.i, label %_ZN5boost7context5fiberaSEOS1_.exit.i, label %7, !prof !56
 
 7:                                                ; preds = %5
   %8 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull @_ZN5boost7context6detail12fiber_unwindENS1_10transfer_tE)
@@ -2547,7 +2547,7 @@ define internal { ptr, ptr } @"_ZN5boost7context6detail11fiber_ontopINS0_5fiberE
 
 _ZN5boost7context5fiberaSEOS1_.exit.i:            ; preds = %7, %5, %2
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.5.0.copyload, i64 8
-  %13 = load i8, ptr %12, align 8, !tbaa !67, !range !69, !noalias !180, !noundef !70
+  %13 = load i8, ptr %12, align 8, !tbaa !68, !range !70, !noalias !180, !noundef !71
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %16, label %15
 
@@ -2559,19 +2559,19 @@ _ZN5boost7context5fiberaSEOS1_.exit.i:            ; preds = %7, %5, %2
   unreachable
 
 16:                                               ; preds = %_ZN5boost7context5fiberaSEOS1_.exit.i
-  %17 = load ptr, ptr %.sroa.5.0.copyload, align 8, !tbaa !65, !noalias !180
+  %17 = load ptr, ptr %.sroa.5.0.copyload, align 8, !tbaa !66, !noalias !180
   %.not.i2.i = icmp eq ptr %17, null
   br i1 %.not.i2.i, label %"_ZZN5boost6fibers7context6resumeERSt11unique_lockINS0_6detail13spinlock_ttasEEENK3$_0clEONS_7context5fiberE.exit", label %18
 
 18:                                               ; preds = %16
   store atomic i32 1, ptr %17 release, align 4, !noalias !180
-  store i8 0, ptr %12, align 8, !tbaa !67, !noalias !180
+  store i8 0, ptr %12, align 8, !tbaa !68, !noalias !180
   br label %"_ZZN5boost6fibers7context6resumeERSt11unique_lockINS0_6detail13spinlock_ttasEEENK3$_0clEONS_7context5fiberE.exit"
 
 "_ZZN5boost6fibers7context6resumeERSt11unique_lockINS0_6detail13spinlock_ttasEEENK3$_0clEONS_7context5fiberE.exit": ; preds = %18, %16
-  %19 = load ptr, ptr %3, align 8, !tbaa !13
+  %19 = load ptr, ptr %3, align 8, !tbaa !55
   %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %_ZN5boost7context5fiberD2Ev.exit5, label %20, !prof !55
+  br i1 %.not.i, label %_ZN5boost7context5fiberD2Ev.exit5, label %20, !prof !56
 
 20:                                               ; preds = %"_ZZN5boost6fibers7context6resumeERSt11unique_lockINS0_6detail13spinlock_ttasEEENK3$_0clEONS_7context5fiberE.exit"
   store ptr null, ptr %3, align 8, !tbaa !13
@@ -2606,7 +2606,7 @@ define internal { ptr, ptr } @"_ZN5boost7context6detail11fiber_ontopINS0_5fiberE
   %4 = load ptr, ptr %3, align 8, !tbaa !13, !noalias !183
   store ptr %0, ptr %3, align 8, !tbaa !13, !noalias !183
   %.not.i.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i.i, label %_ZN5boost7context5fiberaSEOS1_.exit.i, label %5, !prof !55
+  br i1 %.not.i.i.i, label %_ZN5boost7context5fiberaSEOS1_.exit.i, label %5, !prof !56
 
 5:                                                ; preds = %2
   %6 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull @_ZN5boost7context6detail12fiber_unwindENS1_10transfer_tE)
@@ -2677,7 +2677,7 @@ define internal { ptr, ptr } @"_ZN5boost7context6detail11fiber_ontopINS0_5fiberE
   %6 = load ptr, ptr %5, align 8, !tbaa !13, !noalias !186
   store ptr %0, ptr %5, align 8, !tbaa !13, !noalias !186
   %.not.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i, label %_ZN5boost7context5fiberD2Ev.exit4, label %7, !prof !55
+  br i1 %.not.i.i.i, label %_ZN5boost7context5fiberD2Ev.exit4, label %7, !prof !56
 
 7:                                                ; preds = %2
   %8 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull @_ZN5boost7context6detail12fiber_unwindENS1_10transfer_tE)
@@ -3886,26 +3886,26 @@ attributes #37 = { nounwind allocsize(0) }
 !52 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE", !4, i64 0}
 !53 = !{!"_ZTSN5boost6fibers4typeE", !5, i64 0}
 !54 = !{!"_ZTSN5boost6fibers6launchE", !5, i64 0}
-!55 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZNO5boost7context5fiber11resume_withIZNS_6fibers7context6resumeEvE3$_0EES1_OT_: argument 0"}
-!58 = distinct !{!58, !"_ZNO5boost7context5fiber11resume_withIZNS_6fibers7context6resumeEvE3$_0EES1_OT_"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZNO5boost7context5fiber11resume_withIZNS_6fibers7context6resumeERSt11unique_lockINS3_6detail13spinlock_ttasEEE3$_0EES1_OT_: argument 0"}
-!61 = distinct !{!61, !"_ZNO5boost7context5fiber11resume_withIZNS_6fibers7context6resumeERSt11unique_lockINS3_6detail13spinlock_ttasEEE3$_0EES1_OT_"}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZNO5boost7context5fiber11resume_withIZNS_6fibers7context6resumeEPS4_E3$_0EES1_OT_: argument 0"}
-!64 = distinct !{!64, !"_ZNO5boost7context5fiber11resume_withIZNS_6fibers7context6resumeEPS4_E3$_0EES1_OT_"}
-!65 = !{!66, !9, i64 0}
-!66 = !{!"_ZTSSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEE", !9, i64 0, !24, i64 8}
-!67 = !{!66, !24, i64 8}
-!68 = !{!15, !24, i64 28}
-!69 = !{i8 0, i8 2}
-!70 = !{}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZNO5boost7context5fiber11resume_withIZNS_6fibers7context15suspend_with_ccEvE3$_0EES1_OT_: argument 0"}
-!73 = distinct !{!73, !"_ZNO5boost7context5fiber11resume_withIZNS_6fibers7context15suspend_with_ccEvE3$_0EES1_OT_"}
-!74 = !{!50, !9, i64 0}
+!55 = !{!50, !9, i64 0}
+!56 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZNO5boost7context5fiber11resume_withIZNS_6fibers7context6resumeEvE3$_0EES1_OT_: argument 0"}
+!59 = distinct !{!59, !"_ZNO5boost7context5fiber11resume_withIZNS_6fibers7context6resumeEvE3$_0EES1_OT_"}
+!60 = !{!61}
+!61 = distinct !{!61, !62, !"_ZNO5boost7context5fiber11resume_withIZNS_6fibers7context6resumeERSt11unique_lockINS3_6detail13spinlock_ttasEEE3$_0EES1_OT_: argument 0"}
+!62 = distinct !{!62, !"_ZNO5boost7context5fiber11resume_withIZNS_6fibers7context6resumeERSt11unique_lockINS3_6detail13spinlock_ttasEEE3$_0EES1_OT_"}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"_ZNO5boost7context5fiber11resume_withIZNS_6fibers7context6resumeEPS4_E3$_0EES1_OT_: argument 0"}
+!65 = distinct !{!65, !"_ZNO5boost7context5fiber11resume_withIZNS_6fibers7context6resumeEPS4_E3$_0EES1_OT_"}
+!66 = !{!67, !9, i64 0}
+!67 = !{!"_ZTSSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEE", !9, i64 0, !24, i64 8}
+!68 = !{!67, !24, i64 8}
+!69 = !{!15, !24, i64 28}
+!70 = !{i8 0, i8 2}
+!71 = !{}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZNO5boost7context5fiber11resume_withIZNS_6fibers7context15suspend_with_ccEvE3$_0EES1_OT_: argument 0"}
+!74 = distinct !{!74, !"_ZNO5boost7context5fiber11resume_withIZNS_6fibers7context15suspend_with_ccEvE3$_0EES1_OT_"}
 !75 = !{!37, !9, i64 16}
 !76 = !{!37, !9, i64 8}
 !77 = !{!37, !9, i64 24}

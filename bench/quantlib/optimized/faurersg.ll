@@ -1544,8 +1544,8 @@ invoke.cont.i.i.i:                                ; preds = %_ZNSt16allocator_tr
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"class.std::vector.0", ptr %cond.i.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !49
-  %4 = load ptr, ptr %__x, align 8, !tbaa !69
-  %5 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !69
+  %4 = load ptr, ptr %__x, align 8, !tbaa !72
+  %5 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !72
   %call.i.i.i8.i.i.i = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIlSaIlEES2_IS4_SaIS4_EEEEPS4_ET0_T_SC_SB_(ptr %4, ptr %5, ptr noundef %cond.i.i.i.i.i.i)
           to label %_ZNSt16allocator_traitsISaISt6vectorIS0_IlSaIlEESaIS2_EEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit unwind label %lpad10.i.i.i
 
@@ -1569,9 +1569,9 @@ eh.resume.i.i.i:                                  ; preds = %if.then.i.i.i.i.i, 
 
 _ZNSt16allocator_traitsISaISt6vectorIS0_IlSaIlEESaIS2_EEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit: ; preds = %invoke.cont.i.i.i
   store ptr %call.i.i.i8.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !48
-  %9 = load ptr, ptr %_M_finish, align 8, !tbaa !72
+  %9 = load ptr, ptr %_M_finish, align 8, !tbaa !69
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %incdec.ptr, ptr %_M_finish, align 8, !tbaa !72
+  store ptr %incdec.ptr, ptr %_M_finish, align 8, !tbaa !69
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -1587,7 +1587,7 @@ define linkonce_odr void @_ZNSt6vectorIS_IS_IlSaIlEESaIS1_EESaIS3_EED2Ev(ptr nou
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !56
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !72
+  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !69
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
@@ -2043,8 +2043,8 @@ invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_tr
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i64, ptr %cond.i.i.i.i.i, i64 %sub.ptr.div.i.i.i
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.014, i64 16
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !33
-  %2 = load ptr, ptr %__x, align 8, !tbaa !69
-  %3 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !69
+  %2 = load ptr, ptr %__x, align 8, !tbaa !72
+  %3 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !72
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i
@@ -2219,8 +2219,8 @@ if.end44:                                         ; preds = %_ZSt27__uninitializ
 define linkonce_odr void @_ZNSt6vectorIS_IS_IlSaIlEESaIS1_EESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !72
-  %1 = load ptr, ptr %this, align 8, !tbaa !69
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !69
+  %1 = load ptr, ptr %this, align 8, !tbaa !56
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2253,8 +2253,8 @@ _ZNSt12_Vector_baseISt6vectorIS0_IlSaIlEESaIS2_EESaIS4_EE11_M_allocateEm.exit: ;
   %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIS_IS_IlSaIlEESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds nuw %"class.std::vector.5", ptr %cond.i17, i64 %sub.ptr.div.i
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 8
-  %3 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !69
-  %4 = load ptr, ptr %__args, align 8, !tbaa !69
+  %3 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !48
+  %4 = load ptr, ptr %__args, align 8, !tbaa !47
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -2372,7 +2372,7 @@ if.then.i32:                                      ; preds = %_ZNSt6vectorIS_IS_I
 
 _ZNSt12_Vector_baseISt6vectorIS0_IlSaIlEESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIS_IS_IlSaIlEESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit31, %if.then.i32
   store ptr %cond.i17, ptr %this, align 8, !tbaa !56
-  store ptr %__cur.0.lcssa.i.i.i30, ptr %_M_finish.i.i, align 8, !tbaa !72
+  store ptr %__cur.0.lcssa.i.i.i30, ptr %_M_finish.i.i, align 8, !tbaa !69
   %add.ptr26 = getelementptr inbounds nuw %"class.std::vector.5", ptr %cond.i17, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !70
   ret void
@@ -2454,8 +2454,8 @@ invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_tr
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i64, ptr %cond.i.i.i.i.i, i64 %sub.ptr.div.i.i.i
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.015, i64 16
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !33
-  %2 = load ptr, ptr %__first.sroa.0.014, align 8, !tbaa !69
-  %3 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !69
+  %2 = load ptr, ptr %__first.sroa.0.014, align 8, !tbaa !72
+  %3 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !72
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i
@@ -2631,10 +2631,10 @@ attributes #24 = { noreturn nounwind }
 !66 = !{!"vtable pointer", !7, i64 0}
 !67 = !{!68, !13, i64 0}
 !68 = !{!"_ZTSN5boost6detail12shared_countE", !13, i64 0}
-!69 = !{!13, !13, i64 0}
+!69 = !{!26, !13, i64 8}
 !70 = !{!26, !13, i64 16}
 !71 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!72 = !{!26, !13, i64 8}
+!72 = !{!13, !13, i64 0}
 !73 = distinct !{!73, !43}
 !74 = distinct !{!74, !43}
 !75 = distinct !{!75, !43}

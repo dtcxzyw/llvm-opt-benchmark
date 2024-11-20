@@ -3313,8 +3313,8 @@ entry:
   %ref.tmp11 = alloca %"class.boost::shared_ptr.59", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !3
-  %1 = load ptr, ptr %this, align 8, !tbaa !3
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !106
+  %1 = load ptr, ptr %this, align 8, !tbaa !104
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -3490,7 +3490,7 @@ invoke.cont13:                                    ; preds = %if.then
   %23 = load ptr, ptr %pn3.i, align 8, !tbaa !42
   store ptr %23, ptr %pn.i38, align 8, !tbaa !42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, i8 0, i64 16, i1 false)
-  %24 = load ptr, ptr %_M_finish.i.i39, align 8, !tbaa !3
+  %24 = load ptr, ptr %_M_finish.i.i39, align 8, !tbaa !106
   %25 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !107
   %cmp.not.i.i41 = icmp eq ptr %24, %25
   br i1 %cmp.not.i.i41, label %if.else.i.i, label %invoke.cont15.thread
@@ -3608,7 +3608,7 @@ ehcleanup:                                        ; preds = %lpad14, %lpad12
   br label %ehcleanup19
 
 if.else:                                          ; preds = %_ZN5boost10shared_ptrIN8QuantLib19CappedFlooredCouponEED2Ev.exit37
-  %41 = load ptr, ptr %_M_finish.i.i39, align 8, !tbaa !3
+  %41 = load ptr, ptr %_M_finish.i.i39, align 8, !tbaa !106
   %42 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !107
   %cmp.not.i = icmp eq ptr %41, %42
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i75
@@ -5074,7 +5074,7 @@ define linkonce_odr void @_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib8CashFlowEE
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !106
-  %1 = load ptr, ptr %this, align 8, !tbaa !3
+  %1 = load ptr, ptr %this, align 8, !tbaa !104
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -5182,7 +5182,7 @@ define linkonce_odr void @_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib8CashFlowEE
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !106
-  %1 = load ptr, ptr %this, align 8, !tbaa !3
+  %1 = load ptr, ptr %this, align 8, !tbaa !104
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

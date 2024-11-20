@@ -2633,8 +2633,8 @@ define linkonce_odr void @_ZNK8QuantLib24DiscretizedBarrierOption14mandatoryTime
 entry:
   %stoppingTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !35
-  %1 = load ptr, ptr %stoppingTimes_, align 8, !tbaa !35
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !36
+  %1 = load ptr, ptr %stoppingTimes_, align 8, !tbaa !38
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2800,8 +2800,8 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %stoppingTimes_.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
-  %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !35, !noalias !73
-  %1 = load ptr, ptr %stoppingTimes_.i, align 8, !tbaa !35, !noalias !73
+  %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !36, !noalias !73
+  %1 = load ptr, ptr %stoppingTimes_.i, align 8, !tbaa !38, !noalias !73
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i

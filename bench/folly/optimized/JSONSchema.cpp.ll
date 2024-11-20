@@ -70355,7 +70355,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %traits_inst = getelementptr inbounds i8, ptr %this, i64 80
   %2 = zext i32 %1 to i64
   %.pre = load ptr, ptr %position, align 8, !tbaa !22
-  %3 = load ptr, ptr %last, align 8
+  %3 = load ptr, ptr %last, align 8, !tbaa !22
   %cmp.i28 = icmp eq ptr %.pre, %3
   br i1 %cmp.i28, label %cleanup12, label %lor.lhs.false.preheader
 

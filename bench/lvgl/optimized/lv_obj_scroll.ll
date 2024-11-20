@@ -1499,7 +1499,7 @@ define void @lv_obj_update_snap(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   tail call void @lv_obj_update_layout(ptr noundef %0) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
   call void @lv_indev_scroll_get_snap_dist(ptr noundef %0, ptr noundef nonnull %3) #5
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !29
   switch i32 %4, label %6 [
     i32 -536870911, label %5
     i32 536870911, label %5
@@ -1512,7 +1512,7 @@ define void @lv_obj_update_snap(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 6:                                                ; preds = %2, %5
   %7 = phi i32 [ %4, %2 ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !30
   switch i32 %9, label %11 [
     i32 -536870911, label %10
     i32 536870911, label %10

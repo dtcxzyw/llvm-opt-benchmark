@@ -1122,8 +1122,8 @@ define hidden void @_ZN8rawspeed20AbstractLJpegDecoder8parseDHTENS_10ByteStreamE
           to label %145 unwind label %388
 
 145:                                              ; preds = %143
-  %146 = load ptr, ptr %22, align 8, !tbaa !36, !noalias !79
-  %147 = load ptr, ptr %4, align 8, !tbaa !36, !noalias !79
+  %146 = load ptr, ptr %22, align 8, !tbaa !82, !noalias !79
+  %147 = load ptr, ptr %4, align 8, !tbaa !57, !noalias !79
   %148 = ptrtoint ptr %146 to i64
   %149 = ptrtoint ptr %147 to i64
   %150 = sub i64 %148, %149
@@ -1136,7 +1136,7 @@ define hidden void @_ZN8rawspeed20AbstractLJpegDecoder8parseDHTENS_10ByteStreamE
   %153 = getelementptr inbounds i8, ptr null, i64 %150
   %154 = getelementptr inbounds i8, ptr %144, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %144, i8 0, i64 16, i1 false)
-  store ptr %153, ptr %154, align 8, !tbaa !82, !noalias !79
+  store ptr %153, ptr %154, align 8, !tbaa !83, !noalias !79
   br label %164
 
 155:                                              ; preds = %145
@@ -1157,10 +1157,10 @@ define hidden void @_ZN8rawspeed20AbstractLJpegDecoder8parseDHTENS_10ByteStreamE
 160:                                              ; preds = %158
   store ptr %159, ptr %144, align 8, !tbaa !57, !noalias !79
   %161 = getelementptr inbounds i8, ptr %144, i64 8
-  store ptr %159, ptr %161, align 8, !tbaa !83, !noalias !79
+  store ptr %159, ptr %161, align 8, !tbaa !82, !noalias !79
   %162 = getelementptr inbounds i8, ptr %159, i64 %150
   %163 = getelementptr inbounds i8, ptr %144, i64 16
-  store ptr %162, ptr %163, align 8, !tbaa !82, !noalias !79
+  store ptr %162, ptr %163, align 8, !tbaa !83, !noalias !79
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %159, ptr align 1 %147, i64 %150, i1 false), !noalias !79
   br label %164
 
@@ -1168,10 +1168,10 @@ define hidden void @_ZN8rawspeed20AbstractLJpegDecoder8parseDHTENS_10ByteStreamE
   %165 = phi ptr [ null, %.noexc34.thread ], [ %159, %160 ]
   %166 = phi ptr [ %153, %.noexc34.thread ], [ %162, %160 ]
   %167 = phi ptr [ %152, %.noexc34.thread ], [ %161, %160 ]
-  store ptr %166, ptr %167, align 8, !tbaa !83, !noalias !79
+  store ptr %166, ptr %167, align 8, !tbaa !82, !noalias !79
   %168 = getelementptr inbounds i8, ptr %144, i64 24
-  %169 = load ptr, ptr %21, align 8, !tbaa !36, !noalias !79
-  %170 = load ptr, ptr %20, align 8, !tbaa !36, !noalias !79
+  %169 = load ptr, ptr %21, align 8, !tbaa !77, !noalias !79
+  %170 = load ptr, ptr %20, align 8, !tbaa !55, !noalias !79
   %171 = ptrtoint ptr %169 to i64
   %172 = ptrtoint ptr %170 to i64
   %173 = sub i64 %171, %172
@@ -2918,7 +2918,7 @@ define linkonce_odr hidden void @_ZN8rawspeed11HuffmanCodeINS_15BaselineCodeTagE
   br i1 %61, label %63, label %62
 
 62:                                               ; preds = %.loopexit15
-  store ptr %58, ptr %59, align 8, !tbaa !83
+  store ptr %58, ptr %59, align 8, !tbaa !82
   br label %63
 
 63:                                               ; preds = %62, %.loopexit15
@@ -2991,7 +2991,7 @@ define linkonce_odr hidden void @_ZN8rawspeed11HuffmanCodeINS_15BaselineCodeTagE
   %110 = phi i32 [ %99, %94 ], [ %107, %103 ]
   %111 = zext i32 %110 to i64
   %112 = getelementptr inbounds i8, ptr %0, i64 16
-  %113 = load ptr, ptr %112, align 8, !tbaa !82
+  %113 = load ptr, ptr %112, align 8, !tbaa !83
   %114 = ptrtoint ptr %113 to i64
   %115 = ptrtoint ptr %58 to i64
   %116 = sub i64 %114, %115
@@ -3009,9 +3009,9 @@ define linkonce_odr hidden void @_ZN8rawspeed11HuffmanCodeINS_15BaselineCodeTagE
 
 122:                                              ; preds = %121, %118
   store ptr %119, ptr %0, align 8, !tbaa !57
-  store ptr %119, ptr %59, align 8, !tbaa !83
+  store ptr %119, ptr %59, align 8, !tbaa !82
   %123 = getelementptr inbounds i8, ptr %119, i64 %111
-  store ptr %123, ptr %112, align 8, !tbaa !82
+  store ptr %123, ptr %112, align 8, !tbaa !83
   br label %124
 
 124:                                              ; preds = %122, %.loopexit14, %101
@@ -3028,16 +3028,16 @@ define linkonce_odr hidden void @_ZN8rawspeed11HuffmanCodeINS_15BaselineCodeTagE
   %131 = phi ptr [ %126, %128 ], [ %169, %168 ]
   %132 = phi i64 [ %129, %128 ], [ %171, %168 ]
   %133 = phi ptr [ %1, %128 ], [ %170, %168 ]
-  %134 = load ptr, ptr %125, align 8, !tbaa !82
+  %134 = load ptr, ptr %125, align 8, !tbaa !83
   %135 = icmp eq ptr %131, %134
   br i1 %135, label %140, label %136
 
 136:                                              ; preds = %130
   %137 = load i8, ptr %133, align 1, !tbaa !46
   store i8 %137, ptr %131, align 1, !tbaa !46
-  %138 = load ptr, ptr %59, align 8, !tbaa !83
+  %138 = load ptr, ptr %59, align 8, !tbaa !82
   %139 = getelementptr inbounds i8, ptr %138, i64 1
-  store ptr %139, ptr %59, align 8, !tbaa !83
+  store ptr %139, ptr %59, align 8, !tbaa !82
   br label %168
 
 140:                                              ; preds = %130
@@ -3088,9 +3088,9 @@ define linkonce_odr hidden void @_ZN8rawspeed11HuffmanCodeINS_15BaselineCodeTagE
 
 166:                                              ; preds = %165, %162
   store ptr %157, ptr %0, align 8, !tbaa !57
-  store ptr %163, ptr %59, align 8, !tbaa !83
+  store ptr %163, ptr %59, align 8, !tbaa !82
   %167 = getelementptr inbounds i8, ptr %157, i64 %152
-  store ptr %167, ptr %125, align 8, !tbaa !82
+  store ptr %167, ptr %125, align 8, !tbaa !83
   br label %168
 
 168:                                              ; preds = %166, %136
@@ -4069,8 +4069,8 @@ define linkonce_odr hidden void @_ZN8rawspeed11HuffmanCodeINS_15BaselineCodeTagE
   store <2 x ptr> %10, ptr %5, align 16, !tbaa !36
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   %12 = getelementptr inbounds i8, ptr %1, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !82
-  store ptr %13, ptr %11, align 16, !tbaa !82
+  %13 = load ptr, ptr %12, align 8, !tbaa !83
+  store ptr %13, ptr %11, align 16, !tbaa !83
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   invoke void @_ZN8rawspeed10PrefixCodeINS_15BaselineCodeTagEEC2ESt6vectorINS_18AbstractPrefixCodeIS1_E10CodeSymbolESaIS6_EES3_IhSaIhEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %4, ptr noundef nonnull %5)
           to label %14 unwind label %27
@@ -5740,8 +5740,8 @@ attributes #28 = { cold }
 !79 = !{!80}
 !80 = distinct !{!80, !81, !"_ZSt11make_uniqueIN8rawspeed11HuffmanCodeINS0_15BaselineCodeTagEEEJRS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !81 = distinct !{!81, !"_ZSt11make_uniqueIN8rawspeed11HuffmanCodeINS0_15BaselineCodeTagEEEJRS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!82 = !{!58, !15, i64 16}
-!83 = !{!58, !15, i64 8}
+!82 = !{!58, !15, i64 8}
+!83 = !{!58, !15, i64 16}
 !84 = !{!56, !15, i64 16}
 !85 = !{!14, !15, i64 16}
 !86 = !{!87, !15, i64 0}

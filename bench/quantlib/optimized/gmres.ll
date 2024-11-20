@@ -1158,7 +1158,7 @@ call5.i.i.i.i.i.i.i.noexc.i280:                   ; preds = %invoke.cont77
   %58 = load i64, ptr %_M_size.i.i.i.i.i270, align 8, !tbaa !35
   %add.i.i.i.i.i282 = add i64 %58, 1
   store i64 %add.i.i.i.i.i282, ptr %_M_size.i.i.i.i.i270, align 8, !tbaa !35
-  %59 = load i64, ptr %maxIter_, align 8, !tbaa !22
+  %59 = load i64, ptr %maxIter_, align 8, !tbaa !12
   %cmp91824.not = icmp eq i64 %59, 0
   br i1 %cmp91824.not, label %cleanup265, label %land.rhs.lr.ph
 
@@ -1256,7 +1256,7 @@ ehcleanup389.thread:                              ; preds = %if.then.i.i.i.i.i25
 for.body:                                         ; preds = %land.rhs
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp96) #21
   store double 0.000000e+00, ptr %ref.tmp96, align 8, !tbaa !29
-  %74 = load ptr, ptr %_M_finish.i.i.i209, align 8, !tbaa !46
+  %74 = load ptr, ptr %_M_finish.i.i.i209, align 8, !tbaa !58
   %75 = load ptr, ptr %_M_end_of_storage.i.i.i211, align 8, !tbaa !59
   %cmp.not.i293 = icmp eq ptr %74, %75
   br i1 %cmp.not.i293, label %if.else.i, label %for.body.i.i.i.preheader.i.i.i.i
@@ -1546,7 +1546,7 @@ for.body.i.i378:                                  ; preds = %for.body.i.i378, %c
   br i1 %cmp.not.i5.i384, label %invoke.cont163, label %for.body.i.i378, !llvm.loop !55
 
 invoke.cont163:                                   ; preds = %for.body.i.i378, %_ZN8QuantLib5ArrayC2Em.exit.thread.i385
-  %119 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !46
+  %119 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !58
   %120 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !59
   %cmp.not.i.i390 = icmp eq ptr %119, %120
   br i1 %cmp.not.i.i390, label %if.else.i.i, label %invoke.cont165.thread
@@ -1687,7 +1687,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN8QuantLib5ArrayD2Ev.exit441:                   ; preds = %invoke.cont257, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i440
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %w) #21
-  %146 = load i64, ptr %maxIter_, align 8, !tbaa !22
+  %146 = load i64, ptr %maxIter_, align 8, !tbaa !12
   %cmp91 = icmp ult i64 %add144, %146
   %indvars.iv.next = add i64 %indvars.iv, 1
   br i1 %cmp91, label %land.rhs, label %cleanup265, !llvm.loop !75
@@ -1727,7 +1727,7 @@ _ZN8QuantLib5ArrayD2Ev.exit447:                   ; preds = %cleanup265.critedge
 
 cleanup265:                                       ; preds = %_ZN8QuantLib5ArrayD2Ev.exit441, %land.rhs, %call5.i.i.i.i.i.i.i.noexc.i280, %_ZN8QuantLib5ArrayD2Ev.exit447
   %150 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !58
-  %151 = load ptr, ptr %v, align 8, !tbaa !46
+  %151 = load ptr, ptr %v, align 8, !tbaa !56
   %sub.ptr.lhs.cast.i = ptrtoint ptr %150 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %151 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -2913,7 +2913,7 @@ entry:
   %n_.i = getelementptr inbounds nuw i8, ptr %v1, i64 8
   %0 = load i64, ptr %n_.i, align 8, !tbaa !38
   %n_.i10 = getelementptr inbounds nuw i8, ptr %v2, i64 8
-  %1 = load i64, ptr %n_.i10, align 8, !tbaa !22
+  %1 = load i64, ptr %n_.i10, align 8, !tbaa !38
   %cmp = icmp eq i64 %0, %1
   br i1 %cmp, label %do.end, label %if.then
 
@@ -3701,7 +3701,7 @@ entry:
   %n_.i = getelementptr inbounds nuw i8, ptr %v1, i64 8
   %0 = load i64, ptr %n_.i, align 8, !tbaa !38
   %n_.i10 = getelementptr inbounds nuw i8, ptr %v2, i64 8
-  %1 = load i64, ptr %n_.i10, align 8, !tbaa !22
+  %1 = load i64, ptr %n_.i10, align 8, !tbaa !38
   %cmp = icmp eq i64 %0, %1
   br i1 %cmp, label %do.end, label %if.then
 
@@ -4214,7 +4214,7 @@ define linkonce_odr void @_ZNSt6vectorIN8QuantLib5ArrayESaIS1_EE17_M_realloc_ins
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !58
-  %1 = load ptr, ptr %this, align 8, !tbaa !46
+  %1 = load ptr, ptr %this, align 8, !tbaa !56
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -4397,7 +4397,7 @@ define linkonce_odr void @_ZNSt6vectorIN8QuantLib5ArrayESaIS1_EE17_M_realloc_ins
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !58
-  %1 = load ptr, ptr %this, align 8, !tbaa !46
+  %1 = load ptr, ptr %this, align 8, !tbaa !56
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

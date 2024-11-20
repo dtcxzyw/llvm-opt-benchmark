@@ -1117,7 +1117,7 @@ cond.end.if.else_crit_edge:                       ; preds = %cond.end
 
 land.lhs.true:                                    ; preds = %cond.end
   %36 = load i64, ptr %valuationDate, align 8, !tbaa !91
-  %37 = load i64, ptr %settlementDate62.phi.trans.insert, align 8, !tbaa !30
+  %37 = load i64, ptr %settlementDate62.phi.trans.insert, align 8, !tbaa !91
   %cmp.i = icmp eq i64 %36, %37
   br i1 %cmp.i, label %if.end71, label %if.else
 
@@ -1391,7 +1391,7 @@ lpad.i:                                           ; preds = %init.i
 _ZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEv.exit: ; preds = %if.then4, %init.check.i, %invoke.cont.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #25
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
-  %7 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !30
+  %7 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !91
   %8 = load i64, ptr %ref.tmp.i, align 8, !tbaa !91
   %cmp.i.i17 = icmp eq i64 %7, %8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #25
@@ -1418,7 +1418,7 @@ if.then13:                                        ; preds = %if.end10
 if.end14:                                         ; preds = %if.then13, %if.end10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %effectiveDate) #25
   %startDate = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %11 = load i64, ptr %startDate, align 8, !tbaa !30
+  %11 = load i64, ptr %startDate, align 8, !tbaa !91
   %.sroa.speculated = call i64 @llvm.smax.i64(i64 %11, i64 %settlementDate.sroa.0.0)
   store i64 %.sroa.speculated, ptr %effectiveDate, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %maturityDate) #25

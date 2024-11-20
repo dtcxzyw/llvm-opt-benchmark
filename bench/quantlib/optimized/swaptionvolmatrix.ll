@@ -1495,7 +1495,7 @@ invoke.cont9:                                     ; preds = %invoke.cont.i25
   store ptr %call.i.i.i8.i30, ptr %_M_finish.i.i.i27, align 8, !tbaa !65
   %volatilities_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %22 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !60
-  %23 = load ptr, ptr %vols, align 8, !tbaa !3
+  %23 = load ptr, ptr %vols, align 8, !tbaa !62
   %sub.ptr.lhs.cast.i = ptrtoint ptr %22 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -1527,7 +1527,7 @@ invoke.cont13:                                    ; preds = %invoke.cont9, %cond
   store i64 %sub.ptr.div.i47, ptr %columns_.i, align 8, !tbaa !80
   %shifts_ = getelementptr inbounds nuw i8, ptr %this, i64 408
   %29 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !60
-  %30 = load ptr, ptr %vols, align 8, !tbaa !3
+  %30 = load ptr, ptr %vols, align 8, !tbaa !62
   %sub.ptr.lhs.cast.i50 = ptrtoint ptr %29 to i64
   %sub.ptr.rhs.cast.i51 = ptrtoint ptr %30 to i64
   %sub.ptr.sub.i52 = sub i64 %sub.ptr.lhs.cast.i50, %sub.ptr.rhs.cast.i51
@@ -1582,8 +1582,8 @@ invoke.cont18:                                    ; preds = %call.i.noexc64, %co
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i67, i8 0, i64 16, i1 false)
   %volatilityType_ = getelementptr inbounds nuw i8, ptr %this, i64 496
   store i32 %type, ptr %volatilityType_, align 8, !tbaa !83
-  %36 = load ptr, ptr %_M_finish.i.i17, align 8, !tbaa !3
-  %37 = load ptr, ptr %shifts, align 8, !tbaa !3
+  %36 = load ptr, ptr %_M_finish.i.i17, align 8, !tbaa !65
+  %37 = load ptr, ptr %shifts, align 8, !tbaa !67
   %sub.ptr.lhs.cast.i71 = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i72 = ptrtoint ptr %37 to i64
   %sub.ptr.sub.i73 = sub i64 %sub.ptr.lhs.cast.i71, %sub.ptr.rhs.cast.i72
@@ -3188,7 +3188,7 @@ entry:
   %volHandles_ = getelementptr inbounds nuw i8, ptr %this, i64 336
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !60
-  %1 = load ptr, ptr %volHandles_, align 8, !tbaa !3
+  %1 = load ptr, ptr %volHandles_, align 8, !tbaa !62
   %cmp32.not = icmp eq ptr %0, %1
   br i1 %cmp32.not, label %for.cond.cleanup, label %for.cond2.preheader.lr.ph
 
@@ -4594,7 +4594,7 @@ invoke.cont7:                                     ; preds = %invoke.cont.i30
   store ptr %call.i.i.i8.i35, ptr %_M_finish.i.i.i32, align 8, !tbaa !65
   %volatilities_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %18 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !60
-  %19 = load ptr, ptr %vols, align 8, !tbaa !3
+  %19 = load ptr, ptr %vols, align 8, !tbaa !62
   %sub.ptr.lhs.cast.i = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -4626,7 +4626,7 @@ invoke.cont11:                                    ; preds = %invoke.cont7, %cond
   store i64 %sub.ptr.div.i52, ptr %columns_.i, align 8, !tbaa !80
   %shifts_ = getelementptr inbounds nuw i8, ptr %this, i64 408
   %25 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !60
-  %26 = load ptr, ptr %vols, align 8, !tbaa !3
+  %26 = load ptr, ptr %vols, align 8, !tbaa !62
   %sub.ptr.lhs.cast.i55 = ptrtoint ptr %25 to i64
   %sub.ptr.rhs.cast.i56 = ptrtoint ptr %26 to i64
   %sub.ptr.sub.i57 = sub i64 %sub.ptr.lhs.cast.i55, %sub.ptr.rhs.cast.i56
@@ -4681,8 +4681,8 @@ invoke.cont16:                                    ; preds = %call.i.noexc69, %co
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i72, i8 0, i64 16, i1 false)
   %volatilityType_ = getelementptr inbounds nuw i8, ptr %this, i64 496
   store i32 %type, ptr %volatilityType_, align 8, !tbaa !83
-  %32 = load ptr, ptr %_M_finish.i.i22, align 8, !tbaa !3
-  %33 = load ptr, ptr %shifts, align 8, !tbaa !3
+  %32 = load ptr, ptr %_M_finish.i.i22, align 8, !tbaa !65
+  %33 = load ptr, ptr %shifts, align 8, !tbaa !67
   %sub.ptr.lhs.cast.i76 = ptrtoint ptr %32 to i64
   %sub.ptr.rhs.cast.i77 = ptrtoint ptr %33 to i64
   %sub.ptr.sub.i78 = sub i64 %sub.ptr.lhs.cast.i76, %sub.ptr.rhs.cast.i77
@@ -5664,7 +5664,7 @@ invoke.cont9:                                     ; preds = %invoke.cont.i25
   store ptr %call.i.i.i8.i30, ptr %_M_finish.i.i.i27, align 8, !tbaa !65
   %volatilities_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %22 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !60
-  %23 = load ptr, ptr %vols, align 8, !tbaa !3
+  %23 = load ptr, ptr %vols, align 8, !tbaa !62
   %sub.ptr.lhs.cast.i = ptrtoint ptr %22 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -5696,7 +5696,7 @@ invoke.cont13:                                    ; preds = %invoke.cont9, %cond
   store i64 %sub.ptr.div.i47, ptr %columns_.i, align 8, !tbaa !80
   %shifts_ = getelementptr inbounds nuw i8, ptr %this, i64 408
   %29 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !60
-  %30 = load ptr, ptr %vols, align 8, !tbaa !3
+  %30 = load ptr, ptr %vols, align 8, !tbaa !62
   %sub.ptr.lhs.cast.i50 = ptrtoint ptr %29 to i64
   %sub.ptr.rhs.cast.i51 = ptrtoint ptr %30 to i64
   %sub.ptr.sub.i52 = sub i64 %sub.ptr.lhs.cast.i50, %sub.ptr.rhs.cast.i51
@@ -5751,8 +5751,8 @@ invoke.cont18:                                    ; preds = %call.i.noexc64, %co
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i67, i8 0, i64 16, i1 false)
   %volatilityType_ = getelementptr inbounds nuw i8, ptr %this, i64 496
   store i32 %type, ptr %volatilityType_, align 8, !tbaa !83
-  %36 = load ptr, ptr %_M_finish.i.i17, align 8, !tbaa !3
-  %37 = load ptr, ptr %shifts, align 8, !tbaa !3
+  %36 = load ptr, ptr %_M_finish.i.i17, align 8, !tbaa !65
+  %37 = load ptr, ptr %shifts, align 8, !tbaa !67
   %sub.ptr.lhs.cast.i71 = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i72 = ptrtoint ptr %37 to i64
   %sub.ptr.sub.i73 = sub i64 %sub.ptr.lhs.cast.i71, %sub.ptr.rhs.cast.i72
@@ -6737,7 +6737,7 @@ invoke.cont7:                                     ; preds = %invoke.cont.i30
   store ptr %call.i.i.i8.i35, ptr %_M_finish.i.i.i32, align 8, !tbaa !65
   %volatilities_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %18 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !60
-  %19 = load ptr, ptr %vols, align 8, !tbaa !3
+  %19 = load ptr, ptr %vols, align 8, !tbaa !62
   %sub.ptr.lhs.cast.i = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -6769,7 +6769,7 @@ invoke.cont11:                                    ; preds = %invoke.cont7, %cond
   store i64 %sub.ptr.div.i52, ptr %columns_.i, align 8, !tbaa !80
   %shifts_ = getelementptr inbounds nuw i8, ptr %this, i64 408
   %25 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !60
-  %26 = load ptr, ptr %vols, align 8, !tbaa !3
+  %26 = load ptr, ptr %vols, align 8, !tbaa !62
   %sub.ptr.lhs.cast.i55 = ptrtoint ptr %25 to i64
   %sub.ptr.rhs.cast.i56 = ptrtoint ptr %26 to i64
   %sub.ptr.sub.i57 = sub i64 %sub.ptr.lhs.cast.i55, %sub.ptr.rhs.cast.i56
@@ -6824,8 +6824,8 @@ invoke.cont16:                                    ; preds = %call.i.noexc69, %co
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %impl_.i72, i8 0, i64 16, i1 false)
   %volatilityType_ = getelementptr inbounds nuw i8, ptr %this, i64 496
   store i32 %type, ptr %volatilityType_, align 8, !tbaa !83
-  %32 = load ptr, ptr %_M_finish.i.i22, align 8, !tbaa !3
-  %33 = load ptr, ptr %shifts, align 8, !tbaa !3
+  %32 = load ptr, ptr %_M_finish.i.i22, align 8, !tbaa !65
+  %33 = load ptr, ptr %shifts, align 8, !tbaa !67
   %sub.ptr.lhs.cast.i76 = ptrtoint ptr %32 to i64
   %sub.ptr.rhs.cast.i77 = ptrtoint ptr %33 to i64
   %sub.ptr.sub.i78 = sub i64 %sub.ptr.lhs.cast.i76, %sub.ptr.rhs.cast.i77
@@ -21117,14 +21117,14 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
 define linkonce_odr noundef i64 @_ZNK8QuantLib15Interpolation2D12templateImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS_6MatrixEE7locateXEd(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef %x) unnamed_addr #8 comdat align 2 {
 entry:
   %xBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %xBegin_, align 8, !tbaa !3
+  %0 = load ptr, ptr %xBegin_, align 8, !tbaa !197
   %1 = load double, ptr %0, align 8, !tbaa !81
   %cmp = fcmp olt double %x, %1
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
   %xEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load ptr, ptr %xEnd_, align 8, !tbaa !3
+  %2 = load ptr, ptr %xEnd_, align 8, !tbaa !197
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 -8
   %3 = load double, ptr %add.ptr.i, align 8, !tbaa !81
   %cmp4 = fcmp ogt double %x, %3
@@ -21244,14 +21244,14 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
 define linkonce_odr noundef i64 @_ZNK8QuantLib15Interpolation2D12templateImplIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_NS_6MatrixEE7locateYEd(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef %y) unnamed_addr #8 comdat align 2 {
 entry:
   %yBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %yBegin_, align 8, !tbaa !3
+  %0 = load ptr, ptr %yBegin_, align 8, !tbaa !197
   %1 = load double, ptr %0, align 8, !tbaa !81
   %cmp = fcmp olt double %y, %1
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
   %yEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %2 = load ptr, ptr %yEnd_, align 8, !tbaa !3
+  %2 = load ptr, ptr %yEnd_, align 8, !tbaa !197
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 -8
   %3 = load double, ptr %add.ptr.i, align 8, !tbaa !81
   %cmp4 = fcmp ogt double %y, %3

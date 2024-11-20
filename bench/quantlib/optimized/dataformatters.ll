@@ -47,13 +47,13 @@ entry:
   %_M_flags.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8, !tbaa !10
   %_M_width.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
-  %1 = load i64, ptr %_M_width.i, align 8, !tbaa !12
+  %1 = load i64, ptr %_M_width.i, align 8, !tbaa !18
   %cmp = icmp ugt i64 %1, 2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %sub = add i64 %1, -2
-  store i64 %sub, ptr %_M_width.i, align 8, !tbaa !12
+  store i64 %sub, ptr %_M_width.i, align 8, !tbaa !18
   %vbase.offset.i.pre = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr.i.phi.trans.insert = getelementptr inbounds i8, ptr %out, i64 %vbase.offset.i.pre
   %_M_flags.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %add.ptr.i.phi.trans.insert, i64 24
@@ -67,8 +67,8 @@ if.end:                                           ; preds = %if.then, %entry
   %_M_flags.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 24
   %and.i.i.i.i = and i32 %2, -261
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 4
-  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !10
-  %3 = load double, ptr %holder, align 8, !tbaa !19
+  store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !19
+  %3 = load double, ptr %holder, align 8, !tbaa !20
   %cmp13 = fcmp oeq double %3, 0x47EFFFFFE0000000
   br i1 %cmp13, label %if.then14, label %if.else
 
@@ -88,7 +88,7 @@ if.end19:                                         ; preds = %if.else, %if.then14
   %vbase.offset22 = load i64, ptr %vbase.offset.ptr21, align 8
   %add.ptr23 = getelementptr inbounds i8, ptr %out, i64 %vbase.offset22
   %_M_flags.i14 = getelementptr inbounds nuw i8, ptr %add.ptr23, i64 24
-  store i32 %0, ptr %_M_flags.i14, align 8, !tbaa !22
+  store i32 %0, ptr %_M_flags.i14, align 8, !tbaa !10
   ret ptr %out
 }
 
@@ -113,16 +113,16 @@ attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"vtable pointer", !7, i64 0}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
-!12 = !{!13, !5, i64 16}
-!13 = !{!"_ZTSSt8ios_base", !5, i64 8, !5, i64 16, !11, i64 24, !14, i64 28, !14, i64 32, !15, i64 40, !16, i64 48, !6, i64 64, !17, i64 192, !15, i64 200, !18, i64 208}
-!14 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
-!15 = !{!"any pointer", !6, i64 0}
-!16 = !{!"_ZTSNSt8ios_base6_WordsE", !15, i64 0, !5, i64 8}
-!17 = !{!"int", !6, i64 0}
-!18 = !{!"_ZTSSt6locale", !15, i64 0}
-!19 = !{!20, !21, i64 0}
-!20 = !{!"_ZTSN8QuantLib6detail14percent_holderE", !21, i64 0}
-!21 = !{!"double", !6, i64 0}
-!22 = !{!13, !11, i64 24}
+!10 = !{!11, !12, i64 24}
+!11 = !{!"_ZTSSt8ios_base", !5, i64 8, !5, i64 16, !12, i64 24, !13, i64 28, !13, i64 32, !14, i64 40, !15, i64 48, !6, i64 64, !16, i64 192, !14, i64 200, !17, i64 208}
+!12 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
+!13 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
+!14 = !{!"any pointer", !6, i64 0}
+!15 = !{!"_ZTSNSt8ios_base6_WordsE", !14, i64 0, !5, i64 8}
+!16 = !{!"int", !6, i64 0}
+!17 = !{!"_ZTSSt6locale", !14, i64 0}
+!18 = !{!11, !5, i64 16}
+!19 = !{!12, !12, i64 0}
+!20 = !{!21, !22, i64 0}
+!21 = !{!"_ZTSN8QuantLib6detail14percent_holderE", !22, i64 0}
+!22 = !{!"double", !6, i64 0}

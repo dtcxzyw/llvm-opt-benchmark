@@ -470,8 +470,8 @@ define ptr @lv_indev_find_scroll_obj(ptr nocapture noundef %0) local_unnamed_add
   %49 = udiv i32 65536, %36
   %50 = sext i16 %47 to i32
   call void @lv_point_transform(ptr noundef nonnull %3, i32 noundef %50, i32 noundef %48, i32 noundef %49, ptr noundef nonnull %2, i1 noundef zeroext false) #5
-  %.pre = load i32, ptr %3, align 8
-  %.pre269 = load i32, ptr %19, align 4
+  %.pre = load i32, ptr %3, align 8, !tbaa !34
+  %.pre269 = load i32, ptr %19, align 4, !tbaa !35
   br label %51
 
 51:                                               ; preds = %38, %46
@@ -495,11 +495,11 @@ define ptr @lv_indev_find_scroll_obj(ptr nocapture noundef %0) local_unnamed_add
 
 62:                                               ; preds = %60, %58
   %63 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0136246, i32 noundef 512) #5
-  br i1 %63, label %139, label %64, !llvm.loop !34
+  br i1 %63, label %139, label %64, !llvm.loop !36
 
 64:                                               ; preds = %62
   %65 = trunc nuw i8 %.0152. to i1
-  br i1 %65, label %.thread204, label %139, !llvm.loop !34
+  br i1 %65, label %.thread204, label %139, !llvm.loop !36
 
 66:                                               ; preds = %51
   %67 = trunc nuw i8 %.0152. to i1
@@ -540,7 +540,7 @@ define ptr @lv_indev_find_scroll_obj(ptr nocapture noundef %0) local_unnamed_add
   %.3150 = phi i32 [ 1, %83 ], [ %.1148227, %.lr.ph ]
   %86 = add nuw i32 %.0135228, 1
   %exitcond.not = icmp eq i32 %86, %80
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %85
   %87 = icmp ult i32 %.3150, 2
@@ -580,7 +580,7 @@ define ptr @lv_indev_find_scroll_obj(ptr nocapture noundef %0) local_unnamed_add
   %.7 = phi i32 [ 1, %97 ], [ %.5233, %.lr.ph236 ]
   %100 = add nuw i32 %.0234, 1
   %exitcond268.not = icmp eq i32 %100, %94
-  br i1 %exitcond268.not, label %._crit_edge237, label %.lr.ph236, !llvm.loop !36
+  br i1 %exitcond268.not, label %._crit_edge237, label %.lr.ph236, !llvm.loop !38
 
 ._crit_edge237:                                   ; preds = %99
   %101 = icmp ult i32 %.7, 2
@@ -925,7 +925,7 @@ define void @lv_indev_scroll_throw_handler(ptr noundef %0) local_unnamed_addr #0
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 73
-  %12 = load i8, ptr %11, align 1, !tbaa !37
+  %12 = load i8, ptr %11, align 1, !tbaa !39
   %13 = zext i8 %12 to i32
   %14 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %3, i32 noundef 64) #5
   br i1 %14, label %18, label %15
@@ -933,8 +933,8 @@ define void @lv_indev_scroll_throw_handler(ptr noundef %0) local_unnamed_addr #0
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i32 0, ptr %17, align 4, !tbaa !38
-  store i32 0, ptr %16, align 8, !tbaa !39
+  store i32 0, ptr %17, align 4, !tbaa !40
+  store i32 0, ptr %16, align 8, !tbaa !41
   br label %18
 
 18:                                               ; preds = %15, %10
@@ -949,22 +949,22 @@ define void @lv_indev_scroll_throw_handler(ptr noundef %0) local_unnamed_addr #0
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 0, ptr %24, align 8, !tbaa !39
+  store i32 0, ptr %24, align 8, !tbaa !41
   %25 = icmp eq i32 %20, 0
   br i1 %25, label %26, label %40
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %28 = load i32, ptr %27, align 4, !tbaa !38
+  %28 = load i32, ptr %27, align 4, !tbaa !40
   %29 = sub nsw i32 100, %13
   %30 = mul nsw i32 %28, %29
   %31 = sdiv i32 %30, 100
-  store i32 %31, ptr %27, align 4, !tbaa !38
+  store i32 %31, ptr %27, align 4, !tbaa !40
   %32 = tail call i32 @lv_obj_get_scroll_bottom(ptr noundef nonnull %3) #5
   %33 = tail call i32 @lv_obj_get_scroll_top(ptr noundef nonnull %3) #5
-  %34 = load i32, ptr %27, align 4, !tbaa !38
+  %34 = load i32, ptr %27, align 4, !tbaa !40
   %35 = tail call fastcc i32 @elastic_diff(ptr noundef %3, i32 noundef %34, i32 noundef %33, i32 noundef %32, i32 noundef 12)
-  store i32 %35, ptr %27, align 4, !tbaa !38
+  store i32 %35, ptr %27, align 4, !tbaa !40
   %36 = tail call i32 @lv_obj_scroll_by_raw(ptr noundef nonnull %3, i32 noundef 0, i32 noundef %35) #5
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load i8, ptr %37, align 8
@@ -974,12 +974,12 @@ define void @lv_indev_scroll_throw_handler(ptr noundef %0) local_unnamed_addr #0
 
 40:                                               ; preds = %23
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %.012.i = load i32, ptr %41, align 4, !tbaa !40
+  %.012.i = load i32, ptr %41, align 4, !tbaa !42
   %.not15.i = icmp eq i32 %.012.i, 0
   br i1 %.not15.i, label %lv_indev_scroll_throw_predict.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %40
-  %42 = load i8, ptr %11, align 1, !tbaa !37
+  %42 = load i8, ptr %11, align 1, !tbaa !39
   %43 = zext i8 %42 to i32
   %44 = sub nsw i32 100, %43
   br label %45
@@ -992,12 +992,12 @@ define void @lv_indev_scroll_throw_handler(ptr noundef %0) local_unnamed_addr #0
   %48 = sdiv i32 %47, 100
   %.off.i = add i32 %47, 99
   %.not.i = icmp ult i32 %.off.i, 199
-  br i1 %.not.i, label %lv_indev_scroll_throw_predict.exit, label %45, !llvm.loop !41
+  br i1 %.not.i, label %lv_indev_scroll_throw_predict.exit, label %45, !llvm.loop !43
 
 lv_indev_scroll_throw_predict.exit:               ; preds = %45, %40
   %.011.i = phi i32 [ 0, %40 ], [ %46, %45 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i32 0, ptr %49, align 4, !tbaa !38
+  store i32 0, ptr %49, align 4, !tbaa !40
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %51 = load i32, ptr %50, align 4, !tbaa !30
   %52 = add nsw i32 %51, %.011.i
@@ -1024,21 +1024,21 @@ lv_indev_scroll_throw_predict.exit:               ; preds = %45, %40
 66:                                               ; preds = %18
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i32 0, ptr %68, align 4, !tbaa !38
+  store i32 0, ptr %68, align 4, !tbaa !40
   %69 = icmp eq i32 %19, 0
   br i1 %69, label %70, label %83
 
 70:                                               ; preds = %66
-  %71 = load i32, ptr %67, align 8, !tbaa !39
+  %71 = load i32, ptr %67, align 8, !tbaa !41
   %72 = sub nsw i32 100, %13
   %73 = mul nsw i32 %71, %72
   %74 = sdiv i32 %73, 100
-  store i32 %74, ptr %67, align 8, !tbaa !39
+  store i32 %74, ptr %67, align 8, !tbaa !41
   %75 = tail call i32 @lv_obj_get_scroll_left(ptr noundef nonnull %3) #5
   %76 = tail call i32 @lv_obj_get_scroll_right(ptr noundef nonnull %3) #5
-  %77 = load i32, ptr %67, align 8, !tbaa !39
+  %77 = load i32, ptr %67, align 8, !tbaa !41
   %78 = tail call fastcc i32 @elastic_diff(ptr noundef %3, i32 noundef %77, i32 noundef %75, i32 noundef %76, i32 noundef 3)
-  store i32 %78, ptr %67, align 8, !tbaa !39
+  store i32 %78, ptr %67, align 8, !tbaa !41
   %79 = tail call i32 @lv_obj_scroll_by_raw(ptr noundef nonnull %3, i32 noundef %78, i32 noundef 0) #5
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %81 = load i8, ptr %80, align 8
@@ -1048,12 +1048,12 @@ lv_indev_scroll_throw_predict.exit:               ; preds = %45, %40
 
 83:                                               ; preds = %66
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %.012.i118 = load i32, ptr %84, align 4, !tbaa !40
+  %.012.i118 = load i32, ptr %84, align 4, !tbaa !42
   %.not15.i119 = icmp eq i32 %.012.i118, 0
   br i1 %.not15.i119, label %lv_indev_scroll_throw_predict.exit126, label %.lr.ph.i120
 
 .lr.ph.i120:                                      ; preds = %83
-  %85 = load i8, ptr %11, align 1, !tbaa !37
+  %85 = load i8, ptr %11, align 1, !tbaa !39
   %86 = zext i8 %85 to i32
   %87 = sub nsw i32 100, %86
   br label %88
@@ -1066,11 +1066,11 @@ lv_indev_scroll_throw_predict.exit:               ; preds = %45, %40
   %91 = sdiv i32 %90, 100
   %.off.i123 = add i32 %90, 99
   %.not.i124 = icmp ult i32 %.off.i123, 199
-  br i1 %.not.i124, label %lv_indev_scroll_throw_predict.exit126, label %88, !llvm.loop !41
+  br i1 %.not.i124, label %lv_indev_scroll_throw_predict.exit126, label %88, !llvm.loop !43
 
 lv_indev_scroll_throw_predict.exit126:            ; preds = %88, %83
   %.011.i125 = phi i32 [ 0, %83 ], [ %89, %88 ]
-  store i32 0, ptr %67, align 8, !tbaa !39
+  store i32 0, ptr %67, align 8, !tbaa !41
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %93 = load i32, ptr %92, align 8, !tbaa !31
   %94 = add nsw i32 %93, %.011.i125
@@ -1096,13 +1096,13 @@ lv_indev_scroll_throw_predict.exit126:            ; preds = %88, %83
 
 108:                                              ; preds = %18, %lv_indev_scroll_throw_predict.exit126, %70, %26, %lv_indev_scroll_throw_predict.exit
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %110 = load i32, ptr %109, align 8, !tbaa !39
+  %110 = load i32, ptr %109, align 8, !tbaa !41
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %112, label %162
 
 112:                                              ; preds = %108
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %114 = load i32, ptr %113, align 4, !tbaa !38
+  %114 = load i32, ptr %113, align 4, !tbaa !40
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %116, label %162
 
@@ -1222,13 +1222,13 @@ define i32 @lv_indev_scroll_throw_predict(ptr noundef readonly %0, i32 noundef %
 6:                                                ; preds = %4, %5
   %.sink = phi i64 [ 136, %5 ], [ 140, %4 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
-  %.012 = load i32, ptr %7, align 4, !tbaa !40
+  %.012 = load i32, ptr %7, align 4, !tbaa !42
   %.not15 = icmp eq i32 %.012, 0
   br i1 %.not15, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 73
-  %9 = load i8, ptr %8, align 1, !tbaa !37
+  %9 = load i8, ptr %8, align 1, !tbaa !39
   %10 = zext i8 %9 to i32
   %11 = sub nsw i32 100, %10
   br label %12
@@ -1241,7 +1241,7 @@ define i32 @lv_indev_scroll_throw_predict(ptr noundef readonly %0, i32 noundef %
   %15 = sdiv i32 %14, 100
   %.off = add i32 %14, 99
   %.not = icmp ult i32 %.off, 199
-  br i1 %.not, label %.loopexit, label %12, !llvm.loop !41
+  br i1 %.not, label %.loopexit, label %12, !llvm.loop !43
 
 .loopexit:                                        ; preds = %12, %6, %4, %2
   %.011 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %6 ], [ %13, %12 ]
@@ -1277,10 +1277,10 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
 18:                                               ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
   %.04754 = phi i32 [ 536870911, %.lr.ph ], [ %.1, %58 ]
-  %19 = load ptr, ptr %13, align 8, !tbaa !42
-  %20 = load ptr, ptr %19, align 8, !tbaa !43
+  %19 = load ptr, ptr %13, align 8, !tbaa !44
+  %20 = load ptr, ptr %19, align 8, !tbaa !45
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8, !tbaa !45
+  %22 = load ptr, ptr %21, align 8, !tbaa !47
   %23 = tail call zeroext i1 @lv_obj_has_flag_any(ptr noundef %22, i32 noundef 262145) #5
   br i1 %23, label %58, label %24
 
@@ -1346,7 +1346,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
   %.1 = phi i32 [ %.04754, %18 ], [ %.04754, %24 ], [ %.04754, %26 ], [ %57, %52 ], [ %.04754, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %58
   %59 = icmp eq i32 %.1, 536870911
@@ -1391,10 +1391,10 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
 17:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
   %.04754 = phi i32 [ 536870911, %.lr.ph ], [ %.1, %56 ]
-  %18 = load ptr, ptr %13, align 8, !tbaa !42
-  %19 = load ptr, ptr %18, align 8, !tbaa !43
+  %18 = load ptr, ptr %13, align 8, !tbaa !44
+  %19 = load ptr, ptr %18, align 8, !tbaa !45
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
-  %21 = load ptr, ptr %20, align 8, !tbaa !45
+  %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = tail call zeroext i1 @lv_obj_has_flag_any(ptr noundef %21, i32 noundef 262145) #5
   br i1 %22, label %56, label %23
 
@@ -1459,7 +1459,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
   %.1 = phi i32 [ %.04754, %17 ], [ %.04754, %23 ], [ %.04754, %25 ], [ %55, %50 ], [ %.04754, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %56
   %57 = icmp eq i32 %.1, 536870911
@@ -1481,14 +1481,14 @@ define void @lv_indev_scroll_get_snap_dist(ptr noundef %0, ptr nocapture noundef
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i32, ptr %5, align 8, !tbaa !26
   %7 = tail call fastcc i32 @find_snap_point_x(ptr noundef %0, i32 noundef %4, i32 noundef %6, i32 noundef 0)
-  store i32 %7, ptr %1, align 4, !tbaa !48
+  store i32 %7, ptr %1, align 4, !tbaa !34
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %11 = load i32, ptr %10, align 4, !tbaa !21
   %12 = tail call fastcc i32 @find_snap_point_y(ptr noundef %0, i32 noundef %9, i32 noundef %11, i32 noundef 0)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %12, ptr %13, align 4, !tbaa !49
+  store i32 %12, ptr %13, align 4, !tbaa !35
   ret void
 }
 
@@ -1558,19 +1558,19 @@ attributes #5 = { nounwind }
 !31 = !{!4, !5, i64 120}
 !32 = !{!4, !6, i64 72}
 !33 = distinct !{!33, !29}
-!34 = distinct !{!34, !29}
-!35 = distinct !{!35, !29}
+!34 = !{!11, !5, i64 0}
+!35 = !{!11, !5, i64 4}
 !36 = distinct !{!36, !29}
-!37 = !{!4, !6, i64 73}
-!38 = !{!4, !5, i64 132}
-!39 = !{!4, !5, i64 128}
-!40 = !{!5, !5, i64 0}
-!41 = distinct !{!41, !29}
-!42 = !{!19, !8, i64 16}
-!43 = !{!44, !8, i64 0}
-!44 = !{!"_lv_obj_spec_attr_t", !8, i64 0, !8, i64 8, !13, i64 16, !11, i64 48, !5, i64 56, !5, i64 60, !9, i64 64, !9, i64 66, !9, i64 66, !9, i64 66, !9, i64 66, !9, i64 67}
-!45 = !{!8, !8, i64 0}
-!46 = distinct !{!46, !29}
-!47 = distinct !{!47, !29}
-!48 = !{!11, !5, i64 0}
-!49 = !{!11, !5, i64 4}
+!37 = distinct !{!37, !29}
+!38 = distinct !{!38, !29}
+!39 = !{!4, !6, i64 73}
+!40 = !{!4, !5, i64 132}
+!41 = !{!4, !5, i64 128}
+!42 = !{!5, !5, i64 0}
+!43 = distinct !{!43, !29}
+!44 = !{!19, !8, i64 16}
+!45 = !{!46, !8, i64 0}
+!46 = !{!"_lv_obj_spec_attr_t", !8, i64 0, !8, i64 8, !13, i64 16, !11, i64 48, !5, i64 56, !5, i64 60, !9, i64 64, !9, i64 66, !9, i64 66, !9, i64 66, !9, i64 66, !9, i64 67}
+!47 = !{!8, !8, i64 0}
+!48 = distinct !{!48, !29}
+!49 = distinct !{!49, !29}

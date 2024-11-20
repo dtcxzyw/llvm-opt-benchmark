@@ -620,7 +620,7 @@ for.body72:                                       ; preds = %for.body72.lr.ph, %
   %j.0167 = phi i64 [ 0, %for.body72.lr.ph ], [ %inc79, %for.inc78 ]
   %58 = load ptr, ptr %ref.tmp47, align 8, !tbaa !59
   %add.ptr.i75 = getelementptr inbounds nuw double, ptr %58, i64 %j.0167
-  %59 = load ptr, ptr %_M_finish.i76, align 8, !tbaa !22
+  %59 = load ptr, ptr %_M_finish.i76, align 8, !tbaa !74
   %60 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !72
   %cmp.not.i = icmp eq ptr %59, %60
   br i1 %cmp.not.i, label %if.else.i80, label %if.then.i77
@@ -1649,7 +1649,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %sub.ptr.sub.i65 = sub i64 %sub.ptr.lhs.cast.i63, %sub.ptr.rhs.cast.i64
   %sub.ptr.div.i66 = ashr exact i64 %sub.ptr.sub.i65, 4
   %_M_finish.i.i67 = getelementptr inbounds nuw i8, ptr %add.ptr.i60, i64 8
-  %12 = load ptr, ptr %_M_finish.i.i67, align 8, !tbaa !22
+  %12 = load ptr, ptr %_M_finish.i.i67, align 8, !tbaa !90
   %13 = load ptr, ptr %add.ptr.i60, align 8, !tbaa !88
   %sub.ptr.lhs.cast.i.i68 = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i69 = ptrtoint ptr %13 to i64
@@ -2422,7 +2422,7 @@ define linkonce_odr void @_ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_E
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !74
-  %1 = load ptr, ptr %this, align 8, !tbaa !22
+  %1 = load ptr, ptr %this, align 8, !tbaa !73
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -3130,9 +3130,9 @@ do.end94:                                         ; preds = %do.body33
   call void @llvm.experimental.noalias.scope.decl(metadata !157)
   %45 = load ptr, ptr %ref.tmp96, align 8, !tbaa !22, !noalias !157
   %rows_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp96, i64 8
-  %46 = load i64, ptr %rows_.i.i, align 8, !tbaa !63, !noalias !157
+  %46 = load i64, ptr %rows_.i.i, align 8, !tbaa !160, !noalias !157
   %columns_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp96, i64 16
-  %47 = load i64, ptr %columns_.i.i, align 8, !tbaa !63, !noalias !157
+  %47 = load i64, ptr %columns_.i.i, align 8, !tbaa !161, !noalias !157
   %mul.i.i = mul i64 %47, %46
   %add.ptr.i.i = getelementptr inbounds nuw double, ptr %45, i64 %mul.i.i
   %cmp.not5.i.i = icmp eq i64 %mul.i.i, 0
@@ -3145,7 +3145,7 @@ for.body.i.i:                                     ; preds = %do.end94, %for.body
   store double %mul.i.i.i, ptr %__result.addr.07.i.i, align 8, !tbaa !61, !noalias !157
   %incdec.ptr1.i.i = getelementptr i8, ptr %__result.addr.07.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr1.i.i, %add.ptr.i.i
-  br i1 %cmp.not.i.i, label %invoke.cont106, label %for.body.i.i, !llvm.loop !160
+  br i1 %cmp.not.i.i, label %invoke.cont106, label %for.body.i.i, !llvm.loop !162
 
 invoke.cont106:                                   ; preds = %for.body.i.i, %do.end94
   %rows_.i4.i = getelementptr inbounds nuw i8, ptr %ref.tmp95, i64 8
@@ -3222,7 +3222,7 @@ _ZN8QuantLib6MatrixD2Ev.exit80:                   ; preds = %_ZN8QuantLib6Matrix
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.0121 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %begin.sroa.0.0120 = phi ptr [ %begin.coerce, %for.body.lr.ph ], [ %incdec.ptr.i, %for.body ]
-  %55 = load ptr, ptr %stats_, align 8, !tbaa !161
+  %55 = load ptr, ptr %stats_, align 8, !tbaa !163
   %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::IncrementalStatistics", ptr %55, i64 %i.0121
   %56 = load double, ptr %begin.sroa.0.0120, align 8, !tbaa !61
   call void @_ZN8QuantLib21IncrementalStatistics3addEdd(ptr noundef nonnull align 8 dereferenceable(128) %add.ptr.i, double noundef %56, double noundef %weight)
@@ -3230,7 +3230,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw i64 %i.0121, 1
   %57 = load i64, ptr %this, align 8, !tbaa !139
   %cmp115 = icmp ult i64 %inc, %57
-  br i1 %cmp115, label %for.body, label %for.cond.cleanup, !llvm.loop !162
+  br i1 %cmp115, label %for.body, label %for.cond.cleanup, !llvm.loop !164
 
 eh.resume:                                        ; preds = %_ZN8QuantLib6MatrixD2Ev.exit80, %ehcleanup91, %ehcleanup26
   %.pn13.pn = phi { ptr, i32 } [ %52, %_ZN8QuantLib6MatrixD2Ev.exit80 ], [ %.pn8.pn.pn.pn, %ehcleanup91 ], [ %.pn.pn.pn.pn, %ehcleanup26 ]
@@ -3250,7 +3250,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 entry:
   %__dnew.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8, !tbaa !163
+  store ptr %0, ptr %this, align 8, !tbaa !165
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -3378,13 +3378,13 @@ for.body.lr.ph:                                   ; preds = %if.then
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.037 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %1 = load ptr, ptr %stats_, align 8, !tbaa !161
+  %1 = load ptr, ptr %stats_, align 8, !tbaa !163
   %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::IncrementalStatistics", ptr %1, i64 %i.037
   tail call void @_ZN8QuantLib21IncrementalStatistics5resetEv(ptr noundef nonnull align 8 dereferenceable(128) %add.ptr.i)
   %inc = add nuw i64 %i.037, 1
   %2 = load i64, ptr %this, align 8, !tbaa !139
   %cmp5 = icmp ult i64 %inc, %2
-  br i1 %cmp5, label %for.body, label %if.end, !llvm.loop !164
+  br i1 %cmp5, label %for.body, label %if.end, !llvm.loop !166
 
 if.else:                                          ; preds = %if.then
   store i64 %dimension, ptr %this, align 8, !tbaa !139
@@ -3392,18 +3392,18 @@ if.else:                                          ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp7) #20
   call void @_ZNSt6vectorIN8QuantLib21IncrementalStatisticsESaIS1_EEC2EmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i64 noundef %dimension, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
   %stats_8 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %3 = load ptr, ptr %stats_8, align 8, !tbaa !161
+  %3 = load ptr, ptr %stats_8, align 8, !tbaa !163
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %4 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !165
-  %5 = load ptr, ptr %ref.tmp, align 8, !tbaa !161
-  store ptr %5, ptr %stats_8, align 8, !tbaa !161
+  %4 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !167
+  %5 = load ptr, ptr %ref.tmp, align 8, !tbaa !163
+  store ptr %5, ptr %stats_8, align 8, !tbaa !163
   %_M_finish.i2.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  %6 = load ptr, ptr %_M_finish.i2.i.i.i, align 8, !tbaa !166
-  store ptr %6, ptr %_M_finish.i.i.i.i, align 8, !tbaa !166
+  %6 = load ptr, ptr %_M_finish.i2.i.i.i, align 8, !tbaa !168
+  store ptr %6, ptr %_M_finish.i.i.i.i, align 8, !tbaa !168
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  %7 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8, !tbaa !165
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !165
+  %7 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8, !tbaa !167
+  store ptr %7, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !167
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIN8QuantLib21IncrementalStatisticsESaIS1_EED2Ev.exit, label %_ZNSt6vectorIN8QuantLib21IncrementalStatisticsESaIS1_EEaSEOS3_.exit
@@ -3413,12 +3413,12 @@ _ZNSt6vectorIN8QuantLib21IncrementalStatisticsESaIS1_EEaSEOS3_.exit: ; preds = %
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %sub.ptr.sub.i.i.i.i) #23
-  %.pr = load ptr, ptr %ref.tmp, align 8, !tbaa !161
+  %.pr = load ptr, ptr %ref.tmp, align 8, !tbaa !163
   %tobool.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8QuantLib21IncrementalStatisticsESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIN8QuantLib21IncrementalStatisticsESaIS1_EEaSEOS3_.exit
-  %8 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8, !tbaa !165
+  %8 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8, !tbaa !167
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %.pr to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -3865,9 +3865,9 @@ for.body.preheader:                               ; preds = %do.end76, %cond.tru
   %cond.i = phi ptr [ %call.i, %cond.true.i ], [ null, %do.end76 ]
   store ptr %cond.i, ptr %agg.result, align 8, !tbaa !22
   %rows_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 %sub.ptr.div.i.i.i, ptr %rows_.i, align 8, !tbaa !167
+  store i64 %sub.ptr.div.i.i.i, ptr %rows_.i, align 8, !tbaa !160
   %columns_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i64 %sub.ptr.div.i.i.i34, ptr %columns_.i, align 8, !tbaa !168
+  store i64 %sub.ptr.div.i.i.i34, ptr %columns_.i, align 8, !tbaa !161
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc.loopexit
@@ -3916,17 +3916,17 @@ entry:
   %ref.tmp29 = alloca %"class.std::allocator.74", align 1
   %ref.tmp32 = alloca %"class.std::__cxx11::basic_string", align 8
   %rows_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i64, ptr %rows_, align 8, !tbaa !167
+  %0 = load i64, ptr %rows_, align 8, !tbaa !160
   %rows_2 = getelementptr inbounds nuw i8, ptr %m, i64 8
-  %1 = load i64, ptr %rows_2, align 8, !tbaa !167
+  %1 = load i64, ptr %rows_2, align 8, !tbaa !160
   %cmp = icmp eq i64 %0, %1
   br i1 %cmp, label %land.lhs.true, label %if.then
 
 land.lhs.true:                                    ; preds = %entry
   %columns_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load i64, ptr %columns_, align 8, !tbaa !168
+  %2 = load i64, ptr %columns_, align 8, !tbaa !161
   %columns_3 = getelementptr inbounds nuw i8, ptr %m, i64 16
-  %3 = load i64, ptr %columns_3, align 8, !tbaa !168
+  %3 = load i64, ptr %columns_3, align 8, !tbaa !161
   %cmp4 = icmp eq i64 %2, %3
   br i1 %cmp4, label %do.end, label %if.then
 
@@ -3937,7 +3937,7 @@ if.then:                                          ; preds = %land.lhs.true, %ent
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %4 = load i64, ptr %rows_2, align 8, !tbaa !167
+  %4 = load i64, ptr %rows_2, align 8, !tbaa !160
   %call.i10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream, i64 noundef %4)
           to label %invoke.cont6 unwind label %lpad
 
@@ -3947,7 +3947,7 @@ invoke.cont6:                                     ; preds = %invoke.cont
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   %columns_10 = getelementptr inbounds nuw i8, ptr %m, i64 16
-  %5 = load i64, ptr %columns_10, align 8, !tbaa !168
+  %5 = load i64, ptr %columns_10, align 8, !tbaa !161
   %call.i14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i10, i64 noundef %5)
           to label %invoke.cont11 unwind label %lpad
 
@@ -3956,7 +3956,7 @@ invoke.cont11:                                    ; preds = %invoke.cont8
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  %6 = load i64, ptr %rows_, align 8, !tbaa !167
+  %6 = load i64, ptr %rows_, align 8, !tbaa !160
   %call.i19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i14, i64 noundef %6)
           to label %invoke.cont16 unwind label %lpad
 
@@ -3966,7 +3966,7 @@ invoke.cont16:                                    ; preds = %invoke.cont13
 
 invoke.cont18:                                    ; preds = %invoke.cont16
   %columns_20 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %7 = load i64, ptr %columns_20, align 8, !tbaa !168
+  %7 = load i64, ptr %columns_20, align 8, !tbaa !161
   %call.i24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i19, i64 noundef %7)
           to label %invoke.cont21 unwind label %lpad
 
@@ -4194,12 +4194,12 @@ _ZNSt12_Vector_baseIN8QuantLib21IncrementalStatisticsESaIS1_EEC2EmRKS2_.exit.thr
 _ZNSt12_Vector_baseIN8QuantLib21IncrementalStatisticsESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNSt6vectorIN8QuantLib21IncrementalStatisticsESaIS1_EE17_S_check_init_lenEmRKS2_.exit
   %mul.i.i.i.i.i = shl nuw nsw i64 %__n, 7
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
-  store ptr %call5.i.i.i.i2.i, ptr %this, align 8, !tbaa !161
+  store ptr %call5.i.i.i.i2.i, ptr %this, align 8, !tbaa !163
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %call5.i.i.i.i2.i, ptr %_M_finish.i.i, align 8, !tbaa !166
+  store ptr %call5.i.i.i.i2.i, ptr %_M_finish.i.i, align 8, !tbaa !168
   %add.ptr.i.i = getelementptr inbounds nuw %"class.QuantLib::IncrementalStatistics", ptr %call5.i.i.i.i2.i, i64 %__n
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !165
+  store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !167
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN8QuantLib21IncrementalStatisticsESaIS1_EEC2EmRKS2_.exit, %for.inc.i.i.i.i
@@ -4241,16 +4241,16 @@ unreachable.i.i.i.i:                              ; preds = %invoke.cont2.i.i.i.
 invoke.cont:                                      ; preds = %for.inc.i.i.i.i, %_ZNSt12_Vector_baseIN8QuantLib21IncrementalStatisticsESaIS1_EEC2EmRKS2_.exit.thread
   %_M_finish.i.i7 = phi ptr [ %_M_finish.i.i4, %_ZNSt12_Vector_baseIN8QuantLib21IncrementalStatisticsESaIS1_EEC2EmRKS2_.exit.thread ], [ %_M_finish.i.i, %for.inc.i.i.i.i ]
   %__cur.0.lcssa.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN8QuantLib21IncrementalStatisticsESaIS1_EEC2EmRKS2_.exit.thread ], [ %incdec.ptr.i.i.i.i, %for.inc.i.i.i.i ]
-  store ptr %__cur.0.lcssa.i.i.i.i, ptr %_M_finish.i.i7, align 8, !tbaa !166
+  store ptr %__cur.0.lcssa.i.i.i.i, ptr %_M_finish.i.i7, align 8, !tbaa !168
   ret void
 
 lpad.body:                                        ; preds = %lpad1.i.i.i.i
-  %6 = load ptr, ptr %this, align 8, !tbaa !161
+  %6 = load ptr, ptr %this, align 8, !tbaa !163
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN8QuantLib21IncrementalStatisticsESaIS1_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lpad.body
-  %7 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !165
+  %7 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !167
   %sub.ptr.lhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -4474,15 +4474,15 @@ attributes #25 = { noreturn nounwind }
 !157 = !{!158}
 !158 = distinct !{!158, !159, !"_ZN8QuantLibmlEdONS_6MatrixE: %agg.result"}
 !159 = distinct !{!159, !"_ZN8QuantLibmlEdONS_6MatrixE"}
-!160 = distinct !{!160, !71}
-!161 = !{!144, !5, i64 0}
+!160 = !{!145, !44, i64 8}
+!161 = !{!145, !44, i64 16}
 !162 = distinct !{!162, !71}
-!163 = !{!154, !5, i64 0}
+!163 = !{!144, !5, i64 0}
 !164 = distinct !{!164, !71}
-!165 = !{!144, !5, i64 16}
-!166 = !{!144, !5, i64 8}
-!167 = !{!145, !44, i64 8}
-!168 = !{!145, !44, i64 16}
+!165 = !{!154, !5, i64 0}
+!166 = distinct !{!166, !71}
+!167 = !{!144, !5, i64 16}
+!168 = !{!144, !5, i64 8}
 !169 = distinct !{!169, !71}
 !170 = distinct !{!170, !71}
 !171 = distinct !{!171, !71}

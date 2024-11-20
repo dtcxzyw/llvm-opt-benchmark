@@ -14895,7 +14895,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK5boost7process2v211environment19key_value_pair_view7compareES3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !16
+  %3 = load ptr, ptr %0, align 8, !tbaa !161
   %4 = load i8, ptr %3, align 1, !tbaa !15
   %.not10.i.i = icmp eq i8 %4, 0
   br i1 %.not10.i.i, label %.thread22.i, label %.lr.ph.i.i
@@ -15569,7 +15569,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableINSt7__cxx1112basic_
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.023.040 = load ptr, ptr %9, align 8, !tbaa !221
   %.not3341 = icmp eq ptr %.sroa.023.040, null
-  %.pre54 = load ptr, ptr %1, align 8
+  %.pre54 = load ptr, ptr %1, align 8, !tbaa !10
   br i1 %.not3341, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
@@ -15626,7 +15626,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS6_EEmRKT_.exit: ; preds = %.thread
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load i64, ptr %29, align 8
+  %30 = load i64, ptr %29, align 8, !tbaa !224
   %31 = urem i64 %25, %30
   %32 = load i64, ptr %6, align 8, !tbaa !556
   %33 = icmp ugt i64 %32, 20
@@ -17360,7 +17360,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v219process_environment9build
   br label %12
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIN5boost7process2v211environment14key_value_pairESaIS4_EE12emplace_backIJRSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_EEEERS4_DpOT_.exit
-  %.promoted.pre = load ptr, ptr %0, align 8, !tbaa !16
+  %.promoted.pre = load ptr, ptr %0, align 8, !tbaa !207
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
@@ -17373,18 +17373,18 @@ define linkonce_odr hidden void @_ZN5boost7process2v219process_environment9build
   br i1 %.not3642, label %._crit_edge.._crit_edge46_crit_edge, label %.lr.ph45
 
 ._crit_edge.._crit_edge46_crit_edge:              ; preds = %._crit_edge
-  %.pre52 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !16
+  %.pre52 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !606
   br label %._crit_edge46
 
 .lr.ph45:                                         ; preds = %._crit_edge
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !16
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !606
   br label %51
 
 12:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN5boost7process2v211environment14key_value_pairESaIS4_EE12emplace_backIJRSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_EEEERS4_DpOT_.exit
   %.sroa.033.039 = phi ptr [ %.sroa.033.037, %.lr.ph ], [ %.sroa.033.0, %_ZNSt6vectorIN5boost7process2v211environment14key_value_pairESaIS4_EE12emplace_backIJRSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_EEEERS4_DpOT_.exit ]
   %13 = getelementptr inbounds i8, ptr %.sroa.033.039, i64 8
-  %14 = load ptr, ptr %6, align 8, !tbaa !16
+  %14 = load ptr, ptr %6, align 8, !tbaa !212
   %15 = load ptr, ptr %7, align 8, !tbaa !214
   %.not.i = icmp eq ptr %14, %15
   br i1 %.not.i, label %19, label %16
@@ -17417,7 +17417,7 @@ _ZNSt6vectorIN5boost7process2v211environment14key_value_pairESaIS4_EE12emplace_b
 ._crit_edge46:                                    ; preds = %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit25, %._crit_edge.._crit_edge46_crit_edge
   %22 = phi ptr [ %.pre52, %._crit_edge.._crit_edge46_crit_edge ], [ %80, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit25 ]
   %23 = phi ptr [ %.promoted, %._crit_edge.._crit_edge46_crit_edge ], [ %81, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit25 ]
-  store ptr %23, ptr %0, align 8, !tbaa !16
+  store ptr %23, ptr %0, align 8, !tbaa !207
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !209
@@ -17510,7 +17510,7 @@ _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iterat
   br i1 %62, label %63, label %_ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i.i16
 
 63:                                               ; preds = %58
-  store ptr %53, ptr %0, align 8, !tbaa !16
+  store ptr %53, ptr %0, align 8, !tbaa !207
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.81) #31
           to label %.noexc23 unwind label %.loopexit.split-lp
 
@@ -17569,7 +17569,7 @@ _ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit25:   ; preds = %_ZNSt6vectorIPKcSaI
 .loopexit:                                        ; preds = %69
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %53, ptr %0, align 8, !tbaa !16
+  store ptr %53, ptr %0, align 8, !tbaa !207
   br label %85
 
 .loopexit.split-lp:                               ; preds = %63
@@ -17608,7 +17608,7 @@ _ZNSt6vectorIPKcSaIS1_EED2Ev.exit:                ; preds = %85, %87
 define linkonce_odr hidden void @_ZNSt6vectorIN5boost7process2v211environment14key_value_pairESaIS4_EE17_M_realloc_insertIJRSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_EEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !212
-  %6 = load ptr, ptr %0, align 8, !tbaa !16
+  %6 = load ptr, ptr %0, align 8, !tbaa !210
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -17829,7 +17829,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v219process_environment9build
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit19
   %.pre = load ptr, ptr %8, align 8, !tbaa !209
-  store ptr %67, ptr %0, align 8, !tbaa !16
+  store ptr %67, ptr %0, align 8, !tbaa !207
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i.i = icmp eq ptr %66, %.pre
@@ -17925,7 +17925,7 @@ _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iterat
   br i1 %48, label %49, label %_ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i.i10
 
 49:                                               ; preds = %44
-  store ptr %39, ptr %0, align 8, !tbaa !16
+  store ptr %39, ptr %0, align 8, !tbaa !207
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.81) #31
           to label %.noexc17 unwind label %.loopexit.split-lp
 
@@ -17984,7 +17984,7 @@ _ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit19:   ; preds = %_ZNSt6vectorIPKcSaI
 .loopexit:                                        ; preds = %55
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %39, ptr %0, align 8, !tbaa !16
+  store ptr %39, ptr %0, align 8, !tbaa !207
   br label %71
 
 .loopexit.split-lp:                               ; preds = %49

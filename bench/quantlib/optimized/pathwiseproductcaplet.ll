@@ -377,8 +377,8 @@ invoke.cont10:                                    ; preds = %invoke.cont7
 
 invoke.cont11:                                    ; preds = %invoke.cont10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %evolTimes) #25
-  %16 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !13
-  %17 = load ptr, ptr %rateTimes_, align 8, !tbaa !13
+  %16 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !6
+  %17 = load ptr, ptr %rateTimes_, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i.i115 = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i.i116 = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i.i117 = sub i64 %sub.ptr.lhs.cast.i.i115, %sub.ptr.rhs.cast.i.i116
@@ -2214,8 +2214,8 @@ define void @_ZNK8QuantLib30MarketModelPathwiseMultiCaplet21possibleCashFlowTime
 entry:
   %paymentTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !13
-  %1 = load ptr, ptr %paymentTimes_, align 8, !tbaa !13
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !6
+  %1 = load ptr, ptr %paymentTimes_, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2526,8 +2526,8 @@ invoke.cont10:                                    ; preds = %invoke.cont7
 
 invoke.cont11:                                    ; preds = %invoke.cont10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %evolTimes) #25
-  %16 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !13
-  %17 = load ptr, ptr %rateTimes_, align 8, !tbaa !13
+  %16 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !6
+  %17 = load ptr, ptr %rateTimes_, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i.i115 = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i.i116 = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i.i117 = sub i64 %sub.ptr.lhs.cast.i.i115, %sub.ptr.rhs.cast.i.i116
@@ -3759,8 +3759,8 @@ invoke.cont11:                                    ; preds = %invoke.cont7
 
 invoke.cont12:                                    ; preds = %invoke.cont11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %evolTimes) #25
-  %15 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !13
-  %16 = load ptr, ptr %rateTimes_, align 8, !tbaa !13
+  %15 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !6
+  %16 = load ptr, ptr %rateTimes_, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i.i95 = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i.i96 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i97 = sub i64 %sub.ptr.lhs.cast.i.i95, %sub.ptr.rhs.cast.i.i96
@@ -5127,8 +5127,8 @@ define void @_ZNK8QuantLib38MarketModelPathwiseMultiDeflatedCaplet21possibleCash
 entry:
   %paymentTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !13
-  %1 = load ptr, ptr %paymentTimes_, align 8, !tbaa !13
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !6
+  %1 = load ptr, ptr %paymentTimes_, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -5235,8 +5235,8 @@ entry:
   %5 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !44
   %6 = load ptr, ptr %startsAndEnds_, align 8, !tbaa !37
   %cmp221.not = icmp eq ptr %5, %6
-  %.pre = load ptr, ptr %_M_finish.i, align 8
-  %.pre227 = load ptr, ptr %accruals, align 8
+  %.pre = load ptr, ptr %_M_finish.i, align 8, !tbaa !6
+  %.pre227 = load ptr, ptr %accruals, align 8, !tbaa !10
   br i1 %cmp221.not, label %for.cond.cleanup, label %do.body.lr.ph
 
 do.body.lr.ph:                                    ; preds = %entry
@@ -5268,7 +5268,7 @@ if.then.i.invoke.cont112_crit_edge:               ; preds = %if.then.i
   %.pre228 = load ptr, ptr %_M_finish.i, align 8, !tbaa !6
   %.pre229 = load ptr, ptr %accruals, align 8, !tbaa !10
   %_M_finish.i.i115.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 328
-  %.pre230 = load ptr, ptr %_M_finish.i.i115.phi.trans.insert, align 8, !tbaa !13
+  %.pre230 = load ptr, ptr %_M_finish.i.i115.phi.trans.insert, align 8, !tbaa !68
   %.pre231 = load ptr, ptr %innerCashFlowsGenerated_, align 8, !tbaa !47
   %.pre233 = ptrtoint ptr %.pre228 to i64
   %.pre234 = ptrtoint ptr %.pre229 to i64
@@ -5279,9 +5279,9 @@ if.then.i.invoke.cont112_crit_edge:               ; preds = %if.then.i
 do.body:                                          ; preds = %do.body.lr.ph, %for.inc
   %j.0222 = phi i64 [ 0, %do.body.lr.ph ], [ %inc, %for.inc ]
   %add.ptr.i46 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %j.0222
-  %7 = load i64, ptr %add.ptr.i46, align 8, !tbaa !68
+  %7 = load i64, ptr %add.ptr.i46, align 8, !tbaa !69
   %second = getelementptr inbounds nuw i8, ptr %add.ptr.i46, i64 8
-  %8 = load i64, ptr %second, align 8, !tbaa !70
+  %8 = load i64, ptr %second, align 8, !tbaa !71
   %cmp8 = icmp ult i64 %7, %8
   br i1 %cmp8, label %do.body49, label %if.then
 
@@ -5301,14 +5301,14 @@ invoke.cont12:                                    ; preds = %invoke.cont10
 invoke.cont14:                                    ; preds = %invoke.cont12
   %9 = load ptr, ptr %startsAndEnds_, align 8, !tbaa !37
   %add.ptr.i51 = getelementptr inbounds nuw %"struct.std::pair", ptr %9, i64 %j.0222
-  %10 = load i64, ptr %add.ptr.i51, align 8, !tbaa !68
+  %10 = load i64, ptr %add.ptr.i51, align 8, !tbaa !69
   %call.i52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i50, i64 noundef %10)
           to label %invoke.cont19 unwind label %lpad11
 
 invoke.cont19:                                    ; preds = %invoke.cont14
   %11 = load ptr, ptr %startsAndEnds_, align 8, !tbaa !37
   %second23 = getelementptr inbounds nuw %"struct.std::pair", ptr %11, i64 %j.0222, i32 1
-  %12 = load i64, ptr %second23, align 8, !tbaa !70
+  %12 = load i64, ptr %second23, align 8, !tbaa !71
   %call.i55 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i52, i64 noundef %12)
           to label %invoke.cont24 unwind label %lpad11
 
@@ -5491,14 +5491,14 @@ invoke.cont60:                                    ; preds = %invoke.cont58
 invoke.cont62:                                    ; preds = %invoke.cont60
   %35 = load ptr, ptr %startsAndEnds_, align 8, !tbaa !37
   %add.ptr.i83 = getelementptr inbounds nuw %"struct.std::pair", ptr %35, i64 %j.0222
-  %36 = load i64, ptr %add.ptr.i83, align 8, !tbaa !68
+  %36 = load i64, ptr %add.ptr.i83, align 8, !tbaa !69
   %call.i84 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i81, i64 noundef %36)
           to label %invoke.cont67 unwind label %lpad59
 
 invoke.cont67:                                    ; preds = %invoke.cont62
   %37 = load ptr, ptr %startsAndEnds_, align 8, !tbaa !37
   %second71 = getelementptr inbounds nuw %"struct.std::pair", ptr %37, i64 %j.0222, i32 1
-  %38 = load i64, ptr %second71, align 8, !tbaa !70
+  %38 = load i64, ptr %second71, align 8, !tbaa !71
   %call.i87 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i84, i64 noundef %38)
           to label %invoke.cont72 unwind label %lpad59
 
@@ -5664,7 +5664,7 @@ ehcleanup104:                                     ; preds = %ehcleanup103, %lpad
 for.inc:                                          ; preds = %do.body49
   %inc = add nuw i64 %j.0222, 1
   %exitcond.not = icmp eq i64 %inc, %umax
-  br i1 %exitcond.not, label %if.then.i, label %do.body, !llvm.loop !71
+  br i1 %exitcond.not, label %if.then.i, label %do.body, !llvm.loop !72
 
 invoke.cont112:                                   ; preds = %for.cond.cleanup, %if.then.i.invoke.cont112_crit_edge
   %sub.ptr.div.i114.pre-phi = phi i64 [ %.pre236, %if.then.i.invoke.cont112_crit_edge ], [ 0, %for.cond.cleanup ]
@@ -5700,7 +5700,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then5.i123, %_ZS
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EEEvPT_.exit.i.i.i.i.i ], [ %add.ptr.i124, %if.then5.i123 ]
   %63 = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8, !tbaa !49
   %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
-  %64 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8, !tbaa !72
+  %64 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8, !tbaa !73
   %cmp.not3.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %63, %64
   br i1 %cmp.not3.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i
 
@@ -5723,7 +5723,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %for.body.i.i.i.i.i.
 _ZSt8_DestroyIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowEEvPT_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %64
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !73
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !74
 
 invoke.contthread-pre-split.i.i.i.i.i.i.i:        ; preds = %_ZSt8_DestroyIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowEEvPT_.exit.i.i.i.i.i.i.i.i.i.i
   %.pr.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8, !tbaa !49
@@ -5736,7 +5736,7 @@ invoke.cont.i.i.i.i.i.i.i:                        ; preds = %invoke.contthread-p
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont.i.i.i.i.i.i.i
   %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 16
-  %68 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8, !tbaa !74
+  %68 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8, !tbaa !75
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %68 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %67 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
@@ -5746,10 +5746,10 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont.i.i.i.i
 _ZSt8_DestroyISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %62
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i126, label %for.body.i.i.i.i.i, !llvm.loop !75
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i126, label %for.body.i.i.i.i.i, !llvm.loop !76
 
 invoke.cont.i.i126:                               ; preds = %_ZSt8_DestroyISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EEEvPT_.exit.i.i.i.i.i
-  store ptr %add.ptr.i124, ptr %_M_finish.i.i115, align 8, !tbaa !76
+  store ptr %add.ptr.i124, ptr %_M_finish.i.i115, align 8, !tbaa !68
   br label %invoke.cont115
 
 invoke.cont115:                                   ; preds = %if.then.i127.invoke.cont115_crit_edge, %invoke.cont.i.i126, %if.then5.i123, %if.else.i121
@@ -5769,7 +5769,7 @@ lpad111:                                          ; preds = %if.then.i127, %if.t
 for.body123:                                      ; preds = %invoke.cont115, %for.inc140
   %__begin1.sroa.0.0224 = phi ptr [ %incdec.ptr.i, %for.inc140 ], [ %70, %invoke.cont115 ]
   %_M_finish.i.i132 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.0224, i64 8
-  %72 = load ptr, ptr %_M_finish.i.i132, align 8, !tbaa !72
+  %72 = load ptr, ptr %_M_finish.i.i132, align 8, !tbaa !73
   %73 = load ptr, ptr %__begin1.sroa.0.0224, align 8, !tbaa !49
   %sub.ptr.lhs.cast.i.i133 = ptrtoint ptr %72 to i64
   %sub.ptr.rhs.cast.i.i134 = ptrtoint ptr %73 to i64
@@ -5811,10 +5811,10 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i1
 _ZSt8_DestroyIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i143
   %incdec.ptr.i.i.i.i.i145 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i144, i64 32
   %cmp.not.i.i.i.i.i146 = icmp eq ptr %incdec.ptr.i.i.i.i.i145, %72
-  br i1 %cmp.not.i.i.i.i.i146, label %invoke.cont.i.i147, label %for.body.i.i.i.i.i143, !llvm.loop !73
+  br i1 %cmp.not.i.i.i.i.i146, label %invoke.cont.i.i147, label %for.body.i.i.i.i.i143, !llvm.loop !74
 
 invoke.cont.i.i147:                               ; preds = %_ZSt8_DestroyIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowEEvPT_.exit.i.i.i.i.i
-  store ptr %add.ptr.i141, ptr %_M_finish.i.i132, align 8, !tbaa !72
+  store ptr %add.ptr.i141, ptr %_M_finish.i.i132, align 8, !tbaa !73
   br label %for.cond130
 
 for.cond130:                                      ; preds = %invoke.cont.i.i147, %if.then5.i140, %if.else.i138, %if.then.i148
@@ -5912,7 +5912,7 @@ define linkonce_odr void @_ZNSt6vectorIS_IN8QuantLib31MarketModelPathwiseMultiPr
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !47
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !76
+  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !68
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
@@ -5920,7 +5920,7 @@ for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_Destr
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EEEvPT_.exit.i.i.i ], [ %0, %entry ]
   %2 = load ptr, ptr %__first.addr.04.i.i.i, align 8, !tbaa !49
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 8
-  %3 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !72
+  %3 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !73
   %cmp.not3.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not3.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
 
@@ -5943,7 +5943,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i.i.i.
 _ZSt8_DestroyIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %3
-  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !73
+  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !74
 
 invoke.contthread-pre-split.i.i.i.i.i:            ; preds = %_ZSt8_DestroyIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowEEvPT_.exit.i.i.i.i.i.i.i.i
   %.pr.i.i.i.i.i = load ptr, ptr %__first.addr.04.i.i.i, align 8, !tbaa !49
@@ -5956,7 +5956,7 @@ invoke.cont.i.i.i.i.i:                            ; preds = %invoke.contthread-p
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont.i.i.i.i.i
   %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 16
-  %7 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !tbaa !74
+  %7 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !tbaa !75
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
@@ -5966,7 +5966,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont.i.i.i.i
 _ZSt8_DestroyISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
-  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !75
+  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !76
 
 invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %this, align 8, !tbaa !47
@@ -6201,8 +6201,8 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   %paymentTimes_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !13, !noalias !81
-  %1 = load ptr, ptr %paymentTimes_.i, align 8, !tbaa !13, !noalias !81
+  %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !6, !noalias !81
+  %1 = load ptr, ptr %paymentTimes_.i, align 8, !tbaa !10, !noalias !81
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -6344,13 +6344,13 @@ for.body17:                                       ; preds = %for.cond12.preheade
   %19 = phi ptr [ %42, %for.inc42 ], [ %10, %for.cond12.preheader ]
   %k11.042 = phi i64 [ %inc43, %for.inc42 ], [ 0, %for.cond12.preheader ]
   %add.ptr.i23 = getelementptr inbounds nuw %"struct.std::pair", ptr %19, i64 %k11.042
-  %20 = load i64, ptr %add.ptr.i23, align 8, !tbaa !68
+  %20 = load i64, ptr %add.ptr.i23, align 8, !tbaa !69
   %cmp20.not = icmp ugt i64 %20, %j.045
   br i1 %cmp20.not, label %for.inc42, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body17
   %second = getelementptr inbounds nuw i8, ptr %add.ptr.i23, i64 8
-  %21 = load i64, ptr %second, align 8, !tbaa !70
+  %21 = load i64, ptr %second, align 8, !tbaa !71
   %cmp23 = icmp ult i64 %j.045, %21
   br i1 %cmp23, label %for.cond25.preheader, label %for.inc42
 
@@ -6385,14 +6385,14 @@ for.body30:                                       ; preds = %for.cond25.preheade
 
 if.then.i:                                        ; preds = %for.body30
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i27, i64 16
-  %31 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !13
-  %32 = load ptr, ptr %amount3.i, align 8, !tbaa !13
+  %31 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !6
+  %32 = load ptr, ptr %amount3.i, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %31 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i30, i64 24
   %33 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !12
-  %34 = load ptr, ptr %amount.i, align 8, !tbaa !13
+  %34 = load ptr, ptr %amount.i, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i14.i = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i15.i = ptrtoint ptr %34 to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i15.i
@@ -6670,7 +6670,7 @@ invoke.cont10:                                    ; preds = %if.then.i.i.i.i.i.i
   %innerCashFlowsGenerated_ = getelementptr inbounds nuw i8, ptr %this, i64 320
   %innerCashFlowsGenerated_11 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %_M_finish.i.i28 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %11 = load ptr, ptr %_M_finish.i.i28, align 8, !tbaa !76
+  %11 = load ptr, ptr %_M_finish.i.i28, align 8, !tbaa !68
   %12 = load ptr, ptr %innerCashFlowsGenerated_11, align 8, !tbaa !47
   %sub.ptr.lhs.cast.i.i29 = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i.i30 = ptrtoint ptr %12 to i64
@@ -6699,7 +6699,7 @@ invoke.cont.i36:                                  ; preds = %_ZNSt16allocator_tr
   %cond.i.i.i.i37 = phi ptr [ null, %invoke.cont10 ], [ %call5.i.i.i.i2.i6.i44, %_ZNSt16allocator_traitsISaISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EEEE8allocateERS6_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i37, ptr %innerCashFlowsGenerated_, align 8, !tbaa !47
   %_M_finish.i.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 328
-  store ptr %cond.i.i.i.i37, ptr %_M_finish.i.i.i38, align 8, !tbaa !76
+  store ptr %cond.i.i.i.i37, ptr %_M_finish.i.i.i38, align 8, !tbaa !68
   %add.ptr.i.i.i39 = getelementptr inbounds nuw %"class.std::vector.18", ptr %cond.i.i.i.i37, i64 %sub.ptr.div.i.i32
   %_M_end_of_storage.i.i.i40 = getelementptr inbounds nuw i8, ptr %this, i64 336
   store ptr %add.ptr.i.i.i39, ptr %_M_end_of_storage.i.i.i40, align 8, !tbaa !77
@@ -6724,7 +6724,7 @@ if.then.i.i.i:                                    ; preds = %lpad10.i
   br label %lpad12.body
 
 invoke.cont13:                                    ; preds = %invoke.cont.i36
-  store ptr %call.i.i.i8.i, ptr %_M_finish.i.i.i38, align 8, !tbaa !76
+  store ptr %call.i.i.i8.i, ptr %_M_finish.i.i.i38, align 8, !tbaa !68
   ret void
 
 lpad5:                                            ; preds = %_ZNSt16allocator_traitsISaISt4pairImmEEE8allocateERS2_m.exit.i.i.i.i, %if.then3.i.i.i.i.i.i
@@ -6941,7 +6941,7 @@ entry:
   %innerCashFlowsGenerated_ = getelementptr inbounds nuw i8, ptr %this, i64 320
   %0 = load ptr, ptr %innerCashFlowsGenerated_, align 8, !tbaa !47
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 328
-  %1 = load ptr, ptr %_M_finish.i, align 8, !tbaa !76
+  %1 = load ptr, ptr %_M_finish.i, align 8, !tbaa !68
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
@@ -6949,7 +6949,7 @@ for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_Destr
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EEEvPT_.exit.i.i.i.i ], [ %0, %entry ]
   %2 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8, !tbaa !49
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 8
-  %3 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8, !tbaa !72
+  %3 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8, !tbaa !73
   %cmp.not3.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not3.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i
 
@@ -6972,7 +6972,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %for.body.i.i.i.i.i.
 _ZSt8_DestroyIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowEEvPT_.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %3
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !73
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !74
 
 invoke.contthread-pre-split.i.i.i.i.i.i:          ; preds = %_ZSt8_DestroyIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowEEvPT_.exit.i.i.i.i.i.i.i.i.i
   %.pr.i.i.i.i.i.i = load ptr, ptr %__first.addr.04.i.i.i.i, align 8, !tbaa !49
@@ -6985,7 +6985,7 @@ invoke.cont.i.i.i.i.i.i:                          ; preds = %invoke.contthread-p
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i.i.i
   %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 16
-  %7 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8, !tbaa !74
+  %7 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8, !tbaa !75
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
@@ -6995,7 +6995,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i
 _ZSt8_DestroyISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !75
+  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !76
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %innerCashFlowsGenerated_, align 8, !tbaa !47
@@ -7434,7 +7434,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %__cur.018 = phi ptr [ %incdec.ptr, %for.inc ], [ %__result, %entry ]
   %__first.sroa.0.017 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %__first.coerce, %entry ]
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.017, i64 8
-  %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !72
+  %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !73
   %1 = load ptr, ptr %__first.sroa.0.017, align 8, !tbaa !49
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -7463,10 +7463,10 @@ invoke.cont.i.i:                                  ; preds = %_ZNSt16allocator_tr
   %cond.i.i.i.i.i = phi ptr [ null, %for.body ], [ %call5.i.i.i.i2.i6.i.i5, %_ZNSt16allocator_traitsISaIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowEEE8allocateERS3_m.exit.i.i.i.i.i ]
   store ptr %cond.i.i.i.i.i, ptr %__cur.018, align 8, !tbaa !49
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.018, i64 8
-  store ptr %cond.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !72
+  store ptr %cond.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !73
   %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.QuantLib::MarketModelPathwiseMultiProduct::CashFlow", ptr %cond.i.i.i.i.i, i64 %sub.ptr.div.i.i.i
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.018, i64 16
-  store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !74
+  store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !75
   %2 = load ptr, ptr %__first.sroa.0.017, align 8, !tbaa !13
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !13
   %call.i.i.i8.i.i = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESt6vectorIS4_SaIS4_EEEEPS4_ET0_T_SD_SC_(ptr %2, ptr %3, ptr noundef %cond.i.i.i.i.i)
@@ -7481,7 +7481,7 @@ lpad10.i.i:                                       ; preds = %invoke.cont.i.i
 
 if.then.i.i.i.i:                                  ; preds = %lpad10.i.i
   %_M_end_of_storage.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__cur.018, i64 16
-  %6 = load ptr, ptr %_M_end_of_storage.i.i.i.i.le, align 8, !tbaa !74
+  %6 = load ptr, ptr %_M_end_of_storage.i.i.i.i.le, align 8, !tbaa !75
   %sub.ptr.lhs.cast.i9.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i10.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i11.i.i = sub i64 %sub.ptr.lhs.cast.i9.i.i, %sub.ptr.rhs.cast.i10.i.i
@@ -7489,7 +7489,7 @@ if.then.i.i.i.i:                                  ; preds = %lpad10.i.i
   br label %lpad.body
 
 for.inc:                                          ; preds = %invoke.cont.i.i
-  store ptr %call.i.i.i8.i.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !72
+  store ptr %call.i.i.i8.i.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !73
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.017, i64 24
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__cur.018, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %__last.coerce
@@ -7550,7 +7550,7 @@ for.body.i:                                       ; preds = %entry, %_ZSt8_Destr
   %__first.addr.04.i = phi ptr [ %incdec.ptr.i, %_ZSt8_DestroyISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EEEvPT_.exit.i ], [ %__first, %entry ]
   %0 = load ptr, ptr %__first.addr.04.i, align 8, !tbaa !49
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i, i64 8
-  %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !72
+  %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !73
   %cmp.not3.i.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i
 
@@ -7573,7 +7573,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i.
 _ZSt8_DestroyIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowEEvPT_.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !73
+  br i1 %cmp.not.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !74
 
 invoke.contthread-pre-split.i.i.i:                ; preds = %_ZSt8_DestroyIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowEEvPT_.exit.i.i.i.i.i.i
   %.pr.i.i.i = load ptr, ptr %__first.addr.04.i, align 8, !tbaa !49
@@ -7586,7 +7586,7 @@ invoke.cont.i.i.i:                                ; preds = %invoke.contthread-p
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i.i
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i, i64 16
-  %5 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !74
+  %5 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !75
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -7596,7 +7596,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i.i
 _ZSt8_DestroyISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EEEvPT_.exit.i: ; preds = %if.then.i.i.i.i.i, %invoke.cont.i.i.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__last
-  br i1 %cmp.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS5_EEEEvT_S9_.exit, label %for.body.i, !llvm.loop !75
+  br i1 %cmp.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS5_EEEEvT_S9_.exit, label %for.body.i, !llvm.loop !76
 
 _ZNSt12_Destroy_auxILb0EE9__destroyIPSt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS5_EEEEvT_S9_.exit: ; preds = %_ZSt8_DestroyISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EEEvPT_.exit.i, %entry
   ret void
@@ -7739,7 +7739,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i
 _ZSt8_DestroyIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowEEvPT_.exit.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i, i64 32
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__last
-  br i1 %cmp.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowEEEvT_S6_.exit, label %for.body.i, !llvm.loop !73
+  br i1 %cmp.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowEEEvT_S6_.exit, label %for.body.i, !llvm.loop !74
 
 _ZNSt12_Destroy_auxILb0EE9__destroyIPN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowEEEvT_S6_.exit: ; preds = %_ZSt8_DestroyIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowEEvPT_.exit.i, %entry
   ret void
@@ -7868,7 +7868,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !76
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !68
   %1 = load ptr, ptr %this, align 8, !tbaa !47
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
@@ -7891,7 +7891,7 @@ _ZSt27__uninitialized_default_n_aIPSt6vectorIN8QuantLib31MarketModelPathwiseMult
   %3 = mul nuw i64 %__n, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %3, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %0, i64 %3
-  store ptr %scevgep.i.i.i, ptr %_M_finish.i, align 8, !tbaa !76
+  store ptr %scevgep.i.i.i, ptr %_M_finish.i, align 8, !tbaa !68
   br label %if.end44
 
 if.else:                                          ; preds = %if.then
@@ -7923,12 +7923,12 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIS_IN8
   store ptr %6, ptr %__cur.07.i.i.i, align 8, !tbaa !49, !alias.scope !91, !noalias !94
   %_M_finish.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 8
   %_M_finish3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
-  %7 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !alias.scope !94, !noalias !91
-  store ptr %7, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !alias.scope !91, !noalias !94
+  %7 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !73, !alias.scope !94, !noalias !91
+  store ptr %7, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !73, !alias.scope !91, !noalias !94
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 16
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
-  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !74, !alias.scope !94, !noalias !91
-  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !74, !alias.scope !91, !noalias !94
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !75, !alias.scope !94, !noalias !91
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !75, !alias.scope !91, !noalias !94
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !94, !noalias !91
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 24
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 24
@@ -7949,7 +7949,7 @@ if.then.i29:                                      ; preds = %_ZNSt6vectorIS_IN8Q
 _ZNSt12_Vector_baseISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EESaIS5_EE13_M_deallocateEPS5_m.exit31: ; preds = %_ZNSt6vectorIS_IN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %if.then.i29
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !47
   %add.ptr37 = getelementptr inbounds nuw %"class.std::vector.18", ptr %add.ptr, i64 %__n
-  store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !76
+  store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !68
   %add.ptr40 = getelementptr inbounds nuw %"class.std::vector.18", ptr %call5.i.i.i, i64 %4
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !77
   br label %if.end44
@@ -7966,14 +7966,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !72
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !73
   %1 = load ptr, ptr %this, align 8, !tbaa !49
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !74
+  %2 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !75
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 5
@@ -7989,7 +7989,7 @@ _ZSt27__uninitialized_default_n_aIPN8QuantLib31MarketModelPathwiseMultiProduct8C
   %3 = shl nuw i64 %__n, 5
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %3, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %0, i64 %3
-  store ptr %scevgep.i.i.i, ptr %_M_finish.i, align 8, !tbaa !72
+  store ptr %scevgep.i.i.i, ptr %_M_finish.i, align 8, !tbaa !73
   br label %if.end44
 
 if.else:                                          ; preds = %if.then
@@ -8042,7 +8042,7 @@ _ZNSt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS2_EE11_S_r
   br i1 %tobool.not.i28, label %_ZNSt12_Vector_baseIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS2_EE13_M_deallocateEPS2_m.exit31, label %if.then.i29
 
 if.then.i29:                                      ; preds = %_ZNSt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
-  %10 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !74
+  %10 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !75
   %sub.ptr.lhs.cast30 = ptrtoint ptr %10 to i64
   %sub.ptr.sub32 = sub i64 %sub.ptr.lhs.cast30, %sub.ptr.rhs.cast.i
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef %sub.ptr.sub32) #26
@@ -8051,9 +8051,9 @@ if.then.i29:                                      ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt12_Vector_baseIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS2_EE13_M_deallocateEPS2_m.exit31: ; preds = %_ZNSt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %if.then.i29
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !49
   %add.ptr37 = getelementptr inbounds nuw %"struct.QuantLib::MarketModelPathwiseMultiProduct::CashFlow", ptr %add.ptr, i64 %__n
-  store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !72
+  store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !73
   %add.ptr40 = getelementptr inbounds nuw %"struct.QuantLib::MarketModelPathwiseMultiProduct::CashFlow", ptr %call5.i.i.i, i64 %4
-  store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !74
+  store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !75
   br label %if.end44
 
 if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowEmS2_ET_S4_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS2_EE13_M_deallocateEPS2_m.exit31, %entry
@@ -8271,15 +8271,15 @@ attributes #27 = { noreturn nounwind }
 !65 = !{!"_ZTSSt6vectorIS_IN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS2_EESaIS4_EE", !66, i64 0}
 !66 = !{!"_ZTSSt12_Vector_baseISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EESaIS5_EE", !67, i64 0}
 !67 = !{!"_ZTSNSt12_Vector_baseISt6vectorIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS3_EESaIS5_EE12_Vector_implE", !48, i64 0}
-!68 = !{!69, !20, i64 0}
-!69 = !{!"_ZTSSt4pairImmE", !20, i64 0, !20, i64 8}
-!70 = !{!69, !20, i64 8}
-!71 = distinct !{!71, !56}
-!72 = !{!50, !8, i64 8}
-!73 = distinct !{!73, !56}
-!74 = !{!50, !8, i64 16}
-!75 = distinct !{!75, !56}
-!76 = !{!48, !8, i64 8}
+!68 = !{!48, !8, i64 8}
+!69 = !{!70, !20, i64 0}
+!70 = !{!"_ZTSSt4pairImmE", !20, i64 0, !20, i64 8}
+!71 = !{!70, !20, i64 8}
+!72 = distinct !{!72, !56}
+!73 = !{!50, !8, i64 8}
+!74 = distinct !{!74, !56}
+!75 = !{!50, !8, i64 16}
+!76 = distinct !{!76, !56}
 !77 = !{!48, !8, i64 16}
 !78 = !{!79}
 !79 = distinct !{!79, !80, !"_ZNK8QuantLib38MarketModelPathwiseMultiDeflatedCaplet19suggestedNumerairesEv: %agg.result"}

@@ -6904,7 +6904,7 @@ invoke.cont:                                      ; preds = %entry
   %1 = load atomic i64, ptr %next_.i.i acquire, align 8
   store atomic i64 0, ptr %next_.i.i monotonic, align 8
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.0.i.i.i, i64 8
-  %2 = load ptr, ptr %next_.i.i.i.i, align 8, !tbaa !49
+  %2 = load ptr, ptr %next_.i.i.i.i, align 8, !tbaa !154
   %cmp.not.i.i.i.i = icmp eq ptr %2, %atomic-temp.0.i.i.i
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly10hazptr_objISt6atomicE16pre_retire_checkEv.exit.i.i.i, label %if.else.i.i
 
@@ -7747,7 +7747,7 @@ _ZN5folly17hazptr_obj_linkedISt6atomicE9count_casERmm.exit.i: ; preds = %if.end.
 if.then:                                          ; preds = %_ZN5folly17hazptr_obj_linkedISt6atomicE9count_casERmm.exit.i, %_ZNSt5stackIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7ESt6atomicE7SegmentES5_St14default_deleteIS7_EEESt5dequeISB_SaISB_EEE3popEv.exit
   store atomic i64 0, ptr %count_.i.i release, align 8
   %next_.i = getelementptr inbounds i8, ptr %10, i64 8
-  %15 = load ptr, ptr %next_.i, align 8, !tbaa !49
+  %15 = load ptr, ptr %next_.i, align 8, !tbaa !154
   %cmp.not.i = icmp eq ptr %15, %10
   br i1 %cmp.not.i, label %_ZN5folly10hazptr_objISt6atomicE16pre_retire_checkEv.exit, label %if.else.i.i9
 
@@ -12058,7 +12058,7 @@ _ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm7
 
 if.then:                                          ; preds = %while.body
   %next_.i.i.i = getelementptr inbounds i8, ptr %s.030, i64 8
-  %15 = load ptr, ptr %next_.i.i.i, align 8, !tbaa !49
+  %15 = load ptr, ptr %next_.i.i.i, align 8, !tbaa !154
   %cmp.not.i.i.i = icmp eq ptr %15, %s.030
   br i1 %cmp.not.i.i.i, label %_ZN5folly10hazptr_objISt6atomicE16pre_retire_checkEv.exit.i.i, label %if.else.i.i
 
@@ -13446,7 +13446,7 @@ invoke.cont:                                      ; preds = %entry
   %1 = load atomic i64, ptr %next_.i.i acquire, align 8
   store atomic i64 0, ptr %next_.i.i monotonic, align 8
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.0.i.i.i, i64 8
-  %2 = load ptr, ptr %next_.i.i.i.i, align 8, !tbaa !49
+  %2 = load ptr, ptr %next_.i.i.i.i, align 8, !tbaa !154
   %cmp.not.i.i.i.i = icmp eq ptr %2, %atomic-temp.0.i.i.i
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly10hazptr_objISt6atomicE16pre_retire_checkEv.exit.i.i.i, label %if.else.i.i
 
@@ -14015,7 +14015,7 @@ _ZN5folly17hazptr_obj_linkedISt6atomicE9count_casERmm.exit.i: ; preds = %if.end.
 if.then:                                          ; preds = %_ZN5folly17hazptr_obj_linkedISt6atomicE9count_casERmm.exit.i, %_ZNSt5stackIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7ESt6atomicE7SegmentES5_St14default_deleteIS7_EEESt5dequeISB_SaISB_EEE3popEv.exit
   store atomic i64 0, ptr %count_.i.i release, align 8
   %next_.i = getelementptr inbounds i8, ptr %10, i64 8
-  %15 = load ptr, ptr %next_.i, align 8, !tbaa !49
+  %15 = load ptr, ptr %next_.i, align 8, !tbaa !154
   %cmp.not.i = icmp eq ptr %15, %10
   br i1 %cmp.not.i, label %_ZN5folly10hazptr_objISt6atomicE16pre_retire_checkEv.exit, label %if.else.i.i9
 
@@ -15067,7 +15067,7 @@ _ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm7
 
 if.then.i87:                                      ; preds = %while.body.i
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %s.030.i, i64 8
-  %62 = load ptr, ptr %next_.i.i.i.i, align 8, !tbaa !49
+  %62 = load ptr, ptr %next_.i.i.i.i, align 8, !tbaa !154
   %cmp.not.i.i.i.i = icmp eq ptr %62, %s.030.i
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly10hazptr_objISt6atomicE16pre_retire_checkEv.exit.i.i.i, label %if.else.i.i42
 

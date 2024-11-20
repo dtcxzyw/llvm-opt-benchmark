@@ -155,7 +155,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   call void @dlasyf_aa_(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %14, ptr noundef %90, ptr noundef nonnull %3, ptr noundef nonnull %92, ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %95) #5
   %96 = load i32, ptr %1, align 4, !tbaa !3
   store i32 %96, ptr %10, align 4, !tbaa !3
-  %97 = load i32, ptr %14, align 4
+  %97 = load i32, ptr %14, align 4, !tbaa !3
   %98 = add i32 %97, %79
   store i32 %98, ptr %11, align 4, !tbaa !3
   %99 = call i32 @llvm.smin.i32(i32 %96, i32 %98)
@@ -431,7 +431,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   call void @dlasyf_aa_(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef nonnull %14, ptr noundef %264, ptr noundef nonnull %3, ptr noundef nonnull %266, ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %269) #5
   %270 = load i32, ptr %1, align 4, !tbaa !3
   store i32 %270, ptr %9, align 4, !tbaa !3
-  %271 = load i32, ptr %14, align 4
+  %271 = load i32, ptr %14, align 4, !tbaa !3
   %272 = add i32 %271, %253
   store i32 %272, ptr %11, align 4, !tbaa !3
   %273 = call i32 @llvm.smin.i32(i32 %270, i32 %272)

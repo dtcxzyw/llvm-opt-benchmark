@@ -1667,8 +1667,8 @@ ehcleanup315:                                     ; preds = %ehcleanup314, %lpad
 
 do.end318:                                        ; preds = %do.body266
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %evolTimes) #23
-  %198 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !13
-  %199 = load ptr, ptr %rateTimes, align 8, !tbaa !13
+  %198 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !6
+  %199 = load ptr, ptr %rateTimes, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i.i440 = ptrtoint ptr %198 to i64
   %sub.ptr.rhs.cast.i.i441 = ptrtoint ptr %199 to i64
   %sub.ptr.sub.i.i442 = sub i64 %sub.ptr.lhs.cast.i.i440, %sub.ptr.rhs.cast.i.i441
@@ -3030,8 +3030,8 @@ define void @_ZNK8QuantLib33MarketModelPathwiseInverseFloater21possibleCashFlowT
 entry:
   %paymentTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !13
-  %1 = load ptr, ptr %paymentTimes_, align 8, !tbaa !13
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !6
+  %1 = load ptr, ptr %paymentTimes_, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

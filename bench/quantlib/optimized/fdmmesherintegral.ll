@@ -261,8 +261,8 @@ cond.true.i.i:                                    ; preds = %_ZNK5boost10shared_
   br label %_ZN8QuantLib5ArrayC2IN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEEET_SA_.exit
 
 _ZN8QuantLib5ArrayC2IN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEEET_SA_.exit: ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EE5resetIPdvEEvT_.exit.i.thread.i, %cond.true.i.i
-  %9 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !10
-  %10 = load ptr, ptr %this, align 8, !tbaa !10
+  %9 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !19
+  %10 = load ptr, ptr %this, align 8, !tbaa !13
   %sub.ptr.lhs.cast.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i

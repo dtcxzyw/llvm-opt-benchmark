@@ -183,7 +183,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %114 = add i32 %.pre358, %111
   %115 = call i32 @llvm.smin.i32(i32 %.pre359, i32 %114)
   %116 = sub i32 %111, %113
-  %117 = load i32, ptr %23, align 4
+  %117 = load i32, ptr %23, align 4, !tbaa !3
   %118 = add nsw i32 %117, %116
   %119 = icmp sgt i32 %104, %95
   br i1 %119, label %.thread111, label %120

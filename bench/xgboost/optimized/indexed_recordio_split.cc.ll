@@ -5641,7 +5641,7 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_ite
 7:                                                ; preds = %2
   %8 = getelementptr i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !7
-  %10 = load i64, ptr %0, align 8
+  %10 = load i64, ptr %0, align 8, !tbaa !7
   %11 = icmp ult i64 %9, %10
   br i1 %11, label %12, label %13
 

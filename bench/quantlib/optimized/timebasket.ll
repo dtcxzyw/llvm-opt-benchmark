@@ -734,7 +734,7 @@ for.body.i.i.i.i:                                 ; preds = %.noexc, %for.inc.i.
   %__i.sroa.0.013.i.idx.i.i.i = phi i64 [ %__i.sroa.0.013.i.add.i.i.i, %for.inc.i.i.i.i ], [ 8, %.noexc ]
   %__first.coerce.pn12.i.i.i.i = phi ptr [ %__i.sroa.0.013.i.ptr.i.i.i, %for.inc.i.i.i.i ], [ %call5.i.i.i.i2.i6.i, %.noexc ]
   %__i.sroa.0.013.i.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6.i, i64 %__i.sroa.0.013.i.idx.i.i.i
-  %25 = load i64, ptr %__i.sroa.0.013.i.ptr.i.i.i, align 8, !tbaa !31
+  %25 = load i64, ptr %__i.sroa.0.013.i.ptr.i.i.i, align 8, !tbaa !36
   %26 = load i64, ptr %call5.i.i.i.i2.i6.i, align 8, !tbaa !36
   %cmp.i.i.i.i.i.i37 = icmp slt i64 %25, %26
   br i1 %cmp.i.i.i.i.i.i37, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i, label %if.else.i.i.i.i
@@ -744,7 +744,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3
   br label %for.inc.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %27 = load i64, ptr %__first.coerce.pn12.i.i.i.i, align 8, !tbaa !31
+  %27 = load i64, ptr %__first.coerce.pn12.i.i.i.i, align 8, !tbaa !36
   %cmp.i.i8.i.i.i.i.i = icmp slt i64 %25, %27
   br i1 %cmp.i.i8.i.i.i.i.i, label %while.body.i.i.i.i.i, label %for.inc.i.i.i.i
 
@@ -754,7 +754,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i, %w
   %__last.sroa.0.09.i.i.i.i.i = phi ptr [ %__next.sroa.0.010.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__i.sroa.0.013.i.ptr.i.i.i, %if.else.i.i.i.i ]
   store i64 %28, ptr %__last.sroa.0.09.i.i.i.i.i, align 8, !tbaa !31
   %__next.sroa.0.0.i.i.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i.i.i.i, i64 -8
-  %29 = load i64, ptr %__next.sroa.0.0.i.i.i.i.i, align 8, !tbaa !31
+  %29 = load i64, ptr %__next.sroa.0.0.i.i.i.i.i, align 8, !tbaa !36
   %cmp.i.i.i.i.i.i.i = icmp slt i64 %25, %29
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %for.inc.i.i.i.i, !llvm.loop !44
 
@@ -777,7 +777,7 @@ for.body.i2.i.i.i:                                ; preds = %for.body.i2.i.i.i.p
   %__i.sroa.0.03.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i38, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ %add.ptr.i.i.i.i, %for.body.i2.i.i.i.preheader ]
   %30 = load i64, ptr %__i.sroa.0.03.i.i.i.i, align 8, !tbaa !31
   %__next.sroa.0.07.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i.i.i, i64 -8
-  %31 = load i64, ptr %__next.sroa.0.07.i.i.i.i.i, align 8, !tbaa !31
+  %31 = load i64, ptr %__next.sroa.0.07.i.i.i.i.i, align 8, !tbaa !36
   %cmp.i.i8.i.i3.i.i.i = icmp slt i64 %30, %31
   br i1 %cmp.i.i8.i.i3.i.i.i, label %while.body.i.i4.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
 
@@ -787,7 +787,7 @@ while.body.i.i4.i.i.i:                            ; preds = %for.body.i2.i.i.i, 
   %__last.sroa.0.09.i.i6.i.i.i = phi ptr [ %__next.sroa.0.010.i.i5.i.i.i, %while.body.i.i4.i.i.i ], [ %__i.sroa.0.03.i.i.i.i, %for.body.i2.i.i.i ]
   store i64 %32, ptr %__last.sroa.0.09.i.i6.i.i.i, align 8, !tbaa !31
   %__next.sroa.0.0.i.i7.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i5.i.i.i, i64 -8
-  %33 = load i64, ptr %__next.sroa.0.0.i.i7.i.i.i, align 8, !tbaa !31
+  %33 = load i64, ptr %__next.sroa.0.0.i.i7.i.i.i, align 8, !tbaa !36
   %cmp.i.i.i.i8.i.i.i = icmp slt i64 %30, %33
   br i1 %cmp.i.i.i.i8.i.i.i, label %while.body.i.i4.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i, !llvm.loop !44
 
@@ -805,7 +805,7 @@ if.else.i.i.i:                                    ; preds = %.noexc
 for.body.i15.i.i.i:                               ; preds = %if.else.i.i.i, %for.inc.i21.i.i.i
   %__i.sroa.0.013.i16.i.i.i = phi ptr [ %__i.sroa.0.0.i23.i.i.i, %for.inc.i21.i.i.i ], [ %scevgep.i.i.i, %if.else.i.i.i ]
   %__first.coerce.pn12.i17.i.i.i = phi ptr [ %__i.sroa.0.013.i16.i.i.i, %for.inc.i21.i.i.i ], [ %call5.i.i.i.i2.i6.i, %if.else.i.i.i ]
-  %34 = load i64, ptr %__i.sroa.0.013.i16.i.i.i, align 8, !tbaa !31
+  %34 = load i64, ptr %__i.sroa.0.013.i16.i.i.i, align 8, !tbaa !36
   %35 = load i64, ptr %call5.i.i.i.i2.i6.i, align 8, !tbaa !36
   %cmp.i.i.i18.i.i.i = icmp slt i64 %34, %35
   br i1 %cmp.i.i.i18.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i30.i.i.i, label %if.else.i19.i.i.i
@@ -821,7 +821,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3
   br label %for.inc.i21.i.i.i
 
 if.else.i19.i.i.i:                                ; preds = %for.body.i15.i.i.i
-  %36 = load i64, ptr %__first.coerce.pn12.i17.i.i.i, align 8, !tbaa !31
+  %36 = load i64, ptr %__first.coerce.pn12.i17.i.i.i, align 8, !tbaa !36
   %cmp.i.i8.i.i20.i.i.i = icmp slt i64 %34, %36
   br i1 %cmp.i.i8.i.i20.i.i.i, label %while.body.i.i25.i.i.i, label %for.inc.i21.i.i.i
 
@@ -831,7 +831,7 @@ while.body.i.i25.i.i.i:                           ; preds = %if.else.i19.i.i.i, 
   %__last.sroa.0.09.i.i27.i.i.i = phi ptr [ %__next.sroa.0.010.i.i26.i.i.i, %while.body.i.i25.i.i.i ], [ %__i.sroa.0.013.i16.i.i.i, %if.else.i19.i.i.i ]
   store i64 %37, ptr %__last.sroa.0.09.i.i27.i.i.i, align 8, !tbaa !31
   %__next.sroa.0.0.i.i28.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i26.i.i.i, i64 -8
-  %38 = load i64, ptr %__next.sroa.0.0.i.i28.i.i.i, align 8, !tbaa !31
+  %38 = load i64, ptr %__next.sroa.0.0.i.i28.i.i.i, align 8, !tbaa !36
   %cmp.i.i.i.i29.i.i.i = icmp slt i64 %34, %38
   br i1 %cmp.i.i.i.i29.i.i.i, label %while.body.i.i25.i.i.i, label %for.inc.i21.i.i.i, !llvm.loop !44
 
@@ -1454,7 +1454,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end34.i.i.i.i, %
   %__parent.018.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.017.i.i.i.i.i, -1
   %__parent.018.i.i34.i.i.i = lshr i64 %__parent.018.in.i.i.i.i.i, 1
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.QuantLib::Date", ptr %__first.coerce, i64 %__parent.018.i.i34.i.i.i
-  %6 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !31
+  %6 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !36
   %cmp.i.i.i.i.i.i.i = icmp slt i64 %6, %__value.sroa.0.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i.i
 
@@ -1476,10 +1476,10 @@ if.end:                                           ; preds = %while.body
   %div.i910 = lshr i64 %sub.ptr.div.i21, 1
   %add.ptr.i.i = getelementptr inbounds %"class.QuantLib::Date", ptr %__first.coerce, i64 %div.i910
   %add.ptr.i2.i = getelementptr inbounds i8, ptr %storemerge19, i64 -8
-  %7 = load i64, ptr %add.ptr.i1.i, align 8, !tbaa !31
-  %8 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !31
+  %7 = load i64, ptr %add.ptr.i1.i, align 8, !tbaa !36
+  %8 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !36
   %cmp.i.i.i.i3 = icmp slt i64 %7, %8
-  %9 = load i64, ptr %add.ptr.i2.i, align 8, !tbaa !31
+  %9 = load i64, ptr %add.ptr.i2.i, align 8, !tbaa !36
   br i1 %cmp.i.i.i.i3, label %if.then.i.i, label %if.else33.i.i
 
 if.then.i.i:                                      ; preds = %if.end
@@ -1543,7 +1543,7 @@ while.body.i.i4:                                  ; preds = %while.body.i.i4.pre
 
 while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %while.body.i.i4
   %__first.sroa.0.1.i.i = phi ptr [ %__first.sroa.0.0.i.i, %while.body.i.i4 ], [ %incdec.ptr.i.i.i5, %while.cond3.i.i ]
-  %11 = load i64, ptr %__first.sroa.0.1.i.i, align 8, !tbaa !31
+  %11 = load i64, ptr %__first.sroa.0.1.i.i, align 8, !tbaa !36
   %cmp.i.i.i4.i = icmp slt i64 %11, %10
   %incdec.ptr.i.i.i5 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 8
   br i1 %cmp.i.i.i4.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !55
@@ -1551,7 +1551,7 @@ while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %w
 while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %while.cond10.i.i
   %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.0.i.i, %while.cond3.i.i ]
   %__last.sroa.0.1.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
-  %12 = load i64, ptr %__last.sroa.0.1.i.i, align 8, !tbaa !31
+  %12 = load i64, ptr %__last.sroa.0.1.i.i, align 8, !tbaa !36
   %cmp.i.i2.i5.i = icmp slt i64 %10, %12
   br i1 %cmp.i.i2.i5.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !56
 
@@ -1637,7 +1637,7 @@ land.rhs.i.i.us:                                  ; preds = %while.end.i.us, %wh
   %__parent.018.in.i.i.us = add nsw i64 %__holeIndex.addr.017.i.i.us, -1
   %__parent.018.i.i.us = sdiv i64 %__parent.018.in.i.i.us, 2
   %add.ptr.i.i.i.us = getelementptr inbounds %"class.QuantLib::Date", ptr %__first.coerce, i64 %__parent.018.i.i.us
-  %4 = load i64, ptr %add.ptr.i.i.i.us, align 8, !tbaa !31
+  %4 = load i64, ptr %add.ptr.i.i.i.us, align 8, !tbaa !36
   %cmp.i.i.i.i.us = icmp slt i64 %4, %__value.sroa.0.0.copyload.us
   br i1 %cmp.i.i.i.i.us, label %while.body.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us
 
@@ -1700,7 +1700,7 @@ land.rhs.i.i:                                     ; preds = %if.end34.i, %while.
   %__parent.018.in.i.i = add nsw i64 %__holeIndex.addr.017.i.i, -1
   %__parent.018.i.i = sdiv i64 %__parent.018.in.i.i, 2
   %add.ptr.i.i.i = getelementptr inbounds %"class.QuantLib::Date", ptr %__first.coerce, i64 %__parent.018.i.i
-  %9 = load i64, ptr %add.ptr.i.i.i, align 8, !tbaa !31
+  %9 = load i64, ptr %add.ptr.i.i.i, align 8, !tbaa !36
   %cmp.i.i.i.i = icmp slt i64 %9, %__value.sroa.0.0.copyload
   br i1 %cmp.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
 

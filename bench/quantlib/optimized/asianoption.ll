@@ -1053,7 +1053,7 @@ for.body.i.i.i.i:                                 ; preds = %.noexc, %for.inc.i.
   %__i.sroa.0.013.i.idx.i.i.i = phi i64 [ %__i.sroa.0.013.i.add.i.i.i, %for.inc.i.i.i.i ], [ 8, %.noexc ]
   %__first.coerce.pn12.i.i.i.i = phi ptr [ %__i.sroa.0.013.i.ptr.i.i.i, %for.inc.i.i.i.i ], [ %19, %.noexc ]
   %__i.sroa.0.013.i.ptr.i.i.i = getelementptr inbounds i8, ptr %19, i64 %__i.sroa.0.013.i.idx.i.i.i
-  %22 = load i64, ptr %__i.sroa.0.013.i.ptr.i.i.i, align 8, !tbaa !47
+  %22 = load i64, ptr %__i.sroa.0.013.i.ptr.i.i.i, align 8, !tbaa !78
   %23 = load i64, ptr %19, align 8, !tbaa !78
   %cmp.i.i.i.i.i.i = icmp slt i64 %22, %23
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i, label %if.else.i.i.i.i
@@ -1063,7 +1063,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3
   br label %for.inc.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %24 = load i64, ptr %__first.coerce.pn12.i.i.i.i, align 8, !tbaa !47
+  %24 = load i64, ptr %__first.coerce.pn12.i.i.i.i, align 8, !tbaa !78
   %cmp.i.i8.i.i.i.i.i = icmp slt i64 %22, %24
   br i1 %cmp.i.i8.i.i.i.i.i, label %while.body.i.i.i.i.i, label %for.inc.i.i.i.i
 
@@ -1073,7 +1073,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i, %w
   %__last.sroa.0.09.i.i.i.i.i = phi ptr [ %__next.sroa.0.010.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__i.sroa.0.013.i.ptr.i.i.i, %if.else.i.i.i.i ]
   store i64 %25, ptr %__last.sroa.0.09.i.i.i.i.i, align 8, !tbaa !47
   %__next.sroa.0.0.i.i.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i.i.i.i, i64 -8
-  %26 = load i64, ptr %__next.sroa.0.0.i.i.i.i.i, align 8, !tbaa !47
+  %26 = load i64, ptr %__next.sroa.0.0.i.i.i.i.i, align 8, !tbaa !78
   %cmp.i.i.i.i.i.i.i = icmp slt i64 %22, %26
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %for.inc.i.i.i.i, !llvm.loop !79
 
@@ -1093,7 +1093,7 @@ for.body.i2.i.i.i:                                ; preds = %_ZSt16__insertion_s
   %__i.sroa.0.03.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ %add.ptr.i.i.i.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_.exit.i.i.i ]
   %27 = load i64, ptr %__i.sroa.0.03.i.i.i.i, align 8, !tbaa !47
   %__next.sroa.0.07.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i.i.i, i64 -8
-  %28 = load i64, ptr %__next.sroa.0.07.i.i.i.i.i, align 8, !tbaa !47
+  %28 = load i64, ptr %__next.sroa.0.07.i.i.i.i.i, align 8, !tbaa !78
   %cmp.i.i8.i.i3.i.i.i = icmp slt i64 %27, %28
   br i1 %cmp.i.i8.i.i3.i.i.i, label %while.body.i.i4.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
 
@@ -1103,7 +1103,7 @@ while.body.i.i4.i.i.i:                            ; preds = %for.body.i2.i.i.i, 
   %__last.sroa.0.09.i.i6.i.i.i = phi ptr [ %__next.sroa.0.010.i.i5.i.i.i, %while.body.i.i4.i.i.i ], [ %__i.sroa.0.03.i.i.i.i, %for.body.i2.i.i.i ]
   store i64 %29, ptr %__last.sroa.0.09.i.i6.i.i.i, align 8, !tbaa !47
   %__next.sroa.0.0.i.i7.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i5.i.i.i, i64 -8
-  %30 = load i64, ptr %__next.sroa.0.0.i.i7.i.i.i, align 8, !tbaa !47
+  %30 = load i64, ptr %__next.sroa.0.0.i.i7.i.i.i, align 8, !tbaa !78
   %cmp.i.i.i.i8.i.i.i = icmp slt i64 %27, %30
   br i1 %cmp.i.i.i.i8.i.i.i, label %while.body.i.i4.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i, !llvm.loop !79
 
@@ -1121,7 +1121,7 @@ if.else.i.i.i:                                    ; preds = %.noexc
 for.body.i15.i.i.i:                               ; preds = %if.else.i.i.i, %for.inc.i21.i.i.i
   %__i.sroa.0.013.i16.i.i.i = phi ptr [ %__i.sroa.0.0.i23.i.i.i, %for.inc.i21.i.i.i ], [ %scevgep.i.i.i, %if.else.i.i.i ]
   %__first.coerce.pn12.i17.i.i.i = phi ptr [ %__i.sroa.0.013.i16.i.i.i, %for.inc.i21.i.i.i ], [ %19, %if.else.i.i.i ]
-  %31 = load i64, ptr %__i.sroa.0.013.i16.i.i.i, align 8, !tbaa !47
+  %31 = load i64, ptr %__i.sroa.0.013.i16.i.i.i, align 8, !tbaa !78
   %32 = load i64, ptr %19, align 8, !tbaa !78
   %cmp.i.i.i18.i.i.i = icmp slt i64 %31, %32
   br i1 %cmp.i.i.i18.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i30.i.i.i, label %if.else.i19.i.i.i
@@ -1137,7 +1137,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3
   br label %for.inc.i21.i.i.i
 
 if.else.i19.i.i.i:                                ; preds = %for.body.i15.i.i.i
-  %33 = load i64, ptr %__first.coerce.pn12.i17.i.i.i, align 8, !tbaa !47
+  %33 = load i64, ptr %__first.coerce.pn12.i17.i.i.i, align 8, !tbaa !78
   %cmp.i.i8.i.i20.i.i.i = icmp slt i64 %31, %33
   br i1 %cmp.i.i8.i.i20.i.i.i, label %while.body.i.i25.i.i.i, label %for.inc.i21.i.i.i
 
@@ -1147,7 +1147,7 @@ while.body.i.i25.i.i.i:                           ; preds = %if.else.i19.i.i.i, 
   %__last.sroa.0.09.i.i27.i.i.i = phi ptr [ %__next.sroa.0.010.i.i26.i.i.i, %while.body.i.i25.i.i.i ], [ %__i.sroa.0.013.i16.i.i.i, %if.else.i19.i.i.i ]
   store i64 %34, ptr %__last.sroa.0.09.i.i27.i.i.i, align 8, !tbaa !47
   %__next.sroa.0.0.i.i28.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i26.i.i.i, i64 -8
-  %35 = load i64, ptr %__next.sroa.0.0.i.i28.i.i.i, align 8, !tbaa !47
+  %35 = load i64, ptr %__next.sroa.0.0.i.i28.i.i.i, align 8, !tbaa !78
   %cmp.i.i.i.i29.i.i.i = icmp slt i64 %31, %35
   br i1 %cmp.i.i.i.i29.i.i.i, label %while.body.i.i25.i.i.i, label %for.inc.i21.i.i.i, !llvm.loop !79
 
@@ -1591,7 +1591,7 @@ for.body.i.i.i.i:                                 ; preds = %.noexc, %for.inc.i.
   %__i.sroa.0.013.i.idx.i.i.i = phi i64 [ %__i.sroa.0.013.i.add.i.i.i, %for.inc.i.i.i.i ], [ 8, %.noexc ]
   %__first.coerce.pn12.i.i.i.i = phi ptr [ %__i.sroa.0.013.i.ptr.i.i.i, %for.inc.i.i.i.i ], [ %17, %.noexc ]
   %__i.sroa.0.013.i.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 %__i.sroa.0.013.i.idx.i.i.i
-  %20 = load i64, ptr %__i.sroa.0.013.i.ptr.i.i.i, align 8, !tbaa !47
+  %20 = load i64, ptr %__i.sroa.0.013.i.ptr.i.i.i, align 8, !tbaa !78
   %21 = load i64, ptr %17, align 8, !tbaa !78
   %cmp.i.i.i.i.i.i = icmp slt i64 %20, %21
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i, label %if.else.i.i.i.i
@@ -1601,7 +1601,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3
   br label %for.inc.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %22 = load i64, ptr %__first.coerce.pn12.i.i.i.i, align 8, !tbaa !47
+  %22 = load i64, ptr %__first.coerce.pn12.i.i.i.i, align 8, !tbaa !78
   %cmp.i.i8.i.i.i.i.i = icmp slt i64 %20, %22
   br i1 %cmp.i.i8.i.i.i.i.i, label %while.body.i.i.i.i.i, label %for.inc.i.i.i.i
 
@@ -1611,7 +1611,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i, %w
   %__last.sroa.0.09.i.i.i.i.i = phi ptr [ %__next.sroa.0.010.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__i.sroa.0.013.i.ptr.i.i.i, %if.else.i.i.i.i ]
   store i64 %23, ptr %__last.sroa.0.09.i.i.i.i.i, align 8, !tbaa !47
   %__next.sroa.0.0.i.i.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i.i.i.i, i64 -8
-  %24 = load i64, ptr %__next.sroa.0.0.i.i.i.i.i, align 8, !tbaa !47
+  %24 = load i64, ptr %__next.sroa.0.0.i.i.i.i.i, align 8, !tbaa !78
   %cmp.i.i.i.i.i.i.i = icmp slt i64 %20, %24
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %for.inc.i.i.i.i, !llvm.loop !79
 
@@ -1631,7 +1631,7 @@ for.body.i2.i.i.i:                                ; preds = %_ZSt16__insertion_s
   %__i.sroa.0.03.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ %add.ptr.i.i.i.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_.exit.i.i.i ]
   %25 = load i64, ptr %__i.sroa.0.03.i.i.i.i, align 8, !tbaa !47
   %__next.sroa.0.07.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i.i.i, i64 -8
-  %26 = load i64, ptr %__next.sroa.0.07.i.i.i.i.i, align 8, !tbaa !47
+  %26 = load i64, ptr %__next.sroa.0.07.i.i.i.i.i, align 8, !tbaa !78
   %cmp.i.i8.i.i3.i.i.i = icmp slt i64 %25, %26
   br i1 %cmp.i.i8.i.i3.i.i.i, label %while.body.i.i4.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
 
@@ -1641,7 +1641,7 @@ while.body.i.i4.i.i.i:                            ; preds = %for.body.i2.i.i.i, 
   %__last.sroa.0.09.i.i6.i.i.i = phi ptr [ %__next.sroa.0.010.i.i5.i.i.i, %while.body.i.i4.i.i.i ], [ %__i.sroa.0.03.i.i.i.i, %for.body.i2.i.i.i ]
   store i64 %27, ptr %__last.sroa.0.09.i.i6.i.i.i, align 8, !tbaa !47
   %__next.sroa.0.0.i.i7.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i5.i.i.i, i64 -8
-  %28 = load i64, ptr %__next.sroa.0.0.i.i7.i.i.i, align 8, !tbaa !47
+  %28 = load i64, ptr %__next.sroa.0.0.i.i7.i.i.i, align 8, !tbaa !78
   %cmp.i.i.i.i8.i.i.i = icmp slt i64 %25, %28
   br i1 %cmp.i.i.i.i8.i.i.i, label %while.body.i.i4.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i, !llvm.loop !79
 
@@ -1659,7 +1659,7 @@ if.else.i.i.i:                                    ; preds = %.noexc
 for.body.i15.i.i.i:                               ; preds = %if.else.i.i.i, %for.inc.i21.i.i.i
   %__i.sroa.0.013.i16.i.i.i = phi ptr [ %__i.sroa.0.0.i23.i.i.i, %for.inc.i21.i.i.i ], [ %scevgep.i.i.i, %if.else.i.i.i ]
   %__first.coerce.pn12.i17.i.i.i = phi ptr [ %__i.sroa.0.013.i16.i.i.i, %for.inc.i21.i.i.i ], [ %17, %if.else.i.i.i ]
-  %29 = load i64, ptr %__i.sroa.0.013.i16.i.i.i, align 8, !tbaa !47
+  %29 = load i64, ptr %__i.sroa.0.013.i16.i.i.i, align 8, !tbaa !78
   %30 = load i64, ptr %17, align 8, !tbaa !78
   %cmp.i.i.i18.i.i.i = icmp slt i64 %29, %30
   br i1 %cmp.i.i.i18.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i30.i.i.i, label %if.else.i19.i.i.i
@@ -1675,7 +1675,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3
   br label %for.inc.i21.i.i.i
 
 if.else.i19.i.i.i:                                ; preds = %for.body.i15.i.i.i
-  %31 = load i64, ptr %__first.coerce.pn12.i17.i.i.i, align 8, !tbaa !47
+  %31 = load i64, ptr %__first.coerce.pn12.i17.i.i.i, align 8, !tbaa !78
   %cmp.i.i8.i.i20.i.i.i = icmp slt i64 %29, %31
   br i1 %cmp.i.i8.i.i20.i.i.i, label %while.body.i.i25.i.i.i, label %for.inc.i21.i.i.i
 
@@ -1685,7 +1685,7 @@ while.body.i.i25.i.i.i:                           ; preds = %if.else.i19.i.i.i, 
   %__last.sroa.0.09.i.i27.i.i.i = phi ptr [ %__next.sroa.0.010.i.i26.i.i.i, %while.body.i.i25.i.i.i ], [ %__i.sroa.0.013.i16.i.i.i, %if.else.i19.i.i.i ]
   store i64 %32, ptr %__last.sroa.0.09.i.i27.i.i.i, align 8, !tbaa !47
   %__next.sroa.0.0.i.i28.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.010.i.i26.i.i.i, i64 -8
-  %33 = load i64, ptr %__next.sroa.0.0.i.i28.i.i.i, align 8, !tbaa !47
+  %33 = load i64, ptr %__next.sroa.0.0.i.i28.i.i.i, align 8, !tbaa !78
   %cmp.i.i.i.i29.i.i.i = icmp slt i64 %29, %33
   br i1 %cmp.i.i.i.i29.i.i.i, label %while.body.i.i25.i.i.i, label %for.inc.i21.i.i.i, !llvm.loop !79
 
@@ -2222,8 +2222,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %fixingDates) #28
   %fixingDates_ = getelementptr inbounds nuw i8, ptr %this, i64 248
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 256
-  %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !3
-  %3 = load ptr, ptr %fixingDates_, align 8, !tbaa !3
+  %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !75
+  %3 = load ptr, ptr %fixingDates_, align 8, !tbaa !74
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2310,7 +2310,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i40, %i
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont
-  %10 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !47
+  %10 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !78
   %11 = load i64, ptr %ref.tmp.i, align 8, !tbaa !78
   %cmp.i.i = icmp eq i64 %10, %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #28
@@ -2364,7 +2364,7 @@ lpad13.loopexit.split-lp:                         ; preds = %if.then.i.i163
   br label %ehcleanup120
 
 if.else:                                          ; preds = %for.body
-  %16 = load ptr, ptr %_M_finish.i43, align 8, !tbaa !3
+  %16 = load ptr, ptr %_M_finish.i43, align 8, !tbaa !75
   %17 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !76
   %cmp.not.i = icmp eq ptr %16, %17
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i44
@@ -2376,7 +2376,7 @@ if.then.i44:                                      ; preds = %if.else
   br label %if.end
 
 if.else.i:                                        ; preds = %if.else
-  %18 = load ptr, ptr %futureFixingDates, align 8, !tbaa !3
+  %18 = load ptr, ptr %futureFixingDates, align 8, !tbaa !74
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -3128,14 +3128,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %__x, i64 8
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !3
-  %1 = load ptr, ptr %__x, align 8, !tbaa !3
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !75
+  %1 = load ptr, ptr %__x, align 8, !tbaa !74
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !76
-  %3 = load ptr, ptr %this, align 8, !tbaa !3
+  %3 = load ptr, ptr %this, align 8, !tbaa !74
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
@@ -7904,7 +7904,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end34.i.i.i.i, %
   %__parent.018.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.017.i.i.i.i.i, -1
   %__parent.018.i.i34.i.i.i = lshr i64 %__parent.018.in.i.i.i.i.i, 1
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.QuantLib::Date", ptr %__first.coerce, i64 %__parent.018.i.i34.i.i.i
-  %6 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !47
+  %6 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !78
   %cmp.i.i.i.i.i.i.i = icmp slt i64 %6, %__value.sroa.0.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i.i
 
@@ -7926,10 +7926,10 @@ if.end:                                           ; preds = %while.body
   %div.i910 = lshr i64 %sub.ptr.div.i21, 1
   %add.ptr.i.i = getelementptr inbounds %"class.QuantLib::Date", ptr %__first.coerce, i64 %div.i910
   %add.ptr.i2.i = getelementptr inbounds i8, ptr %storemerge19, i64 -8
-  %7 = load i64, ptr %add.ptr.i1.i, align 8, !tbaa !47
-  %8 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !47
+  %7 = load i64, ptr %add.ptr.i1.i, align 8, !tbaa !78
+  %8 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !78
   %cmp.i.i.i.i3 = icmp slt i64 %7, %8
-  %9 = load i64, ptr %add.ptr.i2.i, align 8, !tbaa !47
+  %9 = load i64, ptr %add.ptr.i2.i, align 8, !tbaa !78
   br i1 %cmp.i.i.i.i3, label %if.then.i.i, label %if.else33.i.i
 
 if.then.i.i:                                      ; preds = %if.end
@@ -7993,7 +7993,7 @@ while.body.i.i4:                                  ; preds = %while.body.i.i4.pre
 
 while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %while.body.i.i4
   %__first.sroa.0.1.i.i = phi ptr [ %__first.sroa.0.0.i.i, %while.body.i.i4 ], [ %incdec.ptr.i.i.i5, %while.cond3.i.i ]
-  %11 = load i64, ptr %__first.sroa.0.1.i.i, align 8, !tbaa !47
+  %11 = load i64, ptr %__first.sroa.0.1.i.i, align 8, !tbaa !78
   %cmp.i.i.i4.i = icmp slt i64 %11, %10
   %incdec.ptr.i.i.i5 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 8
   br i1 %cmp.i.i.i4.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !139
@@ -8001,7 +8001,7 @@ while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %w
 while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %while.cond10.i.i
   %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.0.i.i, %while.cond3.i.i ]
   %__last.sroa.0.1.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
-  %12 = load i64, ptr %__last.sroa.0.1.i.i, align 8, !tbaa !47
+  %12 = load i64, ptr %__last.sroa.0.1.i.i, align 8, !tbaa !78
   %cmp.i.i2.i5.i = icmp slt i64 %10, %12
   br i1 %cmp.i.i2.i5.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !140
 
@@ -8087,7 +8087,7 @@ land.rhs.i.i.us:                                  ; preds = %while.end.i.us, %wh
   %__parent.018.in.i.i.us = add nsw i64 %__holeIndex.addr.017.i.i.us, -1
   %__parent.018.i.i.us = sdiv i64 %__parent.018.in.i.i.us, 2
   %add.ptr.i.i.i.us = getelementptr inbounds %"class.QuantLib::Date", ptr %__first.coerce, i64 %__parent.018.i.i.us
-  %4 = load i64, ptr %add.ptr.i.i.i.us, align 8, !tbaa !47
+  %4 = load i64, ptr %add.ptr.i.i.i.us, align 8, !tbaa !78
   %cmp.i.i.i.i.us = icmp slt i64 %4, %__value.sroa.0.0.copyload.us
   br i1 %cmp.i.i.i.i.us, label %while.body.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us
 
@@ -8150,7 +8150,7 @@ land.rhs.i.i:                                     ; preds = %if.end34.i, %while.
   %__parent.018.in.i.i = add nsw i64 %__holeIndex.addr.017.i.i, -1
   %__parent.018.i.i = sdiv i64 %__parent.018.in.i.i, 2
   %add.ptr.i.i.i = getelementptr inbounds %"class.QuantLib::Date", ptr %__first.coerce, i64 %__parent.018.i.i
-  %9 = load i64, ptr %add.ptr.i.i.i, align 8, !tbaa !47
+  %9 = load i64, ptr %add.ptr.i.i.i, align 8, !tbaa !78
   %cmp.i.i.i.i = icmp slt i64 %9, %__value.sroa.0.0.copyload
   br i1 %cmp.i.i.i.i, label %while.body.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
 

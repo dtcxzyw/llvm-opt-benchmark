@@ -10561,13 +10561,13 @@ if.end:                                           ; preds = %invoke.cont.i.i237,
   store double %conv253, ptr %m_t_max, align 8, !tbaa !288
   %m_t_crossover = getelementptr inbounds nuw i8, ptr %this, i64 144
   store double 0x3FD5F2B07B65D95D, ptr %m_t_crossover, align 8, !tbaa !289
-  %70 = load double, ptr %min_complement, align 8
+  %70 = load double, ptr %min_complement, align 8, !tbaa !55
   %cmp.i274 = fcmp ogt double %70, 0x30000000000000
   br i1 %cmp.i274, label %for.cond.preheader.i, label %_ZN5boost4math10quadrature6detail16tanh_sinh_detailIdNS0_8policies6policyINS4_14default_policyES6_S6_S6_S6_S6_S6_S6_S6_S6_S6_S6_S6_EEE23prune_to_min_complementERKd.exit
 
 for.cond.preheader.i:                             ; preds = %if.end
   %71 = load ptr, ptr %_M_finish.i, align 8, !tbaa !270
-  %72 = load ptr, ptr %this, align 8
+  %72 = load ptr, ptr %this, align 8, !tbaa !269
   %sub.ptr.lhs.cast.i.i276 = ptrtoint ptr %71 to i64
   %sub.ptr.rhs.cast.i.i277 = ptrtoint ptr %72 to i64
   %sub.ptr.sub.i.i278 = sub i64 %sub.ptr.lhs.cast.i.i276, %sub.ptr.rhs.cast.i.i277
@@ -10584,8 +10584,8 @@ land.rhs.i:                                       ; preds = %if.end.i281, %land.
   %row.062.i = phi i32 [ 0, %land.rhs.lr.ph.i ], [ %inc.i, %if.end.i281 ]
   %add.ptr.i.i280 = getelementptr inbounds nuw %"class.std::vector.85", ptr %72, i64 %conv63.i
   %_M_finish.i13.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i280, i64 8
-  %74 = load ptr, ptr %_M_finish.i13.i, align 8, !tbaa !3
-  %75 = load ptr, ptr %add.ptr.i.i280, align 8, !tbaa !3
+  %74 = load ptr, ptr %_M_finish.i13.i, align 8, !tbaa !278
+  %75 = load ptr, ptr %add.ptr.i.i280, align 8, !tbaa !276
   %sub.ptr.rhs.cast.i15.i = ptrtoint ptr %75 to i64
   %tobool.not.i = icmp eq ptr %74, %75
   br i1 %tobool.not.i, label %_ZN5boost4math10quadrature6detail16tanh_sinh_detailIdNS0_8policies6policyINS4_14default_policyES6_S6_S6_S6_S6_S6_S6_S6_S6_S6_S6_S6_EEE23prune_to_min_complementERKd.exit, label %for.body.i
@@ -10984,14 +10984,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %__x, i64 8
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !3
-  %1 = load ptr, ptr %__x, align 8, !tbaa !3
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !278
+  %1 = load ptr, ptr %__x, align 8, !tbaa !276
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !279
-  %3 = load ptr, ptr %this, align 8, !tbaa !3
+  %3 = load ptr, ptr %this, align 8, !tbaa !276
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
@@ -13602,7 +13602,7 @@ while.end21:                                      ; preds = %land.rhs13, %while.
   %max_left_position.0.lcssa1040 = phi i64 [ %sub, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E0_clESO_SO_.exit ], [ %max_left_position.0.lcssa, %while.body19 ], [ %max_left_position.0.lcssa, %land.rhs13 ]
   %max_right_position.0.lcssa = phi i64 [ %sub, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E0_clESO_SO_.exit ], [ %max_right_position.0906, %land.rhs13 ], [ 1, %while.body19 ]
   %add.ptr.i236 = getelementptr inbounds nuw double, ptr %11, i64 %max_left_position.0.lcssa1040
-  %16 = load double, ptr %add.ptr.i236, align 8
+  %16 = load double, ptr %add.ptr.i236, align 8, !tbaa !55
   %sub26 = fsub double -1.000000e+00, %16
   %cmp.i240 = fcmp ogt double %sub26, -5.000000e-01
   %add.i241 = fadd double %sub26, 1.000000e+00
@@ -13717,7 +13717,7 @@ if.end:                                           ; preds = %_ZZNK5boost4math10q
   %34 = load ptr, ptr %this, align 8, !tbaa !269
   %35 = load ptr, ptr %34, align 8, !tbaa !276
   %add.ptr.i291 = getelementptr inbounds nuw double, ptr %35, i64 %dec48
-  %36 = load double, ptr %add.ptr.i291, align 8
+  %36 = load double, ptr %add.ptr.i291, align 8, !tbaa !55
   %sub53 = fsub double -1.000000e+00, %36
   %cmp.i295 = fcmp ogt double %sub53, -5.000000e-01
   %add.i296 = fadd double %sub53, 1.000000e+00
@@ -13782,7 +13782,7 @@ if.end70:                                         ; preds = %while.body61
   %48 = load ptr, ptr %this, align 8, !tbaa !269
   %49 = load ptr, ptr %48, align 8, !tbaa !276
   %add.ptr.i320 = getelementptr inbounds nuw double, ptr %49, i64 %dec71
-  %50 = load double, ptr %add.ptr.i320, align 8
+  %50 = load double, ptr %add.ptr.i320, align 8, !tbaa !55
   %sub76 = fsub double -1.000000e+00, %50
   %cmp.i324 = fcmp ogt double %sub76, -5.000000e-01
   %add.i325 = fadd double %sub76, 1.000000e+00
@@ -14336,7 +14336,7 @@ if.end275:                                        ; preds = %if.then272, %land.l
   %max_right_index.0 = phi i64 [ %max_right_position.3, %if.then272 ], [ %sub252, %land.lhs.true268 ], [ %sub252, %if.end264 ]
   %max_right_position.4 = phi i64 [ %inc273, %if.then272 ], [ %mul253, %land.lhs.true268 ], [ %mul253, %if.end264 ]
   %add.ptr.i506.phi.trans.insert = getelementptr inbounds nuw double, ptr %139, i64 %max_left_index.0
-  %.pre1035 = load double, ptr %add.ptr.i506.phi.trans.insert, align 8
+  %.pre1035 = load double, ptr %add.ptr.i506.phi.trans.insert, align 8, !tbaa !55
   br label %do.body
 
 do.body:                                          ; preds = %if.end288, %if.end275
@@ -14405,7 +14405,7 @@ if.end288:                                        ; preds = %if.end283
   %dec290 = add i64 %max_left_index.1, -1
   %152 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !276
   %add.ptr.i531 = getelementptr inbounds nuw double, ptr %152, i64 %dec290
-  %153 = load double, ptr %add.ptr.i531, align 8
+  %153 = load double, ptr %add.ptr.i531, align 8, !tbaa !55
   %cmp292 = fcmp olt double %153, 0.000000e+00
   br i1 %cmp292, label %do.body, label %do.end, !llvm.loop !318
 
@@ -14751,7 +14751,7 @@ land.lhs.true464:                                 ; preds = %land.lhs.true460
   br i1 %cmp468, label %if.then469, label %if.end494
 
 if.then469:                                       ; preds = %land.lhs.true464
-  %208 = load double, ptr %205, align 8
+  %208 = load double, ptr %205, align 8, !tbaa !55
   %sub472 = fsub double -1.000000e+00, %208
   %cmp.i626 = fcmp ogt double %sub472, -5.000000e-01
   %add.i627 = fadd double %sub472, 1.000000e+00
@@ -14800,7 +14800,7 @@ _ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_polic
   %sub478 = add i64 %max_left_index.2, -1
   %216 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !276
   %add.ptr.i649 = getelementptr inbounds nuw double, ptr %216, i64 %sub478
-  %217 = load double, ptr %add.ptr.i649, align 8
+  %217 = load double, ptr %add.ptr.i649, align 8, !tbaa !55
   %sub480 = fsub double -1.000000e+00, %217
   %cmp.i652 = fcmp ogt double %sub480, -5.000000e-01
   %add.i653 = fadd double %sub480, 1.000000e+00
@@ -15137,7 +15137,7 @@ while.end21:                                      ; preds = %land.rhs13, %while.
   %max_left_position.0.lcssa976 = phi i64 [ %sub, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E1_clESO_SO_.exit ], [ %max_left_position.0.lcssa, %while.body19 ], [ %max_left_position.0.lcssa, %land.rhs13 ]
   %max_right_position.0.lcssa = phi i64 [ %sub, %_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlRKdSO_E1_clESO_SO_.exit ], [ %max_right_position.0842, %land.rhs13 ], [ 1, %while.body19 ]
   %add.ptr.i236 = getelementptr inbounds nuw double, ptr %10, i64 %max_left_position.0.lcssa976
-  %15 = load double, ptr %add.ptr.i236, align 8
+  %15 = load double, ptr %add.ptr.i236, align 8, !tbaa !55
   %sub26 = fsub double -1.000000e+00, %15
   %cmp.i240 = fcmp ogt double %sub26, -5.000000e-01
   %add.i241 = fadd double %sub26, 1.000000e+00
@@ -15233,7 +15233,7 @@ if.end:                                           ; preds = %_ZZNK5boost4math10q
   %32 = load ptr, ptr %this, align 8, !tbaa !269
   %33 = load ptr, ptr %32, align 8, !tbaa !276
   %add.ptr.i283 = getelementptr inbounds nuw double, ptr %33, i64 %dec48
-  %34 = load double, ptr %add.ptr.i283, align 8
+  %34 = load double, ptr %add.ptr.i283, align 8, !tbaa !55
   %sub53 = fsub double -1.000000e+00, %34
   %cmp.i287 = fcmp ogt double %sub53, -5.000000e-01
   %add.i288 = fadd double %sub53, 1.000000e+00
@@ -15288,7 +15288,7 @@ if.end70:                                         ; preds = %while.body61
   %46 = load ptr, ptr %this, align 8, !tbaa !269
   %47 = load ptr, ptr %46, align 8, !tbaa !276
   %add.ptr.i308 = getelementptr inbounds nuw double, ptr %47, i64 %dec71
-  %48 = load double, ptr %add.ptr.i308, align 8
+  %48 = load double, ptr %add.ptr.i308, align 8, !tbaa !55
   %sub76 = fsub double -1.000000e+00, %48
   %cmp.i312 = fcmp ogt double %sub76, -5.000000e-01
   %add.i313 = fadd double %sub76, 1.000000e+00
@@ -15795,7 +15795,7 @@ if.end275:                                        ; preds = %if.then272, %land.l
   %max_right_index.0 = phi i64 [ %max_right_position.3, %if.then272 ], [ %sub252, %land.lhs.true268 ], [ %sub252, %if.end264 ]
   %max_right_position.4 = phi i64 [ %inc273, %if.then272 ], [ %mul253, %land.lhs.true268 ], [ %mul253, %if.end264 ]
   %add.ptr.i474.phi.trans.insert = getelementptr inbounds nuw double, ptr %134, i64 %max_left_index.0
-  %.pre971 = load double, ptr %add.ptr.i474.phi.trans.insert, align 8
+  %.pre971 = load double, ptr %add.ptr.i474.phi.trans.insert, align 8, !tbaa !55
   br label %do.body
 
 do.body:                                          ; preds = %if.end288, %if.end275
@@ -15854,7 +15854,7 @@ if.end288:                                        ; preds = %if.end283
   %dec290 = add i64 %max_left_index.1, -1
   %147 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !276
   %add.ptr.i495 = getelementptr inbounds nuw double, ptr %147, i64 %dec290
-  %148 = load double, ptr %add.ptr.i495, align 8
+  %148 = load double, ptr %add.ptr.i495, align 8, !tbaa !55
   %cmp292 = fcmp olt double %148, 0.000000e+00
   br i1 %cmp292, label %do.body, label %do.end, !llvm.loop !328
 
@@ -16172,7 +16172,7 @@ land.lhs.true464:                                 ; preds = %land.lhs.true460
   br i1 %cmp468, label %if.then469, label %if.end494
 
 if.then469:                                       ; preds = %land.lhs.true464
-  %201 = load double, ptr %198, align 8
+  %201 = load double, ptr %198, align 8, !tbaa !55
   %sub472 = fsub double -1.000000e+00, %201
   %cmp.i578 = fcmp ogt double %sub472, -5.000000e-01
   %add.i579 = fadd double %sub472, 1.000000e+00
@@ -16208,7 +16208,7 @@ _ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_polic
   %sub478 = add i64 %max_left_index.2, -1
   %209 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !276
   %add.ptr.i597 = getelementptr inbounds nuw double, ptr %209, i64 %sub478
-  %210 = load double, ptr %add.ptr.i597, align 8
+  %210 = load double, ptr %add.ptr.i597, align 8, !tbaa !55
   %sub480 = fsub double -1.000000e+00, %210
   %cmp.i600 = fcmp ogt double %sub480, -5.000000e-01
   %add.i601 = fadd double %sub480, 1.000000e+00
@@ -18713,7 +18713,7 @@ cond.false:                                       ; preds = %for.body
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi double [ %call2.i, %cond.true ], [ %fneg, %cond.false ]
   %_M_finish.i.i55 = getelementptr inbounds nuw i8, ptr %add.ptr.i51, i64 8
-  %22 = load ptr, ptr %_M_finish.i.i55, align 8, !tbaa !3
+  %22 = load ptr, ptr %_M_finish.i.i55, align 8, !tbaa !278
   %_M_end_of_storage.i.i56 = getelementptr inbounds nuw i8, ptr %add.ptr.i51, i64 16
   %23 = load ptr, ptr %_M_end_of_storage.i.i56, align 8, !tbaa !279
   %cmp.not.i.i = icmp eq ptr %22, %23
@@ -18726,7 +18726,7 @@ if.then.i.i57:                                    ; preds = %cond.end
   br label %invoke.cont32
 
 if.else.i.i:                                      ; preds = %cond.end
-  %24 = load ptr, ptr %add.ptr.i51, align 8, !tbaa !3
+  %24 = load ptr, ptr %add.ptr.i51, align 8, !tbaa !276
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -18811,7 +18811,7 @@ for.body40:                                       ; preds = %for.cond.cleanup, %
   %mul6.i = fmul double %call2.i66, %call2.i66
   %div.i67 = fdiv double %mul5.i, %mul6.i
   %_M_finish.i.i68 = getelementptr inbounds nuw i8, ptr %add.ptr.i63, i64 8
-  %29 = load ptr, ptr %_M_finish.i.i68, align 8, !tbaa !3
+  %29 = load ptr, ptr %_M_finish.i.i68, align 8, !tbaa !278
   %_M_end_of_storage.i.i69 = getelementptr inbounds nuw i8, ptr %add.ptr.i63, i64 16
   %30 = load ptr, ptr %_M_end_of_storage.i.i69, align 8, !tbaa !279
   %cmp.not.i.i70 = icmp eq ptr %29, %30
@@ -18824,7 +18824,7 @@ if.then.i.i71:                                    ; preds = %for.body40
   br label %invoke.cont47
 
 if.else.i.i73:                                    ; preds = %for.body40
-  %31 = load ptr, ptr %add.ptr.i63, align 8, !tbaa !3
+  %31 = load ptr, ptr %add.ptr.i63, align 8, !tbaa !276
   %sub.ptr.lhs.cast.i.i.i.i.i74 = ptrtoint ptr %29 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i75 = ptrtoint ptr %31 to i64
   %sub.ptr.sub.i.i.i.i.i76 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i74, %sub.ptr.rhs.cast.i.i.i.i.i75

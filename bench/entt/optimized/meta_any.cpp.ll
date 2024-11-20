@@ -89752,12 +89752,12 @@ land.rhs.i:                                       ; preds = %_ZN4entt7locatorINS
   %vtable.i.i.i = getelementptr inbounds i8, ptr %any, i64 160
   store ptr @_ZN4entt8meta_any12basic_vtableIcEENSt9enable_ifIXsr3stdE9is_same_vINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeES5_EEvE4typeENS_8internal11meta_traitsEbPKvPv, ptr %vtable.i.i.i, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #24
-  %3 = load ptr, ptr %node.i.i.i, align 8, !noalias !1321
+  %3 = load ptr, ptr %node.i.i.i, align 8, !tbaa !35, !noalias !1321
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %if.then.i.i, label %land.rhs18.i
 
 land.rhs18.i:                                     ; preds = %land.rhs.i
-  %4 = load ptr, ptr %vtable.i.i.i.i, align 8, !noalias !1321
+  %4 = load ptr, ptr %vtable.i.i.i.i, align 8, !tbaa !25, !noalias !1321
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.then.i.i, label %cond.true.i.i.i
 
@@ -90730,12 +90730,12 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 land.rhs.i187:                                    ; preds = %cleanup.cont121.critedge, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i573
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar91) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_) #24
-  %134 = load ptr, ptr %node.i.i.i, align 8
+  %134 = load ptr, ptr %node.i.i.i, align 8, !tbaa !35
   %tobool.not.i189 = icmp eq ptr %134, null
   br i1 %tobool.not.i189, label %cleanup.cont156, label %land.rhs18.i198
 
 land.rhs18.i198:                                  ; preds = %land.rhs.i187
-  %135 = load ptr, ptr %vtable.i.i.i.i, align 8
+  %135 = load ptr, ptr %vtable.i.i.i.i, align 8, !tbaa !25
   %tobool.not.i.i200 = icmp eq ptr %135, null
   br i1 %tobool.not.i.i200, label %cleanup.cont156, label %cond.true.i.i.i213
 
@@ -92059,12 +92059,12 @@ land.rhs.i:                                       ; preds = %_ZN4entt7locatorINS
   %vtable.i.i.i = getelementptr inbounds i8, ptr %any, i64 160
   store ptr @_ZN4entt8meta_any12basic_vtableIN4test14non_comparableEEENSt9enable_ifIXsr3stdE9is_same_vINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeES7_EEvE4typeENS_8internal11meta_traitsEbPKvPv, ptr %vtable.i.i.i, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #24
-  %3 = load ptr, ptr %node.i.i.i, align 8, !noalias !1337
+  %3 = load ptr, ptr %node.i.i.i, align 8, !tbaa !35, !noalias !1337
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %if.then.i.i, label %land.rhs18.i
 
 land.rhs18.i:                                     ; preds = %land.rhs.i
-  %4 = load ptr, ptr %vtable.i.i.i.i, align 8, !noalias !1337
+  %4 = load ptr, ptr %vtable.i.i.i.i, align 8, !tbaa !25, !noalias !1337
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.then.i.i, label %cond.true.i.i.i
 
@@ -92748,12 +92748,12 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 land.rhs.i128:                                    ; preds = %cleanup.cont85.critedge, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i369
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar55) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_) #24
-  %94 = load ptr, ptr %node.i.i.i, align 8
+  %94 = load ptr, ptr %node.i.i.i, align 8, !tbaa !35
   %tobool.not.i130 = icmp eq ptr %94, null
   br i1 %tobool.not.i130, label %cleanup.cont120, label %land.rhs18.i139
 
 land.rhs18.i139:                                  ; preds = %land.rhs.i128
-  %95 = load ptr, ptr %vtable.i.i.i.i, align 8
+  %95 = load ptr, ptr %vtable.i.i.i.i, align 8, !tbaa !25
   %tobool.not.i.i141 = icmp eq ptr %95, null
   br i1 %tobool.not.i.i141, label %cleanup.cont120, label %cond.true.i.i.i154
 
@@ -93512,13 +93512,13 @@ land.rhs.i:                                       ; preds = %_ZN4entt7locatorINS
   %vtable.i.i = getelementptr inbounds i8, ptr %any, i64 160
   store ptr @_ZN4entt8meta_any12basic_vtableIvEENSt9enable_ifIXsr3stdE9is_same_vINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeES5_EEvE4typeENS_8internal11meta_traitsEbPKvPv, ptr %vtable.i.i, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #24
-  %3 = load ptr, ptr %node.i.i, align 8, !noalias !1348
+  %3 = load ptr, ptr %node.i.i, align 8, !tbaa !35, !noalias !1348
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %if.then.i.i, label %land.rhs18.i
 
 land.rhs18.i:                                     ; preds = %land.rhs.i
   %vtable.i.i62 = getelementptr inbounds i8, ptr %any, i64 24
-  %4 = load ptr, ptr %vtable.i.i62, align 8, !noalias !1348
+  %4 = load ptr, ptr %vtable.i.i62, align 8, !tbaa !25, !noalias !1348
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.then.i.i, label %cond.true.i.i.i
 
@@ -94493,13 +94493,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 land.rhs.i187:                                    ; preds = %cleanup.cont119.critedge, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i562
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar89) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_) #24
-  %134 = load ptr, ptr %node.i.i, align 8
+  %134 = load ptr, ptr %node.i.i, align 8, !tbaa !35
   %tobool.not.i189 = icmp eq ptr %134, null
   br i1 %tobool.not.i189, label %cleanup.cont154, label %land.rhs18.i198
 
 land.rhs18.i198:                                  ; preds = %land.rhs.i187
   %vtable.i.i199 = getelementptr inbounds i8, ptr %any, i64 24
-  %135 = load ptr, ptr %vtable.i.i199, align 8
+  %135 = load ptr, ptr %vtable.i.i199, align 8, !tbaa !25
   %tobool.not.i.i200 = icmp eq ptr %135, null
   br i1 %tobool.not.i.i200, label %cleanup.cont154, label %cond.true.i.i.i213
 
@@ -145192,7 +145192,7 @@ if.then.i:                                        ; preds = %cleanup.cont
 
 if.else.i:                                        ; preds = %cleanup.cont
   call void @_ZNSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_type_nodeEEESaIS4_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESC_IJOS3_EEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i, ptr %6, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14)
-  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !50
+  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !2069
   br label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_type_nodeEEESaIS4_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESC_IJOS3_EEEEERS4_DpOT_.exit
 
 _ZNSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_type_nodeEEESaIS4_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESC_IJOS3_EEEEERS4_DpOT_.exit: ; preds = %if.else.i, %if.then.i
@@ -145646,7 +145646,7 @@ if.then.i:                                        ; preds = %cleanup.cont
 
 if.else.i:                                        ; preds = %cleanup.cont
   call void @_ZNSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_type_nodeEEESaIS4_EE17_M_realloc_insertIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESC_IJEEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i, ptr %6, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14)
-  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !50
+  %.pre49 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !2069
   br label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_type_nodeEEESaIS4_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESC_IJEEEEERS4_DpOT_.exit
 
 _ZNSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_type_nodeEEESaIS4_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESC_IJEEEEERS4_DpOT_.exit: ; preds = %if.else.i, %if.then.i
@@ -149685,7 +149685,7 @@ if.then.i:                                        ; preds = %cleanup.cont
 
 if.else.i:                                        ; preds = %cleanup.cont
   tail call void @_ZNSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_data_nodeEEESaIS4_EE17_M_realloc_insertIJRmRKjS3_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i, ptr %21, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %key, ptr noundef nonnull align 8 dereferenceable(104) %value)
-  %.pre56 = load ptr, ptr %_M_finish.i.i60, align 8, !tbaa !50
+  %.pre56 = load ptr, ptr %_M_finish.i.i60, align 8, !tbaa !2284
   br label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_data_nodeEEESaIS4_EE12emplace_backIJRmRKjS3_EEERS4_DpOT_.exit
 
 _ZNSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_data_nodeEEESaIS4_EE12emplace_backIJRmRKjS3_EEERS4_DpOT_.exit: ; preds = %if.else.i, %if.then.i
@@ -151741,7 +151741,7 @@ if.then.i:                                        ; preds = %cleanup.cont
 
 if.else.i:                                        ; preds = %cleanup.cont
   tail call void @_ZNSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_func_nodeEEESaIS4_EE17_M_realloc_insertIJRmRKjS3_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %packed.i.i, ptr %29, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %key, ptr noundef nonnull align 8 dereferenceable(112) %value)
-  %.pre56 = load ptr, ptr %_M_finish.i.i60, align 8, !tbaa !50
+  %.pre56 = load ptr, ptr %_M_finish.i.i60, align 8, !tbaa !2281
   br label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_func_nodeEEESaIS4_EE12emplace_backIJRmRKjS3_EEERS4_DpOT_.exit
 
 _ZNSt6vectorIN4entt8internal14dense_map_nodeIjNS1_14meta_func_nodeEEESaIS4_EE12emplace_backIJRmRKjS3_EEERS4_DpOT_.exit: ; preds = %if.else.i, %if.then.i

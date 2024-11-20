@@ -16488,7 +16488,7 @@ _ZN5boost6spirit2qi13real_policiesIdE10parse_signIPKcEEbRT_RKS7_.exit: ; preds =
   store i64 0, ptr %5, align 8, !tbaa !37
   %16 = call noundef zeroext i1 @_ZN5boost6spirit2qi14ureal_policiesIdE7parse_nIPKcmEEbRT_RKS7_RT0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %17 = load ptr, ptr %0, align 8, !tbaa !10
-  %18 = load ptr, ptr %1, align 8
+  %18 = load ptr, ptr %1, align 8, !tbaa !10
   %19 = icmp eq ptr %17, %18
   br i1 %16, label %71, label %20
 
@@ -16533,7 +16533,7 @@ _ZN5boost6spirit2qi13real_policiesIdE10parse_signIPKcEEbRT_RKS7_.exit: ; preds =
 
 split.i:                                          ; preds = %30
   store ptr %scevgep.i, ptr %0, align 8, !tbaa !10
-  %34 = load ptr, ptr %1, align 8
+  %34 = load ptr, ptr %1, align 8, !tbaa !10
   %.not26.i = icmp eq ptr %scevgep.i, %34
   br i1 %.not26.i, label %_ZN5boost6spirit2qi14ureal_policiesIdE9parse_nanIPKcdEEbRT_RKS7_RT0_.exit, label %35
 
@@ -17153,7 +17153,7 @@ _ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit101: ; preds = %286, %277, %_ZN5b
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6spirit2qi14ureal_policiesIdE7parse_nIPKcmEEbRT_RKS7_RT0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #6 comdat align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !10
-  %5 = load ptr, ptr %1, align 8
+  %5 = load ptr, ptr %1, align 8, !tbaa !10
   %6 = icmp eq ptr %4, %5
   br i1 %6, label %_ZN5boost6spirit2qi12extract_uintImLj10ELj1ELi17ELb0ELb1EE4callIPKcEEbRT_RKS7_Rm.exit, label %.lr.ph.preheader.i.i.i
 
@@ -17268,7 +17268,7 @@ _ZN5boost6spirit2qi12extract_uintImLj10ELj1ELi17ELb0ELb1EE4callIPKcEEbRT_RKS7_Rm
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6spirit2qi14ureal_policiesIdE12parse_frac_nIPKcmEEbRT_RKS7_RT0_Ri(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #6 comdat align 2 {
   %5 = load ptr, ptr %0, align 8, !tbaa !10
-  %6 = load ptr, ptr %1, align 8
+  %6 = load ptr, ptr %1, align 8, !tbaa !10
   %7 = icmp eq ptr %5, %6
   br i1 %7, label %_ZN5boost6spirit2qi12extract_uintImLj10ELj1ELin1ELb1ELb1EE4callIPKcEEbRT_RKS7_Rm.exit, label %.lr.ph.preheader.i.i.i
 
@@ -18809,7 +18809,7 @@ define linkonce_odr hidden noundef ptr @_ZSt27__unguarded_partition_pivotIPSt4pa
   %16 = icmp eq i8 %15, 42
   %.idx.i.i3.i.i.i.i.i = zext i1 %16 to i64
   %17 = getelementptr inbounds i8, ptr %14, i64 %.idx.i.i3.i.i.i.i.i
-  %18 = load ptr, ptr %.0.i, align 8
+  %18 = load ptr, ptr %.0.i, align 8, !tbaa !126
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !148
   %21 = load i8, ptr %20, align 1, !tbaa !36
@@ -18837,7 +18837,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_m
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.122.i13 = phi ptr [ %28, %.lr.ph.i ], [ %.0.i, %.lr.ph.i.preheader ]
   %28 = getelementptr inbounds nuw i8, ptr %.122.i13, i64 16
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !126
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !148
   %32 = load i8, ptr %31, align 1, !tbaa !36
@@ -35569,7 +35569,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6spirit2qi6detail9real_i
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = load ptr, ptr %0, align 8, !tbaa !10
-  %9 = load ptr, ptr %1, align 8
+  %9 = load ptr, ptr %1, align 8, !tbaa !10
   %10 = icmp eq ptr %8, %9
   br i1 %10, label %417, label %11
 
@@ -35584,7 +35584,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6spirit2qi6detail9real_i
   %14 = icmp eq i32 %12, 45
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store ptr %15, ptr %0, align 8, !tbaa !10
-  %.pre = load ptr, ptr %1, align 8
+  %.pre = load ptr, ptr %1, align 8, !tbaa !10
   br label %_ZN5boost6spirit2qi13real_policiesIdE10parse_signIPKwEEbRT_RKS7_.exit
 
 _ZN5boost6spirit2qi13real_policiesIdE10parse_signIPKwEEbRT_RKS7_.exit: ; preds = %11, %13
@@ -35724,7 +35724,7 @@ _ZN5boost6spirit2qi13real_policiesIdE10parse_signIPKwEEbRT_RKS7_.exit: ; preds =
 
 split.i:                                          ; preds = %74
   store ptr %scevgep.i, ptr %0, align 8, !tbaa !10
-  %78 = load ptr, ptr %1, align 8
+  %78 = load ptr, ptr %1, align 8, !tbaa !10
   %.not26.i = icmp eq ptr %scevgep.i, %78
   br i1 %.not26.i, label %_ZN5boost6spirit2qi14ureal_policiesIdE9parse_nanIPKwdEEbRT_RKS7_RT0_.exit, label %79
 
@@ -36498,7 +36498,7 @@ _ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit101: ; preds = %391, %382, %_ZN5b
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6spirit2qi14ureal_policiesIdE12parse_frac_nIPKwmEEbRT_RKS7_RT0_Ri(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #6 comdat align 2 {
   %5 = load ptr, ptr %0, align 8, !tbaa !10
-  %6 = load ptr, ptr %1, align 8
+  %6 = load ptr, ptr %1, align 8, !tbaa !10
   %7 = icmp eq ptr %5, %6
   br i1 %7, label %_ZN5boost6spirit2qi12extract_uintImLj10ELj1ELin1ELb1ELb1EE4callIPKwEEbRT_RKS7_Rm.exit, label %.lr.ph.i.preheader.i.i
 

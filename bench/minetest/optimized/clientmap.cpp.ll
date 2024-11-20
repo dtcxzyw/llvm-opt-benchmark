@@ -18590,7 +18590,7 @@ entry:
 for.body.lr.ph.i:                                 ; preds = %entry
   %scevgep = getelementptr i8, ptr %__first.coerce, i64 4
   %0 = load i32, ptr %scevgep, align 4, !tbaa !128
-  %1 = load i32, ptr %__first.coerce, align 4
+  %1 = load i32, ptr %__first.coerce, align 4, !tbaa !128
   %cmp.i29.i = icmp slt i32 %0, %1
   br i1 %cmp.i29.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i, label %for.inc.i
 

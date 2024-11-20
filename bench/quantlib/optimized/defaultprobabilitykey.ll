@@ -227,7 +227,7 @@ if.end6:                                          ; preds = %if.end.i.i.i.i, %la
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %_M_finish.i14 = getelementptr inbounds nuw i8, ptr %lhs, i64 8
-  %15 = load ptr, ptr %_M_finish.i14, align 8, !tbaa !25
+  %15 = load ptr, ptr %_M_finish.i14, align 8, !tbaa !23
   %16 = load ptr, ptr %lhs, align 8, !tbaa !24
   %sub.ptr.lhs.cast.i15 = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i16 = ptrtoint ptr %16 to i64
@@ -1253,7 +1253,7 @@ invoke.cont7:                                     ; preds = %invoke.cont6
   store ptr %call, ptr %px_.i.i.i.i, align 8, !tbaa !64
   store ptr %call.i.i.i, ptr %pn.i, align 8, !tbaa !32
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %27 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !25
+  %27 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !23
   %_M_end_of_storage.i.i18 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %28 = load ptr, ptr %_M_end_of_storage.i.i18, align 8, !tbaa !31
   %cmp.not.i.i = icmp eq ptr %27, %28
@@ -1320,7 +1320,7 @@ _ZN5boost10shared_ptrIN8QuantLib11DefaultTypeEED2Ev.exit: ; preds = %invoke.cont
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %_ZN5boost10shared_ptrIN8QuantLib11DefaultTypeEED2Ev.exit
-  %35 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !25
+  %35 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !23
   %36 = load ptr, ptr %_M_end_of_storage.i.i18, align 8, !tbaa !31
   %cmp.not.i.i29 = icmp eq ptr %35, %36
   br i1 %cmp.not.i.i29, label %if.else.i.i34, label %invoke.cont17.thread
@@ -1395,7 +1395,7 @@ if.then:                                          ; preds = %_ZN5boost10shared_p
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.then
-  %46 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !25
+  %46 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !23
   %47 = load ptr, ptr %_M_end_of_storage.i.i18, align 8, !tbaa !31
   %cmp.not.i.i55 = icmp eq ptr %46, %47
   br i1 %cmp.not.i.i55, label %if.else.i.i60, label %invoke.cont28.thread
@@ -2274,7 +2274,7 @@ define linkonce_odr void @_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib11DefaultTy
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !23
-  %1 = load ptr, ptr %this, align 8, !tbaa !25
+  %1 = load ptr, ptr %this, align 8, !tbaa !24
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

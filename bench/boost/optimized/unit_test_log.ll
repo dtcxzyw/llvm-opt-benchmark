@@ -866,7 +866,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit11: ; preds = %_ZN5boost9uni
   br label %common.resume
 
 _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13: ; preds = %42, %45, %48
-  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !4
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !50
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 40), align 8, !tbaa !52
   %.not.i.i14 = icmp eq ptr %52, %53
   br i1 %.not.i.i14, label %57, label %54
@@ -879,7 +879,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13: ; preds = %42, %45, %48
   br label %_ZNSt6vectorIPN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS4_EE9push_backEOS4_.exit
 
 57:                                               ; preds = %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13
-  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !4
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !49
   %59 = ptrtoint ptr %52 to i64
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
@@ -3936,7 +3936,7 @@ _ZN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implD2Ev.exit: ; pr
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZNSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS3_EE9push_backEOS3_(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 8), align 8, !tbaa !4
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 8), align 8, !tbaa !115
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 16), align 8, !tbaa !117
   %.not.i = icmp eq ptr %2, %3
   br i1 %.not.i, label %22, label %4
@@ -3971,7 +3971,7 @@ define internal fastcc void @_ZNSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_
   br label %_ZNSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
 
 22:                                               ; preds = %1
-  %23 = load ptr, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, align 8, !tbaa !4
+  %23 = load ptr, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, align 8, !tbaa !118
   %24 = ptrtoint ptr %2 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
@@ -4023,35 +4023,35 @@ _ZNKSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESa
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
   %.03.i.i.i.i.i = phi ptr [ %69, %.lr.ph.i.i.i.i.i ], [ %36, %_ZNKSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %.092.i.i.i.i.i = phi ptr [ %68, %.lr.ph.i.i.i.i.i ], [ %23, %_ZNKSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !121)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.03.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(49) %.092.i.i.i.i.i, i64 16, i1 false), !alias.scope !123
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %.03.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(49) %.092.i.i.i.i.i, i64 16, i1 false), !alias.scope !124
   %53 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !69, !alias.scope !121, !noalias !118
-  store ptr %55, ptr %53, align 8, !tbaa !69, !alias.scope !118, !noalias !121
+  %55 = load ptr, ptr %54, align 8, !tbaa !69, !alias.scope !122, !noalias !119
+  store ptr %55, ptr %53, align 8, !tbaa !69, !alias.scope !119, !noalias !122
   %56 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 24
   %57 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 24
-  %58 = load ptr, ptr %57, align 8, !tbaa !100, !alias.scope !121, !noalias !118
-  store ptr %58, ptr %56, align 8, !tbaa !100, !alias.scope !118, !noalias !121
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false), !alias.scope !121, !noalias !118
+  %58 = load ptr, ptr %57, align 8, !tbaa !100, !alias.scope !122, !noalias !119
+  store ptr %58, ptr %56, align 8, !tbaa !100, !alias.scope !119, !noalias !122
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false), !alias.scope !122, !noalias !119
   %59 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 32
   %60 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 32
-  %61 = load ptr, ptr %60, align 8, !tbaa !30, !alias.scope !121, !noalias !118
-  store ptr %61, ptr %59, align 8, !tbaa !30, !alias.scope !118, !noalias !121
+  %61 = load ptr, ptr %60, align 8, !tbaa !30, !alias.scope !122, !noalias !119
+  store ptr %61, ptr %59, align 8, !tbaa !30, !alias.scope !119, !noalias !122
   %62 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 40
   %63 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 40
-  %64 = load ptr, ptr %63, align 8, !tbaa !100, !alias.scope !121, !noalias !118
-  store ptr %64, ptr %62, align 8, !tbaa !100, !alias.scope !118, !noalias !121
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false), !alias.scope !121, !noalias !118
+  %64 = load ptr, ptr %63, align 8, !tbaa !100, !alias.scope !122, !noalias !119
+  store ptr %64, ptr %62, align 8, !tbaa !100, !alias.scope !119, !noalias !122
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false), !alias.scope !122, !noalias !119
   %65 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 48
   %66 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 48
-  %67 = load i8, ptr %66, align 8, !tbaa !47, !range !11, !alias.scope !121, !noalias !118, !noundef !12
-  store i8 %67, ptr %65, align 8, !tbaa !47, !alias.scope !118, !noalias !121
+  %67 = load i8, ptr %66, align 8, !tbaa !47, !range !11, !alias.scope !122, !noalias !119, !noundef !12
+  store i8 %67, ptr %65, align 8, !tbaa !47, !alias.scope !119, !noalias !122
   %68 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i, i64 56
   %69 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 56
   %.not.i.i.i.i.i = icmp eq ptr %68, %2
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit23.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !124
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit23.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !125
 
 _ZNSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit23.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %36, %_ZNKSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %69, %.lr.ph.i.i.i.i.i ]
@@ -4067,7 +4067,7 @@ _ZNSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaI
   br label %_ZNSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %71, %_ZNSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit23.i.i
-  store ptr %36, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, align 8, !tbaa !125
+  store ptr %36, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, align 8, !tbaa !118
   store ptr %70, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 8), align 8, !tbaa !115
   %75 = getelementptr inbounds nuw %"struct.boost::unit_test::(anonymous namespace)::unit_test_log_data_helper_impl", ptr %36, i64 %34
   store ptr %75, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 16), align 8, !tbaa !117
@@ -5322,7 +5322,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZNSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS3_EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !125
+  %2 = load ptr, ptr %0, align 8, !tbaa !118
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !115
   %.not4.i.i.i = icmp eq ptr %2, %4
@@ -5413,7 +5413,7 @@ _ZSt8_DestroyIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implEEv
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implES3_EvT_S5_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !175
 
 _ZSt8_DestroyIPN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implES3_EvT_S5_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implEEvPT_.exit.i.i.i
-  %.val.pr = load ptr, ptr %0, align 8, !tbaa !125
+  %.val.pr = load ptr, ptr %0, align 8, !tbaa !118
   br label %_ZSt8_DestroyIPN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implES3_EvT_S5_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implES3_EvT_S5_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implES3_EvT_S5_RSaIT0_E.exitthread-pre-split, %1
@@ -7432,14 +7432,14 @@ attributes #31 = { builtin nounwind }
 !115 = !{!18, !5, i64 8}
 !116 = distinct !{!116, !40}
 !117 = !{!18, !5, i64 16}
-!118 = !{!119}
-!119 = distinct !{!119, !120, !"_ZSt19__relocate_object_aIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!120 = distinct !{!120, !"_ZSt19__relocate_object_aIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implES3_SaIS3_EEvPT_PT0_RT1_"}
-!121 = !{!122}
-!122 = distinct !{!122, !120, !"_ZSt19__relocate_object_aIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!123 = !{!119, !122}
-!124 = distinct !{!124, !40}
-!125 = !{!18, !5, i64 0}
+!118 = !{!18, !5, i64 0}
+!119 = !{!120}
+!120 = distinct !{!120, !121, !"_ZSt19__relocate_object_aIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!121 = distinct !{!121, !"_ZSt19__relocate_object_aIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implES3_SaIS3_EEvPT_PT0_RT1_"}
+!122 = !{!123}
+!123 = distinct !{!123, !121, !"_ZSt19__relocate_object_aIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!124 = !{!120, !123}
+!125 = distinct !{!125, !40}
 !126 = distinct !{!126, !40}
 !127 = !{!128}
 !128 = distinct !{!128, !129, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}

@@ -608,14 +608,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %__x, i64 8
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !11
-  %1 = load ptr, ptr %__x, align 8, !tbaa !11
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
+  %1 = load ptr, ptr %__x, align 8, !tbaa !40
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !43
-  %3 = load ptr, ptr %this, align 8, !tbaa !11
+  %3 = load ptr, ptr %this, align 8, !tbaa !40
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
@@ -676,7 +676,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds
 
 if.else:                                          ; preds = %if.then
   %_M_finish.i19 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %10 = load ptr, ptr %_M_finish.i19, align 8, !tbaa !11
+  %10 = load ptr, ptr %_M_finish.i19, align 8, !tbaa !42
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
   %cmp26.not = icmp ult i64 %sub.ptr.sub.i22, %sub.ptr.sub.i
@@ -1097,8 +1097,8 @@ do.end:                                           ; preds = %entry
 
 if.then28:                                        ; preds = %do.end
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
-  %28 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !11
-  %29 = load ptr, ptr %add.ptr.i, align 8, !tbaa !11
+  %28 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !39
+  %29 = load ptr, ptr %add.ptr.i, align 8, !tbaa !34
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %28 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -1583,8 +1583,8 @@ for.cond.cleanup245:                              ; preds = %for.body246, %if.en
   %84 = load ptr, ptr %derivatives_, align 8, !tbaa !40
   %add.ptr.i160 = getelementptr inbounds nuw %"class.std::vector.27", ptr %84, i64 %j
   %_M_finish.i.i161 = getelementptr inbounds nuw i8, ptr %add.ptr.i160, i64 8
-  %85 = load ptr, ptr %_M_finish.i.i161, align 8, !tbaa !11
-  %86 = load ptr, ptr %add.ptr.i160, align 8, !tbaa !11
+  %85 = load ptr, ptr %_M_finish.i.i161, align 8, !tbaa !39
+  %86 = load ptr, ptr %add.ptr.i160, align 8, !tbaa !34
   %sub.ptr.lhs.cast.i.i162 = ptrtoint ptr %85 to i64
   %sub.ptr.rhs.cast.i.i163 = ptrtoint ptr %86 to i64
   %sub.ptr.sub.i.i164 = sub i64 %sub.ptr.lhs.cast.i.i162, %sub.ptr.rhs.cast.i.i163
@@ -2075,8 +2075,8 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
   %2 = load ptr, ptr %onePercentBumps_, align 8, !tbaa !40
   %add.ptr.i = getelementptr inbounds nuw %"class.std::vector.27", ptr %2, i64 %j
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
-  %3 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !11
-  %4 = load ptr, ptr %add.ptr.i, align 8, !tbaa !11
+  %3 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !39
+  %4 = load ptr, ptr %add.ptr.i, align 8, !tbaa !34
   %sub.ptr.lhs.cast.i.i2 = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i3 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i4 = sub i64 %sub.ptr.lhs.cast.i.i2, %sub.ptr.rhs.cast.i.i3
@@ -2327,8 +2327,8 @@ invoke.cont21:                                    ; preds = %invoke.cont15
 
 invoke.cont25:                                    ; preds = %invoke.cont21
   %_M_finish.i.i53 = getelementptr inbounds nuw i8, ptr %theBumps, i64 8
-  %18 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !11
-  %19 = load ptr, ptr %theBumps, align 8, !tbaa !114
+  %18 = load ptr, ptr %_M_finish.i.i53, align 8, !tbaa !114
+  %19 = load ptr, ptr %theBumps, align 8, !tbaa !116
   %sub.ptr.lhs.cast.i.i54 = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i.i55 = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i.i56 = sub i64 %sub.ptr.lhs.cast.i.i54, %sub.ptr.rhs.cast.i.i55
@@ -2399,10 +2399,10 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont.i.i.i.i
 _ZSt8_DestroyISt6vectorIN8QuantLib6MatrixESaIS2_EEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %18
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !116
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !117
 
 invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyISt6vectorIN8QuantLib6MatrixESaIS2_EEEvPT_.exit.i.i.i.i.i
-  store ptr %add.ptr.i, ptr %_M_finish.i.i53, align 8, !tbaa !117
+  store ptr %add.ptr.i, ptr %_M_finish.i.i53, align 8, !tbaa !114
   br label %invoke.cont27
 
 invoke.cont27:                                    ; preds = %if.then.i.invoke.cont27_crit_edge, %invoke.cont.i.i, %if.then5.i, %if.else.i
@@ -2455,7 +2455,7 @@ for.cond41.preheader.us.us.us:                    ; preds = %for.cond41.preheade
 
 for.body44.us.us.us.us.us:                        ; preds = %for.inc50.us.us.us.us.us, %for.cond41.preheader.us.us.us
   %j.0185.us.us.us.us.us = phi i64 [ 0, %for.cond41.preheader.us.us.us ], [ %inc.us.us.us.us.us, %for.inc50.us.us.us.us.us ]
-  %34 = load ptr, ptr %theBumps, align 8, !tbaa !114
+  %34 = load ptr, ptr %theBumps, align 8, !tbaa !116
   %add.ptr.i82.us.us.us.us.us = getelementptr inbounds nuw %"class.std::vector.36", ptr %34, i64 %i.0200.us.us.us
   %35 = load ptr, ptr %add.ptr.i82.us.us.us.us.us, align 8, !tbaa !105
   %add.ptr.i83.us.us.us.us.us = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %35, i64 %j.0185.us.us.us.us.us
@@ -2491,7 +2491,7 @@ for.cond41.preheader.us.us221:                    ; preds = %for.cond41.preheade
 
 for.body44.us186.us.us:                           ; preds = %for.inc50.us196.us.us, %for.cond41.preheader.us.us221
   %j.0185.us187.us.us = phi i64 [ 0, %for.cond41.preheader.us.us221 ], [ %inc.us197.us.us, %for.inc50.us196.us.us ]
-  %37 = load ptr, ptr %theBumps, align 8, !tbaa !114
+  %37 = load ptr, ptr %theBumps, align 8, !tbaa !116
   %add.ptr.i82.us188.us.us = getelementptr inbounds nuw %"class.std::vector.36", ptr %37, i64 %i.0200.us.us222
   %38 = load ptr, ptr %add.ptr.i82.us188.us.us, align 8, !tbaa !105
   %call2.i.i85.us.us.us = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %32) #23
@@ -2533,7 +2533,7 @@ for.cond41.preheader.us:                          ; preds = %for.cond41.preheade
 
 for.body44.us203:                                 ; preds = %for.cond41.preheader.us, %for.inc50.us212
   %j.0185.us204 = phi i64 [ 0, %for.cond41.preheader.us ], [ %inc.us213, %for.inc50.us212 ]
-  %41 = load ptr, ptr %theBumps, align 8, !tbaa !114
+  %41 = load ptr, ptr %theBumps, align 8, !tbaa !116
   %add.ptr.i82.us205 = getelementptr inbounds nuw %"class.std::vector.36", ptr %41, i64 %i.0200.us
   %42 = load ptr, ptr %add.ptr.i82.us205, align 8, !tbaa !105
   %call2.i.i85.us207 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %32) #23
@@ -3424,14 +3424,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %__x, i64 8
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !11
-  %1 = load ptr, ptr %__x, align 8, !tbaa !11
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !39
+  %1 = load ptr, ptr %__x, align 8, !tbaa !34
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !36
-  %3 = load ptr, ptr %this, align 8, !tbaa !11
+  %3 = load ptr, ptr %this, align 8, !tbaa !34
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15
@@ -3743,8 +3743,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !117
-  %1 = load ptr, ptr %this, align 8, !tbaa !114
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !114
+  %1 = load ptr, ptr %this, align 8, !tbaa !116
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -3766,7 +3766,7 @@ _ZSt27__uninitialized_default_n_aIPSt6vectorIN8QuantLib6MatrixESaIS2_EEmS4_ET_S6
   %3 = mul nuw i64 %__n, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %3, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %0, i64 %3
-  store ptr %scevgep.i.i.i, ptr %_M_finish.i, align 8, !tbaa !117
+  store ptr %scevgep.i.i.i, ptr %_M_finish.i, align 8, !tbaa !114
   br label %if.end44
 
 if.else:                                          ; preds = %if.then
@@ -3822,9 +3822,9 @@ if.then.i29:                                      ; preds = %_ZNSt6vectorIS_IN8Q
   br label %_ZNSt12_Vector_baseISt6vectorIN8QuantLib6MatrixESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit31
 
 _ZNSt12_Vector_baseISt6vectorIN8QuantLib6MatrixESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit31: ; preds = %_ZNSt6vectorIS_IN8QuantLib6MatrixESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %if.then.i29
-  store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !114
+  store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !116
   %add.ptr37 = getelementptr inbounds nuw %"class.std::vector.36", ptr %add.ptr, i64 %__n
-  store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !117
+  store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !114
   %add.ptr40 = getelementptr inbounds nuw %"class.std::vector.36", ptr %call5.i.i.i, i64 %4
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !128
   br label %if.end44
@@ -4091,10 +4091,10 @@ attributes #25 = { builtin nounwind }
 !111 = !{!112, !38, i64 192}
 !112 = !{!"_ZTSN8QuantLib24OrthogonalizedBumpFinderE", !54, i64 0, !38, i64 192, !38, i64 200}
 !113 = !{!112, !38, i64 200}
-!114 = !{!115, !5, i64 0}
+!114 = !{!115, !5, i64 8}
 !115 = !{!"_ZTSNSt12_Vector_baseISt6vectorIN8QuantLib6MatrixESaIS2_EESaIS4_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
-!116 = distinct !{!116, !16}
-!117 = !{!115, !5, i64 8}
+!116 = !{!115, !5, i64 0}
+!117 = distinct !{!117, !16}
 !118 = distinct !{!118, !16}
 !119 = distinct !{!119, !16}
 !120 = distinct !{!120, !16}

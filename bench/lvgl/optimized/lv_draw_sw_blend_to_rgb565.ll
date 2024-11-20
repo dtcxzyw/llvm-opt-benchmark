@@ -455,7 +455,7 @@ define void @lv_draw_sw_blend_image_to_rgb565(ptr noundef readonly %0) local_unn
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds i16, ptr %.4212264.us.i, i64 %indvars.iv.i
-  %35 = load i16, ptr %34, align 2
+  %35 = load i16, ptr %34, align 2, !tbaa !17
   %36 = icmp eq i16 %35, -1
   br i1 %36, label %123, label %37
 
@@ -483,7 +483,7 @@ define void @lv_draw_sw_blend_image_to_rgb565(ptr noundef readonly %0) local_unn
 
 54:                                               ; preds = %31
   %55 = getelementptr inbounds i16, ptr %.4212264.us.i, i64 %indvars.iv.i
-  %56 = load i16, ptr %55, align 2
+  %56 = load i16, ptr %55, align 2, !tbaa !17
   %57 = icmp eq i16 %56, 0
   br i1 %57, label %123, label %58
 
@@ -521,7 +521,7 @@ define void @lv_draw_sw_blend_image_to_rgb565(ptr noundef readonly %0) local_unn
 
 88:                                               ; preds = %31
   %89 = getelementptr inbounds i16, ptr %.4212264.us.i, i64 %indvars.iv.i
-  %90 = load i16, ptr %89, align 2
+  %90 = load i16, ptr %89, align 2, !tbaa !17
   %91 = icmp eq i16 %90, 0
   br i1 %91, label %123, label %92
 

@@ -1046,7 +1046,7 @@ _ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESaIS4_EED2Ev.e
 define linkonce_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt6vectorISt4pairIN8QuantLib14DefaultProbKeyENS1_6HandleINS1_31DefaultProbabilityTermStructureEEEESaIS6_EE12emplace_backIJRS2_RKS5_EEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(44) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_M_finish, align 8, !tbaa !42
+  %0 = load ptr, ptr %_M_finish, align 8, !tbaa !8
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !9
   %cmp.not = icmp eq ptr %0, %1
@@ -1722,8 +1722,8 @@ invoke.cont9:                                     ; preds = %_ZNK5boost10shared_
   br i1 %call7.i7, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont9
-  %10 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
-  %11 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !70
+  %10 = load ptr, ptr %_M_finish.i, align 8, !tbaa !70
+  %11 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !72
   %cmp.not.i8 = icmp eq ptr %10, %11
   br i1 %cmp.not.i8, label %if.else.i, label %if.then.i
 
@@ -1740,13 +1740,13 @@ if.then.i:                                        ; preds = %if.then
 if.then.i.i.i.i.i:                                ; preds = %if.then.i
   %use_count_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %14 = atomicrmw add ptr %use_count_.i.i.i.i.i.i, i32 1 monotonic, align 4
-  %.pre.i9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !72
+  %.pre.i9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !70
   br label %_ZNSt16allocator_traitsISaIN5boost10shared_ptrIN8QuantLib12DefaultEventEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaIN5boost10shared_ptrIN8QuantLib12DefaultEventEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i
   %15 = phi ptr [ %10, %if.then.i ], [ %.pre.i9, %if.then.i.i.i.i.i ]
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8, !tbaa !72
+  store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8, !tbaa !70
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
@@ -1770,7 +1770,7 @@ define linkonce_odr void @_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib12DefaultEv
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !73
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !72
+  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !70
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
@@ -1830,7 +1830,7 @@ invoke.cont:                                      ; preds = %invoke.contthread-p
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %10 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !70
+  %10 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !72
   %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -2094,7 +2094,7 @@ define linkonce_odr void @_ZNSt6vectorISt4pairIN8QuantLib14DefaultProbKeyENS1_6H
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !8
-  %1 = load ptr, ptr %this, align 8, !tbaa !42
+  %1 = load ptr, ptr %this, align 8, !tbaa !3
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2127,8 +2127,8 @@ _ZNSt12_Vector_baseISt4pairIN8QuantLib14DefaultProbKeyENS1_6HandleINS1_31Default
   %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt4pairIN8QuantLib14DefaultProbKeyENS1_6HandleINS1_31DefaultProbabilityTermStructureEEEESaIS6_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds nuw %"struct.std::pair", ptr %cond.i17, i64 %sub.ptr.div.i
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 8
-  %3 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8, !tbaa !42
-  %4 = load ptr, ptr %__args, align 8, !tbaa !42
+  %3 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8, !tbaa !37
+  %4 = load ptr, ptr %__args, align 8, !tbaa !39
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
@@ -2386,8 +2386,8 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 define linkonce_odr void @_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib12DefaultEventEEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__args) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !72
-  %1 = load ptr, ptr %this, align 8, !tbaa !42
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !70
+  %1 = load ptr, ptr %this, align 8, !tbaa !73
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2484,7 +2484,7 @@ _ZNSt6vectorIN5boost10shared_ptrIN8QuantLib12DefaultEventEEESaIS4_EE11_S_relocat
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib12DefaultEventEEESaIS4_EE13_M_deallocateEPS4_m.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib12DefaultEventEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21
-  %10 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !70
+  %10 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !72
   %sub.ptr.lhs.cast = ptrtoint ptr %10 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef %sub.ptr.sub) #23
@@ -2492,9 +2492,9 @@ if.then.i22:                                      ; preds = %_ZNSt6vectorIN5boos
 
 _ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib12DefaultEventEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib12DefaultEventEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, %if.then.i22
   store ptr %cond.i10, ptr %this, align 8, !tbaa !73
-  store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8, !tbaa !72
+  store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8, !tbaa !70
   %add.ptr19 = getelementptr inbounds nuw %"class.boost::shared_ptr.63", ptr %cond.i10, i64 %cond.i
-  store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !70
+  store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !72
   ret void
 }
 
@@ -2612,9 +2612,9 @@ attributes #25 = { nounwind willreturn memory(read) }
 !67 = distinct !{!67, !48}
 !68 = !{!69, !5, i64 0}
 !69 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib12DefaultEventEEE", !5, i64 0, !45, i64 8}
-!70 = !{!71, !5, i64 16}
+!70 = !{!71, !5, i64 8}
 !71 = !{!"_ZTSNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib12DefaultEventEEESaIS4_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
-!72 = !{!71, !5, i64 8}
+!72 = !{!71, !5, i64 16}
 !73 = !{!71, !5, i64 0}
 !74 = distinct !{!74, !48}
 !75 = !{!12, !5, i64 24}

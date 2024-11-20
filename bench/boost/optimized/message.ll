@@ -1829,7 +1829,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32
   store i64 0, ptr %112, align 8, !tbaa !21
   store i8 0, ptr %102, align 8, !tbaa !23
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %115 = load ptr, ptr %114, align 8, !tbaa !52
+  %115 = load ptr, ptr %114, align 8, !tbaa !42
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %117 = load ptr, ptr %116, align 8, !tbaa !46
   %.not.i.i = icmp eq ptr %115, %117
@@ -2186,7 +2186,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i75
   store i64 0, ptr %236, align 8, !tbaa !21
   store i8 0, ptr %226, align 8, !tbaa !23
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %239 = load ptr, ptr %238, align 8, !tbaa !52
+  %239 = load ptr, ptr %238, align 8, !tbaa !42
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %241 = load ptr, ptr %240, align 8, !tbaa !46
   %.not.i.i81 = icmp eq ptr %239, %241
@@ -2464,7 +2464,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   store i64 0, ptr %335, align 8, !tbaa !21
   store i8 0, ptr %325, align 8, !tbaa !23
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %338 = load ptr, ptr %337, align 8, !tbaa !52
+  %338 = load ptr, ptr %337, align 8, !tbaa !42
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %340 = load ptr, ptr %339, align 8, !tbaa !46
   %.not.i.i118 = icmp eq ptr %338, %340
@@ -2602,7 +2602,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
 
 384:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128, %.thread
   %385 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %386 = load ptr, ptr %385, align 8, !tbaa !52
+  %386 = load ptr, ptr %385, align 8, !tbaa !42
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %388 = load ptr, ptr %387, align 8, !tbaa !46
   %.not.i = icmp eq ptr %386, %388
@@ -3109,7 +3109,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27
   store ptr %135, ptr %133, align 8, !tbaa !43
   store i64 0, ptr %145, align 8, !tbaa !21
   store i8 0, ptr %135, align 8, !tbaa !23
-  %146 = load ptr, ptr %38, align 8, !tbaa !52
+  %146 = load ptr, ptr %38, align 8, !tbaa !42
   %147 = load ptr, ptr %39, align 8, !tbaa !46
   %.not.i.i = icmp eq ptr %146, %147
   br i1 %.not.i.i, label %161, label %148
@@ -3149,7 +3149,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
 
 161:                                              ; preds = %143
-  %162 = load ptr, ptr %0, align 8, !tbaa !52
+  %162 = load ptr, ptr %0, align 8, !tbaa !40
   %163 = ptrtoint ptr %146 to i64
   %164 = ptrtoint ptr %162 to i64
   %165 = sub i64 %163, %164
@@ -4152,15 +4152,15 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !52
-  %6 = load ptr, ptr %1, align 8, !tbaa !52
+  %5 = load ptr, ptr %4, align 8, !tbaa !42
+  %6 = load ptr, ptr %1, align 8, !tbaa !40
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !46
-  %13 = load ptr, ptr %0, align 8, !tbaa !52
+  %13 = load ptr, ptr %0, align 8, !tbaa !40
   %14 = ptrtoint ptr %12 to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
@@ -4225,7 +4225,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 39:                                               ; preds = %3
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !52
+  %41 = load ptr, ptr %40, align 8, !tbaa !42
   %42 = ptrtoint ptr %41 to i64
   %43 = sub i64 %42, %15
   %.not24 = icmp ult i64 %43, %9
@@ -4843,7 +4843,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPNSt7__cxx1112basic_stringIcSt11char_traitsI
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !42
-  %6 = load ptr, ptr %0, align 8, !tbaa !52
+  %6 = load ptr, ptr %0, align 8, !tbaa !40
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -5032,7 +5032,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_trait
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !42
-  %7 = load ptr, ptr %0, align 8, !tbaa !52
+  %7 = load ptr, ptr %0, align 8, !tbaa !40
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -8827,7 +8827,7 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8__detail9_Map_baseIN5boost6locale11gnu_gettext11message_keyIcEESt4pairIKS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISE_ENS_10_Select1stESt8equal_toIS5_ENS3_13hash_functionIcEENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Hashtable<boost::locale::gnu_gettext::message_key<char>, std::pair<const boost::locale::gnu_gettext::message_key<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<const boost::locale::gnu_gettext::message_key<char>, std::__cxx11::basic_string<char>>>, std::__detail::_Select1st, std::equal_to<boost::locale::gnu_gettext::message_key<char>>, boost::locale::gnu_gettext::hash_function<char>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !251
   %.not.i.i.i = icmp eq ptr %5, null
   %6 = load ptr, ptr %1, align 8
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %6, ptr %5
@@ -8855,7 +8855,7 @@ thread-pre-split.i.i:                             ; preds = %2, %thread-pre-spli
   %16 = and i32 %13, 268435455
   %17 = xor i32 %15, %16
   %.not.i13.i.i = icmp eq ptr %.046.i.i.i, %.0.i27.i.i
-  br i1 %.not.i13.i.i, label %_ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !251
+  br i1 %.not.i13.i.i, label %_ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !253
 
 _ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %18 = shl nuw i32 %17, 4
@@ -8869,7 +8869,7 @@ _ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i:
 24:                                               ; preds = %_ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i, %2
   %.0.i.i = phi i32 [ %23, %_ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i ], [ 0, %2 ]
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %26 = load ptr, ptr %25, align 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !254
   %.not.i14.i.i = icmp eq ptr %26, null
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -8900,13 +8900,13 @@ _ZN5boost6locale4util7str_endIKcEEPT_S5_.exit18.i.i: ; preds = %29
   %39 = and i32 %36, 268435455
   %40 = xor i32 %38, %39
   %.not.i23.i.i = icmp eq ptr %32, %.0.i16.i.i
-  br i1 %.not.i23.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN5boost6locale11gnu_gettext11message_keyIcEESt4pairIKS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS_10_Select1stENS3_13hash_functionIcEENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS7_.exit, label %.lr.ph.i20.i.i, !llvm.loop !251
+  br i1 %.not.i23.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN5boost6locale11gnu_gettext11message_keyIcEESt4pairIKS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS_10_Select1stENS3_13hash_functionIcEENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS7_.exit, label %.lr.ph.i20.i.i, !llvm.loop !253
 
 _ZNKSt8__detail15_Hash_code_baseIN5boost6locale11gnu_gettext11message_keyIcEESt4pairIKS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS_10_Select1stENS3_13hash_functionIcEENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS7_.exit: ; preds = %.lr.ph.i20.i.i, %_ZN5boost6locale4util7str_endIKcEEPT_S5_.exit18.i.i
   %.0.lcssa.i24.i.i = phi i32 [ %.0.i.i, %_ZN5boost6locale4util7str_endIKcEEPT_S5_.exit18.i.i ], [ %40, %.lr.ph.i20.i.i ]
   %41 = zext i32 %.0.lcssa.i24.i.i to i64
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = load i64, ptr %42, align 8
+  %43 = load i64, ptr %42, align 8, !tbaa !209
   %44 = urem i64 %41, %43
   %45 = load ptr, ptr %0, align 8, !tbaa !204
   %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %44
@@ -8929,7 +8929,7 @@ _ZNKSt8__detail15_Hash_code_baseIN5boost6locale11gnu_gettext11message_keyIcEESt4
 54:                                               ; preds = %50
   %55 = getelementptr inbounds i8, ptr %52, i64 8
   %56 = getelementptr inbounds i8, ptr %52, i64 72
-  %57 = load ptr, ptr %56, align 8, !tbaa !252
+  %57 = load ptr, ptr %56, align 8, !tbaa !251
   %.not.i3.i.i.i.i.i.i = icmp eq ptr %57, null
   %58 = load ptr, ptr %55, align 8
   %spec.select.i4.i.i.i.i.i.i = select i1 %.not.i3.i.i.i.i.i.i, ptr %58, ptr %57
@@ -9544,7 +9544,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK5boost6locale11gnu_gettext10mo_mess
   %.not.i = icmp eq ptr %2, null
   %spec.select.i = select i1 %.not.i, ptr @_ZZN5boost6locale11gnu_gettext11message_keyIcEC1EPKcS5_E5empty, ptr %2
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr %spec.select.i, ptr %31, align 8, !tbaa !252
+  store ptr %spec.select.i, ptr %31, align 8, !tbaa !251
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %33 = invoke ptr @_ZNKSt10_HashtableIN5boost6locale11gnu_gettext11message_keyIcEESt4pairIKS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISD_ENSt8__detail10_Select1stESt8equal_toIS4_ENS2_13hash_functionIcEENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS6_(ptr noundef nonnull align 8 dereferenceable(56) %32, ptr noundef nonnull align 8 dereferenceable(80) %5)
           to label %_ZNKSt13unordered_mapIN5boost6locale11gnu_gettext11message_keyIcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_13hash_functionIcEESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSG_.exit unwind label %35
@@ -9850,7 +9850,7 @@ define linkonce_odr hidden ptr @_ZNKSt10_HashtableIN5boost6locale11gnu_gettext11
 
 .lr.ph:                                           ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %8 = load ptr, ptr %7, align 8, !tbaa !252
+  %8 = load ptr, ptr %7, align 8, !tbaa !251
   %.not.i.i.i.i = icmp eq ptr %8, null
   %9 = load ptr, ptr %1, align 8
   %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr %9, ptr %8
@@ -9866,7 +9866,7 @@ define linkonce_odr hidden ptr @_ZNKSt10_HashtableIN5boost6locale11gnu_gettext11
   %.sroa.07.017 = phi ptr [ %.sroa.07.015, %.lr.ph ], [ %.sroa.07.0, %_ZNKSt8__detail15_Hashtable_baseIN5boost6locale11gnu_gettext11message_keyIcEESt4pairIKS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS_10_Select1stESt8equal_toIS5_ENS3_13hash_functionIcEENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS7_RKNS_16_Hash_node_valueISE_Lb1EEE.exit.thread ]
   %15 = getelementptr inbounds i8, ptr %.sroa.07.017, i64 8
   %16 = getelementptr inbounds i8, ptr %.sroa.07.017, i64 72
-  %17 = load ptr, ptr %16, align 8, !tbaa !252
+  %17 = load ptr, ptr %16, align 8, !tbaa !251
   %.not.i3.i.i.i = icmp eq ptr %17, null
   %18 = load ptr, ptr %15, align 8
   %spec.select.i4.i.i.i = select i1 %.not.i3.i.i.i, ptr %18, ptr %17
@@ -9921,7 +9921,7 @@ _ZNKSt8__detail15_Hashtable_baseIN5boost6locale11gnu_gettext11message_keyIcEESt4
 
 39:                                               ; preds = %2
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %41 = load ptr, ptr %40, align 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !251
   %.not.i.i.i = icmp eq ptr %41, null
   %42 = load ptr, ptr %1, align 8
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %42, ptr %41
@@ -9949,7 +9949,7 @@ thread-pre-split.i.i:                             ; preds = %39, %thread-pre-spl
   %52 = and i32 %49, 268435455
   %53 = xor i32 %51, %52
   %.not.i13.i.i = icmp eq ptr %.046.i.i.i, %.0.i27.i.i
-  br i1 %.not.i13.i.i, label %_ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !251
+  br i1 %.not.i13.i.i, label %_ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !253
 
 _ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %54 = shl nuw i32 %53, 4
@@ -9963,7 +9963,7 @@ _ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i:
 60:                                               ; preds = %_ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i, %39
   %.0.i.i = phi i32 [ %59, %_ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i ], [ 0, %39 ]
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %62 = load ptr, ptr %61, align 8
+  %62 = load ptr, ptr %61, align 8, !tbaa !254
   %.not.i14.i.i = icmp eq ptr %62, null
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %64 = load ptr, ptr %63, align 8
@@ -9994,13 +9994,13 @@ _ZN5boost6locale4util7str_endIKcEEPT_S5_.exit18.i.i: ; preds = %65
   %75 = and i32 %72, 268435455
   %76 = xor i32 %74, %75
   %.not.i23.i.i = icmp eq ptr %68, %.0.i16.i.i
-  br i1 %.not.i23.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN5boost6locale11gnu_gettext11message_keyIcEESt4pairIKS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS_10_Select1stENS3_13hash_functionIcEENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS7_.exit, label %.lr.ph.i20.i.i, !llvm.loop !251
+  br i1 %.not.i23.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN5boost6locale11gnu_gettext11message_keyIcEESt4pairIKS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS_10_Select1stENS3_13hash_functionIcEENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS7_.exit, label %.lr.ph.i20.i.i, !llvm.loop !253
 
 _ZNKSt8__detail15_Hash_code_baseIN5boost6locale11gnu_gettext11message_keyIcEESt4pairIKS5_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS_10_Select1stENS3_13hash_functionIcEENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS7_.exit: ; preds = %.lr.ph.i20.i.i, %_ZN5boost6locale4util7str_endIKcEEPT_S5_.exit18.i.i
   %.0.lcssa.i24.i.i = phi i32 [ %.0.i.i, %_ZN5boost6locale4util7str_endIKcEEPT_S5_.exit18.i.i ], [ %76, %.lr.ph.i20.i.i ]
   %77 = zext i32 %.0.lcssa.i24.i.i to i64
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %79 = load i64, ptr %78, align 8
+  %79 = load i64, ptr %78, align 8, !tbaa !209
   %80 = urem i64 %77, %79
   %81 = load ptr, ptr %0, align 8, !tbaa !204
   %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %80
@@ -10023,7 +10023,7 @@ _ZNKSt8__detail15_Hash_code_baseIN5boost6locale11gnu_gettext11message_keyIcEESt4
 90:                                               ; preds = %86
   %91 = getelementptr inbounds i8, ptr %88, i64 8
   %92 = getelementptr inbounds i8, ptr %88, i64 72
-  %93 = load ptr, ptr %92, align 8, !tbaa !252
+  %93 = load ptr, ptr %92, align 8, !tbaa !251
   %.not.i3.i.i.i.i.i.i = icmp eq ptr %93, null
   %94 = load ptr, ptr %91, align 8
   %spec.select.i4.i.i.i.i.i.i = select i1 %.not.i3.i.i.i.i.i.i, ptr %94, ptr %93
@@ -12705,7 +12705,7 @@ declare ptr @wmemcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8__detail9_Map_baseIN5boost6locale11gnu_gettext11message_keyIwEESt4pairIKS5_NSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEESaISE_ENS_10_Select1stESt8equal_toIS5_ENS3_13hash_functionIwEENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Hashtable<boost::locale::gnu_gettext::message_key<wchar_t>, std::pair<const boost::locale::gnu_gettext::message_key<wchar_t>, std::__cxx11::basic_string<wchar_t>>, std::allocator<std::pair<const boost::locale::gnu_gettext::message_key<wchar_t>, std::__cxx11::basic_string<wchar_t>>>, std::__detail::_Select1st, std::equal_to<boost::locale::gnu_gettext::message_key<wchar_t>>, boost::locale::gnu_gettext::hash_function<wchar_t>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !314
   %.not.i.i.i = icmp eq ptr %5, null
   %6 = load ptr, ptr %1, align 8
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %6, ptr %5
@@ -12718,7 +12718,7 @@ thread-pre-split.i.i:                             ; preds = %2, %thread-pre-spli
   %8 = getelementptr inbounds nuw i8, ptr %.0.i27.i.i, i64 4
   %.pr.i.i = load i32, ptr %8, align 4, !tbaa !288
   %.not.i12.i.i = icmp eq i32 %.pr.i.i, 0
-  br i1 %.not.i12.i.i, label %.lr.ph.i.i.i, label %thread-pre-split.i.i, !llvm.loop !314
+  br i1 %.not.i12.i.i, label %.lr.ph.i.i.i, label %thread-pre-split.i.i, !llvm.loop !316
 
 .lr.ph.i.i.i:                                     ; preds = %thread-pre-split.i.i, %.lr.ph.i.i.i
   %.07.i.i.i = phi i32 [ %17, %.lr.ph.i.i.i ], [ 0, %thread-pre-split.i.i ]
@@ -12733,7 +12733,7 @@ thread-pre-split.i.i:                             ; preds = %2, %thread-pre-spli
   %16 = and i32 %13, 268435455
   %17 = xor i32 %15, %16
   %.not.i13.i.i = icmp eq ptr %9, %8
-  br i1 %.not.i13.i.i, label %_ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !251
+  br i1 %.not.i13.i.i, label %_ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !253
 
 _ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %18 = shl nuw i32 %17, 4
@@ -12747,7 +12747,7 @@ _ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i:
 24:                                               ; preds = %_ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i, %2
   %.0.i.i = phi i32 [ %23, %_ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i ], [ 0, %2 ]
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %26 = load ptr, ptr %25, align 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !317
   %.not.i14.i.i = icmp eq ptr %26, null
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -12759,7 +12759,7 @@ _ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i:
   %30 = load i32, ptr %.0.i16.i.i, align 4, !tbaa !288
   %.not.i17.i.i = icmp eq i32 %30, 0
   %31 = getelementptr inbounds nuw i8, ptr %.0.i16.i.i, i64 4
-  br i1 %.not.i17.i.i, label %_ZN5boost6locale4util7str_endIKwEEPT_S5_.exit18.i.i, label %29, !llvm.loop !314
+  br i1 %.not.i17.i.i, label %_ZN5boost6locale4util7str_endIKwEEPT_S5_.exit18.i.i, label %29, !llvm.loop !316
 
 _ZN5boost6locale4util7str_endIKwEEPT_S5_.exit18.i.i: ; preds = %29
   %.not5.i19.i.i = icmp eq ptr %.0.i15.i.i, %.0.i16.i.i
@@ -12778,13 +12778,13 @@ _ZN5boost6locale4util7str_endIKwEEPT_S5_.exit18.i.i: ; preds = %29
   %39 = and i32 %36, 268435455
   %40 = xor i32 %38, %39
   %.not.i23.i.i = icmp eq ptr %32, %.0.i16.i.i
-  br i1 %.not.i23.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN5boost6locale11gnu_gettext11message_keyIwEESt4pairIKS5_NSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEENS_10_Select1stENS3_13hash_functionIwEENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS7_.exit, label %.lr.ph.i20.i.i, !llvm.loop !251
+  br i1 %.not.i23.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN5boost6locale11gnu_gettext11message_keyIwEESt4pairIKS5_NSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEENS_10_Select1stENS3_13hash_functionIwEENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS7_.exit, label %.lr.ph.i20.i.i, !llvm.loop !253
 
 _ZNKSt8__detail15_Hash_code_baseIN5boost6locale11gnu_gettext11message_keyIwEESt4pairIKS5_NSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEENS_10_Select1stENS3_13hash_functionIwEENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS7_.exit: ; preds = %.lr.ph.i20.i.i, %_ZN5boost6locale4util7str_endIKwEEPT_S5_.exit18.i.i
   %.0.lcssa.i24.i.i = phi i32 [ %.0.i.i, %_ZN5boost6locale4util7str_endIKwEEPT_S5_.exit18.i.i ], [ %40, %.lr.ph.i20.i.i ]
   %41 = zext i32 %.0.lcssa.i24.i.i to i64
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = load i64, ptr %42, align 8
+  %43 = load i64, ptr %42, align 8, !tbaa !294
   %44 = urem i64 %41, %43
   %45 = load ptr, ptr %0, align 8, !tbaa !292
   %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %44
@@ -12807,7 +12807,7 @@ _ZNKSt8__detail15_Hash_code_baseIN5boost6locale11gnu_gettext11message_keyIwEESt4
 54:                                               ; preds = %50
   %55 = getelementptr inbounds i8, ptr %52, i64 8
   %56 = getelementptr inbounds i8, ptr %52, i64 72
-  %57 = load ptr, ptr %56, align 8, !tbaa !315
+  %57 = load ptr, ptr %56, align 8, !tbaa !314
   %.not.i3.i.i.i.i.i.i = icmp eq ptr %57, null
   %58 = load ptr, ptr %55, align 8
   %spec.select.i4.i.i.i.i.i.i = select i1 %.not.i3.i.i.i.i.i.i, ptr %58, ptr %57
@@ -13378,7 +13378,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK5boost6locale11gnu_gettext10mo_mess
   %.not.i = icmp eq ptr %2, null
   %spec.select.i = select i1 %.not.i, ptr @_ZZN5boost6locale11gnu_gettext11message_keyIwEC1EPKwS5_E5empty, ptr %2
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr %spec.select.i, ptr %24, align 8, !tbaa !315
+  store ptr %spec.select.i, ptr %24, align 8, !tbaa !314
   %25 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::mo_message<wchar_t>::domain_data_type", ptr %12, i64 %8, i32 1
   %26 = invoke ptr @_ZNKSt10_HashtableIN5boost6locale11gnu_gettext11message_keyIwEESt4pairIKS4_NSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEESaISD_ENSt8__detail10_Select1stESt8equal_toIS4_ENS2_13hash_functionIwEENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS6_(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(80) %5)
           to label %_ZNKSt13unordered_mapIN5boost6locale11gnu_gettext11message_keyIwEENSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEENS2_13hash_functionIwEESt8equal_toIS4_ESaISt4pairIKS4_SA_EEE4findERSG_.exit unwind label %28
@@ -13466,7 +13466,7 @@ define linkonce_odr hidden ptr @_ZNKSt10_HashtableIN5boost6locale11gnu_gettext11
 
 .lr.ph:                                           ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %8 = load ptr, ptr %7, align 8, !tbaa !315
+  %8 = load ptr, ptr %7, align 8, !tbaa !314
   %.not.i.i.i.i = icmp eq ptr %8, null
   %9 = load ptr, ptr %1, align 8
   %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr %9, ptr %8
@@ -13482,7 +13482,7 @@ define linkonce_odr hidden ptr @_ZNKSt10_HashtableIN5boost6locale11gnu_gettext11
   %.sroa.07.018 = phi ptr [ %.sroa.07.016, %.lr.ph ], [ %.sroa.07.0, %_ZNKSt8__detail15_Hashtable_baseIN5boost6locale11gnu_gettext11message_keyIwEESt4pairIKS5_NSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEENS_10_Select1stESt8equal_toIS5_ENS3_13hash_functionIwEENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS7_RKNS_16_Hash_node_valueISE_Lb1EEE.exit.thread ]
   %15 = getelementptr inbounds i8, ptr %.sroa.07.018, i64 8
   %16 = getelementptr inbounds i8, ptr %.sroa.07.018, i64 72
-  %17 = load ptr, ptr %16, align 8, !tbaa !315
+  %17 = load ptr, ptr %16, align 8, !tbaa !314
   %.not.i3.i.i.i = icmp eq ptr %17, null
   %18 = load ptr, ptr %15, align 8
   %spec.select.i4.i.i.i = select i1 %.not.i3.i.i.i, ptr %18, ptr %17
@@ -13537,7 +13537,7 @@ _ZNKSt8__detail15_Hashtable_baseIN5boost6locale11gnu_gettext11message_keyIwEESt4
 
 39:                                               ; preds = %2
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %41 = load ptr, ptr %40, align 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !314
   %.not.i.i.i = icmp eq ptr %41, null
   %42 = load ptr, ptr %1, align 8
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %42, ptr %41
@@ -13550,7 +13550,7 @@ thread-pre-split.i.i:                             ; preds = %39, %thread-pre-spl
   %44 = getelementptr inbounds nuw i8, ptr %.0.i27.i.i, i64 4
   %.pr.i.i = load i32, ptr %44, align 4, !tbaa !288
   %.not.i12.i.i = icmp eq i32 %.pr.i.i, 0
-  br i1 %.not.i12.i.i, label %.lr.ph.i.i.i, label %thread-pre-split.i.i, !llvm.loop !314
+  br i1 %.not.i12.i.i, label %.lr.ph.i.i.i, label %thread-pre-split.i.i, !llvm.loop !316
 
 .lr.ph.i.i.i:                                     ; preds = %thread-pre-split.i.i, %.lr.ph.i.i.i
   %.07.i.i.i = phi i32 [ %53, %.lr.ph.i.i.i ], [ 0, %thread-pre-split.i.i ]
@@ -13565,7 +13565,7 @@ thread-pre-split.i.i:                             ; preds = %39, %thread-pre-spl
   %52 = and i32 %49, 268435455
   %53 = xor i32 %51, %52
   %.not.i13.i.i = icmp eq ptr %45, %44
-  br i1 %.not.i13.i.i, label %_ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !251
+  br i1 %.not.i13.i.i, label %_ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !253
 
 _ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %54 = shl nuw i32 %53, 4
@@ -13579,7 +13579,7 @@ _ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i:
 60:                                               ; preds = %_ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i, %39
   %.0.i.i = phi i32 [ %59, %_ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i ], [ 0, %39 ]
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %62 = load ptr, ptr %61, align 8
+  %62 = load ptr, ptr %61, align 8, !tbaa !317
   %.not.i14.i.i = icmp eq ptr %62, null
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %64 = load ptr, ptr %63, align 8
@@ -13591,7 +13591,7 @@ _ZN5boost6locale11gnu_gettext17pj_winberger_hash12update_stateEjPKcS4_.exit.i.i:
   %66 = load i32, ptr %.0.i16.i.i, align 4, !tbaa !288
   %.not.i17.i.i = icmp eq i32 %66, 0
   %67 = getelementptr inbounds nuw i8, ptr %.0.i16.i.i, i64 4
-  br i1 %.not.i17.i.i, label %_ZN5boost6locale4util7str_endIKwEEPT_S5_.exit18.i.i, label %65, !llvm.loop !314
+  br i1 %.not.i17.i.i, label %_ZN5boost6locale4util7str_endIKwEEPT_S5_.exit18.i.i, label %65, !llvm.loop !316
 
 _ZN5boost6locale4util7str_endIKwEEPT_S5_.exit18.i.i: ; preds = %65
   %.not5.i19.i.i = icmp eq ptr %.0.i15.i.i, %.0.i16.i.i
@@ -13610,13 +13610,13 @@ _ZN5boost6locale4util7str_endIKwEEPT_S5_.exit18.i.i: ; preds = %65
   %75 = and i32 %72, 268435455
   %76 = xor i32 %74, %75
   %.not.i23.i.i = icmp eq ptr %68, %.0.i16.i.i
-  br i1 %.not.i23.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN5boost6locale11gnu_gettext11message_keyIwEESt4pairIKS5_NSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEENS_10_Select1stENS3_13hash_functionIwEENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS7_.exit, label %.lr.ph.i20.i.i, !llvm.loop !251
+  br i1 %.not.i23.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN5boost6locale11gnu_gettext11message_keyIwEESt4pairIKS5_NSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEENS_10_Select1stENS3_13hash_functionIwEENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS7_.exit, label %.lr.ph.i20.i.i, !llvm.loop !253
 
 _ZNKSt8__detail15_Hash_code_baseIN5boost6locale11gnu_gettext11message_keyIwEESt4pairIKS5_NSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEENS_10_Select1stENS3_13hash_functionIwEENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS7_.exit: ; preds = %.lr.ph.i20.i.i, %_ZN5boost6locale4util7str_endIKwEEPT_S5_.exit18.i.i
   %.0.lcssa.i24.i.i = phi i32 [ %.0.i.i, %_ZN5boost6locale4util7str_endIKwEEPT_S5_.exit18.i.i ], [ %76, %.lr.ph.i20.i.i ]
   %77 = zext i32 %.0.lcssa.i24.i.i to i64
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %79 = load i64, ptr %78, align 8
+  %79 = load i64, ptr %78, align 8, !tbaa !294
   %80 = urem i64 %77, %79
   %81 = load ptr, ptr %0, align 8, !tbaa !292
   %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %80
@@ -13639,7 +13639,7 @@ _ZNKSt8__detail15_Hash_code_baseIN5boost6locale11gnu_gettext11message_keyIwEESt4
 90:                                               ; preds = %86
   %91 = getelementptr inbounds i8, ptr %88, i64 8
   %92 = getelementptr inbounds i8, ptr %88, i64 72
-  %93 = load ptr, ptr %92, align 8, !tbaa !315
+  %93 = load ptr, ptr %92, align 8, !tbaa !314
   %.not.i3.i.i.i.i.i.i = icmp eq ptr %93, null
   %94 = load ptr, ptr %91, align 8
   %spec.select.i4.i.i.i.i.i.i = select i1 %.not.i3.i.i.i.i.i.i, ptr %94, ptr %93
@@ -14791,10 +14791,10 @@ attributes #27 = { nounwind willreturn memory(read) }
 !248 = !{!249}
 !249 = distinct !{!249, !250, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm: argument 0"}
 !250 = distinct !{!250, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm"}
-!251 = distinct !{!251, !45}
-!252 = !{!253, !14, i64 64}
-!253 = !{!"_ZTSN5boost6locale11gnu_gettext11message_keyIcEE", !22, i64 0, !22, i64 32, !14, i64 64, !14, i64 72}
-!254 = !{!253, !14, i64 72}
+!251 = !{!252, !14, i64 64}
+!252 = !{!"_ZTSN5boost6locale11gnu_gettext11message_keyIcEE", !22, i64 0, !22, i64 32, !14, i64 64, !14, i64 72}
+!253 = distinct !{!253, !45}
+!254 = !{!252, !14, i64 72}
 !255 = distinct !{!255, !45}
 !256 = !{!257, !14, i64 0}
 !257 = !{!"_ZTSNSt10_HashtableIN5boost6locale11gnu_gettext11message_keyIcEESt4pairIKS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISD_ENSt8__detail10_Select1stESt8equal_toIS4_ENS2_13hash_functionIcEENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeE", !14, i64 0, !14, i64 8}
@@ -14854,10 +14854,10 @@ attributes #27 = { nounwind willreturn memory(read) }
 !311 = !{!312}
 !312 = distinct !{!312, !313, !"_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6substrEmm: argument 0"}
 !313 = distinct !{!313, !"_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6substrEmm"}
-!314 = distinct !{!314, !45}
-!315 = !{!316, !14, i64 64}
-!316 = !{!"_ZTSN5boost6locale11gnu_gettext11message_keyIwEE", !277, i64 0, !277, i64 32, !14, i64 64, !14, i64 72}
-!317 = !{!316, !14, i64 72}
+!314 = !{!315, !14, i64 64}
+!315 = !{!"_ZTSN5boost6locale11gnu_gettext11message_keyIwEE", !277, i64 0, !277, i64 32, !14, i64 64, !14, i64 72}
+!316 = distinct !{!316, !45}
+!317 = !{!315, !14, i64 72}
 !318 = distinct !{!318, !45}
 !319 = !{!320, !14, i64 0}
 !320 = !{!"_ZTSNSt10_HashtableIN5boost6locale11gnu_gettext11message_keyIwEESt4pairIKS4_NSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEESaISD_ENSt8__detail10_Select1stESt8equal_toIS4_ENS2_13hash_functionIwEENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeE", !14, i64 0, !14, i64 8}

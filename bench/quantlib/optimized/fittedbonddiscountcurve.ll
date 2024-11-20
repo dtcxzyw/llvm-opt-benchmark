@@ -3751,7 +3751,7 @@ invoke.cont254:                                   ; preds = %.noexc172, %do.end2
           to label %invoke.cont261 unwind label %lpad253
 
 invoke.cont261:                                   ; preds = %invoke.cont254
-  %120 = load i64, ptr %maxDate_, align 8, !tbaa !37
+  %120 = load i64, ptr %maxDate_, align 8, !tbaa !127
   %.sroa.speculated = call i64 @llvm.smax.i64(i64 %120, i64 %call259)
   store i64 %.sroa.speculated, ptr %maxDate_, align 8, !tbaa !37
   %121 = load ptr, ptr %bondHelpers_, align 8, !tbaa !99

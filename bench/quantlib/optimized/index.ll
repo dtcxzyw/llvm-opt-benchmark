@@ -1439,7 +1439,7 @@ for.body.lr.ph.i:                                 ; preds = %invoke.cont10
 for.body.i:                                       ; preds = %_ZNSt20back_insert_iteratorISt6vectorIN8QuantLib4DateESaIS2_EEEaSERKS2_.exit.i, %for.body.lr.ph.i
   %__first.sroa.0.04.i = phi ptr [ %1, %for.body.lr.ph.i ], [ %call.i.i, %_ZNSt20back_insert_iteratorISt6vectorIN8QuantLib4DateESaIS2_EEEaSERKS2_.exit.i ]
   %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.04.i, i64 32
-  %2 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !29
+  %2 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !46
   %3 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !45
   %cmp.not.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
@@ -1552,9 +1552,9 @@ if.else.i.i.i:                                    ; preds = %for.body.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.else.i.i.i
-  store ptr %incdec.ptr.i.i.i.i11, ptr %_M_finish.i.i.i, align 8, !tbaa !29
+  store ptr %incdec.ptr.i.i.i.i11, ptr %_M_finish.i.i.i, align 8, !tbaa !48
   store ptr %2, ptr %_M_end_of_storage.i.i, align 8, !tbaa !42
-  store ptr %cond.i10.i.i.i.i17, ptr %agg.result, align 8, !tbaa !29
+  store ptr %cond.i10.i.i.i.i17, ptr %agg.result, align 8, !tbaa !40
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.17) #23
           to label %.noexc2 unwind label %lpad.loopexit.split-lp
 
@@ -1613,9 +1613,9 @@ _ZNSt20back_insert_iteratorISt6vectorIdSaIdEEEaSERKd.exit.i: ; preds = %_ZNSt6ve
 lpad.loopexit:                                    ; preds = %cond.true.i.i.i.i.i
   %lpad.loopexit9 = landingpad { ptr, i32 }
           cleanup
-  store ptr %incdec.ptr.i.i.i.i11, ptr %_M_finish.i.i.i, align 8, !tbaa !29
+  store ptr %incdec.ptr.i.i.i.i11, ptr %_M_finish.i.i.i, align 8, !tbaa !48
   store ptr %2, ptr %_M_end_of_storage.i.i, align 8, !tbaa !42
-  store ptr %cond.i10.i.i.i.i17, ptr %agg.result, align 8, !tbaa !29
+  store ptr %cond.i10.i.i.i.i17, ptr %agg.result, align 8, !tbaa !40
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i, %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i, %if.then.i.i.i.i.i
@@ -1643,9 +1643,9 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %lpad, %if.then.i.i.
   resume { ptr, i32 } %lpad.phi
 
 nrvo.skipdtor.loopexit:                           ; preds = %_ZNSt20back_insert_iteratorISt6vectorIdSaIdEEEaSERKd.exit.i
-  store ptr %incdec.ptr.i.i.i.i12, ptr %_M_finish.i.i.i, align 8, !tbaa !29
+  store ptr %incdec.ptr.i.i.i.i12, ptr %_M_finish.i.i.i, align 8, !tbaa !48
   store ptr %6, ptr %_M_end_of_storage.i.i, align 8, !tbaa !42
-  store ptr %cond.i10.i.i.i.i16, ptr %agg.result, align 8, !tbaa !29
+  store ptr %cond.i10.i.i.i.i16, ptr %agg.result, align 8, !tbaa !40
   br label %nrvo.skipdtor
 
 nrvo.skipdtor:                                    ; preds = %nrvo.skipdtor.loopexit, %invoke.cont7
@@ -3188,7 +3188,7 @@ define linkonce_odr void @_ZNSt6vectorIN8QuantLib4DateESaIS1_EE17_M_realloc_inse
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !46
-  %1 = load ptr, ptr %this, align 8, !tbaa !29
+  %1 = load ptr, ptr %this, align 8, !tbaa !43
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

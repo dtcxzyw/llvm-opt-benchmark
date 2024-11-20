@@ -2027,8 +2027,8 @@ invoke.cont:
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !103
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
-  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
-  %10 = load ptr, ptr %term, align 8, !tbaa !42
+  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
+  %10 = load ptr, ptr %term, align 8, !tbaa !37
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2256,8 +2256,8 @@ invoke.cont:
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !120
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
-  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
-  %10 = load ptr, ptr %term, align 8, !tbaa !42
+  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
+  %10 = load ptr, ptr %term, align 8, !tbaa !37
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2485,8 +2485,8 @@ invoke.cont:
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !136
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
-  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
-  %10 = load ptr, ptr %term, align 8, !tbaa !42
+  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
+  %10 = load ptr, ptr %term, align 8, !tbaa !37
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2714,8 +2714,8 @@ invoke.cont:
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !152
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
-  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
-  %10 = load ptr, ptr %term, align 8, !tbaa !42
+  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
+  %10 = load ptr, ptr %term, align 8, !tbaa !37
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2943,8 +2943,8 @@ invoke.cont:
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !168
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
-  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
-  %10 = load ptr, ptr %term, align 8, !tbaa !42
+  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
+  %10 = load ptr, ptr %term, align 8, !tbaa !37
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -3172,8 +3172,8 @@ invoke.cont:
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !184
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
-  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
-  %10 = load ptr, ptr %term, align 8, !tbaa !42
+  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
+  %10 = load ptr, ptr %term, align 8, !tbaa !37
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -3401,8 +3401,8 @@ invoke.cont:
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !200
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
-  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
-  %10 = load ptr, ptr %term, align 8, !tbaa !42
+  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
+  %10 = load ptr, ptr %term, align 8, !tbaa !37
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -3630,8 +3630,8 @@ invoke.cont:
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !216
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
-  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
-  %10 = load ptr, ptr %term, align 8, !tbaa !42
+  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
+  %10 = load ptr, ptr %term, align 8, !tbaa !37
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -3859,8 +3859,8 @@ invoke.cont:
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !232
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
-  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
-  %10 = load ptr, ptr %term, align 8, !tbaa !42
+  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
+  %10 = load ptr, ptr %term, align 8, !tbaa !37
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -4088,8 +4088,8 @@ invoke.cont:
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !248
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
-  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
-  %10 = load ptr, ptr %term, align 8, !tbaa !42
+  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
+  %10 = load ptr, ptr %term, align 8, !tbaa !37
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -4317,8 +4317,8 @@ invoke.cont:
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !264
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
-  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
-  %10 = load ptr, ptr %term, align 8, !tbaa !42
+  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
+  %10 = load ptr, ptr %term, align 8, !tbaa !37
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -4546,8 +4546,8 @@ invoke.cont:
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !280
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
-  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
-  %10 = load ptr, ptr %term, align 8, !tbaa !42
+  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
+  %10 = load ptr, ptr %term, align 8, !tbaa !37
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -4775,8 +4775,8 @@ invoke.cont:
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !296
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
-  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
-  %10 = load ptr, ptr %term, align 8, !tbaa !42
+  %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
+  %10 = load ptr, ptr %term, align 8, !tbaa !37
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -5007,8 +5007,8 @@ invoke.cont:                                      ; preds = %entry
   %9 = load ptr, ptr %_M_invoker.i.i.i, align 8, !tbaa !318, !noalias !315
   call void %9(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(24) %varBuffer_.i.i)
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
-  %10 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
-  %11 = load ptr, ptr %term, align 8, !tbaa !42
+  %10 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
+  %11 = load ptr, ptr %term, align 8, !tbaa !37
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

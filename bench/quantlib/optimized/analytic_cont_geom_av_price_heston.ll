@@ -1726,7 +1726,7 @@ define { double, double } @_ZNK8QuantLib56AnalyticContinuousGeometricAveragePric
 entry:
   %retval.sroa.0.0.copyload.i = load double, ptr %s, align 8
   %retval.sroa.4.0.__x.sroa_idx.i = getelementptr inbounds i8, ptr %s, i64 8
-  %retval.sroa.4.0.copyload.i = load double, ptr %retval.sroa.4.0.__x.sroa_idx.i, align 8
+  %retval.sroa.4.0.copyload.i = load double, ptr %retval.sroa.4.0.__x.sroa_idx.i, align 8, !tbaa !33
   %mul_ac.i.i = fmul double %retval.sroa.0.0.copyload.i, %retval.sroa.0.0.copyload.i
   %mul_bd.i.i = fmul double %retval.sroa.4.0.copyload.i, %retval.sroa.4.0.copyload.i
   %mul_ad.i.i = fmul double %retval.sroa.0.0.copyload.i, %retval.sroa.4.0.copyload.i
@@ -1836,10 +1836,10 @@ entry:
   %retval.sroa.4.0.copyload.i = load double, ptr %retval.sroa.4.0.__x.sroa_idx.i, align 8, !tbaa !33
   %0 = load double, ptr %rho_, align 8, !tbaa !113
   %sigma_ = getelementptr inbounds nuw i8, ptr %this, i64 376
-  %1 = load double, ptr %sigma_, align 8, !tbaa !113
+  %1 = load double, ptr %sigma_, align 8, !tbaa !108
   %retval.sroa.0.0.copyload.i8 = load double, ptr %w, align 8
   %retval.sroa.4.0.__y.sroa_idx.i = getelementptr inbounds i8, ptr %w, i64 8
-  %retval.sroa.4.0.copyload.i9 = load double, ptr %retval.sroa.4.0.__y.sroa_idx.i, align 8
+  %retval.sroa.4.0.copyload.i9 = load double, ptr %retval.sroa.4.0.__y.sroa_idx.i, align 8, !tbaa !33
   %mul.rl.i.i10 = fmul double %retval.sroa.0.0.copyload.i8, 5.000000e-01
   %mul.il.i.i11 = fmul double %retval.sroa.4.0.copyload.i9, 5.000000e-01
   %kappa_ = getelementptr inbounds nuw i8, ptr %this, i64 360
@@ -2293,7 +2293,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %z1) #28
   %retval.sroa.0.0.copyload.i.i = load double, ptr %s, align 8
   %retval.sroa.4.0.__x.sroa_idx.i.i = getelementptr inbounds i8, ptr %s, i64 8
-  %retval.sroa.4.0.copyload.i.i = load double, ptr %retval.sroa.4.0.__x.sroa_idx.i.i, align 8
+  %retval.sroa.4.0.copyload.i.i = load double, ptr %retval.sroa.4.0.__x.sroa_idx.i.i, align 8, !tbaa !33
   %mul_ac.i.i.i = fmul double %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.copyload.i.i
   %mul_bd.i.i.i = fmul double %retval.sroa.4.0.copyload.i.i, %retval.sroa.4.0.copyload.i.i
   %mul_ad.i.i.i = fmul double %retval.sroa.0.0.copyload.i.i, %retval.sroa.4.0.copyload.i.i
@@ -2320,7 +2320,7 @@ _ZNK8QuantLib56AnalyticContinuousGeometricAveragePriceAsianHestonEngine4z1_fERKS
   %real_mul_phi.i.i.i = phi double [ %mul_r.i.i.i, %entry ], [ %mul_r.i.i.i, %complex_mul_imag_nan.i.i.i ], [ %0, %complex_mul_libcall.i.i.i ]
   %imag_mul_phi.i.i.i = phi double [ %mul_i.i.i.i, %entry ], [ %mul_i.i.i.i, %complex_mul_imag_nan.i.i.i ], [ %1, %complex_mul_libcall.i.i.i ]
   %rho_.i = getelementptr inbounds nuw i8, ptr %this, i64 352
-  %2 = load double, ptr %rho_.i, align 8, !tbaa !113
+  %2 = load double, ptr %rho_.i, align 8, !tbaa !102
   %neg.i = fneg double %2
   %3 = tail call double @llvm.fmuladd.f64(double %neg.i, double %2, double 1.000000e+00)
   %mul.rl.i.i.i = fmul double %real_mul_phi.i.i.i, %3
@@ -2336,7 +2336,7 @@ _ZNK8QuantLib56AnalyticContinuousGeometricAveragePriceAsianHestonEngine4z1_fERKS
   %kappa_.i = getelementptr inbounds nuw i8, ptr %this, i64 360
   %7 = load double, ptr %kappa_.i, align 8, !tbaa !104
   %sigma_.i = getelementptr inbounds nuw i8, ptr %this, i64 376
-  %8 = load double, ptr %sigma_.i, align 8, !tbaa !113
+  %8 = load double, ptr %sigma_.i, align 8, !tbaa !108
   %_M_value.real.i.i.i.i = load double, ptr %w, align 8
   %_M_value.imagp.i.i.i.i = getelementptr inbounds nuw i8, ptr %w, i64 8
   %_M_value.imag.i.i.i.i = load double, ptr %_M_value.imagp.i.i.i.i, align 8
@@ -2357,12 +2357,12 @@ complex_mul_libcall.i.i.i31:                      ; preds = %complex_mul_imag_na
   %call5.i.i.i32 = tail call noundef { double, double } @__muldc3(double noundef %retval.sroa.0.0.copyload.i.i13, double noundef %retval.sroa.4.0.copyload.i.i15, double noundef %_M_value.real.i.i.i.i, double noundef %_M_value.imag.i.i.i.i) #28
   %9 = extractvalue { double, double } %call5.i.i.i32, 0
   %10 = extractvalue { double, double } %call5.i.i.i32, 1
-  %.pre.i = load double, ptr %rho_.i, align 8, !tbaa !113
+  %.pre.i = load double, ptr %rho_.i, align 8, !tbaa !102
   %retval.sroa.0.0.copyload.i.i34.pre = load double, ptr %s, align 8
   %retval.sroa.4.0.copyload.i.i36.pre = load double, ptr %retval.sroa.4.0.__x.sroa_idx.i.i, align 8, !tbaa !33
-  %.pre = load double, ptr %sigma_.i, align 8, !tbaa !113
+  %.pre = load double, ptr %sigma_.i, align 8, !tbaa !108
   %retval.sroa.0.0.copyload.i8.i.pre = load double, ptr %w, align 8
-  %retval.sroa.4.0.copyload.i9.i.pre = load double, ptr %_M_value.imagp.i.i.i.i, align 8
+  %retval.sroa.4.0.copyload.i9.i.pre = load double, ptr %_M_value.imagp.i.i.i.i, align 8, !tbaa !33
   %.pre140 = load double, ptr %kappa_.i, align 8, !tbaa !104
   %.pre144 = fneg double %.pre.i
   %.pre145 = tail call double @llvm.fmuladd.f64(double %.pre144, double %.pre.i, double 1.000000e+00)
@@ -2417,7 +2417,7 @@ complex_mul_libcall.i.i.i56:                      ; preds = %complex_mul_imag_na
   %call5.i.i.i57 = tail call noundef { double, double } @__muldc3(double noundef %mul.rl.i.i10.i, double noundef %mul.il.i.i11.i, double noundef %retval.sroa.0.0.copyload.i8.i, double noundef %retval.sroa.4.0.copyload.i9.i) #28
   %20 = extractvalue { double, double } %call5.i.i.i57, 0
   %21 = extractvalue { double, double } %call5.i.i.i57, 1
-  %.pre.i58 = load double, ptr %rho_.i, align 8, !tbaa !113
+  %.pre.i58 = load double, ptr %rho_.i, align 8, !tbaa !102
   %retval.sroa.0.0.copyload.i.i60.pre = load double, ptr %w, align 8
   %retval.sroa.4.0.copyload.i.i62.pre = load double, ptr %_M_value.imagp.i.i.i.i, align 8, !tbaa !33
   %.pre143 = load double, ptr %sigma_.i, align 8, !tbaa !113

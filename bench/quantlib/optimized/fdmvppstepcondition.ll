@@ -913,8 +913,8 @@ _ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEdeEv.exit: ; preds = %_ZNK
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
   %dim_.i38 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %13 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !58, !noalias !66
-  %14 = load ptr, ptr %dim_.i38, align 8, !tbaa !58, !noalias !66
+  %13 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !69, !noalias !66
+  %14 = load ptr, ptr %dim_.i38, align 8, !tbaa !56, !noalias !66
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -1059,8 +1059,8 @@ _ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEdeEv.exit68: ; preds = %_Z
   call void @llvm.experimental.noalias.scope.decl(metadata !81)
   %dim_.i69 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %_M_finish.i.i.i70 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %28 = load ptr, ptr %_M_finish.i.i.i70, align 8, !tbaa !58, !noalias !81
-  %29 = load ptr, ptr %dim_.i69, align 8, !tbaa !58, !noalias !81
+  %28 = load ptr, ptr %_M_finish.i.i.i70, align 8, !tbaa !69, !noalias !81
+  %29 = load ptr, ptr %dim_.i69, align 8, !tbaa !56, !noalias !81
   %sub.ptr.lhs.cast.i.i.i71 = ptrtoint ptr %28 to i64
   %sub.ptr.rhs.cast.i.i.i72 = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i.i.i73 = sub i64 %sub.ptr.lhs.cast.i.i.i71, %sub.ptr.rhs.cast.i.i.i72

@@ -3882,7 +3882,7 @@ declare void @lv_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @lv_theme_default_get() local_unnamed_addr #1 {
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 768), align 8, !tbaa !3
   %2 = icmp eq ptr %1, null
   br i1 %2, label %lv_theme_default_is_inited.exit.thread, label %lv_theme_default_is_inited.exit
 

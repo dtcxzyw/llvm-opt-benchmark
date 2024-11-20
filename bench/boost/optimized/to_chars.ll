@@ -9146,9 +9146,9 @@ declare float @llvm.fabs.f32(float) #6
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden { i64, i8 } @_ZZN5boost8charconv6detail10to_decimalIfNS1_22dragonbox_float_traitsIfEEJEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_ENKUlNS1_11policy_impl26decimal_to_binary_rounding15nearest_to_evenEE_clESD_(ptr noundef nonnull align 4 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !32
+  %3 = load i32, ptr %2, align 4, !tbaa !60
   %4 = shl i32 %3, 1
-  %5 = load i32, ptr %0, align 4, !tbaa !60
+  %5 = load i32, ptr %0, align 4, !tbaa !62
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %63, label %6
 
@@ -9557,9 +9557,9 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_det
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden { i64, i8 } @_ZZN5boost8charconv6detail10to_decimalIfNS1_22dragonbox_float_traitsIfEEJNS1_11policy_impl4sign6ignoreENS5_13trailing_zero6ignoreENS5_26decimal_to_binary_rounding15nearest_to_evenENS5_26binary_to_decimal_rounding7to_evenENS5_5cache4fullEEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_ENKUlSB_E_clESB_(ptr noundef nonnull align 4 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !32
+  %3 = load i32, ptr %2, align 4, !tbaa !60
   %4 = shl i32 %3, 1
-  %5 = load i32, ptr %0, align 4, !tbaa !63
+  %5 = load i32, ptr %0, align 4, !tbaa !64
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %63, label %6
 
@@ -9720,11 +9720,11 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZZN5boost8charconv6detail5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcS7_NS0_12chars_formatEENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !65
+  %2 = load ptr, ptr %0, align 8, !tbaa !66
   %3 = load i64, ptr %2, align 8, !tbaa !14
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !68
+  %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = load i32, ptr %6, align 4, !tbaa !32
   %8 = add nsw i32 %7, -3
   %9 = sext i32 %8 to i64
@@ -9736,13 +9736,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZN5boost8charconv6detail5floffI
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !69
+  %15 = load ptr, ptr %14, align 8, !tbaa !70
   %16 = load i64, ptr %15, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !70
+  %18 = load ptr, ptr %17, align 8, !tbaa !71
   %19 = load i32, ptr %18, align 4, !tbaa !32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %21 = load ptr, ptr %20, align 8, !tbaa !71
+  %21 = load ptr, ptr %20, align 8, !tbaa !72
   %22 = load i32, ptr %21, align 4, !tbaa !32
   %23 = icmp slt i32 %22, -8
   %24 = add nsw i32 %22, %19
@@ -9944,7 +9944,7 @@ _ZN5boost8charconv6detail10num_digitsImEEiT_.exit: ; preds = %53, %55, %57, %59,
   %88 = add i64 %.sroa.1631.1139, 1
   %89 = add nsw i32 %.1111138, -1
   %90 = icmp sgt i32 %89, %85
-  br i1 %90, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !72
+  br i1 %90, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %.preheader135
   %91 = icmp eq i32 %.0.i127, %85
@@ -9981,7 +9981,7 @@ _ZN5boost8charconv6detail10num_digitsImEEiT_.exit: ; preds = %53, %55, %57, %59,
   %104 = add nsw i32 %.3144, -1
   %105 = urem i64 %102, 10
   %106 = icmp eq i64 %105, 0
-  br i1 %106, label %.lr.ph146, label %.loopexit, !llvm.loop !73
+  br i1 %106, label %.lr.ph146, label %.loopexit, !llvm.loop !74
 
 .loopexit:                                        ; preds = %.lr.ph146, %98, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit
   %.sroa.022.0 = phi i64 [ %.sroa.022.2, %98 ], [ %35, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit ], [ %102, %.lr.ph146 ]
@@ -10934,16 +10934,17 @@ attributes #17 = { nounwind willreturn memory(none) }
 !58 = distinct !{!58, !17}
 !59 = distinct !{!59, !17}
 !60 = !{!61, !11, i64 0}
-!61 = !{!"_ZTSZN5boost8charconv6detail10to_decimalIfNS1_22dragonbox_float_traitsIfEEJEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_EUlNS1_11policy_impl26decimal_to_binary_rounding15nearest_to_evenEE_", !11, i64 0, !62, i64 4}
-!62 = !{!"_ZTSN5boost8charconv6detail33dragonbox_signed_significand_bitsIfNS1_22dragonbox_float_traitsIfEEEE", !11, i64 0}
-!63 = !{!64, !11, i64 0}
-!64 = !{!"_ZTSZN5boost8charconv6detail10to_decimalIfNS1_22dragonbox_float_traitsIfEEJNS1_11policy_impl4sign6ignoreENS5_13trailing_zero6ignoreENS5_26decimal_to_binary_rounding15nearest_to_evenENS5_26binary_to_decimal_rounding7to_evenENS5_5cache4fullEEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_EUlSB_E_", !11, i64 0, !62, i64 4}
-!65 = !{!66, !67, i64 0}
-!66 = !{!"_ZTSZN5boost8charconv6detail5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcS7_NS0_12chars_formatEEUlvE0_", !67, i64 0, !67, i64 8, !67, i64 16, !67, i64 24, !67, i64 32}
-!67 = !{!"any pointer", !9, i64 0}
-!68 = !{!66, !67, i64 8}
-!69 = !{!66, !67, i64 16}
-!70 = !{!66, !67, i64 24}
-!71 = !{!66, !67, i64 32}
-!72 = distinct !{!72, !17}
+!61 = !{!"_ZTSN5boost8charconv6detail33dragonbox_signed_significand_bitsIfNS1_22dragonbox_float_traitsIfEEEE", !11, i64 0}
+!62 = !{!63, !11, i64 0}
+!63 = !{!"_ZTSZN5boost8charconv6detail10to_decimalIfNS1_22dragonbox_float_traitsIfEEJEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_EUlNS1_11policy_impl26decimal_to_binary_rounding15nearest_to_evenEE_", !11, i64 0, !61, i64 4}
+!64 = !{!65, !11, i64 0}
+!65 = !{!"_ZTSZN5boost8charconv6detail10to_decimalIfNS1_22dragonbox_float_traitsIfEEJNS1_11policy_impl4sign6ignoreENS5_13trailing_zero6ignoreENS5_26decimal_to_binary_rounding15nearest_to_evenENS5_26binary_to_decimal_rounding7to_evenENS5_5cache4fullEEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_EUlSB_E_", !11, i64 0, !61, i64 4}
+!66 = !{!67, !68, i64 0}
+!67 = !{!"_ZTSZN5boost8charconv6detail5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcS7_NS0_12chars_formatEEUlvE0_", !68, i64 0, !68, i64 8, !68, i64 16, !68, i64 24, !68, i64 32}
+!68 = !{!"any pointer", !9, i64 0}
+!69 = !{!67, !68, i64 8}
+!70 = !{!67, !68, i64 16}
+!71 = !{!67, !68, i64 24}
+!72 = !{!67, !68, i64 32}
 !73 = distinct !{!73, !17}
+!74 = distinct !{!74, !17}

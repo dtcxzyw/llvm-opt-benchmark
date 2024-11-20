@@ -807,7 +807,7 @@ define void @dtgevc_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %544 = fadd double %543, %541
   store double 1.000000e+00, ptr %27, align 8, !tbaa !7
   %545 = fmul double %212, %537
-  %546 = load double, ptr %33, align 8
+  %546 = load double, ptr %33, align 8, !tbaa !7
   %547 = fcmp uge double %545, %546
   %548 = fcmp ult double %537, %546
   %549 = or i1 %547, %548
@@ -1478,7 +1478,7 @@ thread-pre-split120:                              ; preds = %569, %573
 
 1005:                                             ; preds = %.sink.split, %985, %955
   %1006 = phi double [ 0.000000e+00, %985 ], [ 0.000000e+00, %955 ], [ %.ph350, %.sink.split ]
-  %1007 = load double, ptr %33, align 8
+  %1007 = load double, ptr %33, align 8, !tbaa !7
   %1008 = fcmp ogt double %1006, %1007
   %.pre265 = load i32, ptr %32, align 4, !tbaa !3
   br i1 %1008, label %1009, label %1031
@@ -1885,7 +1885,7 @@ thread-pre-split120:                              ; preds = %569, %573
   %1286 = fadd double %1285, %1282
   store double 1.000000e+00, ptr %27, align 8, !tbaa !7
   %1287 = fmul double %212, %1278
-  %1288 = load double, ptr %33, align 8
+  %1288 = load double, ptr %33, align 8, !tbaa !7
   %1289 = fcmp uge double %1287, %1288
   %1290 = fcmp ult double %1278, %1288
   %1291 = or i1 %1289, %1290
@@ -2748,7 +2748,7 @@ thread-pre-split135:                              ; preds = %.split207.us, %.loo
 
 1879:                                             ; preds = %.sink.split353, %1860, %1831
   %1880 = phi double [ 0.000000e+00, %1860 ], [ 0.000000e+00, %1831 ], [ %.ph, %.sink.split353 ]
-  %1881 = load double, ptr %33, align 8
+  %1881 = load double, ptr %33, align 8, !tbaa !7
   %1882 = fcmp ogt double %1880, %1881
   br i1 %1882, label %1883, label %.loopexit154
 

@@ -10245,7 +10245,7 @@ cond.false.i:                                     ; preds = %for.body
 _ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit: ; preds = %for.body, %cond.false.i
   %6 = phi ptr [ %5, %for.body ], [ %.pre.i, %cond.false.i ]
   %call12 = tail call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(8) %i.sroa.0.0143)
-  %7 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !18
+  %7 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !60
   %8 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !75
   %cmp.not.i.i = icmp eq ptr %7, %8
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -10258,7 +10258,7 @@ if.then.i.i:                                      ; preds = %_ZNK5boost10shared_
   br label %_ZNSt6vectorIdSaIdEE9push_backEOd.exit
 
 if.else.i.i:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit
-  %9 = load ptr, ptr %volsteptimes_, align 8, !tbaa !18
+  %9 = load ptr, ptr %volsteptimes_, align 8, !tbaa !62
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -11844,8 +11844,8 @@ entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.59", align 8
   %agg.tmp7 = alloca %"class.QuantLib::Constraint", align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %times, i64 8
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !18
-  %1 = load ptr, ptr %times, align 8, !tbaa !18
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !60
+  %1 = load ptr, ptr %times, align 8, !tbaa !62
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -13309,7 +13309,7 @@ lpad.i:                                           ; preds = %init.i
 _ZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEv.exit: ; preds = %entry, %init.check.i, %invoke.cont.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #30
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
-  %4 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !8
+  %4 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !212
   %5 = load i64, ptr %ref.tmp.i, align 8, !tbaa !212
   %cmp.i.i = icmp eq i64 %4, %5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #30

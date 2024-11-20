@@ -206,17 +206,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_19show_timeERKN5boost5timer9cpu_tim
   %14 = load i64, ptr %13, align 8, !tbaa !36
   %15 = and i32 %12, -261
   %16 = or disjoint i32 %15, 4
-  store i32 %16, ptr %11, align 4, !tbaa !35
+  store i32 %16, ptr %11, align 4, !tbaa !37
   %17 = load i64, ptr %8, align 8
   %18 = getelementptr inbounds i8, ptr %1, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %.039, ptr %19, align 8, !tbaa !36
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load i64, ptr %20, align 8, !tbaa !37
+  %21 = load i64, ptr %20, align 8, !tbaa !38
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !39
+  %23 = load i64, ptr %22, align 8, !tbaa !40
   %24 = add nsw i64 %23, %21
-  %25 = load i64, ptr %0, align 8, !tbaa !40
+  %25 = load i64, ptr %0, align 8, !tbaa !41
   %26 = sitofp i64 %25 to double
   %27 = fdiv double %26, 1.000000e+09
   %28 = sitofp i64 %24 to double
@@ -242,7 +242,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19show_timeERKN5boost5timer9cpu_tim
 
 38:                                               ; preds = %36
   store i64 %14, ptr %13, align 8, !tbaa !36
-  store i32 %12, ptr %11, align 8, !tbaa !41
+  store i32 %12, ptr %11, align 8, !tbaa !35
   ret void
 
 39:                                               ; preds = %36
@@ -284,7 +284,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %51, %49
   %54 = landingpad { ptr, i32 }
           cleanup
   store i64 %14, ptr %13, align 8, !tbaa !36
-  store i32 %12, ptr %11, align 8, !tbaa !41
+  store i32 %12, ptr %11, align 8, !tbaa !35
   resume { ptr, i32 } %54
 
 55:                                               ; preds = %42
@@ -297,13 +297,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %51, %49
   ]
 
 56:                                               ; preds = %55
-  %57 = load i64, ptr %22, align 8, !tbaa !39
+  %57 = load i64, ptr %22, align 8, !tbaa !40
   %58 = sitofp i64 %57 to double
   %59 = fdiv double %58, 1.000000e+09
   br label %.invoke
 
 60:                                               ; preds = %55
-  %61 = load i64, ptr %20, align 8, !tbaa !37
+  %61 = load i64, ptr %20, align 8, !tbaa !38
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   br label %.invoke
@@ -409,20 +409,20 @@ _ZN12_GLOBAL__N_111tick_factorEv.exit:            ; preds = %9, %12
 21:                                               ; preds = %18
   %22 = load i64, ptr @_ZZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf, align 8, !tbaa !49
   %23 = mul nsw i64 %22, %19
-  store i64 %23, ptr %0, align 8, !tbaa !40
+  store i64 %23, ptr %0, align 8, !tbaa !41
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !50
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %27 = load i64, ptr %26, align 8, !tbaa !52
   %28 = add nsw i64 %27, %25
   %29 = mul nsw i64 %28, %22
-  store i64 %29, ptr %4, align 8, !tbaa !37
+  store i64 %29, ptr %4, align 8, !tbaa !38
   %30 = load i64, ptr %2, align 8, !tbaa !53
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !54
   %33 = add nsw i64 %32, %30
   %34 = mul nsw i64 %33, %22
-  store i64 %34, ptr %3, align 8, !tbaa !39
+  store i64 %34, ptr %3, align 8, !tbaa !40
   br label %35
 
 35:                                               ; preds = %18, %21
@@ -550,21 +550,21 @@ define void @_ZNK5boost5timer9cpu_timer7elapsedEv(ptr dead_on_unwind noalias noc
 7:                                                ; preds = %2
   tail call fastcc void @_ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesE(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %8 = load i64, ptr %1, align 8, !tbaa !57
-  %9 = load i64, ptr %0, align 8, !tbaa !40
+  %9 = load i64, ptr %0, align 8, !tbaa !41
   %10 = sub nsw i64 %9, %8
-  store i64 %10, ptr %0, align 8, !tbaa !40
+  store i64 %10, ptr %0, align 8, !tbaa !41
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !58
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !39
+  %14 = load i64, ptr %13, align 8, !tbaa !40
   %15 = sub nsw i64 %14, %12
-  store i64 %15, ptr %13, align 8, !tbaa !39
+  store i64 %15, ptr %13, align 8, !tbaa !40
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !59
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load i64, ptr %18, align 8, !tbaa !37
+  %19 = load i64, ptr %18, align 8, !tbaa !38
   %20 = sub nsw i64 %19, %17
-  store i64 %20, ptr %18, align 8, !tbaa !37
+  store i64 %20, ptr %18, align 8, !tbaa !38
   br label %21
 
 21:                                               ; preds = %7, %6
@@ -719,20 +719,20 @@ _ZN12_GLOBAL__N_111tick_factorEv.exit.i:          ; preds = %18, %15
 27:                                               ; preds = %24
   %28 = load i64, ptr @_ZZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesEE2tf, align 8, !tbaa !49
   %29 = mul nsw i64 %28, %25
-  store i64 %29, ptr %3, align 8, !tbaa !40
+  store i64 %29, ptr %3, align 8, !tbaa !41
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !50
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %33 = load i64, ptr %32, align 8, !tbaa !52
   %34 = add nsw i64 %33, %31
   %35 = mul nsw i64 %34, %28
-  store i64 %35, ptr %10, align 8, !tbaa !37
+  store i64 %35, ptr %10, align 8, !tbaa !38
   %36 = load i64, ptr %2, align 8, !tbaa !53
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !54
   %39 = add nsw i64 %38, %36
   %40 = mul nsw i64 %39, %28
-  store i64 %40, ptr %9, align 8, !tbaa !39
+  store i64 %40, ptr %9, align 8, !tbaa !40
   br label %41
 
 41:                                               ; preds = %27, %24
@@ -741,19 +741,19 @@ _ZN12_GLOBAL__N_111tick_factorEv.exit.i:          ; preds = %18, %15
 
 _ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesE.exit: ; preds = %21, %41
   %42 = load i64, ptr %0, align 8, !tbaa !57, !noalias !65
-  %43 = load i64, ptr %3, align 8, !tbaa !40, !alias.scope !65
+  %43 = load i64, ptr %3, align 8, !tbaa !41, !alias.scope !65
   %44 = sub nsw i64 %43, %42
-  store i64 %44, ptr %3, align 8, !tbaa !40, !alias.scope !65
+  store i64 %44, ptr %3, align 8, !tbaa !41, !alias.scope !65
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load i64, ptr %45, align 8, !tbaa !58, !noalias !65
-  %47 = load i64, ptr %9, align 8, !tbaa !39, !alias.scope !65
+  %47 = load i64, ptr %9, align 8, !tbaa !40, !alias.scope !65
   %48 = sub nsw i64 %47, %46
-  store i64 %48, ptr %9, align 8, !tbaa !39, !alias.scope !65
+  store i64 %48, ptr %9, align 8, !tbaa !40, !alias.scope !65
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load i64, ptr %49, align 8, !tbaa !59, !noalias !65
-  %51 = load i64, ptr %10, align 8, !tbaa !37, !alias.scope !65
+  %51 = load i64, ptr %10, align 8, !tbaa !38, !alias.scope !65
   %52 = sub nsw i64 %51, %50
-  store i64 %52, ptr %10, align 8, !tbaa !37, !alias.scope !65
+  store i64 %52, ptr %10, align 8, !tbaa !38, !alias.scope !65
   br label %_ZNK5boost5timer9cpu_timer7elapsedEv.exit
 
 _ZNK5boost5timer9cpu_timer7elapsedEv.exit:        ; preds = %7, %_ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesE.exit
@@ -944,18 +944,18 @@ attributes #18 = { noreturn nounwind }
 !32 = !{!27, !12, i64 0}
 !33 = !{!34, !8, i64 8}
 !34 = !{!"_ZTSSi", !8, i64 8}
-!35 = !{!10, !10, i64 0}
+!35 = !{!7, !10, i64 24}
 !36 = !{!7, !8, i64 8}
-!37 = !{!38, !8, i64 16}
-!38 = !{!"_ZTSN5boost5timer9cpu_timesE", !8, i64 0, !8, i64 8, !8, i64 16}
-!39 = !{!38, !8, i64 8}
-!40 = !{!38, !8, i64 0}
-!41 = !{!7, !10, i64 24}
+!37 = !{!10, !10, i64 0}
+!38 = !{!39, !8, i64 16}
+!39 = !{!"_ZTSN5boost5timer9cpu_timesE", !8, i64 0, !8, i64 8, !8, i64 16}
+!40 = !{!39, !8, i64 8}
+!41 = !{!39, !8, i64 0}
 !42 = !{!7, !8, i64 16}
 !43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
 !45 = !{!46, !47, i64 24}
-!46 = !{!"_ZTSN5boost5timer9cpu_timerE", !38, i64 0, !47, i64 24}
+!46 = !{!"_ZTSN5boost5timer9cpu_timerE", !39, i64 0, !47, i64 24}
 !47 = !{!"bool", !9, i64 0}
 !48 = !{!"branch_weights", i32 1, i32 1048575}
 !49 = !{!8, !8, i64 0}

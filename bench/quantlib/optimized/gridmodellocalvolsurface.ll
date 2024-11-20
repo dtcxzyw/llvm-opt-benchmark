@@ -950,7 +950,7 @@ _ZN8QuantLib10DayCounterC2ERKS0_.exit:            ; preds = %invoke.cont19, %if.
   store i32 %upperExtrapolation, ptr %upperExtrapolation_, align 4, !tbaa !94
   %localVol_ = getelementptr inbounds nuw i8, ptr %this, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %localVol_, i8 0, i64 16, i1 false)
-  %39 = load ptr, ptr %strikes_, align 8, !tbaa !3
+  %39 = load ptr, ptr %strikes_, align 8, !tbaa !65
   %sub.ptr.lhs.cast.i53161 = ptrtoint ptr %38 to i64
   %sub.ptr.rhs.cast.i54162 = ptrtoint ptr %39 to i64
   %sub.ptr.sub.i55163 = sub i64 %sub.ptr.lhs.cast.i53161, %sub.ptr.rhs.cast.i54162
@@ -960,7 +960,7 @@ _ZN8QuantLib10DayCounterC2ERKS0_.exit:            ; preds = %invoke.cont19, %if.
 for.cond:                                         ; preds = %invoke.cont30
   %inc = add nuw i64 %i.0166, 1
   %40 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !63
-  %41 = load ptr, ptr %strikes_, align 8, !tbaa !3
+  %41 = load ptr, ptr %strikes_, align 8, !tbaa !65
   %sub.ptr.lhs.cast.i53 = ptrtoint ptr %40 to i64
   %sub.ptr.rhs.cast.i54 = ptrtoint ptr %41 to i64
   %sub.ptr.sub.i55 = sub i64 %sub.ptr.lhs.cast.i53, %sub.ptr.rhs.cast.i54
@@ -3085,7 +3085,7 @@ _ZN8QuantLib10DayCounterC2ERKS0_.exit:            ; preds = %invoke.cont19, %if.
   store i32 %upperExtrapolation, ptr %upperExtrapolation_, align 4, !tbaa !94
   %localVol_ = getelementptr inbounds nuw i8, ptr %this, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %localVol_, i8 0, i64 16, i1 false)
-  %34 = load ptr, ptr %strikes_, align 8, !tbaa !3
+  %34 = load ptr, ptr %strikes_, align 8, !tbaa !65
   %sub.ptr.lhs.cast.i59167 = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i60168 = ptrtoint ptr %34 to i64
   %sub.ptr.sub.i61169 = sub i64 %sub.ptr.lhs.cast.i59167, %sub.ptr.rhs.cast.i60168
@@ -3095,7 +3095,7 @@ _ZN8QuantLib10DayCounterC2ERKS0_.exit:            ; preds = %invoke.cont19, %if.
 for.cond:                                         ; preds = %invoke.cont30
   %inc = add nuw i64 %i.0172, 1
   %35 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !63
-  %36 = load ptr, ptr %strikes_, align 8, !tbaa !3
+  %36 = load ptr, ptr %strikes_, align 8, !tbaa !65
   %sub.ptr.lhs.cast.i59 = ptrtoint ptr %35 to i64
   %sub.ptr.rhs.cast.i60 = ptrtoint ptr %36 to i64
   %sub.ptr.sub.i61 = sub i64 %sub.ptr.lhs.cast.i59, %sub.ptr.rhs.cast.i60

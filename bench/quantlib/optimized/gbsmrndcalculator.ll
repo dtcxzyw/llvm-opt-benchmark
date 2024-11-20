@@ -1796,7 +1796,7 @@ invoke.cont221.i:                                 ; preds = %invoke.cont217.i
   %90 = load i32, ptr %_M_flags.i.i.i, align 8, !tbaa !36
   %and.i.i.i.i.i = and i32 %90, -261
   %or.i.i.i.i.i = or disjoint i32 %and.i.i.i.i.i, 256
-  store i32 %or.i.i.i.i.i, ptr %_M_flags.i.i.i, align 4, !tbaa !36
+  store i32 %or.i.i.i.i.i, ptr %_M_flags.i.i.i, align 4, !tbaa !42
   %call.i163164.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i153154.i, double noundef %sub.i.i89)
           to label %invoke.cont224.i unwind label %lpad208.i
 
@@ -2493,7 +2493,7 @@ if.end122.i.i:                                    ; preds = %if.else118.i.i, %if
   %sub.i66.i.i = fsub double %call.i65.i.i, %q
   %inc126.i.i = add nuw nsw i64 %ref.tmp97.sroa.56.0, 1
   %exitcond = icmp eq i64 %inc126.i.i, 101
-  br i1 %exitcond, label %do.body.i.i, label %while.body.i.i, !llvm.loop !38
+  br i1 %exitcond, label %do.body.i.i, label %while.body.i.i, !llvm.loop !43
 
 do.body.i.i:                                      ; preds = %if.end122.i.i
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream.i.i) #19
@@ -2878,6 +2878,11 @@ attributes #22 = { builtin nounwind }
 !33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
 !35 = distinct !{!35, !34}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
-!38 = distinct !{!38, !34}
+!36 = !{!37, !38, i64 24}
+!37 = !{!"_ZTSSt8ios_base", !9, i64 8, !9, i64 16, !38, i64 24, !39, i64 28, !39, i64 32, !5, i64 40, !40, i64 48, !6, i64 64, !28, i64 192, !5, i64 200, !41, i64 208}
+!38 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
+!39 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
+!40 = !{!"_ZTSNSt8ios_base6_WordsE", !5, i64 0, !9, i64 8}
+!41 = !{!"_ZTSSt6locale", !5, i64 0}
+!42 = !{!38, !38, i64 0}
+!43 = distinct !{!43, !34}

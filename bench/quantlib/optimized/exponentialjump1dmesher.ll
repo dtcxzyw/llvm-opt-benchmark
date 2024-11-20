@@ -468,7 +468,7 @@ for.body89.lr.ph:                                 ; preds = %for.cond85.preheade
   %dplus_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %45 = load ptr, ptr %dplus_, align 8, !tbaa !26
   %dminus_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %46 = load ptr, ptr %dminus_, align 8, !tbaa !27
+  %46 = load ptr, ptr %dminus_, align 8, !tbaa !26
   br label %for.body89
 
 for.body:                                         ; preds = %do.end70, %for.body

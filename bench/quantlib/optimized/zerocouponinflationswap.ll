@@ -1569,9 +1569,9 @@ if.then.i.i149:                                   ; preds = %invoke.cont227
 
 _ZN5boost10shared_ptrIN8QuantLib8CashFlowEEC2INS1_14SimpleCashFlowEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit: ; preds = %invoke.cont227, %if.then.i.i149
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %116 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !3
+  %116 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !110
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %112, i64 16
-  %117 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !110
+  %117 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !112
   %cmp.not.i.i151 = icmp eq ptr %116, %117
   br i1 %cmp.not.i.i151, label %if.else.i.i, label %invoke.cont231.thread
 
@@ -1581,9 +1581,9 @@ invoke.cont231.thread:                            ; preds = %_ZN5boost10shared_p
   %118 = load ptr, ptr %pn.i146, align 8, !tbaa !42
   store ptr %118, ptr %pn.i.i.i.i.i, align 8, !tbaa !42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp229, i8 0, i64 16, i1 false)
-  %119 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !112
+  %119 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !110
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %119, i64 16
-  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8, !tbaa !112
+  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8, !tbaa !110
   br label %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEED2Ev.exit
 
 if.else.i.i:                                      ; preds = %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEC2INS1_14SimpleCashFlowEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
@@ -1649,9 +1649,9 @@ if.then.i.i167:                                   ; preds = %_ZN5boost10shared_p
 
 _ZN5boost10shared_ptrIN8QuantLib8CashFlowEEC2INS1_21ZeroInflationCashFlowEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit: ; preds = %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEED2Ev.exit, %if.then.i.i167
   %_M_finish.i.i169 = getelementptr inbounds nuw i8, ptr %126, i64 32
-  %130 = load ptr, ptr %_M_finish.i.i169, align 8, !tbaa !3
+  %130 = load ptr, ptr %_M_finish.i.i169, align 8, !tbaa !110
   %_M_end_of_storage.i.i170 = getelementptr inbounds nuw i8, ptr %126, i64 40
-  %131 = load ptr, ptr %_M_end_of_storage.i.i170, align 8, !tbaa !110
+  %131 = load ptr, ptr %_M_end_of_storage.i.i170, align 8, !tbaa !112
   %cmp.not.i.i171 = icmp eq ptr %130, %131
   br i1 %cmp.not.i.i171, label %if.else.i.i176, label %invoke.cont239.thread
 
@@ -1661,7 +1661,7 @@ invoke.cont239.thread:                            ; preds = %_ZN5boost10shared_p
   %132 = load ptr, ptr %pn.i164, align 8, !tbaa !42
   store ptr %132, ptr %pn.i.i.i.i.i173, align 8, !tbaa !42
   %incdec.ptr.i.i175 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  store ptr %incdec.ptr.i.i175, ptr %_M_finish.i.i169, align 8, !tbaa !112
+  store ptr %incdec.ptr.i.i175, ptr %_M_finish.i.i169, align 8, !tbaa !110
   br label %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEED2Ev.exit194
 
 if.else.i.i176:                                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEC2INS1_21ZeroInflationCashFlowEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
@@ -4077,9 +4077,9 @@ if.then.i.i154:                                   ; preds = %invoke.cont224
 
 _ZN5boost10shared_ptrIN8QuantLib8CashFlowEEC2INS1_14SimpleCashFlowEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit: ; preds = %invoke.cont224, %if.then.i.i154
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %115 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !3
+  %115 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !110
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %111, i64 16
-  %116 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !110
+  %116 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !112
   %cmp.not.i.i156 = icmp eq ptr %115, %116
   br i1 %cmp.not.i.i156, label %if.else.i.i, label %invoke.cont228.thread
 
@@ -4089,9 +4089,9 @@ invoke.cont228.thread:                            ; preds = %_ZN5boost10shared_p
   %117 = load ptr, ptr %pn.i151, align 8, !tbaa !42
   store ptr %117, ptr %pn.i.i.i.i.i, align 8, !tbaa !42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp226, i8 0, i64 16, i1 false)
-  %118 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !112
+  %118 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !110
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %118, i64 16
-  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8, !tbaa !112
+  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8, !tbaa !110
   br label %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEED2Ev.exit
 
 if.else.i.i:                                      ; preds = %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEC2INS1_14SimpleCashFlowEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
@@ -4157,9 +4157,9 @@ if.then.i.i172:                                   ; preds = %_ZN5boost10shared_p
 
 _ZN5boost10shared_ptrIN8QuantLib8CashFlowEEC2INS1_21ZeroInflationCashFlowEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit: ; preds = %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEED2Ev.exit, %if.then.i.i172
   %_M_finish.i.i174 = getelementptr inbounds nuw i8, ptr %125, i64 32
-  %129 = load ptr, ptr %_M_finish.i.i174, align 8, !tbaa !3
+  %129 = load ptr, ptr %_M_finish.i.i174, align 8, !tbaa !110
   %_M_end_of_storage.i.i175 = getelementptr inbounds nuw i8, ptr %125, i64 40
-  %130 = load ptr, ptr %_M_end_of_storage.i.i175, align 8, !tbaa !110
+  %130 = load ptr, ptr %_M_end_of_storage.i.i175, align 8, !tbaa !112
   %cmp.not.i.i176 = icmp eq ptr %129, %130
   br i1 %cmp.not.i.i176, label %if.else.i.i181, label %invoke.cont236.thread
 
@@ -4169,7 +4169,7 @@ invoke.cont236.thread:                            ; preds = %_ZN5boost10shared_p
   %131 = load ptr, ptr %pn.i169, align 8, !tbaa !42
   store ptr %131, ptr %pn.i.i.i.i.i178, align 8, !tbaa !42
   %incdec.ptr.i.i180 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  store ptr %incdec.ptr.i.i180, ptr %_M_finish.i.i174, align 8, !tbaa !112
+  store ptr %incdec.ptr.i.i180, ptr %_M_finish.i.i174, align 8, !tbaa !110
   br label %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEED2Ev.exit199
 
 if.else.i.i181:                                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEEC2INS1_21ZeroInflationCashFlowEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
@@ -4838,7 +4838,7 @@ entry:
   %0 = load ptr, ptr %legs_, align 8, !tbaa !105
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !112
+  %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !110
   %2 = load ptr, ptr %add.ptr.i, align 8, !tbaa !132
   %cmp.not.i.i.not = icmp eq ptr %1, %2
   br i1 %cmp.not.i.i.not, label %if.then.i.i, label %_ZNKSt6vectorIN5boost10shared_ptrIN8QuantLib8CashFlowEEESaIS4_EE2atEm.exit
@@ -7023,7 +7023,7 @@ for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_Destr
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyISt6vectorIN5boost10shared_ptrIN8QuantLib8CashFlowEEESaIS5_EEEvPT_.exit.i.i.i ], [ %0, %entry ]
   %2 = load ptr, ptr %__first.addr.04.i.i.i, align 8, !tbaa !132
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 8
-  %3 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !112
+  %3 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !110
   %cmp.not3.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not3.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
 
@@ -7083,7 +7083,7 @@ invoke.cont.i.i.i.i.i:                            ; preds = %invoke.contthread-p
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont.i.i.i.i.i
   %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 16
-  %12 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !tbaa !110
+  %12 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !tbaa !112
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
@@ -7462,8 +7462,8 @@ entry:
 define linkonce_odr void @_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib8CashFlowEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__args) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !112
-  %1 = load ptr, ptr %this, align 8, !tbaa !3
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !110
+  %1 = load ptr, ptr %this, align 8, !tbaa !132
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -7552,7 +7552,7 @@ _ZNSt6vectorIN5boost10shared_ptrIN8QuantLib8CashFlowEEESaIS4_EE11_S_relocateEPS4
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib8CashFlowEEESaIS4_EE13_M_deallocateEPS4_m.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib8CashFlowEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21
-  %9 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !110
+  %9 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !112
   %sub.ptr.lhs.cast = ptrtoint ptr %9 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef %sub.ptr.sub) #33
@@ -7560,9 +7560,9 @@ if.then.i22:                                      ; preds = %_ZNSt6vectorIN5boos
 
 _ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib8CashFlowEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib8CashFlowEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, %if.then.i22
   store ptr %cond.i10, ptr %this, align 8, !tbaa !132
-  store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8, !tbaa !112
+  store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8, !tbaa !110
   %add.ptr19 = getelementptr inbounds nuw %"class.boost::shared_ptr.47", ptr %cond.i10, i64 %cond.i
-  store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !110
+  store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !112
   ret void
 }
 
@@ -8372,9 +8372,9 @@ attributes #35 = { builtin allocsize(0) }
 !107 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib14SimpleCashFlowEEE", !4, i64 0, !43, i64 8}
 !108 = !{!109, !4, i64 0}
 !109 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib8CashFlowEEE", !4, i64 0, !43, i64 8}
-!110 = !{!111, !4, i64 16}
+!110 = !{!111, !4, i64 8}
 !111 = !{!"_ZTSNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib8CashFlowEEESaIS4_EE17_Vector_impl_dataE", !4, i64 0, !4, i64 8, !4, i64 16}
-!112 = !{!111, !4, i64 8}
+!112 = !{!111, !4, i64 16}
 !113 = !{!114, !4, i64 0}
 !114 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib10ObservableEEE", !4, i64 0, !43, i64 8}
 !115 = distinct !{!115, !116}

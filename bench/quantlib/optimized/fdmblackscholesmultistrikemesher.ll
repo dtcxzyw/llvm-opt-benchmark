@@ -2090,7 +2090,7 @@ for.body.lr.ph:                                   ; preds = %do.end
   %locations_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %22 = load ptr, ptr %locations_, align 8, !tbaa !47
   %dminus_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %23 = load ptr, ptr %dminus_, align 8, !tbaa !23
+  %23 = load ptr, ptr %dminus_, align 8, !tbaa !47
   %dplus_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %24 = load ptr, ptr %dplus_, align 8, !tbaa !47
   br label %for.body
@@ -2134,14 +2134,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %__x, i64 8
-  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !23
-  %1 = load ptr, ptr %__x, align 8, !tbaa !23
+  %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !45
+  %1 = load ptr, ptr %__x, align 8, !tbaa !47
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !49
-  %3 = load ptr, ptr %this, align 8, !tbaa !23
+  %3 = load ptr, ptr %this, align 8, !tbaa !47
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i15

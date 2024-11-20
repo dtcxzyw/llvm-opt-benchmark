@@ -1738,7 +1738,7 @@ terminate.lpad.i.i.i222:                          ; preds = %if.then.i.i.i.i.i22
 
 _ZN8QuantLib6HandleINS_18YieldTermStructureEED2Ev.exit229: ; preds = %invoke.cont105, %if.then.i.i.i216, %.noexc.i.i.i223, %if.then.i.i.i.i.i226
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp97) #26
-  %116 = load i64, ptr %d2, align 8, !tbaa !84
+  %116 = load i64, ptr %d2, align 8, !tbaa !99
   %117 = load i64, ptr %settlementDate, align 8, !tbaa !99
   %cmp.i230 = icmp sgt i64 %116, %117
   br i1 %cmp.i230, label %if.then112, label %if.end129

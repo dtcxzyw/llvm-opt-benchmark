@@ -362,7 +362,7 @@ draw_border_simple.exit:                          ; preds = %98, %102
   %191 = load i32, ptr %4, align 4, !tbaa !14
   store i32 %191, ptr %9, align 4, !tbaa !14
   %192 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %193 = load i32, ptr %192, align 4
+  %193 = load i32, ptr %192, align 4, !tbaa !17
   br i1 %or.cond177.i, label %223, label %194
 
 194:                                              ; preds = %190
@@ -427,7 +427,7 @@ draw_border_simple.exit:                          ; preds = %98, %102
   br i1 %exitcond.not.i, label %.loopexit.i, label %204, !llvm.loop !28
 
 223:                                              ; preds = %190
-  %224 = load i32, ptr %10, align 4
+  %224 = load i32, ptr %10, align 4, !tbaa !14
   %225 = add nsw i32 %224, -1
   %226 = call i32 @llvm.smin.i32(i32 %193, i32 %225)
   %227 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -500,8 +500,8 @@ draw_border_simple.exit:                          ; preds = %98, %102
   br i1 %.not174.not.i, label %252, label %.loopexit197.i, !llvm.loop !31
 
 .loopexit197.i:                                   ; preds = %252, %245, %.loopexit198.i, %223
-  %256 = load i32, ptr %4, align 4
-  %257 = load i32, ptr %126, align 4
+  %256 = load i32, ptr %4, align 4, !tbaa !14
+  %257 = load i32, ptr %126, align 4, !tbaa !17
   %258 = add nsw i32 %257, 1
   %259 = call i32 @llvm.smax.i32(i32 %256, i32 %258)
   store i32 %259, ptr %9, align 4, !tbaa !14

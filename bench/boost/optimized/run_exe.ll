@@ -2192,7 +2192,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail11exe_builderIcEclEP
   store i8 0, ptr %28, align 1, !tbaa !44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #30
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = load ptr, ptr %29, align 8, !tbaa !55
+  %30 = load ptr, ptr %29, align 8, !tbaa !68
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %32 = load ptr, ptr %31, align 8, !tbaa !69
   %.not.i.i = icmp eq ptr %30, %32
@@ -2292,7 +2292,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !68
-  %6 = load ptr, ptr %0, align 8, !tbaa !55
+  %6 = load ptr, ptr %0, align 8, !tbaa !66
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -3949,7 +3949,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIcSaIcEE17_M_reallocate_mapEmb(pt
   %12 = add nsw i64 %11, 1
   %13 = add i64 %12, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !89
+  %15 = load i64, ptr %14, align 8, !tbaa !147
   %16 = shl i64 %13, 1
   %17 = icmp ugt i64 %15, %16
   br i1 %17, label %18, label %39
@@ -4063,13 +4063,13 @@ define linkonce_odr dso_local void @_ZNSt5dequeIcSaIcEE19_M_range_insert_auxIPKc
   %9 = sub i64 0, %8
   %10 = load ptr, ptr %1, align 8, !tbaa !117
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !117
+  %12 = load ptr, ptr %11, align 8, !tbaa !149
   %13 = icmp eq ptr %10, %12
   br i1 %13, label %14, label %77
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !130, !noalias !159
+  %16 = load ptr, ptr %15, align 8, !tbaa !152, !noalias !159
   %17 = ptrtoint ptr %10 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
@@ -4203,13 +4203,13 @@ _ZSt22__uninitialized_copy_aIPKcSt15_Deque_iteratorIcRcPcEcET0_T_S7_S6_RSaIT1_E.
 
 77:                                               ; preds = %4
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %79 = load ptr, ptr %78, align 8, !tbaa !117
+  %79 = load ptr, ptr %78, align 8, !tbaa !150
   %80 = icmp eq ptr %10, %79
   br i1 %80, label %81, label %146
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %83 = load ptr, ptr %82, align 8, !tbaa !131
+  %83 = load ptr, ptr %82, align 8, !tbaa !154
   %84 = ptrtoint ptr %83 to i64
   %85 = ptrtoint ptr %10 to i64
   %86 = xor i64 %85, -1
@@ -4441,7 +4441,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIcSaIcEE13_M_insert_auxIPKcEEvSt1
 
 77:                                               ; preds = %5
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %79 = load ptr, ptr %78, align 8, !tbaa !130
+  %79 = load ptr, ptr %78, align 8, !tbaa !152
   %80 = ptrtoint ptr %79 to i64
   %81 = sub i64 %52, %80
   %82 = icmp ugt i64 %4, %81
@@ -4999,7 +4999,7 @@ _ZNSt11_Deque_baseIcSaIcEE16_M_destroy_nodesEPPcS3_.exit: ; preds = %.lr.ph.i, %
 
 332:                                              ; preds = %5
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %334 = load ptr, ptr %333, align 8, !tbaa !131
+  %334 = load ptr, ptr %333, align 8, !tbaa !154
   %335 = ptrtoint ptr %334 to i64
   %336 = xor i64 %69, -1
   %337 = add i64 %335, %336
@@ -6906,7 +6906,7 @@ define linkonce_odr hidden void @_ZN5boost7process2v16detail5posix10build_argsER
           to label %27 unwind label %49
 
 27:                                               ; preds = %26
-  %28 = load ptr, ptr %11, align 8, !tbaa !55
+  %28 = load ptr, ptr %11, align 8, !tbaa !68
   %29 = load ptr, ptr %12, align 8, !tbaa !69
   %.not.i.i = icmp eq ptr %28, %29
   br i1 %.not.i.i, label %43, label %30
@@ -7033,7 +7033,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
 
 69:                                               ; preds = %68
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !55
+  %71 = load ptr, ptr %70, align 8, !tbaa !68
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %73 = load ptr, ptr %72, align 8, !tbaa !69
   %.not.i = icmp eq ptr %71, %73
@@ -7157,7 +7157,7 @@ define linkonce_odr hidden void @_ZZN5boost7process2v16detail5posix10build_argsE
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %8, align 8, !tbaa !33
   store i8 0, ptr %7, align 8, !tbaa !44
-  %9 = load ptr, ptr %2, align 8, !tbaa !55
+  %9 = load ptr, ptr %2, align 8, !tbaa !414
   %10 = load i8, ptr %9, align 1, !tbaa !44
   %11 = icmp eq i8 %10, 34
   %.sroa.0.0.copyload.pre = load ptr, ptr %3, align 8, !tbaa !55
@@ -8758,7 +8758,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPcSaIS
   br i1 %35, label %36, label %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i11
 
 36:                                               ; preds = %31
-  store ptr %20, ptr %0, align 8, !tbaa !55
+  store ptr %20, ptr %0, align 8, !tbaa !70
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.23) #33
           to label %.noexc18 unwind label %.loopexit.split-lp
 
@@ -8817,7 +8817,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit20:    ; preds = %_ZNSt6vectorIPcSaIS
 .loopexit40:                                      ; preds = %42
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %20, ptr %0, align 8, !tbaa !55
+  store ptr %20, ptr %0, align 8, !tbaa !70
   br label %88
 
 .loopexit.split-lp:                               ; preds = %36
@@ -8826,7 +8826,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit20:    ; preds = %_ZNSt6vectorIPcSaIS
   br label %88
 
 56:                                               ; preds = %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit20
-  store ptr %54, ptr %0, align 8, !tbaa !55
+  store ptr %54, ptr %0, align 8, !tbaa !70
   %.pre = load ptr, ptr %18, align 8, !tbaa !73
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11258,7 +11258,7 @@ _ZN5boost9iteratorsneINS0_18transform_iteratorINS_9algorithm6detail20copy_iterat
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 %60
   store i8 0, ptr %62, align 1, !tbaa !44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #30, !noalias !522
-  %63 = load ptr, ptr %18, align 8, !tbaa !55
+  %63 = load ptr, ptr %18, align 8, !tbaa !68
   %64 = load ptr, ptr %19, align 8, !tbaa !69
   %.not.i = icmp eq ptr %63, %64
   br i1 %.not.i, label %78, label %65

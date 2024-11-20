@@ -1328,7 +1328,7 @@ define hidden void @_ZN5boost4urls6detail16pop_last_segmentERNS_4core17basic_str
   %14 = alloca %"struct.boost::source_location", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !11
+  %16 = load i64, ptr %15, align 8, !tbaa !10
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %._crit_edgethread-pre-split, label %.lr.ph
 
@@ -1390,7 +1390,7 @@ define hidden void @_ZN5boost4urls6detail16pop_last_segmentERNS_4core17basic_str
 .backedgethread-pre-split:                        ; preds = %89, %69, %126
   %.sink = phi i64 [ %96, %89 ], [ %76, %69 ], [ %127, %126 ]
   store i64 %.sink, ptr %2, align 8, !tbaa !11
-  %.pr = load i64, ptr %15, align 8, !tbaa !11
+  %.pr = load i64, ptr %15, align 8, !tbaa !10
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedgethread-pre-split, %31, %51
@@ -1630,7 +1630,7 @@ _ZNK5boost4core17basic_string_viewIcE12find_last_ofEcm.exit: ; preds = %102
   br i1 %.not87, label %.critedge, label %123
 
 123:                                              ; preds = %121
-  %124 = load i64, ptr %15, align 8, !tbaa !11
+  %124 = load i64, ptr %15, align 8, !tbaa !10
   %125 = icmp eq i64 %124, 0
   br i1 %125, label %._crit_edge, label %126
 

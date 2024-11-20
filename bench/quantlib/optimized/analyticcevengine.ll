@@ -7152,7 +7152,7 @@ _ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb
   %mul17 = fmul x86_fp80 %add9, %call.i54
   %div18 = fdiv x86_fp80 %mul17, %div2
   %sub = fsub x86_fp80 %call.i50, %div18
-  %9 = load x86_fp80, ptr %lambda, align 16
+  %9 = load x86_fp80, ptr %lambda, align 16, !tbaa !159
   br label %for.body
 
 for.body:                                         ; preds = %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit57, %cleanup
@@ -7923,7 +7923,7 @@ cond.end250:                                      ; preds = %if.then244
   %mul257 = fmul x86_fp80 %cond236, 0xK7FFEFFFFFFFFFFFFFFFF
   %cmp258 = fcmp ogt x86_fp80 %mul257, %call249
   %or.cond234 = or i1 %cmp254, %cmp258
-  %.pre237 = load x86_fp80, ptr %a.addr, align 16
+  %.pre237 = load x86_fp80, ptr %a.addr, align 16, !tbaa !159
   br i1 %or.cond234, label %if.then259, label %if.end274
 
 if.then259:                                       ; preds = %cond.end250

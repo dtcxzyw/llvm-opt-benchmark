@@ -63,7 +63,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.inc.
   %idxprom.i = sext i32 %i.0163.i to i64
   %arrayidx7.i = getelementptr inbounds ptr, ptr %argv, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx7.i, align 8, !tbaa !4
-  %3 = load i8, ptr %2, align 1
+  %3 = load i8, ptr %2, align 1, !tbaa !8
   %cmp9.not.i = icmp eq i8 %3, 45
   br i1 %cmp9.not.i, label %sub_1, label %for.end.i
 
@@ -131,7 +131,7 @@ if.then41.i:                                      ; preds = %if.else35.i.tail
   br i1 %cmp45.i, label %if.then50.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then41.i
-  %23 = load i8, ptr %22, align 1
+  %23 = load i8, ptr %22, align 1, !tbaa !8
   switch i8 %23, label %for.inc.i [
     i8 0, label %if.then50.i
     i8 45, label %if.end51.i.tail

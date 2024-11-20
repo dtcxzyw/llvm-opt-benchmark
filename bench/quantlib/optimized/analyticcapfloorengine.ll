@@ -1739,7 +1739,7 @@ invoke.cont89:                                    ; preds = %invoke.cont.i157, %
           to label %.noexc160 unwind label %lpad88
 
 .noexc160:                                        ; preds = %invoke.cont89
-  %92 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !30
+  %92 = load i64, ptr @_ZZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 8, !tbaa !102
   %93 = load i64, ptr %ref.tmp.i, align 8, !tbaa !102
   %cmp.i.i = icmp eq i64 %92, %93
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i) #26

@@ -5343,7 +5343,7 @@ _ZN5boost3anyD2Ev.exit41.i:                       ; preds = %1581, %_ZN5boost3an
   br label %.body.i
 
 1590:                                             ; preds = %_ZN5boost3anyD2Ev.exit38.i
-  %1591 = load ptr, ptr %1036, align 8, !tbaa !3
+  %1591 = load ptr, ptr %1036, align 8, !tbaa !173
   %1592 = load ptr, ptr %1035, align 8, !tbaa !174
   %1593 = ptrtoint ptr %1591 to i64
   %1594 = ptrtoint ptr %1592 to i64
@@ -8533,7 +8533,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114graphml_reader10get_graphsERKN5b
   br i1 %or.cond, label %42, label %151
 
 42:                                               ; preds = %40
-  %43 = load ptr, ptr %20, align 8, !tbaa !3
+  %43 = load ptr, ptr %20, align 8, !tbaa !218
   %44 = load ptr, ptr %21, align 8, !tbaa !209
   %.not.i.i = icmp eq ptr %43, %44
   br i1 %.not.i.i, label %48, label %45
@@ -8546,7 +8546,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114graphml_reader10get_graphsERKN5b
   br label %_ZNSt6vectorIPKN5boost13property_tree11basic_ptreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4lessIS8_EEESaISD_EE9push_backEOSD_.exit
 
 48:                                               ; preds = %42
-  %49 = load ptr, ptr %4, align 8, !tbaa !3
+  %49 = load ptr, ptr %4, align 8, !tbaa !207
   %50 = ptrtoint ptr %43 to i64
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
@@ -9452,7 +9452,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 68:                                               ; preds = %36
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !3
+  %70 = load ptr, ptr %69, align 8, !tbaa !238
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %72 = load ptr, ptr %71, align 8, !tbaa !236
   %.not.i.i = icmp eq ptr %70, %72
@@ -9466,7 +9466,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %96
 
 76:                                               ; preds = %68
-  %77 = load ptr, ptr %5, align 8, !tbaa !3
+  %77 = load ptr, ptr %5, align 8, !tbaa !234
   %78 = ptrtoint ptr %70 to i64
   %79 = ptrtoint ptr %77 to i64
   %80 = sub i64 %78, %79
@@ -12505,7 +12505,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv.exit.i.i: ; preds = %40
   %.sroa.010.2 = phi ptr [ %.sroa.010.1, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv.exit.thread.i.i ], [ %.sroa.010.1, %39 ], [ %spec.select16, %.noexc4 ]
   %.0.i.i = phi i32 [ %47, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv.exit.thread.i.i ], [ %.sroa.6.0, %39 ], [ %51, %.noexc4 ]
   %54 = trunc i32 %.0.i.i to i8
-  %55 = load ptr, ptr %7, align 8, !tbaa !3
+  %55 = load ptr, ptr %7, align 8, !tbaa !238
   %56 = load ptr, ptr %8, align 8, !tbaa !236
   %.not.i = icmp eq ptr %55, %56
   br i1 %.not.i, label %60, label %57
@@ -12518,7 +12518,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv.exit.i.i: ; preds = %40
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
 
 60:                                               ; preds = %53
-  %61 = load ptr, ptr %0, align 8, !tbaa !3
+  %61 = load ptr, ptr %0, align 8, !tbaa !234
   %62 = ptrtoint ptr %55 to i64
   %63 = ptrtoint ptr %61 to i64
   %64 = sub i64 %62, %63
@@ -25011,7 +25011,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost13property_tree11basic_ptreeIN
   %17 = load i64, ptr %16, align 8, !tbaa !24
   %18 = and i64 %17, -2
   %19 = icmp eq i64 %18, 0
-  %.pre14 = load ptr, ptr %3, align 8
+  %.pre14 = load ptr, ptr %3, align 8, !tbaa !21
   br i1 %19, label %.thread, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %11
@@ -27651,7 +27651,7 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPN5boost11multi_in
   %.019.i.idx = phi i64 [ 16, %9 ], [ %.019.i.add, %20 ]
   %.pn18.i = phi ptr [ %0, %9 ], [ %.019.i.ptr, %20 ]
   %.019.i.ptr = getelementptr inbounds i8, ptr %0, i64 %.019.i.idx
-  %11 = load ptr, ptr %.019.i.ptr, align 8, !tbaa !3
+  %11 = load ptr, ptr %.019.i.ptr, align 8, !tbaa !432
   %12 = load ptr, ptr %0, align 8, !tbaa !432
   %13 = icmp ult ptr %11, %12
   br i1 %13, label %14, label %15
@@ -27735,7 +27735,7 @@ _ZSt25__unguarded_linear_insertIPN5boost11multi_index6detail14copy_map_entryINS2
 .lr.ph.i19:                                       ; preds = %27, %44
   %.019.i20 = phi ptr [ %.0.i27, %44 ], [ %.016.i18, %27 ]
   %.pn18.i21 = phi ptr [ %.019.i20, %44 ], [ %0, %27 ]
-  %29 = load ptr, ptr %.019.i20, align 8, !tbaa !3
+  %29 = load ptr, ptr %.019.i20, align 8, !tbaa !432
   %30 = load ptr, ptr %0, align 8, !tbaa !432
   %31 = icmp ult ptr %29, %30
   br i1 %31, label %32, label %39
@@ -32879,7 +32879,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_17bad_parallel_edgeEEC
 define linkonce_odr hidden void @_ZNSt6vectorIN5boost3anyESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !173
-  %6 = load ptr, ptr %0, align 8, !tbaa !3
+  %6 = load ptr, ptr %0, align 8, !tbaa !174
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8

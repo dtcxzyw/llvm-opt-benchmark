@@ -853,9 +853,9 @@ invoke.cont:                                      ; preds = %_ZNK5boost10shared_
   %n_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %2, ptr %n_.i, align 8, !tbaa !52
   %dim_.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre49 = load ptr, ptr %dim_.i.phi.trans.insert, align 8, !tbaa !16, !noalias !60
+  %.pre49 = load ptr, ptr %dim_.i.phi.trans.insert, align 8, !tbaa !15, !noalias !60
   %_M_finish.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre = load ptr, ptr %_M_finish.i.i.i.phi.trans.insert, align 8, !tbaa !16, !noalias !60
+  %.pre = load ptr, ptr %_M_finish.i.i.i.phi.trans.insert, align 8, !tbaa !13, !noalias !60
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %.pre to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %.pre49 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i

@@ -1475,8 +1475,8 @@ define void @_ZNK8QuantLib30MultiplicativePriceSeasonality18seasonalityFactorsEv
 entry:
   %seasonalityFactors_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !6
-  %1 = load ptr, ptr %seasonalityFactors_, align 8, !tbaa !6
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !17
+  %1 = load ptr, ptr %seasonalityFactors_, align 8, !tbaa !18
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

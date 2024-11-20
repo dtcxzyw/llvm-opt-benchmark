@@ -12182,8 +12182,8 @@ entry:
   %_M_node_count.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 288
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i6, align 8, !tbaa !16
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %floatingLeg, i64 8
-  %4 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !3
-  %5 = load ptr, ptr %floatingLeg, align 8, !tbaa !3
+  %4 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !195
+  %5 = load ptr, ptr %floatingLeg, align 8, !tbaa !193
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -12252,8 +12252,8 @@ invoke.cont:                                      ; preds = %_ZSt10_ConstructIN5
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %invoke.cont.i.thread ], [ %incdec.ptr.i.i.i.i.i, %_ZSt10_ConstructIN5boost10shared_ptrIN8QuantLib8CashFlowEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i.i67, align 8, !tbaa !195
   %_M_finish.i.i8 = getelementptr inbounds nuw i8, ptr %exerciseRates, i64 8
-  %9 = load ptr, ptr %_M_finish.i.i8, align 8, !tbaa !3
-  %10 = load ptr, ptr %exerciseRates, align 8, !tbaa !3
+  %9 = load ptr, ptr %_M_finish.i.i8, align 8, !tbaa !175
+  %10 = load ptr, ptr %exerciseRates, align 8, !tbaa !110
   %sub.ptr.lhs.cast.i.i9 = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i10 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i11 = sub i64 %sub.ptr.lhs.cast.i.i9, %sub.ptr.rhs.cast.i.i10

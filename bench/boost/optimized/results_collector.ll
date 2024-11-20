@@ -300,7 +300,7 @@ define noundef zeroext i1 @_ZNK5boost9unit_test12test_results7skippedEv(ptr noca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 0, 202) i32 @_ZNK5boost9unit_test12test_results11result_codeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(107) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 105
-  %3 = load i8, ptr %2, align 1, !tbaa !13, !range !9, !noundef !10
+  %3 = load i8, ptr %2, align 1, !tbaa !4, !range !9, !noundef !10
   %4 = trunc nuw i8 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i64, ptr %5, align 8
@@ -1664,7 +1664,7 @@ define linkonce_odr hidden void @_ZN5boost9unit_test22results_collect_helper5vis
   %65 = add i64 %64, %62
   store i64 %65, ptr %63, align 8, !tbaa !14
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 105
-  %67 = load i8, ptr %66, align 1, !tbaa !13, !range !9, !noundef !10
+  %67 = load i8, ptr %66, align 1, !tbaa !4, !range !9, !noundef !10
   %68 = trunc nuw i8 %67 to i1
   %69 = load i64, ptr %36, align 8
   %70 = icmp ne i64 %69, 0

@@ -12381,7 +12381,7 @@ define internal fastcc void @interpolate_color_xtrans(ptr nocapture noundef read
   %31 = icmp slt i32 %5, 0
   %32 = select i1 %31, i64 -1, i64 1
   %33 = getelementptr inbounds i8, ptr %3, i64 8
-  %34 = load i32, ptr %33, align 4, !tbaa !30
+  %34 = load i32, ptr %33, align 4, !tbaa !304
   %35 = sext i32 %34 to i64
   %36 = sub nsw i64 %32, %35
   br label %37

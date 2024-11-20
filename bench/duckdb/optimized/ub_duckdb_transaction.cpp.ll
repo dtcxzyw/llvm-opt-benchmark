@@ -2582,8 +2582,8 @@ if.else.i.i233:                                   ; preds = %invoke.cont98
 
 for.inc103:                                       ; preds = %if.else.i.i233, %if.then.i.i231
   %inc104 = add nuw i64 %i62.0417, 1
-  %71 = load ptr, ptr %_M_finish.i220, align 8, !tbaa !3
-  %72 = load ptr, ptr %recently_committed_transactions64, align 8, !tbaa !3
+  %71 = load ptr, ptr %_M_finish.i220, align 8, !tbaa !26
+  %72 = load ptr, ptr %recently_committed_transactions64, align 8, !tbaa !25
   %sub.ptr.lhs.cast.i221 = ptrtoint ptr %71 to i64
   %sub.ptr.rhs.cast.i222 = ptrtoint ptr %72 to i64
   %sub.ptr.sub.i223 = sub i64 %sub.ptr.lhs.cast.i221, %sub.ptr.rhs.cast.i222
@@ -2710,8 +2710,8 @@ invoke.cont141:                                   ; preds = %invoke.cont139
 
 for.inc147:                                       ; preds = %invoke.cont141
   %inc148 = add nuw i64 %i62.1427, 1
-  %86 = load ptr, ptr %_M_finish.i265, align 8, !tbaa !3
-  %87 = load ptr, ptr %old_transactions131, align 8, !tbaa !3
+  %86 = load ptr, ptr %_M_finish.i265, align 8, !tbaa !26
+  %87 = load ptr, ptr %old_transactions131, align 8, !tbaa !25
   %sub.ptr.lhs.cast.i271 = ptrtoint ptr %86 to i64
   %sub.ptr.rhs.cast.i272 = ptrtoint ptr %87 to i64
   %sub.ptr.sub.i273 = sub i64 %sub.ptr.lhs.cast.i271, %sub.ptr.rhs.cast.i272

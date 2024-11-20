@@ -1977,7 +1977,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %7 = load ptr, ptr %timeGrid_, align 8, !tbaa !66
   %add.ptr.i.i = getelementptr inbounds nuw double, ptr %7, i64 %sub5
   %8 = load double, ptr %add.ptr.i.i, align 8, !tbaa !68
-  %9 = load double, ptr %term_, align 8, !tbaa !68
+  %9 = load double, ptr %term_, align 8, !tbaa !50
   %cmp7 = fcmp olt double %8, %9
   br i1 %cmp7, label %if.then, label %if.end
 
@@ -2754,8 +2754,8 @@ _ZNK8QuantLib33PiecewiseTimeDependentHestonModel3rhoEd.exit: ; preds = %_ZNK5boo
   %call2.i.i109 = tail call noundef double %63(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull align 8 dereferenceable(16) %params_.i.i106, double noundef %mul)
   %mul79 = fmul double %call2.i.i84, %call2.i.i84
   %mul82 = fmul double %call2.i.i84, %call2.i.i109
-  %64 = load double, ptr %_M_value.imagp.i112, align 8
-  %65 = load double, ptr %z, align 8
+  %64 = load double, ptr %_M_value.imagp.i112, align 8, !tbaa !68
+  %65 = load double, ptr %z, align 8, !tbaa !68
   %fneg = fneg double %65
   %mul.rl.i.i116 = fmul double %64, %mul82
   %mul.il.i.i117 = fmul double %mul82, %fneg
@@ -2777,7 +2777,7 @@ complex_mul_libcall.i.i:                          ; preds = %complex_mul_imag_na
   %66 = extractvalue { double, double } %call5.i.i, 0
   %67 = extractvalue { double, double } %call5.i.i, 1
   %retval.sroa.0.0.copyload.i134.pre = load double, ptr %z, align 8
-  %retval.sroa.4.0.copyload.i136.pre = load double, ptr %_M_value.imagp.i112, align 8
+  %retval.sroa.4.0.copyload.i136.pre = load double, ptr %_M_value.imagp.i112, align 8, !tbaa !33
   br label %_ZStmlIdESt7complexIT_ERKS2_S4_.exit
 
 _ZStmlIdESt7complexIT_ERKS2_S4_.exit:             ; preds = %_ZNK8QuantLib33PiecewiseTimeDependentHestonModel3rhoEd.exit, %complex_mul_imag_nan.i.i, %complex_mul_libcall.i.i
