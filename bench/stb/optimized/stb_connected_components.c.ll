@@ -1908,18 +1908,17 @@ for.cond4.preheader.lr.ph:                        ; preds = %entry
 
 for.cond4.preheader.us.preheader:                 ; preds = %for.cond4.preheader.lr.ph
   %0 = zext nneg i32 %w to i64
-  %1 = zext nneg i32 %w to i64
   %wide.trip.count = zext nneg i32 %h to i64
   br label %for.cond4.preheader.us
 
 for.cond4.preheader.us:                           ; preds = %for.cond4.preheader.us.preheader, %for.cond4.for.inc24_crit_edge.us
   %indvars.iv71 = phi i64 [ 0, %for.cond4.preheader.us.preheader ], [ %indvars.iv.next72, %for.cond4.for.inc24_crit_edge.us ]
-  %2 = mul nuw nsw i64 %indvars.iv71, %1
+  %1 = mul nuw nsw i64 %indvars.iv71, %0
   br label %for.cond7.preheader.us
 
 for.end.us:                                       ; preds = %for.body9.us
-  %3 = lshr exact i64 %indvars.iv66, 3
-  %arrayidx20.us = getelementptr inbounds [1024 x [128 x i8]], ptr %map15, i64 0, i64 %indvars.iv71, i64 %3
+  %2 = lshr exact i64 %indvars.iv66, 3
+  %arrayidx20.us = getelementptr inbounds [1024 x [128 x i8]], ptr %map15, i64 0, i64 %indvars.iv71, i64 %2
   store i8 %c.1.us, ptr %arrayidx20.us, align 1
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 8
   %cmp5.us = icmp samesign ult i64 %indvars.iv.next67, %0
@@ -1928,16 +1927,16 @@ for.end.us:                                       ; preds = %for.body9.us
 for.body9.us:                                     ; preds = %for.cond7.preheader.us, %for.body9.us
   %indvars.iv = phi i64 [ 0, %for.cond7.preheader.us ], [ %indvars.iv.next, %for.body9.us ]
   %c.047.us = phi i8 [ 0, %for.cond7.preheader.us ], [ %c.1.us, %for.body9.us ]
-  %4 = trunc nuw nsw i64 %indvars.iv to i32
-  %add10.us = add nuw i64 %7, %indvars.iv
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
+  %add10.us = add i64 %6, %indvars.iv
   %sext = shl i64 %add10.us, 32
   %idxprom.us = ashr exact i64 %sext, 32
   %arrayidx.us = getelementptr inbounds i8, ptr %map, i64 %idxprom.us
-  %5 = load i8, ptr %arrayidx.us, align 1
-  %cmp11.us = icmp eq i8 %5, 0
-  %shl.us = shl nuw nsw i32 1, %4
-  %6 = trunc nuw i32 %shl.us to i8
-  %conv14.us = select i1 %cmp11.us, i8 %6, i8 0
+  %4 = load i8, ptr %arrayidx.us, align 1
+  %cmp11.us = icmp eq i8 %4, 0
+  %shl.us = shl nuw nsw i32 1, %3
+  %5 = trunc nuw i32 %shl.us to i8
+  %conv14.us = select i1 %cmp11.us, i8 %5, i8 0
   %c.1.us = or i8 %conv14.us, %c.047.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -1945,7 +1944,7 @@ for.body9.us:                                     ; preds = %for.cond7.preheader
 
 for.cond7.preheader.us:                           ; preds = %for.cond4.preheader.us, %for.end.us
   %indvars.iv66 = phi i64 [ 0, %for.cond4.preheader.us ], [ %indvars.iv.next67, %for.end.us ]
-  %7 = add nuw nsw i64 %indvars.iv66, %2
+  %6 = add nuw i64 %indvars.iv66, %1
   br label %for.body9.us
 
 for.cond4.for.inc24_crit_edge.us:                 ; preds = %for.end.us
@@ -1955,29 +1954,29 @@ for.cond4.for.inc24_crit_edge.us:                 ; preds = %for.end.us
 
 for.cond27.preheader:                             ; preds = %for.cond4.for.inc24_crit_edge.us, %for.cond4.preheader.lr.ph, %entry
   %cmp2955 = icmp sgt i32 %shr3, 0
-  %8 = icmp sgt i32 %shr, 0
-  %or.cond = and i1 %cmp2955, %8
+  %7 = icmp sgt i32 %shr, 0
+  %or.cond = and i1 %cmp2955, %7
   br i1 %or.cond, label %for.cond32.preheader, label %for.end58
 
 for.cond32.preheader:                             ; preds = %for.cond27.preheader, %for.inc40
-  %9 = phi i32 [ %13, %for.inc40 ], [ %shr3, %for.cond27.preheader ]
-  %10 = phi i32 [ %14, %for.inc40 ], [ %shr, %for.cond27.preheader ]
+  %8 = phi i32 [ %12, %for.inc40 ], [ %shr3, %for.cond27.preheader ]
+  %9 = phi i32 [ %13, %for.inc40 ], [ %shr, %for.cond27.preheader ]
   %j.156 = phi i32 [ %inc41, %for.inc40 ], [ 0, %for.cond27.preheader ]
-  %cmp3453 = icmp sgt i32 %10, 0
+  %cmp3453 = icmp sgt i32 %9, 0
   br i1 %cmp3453, label %for.body36, label %for.inc40
 
 for.cond43.preheader:                             ; preds = %for.inc40
-  %cmp4559 = icmp sgt i32 %13, 0
-  %11 = icmp sgt i32 %14, 0
-  %or.cond83 = and i1 %cmp4559, %11
+  %cmp4559 = icmp sgt i32 %12, 0
+  %10 = icmp sgt i32 %13, 0
+  %or.cond83 = and i1 %cmp4559, %10
   br i1 %or.cond83, label %for.cond48.preheader, label %for.end58
 
 for.body36:                                       ; preds = %for.cond32.preheader, %for.body36
   %i.154 = phi i32 [ %inc38, %for.body36 ], [ 0, %for.cond32.preheader ]
   tail call void @stbcc__build_clumps_for_cluster(ptr noundef nonnull %g, i32 noundef %i.154, i32 noundef %j.156)
   %inc38 = add nuw nsw i32 %i.154, 1
-  %12 = load i32, ptr %cw, align 4
-  %cmp34 = icmp slt i32 %inc38, %12
+  %11 = load i32, ptr %cw, align 4
+  %cmp34 = icmp slt i32 %inc38, %11
   br i1 %cmp34, label %for.body36, label %for.inc40.loopexit, !llvm.loop !40
 
 for.inc40.loopexit:                               ; preds = %for.body36
@@ -1985,25 +1984,25 @@ for.inc40.loopexit:                               ; preds = %for.body36
   br label %for.inc40
 
 for.inc40:                                        ; preds = %for.inc40.loopexit, %for.cond32.preheader
-  %13 = phi i32 [ %.pre, %for.inc40.loopexit ], [ %9, %for.cond32.preheader ]
-  %14 = phi i32 [ %12, %for.inc40.loopexit ], [ %10, %for.cond32.preheader ]
+  %12 = phi i32 [ %.pre, %for.inc40.loopexit ], [ %8, %for.cond32.preheader ]
+  %13 = phi i32 [ %11, %for.inc40.loopexit ], [ %9, %for.cond32.preheader ]
   %inc41 = add nuw nsw i32 %j.156, 1
-  %cmp29 = icmp slt i32 %inc41, %13
+  %cmp29 = icmp slt i32 %inc41, %12
   br i1 %cmp29, label %for.cond32.preheader, label %for.cond43.preheader, !llvm.loop !41
 
 for.cond48.preheader:                             ; preds = %for.cond43.preheader, %for.inc56
+  %14 = phi i32 [ %17, %for.inc56 ], [ %12, %for.cond43.preheader ]
   %15 = phi i32 [ %18, %for.inc56 ], [ %13, %for.cond43.preheader ]
-  %16 = phi i32 [ %19, %for.inc56 ], [ %14, %for.cond43.preheader ]
   %j.260 = phi i32 [ %inc57, %for.inc56 ], [ 0, %for.cond43.preheader ]
-  %cmp5057 = icmp sgt i32 %16, 0
+  %cmp5057 = icmp sgt i32 %15, 0
   br i1 %cmp5057, label %for.body52, label %for.inc56
 
 for.body52:                                       ; preds = %for.cond48.preheader, %for.body52
   %i.258 = phi i32 [ %inc54, %for.body52 ], [ 0, %for.cond48.preheader ]
   tail call void @stbcc__build_all_connections_for_cluster(ptr noundef nonnull %g, i32 noundef %i.258, i32 noundef %j.260)
   %inc54 = add nuw nsw i32 %i.258, 1
-  %17 = load i32, ptr %cw, align 4
-  %cmp50 = icmp slt i32 %inc54, %17
+  %16 = load i32, ptr %cw, align 4
+  %cmp50 = icmp slt i32 %inc54, %16
   br i1 %cmp50, label %for.body52, label %for.inc56.loopexit, !llvm.loop !43
 
 for.inc56.loopexit:                               ; preds = %for.body52
@@ -2011,10 +2010,10 @@ for.inc56.loopexit:                               ; preds = %for.body52
   br label %for.inc56
 
 for.inc56:                                        ; preds = %for.inc56.loopexit, %for.cond48.preheader
-  %18 = phi i32 [ %.pre76, %for.inc56.loopexit ], [ %15, %for.cond48.preheader ]
-  %19 = phi i32 [ %17, %for.inc56.loopexit ], [ %16, %for.cond48.preheader ]
+  %17 = phi i32 [ %.pre76, %for.inc56.loopexit ], [ %14, %for.cond48.preheader ]
+  %18 = phi i32 [ %16, %for.inc56.loopexit ], [ %15, %for.cond48.preheader ]
   %inc57 = add nuw nsw i32 %j.260, 1
-  %cmp45 = icmp slt i32 %inc57, %18
+  %cmp45 = icmp slt i32 %inc57, %17
   br i1 %cmp45, label %for.cond48.preheader, label %for.end58, !llvm.loop !44
 
 for.end58:                                        ; preds = %for.inc56, %for.cond27.preheader, %for.cond43.preheader

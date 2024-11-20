@@ -1860,8 +1860,8 @@ cond.end:                                         ; preds = %arrayctor.loop.preh
   br i1 %cmp2027, label %for.body21.preheader, label %_ZNK9btVector36maxDotEPKS_lRf.exit
 
 for.body21.preheader:                             ; preds = %arrayctor.loop.preheader, %cond.end
-  %cond42 = phi i32 [ %sub18, %cond.end ], [ 128, %arrayctor.loop.preheader ]
-  %wide.trip.count = zext nneg i32 %cond42 to i64
+  %cond41 = phi i32 [ %sub18, %cond.end ], [ 128, %arrayctor.loop.preheader ]
+  %wide.trip.count = zext nneg i32 %cond41 to i64
   br label %for.body21
 
 for.body21:                                       ; preds = %for.body21.preheader, %for.body21
@@ -1874,16 +1874,12 @@ for.body21:                                       ; preds = %for.body21.preheade
   call void %5(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body21, !llvm.loop !15
+  br i1 %exitcond.not, label %for.body.i, label %for.body21, !llvm.loop !15
 
-for.end:                                          ; preds = %for.body21
-  %conv = zext nneg i32 %cond42 to i64
-  br label %for.body.i
-
-for.body.i:                                       ; preds = %for.end, %for.body.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.end ]
-  %maxDot1.09.i = phi float [ %maxDot1.1.i, %for.body.i ], [ 0xC7EFFFFFE0000000, %for.end ]
-  %ptIndex.08.i = phi i32 [ %ptIndex.1.i, %for.body.i ], [ -1, %for.end ]
+for.body.i:                                       ; preds = %for.body21, %for.body.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body21 ]
+  %maxDot1.09.i = phi float [ %maxDot1.1.i, %for.body.i ], [ 0xC7EFFFFFE0000000, %for.body21 ]
+  %ptIndex.08.i = phi i32 [ %ptIndex.1.i, %for.body.i ], [ -1, %for.body21 ]
   %arrayidx.i = getelementptr inbounds %class.btVector3, ptr %temp, i64 %indvars.iv.i
   %7 = load float, ptr %arrayidx.i, align 16
   %arrayidx5.i.i14 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
@@ -1898,7 +1894,7 @@ for.body.i:                                       ; preds = %for.end, %for.body.
   %ptIndex.1.i = select i1 %cmp2.i, i32 %12, i32 %ptIndex.08.i
   %maxDot1.1.i = select i1 %cmp2.i, float %11, float %maxDot1.09.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count
   br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !16
 
 for.end.loopexit.i:                               ; preds = %for.body.i
@@ -1998,8 +1994,8 @@ cond.end:                                         ; preds = %arrayctor.loop.preh
   br i1 %cmp2124, label %for.body22.preheader, label %_ZNK9btVector36maxDotEPKS_lRf.exit
 
 for.body22.preheader:                             ; preds = %arrayctor.loop.preheader, %cond.end
-  %cond47 = phi i32 [ %sub19, %cond.end ], [ 128, %arrayctor.loop.preheader ]
-  %wide.trip.count37 = zext nneg i32 %cond47 to i64
+  %cond46 = phi i32 [ %sub19, %cond.end ], [ 128, %arrayctor.loop.preheader ]
+  %wide.trip.count37 = zext nneg i32 %cond46 to i64
   br label %for.body22
 
 for.body22:                                       ; preds = %for.body22.preheader, %for.body22
@@ -2012,19 +2008,18 @@ for.body22:                                       ; preds = %for.body22.preheade
   call void %3(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx24)
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %for.end29, label %for.body22, !llvm.loop !19
+  br i1 %exitcond38.not, label %for.body.lr.ph.i, label %for.body22, !llvm.loop !19
 
-for.end29:                                        ; preds = %for.body22
-  %conv = zext nneg i32 %cond47 to i64
+for.body.lr.ph.i:                                 ; preds = %for.body22
   %5 = load float, ptr %arrayidx7, align 4
   %6 = load float, ptr %arrayidx7.i.i, align 4
   %7 = load float, ptr %arrayidx12.i.i, align 4
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %for.end29
-  %indvars.iv.i = phi i64 [ 0, %for.end29 ], [ %indvars.iv.next.i, %for.body.i ]
-  %maxDot1.09.i = phi float [ 0xC7EFFFFFE0000000, %for.end29 ], [ %maxDot1.1.i, %for.body.i ]
-  %ptIndex.08.i = phi i32 [ -1, %for.end29 ], [ %ptIndex.1.i, %for.body.i ]
+for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
+  %maxDot1.09.i = phi float [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i ], [ %maxDot1.1.i, %for.body.i ]
+  %ptIndex.08.i = phi i32 [ -1, %for.body.lr.ph.i ], [ %ptIndex.1.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds %class.btVector3, ptr %temp, i64 %indvars.iv.i
   %8 = load float, ptr %arrayidx.i, align 16
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
@@ -2039,7 +2034,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.en
   %ptIndex.1.i = select i1 %cmp2.i, i32 %13, i32 %ptIndex.08.i
   %maxDot1.1.i = select i1 %cmp2.i, float %12, float %maxDot1.09.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count37
   br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !16
 
 for.end.loopexit.i:                               ; preds = %for.body.i

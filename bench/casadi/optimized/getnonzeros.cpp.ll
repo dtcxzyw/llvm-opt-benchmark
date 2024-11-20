@@ -2258,7 +2258,7 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %32
   %51 = getelementptr inbounds i8, ptr %8, i64 16
   %52 = getelementptr inbounds i8, ptr %16, i64 8
   %53 = getelementptr inbounds i8, ptr %12, i64 8
-  %smax = call i64 @llvm.smax.i64(i64 %28, i64 1)
+  %umax = call i64 @llvm.umax.i64(i64 %28, i64 1)
   br label %54
 
 54:                                               ; preds = %.lr.ph178, %359
@@ -2975,8 +2975,8 @@ _ZN6casadi2MXaSERKS0_.exit90:                     ; preds = %352
 359:                                              ; preds = %_ZN6casadi2MXaSERKS0_.exit63, %_ZN6casadi2MXaSERKS0_.exit, %_ZN6casadi2MXaSERKS0_.exit90, %_ZN6casadi2MXaSERKS0_.exit88
   %.sroa.6.2 = phi ptr [ %.sroa.6.0174, %_ZN6casadi2MXaSERKS0_.exit ], [ %.sroa.6.0174, %_ZN6casadi2MXaSERKS0_.exit63 ], [ %.sroa.6.1, %_ZN6casadi2MXaSERKS0_.exit88 ], [ %.sroa.6.1, %_ZN6casadi2MXaSERKS0_.exit90 ]
   %.sroa.0.4 = phi ptr [ %.sroa.0.0175, %_ZN6casadi2MXaSERKS0_.exit ], [ %.sroa.0.0175, %_ZN6casadi2MXaSERKS0_.exit63 ], [ %.sroa.0.3, %_ZN6casadi2MXaSERKS0_.exit88 ], [ %.sroa.0.3, %_ZN6casadi2MXaSERKS0_.exit90 ]
-  %360 = add nuw nsw i64 %.053176, 1
-  %exitcond.not = icmp eq i64 %360, %smax
+  %360 = add nuw i64 %.053176, 1
+  %exitcond.not = icmp eq i64 %360, %umax
   br i1 %exitcond.not, label %._crit_edge179, label %54, !llvm.loop !25
 
 ._crit_edge179:                                   ; preds = %359
@@ -3200,7 +3200,7 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %3
   %43 = getelementptr inbounds i8, ptr %8, i64 16
   %44 = getelementptr inbounds i8, ptr %13, i64 16
   %45 = getelementptr inbounds i8, ptr %13, i64 8
-  %smax = call i64 @llvm.smax.i64(i64 %28, i64 1)
+  %umax = call i64 @llvm.umax.i64(i64 %28, i64 1)
   br label %46
 
 46:                                               ; preds = %.lr.ph197, %.critedge
@@ -3782,8 +3782,8 @@ _ZN6casadi2MXaSERKS0_.exit67:                     ; preds = %251
   %.sroa.0127.7 = phi ptr [ %.sroa.0127.0194, %_ZN6casadi6MatrixIdED2Ev.exit ], [ %.sroa.0127.6, %_ZN6casadi2MXaSERKS0_.exit67 ], [ %.sroa.0127.6, %._crit_edge ], [ %.sroa.0127.6, %111 ]
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #24
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #24
-  %258 = add nuw nsw i64 %.035195, 1
-  %exitcond.not = icmp eq i64 %258, %smax
+  %258 = add nuw i64 %.035195, 1
+  %exitcond.not = icmp eq i64 %258, %umax
   br i1 %exitcond.not, label %._crit_edge198, label %46, !llvm.loop !32
 
 259:                                              ; preds = %.loopexit140, %.loopexit.split-lp, %256, %228, %89
@@ -9696,9 +9696,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #20
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22

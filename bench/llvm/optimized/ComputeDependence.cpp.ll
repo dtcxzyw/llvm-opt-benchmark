@@ -4093,11 +4093,15 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %.not.i = icmp sgt i32 %3, -1
   %6 = zext nneg i32 %4 to i64
   %7 = getelementptr inbounds %"struct.clang::ObjCDictionaryLiteral_KeyValuePair", ptr %5, i64 %6
-  br i1 %.not.i, label %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us, label %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit
+  br i1 %.not.i, label %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us.preheader, label %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit
 
-_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us: ; preds = %.lr.ph, %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us
-  %indvars.iv15 = phi i64 [ %indvars.iv.next16, %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us ], [ 0, %.lr.ph ]
-  %.0910.us = phi i8 [ %19, %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us ], [ 0, %.lr.ph ]
+_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us.preheader: ; preds = %.lr.ph
+  %wide.trip.count17 = zext nneg i32 %3 to i64
+  br label %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us
+
+_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us: ; preds = %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us.preheader, %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us
+  %indvars.iv15 = phi i64 [ 0, %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us.preheader ], [ %indvars.iv.next16, %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us ]
+  %.0910.us = phi i8 [ 0, %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us.preheader ], [ %19, %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us ]
   %8 = getelementptr inbounds %"struct.clang::ObjCDictionaryLiteral_KeyValuePair", ptr %5, i64 %indvars.iv15
   %9 = load ptr, ptr %8, align 8, !noalias !18
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -4112,7 +4116,7 @@ _ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us: ; preds = %.lr.
   %spec.select.us = and i8 %18, 27
   %19 = or i8 %spec.select.us, %.0910.us
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
-  %exitcond18.not = icmp eq i64 %indvars.iv.next16, %6
+  %exitcond18.not = icmp eq i64 %indvars.iv.next16, %wide.trip.count17
   br i1 %exitcond18.not, label %._crit_edge, label %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit.us, !llvm.loop !21
 
 _ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit: ; preds = %.lr.ph, %_ZNK5clang21ObjCDictionaryLiteral18getKeyValueElementEj.exit

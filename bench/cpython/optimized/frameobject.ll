@@ -4491,9 +4491,10 @@ pop_to_level.exit:                                ; preds = %while.cond.i
   br label %pop_to_level.exit.thread
 
 pop_to_level.exit.thread:                         ; preds = %if.then198, %pop_to_level.exit
+  %tobool203.not285.in = phi i32 [ %and188, %pop_to_level.exit ], [ %val.0.lcssa.i230, %if.then198 ]
   %retval.0.i239284 = phi i64 [ %stack.addr.0.i, %pop_to_level.exit ], [ 0, %if.then198 ]
   %45 = phi i64 [ %spec.select, %pop_to_level.exit ], [ 5, %if.then198 ]
-  %tobool203.not285 = icmp eq i32 %and188, 0
+  %tobool203.not285 = icmp eq i32 %tobool203.not285.in, 0
   %target_stack199.0 = select i1 %tobool203.not285, i64 %retval.0.i239284, i64 %45
   %cmp.i244 = icmp ugt i64 %target_stack199.0, 1152921504606846975
   %shl.i245 = shl nuw nsw i64 %target_stack199.0, 3

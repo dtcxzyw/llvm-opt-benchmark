@@ -806,7 +806,6 @@ define i64 @adjoint_derivative_qdldl(ptr nocapture readnone %0, ptr noundef %1, 
 
 .lr.ph.i:                                         ; preds = %24
   %31 = getelementptr inbounds i8, ptr %21, i64 16
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %30, i64 0)
   br label %32
 
 32:                                               ; preds = %32, %.lr.ph.i
@@ -814,8 +813,8 @@ define i64 @adjoint_derivative_qdldl(ptr nocapture readnone %0, ptr noundef %1, 
   %33 = load ptr, ptr %31, align 8
   %34 = getelementptr inbounds i64, ptr %33, i64 %.0186.i
   store i64 0, ptr %34, align 8
-  %35 = add nuw nsw i64 %.0186.i, 1
-  %exitcond.not.i = icmp eq i64 %.0186.i, %smax.i
+  %35 = add nuw i64 %.0186.i, 1
+  %exitcond.not.i = icmp eq i64 %.0186.i, %30
   br i1 %exitcond.not.i, label %._crit_edge.i, label %32, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %32
@@ -1025,7 +1024,7 @@ _colcount_block.exit123.i:                        ; preds = %146, %_colcount_dia
   %161 = add nsw i64 %160, 1
   store i64 %161, ptr %159, align 8
   %162 = add nuw nsw i64 %.06.i125.i, 1
-  %163 = icmp slt i64 %162, %30
+  %163 = icmp samesign ult i64 %162, %30
   br i1 %163, label %157, label %_colcount_diag.exit126.i, !llvm.loop !12
 
 _colcount_diag.exit126.i:                         ; preds = %157, %_colcount_block.exit123.i
@@ -1669,7 +1668,7 @@ _adj_perturb.exit:                                ; preds = %479, %.preheader.i
 
 .lr.ph:                                           ; preds = %.preheader227
   %544 = load ptr, ptr %6, align 8
-  %smax = tail call i64 @llvm.smax.i64(i64 %20, i64 1)
+  %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %545
 
 545:                                              ; preds = %.lr.ph, %545
@@ -1681,12 +1680,12 @@ _adj_perturb.exit:                                ; preds = %479, %.preheader.i
   %550 = getelementptr inbounds double, ptr %540, i64 %.0200235
   store double %549, ptr %550, align 8
   %551 = add nuw nsw i64 %.0200235, 1
-  %exitcond.not = icmp eq i64 %551, %smax
+  %exitcond.not = icmp eq i64 %551, %umax
   br i1 %exitcond.not, label %._crit_edge, label %545, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %545
   tail call void @QDLDL_solve(i64 noundef %20, ptr noundef nonnull %493, ptr noundef nonnull %529, ptr noundef nonnull %530, ptr noundef nonnull %495, ptr noundef nonnull %540) #10
-  %smax255 = tail call i64 @llvm.smax.i64(i64 %20, i64 1)
+  %umax255 = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %.lr.ph238
 
 .lr.ph238:                                        ; preds = %._crit_edge, %.lr.ph238
@@ -1698,7 +1697,7 @@ _adj_perturb.exit:                                ; preds = %479, %.preheader.i
   %556 = getelementptr inbounds double, ptr %539, i64 %555
   store double %553, ptr %556, align 8
   %557 = add nuw nsw i64 %.1201236, 1
-  %exitcond256.not = icmp eq i64 %557, %smax255
+  %exitcond256.not = icmp eq i64 %557, %umax255
   br i1 %exitcond256.not, label %._crit_edge239, label %.lr.ph238, !llvm.loop !23
 
 ._crit_edge239:                                   ; preds = %.lr.ph238, %._crit_edge.thread
@@ -1710,7 +1709,7 @@ _adj_perturb.exit:                                ; preds = %479, %.preheader.i
   br i1 %or.cond21, label %.preheader226, label %583
 
 .preheader226:                                    ; preds = %._crit_edge239
-  %smax257 = tail call i64 @llvm.smax.i64(i64 %20, i64 1)
+  %umax257 = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %562
 
 562:                                              ; preds = %.preheader226, %._crit_edge246
@@ -1738,7 +1737,7 @@ _adj_perturb.exit:                                ; preds = %479, %.preheader.i
   %570 = getelementptr inbounds double, ptr %540, i64 %.2202240
   store double %569, ptr %570, align 8
   %571 = add nuw nsw i64 %.2202240, 1
-  %exitcond258.not = icmp eq i64 %571, %smax257
+  %exitcond258.not = icmp eq i64 %571, %umax257
   br i1 %exitcond258.not, label %._crit_edge242, label %.lr.ph241, !llvm.loop !24
 
 ._crit_edge242:                                   ; preds = %.lr.ph241
@@ -1755,7 +1754,7 @@ _adj_perturb.exit:                                ; preds = %479, %.preheader.i
   %577 = getelementptr inbounds double, ptr %574, i64 %576
   store double %573, ptr %577, align 8
   %578 = add nuw nsw i64 %.3203243, 1
-  %exitcond260.not = icmp eq i64 %578, %smax257
+  %exitcond260.not = icmp eq i64 %578, %umax257
   br i1 %exitcond260.not, label %._crit_edge246, label %.lr.ph245, !llvm.loop !25
 
 ._crit_edge246:                                   ; preds = %.lr.ph245, %._crit_edge242.thread
@@ -2133,7 +2132,7 @@ declare void @OSQPMatrix_free(ptr noundef) local_unnamed_addr #3
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #9
+declare i64 @llvm.umax.i64(i64, i64) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

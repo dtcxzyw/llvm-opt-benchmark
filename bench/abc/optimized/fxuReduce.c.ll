@@ -194,8 +194,7 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
   br i1 %74, label %.lr.ph152.preheader, label %.loopexit137
 
 .lr.ph152.preheader:                              ; preds = %.preheader136
-  %smax = tail call i32 @llvm.smax.i32(i32 %60, i32 1)
-  %wide.trip.count192 = zext nneg i32 %smax to i64
+  %wide.trip.count192 = zext nneg i32 %60 to i64
   br label %.lr.ph152
 
 75:                                               ; preds = %._crit_edge149.thread

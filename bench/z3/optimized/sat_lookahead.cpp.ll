@@ -2759,15 +2759,11 @@ land.rhs.us:                                      ; preds = %while.cond.preheade
   %7 = phi ptr [ %22, %for.end48.us ], [ %4, %while.cond.preheader ]
   %sum.077.us = phi double [ %sum.1.lcssa.us, %for.end48.us ], [ %call10, %while.cond.preheader ]
   %cmp.i14.us = icmp eq ptr %7, null
-  br i1 %cmp.i14.us, label %while.end, label %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit.thread.us
+  br i1 %cmp.i14.us, label %while.end, label %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit25.thread.us.preheader
 
-_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit.thread.us: ; preds = %land.rhs.us
-  %arrayidx.i15.us = getelementptr inbounds i8, ptr %7, i64 -4
-  %8 = load i32, ptr %arrayidx.i15.us, align 4
-  %cmp19.not56.us = icmp ult i32 %8, %mul55
-  br i1 %cmp19.not56.us, label %while.end, label %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit25.thread.us.preheader
-
-_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit25.thread.us.preheader: ; preds = %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit.thread.us
+_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit25.thread.us.preheader: ; preds = %land.rhs.us
+  %arrayidx.i18.us = getelementptr inbounds i8, ptr %7, i64 -4
+  %8 = load i32, ptr %arrayidx.i18.us, align 4
   %9 = uitofp i32 %8 to double
   %10 = fadd double %9, 1.000000e-04
   %div22.us = fdiv double %sum.077.us, %10
@@ -2781,10 +2777,8 @@ _ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit25.thread.us: ; preds = 
   %sum.169.us = phi double [ %sum.2.us, %for.inc47.us ], [ 0.000000e+00, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit25.thread.us.preheader ]
   %arrayidx.i23.us = getelementptr inbounds i8, ptr %12, i64 -4
   %13 = load i32, ptr %arrayidx.i23.us, align 4
-  %cmp2662.us = icmp uge i32 %i.071.us, %13
-  %cmp31.not.us = icmp ult i32 %13, %mul55
-  %or.cond = or i1 %cmp2662.us, %cmp31.not.us
-  br i1 %or.cond, label %for.end48.us, label %for.body.us
+  %cmp2662.us.not = icmp ult i32 %i.071.us, %13
+  br i1 %cmp2662.us.not, label %for.body.us, label %for.end48.us
 
 for.body.us:                                      ; preds = %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit25.thread.us
   %idxprom.i.us = zext i32 %i.071.us to i64
@@ -2905,7 +2899,7 @@ for.end48:                                        ; preds = %_ZNK6vectorIN3sat9l
   %progress.1.lcssa.ph = phi i1 [ %progress.170, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit25.thread ], [ %progress.2, %for.inc47 ]
   br i1 %progress.1.lcssa.ph, label %land.rhs, label %while.end, !llvm.loop !15
 
-while.end:                                        ; preds = %land.rhs, %for.end48, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit.thread, %land.rhs.us, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit.thread.us, %for.end48.us
+while.end:                                        ; preds = %land.rhs, %for.end48, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit.thread, %land.rhs.us, %for.end48.us
   tail call void @_ZN3sat9lookahead9heap_sortEv(ptr noundef nonnull align 8 dereferenceable(1160) %this)
   %40 = load ptr, ptr %m_candidates, align 8
   %cmp.i3778 = icmp eq ptr %40, null

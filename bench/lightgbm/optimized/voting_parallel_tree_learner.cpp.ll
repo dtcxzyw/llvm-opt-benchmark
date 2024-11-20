@@ -6323,8 +6323,7 @@ _ZNSt12_Vector_baseIN8LightGBM14LightSplitInfoESaIS1_EEC2EmRKS2_.exit.i104: ; pr
 .lr.ph:                                           ; preds = %.lr.ph.i.i.i.i.i105
   %161 = load ptr, ptr %16, align 8
   %162 = load ptr, ptr %17, align 8
-  %smax = call i32 @llvm.smax.i32(i32 %144, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %144 to i64
   br label %164
 
 .lr.ph267:                                        ; preds = %164
@@ -9410,8 +9409,7 @@ _ZNSt12_Vector_baseIN8LightGBM14LightSplitInfoESaIS1_EEC2EmRKS2_.exit.i104: ; pr
 .lr.ph:                                           ; preds = %.lr.ph.i.i.i.i.i105
   %161 = load ptr, ptr %16, align 8
   %162 = load ptr, ptr %17, align 8
-  %smax = call i32 @llvm.smax.i32(i32 %144, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %144 to i64
   br label %164
 
 .lr.ph267:                                        ; preds = %164
@@ -269343,16 +269341,13 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iterator
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 24
   %.not53 = icmp slt i64 %9, %5
-  br i1 %.not53, label %._crit_edge, label %.lr.ph
+  %.not49 = icmp eq i64 %3, 0
+  %or.cond = or i1 %.not53, %.not49
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph.i.preheader
 
-.lr.ph:                                           ; preds = %4
-  %.not49 = icmp ne i64 %3, 0
-  tail call void @llvm.assume(i1 %.not49)
-  br label %.lr.ph.i.preheader
-
-.lr.ph.i.preheader:                               ; preds = %.lr.ph, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEET0_T_SF_SF_SF_SE_T1_.exit
-  %.055 = phi ptr [ %42, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %2, %.lr.ph ]
-  %.sroa.041.054 = phi ptr [ %11, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %0, %.lr.ph ]
+.lr.ph.i.preheader:                               ; preds = %4, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEET0_T_SF_SF_SF_SE_T1_.exit
+  %.055 = phi ptr [ %42, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %2, %4 ]
+  %.sroa.041.054 = phi ptr [ %11, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %0, %4 ]
   %10 = getelementptr inbounds %"struct.LightGBM::LightSplitInfo", ptr %.sroa.041.054, i64 %3
   %11 = getelementptr inbounds %"struct.LightGBM::LightSplitInfo", ptr %.sroa.041.054, i64 %5
   br label %.lr.ph.i
@@ -269523,16 +269518,13 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIPN8LightGBM14LightSplitInfoEN9
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 24
   %.not49 = icmp slt i64 %9, %5
-  br i1 %.not49, label %._crit_edge, label %.lr.ph
+  %.not45 = icmp eq i64 %3, 0
+  %or.cond = or i1 %.not49, %.not45
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph.i.preheader
 
-.lr.ph:                                           ; preds = %4
-  %.not45 = icmp ne i64 %3, 0
-  tail call void @llvm.assume(i1 %.not45)
-  br label %.lr.ph.i.preheader
-
-.lr.ph.i.preheader:                               ; preds = %.lr.ph, %_ZSt12__move_mergeIPN8LightGBM14LightSplitInfoEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterISt7greaterIS1_EEEET0_T_SF_SF_SF_SE_T1_.exit
-  %.sroa.022.051 = phi ptr [ %43, %_ZSt12__move_mergeIPN8LightGBM14LightSplitInfoEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterISt7greaterIS1_EEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %2, %.lr.ph ]
-  %.050 = phi ptr [ %11, %_ZSt12__move_mergeIPN8LightGBM14LightSplitInfoEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterISt7greaterIS1_EEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %0, %.lr.ph ]
+.lr.ph.i.preheader:                               ; preds = %4, %_ZSt12__move_mergeIPN8LightGBM14LightSplitInfoEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterISt7greaterIS1_EEEET0_T_SF_SF_SF_SE_T1_.exit
+  %.sroa.022.051 = phi ptr [ %43, %_ZSt12__move_mergeIPN8LightGBM14LightSplitInfoEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterISt7greaterIS1_EEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %2, %4 ]
+  %.050 = phi ptr [ %11, %_ZSt12__move_mergeIPN8LightGBM14LightSplitInfoEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterISt7greaterIS1_EEEET0_T_SF_SF_SF_SE_T1_.exit ], [ %0, %4 ]
   %10 = getelementptr inbounds %"struct.LightGBM::LightSplitInfo", ptr %.050, i64 %3
   %11 = getelementptr inbounds %"struct.LightGBM::LightSplitInfo", ptr %.050, i64 %5
   br label %.lr.ph.i
@@ -271876,7 +271868,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %48 = phi ptr [ %45, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %25, %24 ]
   %49 = phi ptr [ %40, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %23, %24 ]
   %50 = phi ptr [ %47, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %22, %24 ]
-  %51 = add nuw nsw i32 %storemerge29149, 1
+  %51 = add nuw i32 %storemerge29149, 1
   %exitcond181.not = icmp eq i32 %51, %3
   br i1 %exitcond181.not, label %_ZNSt3setIiSt4lessIiESaIiEED2Ev.exit.loopexit, label %20, !llvm.loop !906
 
@@ -271989,7 +271981,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit44:        ; preds = %_ZNSt6vectorIiSaIiE
   %103 = phi ptr [ %100, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i41 ], [ %84, %83 ], [ %61, %60 ]
   %104 = phi ptr [ %102, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i41 ], [ %63, %83 ], [ %63, %60 ]
   %105 = phi ptr [ %95, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i41 ], [ %62, %83 ], [ %62, %60 ]
-  %106 = add nuw nsw i32 %storemerge28137, 1
+  %106 = add nuw i32 %storemerge28137, 1
   %exitcond.not = icmp eq i32 %106, %2
   br i1 %exitcond.not, label %_ZNSt3setIiSt4lessIiESaIiEED2Ev.exit.loopexit101, label %60, !llvm.loop !907
 

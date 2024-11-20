@@ -448,10 +448,9 @@ lpad30.body:                                      ; preds = %lpad30.loopexit, %l
   call void @_ZN5eastl6vectorI10TestObjectNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %eaVectorTO2) #5
   br label %ehcleanup262
 
-for.body67:                                       ; preds = %for.cond65.preheader, %for.inc253
-  %35 = phi ptr [ %call5.i.i.i.i2.i.i59, %for.cond65.preheader ], [ %82, %for.inc253 ]
-  %cmp72 = phi i1 [ false, %for.cond65.preheader ], [ true, %for.inc253 ]
-  %cmp66 = phi i1 [ true, %for.cond65.preheader ], [ false, %for.inc253 ]
+for.body67:                                       ; preds = %invoke.cont242, %for.cond65.preheader
+  %35 = phi ptr [ %call5.i.i.i.i2.i.i59, %for.cond65.preheader ], [ %82, %invoke.cont242 ]
+  %cmp72.not = phi i1 [ true, %for.cond65.preheader ], [ false, %invoke.cont242 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
   %36 = load i32, ptr %mnUnits.i.i.i, align 8
   %cmp.i.i.i183 = icmp eq i32 %36, 1
@@ -673,7 +672,7 @@ _ZN5eastl9make_heapIPjEEvT_S2_.exit.i:            ; preds = %_ZN5eastl11adjust_h
           to label %invoke.cont71 unwind label %lpad30.loopexit
 
 invoke.cont71:                                    ; preds = %_ZN5eastl9make_heapIPjEEvT_S2_.exit.i
-  br i1 %cmp72, label %if.then, label %if.end
+  br i1 %cmp72.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont71
   %58 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -770,7 +769,7 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i233:        ; preds = %_ZN2EA4StdC9Stopwat
           to label %invoke.cont95 unwind label %lpad30.loopexit
 
 invoke.cont95:                                    ; preds = %.noexc238
-  br i1 %cmp72, label %if.then97, label %if.end105
+  br i1 %cmp72.not, label %if.end105, label %if.then97
 
 if.then97:                                        ; preds = %invoke.cont95
   %68 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -934,7 +933,7 @@ while.end.i284:                                   ; preds = %_ZN5eastl9push_heap
           to label %invoke.cont111 unwind label %lpad30.loopexit
 
 invoke.cont111:                                   ; preds = %while.end.i284
-  br i1 %cmp72, label %if.then113, label %if.end121
+  br i1 %cmp72.not, label %if.end121, label %if.then113
 
 if.then113:                                       ; preds = %invoke.cont111
   %81 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -1299,7 +1298,7 @@ while.end.i344:                                   ; preds = %.noexc348
           to label %invoke.cont151 unwind label %lpad30.loopexit
 
 invoke.cont151:                                   ; preds = %while.end.i344
-  br i1 %cmp72, label %if.then153, label %if.end161
+  br i1 %cmp72.not, label %if.end161, label %if.then153
 
 if.then153:                                       ; preds = %invoke.cont151
   %139 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -1545,7 +1544,7 @@ while.end.i411:                                   ; preds = %_ZN5eastl8pop_heapI
           to label %invoke.cont167 unwind label %lpad30.loopexit
 
 invoke.cont167:                                   ; preds = %while.end.i411
-  br i1 %cmp72, label %if.then169, label %if.end177
+  br i1 %cmp72.not, label %if.end177, label %if.then169
 
 if.then169:                                       ; preds = %invoke.cont167
   %164 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -1860,7 +1859,7 @@ while.end.i485:                                   ; preds = %.noexc489
           to label %invoke.cont202 unwind label %lpad30.loopexit
 
 invoke.cont202:                                   ; preds = %while.end.i485
-  br i1 %cmp72, label %if.then204, label %if.end212
+  br i1 %cmp72.not, label %if.end212, label %if.then204
 
 if.then204:                                       ; preds = %invoke.cont202
   %222 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -2109,7 +2108,7 @@ _ZN5eastl9sort_heapIPjEEvT_S2_.exit.i:            ; preds = %_ZN5eastl8pop_heapI
           to label %invoke.cont216 unwind label %lpad30.loopexit
 
 invoke.cont216:                                   ; preds = %_ZN5eastl9sort_heapIPjEEvT_S2_.exit.i
-  br i1 %cmp72, label %if.then218, label %if.end226
+  br i1 %cmp72.not, label %if.end226, label %if.then218
 
 if.then218:                                       ; preds = %invoke.cont216
   %247 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -2428,7 +2427,7 @@ _ZN5eastl9sort_heapIP10TestObjectEEvT_S3_.exit.i: ; preds = %.noexc594
           to label %invoke.cont242 unwind label %lpad30.loopexit
 
 invoke.cont242:                                   ; preds = %_ZN5eastl9sort_heapIP10TestObjectEEvT_S3_.exit.i
-  br i1 %cmp72, label %if.then244, label %for.inc253
+  br i1 %cmp72.not, label %for.body67, label %if.then244, !llvm.loop !31
 
 if.then244:                                       ; preds = %invoke.cont242
   %306 = load i32, ptr %mnUnits.i.i.i, align 8
@@ -2443,10 +2442,7 @@ invoke.cont249:                                   ; preds = %invoke.cont247
   invoke void @_ZN9Benchmark9AddResultEPKcillS1_(ptr noundef nonnull @.str.9, i32 noundef %306, i64 noundef %call248, i64 noundef %call250, ptr noundef null)
           to label %delete.notnull unwind label %lpad30.loopexit.split-lp
 
-for.inc253:                                       ; preds = %invoke.cont242
-  br i1 %cmp66, label %for.body67, label %delete.notnull, !llvm.loop !31
-
-delete.notnull:                                   ; preds = %for.inc253, %invoke.cont249
+delete.notnull:                                   ; preds = %invoke.cont249
   call void @_ZdaPv(ptr noundef nonnull %call3) #11
   call void @_ZdaPv(ptr noundef nonnull %call5) #11
   call void @_ZdaPv(ptr noundef nonnull %call7) #11

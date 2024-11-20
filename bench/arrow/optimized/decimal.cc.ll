@@ -1993,7 +1993,7 @@ if.end39.i:                                       ; preds = %if.then36.i, %if.th
 
 if.then41.i:                                      ; preds = %if.end39.i
   %sub42.i = sub nsw i32 0, %parsed_scale.0.i
-  %cmp43.i = icmp samesign ult i32 %parsed_scale.0.i, -38
+  %cmp43.i = icmp samesign ugt i32 %sub42.i, 38
   br i1 %cmp43.i, label %if.then44.i, label %if.end45.i
 
 if.then44.i:                                      ; preds = %if.then41.i
@@ -3363,7 +3363,7 @@ if.end38.i:                                       ; preds = %if.then35.i, %if.th
 
 if.then40.i:                                      ; preds = %if.end38.i
   %sub41.i = sub nsw i32 0, %parsed_scale.0.i
-  %cmp42.i = icmp samesign ult i32 %parsed_scale.0.i, -76
+  %cmp42.i = icmp samesign ugt i32 %sub41.i, 76
   br i1 %cmp42.i, label %if.then43.i, label %if.end44.i
 
 if.then43.i:                                      ; preds = %if.then40.i
@@ -5228,9 +5228,9 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Deci
 
 while.body.preheader:                             ; preds = %if.then8
   %call20 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128mLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 480))
-  %sub21 = add nsw i32 %scale, -30
   %sub24 = sub nsw i32 38, %precision
   %.sroa.speculated216 = call i32 @llvm.smax.i32(i32 %sub24, i32 1)
+  %sub21 = add nsw i32 %scale, -30
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit102
@@ -5238,7 +5238,7 @@ while.body:                                       ; preds = %while.body.preheade
   %total_shift.0253 = phi i32 [ %add41, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit102 ], [ 0, %while.body.preheader ]
   %right_shift_by.0252 = phi i32 [ %sub48, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit102 ], [ %sub9, %while.body.preheader ]
   %mul_by_ten_to.0251 = phi i32 [ %sub51, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit102 ], [ %sub21, %while.body.preheader ]
-  %.sroa.speculated220 = call i32 @llvm.smin.i32(i32 %.sroa.speculated216, i32 %mul_by_ten_to.0251)
+  %.sroa.speculated220 = call i32 @llvm.umin.i32(i32 %.sroa.speculated216, i32 %mul_by_ten_to.0251)
   %add = add nuw nsw i32 %total_exp.0254, %.sroa.speculated220
   %idxprom = zext nneg i32 %add to i64
   %arrayidx = getelementptr inbounds [77 x i32], ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 0, i64 %idxprom
@@ -6081,9 +6081,9 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Deci
 
 while.body.preheader:                             ; preds = %if.then8
   %call20 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128mLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 352))
-  %sub21 = add nsw i32 %scale, -22
   %sub24 = sub nsw i32 38, %precision
   %.sroa.speculated216 = call i32 @llvm.smax.i32(i32 %sub24, i32 1)
+  %sub21 = add nsw i32 %scale, -22
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit102
@@ -6091,7 +6091,7 @@ while.body:                                       ; preds = %while.body.preheade
   %total_shift.0253 = phi i32 [ %add41, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit102 ], [ 0, %while.body.preheader ]
   %right_shift_by.0252 = phi i32 [ %sub48, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit102 ], [ %sub9, %while.body.preheader ]
   %mul_by_ten_to.0251 = phi i32 [ %sub51, %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Decimal128Ei.exit102 ], [ %sub21, %while.body.preheader ]
-  %.sroa.speculated220 = call i32 @llvm.smin.i32(i32 %.sroa.speculated216, i32 %mul_by_ten_to.0251)
+  %.sroa.speculated220 = call i32 @llvm.umin.i32(i32 %.sroa.speculated216, i32 %mul_by_ten_to.0251)
   %add = add nuw nsw i32 %total_exp.0254, %.sroa.speculated220
   %idxprom = zext nneg i32 %add to i64
   %arrayidx = getelementptr inbounds [77 x i32], ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 0, i64 %idxprom
@@ -8110,9 +8110,9 @@ if.then11:                                        ; preds = %if.then8
 
 while.body.preheader:                             ; preds = %if.then8
   %call16 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 2176))
-  %sub17 = add nsw i32 %scale, -68
   %sub20 = sub nsw i32 76, %precision
   %.sroa.speculated84 = call i32 @llvm.smax.i32(i32 %sub20, i32 1)
+  %sub17 = add nsw i32 %scale, -68
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -8120,7 +8120,7 @@ while.body:                                       ; preds = %while.body.preheade
   %total_shift.0104 = phi i32 [ %add37, %while.body ], [ 0, %while.body.preheader ]
   %right_shift_by.0103 = phi i32 [ %sub40, %while.body ], [ %sub9, %while.body.preheader ]
   %mul_by_ten_to.0102 = phi i32 [ %sub43, %while.body ], [ %sub17, %while.body.preheader ]
-  %.sroa.speculated88 = call i32 @llvm.smin.i32(i32 %.sroa.speculated84, i32 %mul_by_ten_to.0102)
+  %.sroa.speculated88 = call i32 @llvm.umin.i32(i32 %.sroa.speculated84, i32 %mul_by_ten_to.0102)
   %add = add nuw nsw i32 %total_exp.0105, %.sroa.speculated88
   %idxprom = zext nneg i32 %add to i64
   %arrayidx = getelementptr inbounds [77 x i32], ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 0, i64 %idxprom
@@ -8768,9 +8768,9 @@ if.then11:                                        ; preds = %if.then8
 
 while.body.preheader:                             ; preds = %if.then8
   %call16 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 1920))
-  %sub17 = add nsw i32 %scale, -60
   %sub20 = sub nsw i32 76, %precision
   %.sroa.speculated84 = call i32 @llvm.smax.i32(i32 %sub20, i32 1)
+  %sub17 = add nsw i32 %scale, -60
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -8778,7 +8778,7 @@ while.body:                                       ; preds = %while.body.preheade
   %total_shift.0104 = phi i32 [ %add37, %while.body ], [ 0, %while.body.preheader ]
   %right_shift_by.0103 = phi i32 [ %sub40, %while.body ], [ %sub9, %while.body.preheader ]
   %mul_by_ten_to.0102 = phi i32 [ %sub43, %while.body ], [ %sub17, %while.body.preheader ]
-  %.sroa.speculated88 = call i32 @llvm.smin.i32(i32 %.sroa.speculated84, i32 %mul_by_ten_to.0102)
+  %.sroa.speculated88 = call i32 @llvm.umin.i32(i32 %.sroa.speculated84, i32 %mul_by_ten_to.0102)
   %add = add nuw nsw i32 %total_exp.0105, %.sroa.speculated88
   %idxprom = zext nneg i32 %add to i64
   %arrayidx = getelementptr inbounds [77 x i32], ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 0, i64 %idxprom
@@ -9222,6 +9222,9 @@ declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #17

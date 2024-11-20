@@ -8110,11 +8110,9 @@ _sync_node_weight.exit:                           ; preds = %.loopexit.i, %158
   %invariant.umax = call i32 @llvm.umax.i32(i32 %5, i32 %7)
   %.old = icmp eq i32 %.0320.lcssa, %.0322.lcssa
   %173 = icmp ne ptr %9, null
-  %174 = sext i32 %1 to i64
+  %174 = zext i32 %1 to i64
   %175 = sext i32 %.0320.lcssa to i64
   %176 = add i32 %.0322.lcssa, 1
-  %wide.trip.count596 = zext nneg i32 %1 to i64
-  %wide.trip.count600 = zext nneg i32 %1 to i64
   br label %177
 
 177:                                              ; preds = %.lr.ph587, %.critedge
@@ -8192,7 +8190,7 @@ _sync_node_weight.exit:                           ; preds = %.loopexit.i, %158
 204:                                              ; preds = %202, %203, %.lr.ph554
   %.1281 = phi i1 [ true, %202 ], [ true, %203 ], [ %.0280553, %.lr.ph554 ]
   %indvars.iv.next595 = add nuw nsw i64 %indvars.iv594, 1
-  %exitcond597.not = icmp eq i64 %indvars.iv.next595, %wide.trip.count596
+  %exitcond597.not = icmp eq i64 %indvars.iv.next595, %174
   br i1 %exitcond597.not, label %._crit_edge555, label %.lr.ph554, !llvm.loop !50
 
 ._crit_edge555:                                   ; preds = %204
@@ -8248,7 +8246,7 @@ _sync_node_weight.exit:                           ; preds = %.loopexit.i, %158
 
 225:                                              ; preds = %221
   %226 = add nuw nsw i64 %indvars.iv598, 1
-  %227 = icmp sge i64 %226, %174
+  %227 = icmp samesign uge i64 %226, %174
   %228 = load ptr, ptr %16, align 8
   %229 = icmp ne ptr %228, null
   %or.cond = select i1 %227, i1 %229, i1 false
@@ -8368,7 +8366,7 @@ _sync_node_weight.exit:                           ; preds = %.loopexit.i, %158
   %284 = call i32 @slurm_select_cr_type() #13
   %285 = icmp eq i32 %284, 2
   %286 = add nuw nsw i64 %indvars.iv598, 1
-  %287 = icmp slt i64 %286, %174
+  %287 = icmp samesign ult i64 %286, %174
   %or.cond457 = select i1 %285, i1 %287, i1 false
   br i1 %or.cond457, label %385, label %288
 
@@ -8431,7 +8429,7 @@ _sync_node_weight.exit:                           ; preds = %.loopexit.i, %158
   %317 = call i32 @bit_set_count(ptr noundef %316) #13
   %or.cond459 = icmp ult i32 %317, %invariant.umax
   %318 = add nuw nsw i64 %indvars.iv598, 1
-  %319 = icmp slt i64 %318, %174
+  %319 = icmp samesign ult i64 %318, %174
   %or.cond461 = select i1 %or.cond459, i1 %319, i1 false
   br i1 %or.cond461, label %320, label %322
 
@@ -8441,7 +8439,7 @@ _sync_node_weight.exit:                           ; preds = %.loopexit.i, %158
   br i1 %.not444, label %.sink.split, label %.sink.split.sink.split
 
 322:                                              ; preds = %313
-  %323 = icmp sge i64 %318, %174
+  %323 = icmp samesign uge i64 %318, %174
   %or.cond5.not531.not534 = and i1 %173, %323
   %brmerge474.not = select i1 %or.cond5.not531.not534, i1 %92, i1 false
   %.mux = select i1 %323, ptr %9, ptr null
@@ -8600,7 +8598,7 @@ _bit_or_cond.exit:                                ; preds = %331, %336, %341, %3
   %.4307 = phi i1 [ false, %283 ], [ false, %294 ], [ %.2305563, %225 ], [ %.4307.ph, %.sink.split ]
   %.4298 = phi i8 [ %.7301, %283 ], [ %.7301, %294 ], [ %.2296564, %225 ], [ %.5299, %.sink.split ]
   %.4 = phi i64 [ %.2287565, %283 ], [ %.2287565, %294 ], [ %.2287565, %225 ], [ %.4.ph, %.sink.split ]
-  %exitcond601.not = icmp eq i64 %indvars.iv.next599.pre-phi, %wide.trip.count600
+  %exitcond601.not = icmp eq i64 %indvars.iv.next599.pre-phi, %174
   br i1 %exitcond601.not, label %.loopexit, label %.lr.ph568, !llvm.loop !52
 
 .loopexit:                                        ; preds = %385, %220, %370

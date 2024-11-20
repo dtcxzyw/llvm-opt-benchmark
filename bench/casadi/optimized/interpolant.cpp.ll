@@ -2938,7 +2938,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit.thread95:           ; preds = %17
   br i1 %exitcond116.not, label %._crit_edge, label %.lr.ph102, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph102, %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i48
-  %.sroa.0.0120122 = phi ptr [ null, %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i48 ], [ %18, %.lr.ph102 ]
+  %.sroa.0.0121123 = phi ptr [ null, %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i48 ], [ %18, %.lr.ph102 ]
   %.041.lcssa = phi i64 [ 1, %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i48 ], [ %32, %.lr.ph102 ]
   %34 = mul nsw i64 %.041.lcssa, %9
   %35 = icmp ugt i64 %34, 1152921504606846975
@@ -2985,7 +2985,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   br i1 %47, label %.preheader.lr.ph, label %._crit_edge111
 
 .preheader.lr.ph:                                 ; preds = %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i
-  %smax = tail call i64 @llvm.smax.i64(i64 %9, i64 1)
+  %umax117 = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
@@ -3010,17 +3010,17 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %58 = getelementptr inbounds double, ptr %50, i64 %.037103
   store double %57, ptr %58, align 8
   %59 = add nuw nsw i64 %.037103, 1
-  %60 = icmp ult i64 %59, %9
+  %60 = icmp samesign ult i64 %59, %9
   br i1 %60, label %51, label %._crit_edge105, !llvm.loop !34
 
 61:                                               ; preds = %37, %36
   %62 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i = icmp eq ptr %.sroa.0.0120122, null
+  %.not.i.i.i = icmp eq ptr %.sroa.0.0121123, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIxSaIxEED2Ev.exit.thread, label %63
 
 63:                                               ; preds = %61
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0120122) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0121123) #29
   br label %_ZNSt6vectorIxSaIxEED2Ev.exit.thread
 
 ._crit_edge105:                                   ; preds = %51, %.preheader
@@ -3033,7 +3033,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
 .lr.ph108:                                        ; preds = %._crit_edge105, %71
   %67 = phi i64 [ %76, %71 ], [ %66, %._crit_edge105 ]
   %.0106 = phi i64 [ %73, %71 ], [ 0, %._crit_edge105 ]
-  %68 = getelementptr inbounds i64, ptr %.sroa.0.0120122, i64 %.0106
+  %68 = getelementptr inbounds i64, ptr %.sroa.0.0121123, i64 %.0106
   %69 = load i64, ptr %68, align 8
   %70 = icmp eq i64 %67, %69
   br i1 %70, label %71, label %.critedge
@@ -3041,25 +3041,25 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
 71:                                               ; preds = %.lr.ph108
   %72 = getelementptr inbounds i64, ptr %13, i64 %.0106
   store i64 0, ptr %72, align 8
-  %73 = add nuw nsw i64 %.0106, 1
+  %73 = add nuw i64 %.0106, 1
   %74 = getelementptr inbounds i64, ptr %13, i64 %73
   %75 = load i64, ptr %74, align 8
   %76 = add nsw i64 %75, 1
   store i64 %76, ptr %74, align 8
-  %exitcond117.not = icmp eq i64 %73, %smax
-  br i1 %exitcond117.not, label %.critedge, label %.lr.ph108, !llvm.loop !35
+  %exitcond118.not = icmp eq i64 %73, %umax117
+  br i1 %exitcond118.not, label %.critedge, label %.lr.ph108, !llvm.loop !35
 
 .critedge:                                        ; preds = %71, %.lr.ph108, %._crit_edge105
   %77 = add nuw nsw i64 %.038110, 1
-  %exitcond118.not = icmp eq i64 %77, %.041.lcssa
-  br i1 %exitcond118.not, label %._crit_edge111, label %.preheader, !llvm.loop !36
+  %exitcond119.not = icmp eq i64 %77, %.041.lcssa
+  br i1 %exitcond119.not, label %._crit_edge111, label %.preheader, !llvm.loop !36
 
 ._crit_edge111:                                   ; preds = %.critedge, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i
-  %.not.i.i.i61 = icmp eq ptr %.sroa.0.0120122, null
+  %.not.i.i.i61 = icmp eq ptr %.sroa.0.0121123, null
   br i1 %.not.i.i.i61, label %_ZNSt6vectorIxSaIxEED2Ev.exit64, label %78
 
 78:                                               ; preds = %._crit_edge111
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0120122) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0121123) #29
   br label %_ZNSt6vectorIxSaIxEED2Ev.exit64
 
 _ZNSt6vectorIxSaIxEED2Ev.exit64:                  ; preds = %._crit_edge111, %78
@@ -13832,9 +13832,6 @@ declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23

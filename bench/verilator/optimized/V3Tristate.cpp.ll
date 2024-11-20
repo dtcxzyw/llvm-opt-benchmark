@@ -14406,8 +14406,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number4hasZEv(ptr nound
   br i1 %spec.select.i.i, label %_ZNK12V3NumberData3numEv.exit.preheader, label %16
 
 _ZNK12V3NumberData3numEv.exit.preheader:          ; preds = %.lr.ph
-  %smax = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %umax = tail call i32 @llvm.umax.i32(i32 %8, i32 1)
+  %wide.trip.count = zext nneg i32 %umax to i64
   br label %_ZNK12V3NumberData3numEv.exit
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %_ZNK12V3NumberData3numEv.exit, %_ZNK12V3NumberData3numEv.exit.preheader
@@ -26855,9 +26855,6 @@ declare i8 @llvm.umax.i8(i8, i8) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

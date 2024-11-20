@@ -69601,11 +69601,8 @@ define noundef zeroext i1 @_ZN5typst7realize9behaviour14BehavedBuilder19has_stro
   %spec.select4.i.i.i.i = select i1 %switch.i.i.i.i, ptr null, ptr %.val3.i
   %26 = tail call { i64, i64 } @"_ZN4core6option15Option$LT$T$GT$6map_or17h24fb0b5173933710E.llvm.7325118056162354838"(ptr noundef align 1 %spec.select4.i.i.i.i, ptr %spec.select.i.i.i.i, i64 noundef 1, i64 undef)
   %27 = extractvalue { i64, i64 } %26, 0
-  %switch.and.i.i = and i64 %27, -5
-  %switch.selectcmp.i.i = icmp ne i64 %switch.and.i.i, 0
-  %28 = icmp eq i64 %27, 4
-  %or.cond.i = or i1 %28, %switch.selectcmp.i.i
-  br i1 %or.cond.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hdc4514bec845a123E.exit", label %.split.i
+  %.not15.i = icmp eq i64 %27, 0
+  br i1 %.not15.i, label %.split.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hdc4514bec845a123E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hdc4514bec845a123E.exit": ; preds = %"_ZN5typst7realize9behaviour14BehavedBuilder19has_strong_elements28_$u7b$$u7b$closure$u7d$$u7d$17hfd8f9d286bf5ae5bE.exit.us.i", %.split.i, %18, %.split.us.i
   %.us-phi.i = phi i1 [ false, %.split.us.i ], [ %.not14.not.i.not.not, %18 ], [ %.not14.not.i.not.not, %.split.i ], [ %switch.selectcmp.i.us.not.i.not, %"_ZN5typst7realize9behaviour14BehavedBuilder19has_strong_elements28_$u7b$$u7b$closure$u7d$$u7d$17hfd8f9d286bf5ae5bE.exit.us.i" ]
@@ -77714,8 +77711,8 @@ _ZN5typst4text7TopEdge7resolve17heb2f19e3a07057d8E.exit.i: ; preds = %103, %"_ZN
   br label %_ZN5typst4text4deco15determine_edges17h69da03548aaaf359E.exit
 
 116:                                              ; preds = %110
-  %switch.selectcmp.i.i.i = icmp eq i8 %.sroa.5212.0.copyload, 1
-  br i1 %switch.selectcmp.i.i.i, label %117, label %_ZN5typst4text4font11FontMetrics8vertical17h2cc763737bd95ee3E.exit.i11.i
+  %switch.selectcmp.i.not.i.i = icmp eq i8 %.sroa.5212.0.copyload, 0
+  br i1 %switch.selectcmp.i.not.i.i, label %_ZN5typst4text4font11FontMetrics8vertical17h2cc763737bd95ee3E.exit.i11.i, label %117
 
 117:                                              ; preds = %116
   %118 = getelementptr inbounds i8, ptr %44, i64 5408

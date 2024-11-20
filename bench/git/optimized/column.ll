@@ -173,7 +173,7 @@ layout.exit.i.loopexit:                           ; preds = %for.body.i.i
   br label %layout.exit.i
 
 layout.exit.i:                                    ; preds = %layout.exit.i.loopexit, %for.end.i, %st_mult.exit.i
-  %.lcssa308.i = phi i64 [ -1, %for.end.i ], [ -1, %st_mult.exit.i ], [ %22, %layout.exit.i.loopexit ]
+  %.lcssa306.i = phi i64 [ -1, %for.end.i ], [ -1, %st_mult.exit.i ], [ %22, %layout.exit.i.loopexit ]
   %23 = phi i32 [ 0, %for.end.i ], [ 0, %st_mult.exit.i ], [ %spec.select120.i, %layout.exit.i.loopexit ]
   %add.i.i = add nsw i32 %23, %nopts.sroa.3.1
   %conv9.i.i = sext i32 %cond27 to i64
@@ -184,7 +184,7 @@ layout.exit.i:                                    ; preds = %layout.exit.i.loope
   %conv12.i.i = trunc i64 %div.i.i to i32
   %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %conv12.i.i, i32 1)
   %conv22.i.i = sext i32 %spec.select.i.i to i64
-  %sub24.i.i = add i64 %.lcssa308.i, %conv22.i.i
+  %sub24.i.i = add i64 %.lcssa306.i, %conv22.i.i
   %div27.i.i = udiv i64 %sub24.i.i, %conv22.i.i
   %conv28.i.i = trunc i64 %div27.i.i to i32
   %and.i36 = and i32 %colopts, 128
@@ -387,18 +387,21 @@ for.body.i44.i.preheader.i:                       ; preds = %while.end.i.i
   br i1 %cmp727.i51.i.i, label %for.body.i44.i.preheader.split.us.i, label %for.body.i44.i.i
 
 for.body.i44.i.preheader.split.us.i:              ; preds = %for.body.i44.i.preheader.i
-  %sext304.i = shl i64 %indvars.iv234.i, 32
-  %53 = ashr exact i64 %sext304.i, 32
-  br i1 %cmp1.i.i.i, label %for.body.i44.i.us.us.i, label %for.body.i44.i.us.i
+  %53 = and i64 %indvars.iv234.i, 4294967295
+  br i1 %cmp1.i.i.i, label %for.body.i44.i.us.us.preheader.i, label %for.body.i44.i.us.i
 
-for.body.i44.i.us.us.i:                           ; preds = %for.body.i44.i.preheader.split.us.i, %for.inc37.i52.i.loopexit.split.us.us.us.i
-  %indvars.iv.i45.i.us.us.i = phi i64 [ %indvars.iv.next.i53.i.us.us.i, %for.inc37.i52.i.loopexit.split.us.us.us.i ], [ 0, %for.body.i44.i.preheader.split.us.i ]
+for.body.i44.i.us.us.preheader.i:                 ; preds = %for.body.i44.i.preheader.split.us.i
+  %mul14.i79.i.us.us.i = shl i64 %indvars.iv234.i, 32
+  br label %for.body.i44.i.us.us.i
+
+for.body.i44.i.us.us.i:                           ; preds = %for.inc37.i52.i.loopexit.split.us.us.us.i, %for.body.i44.i.us.us.preheader.i
+  %indvars.iv.i45.i.us.us.i = phi i64 [ %indvars.iv.next.i53.i.us.us.i, %for.inc37.i52.i.loopexit.split.us.us.us.i ], [ 0, %for.body.i44.i.us.us.preheader.i ]
   %54 = trunc nuw nsw i64 %indvars.iv.i45.i.us.us.i to i32
   %cond.i49.i.us.us.i = mul nsw i32 %mul.i82.i.i, %54
   %arrayidx.i50.i.us.us.i = getelementptr inbounds i32, ptr %data.sroa.60.2.i, i64 %indvars.iv.i45.i.us.us.i
   store i32 %cond.i49.i.us.us.i, ptr %arrayidx.i50.i.us.us.i, align 4
-  %sext305.i = mul i64 %sext304.i, %indvars.iv.i45.i.us.us.i
-  %55 = ashr exact i64 %sext305.i, 32
+  %sext303.i = mul i64 %mul14.i79.i.us.us.i, %indvars.iv.i45.i.us.us.i
+  %55 = ashr exact i64 %sext303.i, 32
   br label %for.body8.i55.i.us.us.us.i
 
 for.body8.i55.i.us.us.us.i:                       ; preds = %for.inc.i67.i.us.us.us.i, %for.body.i44.i.us.us.i
@@ -426,7 +429,7 @@ if.then.i76.i.us.us.us.i:                         ; preds = %land.lhs.true.i70.i
 for.inc.i67.i.us.us.us.i:                         ; preds = %if.then.i76.i.us.us.us.i, %land.lhs.true.i70.i.us.us.us.i, %for.body8.i55.i.us.us.us.i
   %62 = phi i32 [ %61, %if.then.i76.i.us.us.us.i ], [ %56, %land.lhs.true.i70.i.us.us.us.i ], [ %56, %for.body8.i55.i.us.us.us.i ]
   %indvars.iv.next245.i = add nuw nsw i64 %indvars.iv244.i, 1
-  %cmp7.i69.i.us.us.us.i = icmp slt i64 %indvars.iv.next245.i, %53
+  %cmp7.i69.i.us.us.us.i = icmp samesign ult i64 %indvars.iv.next245.i, %53
   br i1 %cmp7.i69.i.us.us.us.i, label %for.body8.i55.i.us.us.us.i, label %for.inc37.i52.i.loopexit.split.us.us.us.i, !llvm.loop !9
 
 for.inc37.i52.i.loopexit.split.us.us.us.i:        ; preds = %for.inc.i67.i.us.us.us.i
@@ -440,8 +443,8 @@ for.body.i44.i.us.i:                              ; preds = %for.body.i44.i.preh
   %cond.i49.i.us.i = mul nsw i32 %mul.i82.i.i, %63
   %arrayidx.i50.i.us.i = getelementptr inbounds i32, ptr %data.sroa.60.2.i, i64 %indvars.iv.i45.i.us.i
   store i32 %cond.i49.i.us.i, ptr %arrayidx.i50.i.us.i, align 4
-  %sext303.i = shl i64 %indvars.iv.i45.i.us.i, 32
-  %64 = ashr exact i64 %sext303.i, 32
+  %sext302.i = shl i64 %indvars.iv.i45.i.us.i, 32
+  %64 = ashr exact i64 %sext302.i, 32
   br label %for.body8.i55.i.us129.i
 
 for.body8.i55.i.us129.i:                          ; preds = %for.inc.i67.i.us139.i, %for.body.i44.i.us.i
@@ -470,7 +473,7 @@ if.then.i76.i.us138.i:                            ; preds = %land.lhs.true.i70.i
 for.inc.i67.i.us139.i:                            ; preds = %if.then.i76.i.us138.i, %land.lhs.true.i70.i.us133.i, %for.body8.i55.i.us129.i
   %72 = phi i32 [ %71, %if.then.i76.i.us138.i ], [ %65, %land.lhs.true.i70.i.us133.i ], [ %65, %for.body8.i55.i.us129.i ]
   %indvars.iv.next239.i = add nuw nsw i64 %indvars.iv238.i, 1
-  %cmp7.i69.i.us141.i = icmp slt i64 %indvars.iv.next239.i, %53
+  %cmp7.i69.i.us141.i = icmp samesign ult i64 %indvars.iv.next239.i, %53
   br i1 %cmp7.i69.i.us141.i, label %for.body8.i55.i.us129.i, label %for.inc37.i52.i.loopexit.split.us142.i, !llvm.loop !9
 
 for.inc37.i52.i.loopexit.split.us142.i:           ; preds = %for.inc.i67.i.us139.i

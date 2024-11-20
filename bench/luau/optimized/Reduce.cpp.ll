@@ -1491,45 +1491,44 @@ _ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_alloc
   %30 = ptrtoint ptr %.0.lcssa.i.i.i.i.i.i to i64
   %31 = ptrtoint ptr %28 to i64
   %32 = sub i64 %30, %31
-  %33 = ashr exact i64 %32, 4
   %.not = icmp eq i64 %32, 64
-  br i1 %.not, label %.lr.ph, label %34
+  br i1 %.not, label %.preheader, label %33
 
-34:                                               ; preds = %.loopexit
+33:                                               ; preds = %.loopexit
   call void @_Z4helpRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(24) %3) #21
   unreachable
 
-.lr.ph:                                           ; preds = %.loopexit, %38
-  %.02256 = phi i64 [ %39, %38 ], [ 1, %.loopexit ]
-  %35 = getelementptr inbounds %"class.std::basic_string_view", ptr %28, i64 %.02256
-  %.sroa.01.0.copyload = load i64, ptr %35, align 8
-  %36 = icmp eq i64 %.sroa.01.0.copyload, 6
-  br i1 %36, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, label %38
+.preheader:                                       ; preds = %.loopexit, %37
+  %.02256 = phi i64 [ %38, %37 ], [ 1, %.loopexit ]
+  %34 = getelementptr inbounds %"class.std::basic_string_view", ptr %28, i64 %.02256
+  %.sroa.01.0.copyload = load i64, ptr %34, align 8
+  %35 = icmp eq i64 %.sroa.01.0.copyload, 6
+  br i1 %35, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, label %37
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %.lr.ph
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 8
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %.preheader
+  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 8
   %.sroa.22.0.copyload = load ptr, ptr %.sroa.22.0..sroa_idx, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %.sroa.22.0.copyload, ptr noundef nonnull dereferenceable(6) @.str.53, i64 6)
-  %37 = icmp eq i32 %bcmp.i, 0
-  br i1 %37, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, label %38
+  %36 = icmp eq i32 %bcmp.i, 0
+  br i1 %36, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, label %37
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
   call void @_Z4helpRKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(24) %3) #21
   unreachable
 
-38:                                               ; preds = %.lr.ph, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %39 = add nuw i64 %.02256, 1
-  %exitcond.not = icmp eq i64 %39, %33
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+37:                                               ; preds = %.preheader, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+  %38 = add nuw nsw i64 %.02256, 1
+  %exitcond.not = icmp eq i64 %38, 4
+  br i1 %exitcond.not, label %39, label %.preheader, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %38
+39:                                               ; preds = %37
   %40 = getelementptr inbounds i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   %42 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %.noexc unwind label %80
 
-.noexc:                                           ; preds = %._crit_edge
+.noexc:                                           ; preds = %39
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %42, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %.noexc32 unwind label %80
 
@@ -1643,7 +1642,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit44: ; 
   call void @exit(i32 noundef 1) #20
   unreachable
 
-80:                                               ; preds = %.noexc, %._crit_edge
+80:                                               ; preds = %.noexc, %39
   %81 = landingpad { ptr, i32 }
           cleanup
   br label %.thread

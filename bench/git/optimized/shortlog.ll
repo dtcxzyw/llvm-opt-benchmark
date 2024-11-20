@@ -994,8 +994,10 @@ if.end19:                                         ; preds = %lor.lhs.false
   br i1 %tobool21.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end19
+  %tobool23.not = icmp eq i32 %8, 0
   %cmp27.not = icmp samesign ugt i32 %7, %8
-  br i1 %cmp27.not, label %lor.lhs.false28, label %if.then35
+  %or.cond20 = select i1 %tobool23.not, i1 true, i1 %cmp27.not
+  br i1 %or.cond20, label %lor.lhs.false28, label %if.then35
 
 lor.lhs.false28:                                  ; preds = %land.lhs.true
   %tobool30.not = icmp eq i32 %retval.0.i51, 0

@@ -5960,7 +5960,7 @@ if.else.i.i:                                      ; preds = %for.body186
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775804
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i.invoke, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
 
-if.then.i.i.i.i.invoke:                           ; preds = %if.else.i.i540, %if.else.i.i502, %if.else.i454, %if.else.i411, %if.else.i.i, %if.else.i.i723, %if.else.i677, %if.else.i.i629
+if.then.i.i.i.i.invoke:                           ; preds = %if.else.i.i540, %if.else.i.i502, %if.else.i454, %if.else.i411, %if.else.i.i, %if.else.i.i723, %if.else.i.i629, %if.else.i677
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.21) #25
           to label %if.then.i.i.i.i.cont unwind label %lpad191.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -6363,12 +6363,12 @@ land.end219:                                      ; preds = %land.rhs215
   %spec.select = add i64 %sides_with_openings.01173, %inc221
   br label %if.end222
 
-lpad191.loopexit:                                 ; preds = %cond.true.i.i.i.i641
+lpad191.loopexit:                                 ; preds = %cond.true.i.i.i689
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup417
 
-lpad191.loopexit.split-lp.loopexit:               ; preds = %cond.true.i.i.i689
+lpad191.loopexit.split-lp.loopexit:               ; preds = %cond.true.i.i.i.i641
   %lpad.loopexit1108 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup417
@@ -6525,29 +6525,28 @@ for.cond276.preheader:                            ; preds = %if.end273
   br label %for.body278
 
 for.body278:                                      ; preds = %for.cond276.preheader, %for.inc320
-  %cmp279 = phi i1 [ false, %for.cond276.preheader ], [ true, %for.inc320 ]
-  %cmp277 = phi i1 [ true, %for.cond276.preheader ], [ false, %for.inc320 ]
+  %cmp279.not = phi i1 [ true, %for.cond276.preheader ], [ false, %for.inc320 ]
   %sides_with_v_openings.11183 = phi i64 [ 0, %for.cond276.preheader ], [ %sides_with_v_openings.3, %for.inc320 ]
-  br i1 %cmp279, label %for.cond282.preheader, label %for.cond295.preheader
-
-for.cond295.preheader:                            ; preds = %for.body278
-  br i1 %cmp.i139.not1146, label %if.end301, label %for.body297.preheader
-
-for.body297.preheader:                            ; preds = %for.cond295.preheader
-  %.pre1226 = load ptr, ptr %cond-lvalue.sroa.phi998, align 8
-  br label %for.body297
+  br i1 %cmp279.not, label %for.cond295.preheader, label %for.cond282.preheader
 
 for.cond282.preheader:                            ; preds = %for.body278
   br i1 %cmp.i139.not1146, label %if.end301, label %invoke.cont288.preheader
 
 invoke.cont288.preheader:                         ; preds = %for.cond282.preheader
-  %.pre1227 = load ptr, ptr %cond-lvalue.sroa.phi998, align 8
+  %.pre1226 = load ptr, ptr %cond-lvalue.sroa.phi998, align 8
   br label %invoke.cont288
 
+for.cond295.preheader:                            ; preds = %for.body278
+  br i1 %cmp.i139.not1146, label %if.end301, label %for.body297.preheader
+
+for.body297.preheader:                            ; preds = %for.cond295.preheader
+  %.pre1227 = load ptr, ptr %cond-lvalue.sroa.phi998, align 8
+  br label %for.body297
+
 invoke.cont288:                                   ; preds = %invoke.cont288.preheader, %for.inc290
-  %203 = phi ptr [ %214, %for.inc290 ], [ %.pre1227, %invoke.cont288.preheader ]
-  %i281.01182 = phi i64 [ %inc291, %for.inc290 ], [ 0, %invoke.cont288.preheader ]
-  %add.ptr.i614 = getelementptr inbounds %class.aiVector3t, ptr %cond.i.i.i.i1103, i64 %i281.01182
+  %203 = phi ptr [ %214, %for.inc290 ], [ %.pre1226, %invoke.cont288.preheader ]
+  %i281.01180 = phi i64 [ %inc291, %for.inc290 ], [ 0, %invoke.cont288.preheader ]
+  %add.ptr.i614 = getelementptr inbounds %class.aiVector3t, ptr %cond.i.i.i.i1103, i64 %i281.01180
   %204 = load double, ptr %add.ptr.i614, align 8, !noalias !176
   %205 = load double, ptr %dir, align 8, !noalias !176
   %add.i615 = fadd double %204, %205
@@ -6595,7 +6594,7 @@ _ZNKSt6vectorI10aiVector3tIdESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i634: ; preds 
 cond.true.i.i.i.i641:                             ; preds = %_ZNKSt6vectorI10aiVector3tIdESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i634
   %mul.i.i.i.i.i.i642 = mul nuw nsw i64 %cond.i.i.i.i639, 24
   %call5.i.i.i.i.i.i663 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i642) #26
-          to label %_ZNSt12_Vector_baseI10aiVector3tIdESaIS1_EE11_M_allocateEm.exit.i.i.i643 unwind label %lpad191.loopexit
+          to label %_ZNSt12_Vector_baseI10aiVector3tIdESaIS1_EE11_M_allocateEm.exit.i.i.i643 unwind label %lpad191.loopexit.split-lp.loopexit
 
 _ZNSt12_Vector_baseI10aiVector3tIdESaIS1_EE11_M_allocateEm.exit.i.i.i643: ; preds = %cond.true.i.i.i.i641, %_ZNKSt6vectorI10aiVector3tIdESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i634
   %cond.i10.i.i.i644 = phi ptr [ null, %_ZNKSt6vectorI10aiVector3tIdESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i634 ], [ %call5.i.i.i.i.i.i663, %cond.true.i.i.i.i641 ]
@@ -6636,14 +6635,14 @@ _ZNSt6vectorI10aiVector3tIdESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__n
 
 for.inc290:                                       ; preds = %_ZNSt6vectorI10aiVector3tIdESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i658, %if.then.i.i627
   %214 = phi ptr [ %incdec.ptr.i.i.i655, %_ZNSt6vectorI10aiVector3tIdESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i658 ], [ %incdec.ptr.i.i628, %if.then.i.i627 ]
-  %inc291 = add nuw i64 %i281.01182, 1
+  %inc291 = add nuw i64 %i281.01180, 1
   %exitcond1199.not = icmp eq i64 %inc291, %umax1198
   br i1 %exitcond1199.not, label %if.end301, label %invoke.cont288, !llvm.loop !183
 
 for.body297:                                      ; preds = %for.body297.preheader, %_ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backERKS1_.exit712
-  %215 = phi ptr [ %220, %_ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backERKS1_.exit712 ], [ %.pre1226, %for.body297.preheader ]
-  %i293.01180 = phi i64 [ %dec, %_ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backERKS1_.exit712 ], [ %sub.ptr.div.i173, %for.body297.preheader ]
-  %dec = add i64 %i293.01180, -1
+  %215 = phi ptr [ %220, %_ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backERKS1_.exit712 ], [ %.pre1227, %for.body297.preheader ]
+  %i293.01182 = phi i64 [ %dec, %_ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backERKS1_.exit712 ], [ %sub.ptr.div.i173, %for.body297.preheader ]
+  %dec = add i64 %i293.01182, -1
   %add.ptr.i670 = getelementptr inbounds %class.aiVector3t, ptr %cond.i.i.i.i1103, i64 %dec
   %216 = load ptr, ptr %cond-lvalue.sroa.phi1001, align 8
   %cmp.not.i673 = icmp eq ptr %215, %216
@@ -6677,7 +6676,7 @@ _ZNKSt6vectorI10aiVector3tIdESaIS1_EE12_M_check_lenEmPKc.exit.i.i682: ; preds = 
 cond.true.i.i.i689:                               ; preds = %_ZNKSt6vectorI10aiVector3tIdESaIS1_EE12_M_check_lenEmPKc.exit.i.i682
   %mul.i.i.i.i.i690 = mul nuw nsw i64 %cond.i.i.i687, 24
   %call5.i.i.i.i.i711 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i690) #26
-          to label %_ZNSt12_Vector_baseI10aiVector3tIdESaIS1_EE11_M_allocateEm.exit.i.i691 unwind label %lpad191.loopexit.split-lp.loopexit
+          to label %_ZNSt12_Vector_baseI10aiVector3tIdESaIS1_EE11_M_allocateEm.exit.i.i691 unwind label %lpad191.loopexit
 
 _ZNSt12_Vector_baseI10aiVector3tIdESaIS1_EE11_M_allocateEm.exit.i.i691: ; preds = %cond.true.i.i.i689, %_ZNKSt6vectorI10aiVector3tIdESaIS1_EE12_M_check_lenEmPKc.exit.i.i682
   %cond.i10.i.i692 = phi ptr [ null, %_ZNKSt6vectorI10aiVector3tIdESaIS1_EE12_M_check_lenEmPKc.exit.i.i682 ], [ %call5.i.i.i.i.i711, %cond.true.i.i.i689 ]
@@ -6717,7 +6716,7 @@ _ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backERKS1_.exit712: ; preds = %if.then
   %tobool296.not = icmp eq i64 %dec, 0
   br i1 %tobool296.not, label %if.end301, label %for.body297
 
-if.end301:                                        ; preds = %_ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backERKS1_.exit712, %for.inc290, %for.cond295.preheader, %for.cond282.preheader
+if.end301:                                        ; preds = %for.inc290, %_ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backERKS1_.exit712, %for.cond282.preheader, %for.cond295.preheader
   %221 = load ptr, ptr %_M_finish.i.i718, align 8
   %222 = load ptr, ptr %_M_end_of_storage.i.i719, align 8
   %cmp.not.i.i720 = icmp eq ptr %221, %222
@@ -6801,7 +6800,7 @@ invoke.cont317:                                   ; preds = %invoke.cont312
 
 for.inc320:                                       ; preds = %invoke.cont306, %invoke.cont317
   %sides_with_v_openings.3 = phi i64 [ %spec.select95, %invoke.cont317 ], [ %sides_with_v_openings.11183, %invoke.cont306 ]
-  br i1 %cmp277, label %for.body278, label %if.end323, !llvm.loop !188
+  br i1 %cmp279.not, label %for.body278, label %if.end323, !llvm.loop !188
 
 if.end323:                                        ; preds = %for.inc320, %if.end273
   %sides_with_v_openings.0 = phi i64 [ 0, %if.end273 ], [ %sides_with_v_openings.3, %for.inc320 ]

@@ -5397,7 +5397,8 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %cmp1.i.i = icmp samesign ult i64 %2, 500
+  %add.ptr7.idx = shl nsw i64 %2, 3
+  %cmp1.i.i = icmp samesign ult i64 %add.ptr7.idx, 4000
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.else.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
@@ -9356,7 +9357,8 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %cmp1.i.i = icmp samesign ult i64 %2, 500
+  %add.ptr7.idx = shl nsw i64 %2, 3
+  %cmp1.i.i = icmp samesign ult i64 %add.ptr7.idx, 4000
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.else.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
@@ -16086,7 +16088,8 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %cmp1.i.i.i.i = icmp samesign ult i64 %5, 500
+  %add.ptr7.idx.i.i = shl nsw i64 %5, 3
+  %cmp1.i.i.i.i = icmp samesign ult i64 %add.ptr7.idx.i.i, 4000
   br i1 %cmp1.i.i.i.i, label %if.then2.i.i.i.i, label %if.else.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -16193,7 +16196,8 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %cmp1.i.i.i.i = icmp samesign ult i64 %5, 500
+  %add.ptr7.idx.i.i = shl nsw i64 %5, 3
+  %cmp1.i.i.i.i = icmp samesign ult i64 %add.ptr7.idx.i.i, 4000
   br i1 %cmp1.i.i.i.i, label %if.then2.i.i.i.i, label %if.else.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -18998,7 +19002,8 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %cmp1.i.i.i.i = icmp samesign ult i64 %5, 500
+  %add.ptr7.idx.i.i = shl nsw i64 %5, 3
+  %cmp1.i.i.i.i = icmp samesign ult i64 %add.ptr7.idx.i.i, 4000
   br i1 %cmp1.i.i.i.i, label %if.then2.i.i.i.i, label %if.else.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -19105,7 +19110,8 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %cmp1.i.i.i.i = icmp samesign ult i64 %5, 500
+  %add.ptr7.idx.i.i = shl nsw i64 %5, 3
+  %cmp1.i.i.i.i = icmp samesign ult i64 %add.ptr7.idx.i.i, 4000
   br i1 %cmp1.i.i.i.i, label %if.then2.i.i.i.i, label %if.else.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -27283,7 +27289,8 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %cmp1.i.i.i.i = icmp samesign ult i64 %5, 500
+  %add.ptr7.idx.i.i = shl nsw i64 %5, 3
+  %cmp1.i.i.i.i = icmp samesign ult i64 %add.ptr7.idx.i.i, 4000
   br i1 %cmp1.i.i.i.i, label %if.then2.i.i.i.i, label %if.else.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -27390,7 +27397,8 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %cmp1.i.i.i.i = icmp samesign ult i64 %5, 500
+  %add.ptr7.idx.i.i = shl nsw i64 %5, 3
+  %cmp1.i.i.i.i = icmp samesign ult i64 %add.ptr7.idx.i.i, 4000
   br i1 %cmp1.i.i.i.i, label %if.then2.i.i.i.i, label %if.else.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -29809,7 +29817,8 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %cmp1.i.i.i.i = icmp samesign ult i64 %5, 500
+  %add.ptr7.idx.i.i = shl nsw i64 %5, 3
+  %cmp1.i.i.i.i = icmp samesign ult i64 %add.ptr7.idx.i.i, 4000
   br i1 %cmp1.i.i.i.i, label %if.then2.i.i.i.i, label %if.else.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -29916,7 +29925,8 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %cmp1.i.i.i.i = icmp samesign ult i64 %5, 500
+  %add.ptr7.idx.i.i = shl nsw i64 %5, 3
+  %cmp1.i.i.i.i = icmp samesign ult i64 %add.ptr7.idx.i.i, 4000
   br i1 %cmp1.i.i.i.i, label %if.then2.i.i.i.i, label %if.else.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %if.then.i.i.i.i

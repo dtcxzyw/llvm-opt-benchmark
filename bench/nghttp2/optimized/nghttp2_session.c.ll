@@ -3789,8 +3789,10 @@ if.end.i:                                         ; preds = %if.end278.i
   br i1 %cmp10.i, label %if.then20, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
-  %cmp15.i = icmp ugt i64 %call.i169, %spec.select.i167
-  br i1 %cmp15.i, label %if.then20, label %if.end18.i
+  %cmp13.i = icmp slt i64 %call.i169, 0
+  %cmp15.i = icmp samesign ugt i64 %call.i169, %spec.select.i167
+  %or.cond.i = select i1 %cmp13.i, i1 true, i1 %cmp15.i
+  br i1 %or.cond.i, label %if.then20, label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end12.i
   store i64 %call.i169, ptr %call5, align 8

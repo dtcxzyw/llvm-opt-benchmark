@@ -104,7 +104,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
   %26 = add nsw i32 %20, %.0315
   %27 = mul nsw i32 %.0.i.i, %20
   %28 = add nsw i32 %27, %.0108314
-  %29 = add nuw nsw i32 %.0111313, 1
+  %29 = add nuw i32 %.0111313, 1
   %exitcond.not = icmp eq i32 %29, %18
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
@@ -1005,7 +1005,6 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE7reserveEm.exit207: ; 
   %417 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %418 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %419 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %smax = call i32 @llvm.smax.i32(i32 %18, i32 1)
   br label %420
 
 420:                                              ; preds = %.lr.ph325, %._crit_edge323
@@ -1641,13 +1640,13 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE17_M_realloc_insertIJR
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit237: ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i234, %686
   %706 = phi ptr [ %703, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i234 ], [ %688, %686 ]
-  %707 = add nuw nsw i32 %.0110321, 1
+  %707 = add nuw i32 %.0110321, 1
   %exitcond337.not = icmp eq i32 %707, %654
   br i1 %exitcond337.not, label %._crit_edge323, label %.lr.ph322, !llvm.loop !14
 
 ._crit_edge323:                                   ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit237, %.preheader
-  %708 = add nuw nsw i32 %.0113324, 1
-  %exitcond338.not = icmp eq i32 %708, %smax
+  %708 = add nuw i32 %.0113324, 1
+  %exitcond338.not = icmp eq i32 %708, %18
   br i1 %exitcond338.not, label %._crit_edge326, label %420, !llvm.loop !15
 
 ._crit_edge326:                                   ; preds = %._crit_edge323, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE7reserveEm.exit207
@@ -2276,9 +2275,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smax.i16(i16, i16) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -40,7 +40,7 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
 
 5:                                                ; preds = %3
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -21, i32 noundef 44, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
-  br label %292
+  br label %293
 
 6:                                                ; preds = %3
   %7 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
@@ -55,7 +55,7 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
 
 11:                                               ; preds = %8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 55, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
-  br label %292
+  br label %293
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %0, i64 272
@@ -67,7 +67,7 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
 
 17:                                               ; preds = %12
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 62, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
-  br label %292
+  br label %293
 
 18:                                               ; preds = %12, %6
   %19 = getelementptr inbounds i8, ptr %0, i64 632
@@ -83,7 +83,7 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
 
 25:                                               ; preds = %22
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 74, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
-  br label %292
+  br label %293
 
 .thread:                                          ; preds = %22
   %26 = getelementptr inbounds i8, ptr %23, i64 56
@@ -190,7 +190,7 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
   store i32 0, ptr %89, align 8
   %91 = load ptr, ptr %19, align 8
   store ptr null, ptr %91, align 8
-  br label %292
+  br label %293
 
 92:                                               ; preds = %87
   %93 = load i32, ptr %89, align 8
@@ -200,7 +200,7 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
 95:                                               ; preds = %92
   %96 = load ptr, ptr %88, align 8
   %.not165 = icmp eq ptr %2, %96
-  br i1 %.not165, label %292, label %97
+  br i1 %.not165, label %293, label %97
 
 97:                                               ; preds = %95
   %98 = icmp eq ptr %2, null
@@ -259,11 +259,11 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
   %136 = sub nsw i64 %135, %130
   store i64 %136, ptr %134, align 8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 152, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #8
-  br label %292
+  br label %293
 
 137:                                              ; preds = %97
   store ptr %2, ptr %88, align 8
-  br label %292
+  br label %293
 
 138:                                              ; preds = %92
   store i32 %7, ptr %89, align 8
@@ -272,7 +272,7 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
 
 140:                                              ; preds = %138
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 169, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #8
-  br label %292
+  br label %293
 
 141:                                              ; preds = %138
   %142 = load ptr, ptr %19, align 8
@@ -294,7 +294,7 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
 
 154:                                              ; preds = %141
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 180, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
-  br label %292
+  br label %293
 
 155:                                              ; preds = %141
   %156 = getelementptr inbounds i8, ptr %150, i64 64
@@ -317,7 +317,7 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
   %168 = getelementptr inbounds i8, ptr %167, i64 56
   store ptr null, ptr %168, align 8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 190, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
-  br label %292
+  br label %293
 
 169:                                              ; preds = %155
   %170 = getelementptr inbounds i8, ptr %160, i64 72
@@ -347,7 +347,7 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
   %187 = getelementptr inbounds i8, ptr %186, i64 64
   store ptr null, ptr %187, align 8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 202, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
-  br label %292
+  br label %293
 
 188:                                              ; preds = %169
   %189 = getelementptr inbounds i8, ptr %174, i64 16
@@ -385,7 +385,7 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
   %212 = getelementptr inbounds i8, ptr %211, i64 72
   store ptr null, ptr %212, align 8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 216, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
-  br label %292
+  br label %293
 
 213:                                              ; preds = %188
   %214 = getelementptr inbounds i8, ptr %194, i64 24
@@ -429,7 +429,7 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
   %241 = getelementptr inbounds i8, ptr %240, i64 16
   store ptr null, ptr %241, align 8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 232, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
-  br label %292
+  br label %293
 
 242:                                              ; preds = %213
   %243 = getelementptr inbounds i8, ptr %218, i64 112
@@ -442,11 +442,11 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
   %248 = getelementptr inbounds i8, ptr %247, i64 112
   %249 = load ptr, ptr %248, align 8
   %250 = icmp eq ptr %249, null
-  br i1 %250, label %251, label %.lr.ph.preheader
+  br i1 %250, label %251, label %.preheader166.preheader
 
-.lr.ph.preheader:                                 ; preds = %242
+.preheader166.preheader:                          ; preds = %242
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %.lr.ph
+  br label %.preheader166
 
 251:                                              ; preds = %242
   %252 = getelementptr inbounds i8, ptr %247, i64 56
@@ -484,15 +484,10 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
   %275 = getelementptr inbounds i8, ptr %274, i64 24
   store ptr null, ptr %275, align 8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 251, ptr noundef nonnull @__func__.arkRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
-  br label %292
+  br label %293
 
-.lr.ph169.preheader:                              ; preds = %.lr.ph
-  %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
-  %wide.trip.count174 = zext nneg i32 %smax to i64
-  br label %.lr.ph169
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+.preheader166:                                    ; preds = %.preheader166.preheader, %.preheader166
+  %indvars.iv = phi i64 [ 0, %.preheader166.preheader ], [ %indvars.iv.next, %.preheader166 ]
   %276 = load ptr, ptr %19, align 8
   %277 = getelementptr inbounds i8, ptr %276, i64 24
   %278 = load ptr, ptr %277, align 8
@@ -500,34 +495,34 @@ define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr no
   store i32 0, ptr %279, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph169.preheader, label %.lr.ph
+  br i1 %exitcond.not, label %.preheader, label %.preheader166
 
-.lr.ph169:                                        ; preds = %.lr.ph169.preheader, %.lr.ph169
-  %indvars.iv171 = phi i64 [ 0, %.lr.ph169.preheader ], [ %indvars.iv.next172, %.lr.ph169 ]
+.preheader:                                       ; preds = %.preheader166, %.preheader
+  %indvars.iv170 = phi i64 [ %indvars.iv.next171, %.preheader ], [ 0, %.preheader166 ]
   %280 = load ptr, ptr %19, align 8
   %281 = getelementptr inbounds i8, ptr %280, i64 112
   %282 = load ptr, ptr %281, align 8
-  %283 = getelementptr inbounds i32, ptr %282, i64 %indvars.iv171
+  %283 = getelementptr inbounds i32, ptr %282, i64 %indvars.iv170
   store i32 1, ptr %283, align 4
-  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
-  %exitcond175.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count174
-  br i1 %exitcond175.not, label %._crit_edge, label %.lr.ph169
+  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
+  %exitcond174.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count
+  br i1 %exitcond174.not, label %284, label %.preheader
 
-._crit_edge:                                      ; preds = %.lr.ph169
-  %284 = mul nuw nsw i32 %7, 3
-  %285 = zext nneg i32 %284 to i64
-  %286 = getelementptr inbounds i8, ptr %0, i64 544
-  %287 = load i64, ptr %286, align 8
-  %288 = add nsw i64 %287, %285
-  store i64 %288, ptr %286, align 8
-  %289 = getelementptr inbounds i8, ptr %0, i64 552
-  %290 = load i64, ptr %289, align 8
-  %291 = add nsw i64 %290, %285
-  store i64 %291, ptr %289, align 8
-  br label %292
+284:                                              ; preds = %.preheader
+  %285 = mul nuw nsw i32 %7, 3
+  %286 = zext nneg i32 %285 to i64
+  %287 = getelementptr inbounds i8, ptr %0, i64 544
+  %288 = load i64, ptr %287, align 8
+  %289 = add nsw i64 %288, %286
+  store i64 %289, ptr %287, align 8
+  %290 = getelementptr inbounds i8, ptr %0, i64 552
+  %291 = load i64, ptr %290, align 8
+  %292 = add nsw i64 %291, %286
+  store i64 %292, ptr %290, align 8
+  br label %293
 
-292:                                              ; preds = %95, %._crit_edge, %251, %222, %198, %178, %164, %154, %140, %137, %99, %90, %25, %17, %11, %5
-  %.0 = phi i32 [ -21, %5 ], [ -20, %25 ], [ 0, %90 ], [ -22, %99 ], [ 0, %137 ], [ -22, %140 ], [ -20, %154 ], [ -20, %164 ], [ -20, %178 ], [ -20, %198 ], [ -20, %222 ], [ -20, %251 ], [ 0, %._crit_edge ], [ -20, %17 ], [ -22, %11 ], [ 0, %95 ]
+293:                                              ; preds = %95, %284, %251, %222, %198, %178, %164, %154, %140, %137, %99, %90, %25, %17, %11, %5
+  %.0 = phi i32 [ -21, %5 ], [ -20, %25 ], [ 0, %90 ], [ -22, %99 ], [ 0, %137 ], [ -22, %140 ], [ -20, %154 ], [ -20, %164 ], [ -20, %178 ], [ -20, %198 ], [ -20, %222 ], [ -20, %251 ], [ 0, %284 ], [ -20, %17 ], [ -22, %11 ], [ 0, %95 ]
   ret i32 %.0
 }
 

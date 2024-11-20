@@ -1098,70 +1098,71 @@ _ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i:          ; preds = %120, %115
   %122 = phi i64 [ %121, %120 ], [ %119, %115 ]
   %123 = add i64 %122, %112
   %124 = icmp slt i32 %26, 6
-  br i1 %124, label %125, label %134
+  br i1 %124, label %125, label %135
 
 125:                                              ; preds = %_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i
   %126 = icmp eq i64 %112, 0
-  %127 = icmp eq i64 %.038.i, %123
+  %127 = icmp eq i64 %.038.i, %122
   %or.cond49.i = select i1 %126, i1 %127, i1 false
-  br i1 %or.cond49.i, label %146, label %._crit_edge.i
+  br i1 %or.cond49.i, label %147, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %125
-  br i1 %127, label %128, label %131
+  %128 = icmp eq i64 %.038.i, %123
+  br i1 %128, label %129, label %132
 
-128:                                              ; preds = %._crit_edge.i
-  %129 = add nsw i32 %26, 1
-  %130 = icmp eq i32 %129, 6
-  %spec.store.select.i = select i1 %130, i32 1, i32 %129
+129:                                              ; preds = %._crit_edge.i
+  %130 = add nsw i32 %26, 1
+  %131 = icmp eq i32 %130, 6
+  %spec.store.select.i = select i1 %131, i32 1, i32 %130
   %.neg.i = sub nsw i64 %.038.i, %112
-  br label %146
+  br label %147
 
-131:                                              ; preds = %._crit_edge.i
-  %132 = icmp eq i64 %112, %.038.i
-  %133 = add nsw i32 %26, 5
-  %spec.select.i = select i1 %132, i64 0, i64 %112
-  %spec.select50.i = select i1 %132, i32 %133, i32 %26
-  br label %146
+132:                                              ; preds = %._crit_edge.i
+  %133 = icmp eq i64 %112, %.038.i
+  %134 = add nsw i32 %26, 5
+  %spec.select.i = select i1 %133, i64 0, i64 %112
+  %spec.select50.i = select i1 %133, i32 %134, i32 %26
+  br label %147
 
-134:                                              ; preds = %_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i
-  %135 = icmp eq i64 %123, 0
-  %136 = icmp eq i64 %112, %.038.i
-  %or.cond.i = and i1 %136, %135
-  br i1 %or.cond.i, label %146, label %137
+135:                                              ; preds = %_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i
+  %136 = icmp eq i64 %123, 0
+  %137 = icmp eq i64 %112, %.038.i
+  %or.cond.i = and i1 %137, %136
+  br i1 %or.cond.i, label %147, label %138
 
-137:                                              ; preds = %134
-  br i1 %136, label %138, label %142
+138:                                              ; preds = %135
+  br i1 %137, label %139, label %143
 
-138:                                              ; preds = %137
-  %139 = add nuw nsw i32 %26, 1
-  %140 = icmp eq i32 %139, 11
-  %spec.store.select1.i = select i1 %140, i32 6, i32 %139
-  %141 = add nsw i64 %122, %.038.i
-  br label %146
+139:                                              ; preds = %138
+  %140 = add nuw nsw i32 %26, 1
+  %141 = icmp eq i32 %140, 11
+  %spec.store.select1.i = select i1 %141, i32 6, i32 %140
+  %142 = add nsw i64 %122, %.038.i
+  br label %147
 
-142:                                              ; preds = %137
-  %143 = sub nsw i64 0, %.038.i
-  %144 = icmp eq i64 %122, %143
-  %145 = add nsw i32 %26, -4
-  %spec.select = select i1 %144, i64 %112, i64 %123
-  %spec.select7 = select i1 %144, i32 %145, i32 %26
-  br label %146
+143:                                              ; preds = %138
+  %144 = sub nsw i64 0, %.038.i
+  %145 = icmp eq i64 %122, %144
+  %146 = add nsw i32 %26, -4
+  %spec.select = select i1 %145, i64 %112, i64 %123
+  %spec.select7 = select i1 %145, i32 %146, i32 %26
+  br label %147
 
-146:                                              ; preds = %142, %138, %134, %131, %128, %125
-  %.neg51.i = phi i64 [ %.neg.i, %128 ], [ %141, %138 ], [ 0, %125 ], [ %123, %131 ], [ 0, %134 ], [ %spec.select, %142 ]
-  %147 = phi i64 [ 0, %128 ], [ %141, %138 ], [ 0, %125 ], [ %spec.select.i, %131 ], [ 0, %134 ], [ %112, %142 ]
-  %.039.i = phi i32 [ %spec.store.select.i, %128 ], [ %spec.store.select1.i, %138 ], [ 0, %125 ], [ %spec.select50.i, %131 ], [ 11, %134 ], [ %spec.select7, %142 ]
-  %148 = sitofp i64 %147 to double
-  store double %148, ptr %3, align 8
-  %149 = sitofp i64 %.neg51.i to double
-  %150 = getelementptr inbounds i8, ptr %3, i64 8
-  store double %149, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 %.039.i, ptr %151, align 8
+147:                                              ; preds = %143, %139, %135, %132, %129, %125
+  %.neg51.i = phi i64 [ %.neg.i, %129 ], [ %142, %139 ], [ 0, %125 ], [ %123, %132 ], [ 0, %135 ], [ %spec.select, %143 ]
+  %148 = phi i64 [ 0, %129 ], [ %142, %139 ], [ 0, %125 ], [ %spec.select.i, %132 ], [ 0, %135 ], [ %112, %143 ]
+  %.039.i = phi i32 [ %spec.store.select.i, %129 ], [ %spec.store.select1.i, %139 ], [ 0, %125 ], [ %spec.select50.i, %132 ], [ 11, %135 ], [ %spec.select7, %143 ]
+  %149 = sitofp i64 %148 to double
+  store double %149, ptr %3, align 8
+  %150 = sitofp i64 %.neg51.i to double
+  %151 = getelementptr inbounds i8, ptr %3, i64 8
+  store double %150, ptr %151, align 8
+  %152 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 %.039.i, ptr %152, align 8
   br label %_ZL9isea_dddiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit
 
-_ZL9isea_dddiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit: ; preds = %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i, %146
-  %.0.i = phi i32 [ %.0.i.i, %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i ], [ %.039.i, %146 ]
+_ZL9isea_dddiPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit: ; preds = %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i, %147
+  %.0.i = phi i32 [ %.0.i.i, %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i ], [ %.039.i, %147 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   ret i32 %.0.i
 }

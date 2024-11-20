@@ -3844,7 +3844,7 @@ amf_get_u29.exit419:                              ; preds = %85, %89, %96, %103
   %114 = call ptr @proto_tree_add_uint(ptr noundef %36, i32 noundef %113, ptr noundef %0, i32 noundef %39, i32 noundef %.sink.i417, i32 noundef %112) #8
   %115 = call ptr @wmem_packet_scope() #8
   %116 = call ptr @tvb_get_string_enc(ptr noundef %115, ptr noundef %0, i32 noundef %110, i32 noundef %112, i32 noundef 2) #8
-  %.not413 = icmp samesign ult i32 %.0.i418, 2
+  %.not413 = icmp eq i32 %.0.i418, 1
   br i1 %.not413, label %120, label %117
 
 117:                                              ; preds = %111
@@ -4042,15 +4042,19 @@ amf_get_u29.exit437:                              ; preds = %207, %211, %218, %2
   br i1 %.not410, label %248, label %232
 
 232:                                              ; preds = %amf_get_u29.exit437
-  %233 = icmp samesign ult i32 %.0.i436, 2
+  %233 = icmp eq i32 %.0.i436, 1
   %234 = add i32 %.sink.i435, %.1
   br i1 %233, label %235, label %238
 
 235:                                              ; preds = %232
   %236 = load i32, ptr @hf_amf_end_of_associative_part, align 4
   %237 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %236, ptr noundef %0, i32 noundef %.1, i32 noundef %.sink.i435, i32 noundef 0) #8
-  %.not494 = icmp ult i32 %.0.i430, 2
-  br i1 %.not494, label %._crit_edge490, label %.lr.ph489
+  %.not494 = icmp eq i32 %.0.i430, 1
+  br i1 %.not494, label %._crit_edge490, label %.lr.ph489.preheader
+
+.lr.ph489.preheader:                              ; preds = %235
+  %umax = call i32 @llvm.umax.i32(i32 %203, i32 1)
+  br label %.lr.ph489
 
 238:                                              ; preds = %232
   %239 = lshr i32 %.0.i436, 1
@@ -4084,12 +4088,12 @@ amf_get_u29.exit437:                              ; preds = %207, %211, %218, %2
   %260 = call fastcc i32 @dissect_amf3_value_type(ptr noundef %0, i32 noundef %.2, ptr noundef %.0383, ptr noundef %259)
   br label %207
 
-.lr.ph489:                                        ; preds = %235, %.lr.ph489
-  %.3487 = phi i32 [ %261, %.lr.ph489 ], [ %234, %235 ]
-  %.0380486 = phi i32 [ %262, %.lr.ph489 ], [ 0, %235 ]
+.lr.ph489:                                        ; preds = %.lr.ph489.preheader, %.lr.ph489
+  %.3487 = phi i32 [ %261, %.lr.ph489 ], [ %234, %.lr.ph489.preheader ]
+  %.0380486 = phi i32 [ %262, %.lr.ph489 ], [ 0, %.lr.ph489.preheader ]
   %261 = call fastcc i32 @dissect_amf3_value_type(ptr noundef %0, i32 noundef %.3487, ptr noundef %16, ptr noundef null)
   %262 = add nuw nsw i32 %.0380486, 1
-  %exitcond497.not = icmp eq i32 %262, %203
+  %exitcond497.not = icmp eq i32 %262, %umax
   br i1 %exitcond497.not, label %._crit_edge490, label %.lr.ph489, !llvm.loop !16
 
 ._crit_edge490:                                   ; preds = %.lr.ph489, %235
@@ -4333,7 +4337,7 @@ amf_get_u29.exit455:                              ; preds = %.preheader, %378, %
   br i1 %.not407, label %419, label %399
 
 399:                                              ; preds = %amf_get_u29.exit455
-  %400 = icmp samesign ult i32 %.0.i454, 2
+  %400 = icmp eq i32 %.0.i454, 1
   %401 = add i32 %.sink.i453, %.9
   br i1 %400, label %402, label %405
 
@@ -4963,14 +4967,17 @@ declare void @conversation_set_dissector(ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #7
+declare i32 @llvm.smin.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4978,8 +4985,8 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 

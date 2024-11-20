@@ -1715,18 +1715,17 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %29 = icmp eq i32 %16, 1
   br i1 %29, label %.lr.ph.preheader, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
+.lr.ph.preheader:                                 ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc27
+  br label %.lr.ph
+
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc27
   %30 = getelementptr i8, ptr %28, i64 4
   %31 = add nsw i64 %27, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %30, i8 0, i64 %31, i1 false)
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc27
-  %wide.trip.count = zext nneg i32 %16 to i64
-  br label %.lr.ph
-
 .preheader94:                                     ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.065.0127 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %28, %.lr.ph ]
+  %.sroa.065.0126 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %28, %.lr.ph ]
   %32 = add nsw i32 %.sroa.speculated80, -1
   %33 = icmp slt i32 %.sroa.speculated, %32
   br i1 %33, label %.lr.ph101.preheader, label %_ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EED2Ev.exit
@@ -1737,12 +1736,12 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc27
   br label %.lr.ph101
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %35 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv
   %36 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %36, ptr %35, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %23
   br i1 %exitcond.not, label %.preheader94, label %.lr.ph, !llvm.loop !20
 
 37:                                               ; preds = %26, %25
@@ -1763,8 +1762,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc27
   %45 = srem i32 %42, %44
   %46 = zext nneg i32 %45 to i64
   %47 = add nuw nsw i64 %indvars.iv.next115, %46
-  %48 = getelementptr inbounds i32, ptr %.sroa.065.0127, i64 %indvars.iv114
-  %49 = getelementptr inbounds i32, ptr %.sroa.065.0127, i64 %47
+  %48 = getelementptr inbounds i32, ptr %.sroa.065.0126, i64 %indvars.iv114
+  %49 = getelementptr inbounds i32, ptr %.sroa.065.0126, i64 %47
   %50 = load i32, ptr %48, align 4
   %51 = load i32, ptr %49, align 4
   store i32 %51, ptr %48, align 4
@@ -1781,21 +1780,16 @@ _ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EED2Ev
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %54 = icmp sgt i32 %15, 0
   %or.cond = and i1 %.not.i.i.i.i, %54
-  br i1 %or.cond, label %.preheader.preheader, label %._crit_edge106
+  br i1 %or.cond, label %.preheader, label %._crit_edge106
 
-.preheader.preheader:                             ; preds = %_ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EED2Ev.exit
-  %smax122 = tail call i32 @llvm.smax.i32(i32 %16, i32 1)
-  %wide.trip.count123 = zext nneg i32 %smax122 to i64
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %._crit_edge104
-  %55 = phi i32 [ %15, %.preheader.preheader ], [ %107, %._crit_edge104 ]
-  %indvars.iv119 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next120, %._crit_edge104 ]
+.preheader:                                       ; preds = %_ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EED2Ev.exit, %._crit_edge104
+  %55 = phi i32 [ %107, %._crit_edge104 ], [ %15, %_ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EED2Ev.exit ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge104 ], [ 0, %_ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EED2Ev.exit ]
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %.lr.ph103, label %._crit_edge104
 
 .lr.ph103:                                        ; preds = %.preheader
-  %57 = getelementptr inbounds i32, ptr %.sroa.065.0127, i64 %indvars.iv119
+  %57 = getelementptr inbounds i32, ptr %.sroa.065.0126, i64 %indvars.iv119
   br label %58
 
 58:                                               ; preds = %.lr.ph103, %_ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit
@@ -1929,15 +1923,15 @@ _ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit33: ; preds =
 ._crit_edge104:                                   ; preds = %_ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit, %.preheader
   %107 = phi i32 [ %55, %.preheader ], [ %100, %_ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit ]
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %exitcond124.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count123
-  br i1 %exitcond124.not, label %._crit_edge106, label %.preheader, !llvm.loop !28
+  %exitcond123.not = icmp eq i64 %indvars.iv.next120, %23
+  br i1 %exitcond123.not, label %._crit_edge106, label %.preheader, !llvm.loop !28
 
 ._crit_edge106:                                   ; preds = %._crit_edge104, %_ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EED2Ev.exit
-  %.not.i.i.i34 = icmp eq ptr %.sroa.065.0127, null
+  %.not.i.i.i34 = icmp eq ptr %.sroa.065.0126, null
   br i1 %.not.i.i.i34, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %108
 
 108:                                              ; preds = %._crit_edge106
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.065.0127) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.065.0126) #30
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge106, %108
@@ -1976,7 +1970,7 @@ _ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EED2Ev
 
 _ZNSt6vectorIiSaIiEED2Ev.exit48:                  ; preds = %_ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit33, %102, %52
   %.pn = phi { ptr, i32 } [ %53, %52 ], [ %lpad.phi, %_ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit33 ], [ %103, %102 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.065.0127) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.065.0126) #30
   br label %115
 
 115:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit48, %37
@@ -4016,7 +4010,7 @@ _ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EE5resetEPS1_.exit: ; pr
 
 ._crit_edge:                                      ; preds = %_ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EE5resetEPS1_.exit, %.preheader
   %150 = add nuw nsw i32 %.02245, 1
-  %151 = icmp slt i32 %150, %36
+  %151 = icmp samesign ult i32 %150, %36
   br i1 %151, label %103, label %._crit_edge47.loopexit, !llvm.loop !48
 
 ._crit_edge47.loopexit:                           ; preds = %._crit_edge
@@ -16922,7 +16916,6 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc25
   %33 = load ptr, ptr %4, align 8
   %34 = load i32, ptr %2, align 4
   %35 = sext i32 %34 to i64
-  %wide.trip.count = zext nneg i32 %24 to i64
   %invariant.gep = getelementptr double, ptr %33, i64 %indvars.iv63
   br label %36
 
@@ -16934,7 +16927,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc25
   %39 = getelementptr inbounds double, ptr %29, i64 %indvars.iv
   store double %38, ptr %39, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %25
   br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !187
 
 ._crit_edge:                                      ; preds = %36, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i

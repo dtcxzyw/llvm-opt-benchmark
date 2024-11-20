@@ -158,8 +158,7 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noun
   br i1 %.not, label %.preheader.us.preheader, label %.lr.ph191.split
 
 .preheader.us.preheader:                          ; preds = %.lr.ph191
-  %11 = sext i32 %2 to i64
-  %wide.trip.count223 = zext i32 %2 to i64
+  %11 = zext i32 %2 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
@@ -191,7 +190,7 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noun
   %31 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %29, <8 x i16> %30)
   store <16 x i8> %31, ptr %13, align 1
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 4
-  %.not177.us = icmp sgt i64 %indvars.iv.next214, %11
+  %.not177.us = icmp samesign ugt i64 %indvars.iv.next214, %11
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 4
   br i1 %.not177.us, label %.loopexit.us.loopexit, label %.lr.ph185.us, !llvm.loop !7
 
@@ -239,7 +238,7 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noun
 
 62:                                               ; preds = %39, %35
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
-  %exitcond224.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count223
+  %exitcond224.not = icmp eq i64 %indvars.iv.next221, %11
   br i1 %exitcond224.not, label %._crit_edge.us, label %35, !llvm.loop !9
 
 .loopexit.us.loopexit:                            ; preds = %.lr.ph185.us
@@ -361,7 +360,7 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noun
 
 ..loopexit180_crit_edge:                          ; preds = %105
   %125 = trunc nuw nsw i64 %indvars.iv to i32
-  %126 = icmp sgt i32 %2, %125
+  %126 = icmp samesign ugt i32 %2, %125
   br i1 %126, label %.lr.ph188, label %._crit_edge
 
 .lr.ph188:                                        ; preds = %..loopexit180_crit_edge

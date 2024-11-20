@@ -10284,8 +10284,8 @@ define internal fastcc void @Ins_IDEF(ptr nocapture noundef %0, ptr nocapture no
 34:                                               ; preds = %32, %._crit_edge
   %.0.lcssa51 = phi ptr [ %.0.lcssa52, %32 ], [ %.0.lcssa, %._crit_edge ]
   %35 = load i64, ptr %1, align 8
-  %or.cond = icmp ugt i64 %35, 255
-  br i1 %or.cond, label %36, label %38
+  %or.cond.not = icmp ult i64 %35, 256
+  br i1 %or.cond.not, label %38, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds i8, ptr %0, i64 24
@@ -15223,14 +15223,14 @@ define internal fastcc void @ft_var_load_avar(ptr noundef %0) unnamed_addr #2 {
   br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %66 = add nuw nsw i32 %.084, 1
+  %66 = add nuw i32 %.084, 1
   %67 = getelementptr inbounds i8, ptr %.07183, i64 16
   %exitcond.not = icmp eq i32 %66, %20
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   br i1 %exitcond.not, label %._crit_edge86, label %.lr.ph85, !llvm.loop !104
 
 ._crit_edge86:                                    ; preds = %._crit_edge, %.preheader80
-  %68 = icmp slt i32 %19, 131072
+  %68 = icmp samesign ult i32 %19, 131072
   br i1 %68, label %87, label %69
 
 69:                                               ; preds = %._crit_edge86
@@ -22336,14 +22336,14 @@ define internal fastcc i32 @tt_face_load_hdmx(ptr noundef %0, ptr noundef %1) un
   %11 = load i64, ptr %4, align 8
   %12 = icmp ult i64 %11, 8
   %or.cond = select i1 %10, i1 true, i1 %12
-  br i1 %or.cond, label %73, label %13
+  br i1 %or.cond, label %74, label %13
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %0, i64 1288
   %15 = call i32 @FT_Stream_ExtractFrame(ptr noundef nonnull %1, i64 noundef %11, ptr noundef nonnull %14) #22
   store i32 %15, ptr %3, align 4
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %16, label %70
+  br i1 %.not, label %16, label %71
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %14, align 8
@@ -22381,7 +22381,7 @@ define internal fastcc i32 @tt_face_load_hdmx(ptr noundef %0, ptr noundef %1) un
   %48 = icmp ne i8 %21, 0
   %49 = icmp eq i32 %27, 0
   %or.cond3 = select i1 %48, i1 true, i1 %49
-  br i1 %or.cond3, label %72, label %50
+  br i1 %or.cond3, label %73, label %50
 
 50:                                               ; preds = %16
   %51 = getelementptr inbounds i8, ptr %0, i64 32
@@ -22389,7 +22389,7 @@ define internal fastcc i32 @tt_face_load_hdmx(ptr noundef %0, ptr noundef %1) un
   %53 = add nsw i64 %52, 5
   %54 = and i64 %53, -4
   %.not57 = icmp eq i64 %spec.select, %54
-  br i1 %.not57, label %55, label %72
+  br i1 %.not57, label %55, label %73
 
 55:                                               ; preds = %50
   %56 = zext nneg i32 %27 to i64
@@ -22398,9 +22398,13 @@ define internal fastcc i32 @tt_face_load_hdmx(ptr noundef %0, ptr noundef %1) un
   store ptr %57, ptr %58, align 8
   %59 = load i32, ptr %3, align 4
   %.not58 = icmp eq i32 %59, 0
-  br i1 %.not58, label %.lr.ph.preheader, label %72
+  br i1 %.not58, label %.preheader, label %73
 
-.lr.ph.preheader:                                 ; preds = %55
+.preheader:                                       ; preds = %55
+  %.not63 = icmp eq i8 %25, 0
+  br i1 %.not63, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext i8 %25 to i64
   br label %.lr.ph
 
@@ -22427,35 +22431,35 @@ define internal fastcc i32 @tt_face_load_hdmx(ptr noundef %0, ptr noundef %1) un
   %64 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.._crit_edge.loopexit_crit_edge, %._crit_edge.loopexitsplit
-  %.pre = phi ptr [ %.pre.pre, %.._crit_edge.loopexit_crit_edge ], [ %.pre.pre65, %._crit_edge.loopexitsplit ]
-  %.052.lcssa.ph = phi i32 [ %26, %.._crit_edge.loopexit_crit_edge ], [ %64, %._crit_edge.loopexitsplit ]
-  %65 = zext nneg i32 %.052.lcssa.ph to i64
-  call void @qsort(ptr noundef %.pre, i64 noundef %65, i64 noundef 8, ptr noundef nonnull @compare_ppem) #22
-  %66 = getelementptr inbounds i8, ptr %0, i64 1304
-  store i32 %.052.lcssa.ph, ptr %66, align 8
-  %67 = load i64, ptr %4, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 1296
-  store i64 %67, ptr %68, align 8
+._crit_edge:                                      ; preds = %.._crit_edge.loopexit_crit_edge, %._crit_edge.loopexitsplit, %.preheader
+  %65 = phi ptr [ %57, %.preheader ], [ %.pre.pre, %.._crit_edge.loopexit_crit_edge ], [ %.pre.pre65, %._crit_edge.loopexitsplit ]
+  %.052.lcssa = phi i32 [ 0, %.preheader ], [ %26, %.._crit_edge.loopexit_crit_edge ], [ %64, %._crit_edge.loopexitsplit ]
+  %66 = zext nneg i32 %.052.lcssa to i64
+  call void @qsort(ptr noundef %65, i64 noundef %66, i64 noundef 8, ptr noundef nonnull @compare_ppem) #22
+  %67 = getelementptr inbounds i8, ptr %0, i64 1304
+  store i32 %.052.lcssa, ptr %67, align 8
+  %68 = load i64, ptr %4, align 8
+  %69 = getelementptr inbounds i8, ptr %0, i64 1296
+  store i64 %68, ptr %69, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %._crit_edge, %72
-  %.sink70 = phi i64 [ 1296, %72 ], [ 1312, %._crit_edge ]
-  %.sink = phi i64 [ 0, %72 ], [ %spec.select, %._crit_edge ]
-  %69 = getelementptr inbounds i8, ptr %0, i64 %.sink70
-  store i64 %.sink, ptr %69, align 8
-  br label %70
+.sink.split:                                      ; preds = %._crit_edge, %73
+  %.sink70 = phi i64 [ 1296, %73 ], [ 1312, %._crit_edge ]
+  %.sink = phi i64 [ 0, %73 ], [ %spec.select, %._crit_edge ]
+  %70 = getelementptr inbounds i8, ptr %0, i64 %.sink70
+  store i64 %.sink, ptr %70, align 8
+  br label %71
 
-70:                                               ; preds = %.sink.split, %13
-  %71 = load i32, ptr %3, align 4
-  br label %73
+71:                                               ; preds = %.sink.split, %13
+  %72 = load i32, ptr %3, align 4
+  br label %74
 
-72:                                               ; preds = %55, %50, %16
+73:                                               ; preds = %55, %50, %16
   call void @FT_Stream_ReleaseFrame(ptr noundef nonnull %1, ptr noundef nonnull %14) #22
   br label %.sink.split
 
-73:                                               ; preds = %2, %70
-  %.0 = phi i32 [ %71, %70 ], [ 0, %2 ]
+74:                                               ; preds = %2, %71
+  %.0 = phi i32 [ %72, %71 ], [ 0, %2 ]
   ret i32 %.0
 }
 

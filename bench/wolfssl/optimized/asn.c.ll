@@ -17415,7 +17415,7 @@ if.end.thread.i:                                  ; preds = %SetASNInt.exit
   store i8 2, ptr %output, align 1
   %spec.select17.i = add nuw nsw i32 %snSzInt.2, %inc.i
   %add.ptr18.i = getelementptr inbounds i8, ptr %output, i64 1
-  %cmp.i20.i = icmp ult i32 %spec.select17.i, 128
+  %cmp.i20.i = icmp samesign ult i32 %spec.select17.i, 128
   br i1 %cmp.i20.i, label %if.then1.i.i, label %for.body.i.i.i28
 
 if.then1.i.i:                                     ; preds = %if.end.thread.i
@@ -21646,7 +21646,7 @@ lor.lhs.false6:                                   ; preds = %entry
   %0 = load i8, ptr %name, align 1
   %cmp7 = icmp eq i8 %0, 46
   %cmp10 = icmp samesign ult i32 %nameSz, %baseSz
-  %or.cond49 = or i1 %cmp10, %cmp7
+  %or.cond49 = select i1 %cmp7, i1 true, i1 %cmp10
   br i1 %or.cond49, label %return, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false6
@@ -21684,7 +21684,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %incdec.ptr = getelementptr inbounds i8, ptr %p.158, i64 1
   %2 = load i8, ptr %incdec.ptr, align 1
   %cmp36 = icmp ne i8 %2, 64
-  %cmp38 = icmp slt i32 %inc, %baseSz
+  %cmp38 = icmp samesign ult i32 %inc, %baseSz
   %3 = select i1 %cmp36, i1 %cmp38, i1 false
   br i1 %3, label %while.body, label %while.end, !llvm.loop !35
 
@@ -21692,33 +21692,30 @@ while.end:                                        ; preds = %while.body
   br i1 %cmp38, label %land.lhs.true75, label %if.then47
 
 if.then47:                                        ; preds = %if.then29, %while.end
-  %cmp5060 = icmp ne i8 %0, 64
-  %cmp5361 = icmp sgt i32 %baseSz, 0
-  %4 = and i1 %cmp5060, %cmp5361
-  br i1 %4, label %while.body56, label %while.end59
+  %cmp5060.not = icmp eq i8 %0, 64
+  br i1 %cmp5060.not, label %while.end59, label %while.body56
 
 while.body56:                                     ; preds = %if.then47, %while.body56
   %count.163 = phi i32 [ %inc57, %while.body56 ], [ 0, %if.then47 ]
   %p.262 = phi ptr [ %incdec.ptr58, %while.body56 ], [ %name, %if.then47 ]
   %inc57 = add nuw nsw i32 %count.163, 1
   %incdec.ptr58 = getelementptr inbounds i8, ptr %p.262, i64 1
-  %5 = load i8, ptr %incdec.ptr58, align 1
-  %cmp50 = icmp ne i8 %5, 64
-  %cmp53 = icmp slt i32 %inc57, %baseSz
-  %6 = select i1 %cmp50, i1 %cmp53, i1 false
-  br i1 %6, label %while.body56, label %while.end59.loopexit, !llvm.loop !36
+  %4 = load i8, ptr %incdec.ptr58, align 1
+  %cmp50 = icmp ne i8 %4, 64
+  %cmp53 = icmp samesign ult i32 %inc57, %baseSz
+  %5 = select i1 %cmp50, i1 %cmp53, i1 false
+  br i1 %5, label %while.body56, label %while.end59.loopexit, !llvm.loop !36
 
 while.end59.loopexit:                             ; preds = %while.body56
-  %7 = sub nuw nsw i32 -2, %count.163
+  %6 = sub nuw i32 -2, %count.163
+  %7 = icmp eq i8 %4, 64
+  %8 = and i1 %cmp53, %7
   br label %while.end59
 
 while.end59:                                      ; preds = %while.end59.loopexit, %if.then47
   %p.2.lcssa = phi ptr [ %name, %if.then47 ], [ %incdec.ptr58, %while.end59.loopexit ]
-  %count.1.lcssa = phi i32 [ -1, %if.then47 ], [ %7, %while.end59.loopexit ]
-  %.lcssa = phi i8 [ %0, %if.then47 ], [ %5, %while.end59.loopexit ]
-  %cmp53.lcssa = phi i1 [ %cmp5361, %if.then47 ], [ %cmp53, %while.end59.loopexit ]
-  %cmp64 = icmp eq i8 %.lcssa, 64
-  %or.cond50 = and i1 %cmp53.lcssa, %cmp64
+  %count.1.lcssa = phi i32 [ -1, %if.then47 ], [ %6, %while.end59.loopexit ]
+  %or.cond50 = phi i1 [ true, %if.then47 ], [ %8, %while.end59.loopexit ]
   br i1 %or.cond50, label %if.then66, label %land.lhs.true75
 
 if.then66:                                        ; preds = %while.end59
@@ -21749,11 +21746,11 @@ while.body88:                                     ; preds = %if.end84, %if.end96
   %name.addr.271 = phi ptr [ %incdec.ptr97, %if.end96 ], [ %name.addr.1, %if.end84 ]
   %base.addr.070 = phi ptr [ %incdec.ptr98, %if.end96 ], [ %base, %if.end84 ]
   %nameSz.addr.269 = phi i32 [ %dec, %if.end96 ], [ %nameSz.addr.1, %if.end84 ]
-  %8 = load i8, ptr %name.addr.271, align 1
-  %conv89 = zext i8 %8 to i32
+  %9 = load i8, ptr %name.addr.271, align 1
+  %conv89 = zext i8 %9 to i32
   %call90 = tail call i32 @tolower(i32 noundef %conv89) #23
-  %9 = load i8, ptr %base.addr.070, align 1
-  %conv91 = zext i8 %9 to i32
+  %10 = load i8, ptr %base.addr.070, align 1
+  %conv91 = zext i8 %10 to i32
   %call92 = tail call i32 @tolower(i32 noundef %conv91) #23
   %cmp93.not = icmp eq i32 %call90, %call92
   br i1 %cmp93.not, label %if.end96, label %return

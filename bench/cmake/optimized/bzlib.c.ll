@@ -3670,30 +3670,28 @@ myfeof.exit:                                      ; preds = %42, %54, %39
   br label %83
 
 61:                                               ; preds = %myfeof.exit
-  switch i32 %56, label %79 [
-    i32 0, label %62
-    i32 4, label %74
-  ]
+  %cond = icmp eq i32 %56, 0
+  br i1 %cond, label %62, label %74
 
 62:                                               ; preds = %61
   %63 = load ptr, ptr %1, align 8
   %64 = tail call i32 @fgetc(ptr noundef %63)
   %65 = icmp eq i32 %64, -1
-  br i1 %65, label %myfeof.exit96, label %myfeof.exit96.thread
+  br i1 %65, label %myfeof.exit97, label %myfeof.exit97.thread
 
-myfeof.exit96.thread:                             ; preds = %62
+myfeof.exit97.thread:                             ; preds = %62
   %66 = tail call i32 @ungetc(i32 noundef %64, ptr noundef %63)
   br label %79
 
-myfeof.exit96:                                    ; preds = %62
+myfeof.exit97:                                    ; preds = %62
   %67 = load i32, ptr %30, align 8
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %79
 
-69:                                               ; preds = %myfeof.exit96
+69:                                               ; preds = %myfeof.exit97
   %70 = load i32, ptr %28, align 8
   %.not94 = icmp eq i32 %70, 0
-  br i1 %.not94, label %.thread103, label %71
+  br i1 %.not94, label %.thread104, label %71
 
 71:                                               ; preds = %69
   br i1 %.not, label %73, label %72
@@ -3719,19 +3717,19 @@ myfeof.exit96:                                    ; preds = %62
   %78 = sub i32 %3, %77
   br label %83
 
-79:                                               ; preds = %myfeof.exit96, %myfeof.exit96.thread, %61
+79:                                               ; preds = %myfeof.exit97, %myfeof.exit97.thread
   %.pr = load i32, ptr %28, align 8
   %80 = icmp eq i32 %.pr, 0
-  br i1 %80, label %.thread103, label %33
+  br i1 %80, label %.thread104, label %33
 
-.thread103:                                       ; preds = %79, %69
+.thread104:                                       ; preds = %79, %69
   br i1 %.not, label %82, label %81
 
-81:                                               ; preds = %.thread103
+81:                                               ; preds = %.thread104
   store i32 0, ptr %0, align 4
   br label %82
 
-82:                                               ; preds = %.thread103, %81
+82:                                               ; preds = %.thread104, %81
   store i32 0, ptr %8, align 8
   br label %83
 

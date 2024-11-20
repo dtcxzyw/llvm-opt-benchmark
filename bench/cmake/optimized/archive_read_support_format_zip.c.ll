@@ -1194,8 +1194,7 @@ define internal range(i32 -1, 33) i32 @archive_read_format_zip_seekable_bid(ptr 
 
 10:                                               ; preds = %7
   %11 = tail call i64 @llvm.umin.i64(i64 %8, i64 16384)
-  %.neg = mul nsw i64 %11, -4294967296
-  %12 = ashr exact i64 %.neg, 32
+  %12 = sub nsw i64 0, %11
   %13 = tail call i64 @__archive_read_seek(ptr noundef nonnull %0, i64 noundef %12, i32 noundef 2) #21
   %14 = icmp slt i64 %13, 0
   br i1 %14, label %.loopexit, label %15
@@ -1204,7 +1203,7 @@ define internal range(i32 -1, 33) i32 @archive_read_format_zip_seekable_bid(ptr 
   %16 = tail call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %11, ptr noundef null) #21
   %17 = icmp ne ptr %16, null
   %18 = icmp samesign ugt i64 %8, 22
-  %or.cond = and i1 %17, %18
+  %or.cond = select i1 %17, i1 %18, i1 false
   br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %15
@@ -6415,19 +6414,19 @@ declare void @__archive_rb_tree_remove_node(ptr noundef, ptr noundef) local_unna
 declare void @archive_entry_copy_mac_metadata(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #18
+declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i64(i64, i64) #18

@@ -363,7 +363,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %add.ptr51.us = getelementptr inbounds i8, ptr %spec.select62.us, i64 1
   %inc.us = add nuw nsw i32 %lines_skipped.0121.us, 1
   %cmp33.us = icmp ult ptr %add.ptr51.us, %text_end.addr.1
-  %cmp34.us = icmp slt i32 %inc.us, %conv
+  %cmp34.us = icmp samesign ult i32 %inc.us, %conv
   %14 = select i1 %cmp33.us, i1 %cmp34.us, i1 false
   br i1 %14, label %while.body.us, label %while.end, !llvm.loop !4
 
@@ -378,7 +378,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %add.ptr51 = getelementptr inbounds i8, ptr %spec.select62, i64 1
   %inc = add nuw nsw i32 %lines_skipped.0121, 1
   %cmp33 = icmp ult ptr %add.ptr51, %text_end.addr.1
-  %cmp34 = icmp slt i32 %inc, %conv
+  %cmp34 = icmp samesign ult i32 %inc, %conv
   %15 = select i1 %cmp33, i1 %cmp34, i1 false
   br i1 %15, label %while.body, label %while.end, !llvm.loop !4
 
@@ -5594,7 +5594,7 @@ if.then24:                                        ; preds = %if.end22
 
 if.end25:                                         ; preds = %if.then24, %if.end22
   call void @_ZN5ImGui5PopIDEv()
-  %inc = add nuw nsw i32 %i.025, 1
+  %inc = add nuw i32 %i.025, 1
   %exitcond.not = icmp eq i32 %inc, %items_count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
@@ -11956,7 +11956,7 @@ if.end4:                                          ; preds = %if.then3, %for.body
   tail call void @_ZN5ImGui5PopIDEv()
   tail call void @_ZN5ImGui12PopItemWidthEv()
   %add.ptr = getelementptr inbounds i8, ptr %p_data.addr.016, i64 %4
-  %inc = add nuw nsw i32 %i.017, 1
+  %inc = add nuw i32 %i.017, 1
   %exitcond.not = icmp eq i32 %inc, %components
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !26
 
@@ -16810,7 +16810,7 @@ if.end4:                                          ; preds = %if.then3, %for.body
   tail call void @_ZN5ImGui5PopIDEv()
   tail call void @_ZN5ImGui12PopItemWidthEv()
   %add.ptr = getelementptr inbounds i8, ptr %v.addr.016, i64 %4
-  %inc = add nuw nsw i32 %i.017, 1
+  %inc = add nuw i32 %i.017, 1
   %exitcond.not = icmp eq i32 %inc, %components
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !27
 
@@ -21323,7 +21323,7 @@ if.end4:                                          ; preds = %if.then3, %for.body
   tail call void @_ZN5ImGui5PopIDEv()
   tail call void @_ZN5ImGui12PopItemWidthEv()
   %add.ptr = getelementptr inbounds i8, ptr %p_data.addr.016, i64 %4
-  %inc = add nuw nsw i32 %i.017, 1
+  %inc = add nuw i32 %i.017, 1
   %exitcond.not = icmp eq i32 %inc, %components
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !38
 
@@ -28033,10 +28033,9 @@ if.then10:                                        ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %if.then10, %if.end35
-  %cmp16 = phi i1 [ false, %if.then10 ], [ true, %if.end35 ]
-  %cmp20 = phi i1 [ true, %if.then10 ], [ false, %if.end35 ]
+  %cmp16.not = phi i1 [ true, %if.then10 ], [ false, %if.end35 ]
   %picker_type.037 = phi i32 [ 0, %if.then10 ], [ 1, %if.end35 ]
-  br i1 %cmp16, label %if.then17, label %if.end18
+  br i1 %cmp16.not, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %for.body
   %9 = load ptr, ptr @GImGui, align 8
@@ -28062,8 +28061,8 @@ if.end.i:                                         ; preds = %if.then17
 
 if.end18:                                         ; preds = %if.end.i, %if.then17, %for.body
   %picker_flags.1.v = phi i32 [ %invariant.op, %if.end.i ], [ %invariant.op, %if.then17 ], [ %and1, %for.body ]
+  %spec.select.v = phi i32 [ 424, %if.end.i ], [ 424, %if.then17 ], [ 33554856, %for.body ]
   call void @_ZN5ImGui6PushIDEi(i32 noundef %picker_type.037)
-  %spec.select.v = select i1 %cmp20, i32 33554856, i32 424
   %picker_flags.1 = or disjoint i32 %spec.select.v, %picker_flags.1.v
   %call28 = call <2 x float> @_ZN5ImGui18GetCursorScreenPosEv()
   store <2 x float> %call28, ptr %backup_pos, align 8
@@ -28084,7 +28083,7 @@ if.end35:                                         ; preds = %if.then30, %if.end1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %previewing_ref_col, ptr noundef nonnull align 4 dereferenceable(12) %ref_col, i64 %mul38, i1 false)
   %call40 = call noundef zeroext i1 @_ZN5ImGui12ColorPicker4EPKcPfiPKf(ptr noundef nonnull @.str.93, ptr noundef nonnull %previewing_ref_col, i32 noundef %picker_flags.1, ptr noundef null)
   call void @_ZN5ImGui5PopIDEv()
-  br i1 %cmp20, label %for.body, label %if.end42, !llvm.loop !65
+  br i1 %cmp16.not, label %for.body, label %if.end42, !llvm.loop !65
 
 if.end42:                                         ; preds = %if.end35
   call void @_ZN5ImGui12PopItemWidthEv()
@@ -30334,12 +30333,12 @@ if.end6:                                          ; preds = %for.inc.i, %for.inc
   br i1 %cmp7.not, label %return, label %if.then8
 
 if.then8:                                         ; preds = %if.end.i, %if.end.i22, %if.end6
-  %idx.044 = phi i32 [ %idx.0, %if.end6 ], [ %idx.010.i, %if.end.i22 ], [ %idx.019.i, %if.end.i ]
+  %idx.048 = phi i32 [ %idx.0, %if.end6 ], [ %idx.010.i, %if.end.i22 ], [ %idx.019.i, %if.end.i ]
   tail call void @_ZN5ImGui28NavRestoreHighlightAfterMoveEv()
   br label %return
 
 return:                                           ; preds = %if.else, %if.then4, %if.end6, %if.then8, %entry, %lor.lhs.false
-  %retval.0 = phi i32 [ -1, %lor.lhs.false ], [ -1, %entry ], [ %idx.044, %if.then8 ], [ -1, %if.end6 ], [ -1, %if.then4 ], [ -1, %if.else ]
+  %retval.0 = phi i32 [ -1, %lor.lhs.false ], [ -1, %entry ], [ %idx.048, %if.then8 ], [ -1, %if.end6 ], [ -1, %if.then4 ], [ -1, %if.else ]
   ret i32 %retval.0
 }
 
@@ -30411,7 +30410,7 @@ if.end11:                                         ; preds = %if.end
 for.inc:                                          ; preds = %if.end11, %_ZL14ImStrimatchlenPKcS0_S0_.exit
   %first_match_idx.1 = phi i32 [ %first_match_idx.017, %_ZL14ImStrimatchlenPKcS0_S0_.exit ], [ %spec.select, %if.end11 ]
   %return_next_match.1 = phi i1 [ %return_next_match.018, %_ZL14ImStrimatchlenPKcS0_S0_.exit ], [ %cmp15, %if.end11 ]
-  %inc = add nuw nsw i32 %idx.019, 1
+  %inc = add nuw i32 %idx.019, 1
   %exitcond.not = icmp eq i32 %inc, %items_count
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !68
 
@@ -30479,7 +30478,7 @@ if.end:                                           ; preds = %_ZL14ImStrimatchlen
 for.inc:                                          ; preds = %if.end, %_ZL14ImStrimatchlenPKcS0_S0_.exit
   %longest_match_len.1 = phi i32 [ %longest_match_len.011, %_ZL14ImStrimatchlenPKcS0_S0_.exit ], [ %match_len.0.lcssa.i, %if.end ]
   %longest_match_idx.2 = phi i32 [ %longest_match_idx.012, %_ZL14ImStrimatchlenPKcS0_S0_.exit ], [ %idx.010, %if.end ]
-  %inc = add nuw nsw i32 %idx.010, 1
+  %inc = add nuw i32 %idx.010, 1
   %exitcond.not = icmp eq i32 %inc, %items_count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !69
 
@@ -30974,7 +30973,7 @@ if.end35:                                         ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.end35
   %v_max.1 = phi float [ %v_max.0165, %for.body ], [ %cond.i120, %if.end35 ]
   %v_min.1 = phi float [ %v_min.0166, %for.body ], [ %cond.i, %if.end35 ]
-  %inc = add nuw nsw i32 %i.0164, 1
+  %inc = add nuw i32 %i.0164, 1
   %exitcond.not = icmp eq i32 %inc, %values_count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !70
 
@@ -31139,7 +31138,7 @@ for.body129.us:                                   ; preds = %for.body129.lr.ph, 
   %cmp157.us = icmp eq i32 %idx_hovered.1, %conv133.us
   %cond161.us = select i1 %cmp157.us, i32 %call126, i32 %call123
   call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %28, ptr noundef nonnull align 4 dereferenceable(8) %pos0, ptr noundef nonnull align 4 dereferenceable(8) %pos1, i32 noundef %cond161.us, float noundef 1.000000e+00)
-  %inc182.us = add nuw nsw i32 %n.0171.us, 1
+  %inc182.us = add nuw i32 %n.0171.us, 1
   %exitcond196.not = icmp eq i32 %inc182.us, %add58
   br i1 %exitcond196.not, label %if.end184, label %for.body129.us, !llvm.loop !71
 
@@ -31187,7 +31186,7 @@ if.end172.us:                                     ; preds = %if.then169.us, %for
   %cmp174.us = icmp eq i32 %idx_hovered.1, %conv133.us177
   %cond178.us = select i1 %cmp174.us, i32 %call126, i32 %call123
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %34, ptr noundef nonnull align 4 dereferenceable(8) %pos0, ptr noundef nonnull align 4 dereferenceable(8) %pos1, i32 noundef %cond178.us, float noundef 0.000000e+00, i32 noundef 0)
-  %inc182.us190 = add nuw nsw i32 %n.0171.us173, 1
+  %inc182.us190 = add nuw i32 %n.0171.us173, 1
   %exitcond195.not = icmp eq i32 %inc182.us190, %add58
   br i1 %exitcond195.not, label %if.end184, label %for.body129.us172, !llvm.loop !71
 
@@ -31217,7 +31216,7 @@ for.body129:                                      ; preds = %for.body129.lr.ph.s
   %retval.sroa.0.0.vec.insert.i143 = insertelement <2 x float> poison, float %39, i64 0
   %retval.sroa.0.4.vec.insert.i144 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i143, float %21, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i144, ptr %pos1, align 8
-  %inc182 = add nuw nsw i32 %n.0171, 1
+  %inc182 = add nuw i32 %n.0171, 1
   %exitcond194.not = icmp eq i32 %inc182, %add58
   br i1 %exitcond194.not, label %if.end184, label %for.body129, !llvm.loop !71
 
@@ -34139,7 +34138,9 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %43 = load i16, ptr %ReorderRequestOffset.i, align 8
   %conv.i = sext i16 %43 to i32
   %add.i = add nsw i32 %conv.i, %conv.i.i.i
-  %or.cond.i = icmp ult i32 %add.i, %39
+  %cmp2.i = icmp sgt i32 %add.i, -1
+  %cmp4.not.i = icmp samesign ult i32 %add.i, %39
+  %or.cond.i = select i1 %cmp2.i, i1 %cmp4.not.i, i1 false
   br i1 %or.cond.i, label %if.end6.i, label %_ZN5ImGui20TabBarProcessReorderEP11ImGuiTabBar.exit.thread
 
 if.end6.i:                                        ; preds = %if.end.i
@@ -34676,7 +34677,9 @@ if.then38.i:                                      ; preds = %for.body.i.i338
 while.body.i:                                     ; preds = %if.then47.i352, %if.then38.i
   %target_order.055.i = phi i32 [ %add40.i, %if.then38.i ], [ %add48.i, %if.then47.i352 ]
   %selected_order.054.i = phi i32 [ %conv.i.i.i345, %if.then38.i ], [ %add49.i, %if.then47.i352 ]
-  %or.cond65.i = icmp ult i32 %target_order.055.i, %125
+  %cmp42.i = icmp sgt i32 %target_order.055.i, -1
+  %cmp44.i = icmp samesign ult i32 %target_order.055.i, %125
+  %or.cond65.i = select i1 %cmp42.i, i1 %cmp44.i, i1 false
   %cond.i346 = select i1 %or.cond65.i, i32 %target_order.055.i, i32 %selected_order.054.i
   %idxprom.i.i347 = sext i32 %cond.i346 to i64
   %arrayidx.i.i348 = getelementptr inbounds %struct.ImGuiTabItem, ptr %126, i64 %idxprom.i.i347
@@ -34689,7 +34692,9 @@ while.body.i:                                     ; preds = %if.then47.i352, %if
 if.then47.i352:                                   ; preds = %while.body.i
   %add48.i = add nsw i32 %target_order.055.i, %select_dir.1.i
   %add49.i = add nsw i32 %selected_order.054.i, %select_dir.1.i
-  %or.cond.i353 = icmp ult i32 %add48.i, %125
+  %cmp50.i = icmp sgt i32 %add48.i, -1
+  %cmp53.not.i = icmp samesign ult i32 %add48.i, %125
+  %or.cond.i353 = select i1 %cmp50.i, i1 %cmp53.not.i, i1 false
   br i1 %or.cond.i353, label %while.body.i, label %if.then232, !llvm.loop !80
 
 _ZN5ImGuiL22TabBarScrollingButtonsEP11ImGuiTabBar.exit.thread: ; preds = %for.cond.i.i342, %if.then229, %if.then36.i, %for.cond.preheader.i.i333
@@ -35654,7 +35659,9 @@ if.end:                                           ; preds = %lor.lhs.false
   %5 = load i16, ptr %ReorderRequestOffset, align 8
   %conv = sext i16 %5 to i32
   %add = add nsw i32 %conv.i.i, %conv
-  %or.cond = icmp ult i32 %add, %1
+  %cmp2 = icmp sgt i32 %add, -1
+  %cmp4.not = icmp samesign ult i32 %add, %1
+  %or.cond = select i1 %cmp2, i1 %cmp4.not, i1 false
   br i1 %or.cond, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end
@@ -38374,7 +38381,7 @@ if.end7:                                          ; preds = %if.end
 
 if.end12:                                         ; preds = %if.end7
   %add14 = add nuw nsw i32 %i.051, %conv.i
-  %cmp = icmp slt i32 %add14, %str.val
+  %cmp = icmp samesign ult i32 %add14, %str.val
   br i1 %cmp, label %while.body, label %return, !llvm.loop !91
 
 if.end18:                                         ; preds = %if.end7
@@ -38384,9 +38391,9 @@ if.end18:                                         ; preds = %if.end7
 if.end22:                                         ; preds = %if.end18
   %size.sroa.0.0.vec.extract.i.le = extractelement <2 x float> %retval.sroa.0.3.i.i, i64 0
   %cmp24 = fcmp olt float %x, %size.sroa.0.0.vec.extract.i.le
-  br i1 %cmp24, label %for.body.lr.ph, label %if.end41
+  br i1 %cmp24, label %for.cond.preheader, label %if.end41
 
-for.body.lr.ph:                                   ; preds = %if.end22
+for.cond.preheader:                               ; preds = %if.end22
   %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
@@ -38395,9 +38402,9 @@ for.cond:                                         ; preds = %_ZN5ImStbL21STB_TEX
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end41, label %for.body, !llvm.loop !92
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %prev_x.055 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %add30, %for.cond ]
+for.body:                                         ; preds = %for.cond.preheader, %for.cond
+  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.cond ]
+  %prev_x.054 = phi float [ 0.000000e+00, %for.cond.preheader ], [ %add30, %for.cond ]
   %9 = add nuw nsw i64 %indvars.iv, %idx.ext.i
   %arrayidx.i.i = getelementptr inbounds i16, ptr %1, i64 %9
   %10 = load i16, ptr %arrayidx.i.i, align 2
@@ -38418,14 +38425,14 @@ if.end.i:                                         ; preds = %for.body
 
 _ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit: ; preds = %for.body, %if.end.i
   %retval.0.i = phi float [ %mul.i, %if.end.i ], [ -1.000000e+00, %for.body ]
-  %add30 = fadd float %prev_x.055, %retval.0.i
+  %add30 = fadd float %prev_x.054, %retval.0.i
   %cmp31 = fcmp olt float %x, %add30
   br i1 %cmp31, label %if.then32, label %for.cond
 
 if.then32:                                        ; preds = %_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit
   %13 = trunc nuw i64 %9 to i32
   %div = fmul float %retval.0.i, 5.000000e-01
-  %add33 = fadd float %prev_x.055, %div
+  %add33 = fadd float %prev_x.054, %div
   %cmp34 = fcmp olt float %x, %add33
   br i1 %cmp34, label %return, label %if.else
 

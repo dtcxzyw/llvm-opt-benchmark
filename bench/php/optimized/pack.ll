@@ -374,7 +374,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
 118:                                              ; preds = %.lr.ph724, %.lr.ph724, %.lr.ph724, %.lr.ph724, %.lr.ph724, %.lr.ph724
   %119 = icmp slt i32 %104, 0
   %120 = sub nsw i32 2147483647, %.0517721
-  %121 = icmp slt i32 %120, %104
+  %121 = icmp samesign ult i32 %120, %104
   %or.cond622 = select i1 %119, i1 true, i1 %121
   br i1 %or.cond622, label %122, label %126
 
@@ -1549,7 +1549,6 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
 
 .lr.ph.preheader:                                 ; preds = %79
   %89 = trunc nsw i64 %81 to i32
-  %scevgep = getelementptr i8, ptr %.09591198, i64 %.09621197
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %92
@@ -1577,15 +1576,15 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br i1 %99, label %.lr.ph1162.preheader, label %.critedge8
 
 .lr.ph1162.preheader:                             ; preds = %.lr.ph, %.critedge
-  %.09501228 = phi i32 [ %.0950, %.critedge ], [ %89, %.lr.ph ]
-  %.19601227 = phi ptr [ %.1960, %.critedge ], [ %.29611155, %.lr.ph ]
-  %.19631226 = phi i64 [ %.1963, %.critedge ], [ %.29641154, %.lr.ph ]
-  %scevgep1215 = getelementptr i8, ptr %.19601227, i64 %.19631226
+  %.09501227 = phi i32 [ %.0950, %.critedge ], [ %89, %.lr.ph ]
+  %.19601226 = phi ptr [ %.1960, %.critedge ], [ %.29611155, %.lr.ph ]
+  %.19631225 = phi i64 [ %.1963, %.critedge ], [ %.29641154, %.lr.ph ]
+  %scevgep = getelementptr i8, ptr %.19601226, i64 %.19631225
   br label %.lr.ph1162
 
 .lr.ph1162:                                       ; preds = %.lr.ph1162.preheader, %101
-  %.31161 = phi ptr [ %103, %101 ], [ %.19601227, %.lr.ph1162.preheader ]
-  %.39651160 = phi i64 [ %102, %101 ], [ %.19631226, %.lr.ph1162.preheader ]
+  %.31161 = phi ptr [ %103, %101 ], [ %.19601226, %.lr.ph1162.preheader ]
+  %.39651160 = phi i64 [ %102, %101 ], [ %.19631225, %.lr.ph1162.preheader ]
   %100 = load i8, ptr %.31161, align 1
   %.not1034 = icmp eq i8 %100, 47
   br i1 %.not1034, label %.critedge8, label %101
@@ -1597,13 +1596,13 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br i1 %104, label %.lr.ph1162, label %.critedge8
 
 .critedge8:                                       ; preds = %92, %.lr.ph1162, %101, %72, %.critedge
-  %.09501221 = phi i32 [ %.0950, %.critedge ], [ 1, %72 ], [ %.09501228, %101 ], [ %.09501228, %.lr.ph1162 ], [ %89, %92 ]
-  %.19601220 = phi ptr [ %.1960, %.critedge ], [ %74, %72 ], [ %.19601227, %101 ], [ %.19601227, %.lr.ph1162 ], [ %scevgep, %92 ]
+  %.09501220 = phi i32 [ %.0950, %.critedge ], [ 1, %72 ], [ %.09501227, %101 ], [ %.09501227, %.lr.ph1162 ], [ %89, %92 ]
+  %.19601219 = phi ptr [ %.1960, %.critedge ], [ %74, %72 ], [ %.19601226, %101 ], [ %.19601226, %.lr.ph1162 ], [ %93, %92 ]
   %.3965.lcssa = phi i64 [ %.1963, %.critedge ], [ 0, %72 ], [ %.39651160, %.lr.ph1162 ], [ 0, %101 ], [ 0, %92 ]
-  %.3.lcssa = phi ptr [ %.1960, %.critedge ], [ %74, %72 ], [ %.31161, %.lr.ph1162 ], [ %scevgep1215, %101 ], [ %scevgep, %92 ]
+  %.3.lcssa = phi ptr [ %.1960, %.critedge ], [ %74, %72 ], [ %.31161, %.lr.ph1162 ], [ %scevgep, %101 ], [ %93, %92 ]
   %.lcssa = phi i1 [ false, %.critedge ], [ false, %72 ], [ %.not1034, %101 ], [ %.not1034, %.lr.ph1162 ], [ false, %92 ]
   %105 = ptrtoint ptr %.3.lcssa to i64
-  %106 = ptrtoint ptr %.19601220 to i64
+  %106 = ptrtoint ptr %.19601219 to i64
   %107 = sub i64 %105, %106
   %108 = trunc i64 %107 to i32
   %spec.store.select = call i32 @llvm.smin.i32(i32 %108, i32 200)
@@ -1642,7 +1641,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   ]
 
 110:                                              ; preds = %.critedge8
-  %111 = icmp slt i32 %.09501221, 0
+  %111 = icmp slt i32 %.09501220, 0
   br i1 %111, label %112, label %128
 
 112:                                              ; preds = %110
@@ -1650,10 +1649,10 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br label %.lr.ph1194
 
 113:                                              ; preds = %.critedge8, %.critedge8
-  %114 = icmp sgt i32 %.09501221, 0
-  %115 = add i32 %.09501221, 1
+  %114 = icmp sgt i32 %.09501220, 0
+  %115 = add i32 %.09501220, 1
   %116 = lshr i32 %115, 1
-  %117 = select i1 %114, i32 %116, i32 %.09501221
+  %117 = select i1 %114, i32 %116, i32 %.09501220
   br label %.lr.ph1194
 
 118:                                              ; preds = %.critedge8, %.critedge8, %.critedge8
@@ -1686,13 +1685,13 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
 
 128:                                              ; preds = %.critedge8, %110, %124, %123, %122, %121, %120, %119, %118
   %.0948 = phi i32 [ 8, %124 ], [ 4, %123 ], [ 8, %122 ], [ 4, %121 ], [ 4, %120 ], [ 2, %119 ], [ 1, %118 ], [ -1, %110 ], [ 0, %.critedge8 ]
-  %.not10351189 = icmp eq i32 %.09501221, 0
+  %.not10351189 = icmp eq i32 %.09501220, 0
   br i1 %.not10351189, label %.loopexit, label %.lr.ph1194
 
 .lr.ph1194:                                       ; preds = %.critedge8, %.critedge8, %.critedge8, %112, %113, %128
-  %.09481233 = phi i32 [ %.0948, %128 ], [ -1, %112 ], [ %117, %113 ], [ %.09501221, %.critedge8 ], [ %.09501221, %.critedge8 ], [ %.09501221, %.critedge8 ]
-  %.19511232 = phi i32 [ %.09501221, %128 ], [ 1, %112 ], [ 1, %113 ], [ 1, %.critedge8 ], [ 1, %.critedge8 ], [ 1, %.critedge8 ]
-  %129 = icmp eq i32 %.19511232, 1
+  %.09481232 = phi i32 [ %.0948, %128 ], [ -1, %112 ], [ %117, %113 ], [ %.09501220, %.critedge8 ], [ %.09501220, %.critedge8 ], [ %.09501220, %.critedge8 ]
+  %.19511231 = phi i32 [ %.09501220, %128 ], [ 1, %112 ], [ 1, %113 ], [ 1, %.critedge8 ], [ 1, %.critedge8 ], [ 1, %.critedge8 ]
+  %129 = icmp eq i32 %.19511231, 1
   %130 = icmp sgt i32 %108, 0
   %or.cond12 = select i1 %129, i1 %130, i1 false
   %131 = sext i32 %spec.store.select to i64
@@ -1701,20 +1700,20 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   %134 = add nuw nsw i64 %132, 32
   %135 = and i64 %134, 504
   %cond = icmp eq i8 %75, 74
-  %136 = sext i32 %.19511232 to i64
+  %136 = sext i32 %.19511231 to i64
   %.not1038 = icmp slt i64 %64, %136
-  %137 = add nsw i32 %.19511232, -1
-  %138 = icmp sgt i32 %.19511232, -1
+  %137 = add nsw i32 %.19511231, -1
+  %138 = icmp sgt i32 %.19511231, -1
   %139 = icmp eq i8 %75, 99
   %140 = icmp eq i8 %75, 104
   %141 = select i1 %140, i32 0, i32 4
-  %142 = icmp sgt i32 %.09501221, 0
-  %143 = and i32 %.09501221, 1
+  %142 = icmp sgt i32 %.09501220, 0
+  %143 = and i32 %.09501220, 1
   %144 = zext nneg i32 %143 to i64
   br label %145
 
 145:                                              ; preds = %.lr.ph1194, %577
-  %.19491192 = phi i32 [ %.09481233, %.lr.ph1194 ], [ %.2, %577 ]
+  %.19491192 = phi i32 [ %.09481232, %.lr.ph1194 ], [ %.2, %577 ]
   %.19681191 = phi i64 [ %.09671196, %.lr.ph1194 ], [ %.4971, %577 ]
   %.09721190 = phi i32 [ 0, %.lr.ph1194 ], [ %578, %577 ]
   %146 = add i32 %.19491192, -1
@@ -1754,13 +1753,13 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   %161 = getelementptr inbounds i8, ptr %158, i64 16
   store i64 %132, ptr %161, align 8
   %162 = getelementptr inbounds i8, ptr %158, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %162, ptr nonnull align 1 %.19601220, i64 %132, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %162, ptr align 1 %.19601219, i64 %132, i1 false)
   %163 = getelementptr inbounds [1 x i8], ptr %162, i64 0, i64 %132
   store i8 0, ptr %163, align 1
   br label %182
 
 164:                                              ; preds = %156
-  %165 = load i8, ptr %.19601220, align 1
+  %165 = load i8, ptr %.19601219, align 1
   %166 = zext i8 %165 to i64
   %167 = getelementptr inbounds [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %166
   %168 = load ptr, ptr %167, align 8
@@ -1787,7 +1786,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
 178:                                              ; preds = %172
   %179 = ptrtoint ptr %176 to i64
   %180 = sub i64 %70, %179
-  %181 = call ptr @zend_string_concat2(ptr noundef nonnull %.19601220, i64 noundef %131, ptr noundef nonnull %176, i64 noundef %180) #12
+  %181 = call ptr @zend_string_concat2(ptr noundef %.19601219, i64 noundef %131, ptr noundef nonnull %176, i64 noundef %180) #12
   br label %182
 
 182:                                              ; preds = %157, %164, %178
@@ -1986,9 +1985,9 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br i1 %266, label %._crit_edge1178, label %267
 
 267:                                              ; preds = %.lr.ph1177
-  %268 = add nuw nsw i64 %.09391175, 1
-  %exitcond1216.not = icmp eq i64 %268, %.0938
-  br i1 %exitcond1216.not, label %._crit_edge1178, label %.lr.ph1177
+  %268 = add nuw i64 %.09391175, 1
+  %exitcond1215.not = icmp eq i64 %268, %.0938
+  br i1 %exitcond1215.not, label %._crit_edge1178, label %.lr.ph1177
 
 ._crit_edge1178:                                  ; preds = %.lr.ph1177, %267, %257
   %.0939.lcssa = phi i64 [ 0, %257 ], [ %.09391175, %.lr.ph1177 ], [ %.0938, %267 ]
@@ -2590,7 +2589,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   br label %577
 
 570:                                              ; preds = %152
-  %571 = icmp slt i32 %.19511232, 0
+  %571 = icmp slt i32 %.19511231, 0
   br i1 %571, label %.loopexit, label %572
 
 572:                                              ; preds = %570
@@ -2606,7 +2605,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
 577:                                              ; preds = %568, %569, %564
   %.4971 = phi i64 [ %566, %564 ], [ 0, %569 ], [ 0, %568 ]
   %578 = add nsw i32 %.1973, 1
-  %.not1035 = icmp eq i32 %578, %.19511232
+  %.not1035 = icmp eq i32 %578, %.19511231
   br i1 %.not1035, label %.loopexit, label %145
 
 .loopexit:                                        ; preds = %577, %128, %570

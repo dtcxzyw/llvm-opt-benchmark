@@ -688,7 +688,7 @@ if.end:                                           ; preds = %if.end.preheader, %
   %shl = shl i64 %conv6, %sh_prom
   %sub8 = sub i64 %mul, %shl
   %inc9 = add nuw nsw i32 %i.099, 1
-  %cmp2 = icmp sge i32 %inc9, %fractional_count
+  %cmp2 = icmp samesign uge i32 %inc9, %fractional_count
   %cmp3 = icmp eq i64 %sub8, 0
   %or.cond = select i1 %cmp2, i1 true, i1 %cmp3
   br i1 %or.cond, label %for.end, label %if.end, !llvm.loop !11
@@ -795,23 +795,19 @@ _ZN17double_conversion7UInt1285ShiftEi.exit:      ; preds = %if.else, %if.then7.
   %fractionals128.sroa.15.1 = phi i64 [ 0, %if.then13.i ], [ %shl30.i, %if.else23.i ], [ %fractionals, %if.then7.i ], [ 0, %if.else ]
   %fractionals128.sroa.0.1 = phi i64 [ %shl.i, %if.then13.i ], [ %shr35.i, %if.else23.i ], [ 0, %if.then7.i ], [ %fractionals, %if.else ]
   %cmp2286 = icmp sgt i32 %fractional_count, 0
-  br i1 %cmp2286, label %for.body23.preheader, label %for.end36
+  br i1 %cmp2286, label %for.body23, label %for.end36
 
-for.body23.preheader:                             ; preds = %_ZN17double_conversion7UInt1285ShiftEi.exit
-  %15 = sub nuw nsw i32 128, %fractional_count
-  br label %for.body23
-
-for.body23:                                       ; preds = %for.body23.preheader, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit
-  %indvars.iv = phi i64 [ 128, %for.body23.preheader ], [ %indvars.iv.next, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
-  %i20.089 = phi i32 [ 0, %for.body23.preheader ], [ %inc35, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
-  %fractionals128.sroa.0.088 = phi i64 [ %fractionals128.sroa.0.1, %for.body23.preheader ], [ %sub6.i, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
-  %fractionals128.sroa.15.087 = phi i64 [ %fractionals128.sroa.15.1, %for.body23.preheader ], [ %add9.i, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
+for.body23:                                       ; preds = %_ZN17double_conversion7UInt1285ShiftEi.exit, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit
+  %point19.090 = phi i32 [ %dec27, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ], [ 128, %_ZN17double_conversion7UInt1285ShiftEi.exit ]
+  %i20.089 = phi i32 [ %inc35, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ], [ 0, %_ZN17double_conversion7UInt1285ShiftEi.exit ]
+  %fractionals128.sroa.0.088 = phi i64 [ %.sink.i, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ], [ %fractionals128.sroa.0.1, %_ZN17double_conversion7UInt1285ShiftEi.exit ]
+  %fractionals128.sroa.15.087 = phi i64 [ %fractionals128.sroa.15.2, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ], [ %fractionals128.sroa.15.1, %_ZN17double_conversion7UInt1285ShiftEi.exit ]
   %cmp.i25 = icmp eq i64 %fractionals128.sroa.0.088, 0
   %cmp2.i = icmp eq i64 %fractionals128.sroa.15.087, 0
-  %16 = select i1 %cmp.i25, i1 %cmp2.i, i1 false
-  br i1 %16, label %for.end36.loopexit.split.loop.exit, label %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit
+  %15 = select i1 %cmp.i25, i1 %cmp2.i, i1 false
+  br i1 %15, label %for.end36, label %if.end26
 
-_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit: ; preds = %for.body23
+if.end26:                                         ; preds = %for.body23
   %and.i = and i64 %fractionals128.sroa.15.087, 4294967295
   %mul.i = mul nuw nsw i64 %and.i, 5
   %shr.i28 = lshr i64 %mul.i, 32
@@ -821,50 +817,68 @@ _ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit: ; preds = %for.body23
   %shl.i30 = shl i64 %add.i29, 32
   %conv8.i = and i64 %mul.i, 4294967295
   %add9.i = or disjoint i64 %shl.i30, %conv8.i
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %shr11.i = lshr i64 %add.i29, 32
   %reass.mul.i = mul i64 %fractionals128.sroa.0.088, 5
   %shr1815.i = add i64 %shr11.i, %reass.mul.i
-  %17 = add nsw i64 %indvars.iv, -65
-  %shr.i37 = lshr i64 %shr1815.i, %17
+  %dec27 = add nsw i32 %point19.090, -1
+  %cmp.i31 = icmp sgt i32 %point19.090, 64
+  br i1 %cmp.i31, label %if.then.i34, label %if.else.i
+
+if.then.i34:                                      ; preds = %if.end26
+  %sub.i35 = add nsw i32 %point19.090, -65
+  %sh_prom.i36 = zext nneg i32 %sub.i35 to i64
+  %shr.i37 = lshr i64 %shr1815.i, %sh_prom.i36
   %sext.i = shl i64 %shr.i37, 32
   %conv2.i = ashr exact i64 %sext.i, 32
-  %shl.i38 = shl i64 %conv2.i, %17
+  %shl.i38 = shl i64 %conv2.i, %sh_prom.i36
   %sub6.i = sub i64 %shr1815.i, %shl.i38
-  %18 = trunc i64 %shr.i37 to i8
-  %conv31 = add i8 %18, 48
-  %19 = load i32, ptr %length, align 4
-  %idxprom.i39 = sext i32 %19 to i64
+  br label %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit
+
+if.else.i:                                        ; preds = %if.end26
+  %sh_prom7.i = zext i32 %dec27 to i64
+  %shr8.i = lshr i64 %add9.i, %sh_prom7.i
+  %sub10.i = sub nsw i32 65, %point19.090
+  %sh_prom11.i = zext nneg i32 %sub10.i to i64
+  %shl12.i = shl i64 %shr1815.i, %sh_prom11.i
+  %add.i33 = add i64 %shl12.i, %shr8.i
+  %shl17.i = shl i64 %shr8.i, %sh_prom7.i
+  %sub19.i = sub i64 %add9.i, %shl17.i
+  br label %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit
+
+_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit: ; preds = %if.then.i34, %if.else.i
+  %fractionals128.sroa.15.2 = phi i64 [ %add9.i, %if.then.i34 ], [ %sub19.i, %if.else.i ]
+  %.sink.i = phi i64 [ %sub6.i, %if.then.i34 ], [ 0, %if.else.i ]
+  %retval.0.in.i = phi i64 [ %shr.i37, %if.then.i34 ], [ %add.i33, %if.else.i ]
+  %16 = trunc i64 %retval.0.in.i to i8
+  %conv31 = add i8 %16, 48
+  %17 = load i32, ptr %length, align 4
+  %idxprom.i39 = sext i32 %17 to i64
   %arrayidx.i40 = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i39
   store i8 %conv31, ptr %arrayidx.i40, align 1
-  %20 = load i32, ptr %length, align 4
-  %inc33 = add nsw i32 %20, 1
+  %18 = load i32, ptr %length, align 4
+  %inc33 = add nsw i32 %18, 1
   store i32 %inc33, ptr %length, align 4
-  %inc35 = add nuw nsw i32 %i20.089, 1
+  %inc35 = add nuw i32 %i20.089, 1
   %exitcond.not = icmp eq i32 %inc35, %fractional_count
   br i1 %exitcond.not, label %for.end36, label %for.body23, !llvm.loop !13
 
-for.end36.loopexit.split.loop.exit:               ; preds = %for.body23
-  %21 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %for.end36
-
-for.end36:                                        ; preds = %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit, %for.end36.loopexit.split.loop.exit, %_ZN17double_conversion7UInt1285ShiftEi.exit
-  %fractionals128.sroa.15.0.lcssa = phi i64 [ %fractionals128.sroa.15.1, %_ZN17double_conversion7UInt1285ShiftEi.exit ], [ 0, %for.end36.loopexit.split.loop.exit ], [ %add9.i, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
-  %fractionals128.sroa.0.0.lcssa = phi i64 [ %fractionals128.sroa.0.1, %_ZN17double_conversion7UInt1285ShiftEi.exit ], [ 0, %for.end36.loopexit.split.loop.exit ], [ %sub6.i, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
-  %point19.0.lcssa = phi i32 [ 128, %_ZN17double_conversion7UInt1285ShiftEi.exit ], [ %21, %for.end36.loopexit.split.loop.exit ], [ %15, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
+for.end36:                                        ; preds = %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit, %for.body23, %_ZN17double_conversion7UInt1285ShiftEi.exit
+  %fractionals128.sroa.15.0.lcssa = phi i64 [ %fractionals128.sroa.15.1, %_ZN17double_conversion7UInt1285ShiftEi.exit ], [ 0, %for.body23 ], [ %fractionals128.sroa.15.2, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
+  %fractionals128.sroa.0.0.lcssa = phi i64 [ %fractionals128.sroa.0.1, %_ZN17double_conversion7UInt1285ShiftEi.exit ], [ 0, %for.body23 ], [ %.sink.i, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
+  %point19.0.lcssa = phi i32 [ 128, %_ZN17double_conversion7UInt1285ShiftEi.exit ], [ %point19.090, %for.body23 ], [ %dec27, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
   %cmp.i41 = icmp sgt i32 %point19.0.lcssa, 64
   %position.sink.i.v = select i1 %cmp.i41, i32 -65, i32 -1
   %position.sink.i = add nsw i32 %position.sink.i.v, %point19.0.lcssa
   %.sink.i44 = select i1 %cmp.i41, i64 %fractionals128.sroa.0.0.lcssa, i64 %fractionals128.sroa.15.0.lcssa
   %sh_prom2.i = zext nneg i32 %position.sink.i to i64
-  %22 = shl nuw i64 1, %sh_prom2.i
-  %23 = and i64 %22, %.sink.i44
-  %cmp39.not = icmp eq i64 %23, 0
+  %19 = shl nuw i64 1, %sh_prom2.i
+  %20 = and i64 %19, %.sink.i44
+  %cmp39.not = icmp eq i64 %20, 0
   br i1 %cmp39.not, label %if.end43, label %if.then40
 
 if.then40:                                        ; preds = %for.end36
-  %24 = load i32, ptr %length, align 4
-  %cmp.i47 = icmp eq i32 %24, 0
+  %21 = load i32, ptr %length, align 4
+  %cmp.i47 = icmp eq i32 %21, 0
   br i1 %cmp.i47, label %if.then.i67, label %if.end.i48
 
 if.then.i67:                                      ; preds = %if.then40
@@ -874,47 +888,47 @@ if.then.i67:                                      ; preds = %if.then40
   br label %if.end43
 
 if.end.i48:                                       ; preds = %if.then40
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr i8, ptr %buffer.coerce0, i64 %25
-  %arrayidx.i.i49 = getelementptr i8, ptr %26, i64 -1
-  %27 = load i8, ptr %arrayidx.i.i49, align 1
-  %inc.i50 = add i8 %27, 1
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr i8, ptr %buffer.coerce0, i64 %22
+  %arrayidx.i.i49 = getelementptr i8, ptr %23, i64 -1
+  %24 = load i8, ptr %arrayidx.i.i49, align 1
+  %inc.i50 = add i8 %24, 1
   store i8 %inc.i50, ptr %arrayidx.i.i49, align 1
-  %28 = load i32, ptr %length, align 4
+  %25 = load i32, ptr %length, align 4
   %invariant.gep.i51 = getelementptr i8, ptr %buffer.coerce0, i64 -2
-  %cmp324.i52 = icmp sgt i32 %28, 1
+  %cmp324.i52 = icmp sgt i32 %25, 1
   br i1 %cmp324.i52, label %for.body.preheader.i57, label %for.end.i53
 
 for.body.preheader.i57:                           ; preds = %if.end.i48
-  %29 = zext nneg i32 %28 to i64
+  %26 = zext nneg i32 %25 to i64
   br label %for.body.i58
 
 for.body.i58:                                     ; preds = %if.end7.i63, %for.body.preheader.i57
-  %indvars.iv.i59 = phi i64 [ %29, %for.body.preheader.i57 ], [ %indvars.iv.next.i60, %if.end7.i63 ]
+  %indvars.iv.i59 = phi i64 [ %26, %for.body.preheader.i57 ], [ %indvars.iv.next.i60, %if.end7.i63 ]
   %indvars.iv.next.i60 = add nsw i64 %indvars.iv.i59, -1
   %arrayidx.i10.i61 = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %indvars.iv.next.i60
-  %30 = load i8, ptr %arrayidx.i10.i61, align 1
-  %cmp5.not.i62 = icmp eq i8 %30, 58
+  %27 = load i8, ptr %arrayidx.i10.i61, align 1
+  %cmp5.not.i62 = icmp eq i8 %27, 58
   br i1 %cmp5.not.i62, label %if.end7.i63, label %if.end43
 
 if.end7.i63:                                      ; preds = %for.body.i58
   store i8 48, ptr %arrayidx.i10.i61, align 1
   %gep.i64 = getelementptr i8, ptr %invariant.gep.i51, i64 %indvars.iv.i59
-  %31 = load i8, ptr %gep.i64, align 1
-  %inc11.i65 = add i8 %31, 1
+  %28 = load i8, ptr %gep.i64, align 1
+  %inc11.i65 = add i8 %28, 1
   store i8 %inc11.i65, ptr %gep.i64, align 1
   %cmp3.i66 = icmp samesign ugt i64 %indvars.iv.i59, 2
   br i1 %cmp3.i66, label %for.body.i58, label %for.end.i53, !llvm.loop !12
 
 for.end.i53:                                      ; preds = %if.end7.i63, %if.end.i48
-  %32 = load i8, ptr %buffer.coerce0, align 1
-  %cmp14.i54 = icmp eq i8 %32, 58
+  %29 = load i8, ptr %buffer.coerce0, align 1
+  %cmp14.i54 = icmp eq i8 %29, 58
   br i1 %cmp14.i54, label %if.then15.i55, label %if.end43
 
 if.then15.i55:                                    ; preds = %for.end.i53
   store i8 49, ptr %buffer.coerce0, align 1
-  %33 = load i32, ptr %decimal_point, align 4
-  %inc17.i56 = add nsw i32 %33, 1
+  %30 = load i32, ptr %decimal_point, align 4
+  %inc17.i56 = add nsw i32 %30, 1
   store i32 %inc17.i56, ptr %decimal_point, align 4
   br label %if.end43
 

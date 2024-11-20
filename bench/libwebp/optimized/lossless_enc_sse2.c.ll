@@ -710,41 +710,44 @@ VP8LFastSLog2.exit94:                             ; preds = %80, %84
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @VectorMismatch_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 {
   %4 = icmp sgt i32 %2, 11
-  br i1 %4, label %.preheader, label %27
+  br i1 %4, label %.preheader.preheader, label %27
 
-.preheader:                                       ; preds = %3, %23
-  %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %3 ]
+.preheader.preheader:                             ; preds = %3
+  %5 = zext nneg i32 %2 to i64
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %24
+  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %24 ]
   %.in61 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
   %.in = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %5 = load <4 x i32>, ptr %.in61, align 1
-  %6 = load <4 x i32>, ptr %.in, align 1
-  %7 = icmp eq <4 x i32> %5, %6
-  %8 = sext <4 x i1> %7 to <4 x i32>
-  %9 = bitcast <4 x i32> %8 to <16 x i8>
-  %10 = icmp sgt <16 x i8> %9, splat (i8 -1)
-  %11 = bitcast <16 x i1> %10 to i16
-  %.not = icmp eq i16 %11, 0
-  br i1 %.not, label %12, label %.loopexit.loopexit.split.loop.exit70
+  %6 = load <4 x i32>, ptr %.in61, align 1
+  %7 = load <4 x i32>, ptr %.in, align 1
+  %8 = icmp eq <4 x i32> %6, %7
+  %9 = sext <4 x i1> %8 to <4 x i32>
+  %10 = bitcast <4 x i32> %9 to <16 x i8>
+  %11 = icmp sgt <16 x i8> %10, splat (i8 -1)
+  %12 = bitcast <16 x i1> %11 to i16
+  %.not = icmp eq i16 %12, 0
+  br i1 %.not, label %13, label %.loopexit.loopexit.split.loop.exit70
 
-12:                                               ; preds = %.preheader
-  %13 = or disjoint i64 %indvars.iv, 4
-  %14 = getelementptr inbounds i32, ptr %1, i64 %13
-  %15 = load <4 x i32>, ptr %14, align 1
-  %16 = getelementptr inbounds i32, ptr %0, i64 %13
-  %17 = load <4 x i32>, ptr %16, align 1
-  %18 = icmp eq <4 x i32> %17, %15
-  %19 = sext <4 x i1> %18 to <4 x i32>
-  %20 = bitcast <4 x i32> %19 to <16 x i8>
-  %21 = icmp sgt <16 x i8> %20, splat (i8 -1)
-  %22 = bitcast <16 x i1> %21 to i16
-  %.not60 = icmp eq i16 %22, 0
-  br i1 %.not60, label %23, label %.loopexit.loopexit.split.loop.exit
+13:                                               ; preds = %.preheader
+  %14 = or disjoint i64 %indvars.iv, 4
+  %15 = getelementptr inbounds i32, ptr %1, i64 %14
+  %16 = load <4 x i32>, ptr %15, align 1
+  %17 = getelementptr inbounds i32, ptr %0, i64 %14
+  %18 = load <4 x i32>, ptr %17, align 1
+  %19 = icmp eq <4 x i32> %18, %16
+  %20 = sext <4 x i1> %19 to <4 x i32>
+  %21 = bitcast <4 x i32> %20 to <16 x i8>
+  %22 = icmp sgt <16 x i8> %21, splat (i8 -1)
+  %23 = bitcast <16 x i1> %22 to i16
+  %.not60 = icmp eq i16 %23, 0
+  br i1 %.not60, label %24, label %.loopexit.loopexit.split.loop.exit
 
-23:                                               ; preds = %12
+24:                                               ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %24 = trunc i64 %indvars.iv to i32
-  %25 = add i32 %24, 20
-  %26 = icmp slt i32 %25, %2
+  %25 = add nuw nsw i64 %indvars.iv, 20
+  %26 = icmp samesign ult i64 %25, %5
   br i1 %26, label %.preheader, label %.loopexit.loopexit.split.loop.exit72, !llvm.loop !19
 
 27:                                               ; preds = %3
@@ -780,7 +783,7 @@ define internal i32 @VectorMismatch_SSE2(ptr nocapture noundef readonly %0, ptr 
   %spec.select = select i1 %50, i32 8, i32 4
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit:               ; preds = %12
+.loopexit.loopexit.split.loop.exit:               ; preds = %13
   %indvars65.le = trunc i64 %indvars.iv to i32
   %51 = or disjoint i32 %indvars65.le, 4
   br label %.loopexit
@@ -789,7 +792,7 @@ define internal i32 @VectorMismatch_SSE2(ptr nocapture noundef readonly %0, ptr 
   %indvars65.le74 = trunc i64 %indvars.iv to i32
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit72:             ; preds = %23
+.loopexit.loopexit.split.loop.exit72:             ; preds = %24
   %indvars.le = trunc i64 %indvars.iv.next to i32
   br label %.loopexit
 

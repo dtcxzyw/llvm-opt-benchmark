@@ -121,8 +121,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %add60.i = fadd double %g_j.0201.i, %mul59.i
   %11 = tail call double @llvm.fmuladd.f64(double %mul51.i, double %add60.i, double %sum.1202.i)
   %inc.i = add nuw i32 %j.0204.i, 1
-  %exitcond217.not.i = icmp eq i32 %j.0204.i, %div43157.i
-  br i1 %exitcond217.not.i, label %if.end.i, label %for.body.i, !llvm.loop !11
+  %exitcond218.not.i = icmp eq i32 %j.0204.i, %div43157.i
+  br i1 %exitcond218.not.i, label %if.end.i, label %for.body.i, !llvm.loop !11
 
 if.end.i:                                         ; preds = %for.body.i, %if.then34.i, %if.then.i
   %sum.0.i = phi double [ %mul32.i, %if.then.i ], [ %10, %if.then34.i ], [ %11, %for.body.i ]
@@ -183,8 +183,8 @@ for.body92.i:                                     ; preds = %for.body92.i, %for.
   %add108.i = fadd double %g_j.1208.i, %mul107.i
   %15 = tail call double @llvm.fmuladd.f64(double %mul99.i, double %add108.i, double %sum.3209.i)
   %inc111.i = add nuw i32 %j87.0211.i, 1
-  %exitcond218.not.i = icmp eq i32 %j87.0211.i, %div89158.i
-  br i1 %exitcond218.not.i, label %if.end113.i, label %for.body92.i, !llvm.loop !13
+  %exitcond219.not.i = icmp eq i32 %j87.0211.i, %div89158.i
+  br i1 %exitcond219.not.i, label %if.end113.i, label %for.body92.i, !llvm.loop !13
 
 if.end113.i:                                      ; preds = %for.body92.i, %if.then77.i, %if.end.i
   %sum.2.i = phi double [ %mul75.i, %if.end.i ], [ %14, %if.then77.i ], [ %15, %for.body92.i ]
@@ -218,8 +218,8 @@ if.else.i:                                        ; preds = %entry
   %add.i181.i = fadd double %call.i179.i, 0x401921FB54442D18
   %cond.i182.i = select i1 %cmp.i180.i, double %call.i179.i, double %add.i181.i
   %div147.i = fdiv double %cond.i182.i, 0x401921FB54442D18
-  %cmp148.i = icmp ugt i32 %0, 1
-  br i1 %cmp148.i, label %if.then149.i, label %_ZN8QuantLib12_GLOBAL__N_13P_nEddjd.exit
+  %cmp148.not.i = icmp eq i32 %0, 1
+  br i1 %cmp148.not.i, label %_ZN8QuantLib12_GLOBAL__N_13P_nEddjd.exit, label %if.then149.i
 
 if.then149.i:                                     ; preds = %if.else.i
   %sub150.i = fsub double 1.000000e+00, %retval.0.i.i
@@ -231,8 +231,12 @@ if.then149.i:                                     ; preds = %if.else.i
   %mul162.i = fmul double %div155.i, %add160.i
   %sub165.i = add nsw i32 %0, -1
   %div166156.i = lshr exact i32 %sub165.i, 1
-  %cmp167.not185.i = icmp ult i32 %0, 5
-  br i1 %cmp167.not185.i, label %for.cond.cleanup168.i, label %for.body169.i
+  %cmp167.not185.i = icmp ult i32 %sub165.i, 4
+  br i1 %cmp167.not185.i, label %for.cond.cleanup168.i, label %for.body169.preheader.i
+
+for.body169.preheader.i:                          ; preds = %if.then149.i
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %div166156.i, i32 2)
+  br label %for.body169.i
 
 for.cond.cleanup168.i:                            ; preds = %for.body169.i, %if.then149.i
   %sum161.0.lcssa.i = phi double [ %mul162.i, %if.then149.i ], [ %26, %for.body169.i ]
@@ -245,14 +249,18 @@ for.cond.cleanup168.i:                            ; preds = %for.body169.i, %if.
   %mul198.i = fmul double %cond2.i168.i, %call197.i
   %add199.i = fadd double %mul198.i, 1.000000e+00
   %mul200.i = fmul double %div196.i, %add199.i
-  br i1 %cmp167.not185.i, label %for.cond.cleanup206.i, label %for.body207.i
+  br i1 %cmp167.not185.i, label %for.cond.cleanup206.i, label %for.body207.preheader.i
 
-for.body169.i:                                    ; preds = %if.then149.i, %for.body169.i
-  %j163.0190.i = phi i32 [ %inc188.i, %for.body169.i ], [ 2, %if.then149.i ]
-  %sum161.0189.i = phi double [ %26, %for.body169.i ], [ %mul162.i, %if.then149.i ]
-  %g_j159.0188.i = phi double [ %add185.i, %for.body169.i ], [ %add160.i, %if.then149.i ]
-  %dgj156.0187.i = phi double [ %mul184.i, %for.body169.i ], [ %mul158.i, %if.then149.i ]
-  %f_j152.0186.i = phi double [ %mul176.i, %for.body169.i ], [ %div155.i, %if.then149.i ]
+for.body207.preheader.i:                          ; preds = %for.cond.cleanup168.i
+  %umax216.i = tail call i32 @llvm.umax.i32(i32 %div166156.i, i32 2)
+  br label %for.body207.i
+
+for.body169.i:                                    ; preds = %for.body169.i, %for.body169.preheader.i
+  %j163.0190.i = phi i32 [ %inc188.i, %for.body169.i ], [ 2, %for.body169.preheader.i ]
+  %sum161.0189.i = phi double [ %26, %for.body169.i ], [ %mul162.i, %for.body169.preheader.i ]
+  %g_j159.0188.i = phi double [ %add185.i, %for.body169.i ], [ %add160.i, %for.body169.preheader.i ]
+  %dgj156.0187.i = phi double [ %mul184.i, %for.body169.i ], [ %mul158.i, %for.body169.preheader.i ]
+  %f_j152.0186.i = phi double [ %mul176.i, %for.body169.i ], [ %div155.i, %for.body169.preheader.i ]
   %sub170.i = add nsw i32 %j163.0190.i, -1
   %conv171.i = uitofp i32 %sub170.i to double
   %conv172.i = uitofp nneg i32 %j163.0190.i to double
@@ -269,7 +277,7 @@ for.body169.i:                                    ; preds = %if.then149.i, %for.
   %add185.i = fadd double %g_j159.0188.i, %mul184.i
   %26 = tail call double @llvm.fmuladd.f64(double %mul176.i, double %add185.i, double %sum161.0189.i)
   %inc188.i = add nuw i32 %j163.0190.i, 1
-  %exitcond.not.i = icmp eq i32 %j163.0190.i, %div166156.i
+  %exitcond.not.i = icmp eq i32 %j163.0190.i, %umax.i
   br i1 %exitcond.not.i, label %for.cond.cleanup168.i, label %for.body169.i, !llvm.loop !14
 
 for.cond.cleanup206.i:                            ; preds = %for.body207.i, %for.cond.cleanup168.i
@@ -278,12 +286,12 @@ for.cond.cleanup206.i:                            ; preds = %for.body207.i, %for
   %27 = tail call double @llvm.fmuladd.f64(double %div228.i, double %sum161.1.lcssa.i, double %25)
   br label %_ZN8QuantLib12_GLOBAL__N_13P_nEddjd.exit
 
-for.body207.i:                                    ; preds = %for.cond.cleanup168.i, %for.body207.i
-  %j201.0197.i = phi i32 [ %inc226.i, %for.body207.i ], [ 2, %for.cond.cleanup168.i ]
-  %sum161.1196.i = phi double [ %28, %for.body207.i ], [ %mul200.i, %for.cond.cleanup168.i ]
-  %g_j159.1195.i = phi double [ %add223.i, %for.body207.i ], [ %add199.i, %for.cond.cleanup168.i ]
-  %dgj156.1194.i = phi double [ %mul222.i, %for.body207.i ], [ %mul198.i, %for.cond.cleanup168.i ]
-  %f_j152.1193.i = phi double [ %mul214.i, %for.body207.i ], [ %div196.i, %for.cond.cleanup168.i ]
+for.body207.i:                                    ; preds = %for.body207.i, %for.body207.preheader.i
+  %j201.0197.i = phi i32 [ %inc226.i, %for.body207.i ], [ 2, %for.body207.preheader.i ]
+  %sum161.1196.i = phi double [ %28, %for.body207.i ], [ %mul200.i, %for.body207.preheader.i ]
+  %g_j159.1195.i = phi double [ %add223.i, %for.body207.i ], [ %add199.i, %for.body207.preheader.i ]
+  %dgj156.1194.i = phi double [ %mul222.i, %for.body207.i ], [ %mul198.i, %for.body207.preheader.i ]
+  %f_j152.1193.i = phi double [ %mul214.i, %for.body207.i ], [ %div196.i, %for.body207.preheader.i ]
   %sub208.i = add nsw i32 %j201.0197.i, -1
   %conv209.i = uitofp i32 %sub208.i to double
   %conv210.i = uitofp nneg i32 %j201.0197.i to double
@@ -300,8 +308,8 @@ for.body207.i:                                    ; preds = %for.cond.cleanup168
   %add223.i = fadd double %g_j159.1195.i, %mul222.i
   %28 = tail call double @llvm.fmuladd.f64(double %mul214.i, double %add223.i, double %sum161.1196.i)
   %inc226.i = add nuw i32 %j201.0197.i, 1
-  %exitcond216.not.i = icmp eq i32 %j201.0197.i, %div166156.i
-  br i1 %exitcond216.not.i, label %for.cond.cleanup206.i, label %for.body207.i, !llvm.loop !15
+  %exitcond217.not.i = icmp eq i32 %j201.0197.i, %umax216.i
+  br i1 %exitcond217.not.i, label %for.cond.cleanup206.i, label %for.body207.i, !llvm.loop !15
 
 _ZN8QuantLib12_GLOBAL__N_13P_nEddjd.exit:         ; preds = %if.end113.i, %if.else.i, %for.cond.cleanup206.i
   %retval.0.i = phi double [ %16, %if.end113.i ], [ %27, %for.cond.cleanup206.i ], [ %div147.i, %if.else.i ]
@@ -319,6 +327,9 @@ declare double @atan2(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

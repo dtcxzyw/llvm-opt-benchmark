@@ -1847,7 +1847,6 @@ define internal fastcc void @posix_buffer_write(i32 noundef %0, ptr nocapture no
 .lr.ph9:                                          ; preds = %22
   %24 = getelementptr inbounds i8, ptr %2, i64 40
   %25 = zext nneg i32 %5 to i64
-  %wide.trip.count20 = zext nneg i32 %5 to i64
   br label %26
 
 26:                                               ; preds = %.lr.ph9, %._crit_edge
@@ -1865,7 +1864,7 @@ define internal fastcc void @posix_buffer_write(i32 noundef %0, ptr nocapture no
   %29 = load i64, ptr %28, align 8
   %30 = mul nsw i64 %29, %.0363
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next15, %wide.trip.count20
+  %exitcond.not = icmp eq i64 %indvars.iv.next15, %25
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph5
 
 ._crit_edge:                                      ; preds = %.lr.ph5, %26
@@ -1878,7 +1877,7 @@ define internal fastcc void @posix_buffer_write(i32 noundef %0, ptr nocapture no
   %36 = mul nsw i64 %35, %.036.lcssa
   %37 = add nsw i64 %36, %.0356
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond21.not = icmp eq i64 %indvars.iv.next18, %wide.trip.count20
+  %exitcond21.not = icmp eq i64 %indvars.iv.next18, %25
   br i1 %exitcond21.not, label %._crit_edge10, label %26
 
 ._crit_edge10:                                    ; preds = %._crit_edge, %22
@@ -2085,7 +2084,6 @@ define internal fastcc range(i32 -1, 1) i32 @posix_buffer_read(i32 noundef %0, p
 .lr.ph11:                                         ; preds = %23
   %25 = getelementptr inbounds i8, ptr %2, i64 40
   %26 = zext nneg i32 %5 to i64
-  %wide.trip.count23 = zext nneg i32 %5 to i64
   br label %27
 
 27:                                               ; preds = %.lr.ph11, %._crit_edge
@@ -2103,7 +2101,7 @@ define internal fastcc range(i32 -1, 1) i32 @posix_buffer_read(i32 noundef %0, p
   %30 = load i64, ptr %29, align 8
   %31 = mul nsw i64 %30, %.0364
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next18, %wide.trip.count23
+  %exitcond.not = icmp eq i64 %indvars.iv.next18, %26
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph6
 
 ._crit_edge:                                      ; preds = %.lr.ph6, %27
@@ -2116,7 +2114,7 @@ define internal fastcc range(i32 -1, 1) i32 @posix_buffer_read(i32 noundef %0, p
   %37 = mul nsw i64 %36, %.036.lcssa
   %38 = add nsw i64 %37, %.0358
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond24.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count23
+  %exitcond24.not = icmp eq i64 %indvars.iv.next21, %26
   br i1 %exitcond24.not, label %._crit_edge12, label %27
 
 ._crit_edge12:                                    ; preds = %._crit_edge, %23

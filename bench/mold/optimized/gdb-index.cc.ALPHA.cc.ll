@@ -10814,16 +10814,13 @@ entry:
   %sub.ptr.sub.i100 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i99
   %sub.ptr.div.i101 = sdiv exact i64 %sub.ptr.sub.i100, 24
   %cmp.not102 = icmp slt i64 %sub.ptr.div.i101, %mul
-  br i1 %cmp.not102, label %while.end, label %while.body.lr.ph
+  %cmp.i26.i = icmp eq i64 %__step_size, 0
+  %or.cond = or i1 %cmp.not102, %cmp.i26.i
+  br i1 %or.cond, label %while.end, label %while.body
 
-while.body.lr.ph:                                 ; preds = %entry
-  %cmp.i26.i = icmp ne i64 %__step_size, 0
-  tail call void @llvm.assume(i1 %cmp.i26.i)
-  br label %while.body
-
-while.body:                                       ; preds = %while.body.lr.ph, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8NameTypeESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_less_iterEET0_T_SD_SD_SD_SC_T1_.exit
-  %__result.addr.0104 = phi ptr [ %add.ptr.i.i.i.i.i11.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8NameTypeESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_less_iterEET0_T_SD_SD_SD_SC_T1_.exit ], [ %__result, %while.body.lr.ph ]
-  %__first.sroa.0.0103 = phi ptr [ %add.ptr.i5, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8NameTypeESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_less_iterEET0_T_SD_SD_SD_SC_T1_.exit ], [ %__first.coerce, %while.body.lr.ph ]
+while.body:                                       ; preds = %entry, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8NameTypeESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_less_iterEET0_T_SD_SD_SD_SC_T1_.exit
+  %__result.addr.0104 = phi ptr [ %add.ptr.i.i.i.i.i11.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8NameTypeESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_less_iterEET0_T_SD_SD_SD_SC_T1_.exit ], [ %__result, %entry ]
+  %__first.sroa.0.0103 = phi ptr [ %add.ptr.i5, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4mold3elf8NameTypeESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_less_iterEET0_T_SD_SD_SD_SC_T1_.exit ], [ %__first.coerce, %entry ]
   %add.ptr.i = getelementptr inbounds %"struct.mold::elf::NameType", ptr %__first.sroa.0.0103, i64 %__step_size
   %add.ptr.i5 = getelementptr inbounds %"struct.mold::elf::NameType", ptr %__first.sroa.0.0103, i64 %mul
   br label %land.rhs.i
@@ -11058,16 +11055,13 @@ entry:
   %sub.ptr.sub81 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast80
   %sub.ptr.div82 = sdiv exact i64 %sub.ptr.sub81, 24
   %cmp.not83 = icmp slt i64 %sub.ptr.div82, %mul
-  br i1 %cmp.not83, label %while.end, label %while.body.lr.ph
+  %cmp121.i.not = icmp eq i64 %__step_size, 0
+  %or.cond = or i1 %cmp.not83, %cmp121.i.not
+  br i1 %or.cond, label %while.end, label %while.body
 
-while.body.lr.ph:                                 ; preds = %entry
-  %cmp121.i.not = icmp ne i64 %__step_size, 0
-  tail call void @llvm.assume(i1 %cmp121.i.not)
-  br label %while.body
-
-while.body:                                       ; preds = %while.body.lr.ph, %_ZSt12__move_mergeIPN4mold3elf8NameTypeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_less_iterEET0_T_SD_SD_SD_SC_T1_.exit
-  %__result.sroa.0.085 = phi ptr [ %add.ptr.i.i.i.i.i16.i, %_ZSt12__move_mergeIPN4mold3elf8NameTypeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_less_iterEET0_T_SD_SD_SD_SC_T1_.exit ], [ %__result.coerce, %while.body.lr.ph ]
-  %__first.addr.084 = phi ptr [ %add.ptr2, %_ZSt12__move_mergeIPN4mold3elf8NameTypeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_less_iterEET0_T_SD_SD_SD_SC_T1_.exit ], [ %__first, %while.body.lr.ph ]
+while.body:                                       ; preds = %entry, %_ZSt12__move_mergeIPN4mold3elf8NameTypeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_less_iterEET0_T_SD_SD_SD_SC_T1_.exit
+  %__result.sroa.0.085 = phi ptr [ %add.ptr.i.i.i.i.i16.i, %_ZSt12__move_mergeIPN4mold3elf8NameTypeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_less_iterEET0_T_SD_SD_SD_SC_T1_.exit ], [ %__result.coerce, %entry ]
+  %__first.addr.084 = phi ptr [ %add.ptr2, %_ZSt12__move_mergeIPN4mold3elf8NameTypeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_less_iterEET0_T_SD_SD_SD_SC_T1_.exit ], [ %__first, %entry ]
   %add.ptr = getelementptr inbounds %"struct.mold::elf::NameType", ptr %__first.addr.084, i64 %__step_size
   %add.ptr2 = getelementptr inbounds %"struct.mold::elf::NameType", ptr %__first.addr.084, i64 %mul
   br label %while.body.i

@@ -2074,7 +2074,7 @@ if.end21.us:                                      ; preds = %while.body16.us
   br i1 %cmp24.us, label %while.end27.us, label %if.end26.us
 
 if.end26.us:                                      ; preds = %if.end21.us
-  %inc.us = add nuw nsw i64 %j.036.us, 1
+  %inc.us = add nuw i64 %j.036.us, 1
   %exitcond57.not = icmp eq i64 %inc.us, %.fr
   br i1 %exitcond57.not, label %if.then.i.i.i22, label %while.body16.us, !llvm.loop !83
 
@@ -2093,7 +2093,7 @@ if.end30.us:                                      ; preds = %while.end27.us
   store ptr %10, ptr %index, align 8
   store ptr %6, ptr %_M_finish.i2.i.i.i, align 8
   store ptr %7, ptr %_M_end_of_storage.i4.i.i.i, align 8
-  %inc31.us = add nuw nsw i64 %i.039.us, 1
+  %inc31.us = add nuw i64 %i.039.us, 1
   %exitcond58.not = icmp eq i64 %inc31.us, %2
   br i1 %exitcond58.not, label %if.then.i.i.i22, label %for.body.us, !llvm.loop !84
 
@@ -2142,7 +2142,7 @@ while.cond14.preheader:                           ; preds = %for.body
   store ptr %12, ptr %index, align 8
   store ptr %13, ptr %_M_finish.i2.i.i.i, align 8
   store ptr %14, ptr %_M_end_of_storage.i4.i.i.i, align 8
-  %inc31 = add nuw nsw i64 %i.039, 1
+  %inc31 = add nuw i64 %i.039, 1
   %exitcond.not = icmp eq i64 %inc31, %2
   br i1 %exitcond.not, label %cleanup, label %for.body, !llvm.loop !84
 
@@ -4393,20 +4393,21 @@ invoke.cont3:                                     ; preds = %for.body.preheader.
   %3 = getelementptr inbounds i8, ptr %indices, i64 16
   store ptr %add.ptr.i.i.i42, ptr %3, align 8
   store ptr %scevgep.i.i.i.i.i43, ptr %_M_finish.i.i7.i46, align 8
-  br i1 %cmp.not.i.i.i.i, label %for.body20.lr.ph, label %for.body.lr.ph
+  br i1 %cmp.not.i.i.i.i, label %for.cond18.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont3
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 16
   %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   br label %for.body
 
-for.cond18.preheader:                             ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
-  %cmp19761 = icmp sgt i64 %sub.ptr.div.i, 0
-  br i1 %cmp19761, label %for.body20.lr.ph, label %do.body
+for.cond18.preheader:                             ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit, %invoke.cont3
+  %cmp19761.not = icmp eq ptr %0, %1
+  br i1 %cmp19761.not, label %do.body, label %for.body20.lr.ph
 
-for.body20.lr.ph:                                 ; preds = %invoke.cont3, %for.cond18.preheader
+for.body20.lr.ph:                                 ; preds = %for.cond18.preheader
   %_M_end_of_storage.i.i76 = getelementptr inbounds i8, ptr %ref.tmp23, i64 16
   %_M_finish.i.i78 = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
+  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body20
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt6vectorIlSaIlEED2Ev.exit
@@ -4533,7 +4534,7 @@ if.then.i.i.i62:                                  ; preds = %_ZNSt10shared_ptrIN
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNSt10shared_ptrIN5arrow6TensorEED2Ev.exit, %if.then.i.i.i62
-  %inc = add nuw nsw i64 %i.0760, 1
+  %inc = add nuw i64 %i.0760, 1
   %exitcond.not = icmp eq i64 %inc, %sub
   br i1 %exitcond.not, label %for.cond18.preheader, label %for.body, !llvm.loop !118
 
@@ -4556,7 +4557,7 @@ lpad13.body:                                      ; preds = %call5.i.i.i3.i.i.i.
   br i1 %tobool.not.i.i.i64, label %ehcleanup153, label %if.then.i.i.i65
 
 if.then.i.i.i65:                                  ; preds = %lpad13.body.thread, %lpad13.body
-  %eh.lpad-body55778 = phi { ptr, i32 } [ %22, %lpad13.body.thread ], [ %23, %lpad13.body ]
+  %eh.lpad-body55777 = phi { ptr, i32 } [ %22, %lpad13.body.thread ], [ %23, %lpad13.body ]
   %24 = phi ptr [ %call5.i.i.i.i2.i, %lpad13.body.thread ], [ %.pre, %lpad13.body ]
   call void @_ZdlPv(ptr noundef nonnull %24) #21
   br label %ehcleanup153
@@ -4684,8 +4685,8 @@ if.then.i.i.i157:                                 ; preds = %_ZNSt10shared_ptrIN
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit159
 
 _ZNSt6vectorIlSaIlEED2Ev.exit159:                 ; preds = %_ZNSt10shared_ptrIN5arrow6TensorEED2Ev.exit155, %if.then.i.i.i157
-  %inc41 = add nuw nsw i64 %i17.0762, 1
-  %exitcond769.not = icmp eq i64 %inc41, %sub.ptr.div.i
+  %inc41 = add nuw i64 %i17.0762, 1
+  %exitcond769.not = icmp eq i64 %inc41, %umax
   br i1 %exitcond769.not, label %do.body, label %for.body20, !llvm.loop !122
 
 lpad34.body.thread:                               ; preds = %invoke.cont33
@@ -4702,7 +4703,7 @@ lpad34.body:                                      ; preds = %call5.i.i.i3.i.i.i.
   br i1 %tobool.not.i.i.i160, label %ehcleanup153, label %if.then.i.i.i161
 
 if.then.i.i.i161:                                 ; preds = %lpad34.body.thread, %lpad34.body
-  %eh.lpad-body88781 = phi { ptr, i32 } [ %42, %lpad34.body.thread ], [ %43, %lpad34.body ]
+  %eh.lpad-body88780 = phi { ptr, i32 } [ %42, %lpad34.body.thread ], [ %43, %lpad34.body ]
   %44 = phi ptr [ %call5.i.i.i.i2.i70, %lpad34.body.thread ], [ %.pre770, %lpad34.body ]
   call void @_ZdlPv(ptr noundef nonnull %44) #21
   br label %ehcleanup153
@@ -5697,7 +5698,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6TensorEESaIS3_EED2Ev.exit743: ; preds = %inv
   ret void
 
 ehcleanup153:                                     ; preds = %lpad.i71, %lpad.i, %lpad47, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow14SparseCSFIndexESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, %lpad34.body, %if.then.i.i.i161, %lpad13.body, %if.then.i.i.i65, %lpad119, %lpad72
-  %.pn31.pn = phi { ptr, i32 } [ %98, %lpad72 ], [ %142, %lpad119 ], [ %7, %lpad.i ], [ %23, %lpad13.body ], [ %eh.lpad-body55778, %if.then.i.i.i65 ], [ %28, %lpad.i71 ], [ %43, %lpad34.body ], [ %eh.lpad-body88781, %if.then.i.i.i161 ], [ %65, %lpad47 ], [ %154, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow14SparseCSFIndexESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ]
+  %.pn31.pn = phi { ptr, i32 } [ %98, %lpad72 ], [ %142, %lpad119 ], [ %7, %lpad.i ], [ %23, %lpad13.body ], [ %eh.lpad-body55777, %if.then.i.i.i65 ], [ %28, %lpad.i71 ], [ %43, %lpad34.body ], [ %eh.lpad-body88780, %if.then.i.i.i161 ], [ %65, %lpad47 ], [ %154, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow14SparseCSFIndexESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ]
   call void @_ZNSt6vectorISt10shared_ptrIN5arrow6TensorEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %indices) #20
   br label %ehcleanup155
 
@@ -8966,7 +8967,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %for.body.i.i.i
   %add.ptr.i42 = getelementptr inbounds i64, ptr %30, i64 %i.0204
   store i64 %conv22, ptr %add.ptr.i42, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i) #21
-  %inc = add nuw nsw i64 %i.0204, 1
+  %inc = add nuw i64 %i.0204, 1
   %exitcond210.not = icmp eq i64 %inc, %19
   br i1 %exitcond210.not, label %sw.epilog, label %for.body, !llvm.loop !196
 
@@ -9010,7 +9011,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit89:                  ; preds = %for.body.i.i.i76
   %add.ptr.i85 = getelementptr inbounds i64, ptr %39, i64 %i25.0202
   store i64 %conv44, ptr %add.ptr.i85, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i50) #21
-  %inc49 = add nuw nsw i64 %i25.0202, 1
+  %inc49 = add nuw i64 %i25.0202, 1
   %exitcond209.not = icmp eq i64 %inc49, %19
   br i1 %exitcond209.not, label %sw.epilog, label %for.body28, !llvm.loop !197
 
@@ -9054,7 +9055,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit133:                 ; preds = %for.body.i.i.i120
   %add.ptr.i129 = getelementptr inbounds i64, ptr %48, i64 %i52.0200
   store i64 %conv71, ptr %add.ptr.i129, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i94) #21
-  %inc76 = add nuw nsw i64 %i52.0200, 1
+  %inc76 = add nuw i64 %i52.0200, 1
   %exitcond208.not = icmp eq i64 %inc76, %19
   br i1 %exitcond208.not, label %sw.epilog, label %for.body55, !llvm.loop !198
 
@@ -9097,7 +9098,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit177:                 ; preds = %for.body.i.i.i164
   %add.ptr.i173 = getelementptr inbounds i64, ptr %57, i64 %i79.0198
   store i64 %56, ptr %add.ptr.i173, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i138) #21
-  %inc102 = add nuw nsw i64 %i79.0198, 1
+  %inc102 = add nuw i64 %i79.0198, 1
   %exitcond.not = icmp eq i64 %inc102, %19
   br i1 %exitcond.not, label %sw.epilog, label %for.body82, !llvm.loop !199
 

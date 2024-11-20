@@ -2086,36 +2086,30 @@ define internal fastcc range(i32 0, 2) i32 @parse_vorbis_comment_field_name(ptr 
 entry:
   %call = tail call ptr @local_strdup(ptr noundef %field_ref) #20
   %0 = load i8, ptr %call, align 1
-  %.fr8 = freeze i8 %0
-  %tobool.not9 = icmp eq i8 %.fr8, 0
-  br i1 %tobool.not9, label %for.end, label %for.body
+  %tobool.not8 = icmp eq i8 %0, 0
+  br i1 %tobool.not8, label %for.end, label %for.body
 
-for.body:                                         ; preds = %entry, %for.inc
-  %.fr11 = phi i8 [ %.fr, %for.inc ], [ %.fr8, %entry ]
-  %q.010 = phi ptr [ %incdec.ptr, %for.inc ], [ %call, %entry ]
-  %cmp = icmp slt i8 %.fr11, 32
-  br i1 %cmp, label %if.then, label %switch.early.test
+for.cond:                                         ; preds = %for.body
+  %incdec.ptr = getelementptr inbounds i8, ptr %q.09, i64 1
+  %1 = load i8, ptr %incdec.ptr, align 1
+  %tobool.not = icmp eq i8 %1, 0
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !15
 
-switch.early.test:                                ; preds = %for.body
-  switch i8 %.fr11, label %for.inc [
-    i8 127, label %if.then
-    i8 126, label %if.then
-    i8 61, label %if.then
-  ]
+for.body:                                         ; preds = %entry, %for.cond
+  %2 = phi i8 [ %1, %for.cond ], [ %0, %entry ]
+  %q.09 = phi ptr [ %incdec.ptr, %for.cond ], [ %call, %entry ]
+  %3 = add i8 %2, -126
+  %or.cond = icmp ult i8 %3, -94
+  %cmp7 = icmp eq i8 %2, 61
+  %or.cond7 = or i1 %cmp7, %or.cond
+  br i1 %or.cond7, label %if.then, label %for.cond
 
-if.then:                                          ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %for.body
+if.then:                                          ; preds = %for.body
   tail call void @free(ptr noundef %call) #20
   store ptr @.str.89, ptr %violation, align 8
   br label %return
 
-for.inc:                                          ; preds = %switch.early.test
-  %incdec.ptr = getelementptr inbounds i8, ptr %q.010, i64 1
-  %1 = load i8, ptr %incdec.ptr, align 1
-  %.fr = freeze i8 %1
-  %tobool.not = icmp eq i8 %.fr, 0
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !15
-
-for.end:                                          ; preds = %for.inc, %entry
+for.end:                                          ; preds = %for.cond, %entry
   store ptr %call, ptr %name, align 8
   br label %return
 

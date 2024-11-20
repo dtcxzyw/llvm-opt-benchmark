@@ -14648,7 +14648,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
 
 for.inc:                                          ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %invoke.cont14
   call void @_ZN5arrow6ResultISt10shared_ptrINS_11RecordBatchEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #32
-  %inc = add nuw nsw i32 %i.012, 1
+  %inc = add nuw i32 %i.012, 1
   %exitcond.not = icmp eq i32 %inc, %call
   br i1 %exitcond.not, label %invoke.cont.i.thread, label %for.body, !llvm.loop !190
 
@@ -28467,18 +28467,19 @@ invoke.cont320:                                   ; preds = %for.body.preheader.
   %345 = getelementptr inbounds i8, ptr %indices_data, i64 16
   store ptr %add.ptr.i.i.i1218, ptr %345, align 8
   store ptr %scevgep.i.i.i.i.i1219, ptr %_M_finish.i.i7.i1222, align 8
-  br i1 %cmp.not.i.i.i.i, label %for.body330.lr.ph, label %for.body.lr.ph
+  br i1 %cmp.not.i.i.i.i, label %for.cond328.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont320
   %body_buffers323 = getelementptr inbounds i8, ptr %payload, i64 24
   br label %for.body
 
-for.cond328.preheader:                            ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit
-  %cmp3291601 = icmp sgt i64 %sub.ptr.div.i1208, 0
-  br i1 %cmp3291601, label %for.body330.lr.ph, label %for.end338
+for.cond328.preheader:                            ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit, %invoke.cont320
+  %cmp3291601.not = icmp eq ptr %342, %343
+  br i1 %cmp3291601.not, label %for.end338, label %for.body330.lr.ph
 
-for.body330.lr.ph:                                ; preds = %invoke.cont320, %for.cond328.preheader
+for.body330.lr.ph:                                ; preds = %for.cond328.preheader
   %body_buffers331 = getelementptr inbounds i8, ptr %payload, i64 24
+  %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i1208, i64 1)
   br label %for.body330
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit
@@ -28598,7 +28599,7 @@ if.end9.i.i.i:                                    ; preds = %if.end8.sink.split.
   br label %_ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit
 
 _ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit:  ; preds = %for.body, %if.end9.i.i.i
-  %inc = add nuw nsw i64 %i.01600, 1
+  %inc = add nuw i64 %i.01600, 1
   %exitcond.not = icmp eq i64 %inc, %sub
   br i1 %exitcond.not, label %for.cond328.preheader, label %for.body, !llvm.loop !451
 
@@ -28737,8 +28738,8 @@ if.end9.i.i.i1290:                                ; preds = %if.end8.sink.split.
   br label %_ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit1311
 
 _ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit1311: ; preds = %for.body330, %if.end9.i.i.i1290
-  %inc337 = add nuw nsw i64 %i327.01602, 1
-  %exitcond1603.not = icmp eq i64 %inc337, %sub.ptr.div.i1208
+  %inc337 = add nuw i64 %i327.01602, 1
+  %exitcond1603.not = icmp eq i64 %inc337, %umax
   br i1 %exitcond1603.not, label %for.end338, label %for.body330, !llvm.loop !452
 
 for.end338:                                       ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEaSERKS2_.exit1311, %for.cond328.preheader
@@ -39740,7 +39741,7 @@ if.end8.sink.split.i.i.i.i129:                    ; preds = %_ZN9__gnu_cxx27__ex
 
 for.inc:                                          ; preds = %if.end8.sink.split.i.i.i.i129, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i126, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i116, %_ZN5arrow6StatusD2Ev.exit
   call void @_ZN5arrow6ResultISt10shared_ptrINS_11RecordBatchEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp20) #32
-  %inc = add nuw nsw i32 %i.0244, 1
+  %inc = add nuw i32 %i.0244, 1
   %exitcond.not = icmp eq i32 %inc, %call19
   br i1 %exitcond.not, label %cleanup45.thread.loopexit, label %for.body, !llvm.loop !709
 
@@ -55312,7 +55313,7 @@ ehcleanup.i.i:                                    ; preds = %lpad25.i.i, %lpad4.
   br label %"_ZN5arrow8internal19OptionalParallelForIZNS_3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNS2_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISC_EEE3$_0EENS_6StatusEbiOT_PNS0_8ExecutorE.exit"
 
 for.cond.i:                                       ; preds = %.noexc19
-  %inc.i = add nuw nsw i32 %i.089.i, 1
+  %inc.i = add nuw i32 %i.089.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %conv
   br i1 %exitcond.not.i, label %for.end.i, label %_ZN5arrow6StatusD2Ev.exit.i, !llvm.loop !1435
 

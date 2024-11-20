@@ -3068,17 +3068,19 @@ define range(i32 0, 2) i32 @parse_uint16(ptr noundef %0, ptr nocapture noundef w
   %5 = load ptr, ptr %3, align 8
   %6 = load i8, ptr %5, align 1
   %7 = icmp ne i8 %6, 0
-  %8 = icmp ugt i64 %4, 65533
-  %or.cond = select i1 %7, i1 true, i1 %8
-  br i1 %or.cond, label %11, label %9
+  %8 = icmp ugt i64 %4, 9223372036854775806
+  %or.cond5 = select i1 %7, i1 true, i1 %8
+  %9 = icmp samesign ugt i64 %4, 65533
+  %or.cond = select i1 %or.cond5, i1 true, i1 %9
+  br i1 %or.cond, label %12, label %10
 
-9:                                                ; preds = %2
-  %10 = trunc nuw i64 %4 to i16
-  store i16 %10, ptr %1, align 2
-  br label %11
+10:                                               ; preds = %2
+  %11 = trunc nuw i64 %4 to i16
+  store i16 %11, ptr %1, align 2
+  br label %12
 
-11:                                               ; preds = %2, %9
-  %.0 = phi i32 [ 0, %9 ], [ 1, %2 ]
+12:                                               ; preds = %2, %10
+  %.0 = phi i32 [ 0, %10 ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -3089,17 +3091,19 @@ define range(i32 0, 2) i32 @parse_uint32(ptr noundef %0, ptr nocapture noundef w
   %5 = load ptr, ptr %3, align 8
   %6 = load i8, ptr %5, align 1
   %7 = icmp ne i8 %6, 0
-  %8 = icmp ugt i64 %4, 4294967293
-  %or.cond = select i1 %7, i1 true, i1 %8
-  br i1 %or.cond, label %11, label %9
+  %8 = icmp ugt i64 %4, 9223372036854775806
+  %or.cond5 = select i1 %7, i1 true, i1 %8
+  %9 = icmp samesign ugt i64 %4, 4294967293
+  %or.cond = select i1 %or.cond5, i1 true, i1 %9
+  br i1 %or.cond, label %12, label %10
 
-9:                                                ; preds = %2
-  %10 = trunc nuw i64 %4 to i32
-  store i32 %10, ptr %1, align 4
-  br label %11
+10:                                               ; preds = %2
+  %11 = trunc nuw i64 %4 to i32
+  store i32 %11, ptr %1, align 4
+  br label %12
 
-11:                                               ; preds = %2, %9
-  %.0 = phi i32 [ 0, %9 ], [ 1, %2 ]
+12:                                               ; preds = %2, %10
+  %.0 = phi i32 [ 0, %10 ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -3139,28 +3143,30 @@ define range(i32 0, 2147483647) i32 @parse_int(ptr noundef %0, ptr noundef %1, i
 8:                                                ; preds = %5
   %9 = load i8, ptr %.pr, align 1
   %10 = icmp ne i8 %9, 0
-  %.v = zext i1 %2 to i64
-  %11 = icmp slt i64 %6, %.v
-  %or.cond18 = select i1 %10, i1 true, i1 %11
-  br i1 %or.cond18, label %.thread, label %13
+  %11 = icmp slt i64 %6, 0
+  %12 = icmp eq i64 %6, 0
+  %or.cond3 = select i1 %2, i1 %12, i1 false
+  %13 = or i1 %11, %or.cond3
+  %or.cond18 = select i1 %10, i1 true, i1 %13
+  br i1 %or.cond18, label %.thread, label %15
 
 .thread:                                          ; preds = %3, %8, %5
-  %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.44, ptr noundef %1, ptr noundef %0) #20
+  %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.44, ptr noundef %1, ptr noundef %0) #20
   tail call void @exit(i32 noundef 1) #23
   unreachable
 
-13:                                               ; preds = %8
-  %14 = icmp samesign ugt i64 %6, 2147483646
-  br i1 %14, label %15, label %17
+15:                                               ; preds = %8
+  %16 = icmp samesign ugt i64 %6, 2147483646
+  br i1 %16, label %17, label %19
 
-15:                                               ; preds = %13
-  %16 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.45, i64 noundef %6, ptr noundef %0) #20
+17:                                               ; preds = %15
+  %18 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.45, i64 noundef %6, ptr noundef %0) #20
   tail call void @exit(i32 noundef 1) #23
   unreachable
 
-17:                                               ; preds = %13
-  %18 = trunc nuw nsw i64 %6 to i32
-  ret i32 %18
+19:                                               ; preds = %15
+  %20 = trunc nuw nsw i64 %6 to i32
+  ret i32 %20
 }
 
 ; Function Attrs: nounwind uwtable

@@ -5242,11 +5242,11 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %idx.ext
   %tobool.i = icmp slt i32 %1, 0
   %conv = zext nneg i32 %and.i to i64
-  %cmp.not6.i = icmp eq i32 %and.i, 0
   br i1 %tobool.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i16, ptr %add.ptr, i64 %conv
+  %cmp.not6.i = icmp eq i32 %and.i, 0
   br i1 %cmp.not6.i, label %return, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
@@ -5264,7 +5264,8 @@ for.body.i:                                       ; preds = %if.then, %for.body.
 
 if.else:                                          ; preds = %entry
   %add.ptr.i.i7 = getelementptr inbounds i8, ptr %add.ptr, i64 %conv
-  br i1 %cmp.not6.i, label %return, label %for.body.i9
+  %cmp.not6.i8 = icmp eq i32 %1, 0
+  br i1 %cmp.not6.i8, label %return, label %for.body.i9
 
 for.body.i9:                                      ; preds = %if.else, %for.body.i9
   %hash.08.i10 = phi i32 [ %xor.i.i.i16, %for.body.i9 ], [ 0, %if.else ]

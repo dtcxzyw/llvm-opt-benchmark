@@ -10183,17 +10183,13 @@ if.then65:                                        ; preds = %if.then59
 if.then67:                                        ; preds = %if.then65
   %and.i = and i16 %33, -5
   store i16 %and.i, ptr %eventFlags_132, align 2, !tbaa !135
-  %cmp.i207 = icmp eq i16 %and.i, %33
-  br i1 %cmp.i207, label %if.end71, label %if.else.i
-
-if.else.i:                                        ; preds = %if.then67
   %call.i208 = invoke noundef zeroext i1 @_ZN5folly11AsyncSocket23updateEventRegistrationEv(ptr noundef nonnull align 8 dereferenceable(1113) %this)
           to label %invoke.cont68 unwind label %terminate.lpad.loopexit
 
-invoke.cont68:                                    ; preds = %if.else.i
+invoke.cont68:                                    ; preds = %if.then67
   br i1 %call.i208, label %if.end71, label %cleanup164
 
-if.end71:                                         ; preds = %invoke.cont68, %if.then67
+if.end71:                                         ; preds = %invoke.cont68
   invoke void @_ZN5folly12AsyncTimeout13cancelTimeoutEv(ptr noundef nonnull align 8 dereferenceable(192) %writeTimeout_144)
           to label %if.end73 unwind label %terminate.lpad.loopexit
 
@@ -10526,7 +10522,7 @@ terminate.lpad.i:                                 ; preds = %if.then6.i
 _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then6.i, %if.then.i257
   ret void
 
-terminate.lpad.loopexit:                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit253, %invoke.cont155, %if.then150, %invoke.cont147, %if.then143, %if.then136, %if.then126, %if.else120, %if.end109, %invoke.cont98, %cond.false.i.i, %invoke.cont94, %if.then91, %if.end71, %if.else.i, %if.else, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %invoke.cont51, %if.end47, %if.then43, %_ZN5folly11AsyncSocket22WriteCallbackWithState13notifyOnWriteEv.exit
+terminate.lpad.loopexit:                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit253, %invoke.cont155, %if.then150, %invoke.cont147, %if.then143, %if.then136, %if.then126, %if.else120, %if.end109, %invoke.cont98, %cond.false.i.i, %invoke.cont94, %if.then91, %if.end71, %if.then67, %if.else, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %invoke.cont51, %if.end47, %if.then43, %_ZN5folly11AsyncSocket22WriteCallbackWithState13notifyOnWriteEv.exit
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad.body
@@ -48228,7 +48224,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %buffer.addr.0.i.i, i64 -1
   store i8 %1, ptr %incdec.ptr.i.i, align 1, !tbaa !142
   %shr.i.i = lshr i32 %value.addr.0.i.i, 4
-  %cmp.not.i.i = icmp ult i32 %value.addr.0.i.i, 16
+  %cmp.not.i.i = icmp samesign ult i32 %value.addr.0.i.i, 16
   br i1 %cmp.not.i.i, label %_ZN3fmt2v96detail15write_codepointILm2EcNS1_17counting_iteratorEEET1_S4_cj.exit, label %do.body.i.i, !llvm.loop !942
 
 _ZN3fmt2v96detail15write_codepointILm2EcNS1_17counting_iteratorEEET1_S4_cj.exit: ; preds = %do.body.i.i
@@ -48259,7 +48255,7 @@ do.body.i.i91:                                    ; preds = %do.body.i.i91, %if.
   %incdec.ptr.i.i97 = getelementptr inbounds i8, ptr %buffer.addr.0.i.i93, i64 -1
   store i8 %4, ptr %incdec.ptr.i.i97, align 1, !tbaa !142
   %shr.i.i98 = lshr i32 %value.addr.0.i.i92, 4
-  %cmp.not.i.i99 = icmp ult i32 %value.addr.0.i.i92, 16
+  %cmp.not.i.i99 = icmp samesign ult i32 %value.addr.0.i.i92, 16
   br i1 %cmp.not.i.i99, label %_ZN3fmt2v96detail15write_codepointILm4EcNS1_17counting_iteratorEEET1_S4_cj.exit, label %do.body.i.i91, !llvm.loop !943
 
 _ZN3fmt2v96detail15write_codepointILm4EcNS1_17counting_iteratorEEET1_S4_cj.exit: ; preds = %do.body.i.i91
@@ -48290,7 +48286,7 @@ do.body.i.i105:                                   ; preds = %do.body.i.i105, %if
   %incdec.ptr.i.i111 = getelementptr inbounds i8, ptr %buffer.addr.0.i.i107, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i111, align 1, !tbaa !142
   %shr.i.i112 = lshr i32 %value.addr.0.i.i106, 4
-  %cmp.not.i.i113 = icmp ult i32 %value.addr.0.i.i106, 16
+  %cmp.not.i.i113 = icmp samesign ult i32 %value.addr.0.i.i106, 16
   br i1 %cmp.not.i.i113, label %_ZN3fmt2v96detail15write_codepointILm8EcNS1_17counting_iteratorEEET1_S4_cj.exit, label %do.body.i.i105, !llvm.loop !944
 
 _ZN3fmt2v96detail15write_codepointILm8EcNS1_17counting_iteratorEEET1_S4_cj.exit: ; preds = %do.body.i.i105

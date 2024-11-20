@@ -766,36 +766,37 @@ define void @_ZN5faiss12pq4_pack_LUTEiiPKhPh(i32 noundef %0, i32 noundef %1, ptr
 .preheader.us.preheader:                          ; preds = %4
   %7 = zext nneg i32 %0 to i64
   %8 = zext nneg i32 %1 to i64
+  %9 = zext nneg i32 %1 to i64
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv29 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next30, %._crit_edge.us ]
-  %9 = mul nuw nsw i64 %indvars.iv29, %8
-  br label %10
+  %10 = mul nuw nsw i64 %indvars.iv29, %9
+  br label %11
 
-10:                                               ; preds = %.preheader.us, %10
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %10 ]
-  %11 = lshr exact i64 %indvars.iv, 1
-  %12 = mul nuw nsw i64 %11, %7
-  %13 = add nuw nsw i64 %12, %indvars.iv29
-  %14 = shl nsw i64 %13, 5
-  %15 = getelementptr inbounds i8, ptr %3, i64 %14
-  %16 = add nuw nsw i64 %indvars.iv, %9
-  %17 = shl nsw i64 %16, 4
-  %18 = getelementptr inbounds i8, ptr %2, i64 %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %15, ptr noundef nonnull align 1 dereferenceable(16) %18, i64 16, i1 false)
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
-  %20 = shl i64 %16, 36
-  %sext = add i64 %20, 68719476736
-  %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds i8, ptr %2, i64 %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %19, ptr noundef nonnull align 1 dereferenceable(16) %22, i64 16, i1 false)
+11:                                               ; preds = %.preheader.us, %11
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %11 ]
+  %12 = lshr exact i64 %indvars.iv, 1
+  %13 = mul nuw nsw i64 %12, %7
+  %14 = add nuw nsw i64 %13, %indvars.iv29
+  %15 = shl nsw i64 %14, 5
+  %16 = getelementptr inbounds i8, ptr %3, i64 %15
+  %17 = add nuw nsw i64 %indvars.iv, %10
+  %18 = shl nsw i64 %17, 4
+  %19 = getelementptr inbounds i8, ptr %2, i64 %18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %16, ptr noundef nonnull align 1 dereferenceable(16) %19, i64 16, i1 false)
+  %20 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = shl i64 %17, 36
+  %sext = add i64 %21, 68719476736
+  %22 = ashr exact i64 %sext, 32
+  %23 = getelementptr inbounds i8, ptr %2, i64 %22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %20, ptr noundef nonnull align 1 dereferenceable(16) %23, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %23 = icmp samesign ult i64 %indvars.iv.next, %8
-  br i1 %23, label %10, label %._crit_edge.us, !llvm.loop !19
+  %24 = icmp samesign ult i64 %indvars.iv.next, %8
+  br i1 %24, label %11, label %._crit_edge.us, !llvm.loop !19
 
-._crit_edge.us:                                   ; preds = %10
+._crit_edge.us:                                   ; preds = %11
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge26, label %.preheader.us, !llvm.loop !20

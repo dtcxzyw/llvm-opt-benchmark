@@ -6748,7 +6748,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
 800:                                              ; preds = %798
   %801 = icmp ne i8 %797, 9
   %802 = icmp samesign ult i8 %797, 11
-  %or.cond20 = and i1 %801, %802
+  %or.cond20 = select i1 %801, i1 %802, i1 false
   br i1 %or.cond20, label %602, label %.preheader6402
 
 803:                                              ; preds = %798
@@ -8471,7 +8471,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
 
 1592:                                             ; preds = %.thread6253, %1590
   %.95101624562526255 = phi i32 [ %.95101.ph, %.thread6253 ], [ %.95101, %1590 ]
-  %1593 = icmp ult i32 %.95101624562526255, 8
+  %1593 = icmp samesign ult i32 %.95101624562526255, 8
   br i1 %1593, label %1594, label %1608
 
 1594:                                             ; preds = %1592
@@ -8503,7 +8503,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1607, label %2189, label %3233
 
 1608:                                             ; preds = %1592
-  %1609 = icmp ult i32 %.95101624562526255, 12
+  %1609 = icmp samesign ult i32 %.95101624562526255, 12
   br i1 %1609, label %1610, label %1616
 
 1610:                                             ; preds = %1608
@@ -8519,7 +8519,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1615, label %3813, label %4245
 
 1616:                                             ; preds = %1608
-  %1617 = icmp ult i32 %.95101624562526255, 14
+  %1617 = icmp samesign ult i32 %.95101624562526255, 14
   br i1 %1617, label %1618, label %1620
 
 1618:                                             ; preds = %1616
@@ -9827,7 +9827,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
 2172:                                             ; preds = %2168
   %2173 = icmp eq i8 %2156, 47
   %2174 = icmp samesign ugt i8 %2156, 99
-  %or.cond47 = or i1 %2173, %2174
+  %or.cond47 = select i1 %2173, i1 true, i1 %2174
   br i1 %or.cond47, label %.preheader6368, label %2189
 
 2175:                                             ; preds = %2157
@@ -12046,7 +12046,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
 3216:                                             ; preds = %3214
   %3217 = icmp eq i8 %3211, 36
   %3218 = icmp samesign ugt i8 %3211, 47
-  %or.cond80 = or i1 %3217, %3218
+  %or.cond80 = select i1 %3217, i1 true, i1 %3218
   br i1 %or.cond80, label %682, label %3233
 
 3219:                                             ; preds = %3214
@@ -21480,7 +21480,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
 7458:                                             ; preds = %7456
   %7459 = icmp eq i8 %7453, 36
   %7460 = icmp samesign ugt i8 %7453, 47
-  %or.cond239 = or i1 %7459, %7460
+  %or.cond239 = select i1 %7459, i1 true, i1 %7460
   br i1 %or.cond239, label %682, label %7484
 
 7461:                                             ; preds = %7456
@@ -31941,7 +31941,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
 12476:                                            ; preds = %12472
   %12477 = icmp ne i8 %12462, 47
   %12478 = icmp samesign ult i8 %12462, 58
-  %or.cond281 = and i1 %12477, %12478
+  %or.cond281 = select i1 %12477, i1 %12478, i1 false
   br i1 %or.cond281, label %.backedge6423.backedge, label %.loopexit6422
 
 12479:                                            ; preds = %12467
@@ -40733,12 +40733,12 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIPcEEvPNS2_7ScannerIT_EEm.exi
   br i1 %99, label %.lr.ph.preheader, label %._crit_edge.thread
 
 .lr.ph.preheader:                                 ; preds = %90
-  %smax = tail call i64 @llvm.smax.i64(i64 %spec.store.select, i64 1)
+  %umax = tail call i64 @llvm.umax.i64(i64 %spec.store.select, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre260.pre = load ptr, ptr %61, align 8, !tbaa !126
-  %.not213 = icmp sgt i64 %98, 196607
+  %.not213 = icmp samesign ugt i64 %98, 196607
   br i1 %.not213, label %107, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -40751,7 +40751,7 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIPcEEvPNS2_7ScannerIT_EEm.exi
   %103 = getelementptr inbounds nuw i8, ptr %.0197247, i64 1
   store i8 %102, ptr %.0197247, align 1, !tbaa !11
   %104 = add nuw nsw i64 %.0198246, 1
-  %exitcond.not = icmp eq i64 %104, %smax
+  %exitcond.not = icmp eq i64 %104, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !175
 
 ._crit_edge.thread:                               ; preds = %90, %._crit_edge
@@ -49234,7 +49234,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
 800:                                              ; preds = %798
   %801 = icmp ne i8 %797, 9
   %802 = icmp samesign ult i8 %797, 11
-  %or.cond20 = and i1 %801, %802
+  %or.cond20 = select i1 %801, i1 %802, i1 false
   br i1 %or.cond20, label %602, label %.preheader6402
 
 803:                                              ; preds = %798
@@ -50957,7 +50957,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
 
 1592:                                             ; preds = %.thread6253, %1590
   %.95101624562526255 = phi i32 [ %.95101.ph, %.thread6253 ], [ %.95101, %1590 ]
-  %1593 = icmp ult i32 %.95101624562526255, 8
+  %1593 = icmp samesign ult i32 %.95101624562526255, 8
   br i1 %1593, label %1594, label %1608
 
 1594:                                             ; preds = %1592
@@ -50989,7 +50989,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1607, label %2189, label %3233
 
 1608:                                             ; preds = %1592
-  %1609 = icmp ult i32 %.95101624562526255, 12
+  %1609 = icmp samesign ult i32 %.95101624562526255, 12
   br i1 %1609, label %1610, label %1616
 
 1610:                                             ; preds = %1608
@@ -51005,7 +51005,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1615, label %3813, label %4245
 
 1616:                                             ; preds = %1608
-  %1617 = icmp ult i32 %.95101624562526255, 14
+  %1617 = icmp samesign ult i32 %.95101624562526255, 14
   br i1 %1617, label %1618, label %1620
 
 1618:                                             ; preds = %1616
@@ -52313,7 +52313,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
 2172:                                             ; preds = %2168
   %2173 = icmp eq i8 %2156, 47
   %2174 = icmp samesign ugt i8 %2156, 99
-  %or.cond47 = or i1 %2173, %2174
+  %or.cond47 = select i1 %2173, i1 true, i1 %2174
   br i1 %or.cond47, label %.preheader6368, label %2189
 
 2175:                                             ; preds = %2157
@@ -54532,7 +54532,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
 3216:                                             ; preds = %3214
   %3217 = icmp eq i8 %3211, 36
   %3218 = icmp samesign ugt i8 %3211, 47
-  %or.cond80 = or i1 %3217, %3218
+  %or.cond80 = select i1 %3217, i1 true, i1 %3218
   br i1 %or.cond80, label %682, label %3233
 
 3219:                                             ; preds = %3214
@@ -63966,7 +63966,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
 7458:                                             ; preds = %7456
   %7459 = icmp eq i8 %7453, 36
   %7460 = icmp samesign ugt i8 %7453, 47
-  %or.cond239 = or i1 %7459, %7460
+  %or.cond239 = select i1 %7459, i1 true, i1 %7460
   br i1 %or.cond239, label %682, label %7484
 
 7461:                                             ; preds = %7456
@@ -74427,7 +74427,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
 12476:                                            ; preds = %12472
   %12477 = icmp ne i8 %12462, 47
   %12478 = icmp samesign ult i8 %12462, 58
-  %or.cond281 = and i1 %12477, %12478
+  %or.cond281 = select i1 %12477, i1 %12478, i1 false
   br i1 %or.cond281, label %.backedge6423.backedge, label %.loopexit6422
 
 12479:                                            ; preds = %12467
@@ -81270,12 +81270,12 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIPKcEEvPNS2_7ScannerIT_EEm.ex
   br i1 %99, label %.lr.ph.preheader, label %._crit_edge.thread
 
 .lr.ph.preheader:                                 ; preds = %90
-  %smax = tail call i64 @llvm.smax.i64(i64 %spec.store.select, i64 1)
+  %umax = tail call i64 @llvm.umax.i64(i64 %spec.store.select, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre260.pre = load ptr, ptr %61, align 8, !tbaa !215
-  %.not213 = icmp sgt i64 %98, 196607
+  %.not213 = icmp samesign ugt i64 %98, 196607
   br i1 %.not213, label %107, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -81288,7 +81288,7 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIPKcEEvPNS2_7ScannerIT_EEm.ex
   %103 = getelementptr inbounds nuw i8, ptr %.0197247, i64 1
   store i8 %102, ptr %.0197247, align 1, !tbaa !11
   %104 = add nuw nsw i64 %.0198246, 1
-  %exitcond.not = icmp eq i64 %104, %smax
+  %exitcond.not = icmp eq i64 %104, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !229
 
 ._crit_edge.thread:                               ; preds = %90, %._crit_edge
@@ -81619,9 +81619,6 @@ declare i64 @llvm.umax.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #29
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #29
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

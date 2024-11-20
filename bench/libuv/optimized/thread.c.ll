@@ -275,15 +275,10 @@ uv_thread_getaffinity.exit:                       ; preds = %do.body.i
 do.body:                                          ; preds = %uv_thread_getaffinity.exit.thread19, %if.end4, %uv_thread_getaffinity.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %cpuset, i8 0, i64 128, i1 false)
   %cmp1422.not = icmp eq i32 %call, 0
-  br i1 %cmp1422.not, label %for.end, label %for.body.preheader
+  br i1 %cmp1422.not, label %for.end, label %for.body
 
-for.body.preheader:                               ; preds = %do.body
-  %smax = call i32 @llvm.smax.i32(i32 %call, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
+for.body:                                         ; preds = %do.body, %for.inc
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %do.body ]
   %arrayidx = getelementptr inbounds i8, ptr %cpumask, i64 %indvars.iv
   %5 = load i8, ptr %arrayidx, align 1
   %tobool.not = icmp ne i8 %5, 0
@@ -303,7 +298,7 @@ cond.true:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %cond.true, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %do.body
@@ -1370,9 +1365,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

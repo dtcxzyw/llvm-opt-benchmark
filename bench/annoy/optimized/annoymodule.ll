@@ -3547,8 +3547,8 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
-  %.05357 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
-  %12 = zext nneg i32 %.05357 to i64
+  %.05256 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
+  %12 = zext nneg i32 %.05256 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #25
   store ptr %14, ptr %6, align 8
@@ -3561,7 +3561,7 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   store ptr %scevgep.i.i.i.i.i, ptr %16, align 8
   %18 = icmp eq i32 %1, -1
   %19 = ptrtoint ptr %5 to i64
-  %wide.trip.count50 = zext nneg i32 %.05357 to i64
+  %wide.trip.count49 = zext nneg i32 %.05256 to i64
   br i1 %18, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNSt6threadD2Ev.exit.us
@@ -3614,8 +3614,8 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
   store i64 %34, ptr %33, align 8
   store i64 0, ptr %7, align 8
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %exitcond51.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count50
-  br i1 %exitcond51.not, label %.lr.ph40.preheader, label %.lr.ph.split.us, !llvm.loop !13
+  %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
+  br i1 %exitcond50.not, label %.lr.ph40.preheader, label %.lr.ph.split.us, !llvm.loop !13
 
 .lr.ph40.preheader:                               ; preds = %_ZNSt6threadD2Ev.exit, %_ZNSt6threadD2Ev.exit.us
   br label %.lr.ph40
@@ -3640,7 +3640,7 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
 .noexc17:                                         ; preds = %.lr.ph.split
   %37 = trunc nuw nsw i64 %indvars.iv to i32
   %38 = add i32 %1, %37
-  %39 = sdiv i32 %38, %.05357
+  %39 = sdiv i32 %38, %.05256
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_7AngularENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i64 16), ptr %36, align 8
   %40 = getelementptr inbounds i8, ptr %36, i64 8
   store i64 %19, ptr %40, align 8
@@ -3704,7 +3704,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %56
   store i64 %58, ptr %57, align 8
   store i64 0, ptr %7, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count50
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count49
   br i1 %exitcond.not, label %.lr.ph40.preheader, label %.lr.ph.split, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph40
@@ -9352,8 +9352,8 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
-  %.05357 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
-  %12 = zext nneg i32 %.05357 to i64
+  %.05256 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
+  %12 = zext nneg i32 %.05256 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #25
   store ptr %14, ptr %6, align 8
@@ -9366,7 +9366,7 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   store ptr %scevgep.i.i.i.i.i, ptr %16, align 8
   %18 = icmp eq i32 %1, -1
   %19 = ptrtoint ptr %5 to i64
-  %wide.trip.count50 = zext nneg i32 %.05357 to i64
+  %wide.trip.count49 = zext nneg i32 %.05256 to i64
   br i1 %18, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNSt6threadD2Ev.exit.us
@@ -9419,8 +9419,8 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
   store i64 %34, ptr %33, align 8
   store i64 0, ptr %7, align 8
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %exitcond51.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count50
-  br i1 %exitcond51.not, label %.lr.ph40.preheader, label %.lr.ph.split.us, !llvm.loop !75
+  %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
+  br i1 %exitcond50.not, label %.lr.ph40.preheader, label %.lr.ph.split.us, !llvm.loop !75
 
 .lr.ph40.preheader:                               ; preds = %_ZNSt6threadD2Ev.exit, %_ZNSt6threadD2Ev.exit.us
   br label %.lr.ph40
@@ -9445,7 +9445,7 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
 .noexc17:                                         ; preds = %.lr.ph.split
   %37 = trunc nuw nsw i64 %indvars.iv to i32
   %38 = add i32 %1, %37
-  %39 = sdiv i32 %38, %.05357
+  %39 = sdiv i32 %38, %.05256
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_9EuclideanENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i64 16), ptr %36, align 8
   %40 = getelementptr inbounds i8, ptr %36, i64 8
   store i64 %19, ptr %40, align 8
@@ -9509,7 +9509,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %56
   store i64 %58, ptr %57, align 8
   store i64 0, ptr %7, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count50
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count49
   br i1 %exitcond.not, label %.lr.ph40.preheader, label %.lr.ph.split, !llvm.loop !75
 
 .loopexit:                                        ; preds = %.lr.ph40
@@ -13409,8 +13409,8 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
-  %.05357 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
-  %12 = zext nneg i32 %.05357 to i64
+  %.05256 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
+  %12 = zext nneg i32 %.05256 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #25
   store ptr %14, ptr %6, align 8
@@ -13423,7 +13423,7 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   store ptr %scevgep.i.i.i.i.i, ptr %16, align 8
   %18 = icmp eq i32 %1, -1
   %19 = ptrtoint ptr %5 to i64
-  %wide.trip.count50 = zext nneg i32 %.05357 to i64
+  %wide.trip.count49 = zext nneg i32 %.05256 to i64
   br i1 %18, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNSt6threadD2Ev.exit.us
@@ -13476,8 +13476,8 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
   store i64 %34, ptr %33, align 8
   store i64 0, ptr %7, align 8
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %exitcond51.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count50
-  br i1 %exitcond51.not, label %.lr.ph40.preheader, label %.lr.ph.split.us, !llvm.loop !117
+  %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
+  br i1 %exitcond50.not, label %.lr.ph40.preheader, label %.lr.ph.split.us, !llvm.loop !117
 
 .lr.ph40.preheader:                               ; preds = %_ZNSt6threadD2Ev.exit, %_ZNSt6threadD2Ev.exit.us
   br label %.lr.ph40
@@ -13502,7 +13502,7 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
 .noexc17:                                         ; preds = %.lr.ph.split
   %37 = trunc nuw nsw i64 %indvars.iv to i32
   %38 = add i32 %1, %37
-  %39 = sdiv i32 %38, %.05357
+  %39 = sdiv i32 %38, %.05256
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_9ManhattanENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i64 16), ptr %36, align 8
   %40 = getelementptr inbounds i8, ptr %36, i64 8
   store i64 %19, ptr %40, align 8
@@ -13566,7 +13566,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %56
   store i64 %58, ptr %57, align 8
   store i64 0, ptr %7, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count50
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count49
   br i1 %exitcond.not, label %.lr.ph40.preheader, label %.lr.ph.split, !llvm.loop !117
 
 .loopexit:                                        ; preds = %.lr.ph40
@@ -16547,7 +16547,6 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
-  %smax = tail call i64 @llvm.smax.i64(i64 %7, i64 1)
   br label %16
 
 16:                                               ; preds = %.critedge.i, %.lr.ph.i
@@ -16580,7 +16579,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
 
 .critedge.i:                                      ; preds = %25, %21
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next20.i, %smax
+  %exitcond.not = icmp eq i64 %indvars.iv.next20.i, %7
   br i1 %exitcond.not, label %_ZNK14HammingWrapper5_packEPKfPm.exit, label %16, !llvm.loop !154
 
 _ZNK14HammingWrapper5_packEPKfPm.exit:            ; preds = %.critedge.i, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
@@ -16897,7 +16896,6 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %6
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
-  %smax = tail call i64 @llvm.smax.i64(i64 %10, i64 1)
   br label %19
 
 19:                                               ; preds = %.critedge.i, %.lr.ph.i
@@ -16930,7 +16928,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %6
 
 .critedge.i:                                      ; preds = %28, %24
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next20.i, %smax
+  %exitcond.not = icmp eq i64 %indvars.iv.next20.i, %10
   br i1 %exitcond.not, label %_ZNK14HammingWrapper5_packEPKfPm.exit, label %19, !llvm.loop !154
 
 _ZNK14HammingWrapper5_packEPKfPm.exit:            ; preds = %.critedge.i, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
@@ -18149,8 +18147,8 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
-  %.05357 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
-  %12 = zext nneg i32 %.05357 to i64
+  %.05256 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
+  %12 = zext nneg i32 %.05256 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #25
   store ptr %14, ptr %6, align 8
@@ -18163,7 +18161,7 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   store ptr %scevgep.i.i.i.i.i, ptr %16, align 8
   %18 = icmp eq i32 %1, -1
   %19 = ptrtoint ptr %5 to i64
-  %wide.trip.count50 = zext nneg i32 %.05357 to i64
+  %wide.trip.count49 = zext nneg i32 %.05256 to i64
   br i1 %18, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNSt6threadD2Ev.exit.us
@@ -18216,8 +18214,8 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
   store i64 %34, ptr %33, align 8
   store i64 0, ptr %7, align 8
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %exitcond51.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count50
-  br i1 %exitcond51.not, label %.lr.ph40.preheader, label %.lr.ph.split.us, !llvm.loop !160
+  %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
+  br i1 %exitcond50.not, label %.lr.ph40.preheader, label %.lr.ph.split.us, !llvm.loop !160
 
 .lr.ph40.preheader:                               ; preds = %_ZNSt6threadD2Ev.exit, %_ZNSt6threadD2Ev.exit.us
   br label %.lr.ph40
@@ -18242,7 +18240,7 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
 .noexc17:                                         ; preds = %.lr.ph.split
   %37 = trunc nuw nsw i64 %indvars.iv to i32
   %38 = add i32 %1, %37
-  %39 = sdiv i32 %38, %.05357
+  %39 = sdiv i32 %38, %.05256
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIimNS3_7HammingENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i64 16), ptr %36, align 8
   %40 = getelementptr inbounds i8, ptr %36, i64 8
   store i64 %19, ptr %40, align 8
@@ -18306,7 +18304,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %56
   store i64 %58, ptr %57, align 8
   store i64 0, ptr %7, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count50
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count49
   br i1 %exitcond.not, label %.lr.ph40.preheader, label %.lr.ph.split, !llvm.loop !160
 
 .loopexit:                                        ; preds = %.lr.ph40
@@ -22358,8 +22356,8 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
-  %.05357 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
-  %12 = zext nneg i32 %.05357 to i64
+  %.05256 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
+  %12 = zext nneg i32 %.05256 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #25
   store ptr %14, ptr %6, align 8
@@ -22372,7 +22370,7 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   store ptr %scevgep.i.i.i.i.i, ptr %16, align 8
   %18 = icmp eq i32 %1, -1
   %19 = ptrtoint ptr %5 to i64
-  %wide.trip.count50 = zext nneg i32 %.05357 to i64
+  %wide.trip.count49 = zext nneg i32 %.05256 to i64
   br i1 %18, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNSt6threadD2Ev.exit.us
@@ -22425,8 +22423,8 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
   store i64 %34, ptr %33, align 8
   store i64 0, ptr %7, align 8
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %exitcond51.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count50
-  br i1 %exitcond51.not, label %.lr.ph40.preheader, label %.lr.ph.split.us, !llvm.loop !201
+  %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
+  br i1 %exitcond50.not, label %.lr.ph40.preheader, label %.lr.ph.split.us, !llvm.loop !201
 
 .lr.ph40.preheader:                               ; preds = %_ZNSt6threadD2Ev.exit, %_ZNSt6threadD2Ev.exit.us
   br label %.lr.ph40
@@ -22451,7 +22449,7 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
 .noexc17:                                         ; preds = %.lr.ph.split
   %37 = trunc nuw nsw i64 %indvars.iv to i32
   %38 = add i32 %1, %37
-  %39 = sdiv i32 %38, %.05357
+  %39 = sdiv i32 %38, %.05256
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_10DotProductENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i64 16), ptr %36, align 8
   %40 = getelementptr inbounds i8, ptr %36, i64 8
   store i64 %19, ptr %40, align 8
@@ -22515,7 +22513,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %56
   store i64 %58, ptr %57, align 8
   store i64 0, ptr %7, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count50
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count49
   br i1 %exitcond.not, label %.lr.ph40.preheader, label %.lr.ph.split, !llvm.loop !201
 
 .loopexit:                                        ; preds = %.lr.ph40
@@ -25845,9 +25843,6 @@ declare i32 @llvm.smax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #20
 
 attributes #0 = { mustprogress nounwind sspstrong uwtable "approx-func-fp-math"="true" "frame-pointer"="all" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold noreturn nounwind memory(inaccessiblemem: write) }

@@ -3147,8 +3147,8 @@ _ZN6google12Check_EQImplB5cxx11EiiPKc.exit:       ; preds = %_ZN6google22MakeChe
   br i1 %.not99, label %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit._crit_edge, label %168
 
 _ZN6google12Check_EQImplB5cxx11EiiPKc.exit._crit_edge: ; preds = %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit
-  %.pre154 = load ptr, ptr %143, align 8
-  %.pre155 = load ptr, ptr %20, align 8
+  %.pre153 = load ptr, ptr %143, align 8
+  %.pre154 = load ptr, ptr %20, align 8
   br label %196
 
 168:                                              ; preds = %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit
@@ -3204,8 +3204,8 @@ _ZN6google12Check_EQImplB5cxx11EiiPKc.exit._crit_edge: ; preds = %_ZN6google12Ch
   unreachable
 
 196:                                              ; preds = %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit._crit_edge, %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit.thread
-  %197 = phi ptr [ %.pre155, %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit._crit_edge ], [ %149, %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit.thread ]
-  %198 = phi ptr [ %.pre154, %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit._crit_edge ], [ %150, %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit.thread ]
+  %197 = phi ptr [ %.pre154, %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit._crit_edge ], [ %149, %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit.thread ]
+  %198 = phi ptr [ %.pre153, %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit._crit_edge ], [ %150, %_ZN6google12Check_EQImplB5cxx11EiiPKc.exit.thread ]
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %199 = ptrtoint ptr %198 to i64
   %200 = ptrtoint ptr %197 to i64
@@ -3245,8 +3245,7 @@ _ZN6google12Check_EQImplB5cxx11EiiPKc.exit._crit_edge: ; preds = %_ZN6google12Ch
   br i1 %or.cond129, label %.lr.ph128.preheader, label %.loopexit
 
 .lr.ph128.preheader:                              ; preds = %219
-  %smax151 = call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %wide.trip.count152 = zext nneg i32 %smax151 to i64
+  %wide.trip.count151 = zext nneg i32 %4 to i64
   br label %.lr.ph128
 
 .lr.ph128:                                        ; preds = %.lr.ph128.preheader, %227
@@ -3259,8 +3258,8 @@ _ZN6google12Check_EQImplB5cxx11EiiPKc.exit._crit_edge: ; preds = %_ZN6google12Ch
 
 227:                                              ; preds = %.lr.ph128
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
-  %exitcond153.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count152
-  br i1 %exitcond153.not, label %.loopexit, label %.lr.ph128, !llvm.loop !41
+  %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
+  br i1 %exitcond152.not, label %.loopexit, label %.lr.ph128, !llvm.loop !41
 
 228:                                              ; preds = %205
   %229 = landingpad { ptr, i32 }
@@ -9734,7 +9733,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   %31 = load <2 x double>, ptr %30, align 1
   store <2 x double> %31, ptr %29, align 16
   %32 = add nuw nsw i64 %.011.i, 2
-  %33 = icmp slt i64 %32, %27
+  %33 = icmp samesign ult i64 %32, %27
   br i1 %33, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !80
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %21
@@ -10176,7 +10175,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE6resizeEll.exit.
   %17 = load <2 x double>, ptr %16, align 1
   store <2 x double> %17, ptr %15, align 16
   %18 = add nuw nsw i64 %.011.i.i.i.i.i.i, 2
-  %19 = icmp slt i64 %18, %13
+  %19 = icmp samesign ult i64 %18, %13
   br i1 %19, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, !llvm.loop !84
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i, %11
@@ -15271,7 +15270,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal29MatrixTransposeVectorMultip
   %111 = getelementptr inbounds double, ptr %97, i64 %53
   %112 = getelementptr inbounds i8, ptr %.0115123.i.us, i64 32
   %113 = add nuw nsw i32 %.0114126.i.us, 4
-  %114 = icmp slt i32 %113, %51
+  %114 = icmp samesign ult i32 %113, %51
   br i1 %114, label %56, label %.preheader.i.loopexit.us, !llvm.loop !159
 
 .lr.ph139.i.us:                                   ; preds = %.preheader.i.loopexit.us, %.lr.ph139.i.us
@@ -19264,9 +19263,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #22

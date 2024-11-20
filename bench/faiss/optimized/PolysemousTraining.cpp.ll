@@ -197,38 +197,37 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc19
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc19
-  %17 = zext nneg i32 %9 to i64
-  %18 = shl nuw nsw i64 %17, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %13, ptr noundef nonnull align 4 dereferenceable(1) %1, i64 %18, i1 false)
+  %17 = shl nuw nsw i64 %10, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %13, ptr align 4 %1, i64 %17, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %.lr.ph.preheader
   %.sroa.0.034 = phi ptr [ %13, %.lr.ph.preheader ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %19 = sext i32 %3 to i64
-  %20 = getelementptr inbounds i32, ptr %1, i64 %19
-  %21 = load i32, ptr %20, align 4
-  %22 = sext i32 %2 to i64
-  %23 = getelementptr inbounds i32, ptr %.sroa.0.034, i64 %22
-  store i32 %21, ptr %23, align 4
-  %24 = getelementptr inbounds i32, ptr %1, i64 %22
-  %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i32, ptr %.sroa.0.034, i64 %19
-  store i32 %25, ptr %26, align 4
-  %27 = load ptr, ptr %0, align 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = invoke noundef double %28(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %.sroa.0.034)
+  %18 = sext i32 %3 to i64
+  %19 = getelementptr inbounds i32, ptr %1, i64 %18
+  %20 = load i32, ptr %19, align 4
+  %21 = sext i32 %2 to i64
+  %22 = getelementptr inbounds i32, ptr %.sroa.0.034, i64 %21
+  store i32 %20, ptr %22, align 4
+  %23 = getelementptr inbounds i32, ptr %1, i64 %21
+  %24 = load i32, ptr %23, align 4
+  %25 = getelementptr inbounds i32, ptr %.sroa.0.034, i64 %18
+  store i32 %24, ptr %25, align 4
+  %26 = load ptr, ptr %0, align 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = invoke noundef double %27(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %.sroa.0.034)
           to label %_ZNSt6vectorIiSaIiEED2Ev.exit unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit21
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge
-  %30 = fsub double %29, %7
+  %29 = fsub double %28, %7
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.034) #28
-  ret double %30
+  ret double %29
 
 _ZNSt6vectorIiSaIiEED2Ev.exit21:                  ; preds = %._crit_edge
-  %31 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.034) #28
-  resume { ptr, i32 } %31
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -747,16 +746,15 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc32
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc32
-  %wide.trip.count = zext nneg i32 %12 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %20 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %21, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %13
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -5469,9 +5467,6 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #23
 declare i32 @llvm.smin.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -5485,6 +5480,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #24
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

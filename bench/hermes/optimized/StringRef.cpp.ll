@@ -1643,15 +1643,11 @@ if.end:                                           ; preds = %entry
 for.body.lr.ph:                                   ; preds = %if.end
   %1 = load ptr, ptr %this, align 8
   %cmp.i.i = icmp eq i64 %Str.coerce1.fr, 0
-  br i1 %cmp.i.i, label %for.body.us, label %for.body
+  br i1 %cmp.i.i, label %for.body.us.preheader, label %for.body
 
-for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
-  %Count.022.us = phi i64 [ %spec.select23, %for.body.us ], [ 0, %for.body.lr.ph ]
-  %i.021.us = phi i64 [ %inc8.us, %for.body.us ], [ 0, %for.body.lr.ph ]
-  %spec.select23 = add i64 %Count.022.us, 1
-  %inc8.us = add nuw i64 %i.021.us, 1
-  %cmp3.not.us = icmp eq i64 %i.021.us, %reass.sub
-  br i1 %cmp3.not.us, label %return, label %for.body.us, !llvm.loop !33
+for.body.us.preheader:                            ; preds = %for.body.lr.ph
+  %2 = add i64 %0, 1
+  br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %Count.022 = phi i64 [ %Count.1, %for.inc ], [ 0, %for.body.lr.ph ]
@@ -1665,8 +1661,8 @@ land.rhs.i:                                       ; preds = %for.body
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %.sroa.speculated14
   %bcmp = tail call i32 @bcmp(ptr %add.ptr.i, ptr %Str.coerce0, i64 %Str.coerce1.fr)
   %bcmp.fr = freeze i32 %bcmp
-  %2 = icmp eq i32 %bcmp.fr, 0
-  %inc = zext i1 %2 to i64
+  %3 = icmp eq i32 %bcmp.fr, 0
+  %inc = zext i1 %3 to i64
   %spec.select = add i64 %Count.022, %inc
   br label %for.inc
 
@@ -1676,8 +1672,8 @@ for.inc:                                          ; preds = %land.rhs.i, %for.bo
   %cmp3.not = icmp eq i64 %i.021, %reass.sub
   br i1 %cmp3.not, label %return, label %for.body, !llvm.loop !33
 
-return:                                           ; preds = %for.inc, %for.body.us, %if.end, %entry
-  %retval.0 = phi i64 [ 0, %entry ], [ 0, %if.end ], [ %spec.select23, %for.body.us ], [ %Count.1, %for.inc ]
+return:                                           ; preds = %for.inc, %for.body.us.preheader, %if.end, %entry
+  %retval.0 = phi i64 [ 0, %entry ], [ 0, %if.end ], [ %2, %for.body.us.preheader ], [ %Count.1, %for.inc ]
   ret i64 %retval.0
 }
 

@@ -45472,8 +45472,8 @@ invoke.cont3:
   %.cast.i = ptrtoint ptr %call.i to i64
   store i64 %.cast.i, ptr %allocator3.i, align 8
   %cmp.i.i.i.i = icmp eq i32 %mul.i, 0
-  %indvars.iv370.sroa.gep388 = getelementptr inbounds i8, ptr %owenHash, i64 24
-  %indvars.iv362.sroa.gep389 = getelementptr inbounds i8, ptr %digitPermutations, i64 24
+  %indvars.iv371.sroa.gep389 = getelementptr inbounds i8, ptr %owenHash, i64 24
+  %indvars.iv363.sroa.gep390 = getelementptr inbounds i8, ptr %digitPermutations, i64 24
   br i1 %cmp.i.i.i.i, label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIdEEPT_m.exit.thread.i, label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIdEEPT_m.exit.i
 
 _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIdEEPT_m.exit.thread.i: ; preds = %invoke.cont3
@@ -45625,11 +45625,15 @@ for.cond49.preheader.lr.ph:                       ; preds = %invoke.cont32
   %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %func = getelementptr inbounds i8, ptr %this, i64 64
   %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 88
-  br i1 %cmp51322, label %for.cond49.preheader.us, label %for.end88
+  br i1 %cmp51322, label %for.cond49.preheader.us.preheader, label %for.end88
 
-for.cond49.preheader.us:                          ; preds = %for.cond49.preheader.lr.ph, %for.cond49.for.inc86_crit_edge.us
-  %indvars.iv352 = phi i64 [ %indvars.iv.next353, %for.cond49.for.inc86_crit_edge.us ], [ 0, %for.cond49.preheader.lr.ph ]
-  %rng.sroa.0.0326.us = phi i64 [ %add.i.i71.us, %for.cond49.for.inc86_crit_edge.us ], [ -8846114313915602277, %for.cond49.preheader.lr.ph ]
+for.cond49.preheader.us.preheader:                ; preds = %for.cond49.preheader.lr.ph
+  %wide.trip.count356 = zext nneg i32 %sub4.i to i64
+  br label %for.cond49.preheader.us
+
+for.cond49.preheader.us:                          ; preds = %for.cond49.preheader.us.preheader, %for.cond49.for.inc86_crit_edge.us
+  %indvars.iv352 = phi i64 [ 0, %for.cond49.preheader.us.preheader ], [ %indvars.iv.next353, %for.cond49.for.inc86_crit_edge.us ]
+  %rng.sroa.0.0326.us = phi i64 [ -8846114313915602277, %for.cond49.preheader.us.preheader ], [ %add.i.i71.us, %for.cond49.for.inc86_crit_edge.us ]
   %25 = trunc nuw nsw i64 %indvars.iv352 to i32
   %conv63.us = uitofp nneg i32 %25 to float
   %agg.tmp77.sroa.2.0.insert.shift.us = shl nuw nsw i64 %indvars.iv352, 32
@@ -45711,8 +45715,8 @@ for.cond54.preheader.us:                          ; preds = %for.cond49.preheade
 
 for.cond49.for.inc86_crit_edge.us:                ; preds = %for.inc83.us
   %indvars.iv.next353 = add nuw nsw i64 %indvars.iv352, 1
-  %exitcond356.not = icmp eq i64 %indvars.iv.next353, %retval.sroa.2.0.insert.ext.i
-  br i1 %exitcond356.not, label %for.end88, label %for.cond49.preheader.us, !llvm.loop !642
+  %exitcond357.not = icmp eq i64 %indvars.iv.next353, %wide.trip.count356
+  br i1 %exitcond357.not, label %for.end88, label %for.cond49.preheader.us, !llvm.loop !642
 
 lpad58.loopexit.split-lp.loopexit.split.us:       ; preds = %for.end.us
   %lpad.loopexit301.us = landingpad { ptr, i32 }
@@ -45847,17 +45851,17 @@ invoke.cont118:                                   ; preds = %invoke.cont104
 for.cond134.preheader:                            ; preds = %invoke.cont118
   %conv137 = sext i32 %mul.i to i64
   %cmp141329 = icmp sgt i32 %mul.i, 0
-  %wide.trip.count360 = zext nneg i32 %mul.i to i64
+  %wide.trip.count361 = zext nneg i32 %mul.i to i64
   br label %for.body136
 
 for.body136:                                      ; preds = %for.cond134.preheader, %for.inc157
   %cmp144 = phi i32 [ 2, %for.cond134.preheader ], [ 3, %for.inc157 ]
   %cmp135 = phi i1 [ true, %for.cond134.preheader ], [ false, %for.inc157 ]
-  %indvars.iv362.sroa.phi = phi ptr [ %digitPermutations, %for.cond134.preheader ], [ %indvars.iv362.sroa.gep389, %for.inc157 ]
+  %indvars.iv363.sroa.phi = phi ptr [ %digitPermutations, %for.cond134.preheader ], [ %indvars.iv363.sroa.gep390, %for.inc157 ]
   %rng129.sroa.0.1332 = phi i64 [ -8846114313915602277, %for.cond134.preheader ], [ %rng129.sroa.0.2.lcssa, %for.inc157 ]
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %indvars.iv362.sroa.phi, i64 8
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %indvars.iv363.sroa.phi, i64 8
   %43 = load ptr, ptr %_M_finish.i.i, align 8
-  %44 = load ptr, ptr %indvars.iv362.sroa.phi, align 8
+  %44 = load ptr, ptr %indvars.iv363.sroa.phi, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %43 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %44 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -45867,7 +45871,7 @@ for.body136:                                      ; preds = %for.cond134.prehead
 
 if.then.i113:                                     ; preds = %for.body136
   %sub.i114 = sub nuw nsw i64 %conv137, %sub.ptr.div.i.i
-  invoke void @_ZNSt6vectorIN4pbrt16DigitPermutationESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %indvars.iv362.sroa.phi, i64 noundef %sub.i114)
+  invoke void @_ZNSt6vectorIN4pbrt16DigitPermutationESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %indvars.iv363.sroa.phi, i64 noundef %sub.i114)
           to label %_ZNSt6vectorIN4pbrt16DigitPermutationESaIS1_EE6resizeEm.exit unwind label %lpad130.loopexit.split-lp.loopexit.split-lp
 
 if.else.i:                                        ; preds = %for.body136
@@ -45887,7 +45891,7 @@ _ZNSt6vectorIN4pbrt16DigitPermutationESaIS1_EE6resizeEm.exit: ; preds = %if.then
   br i1 %cmp141329, label %for.body142, label %for.inc157
 
 for.body142:                                      ; preds = %_ZNSt6vectorIN4pbrt16DigitPermutationESaIS1_EE6resizeEm.exit, %invoke.cont149
-  %indvars.iv357 = phi i64 [ %indvars.iv.next358, %invoke.cont149 ], [ 0, %_ZNSt6vectorIN4pbrt16DigitPermutationESaIS1_EE6resizeEm.exit ]
+  %indvars.iv358 = phi i64 [ %indvars.iv.next359, %invoke.cont149 ], [ 0, %_ZNSt6vectorIN4pbrt16DigitPermutationESaIS1_EE6resizeEm.exit ]
   %rng129.sroa.0.2330 = phi i64 [ %add.i, %invoke.cont149 ], [ %rng129.sroa.0.1332, %_ZNSt6vectorIN4pbrt16DigitPermutationESaIS1_EE6resizeEm.exit ]
   %45 = lshr i64 %rng129.sroa.0.2330, 45
   %46 = lshr i64 %rng129.sroa.0.2330, 27
@@ -45903,12 +45907,12 @@ for.body142:                                      ; preds = %_ZNSt6vectorIN4pbrt
 invoke.cont149:                                   ; preds = %for.body142
   %mul.i116 = mul i64 %rng129.sroa.0.2330, 6364136223846793005
   %add.i = add i64 %mul.i116, -2720673578348880933
-  %47 = load ptr, ptr %indvars.iv362.sroa.phi, align 8
-  %add.ptr.i120 = getelementptr inbounds %"class.pbrt::DigitPermutation", ptr %47, i64 %indvars.iv357
+  %47 = load ptr, ptr %indvars.iv363.sroa.phi, align 8
+  %add.ptr.i120 = getelementptr inbounds %"class.pbrt::DigitPermutation", ptr %47, i64 %indvars.iv358
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i120, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp143, i64 16, i1 false)
-  %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
-  %exitcond361.not = icmp eq i64 %indvars.iv.next358, %wide.trip.count360
-  br i1 %exitcond361.not, label %for.inc157, label %for.body142, !llvm.loop !643
+  %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
+  %exitcond362.not = icmp eq i64 %indvars.iv.next359, %wide.trip.count361
+  br i1 %exitcond362.not, label %for.inc157, label %for.body142, !llvm.loop !643
 
 lpad103:                                          ; preds = %call.i96.noexc, %if.end
   %48 = landingpad { ptr, i32 }
@@ -45951,25 +45955,25 @@ if.end160:                                        ; preds = %for.inc157
   br i1 %50, label %if.then163, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont118, %if.end160
-  %rng129.sroa.0.0375 = phi i64 [ %rng129.sroa.0.2.lcssa, %if.end160 ], [ -8846114313915602277, %invoke.cont118 ]
+  %rng129.sroa.0.0376 = phi i64 [ %rng129.sroa.0.2.lcssa, %if.end160 ], [ -8846114313915602277, %invoke.cont118 ]
   %51 = load i8, ptr %isSobol, align 1
   %tobool162 = trunc i8 %51 to i1
   br i1 %tobool162, label %if.then163, label %if.end188
 
 if.then163:                                       ; preds = %lor.lhs.false, %if.end160
-  %rng129.sroa.0.0376 = phi i64 [ %rng129.sroa.0.0375, %lor.lhs.false ], [ %rng129.sroa.0.2.lcssa, %if.end160 ]
+  %rng129.sroa.0.0377 = phi i64 [ %rng129.sroa.0.0376, %lor.lhs.false ], [ %rng129.sroa.0.2.lcssa, %if.end160 ]
   %conv170 = sext i32 %mul.i to i64
   %cmp174334 = icmp sgt i32 %mul.i, 0
-  %wide.trip.count368 = zext nneg i32 %mul.i to i64
+  %wide.trip.count369 = zext nneg i32 %mul.i to i64
   br label %for.body167
 
 for.body167:                                      ; preds = %if.then163, %for.inc185
   %cmp166 = phi i1 [ true, %if.then163 ], [ false, %for.inc185 ]
-  %indvars.iv370.sroa.phi = phi ptr [ %owenHash, %if.then163 ], [ %indvars.iv370.sroa.gep388, %for.inc185 ]
-  %rng129.sroa.0.3338 = phi i64 [ %rng129.sroa.0.0376, %if.then163 ], [ %rng129.sroa.0.4.lcssa, %for.inc185 ]
-  %_M_finish.i.i121 = getelementptr inbounds i8, ptr %indvars.iv370.sroa.phi, i64 8
+  %indvars.iv371.sroa.phi = phi ptr [ %owenHash, %if.then163 ], [ %indvars.iv371.sroa.gep389, %for.inc185 ]
+  %rng129.sroa.0.3338 = phi i64 [ %rng129.sroa.0.0377, %if.then163 ], [ %rng129.sroa.0.4.lcssa, %for.inc185 ]
+  %_M_finish.i.i121 = getelementptr inbounds i8, ptr %indvars.iv371.sroa.phi, i64 8
   %52 = load ptr, ptr %_M_finish.i.i121, align 8
-  %53 = load ptr, ptr %indvars.iv370.sroa.phi, align 8
+  %53 = load ptr, ptr %indvars.iv371.sroa.phi, align 8
   %sub.ptr.lhs.cast.i.i122 = ptrtoint ptr %52 to i64
   %sub.ptr.rhs.cast.i.i123 = ptrtoint ptr %53 to i64
   %sub.ptr.sub.i.i124 = sub i64 %sub.ptr.lhs.cast.i.i122, %sub.ptr.rhs.cast.i.i123
@@ -45979,7 +45983,7 @@ for.body167:                                      ; preds = %if.then163, %for.in
 
 if.then.i133:                                     ; preds = %for.body167
   %sub.i134 = sub nuw nsw i64 %conv170, %sub.ptr.div.i.i125
-  invoke void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %indvars.iv370.sroa.phi, i64 noundef %sub.i134)
+  invoke void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %indvars.iv371.sroa.phi, i64 noundef %sub.i134)
           to label %_ZNSt6vectorImSaImEE6resizeEm.exit unwind label %lpad130.loopexit
 
 if.else.i127:                                     ; preds = %for.body167
@@ -45999,7 +46003,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %if.then.i133, %if.e
   br i1 %cmp174334, label %for.body175, label %for.inc185
 
 for.body175:                                      ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit, %for.body175
-  %indvars.iv365 = phi i64 [ %indvars.iv.next366, %for.body175 ], [ 0, %_ZNSt6vectorImSaImEE6resizeEm.exit ]
+  %indvars.iv366 = phi i64 [ %indvars.iv.next367, %for.body175 ], [ 0, %_ZNSt6vectorImSaImEE6resizeEm.exit ]
   %rng129.sroa.0.4335 = phi i64 [ %add.i3.i, %for.body175 ], [ %rng129.sroa.0.3338, %_ZNSt6vectorImSaImEE6resizeEm.exit ]
   %mul.i.i136 = mul i64 %rng129.sroa.0.4335, 6364136223846793005
   %add.i.i138 = add i64 %mul.i.i136, -2720673578348880933
@@ -46023,12 +46027,12 @@ for.body175:                                      ; preds = %_ZNSt6vectorImSaImE
   %conv3.i = zext i32 %or.i8.i to i64
   %shl.i = shl nuw i64 %conv.i144, 32
   %or.i145 = or disjoint i64 %shl.i, %conv3.i
-  %58 = load ptr, ptr %indvars.iv370.sroa.phi, align 8
-  %add.ptr.i146 = getelementptr inbounds i64, ptr %58, i64 %indvars.iv365
+  %58 = load ptr, ptr %indvars.iv371.sroa.phi, align 8
+  %add.ptr.i146 = getelementptr inbounds i64, ptr %58, i64 %indvars.iv366
   store i64 %or.i145, ptr %add.ptr.i146, align 8
-  %indvars.iv.next366 = add nuw nsw i64 %indvars.iv365, 1
-  %exitcond369.not = icmp eq i64 %indvars.iv.next366, %wide.trip.count368
-  br i1 %exitcond369.not, label %for.inc185, label %for.body175, !llvm.loop !645
+  %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
+  %exitcond370.not = icmp eq i64 %indvars.iv.next367, %wide.trip.count369
+  br i1 %exitcond370.not, label %for.inc185, label %for.body175, !llvm.loop !645
 
 for.inc185:                                       ; preds = %for.body175, %_ZNSt6vectorImSaImEE6resizeEm.exit
   %rng129.sroa.0.4.lcssa = phi i64 [ %rng129.sroa.0.3338, %_ZNSt6vectorImSaImEE6resizeEm.exit ], [ %add.i3.i, %for.body175 ]
@@ -89238,7 +89242,7 @@ invoke.cont85.i.i.i:                              ; preds = %invoke.cont85.loope
           to label %for.inc.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %invoke.cont85.i.i.i
-  %inc88.i.i.i = add nuw nsw i64 %j.095.i.i.i, 1
+  %inc88.i.i.i = add nuw i64 %j.095.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc88.i.i.i, %sub.i.i.i
   br i1 %exitcond.not.i.i.i, label %for.end.i.i.i, label %invoke.cont18.i.i.i, !llvm.loop !1031
 
