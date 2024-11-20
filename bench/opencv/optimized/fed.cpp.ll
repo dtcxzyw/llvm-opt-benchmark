@@ -200,8 +200,8 @@ _Z21fed_is_prime_internalRKi.exit.thread:         ; preds = %_Z21fed_is_prime_in
   ]
 
 59:                                               ; preds = %58
-  %60 = and i32 %storemerge.in, 1
-  %61 = icmp ne i32 %60, 0
+  %60 = and i32 %storemerge, 1
+  %61 = icmp eq i32 %60, 0
   %62 = urem i32 %storemerge, 3
   %63 = icmp eq i32 %62, 0
   %or.cond.i = or i1 %61, %63

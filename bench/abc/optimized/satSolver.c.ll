@@ -4498,9 +4498,9 @@ luby.exit:                                        ; preds = %.lr.ph23.i, %.prehe
   %133 = add i32 %132, 1
   store i32 %133, ptr %25, align 8
   %134 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
-  %135 = and i32 %130, 1
-  %.not100.not.i = icmp eq i32 %135, 0
-  br i1 %.not100.not.i, label %136, label %.loopexit261.i
+  %135 = and i32 %131, 1
+  %.not100.i = icmp eq i32 %135, 0
+  br i1 %.not100.i, label %.loopexit261.i, label %136
 
 136:                                              ; preds = %luby.exit
   %.val117.i = load i32, ptr %26, align 4

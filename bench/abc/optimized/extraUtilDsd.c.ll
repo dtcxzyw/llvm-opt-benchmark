@@ -772,26 +772,26 @@ Vec_IntAlloc.exit.i:                              ; preds = %28, %Vec_IntAlloc.e
 .loopexit.i.i.i:                                  ; preds = %.loopexit.i.i.i.backedge, %Vec_IntAlloc.exit.i
   %.012.i.i.i = phi i32 [ %5, %Vec_IntAlloc.exit.i ], [ %37, %.loopexit.i.i.i.backedge ]
   %37 = add i32 %.012.i.i.i, 1
-  %38 = and i32 %.012.i.i.i, 1
-  %.not.not.i.i.i = icmp eq i32 %38, 0
-  br i1 %.not.not.i.i.i, label %.preheader.i.i.i, label %.loopexit.i.i.i.backedge
+  %38 = and i32 %37, 1
+  %.not.i.i.i = icmp eq i32 %38, 0
+  br i1 %.not.i.i.i, label %.loopexit.i.i.i.backedge, label %.preheader.i.i.i
 
 .loopexit.i.i.i.backedge:                         ; preds = %.lr.ph.i.i.i, %.loopexit.i.i.i
   br label %.loopexit.i.i.i, !llvm.loop !6
 
 .preheader.i.i.i:                                 ; preds = %.loopexit.i.i.i
-  %.not15.i.i.i = icmp ult i32 %37, 9
-  br i1 %.not15.i.i.i, label %Abc_PrimeCudd.exit.i.i, label %.lr.ph.i.i.i
+  %.not1416.i.i.i = icmp ult i32 %37, 9
+  br i1 %.not1416.i.i.i, label %Abc_PrimeCudd.exit.i.i, label %.lr.ph.i.i.i
 
 39:                                               ; preds = %.lr.ph.i.i.i
-  %40 = add nuw nsw i32 %.01116.i.i.i, 2
+  %40 = add nuw nsw i32 %.01117.i.i.i, 2
   %41 = mul nuw nsw i32 %40, %40
-  %.not.i.i.i = icmp ugt i32 %41, %37
-  br i1 %.not.i.i.i, label %Abc_PrimeCudd.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !7
+  %.not14.i.i.i = icmp ugt i32 %41, %37
+  br i1 %.not14.i.i.i, label %Abc_PrimeCudd.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !7
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %39
-  %.01116.i.i.i = phi i32 [ %40, %39 ], [ 3, %.preheader.i.i.i ]
-  %42 = urem i32 %37, %.01116.i.i.i
+  %.01117.i.i.i = phi i32 [ %40, %39 ], [ 3, %.preheader.i.i.i ]
+  %42 = urem i32 %37, %.01117.i.i.i
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %.loopexit.i.i.i.backedge, label %39, !llvm.loop !6
 
@@ -799,8 +799,8 @@ Abc_PrimeCudd.exit.i.i:                           ; preds = %.preheader.i.i.i, %
   %44 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %or.cond.i.i.i.i = icmp ult i32 %.012.i.i.i, 15
   %spec.store.select.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 16, i32 %37
-  store i32 %spec.store.select.i.i.i.i, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 4
+  store i32 %spec.store.select.i.i.i.i, ptr %44, align 8
   %46 = sext i32 %spec.store.select.i.i.i.i to i64
   %47 = shl nsw i64 %46, 2
   %48 = tail call noalias ptr @malloc(i64 noundef %47) #25
@@ -863,40 +863,40 @@ Hsh_IntManStart.exit.i:                           ; preds = %56, %Vec_IntStartFu
 69:                                               ; preds = %.lr.ph.i
   %70 = shl nsw i32 %.val38.i.i, 1
   %71 = add i32 %70, -1
-  br label %.loopexit.i.i23.i
+  br label %.loopexit.i.i29.i
 
-.loopexit.i.i23.i:                                ; preds = %.loopexit.i.i23.i.backedge, %69
-  %.012.i.i21.i = phi i32 [ %71, %69 ], [ %72, %.loopexit.i.i23.i.backedge ]
+.loopexit.i.i29.i:                                ; preds = %.loopexit.i.i29.i.backedge, %69
+  %.012.i.i21.i = phi i32 [ %71, %69 ], [ %72, %.loopexit.i.i29.i.backedge ]
   %72 = add i32 %.012.i.i21.i, 1
-  %73 = and i32 %.012.i.i21.i, 1
-  %.not.not.i.i22.i = icmp eq i32 %73, 0
-  br i1 %.not.not.i.i22.i, label %.preheader.i.i24.i, label %.loopexit.i.i23.i.backedge
+  %73 = and i32 %72, 1
+  %.not.i.i22.i = icmp eq i32 %73, 0
+  br i1 %.not.i.i22.i, label %.loopexit.i.i29.i.backedge, label %.preheader.i.i23.i
 
-.loopexit.i.i23.i.backedge:                       ; preds = %.lr.ph.i.i26.i, %.loopexit.i.i23.i
-  br label %.loopexit.i.i23.i, !llvm.loop !6
+.loopexit.i.i29.i.backedge:                       ; preds = %.lr.ph.i.i25.i, %.loopexit.i.i29.i
+  br label %.loopexit.i.i29.i, !llvm.loop !6
 
-.preheader.i.i24.i:                               ; preds = %.loopexit.i.i23.i
-  %.not15.i.i25.i = icmp ult i32 %72, 9
-  br i1 %.not15.i.i25.i, label %Abc_PrimeCudd.exit.i29.i, label %.lr.ph.i.i26.i
+.preheader.i.i23.i:                               ; preds = %.loopexit.i.i29.i
+  %.not1416.i.i24.i = icmp ult i32 %72, 9
+  br i1 %.not1416.i.i24.i, label %Abc_PrimeCudd.exit.i28.i, label %.lr.ph.i.i25.i
 
-74:                                               ; preds = %.lr.ph.i.i26.i
-  %75 = add nuw nsw i32 %.01116.i.i27.i, 2
+74:                                               ; preds = %.lr.ph.i.i25.i
+  %75 = add nuw nsw i32 %.01117.i.i26.i, 2
   %76 = mul nuw nsw i32 %75, %75
-  %.not.i.i28.i = icmp ugt i32 %76, %72
-  br i1 %.not.i.i28.i, label %Abc_PrimeCudd.exit.i29.i, label %.lr.ph.i.i26.i, !llvm.loop !7
+  %.not14.i.i27.i = icmp ugt i32 %76, %72
+  br i1 %.not14.i.i27.i, label %Abc_PrimeCudd.exit.i28.i, label %.lr.ph.i.i25.i, !llvm.loop !7
 
-.lr.ph.i.i26.i:                                   ; preds = %.preheader.i.i24.i, %74
-  %.01116.i.i27.i = phi i32 [ %75, %74 ], [ 3, %.preheader.i.i24.i ]
-  %77 = urem i32 %72, %.01116.i.i27.i
+.lr.ph.i.i25.i:                                   ; preds = %.preheader.i.i23.i, %74
+  %.01117.i.i26.i = phi i32 [ %75, %74 ], [ 3, %.preheader.i.i23.i ]
+  %77 = urem i32 %72, %.01117.i.i26.i
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %.loopexit.i.i23.i.backedge, label %74, !llvm.loop !6
+  br i1 %78, label %.loopexit.i.i29.i.backedge, label %74, !llvm.loop !6
 
-Abc_PrimeCudd.exit.i29.i:                         ; preds = %.preheader.i.i24.i, %74
+Abc_PrimeCudd.exit.i28.i:                         ; preds = %.preheader.i.i23.i, %74
   %79 = load i32, ptr %66, align 8
   %.not.i.i.i.i = icmp slt i32 %79, %72
   br i1 %.not.i.i.i.i, label %80, label %Vec_IntGrow.exit.i.i.i
 
-80:                                               ; preds = %Abc_PrimeCudd.exit.i29.i
+80:                                               ; preds = %Abc_PrimeCudd.exit.i28.i
   %81 = getelementptr inbounds i8, ptr %66, i64 8
   %82 = load ptr, ptr %81, align 8
   %.not9.i.i.i.i = icmp eq ptr %82, null
@@ -918,7 +918,7 @@ Abc_PrimeCudd.exit.i29.i:                         ; preds = %.preheader.i.i24.i,
   store i32 %72, ptr %66, align 8
   br label %Vec_IntGrow.exit.i.i.i
 
-Vec_IntGrow.exit.i.i.i:                           ; preds = %89, %Abc_PrimeCudd.exit.i29.i
+Vec_IntGrow.exit.i.i.i:                           ; preds = %89, %Abc_PrimeCudd.exit.i28.i
   %91 = icmp ult i32 %.012.i.i21.i, 2147483647
   br i1 %91, label %.lr.ph.i44.i.i, label %Vec_IntFill.exit.i.i
 

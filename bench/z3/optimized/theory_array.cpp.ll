@@ -3385,23 +3385,23 @@ if.else8:                                         ; preds = %if.else
   br label %if.end35
 
 if.else13:                                        ; preds = %entry
-  %7 = and i32 %0, 1
-  %cmp16.not.not = icmp eq i32 %7, 0
-  br i1 %cmp16.not.not, label %if.then17, label %if.else25
+  %rem15 = and i32 %inc, 1
+  %cmp16.not = icmp eq i32 %rem15, 0
+  br i1 %cmp16.not, label %if.else25, label %if.then17
 
 if.then17:                                        ; preds = %if.else13
   %vtable18 = load ptr, ptr %this, align 8
   %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 416
-  %8 = load ptr, ptr %vfn19, align 8
-  %call20 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(444) %this)
+  %7 = load ptr, ptr %vfn19, align 8
+  %call20 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(444) %this)
   %cmp21 = icmp eq i32 %call20, 0
   br i1 %cmp21, label %if.then22, label %if.end35
 
 if.then22:                                        ; preds = %if.then17
   %call.i3 = tail call noundef i32 @_ZN3smt17theory_array_base16mk_interface_eqsEv(ptr noundef nonnull align 8 dereferenceable(444) %this)
   %m_num_eq_splits.i4 = getelementptr inbounds i8, ptr %this, i64 288
-  %9 = load i32, ptr %m_num_eq_splits.i4, align 8
-  %add.i5 = add i32 %9, %call.i3
+  %8 = load i32, ptr %m_num_eq_splits.i4, align 8
+  %add.i5 = add i32 %8, %call.i3
   store i32 %add.i5, ptr %m_num_eq_splits.i4, align 8
   %cmp.not.i6 = icmp ne i32 %call.i3, 0
   %..i7 = zext i1 %cmp.not.i6 to i32
@@ -3410,8 +3410,8 @@ if.then22:                                        ; preds = %if.then17
 if.else25:                                        ; preds = %if.else13
   %call.i8 = tail call noundef i32 @_ZN3smt17theory_array_base16mk_interface_eqsEv(ptr noundef nonnull align 8 dereferenceable(444) %this)
   %m_num_eq_splits.i9 = getelementptr inbounds i8, ptr %this, i64 288
-  %10 = load i32, ptr %m_num_eq_splits.i9, align 8
-  %add.i10 = add i32 %10, %call.i8
+  %9 = load i32, ptr %m_num_eq_splits.i9, align 8
+  %add.i10 = add i32 %9, %call.i8
   store i32 %add.i10, ptr %m_num_eq_splits.i9, align 8
   %cmp.not.i11.not = icmp eq i32 %call.i8, 0
   br i1 %cmp.not.i11.not, label %if.else29, label %if.end35
@@ -3419,33 +3419,33 @@ if.else25:                                        ; preds = %if.else13
 if.else29:                                        ; preds = %if.else25
   %vtable30 = load ptr, ptr %this, align 8
   %vfn31 = getelementptr inbounds i8, ptr %vtable30, i64 416
-  %11 = load ptr, ptr %vfn31, align 8
-  %call32 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(444) %this)
+  %10 = load ptr, ptr %vfn31, align 8
+  %call32 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(444) %this)
   br label %if.end35
 
 if.end35:                                         ; preds = %if.else25, %if.else, %if.then22, %if.then17, %if.else29, %if.then4, %if.else8
   %r.0 = phi i32 [ 1, %if.then4 ], [ %call11, %if.else8 ], [ %..i7, %if.then22 ], [ %call20, %if.then17 ], [ %call32, %if.else29 ], [ 1, %if.else ], [ 1, %if.else25 ]
   %m_found_unsupported_op = getelementptr inbounds i8, ptr %this, i64 53
-  %12 = load i8, ptr %m_found_unsupported_op, align 1
-  %tobool36 = trunc i8 %12 to i1
+  %11 = load i8, ptr %m_found_unsupported_op, align 1
+  %tobool36 = trunc i8 %11 to i1
   br i1 %tobool36, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end35
   %m_array_weak_head.i = getelementptr inbounds i8, ptr %this, i64 56
-  %13 = load i32, ptr %m_array_weak_head.i, align 8
+  %12 = load i32, ptr %m_array_weak_head.i, align 8
   %m_array_weak_trail.i = getelementptr inbounds i8, ptr %this, i64 64
-  %14 = load ptr, ptr %m_array_weak_trail.i, align 8
-  %cmp.i.i = icmp eq ptr %14, null
+  %13 = load ptr, ptr %m_array_weak_trail.i, align 8
+  %cmp.i.i = icmp eq ptr %13, null
   br i1 %cmp.i.i, label %_ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %lor.rhs
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %14, i64 -4
-  %15 = load i32, ptr %arrayidx.i.i, align 4
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %13, i64 -4
+  %14 = load i32, ptr %arrayidx.i.i, align 4
   br label %_ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit
 
 _ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit: ; preds = %lor.rhs, %if.end.i.i
-  %retval.0.i.i = phi i32 [ %15, %if.end.i.i ], [ 0, %lor.rhs ]
-  %cmp.i = icmp uge i32 %13, %retval.0.i.i
+  %retval.0.i.i = phi i32 [ %14, %if.end.i.i ], [ 0, %lor.rhs ]
+  %cmp.i = icmp uge i32 %12, %retval.0.i.i
   br label %lor.end
 
 lor.end:                                          ; preds = %_ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit, %if.end35
@@ -3456,12 +3456,12 @@ lor.end:                                          ; preds = %_ZNK3smt17theory_ar
 
 land.lhs.true40:                                  ; preds = %lor.end
   %ctx = getelementptr inbounds i8, ptr %this, i64 16
-  %16 = load ptr, ptr %ctx, align 8
-  %m_fparams.i = getelementptr inbounds i8, ptr %16, i64 112
-  %17 = load ptr, ptr %m_fparams.i, align 8
-  %m_array_fake_support = getelementptr inbounds i8, ptr %17, i64 416
-  %18 = load i8, ptr %m_array_fake_support, align 8
-  %tobool42 = trunc i8 %18 to i1
+  %15 = load ptr, ptr %ctx, align 8
+  %m_fparams.i = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = load ptr, ptr %m_fparams.i, align 8
+  %m_array_fake_support = getelementptr inbounds i8, ptr %16, i64 416
+  %17 = load i8, ptr %m_array_fake_support, align 8
+  %tobool42 = trunc i8 %17 to i1
   %spec.select = select i1 %tobool42, i32 0, i32 2
   br label %if.end44
 

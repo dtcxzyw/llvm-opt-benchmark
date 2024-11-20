@@ -4653,10 +4653,10 @@ for.body192:                                      ; preds = %for.end183, %for.in
   %call196 = call ptr @SSL_CIPHER_get_name(ptr noundef %call194) #14
   %call197 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %call2, ptr noundef nonnull @.str.578, ptr noundef %call195, ptr noundef %call196) #14
   %add198 = add nuw nsw i32 %i.1236, 1
-  %26 = and i32 %i.1236, 1
-  %cmp200.not = icmp eq i32 %26, 0
+  %rem199 = and i32 %add198, 1
+  %cmp200 = icmp ne i32 %rem199, 0
   %cmp204.not = icmp eq i32 %add198, %call188
-  %or.cond208 = select i1 %cmp200.not, i1 true, i1 %cmp204.not
+  %or.cond208 = or i1 %cmp204.not, %cmp200
   br i1 %or.cond208, label %for.inc209, label %if.then206
 
 if.then206:                                       ; preds = %for.body192
@@ -4681,8 +4681,8 @@ while.cond:                                       ; preds = %if.end232, %if.then
   %j.0 = phi i32 [ 0, %if.then216 ], [ %j.1, %if.end232 ]
   %i.2 = phi i32 [ 0, %if.then216 ], [ %i.3, %if.end232 ]
   %p.0 = phi ptr [ %call213, %if.then216 ], [ %incdec.ptr233, %if.end232 ]
-  %27 = load i8, ptr %p.0, align 1
-  switch i8 %27, label %if.else229 [
+  %26 = load i8, ptr %p.0, align 1
+  switch i8 %26, label %if.else229 [
     i8 0, label %while.end
     i8 58, label %if.then222
   ]
@@ -4749,8 +4749,8 @@ if.end260:                                        ; preds = %if.else258, %if.the
   br label %for.cond459.preheader
 
 if.else262:                                       ; preds = %if.end97
-  %28 = and i32 %12, -2
-  %or.cond1 = icmp eq i32 %28, 2
+  %27 = and i32 %12, -2
+  %or.cond1 = icmp eq i32 %27, 2
   br i1 %or.cond1, label %land.lhs.true268, label %for.cond.backedge
 
 land.lhs.true268:                                 ; preds = %land.lhs.true107, %if.else262
@@ -4768,8 +4768,8 @@ cond.true272:                                     ; preds = %land.lhs.true268
 for.cond275:                                      ; preds = %for.inc330, %cond.true272
   %dot.0 = phi i32 [ 1, %cond.true272 ], [ %dot.3, %for.inc330 ]
   %e.0 = phi ptr [ %add.ptr, %cond.true272 ], [ %incdec.ptr331, %for.inc330 ]
-  %29 = load i8, ptr %e.0, align 1
-  switch i8 %29, label %if.end291 [
+  %28 = load i8, ptr %e.0, align 1
+  switch i8 %28, label %if.end291 [
     i8 58, label %if.end345.thread
     i8 0, label %if.then342
     i8 32, label %if.end345
@@ -4787,27 +4787,27 @@ if.end291:                                        ; preds = %for.cond275
   ]
 
 sw.bb292:                                         ; preds = %if.end291
-  %cmp295 = icmp eq i8 %29, 46
+  %cmp295 = icmp eq i8 %28, 46
   br i1 %cmp295, label %for.inc330, label %if.then317
 
 sw.bb298:                                         ; preds = %if.end291
-  %cmp301 = icmp eq i8 %29, 46
+  %cmp301 = icmp eq i8 %28, 46
   br i1 %cmp301, label %for.inc330, label %if.then317
 
 sw.bb304:                                         ; preds = %if.end291
-  %cmp307 = icmp eq i8 %29, 47
-  %cmp311 = icmp eq i8 %29, 92
-  %30 = sext i1 %cmp311 to i32
+  %cmp307 = icmp eq i8 %28, 47
+  %cmp311 = icmp eq i8 %28, 92
+  %29 = sext i1 %cmp311 to i32
   br i1 %cmp307, label %for.inc330, label %sw.epilog314
 
 sw.epilog314:                                     ; preds = %sw.bb304, %if.end291
-  %dot.2 = phi i32 [ %dot.0, %if.end291 ], [ %30, %sw.bb304 ]
+  %dot.2 = phi i32 [ %dot.0, %if.end291 ], [ %29, %sw.bb304 ]
   %cmp315 = icmp eq i32 %dot.2, 0
   br i1 %cmp315, label %if.then317, label %for.inc330
 
 if.then317:                                       ; preds = %sw.bb292, %sw.bb298, %sw.epilog314
-  %cmp320 = icmp eq i8 %29, 47
-  %cmp325 = icmp eq i8 %29, 92
+  %cmp320 = icmp eq i8 %28, 47
+  %cmp325 = icmp eq i8 %28, 92
   %narrow = or i1 %cmp320, %cmp325
   %cond328 = zext i1 %narrow to i32
   br label %for.inc330
@@ -4835,8 +4835,8 @@ if.then347:                                       ; preds = %if.end345.thread, %
   br label %for.cond459.preheader
 
 if.end350:                                        ; preds = %if.end345
-  %31 = load i8, ptr %add.ptr, align 1
-  switch i8 %31, label %if.end361 [
+  %30 = load i8, ptr %add.ptr, align 1
+  switch i8 %30, label %if.end361 [
     i8 47, label %if.then358
     i8 92, label %if.then358
   ]
@@ -4874,13 +4874,13 @@ if.end379:                                        ; preds = %if.end368
   br i1 %.b203, label %if.end383, label %if.then381
 
 if.then381:                                       ; preds = %if.end379
-  %32 = load ptr, ptr @bio_err, align 8
-  %call382 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %32, ptr noundef nonnull @.str.594, ptr noundef nonnull %add.ptr) #14
+  %31 = load ptr, ptr @bio_err, align 8
+  %call382 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %31, ptr noundef nonnull @.str.594, ptr noundef nonnull %add.ptr) #14
   br label %if.end383
 
 if.end383:                                        ; preds = %if.then381, %if.end379
-  %33 = load i32, ptr @www, align 4
-  %cmp384 = icmp eq i32 %33, 2
+  %32 = load i32, ptr @www, align 4
+  %cmp384 = icmp eq i32 %32, 2
   br i1 %cmp384, label %if.then386, label %if.end423
 
 if.then386:                                       ; preds = %if.end383
@@ -4956,8 +4956,8 @@ land.lhs.true443:                                 ; preds = %if.then440
   br i1 %tobool445.not, label %write_error, label %if.else447
 
 if.else447:                                       ; preds = %land.lhs.true443, %if.then440
-  %34 = load ptr, ptr @bio_s_out, align 8
-  %call448 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %34, ptr noundef nonnull @.str.598) #14
+  %33 = load ptr, ptr @bio_s_out, align 8
+  %call448 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %33, ptr noundef nonnull @.str.598) #14
   br label %if.end452
 
 if.else450:                                       ; preds = %for.body433

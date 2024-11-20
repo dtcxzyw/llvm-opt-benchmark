@@ -548,21 +548,21 @@ define hidden noundef ptr @_ZN20AbstractDisassembler27decode_instruction_abstrac
 
 11:                                               ; preds = %4, %7
   %12 = phi i32 [ %10, %7 ], [ %3, %4 ]
-  %.not31 = icmp slt i32 %2, 1
-  br i1 %.not31, label %.preheader, label %.lr.ph
+  %.not30 = icmp slt i32 %2, 1
+  br i1 %.not30, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
   %13 = icmp sgt i32 %3, 1
   br i1 %13, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %20
-  %.02633.us = phi i32 [ %21, %20 ], [ 1, %.lr.ph ]
-  %.02732.us = phi ptr [ %16, %20 ], [ %0, %.lr.ph ]
-  %14 = load i8, ptr %.02732.us, align 1
+  %.02632.us = phi i32 [ %21, %20 ], [ 1, %.lr.ph ]
+  %.02731.us = phi ptr [ %16, %20 ], [ %0, %.lr.ph ]
+  %14 = load i8, ptr %.02731.us, align 1
   %15 = zext i8 %14 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.29, i32 noundef %15) #3
-  %16 = getelementptr inbounds i8, ptr %.02732.us, i64 1
-  %17 = and i32 %.02633.us, 1
+  %16 = getelementptr inbounds i8, ptr %.02731.us, i64 1
+  %17 = and i32 %.02632.us, 1
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %20
 
@@ -571,72 +571,71 @@ define hidden noundef ptr @_ZN20AbstractDisassembler27decode_instruction_abstrac
   br label %20
 
 20:                                               ; preds = %19, %.lr.ph.split.us
-  %21 = add nuw i32 %.02633.us, 1
-  %exitcond42.not = icmp eq i32 %.02633.us, %2
-  br i1 %exitcond42.not, label %.preheader, label %.lr.ph.split.us, !llvm.loop !10
+  %21 = add nuw i32 %.02632.us, 1
+  %exitcond40.not = icmp eq i32 %.02632.us, %2
+  br i1 %exitcond40.not, label %.preheader, label %.lr.ph.split.us, !llvm.loop !10
 
-.preheader:                                       ; preds = %31, %20, %11
-  %.027.lcssa = phi ptr [ %0, %11 ], [ %16, %20 ], [ %28, %31 ]
-  %.not29.not35 = icmp slt i32 %2, %12
-  br i1 %.not29.not35, label %.lr.ph38, label %._crit_edge
+.preheader:                                       ; preds = %32, %20, %11
+  %.027.lcssa = phi ptr [ %0, %11 ], [ %16, %20 ], [ %29, %32 ]
+  %.not29.not34 = icmp slt i32 %2, %12
+  br i1 %.not29.not34, label %.lr.ph36, label %._crit_edge
 
-.lr.ph38:                                         ; preds = %.preheader
-  %.034 = add nsw i32 %2, 1
+.lr.ph36:                                         ; preds = %.preheader
+  %.033 = add nsw i32 %2, 1
   %22 = icmp sgt i32 %3, 1
-  br i1 %22, label %.lr.ph38.split.us, label %.lr.ph38.split
+  br i1 %22, label %.lr.ph36.split.us, label %.lr.ph36.split
 
-.lr.ph38.split.us:                                ; preds = %.lr.ph38, %25
-  %.037.us = phi i32 [ %.0.us, %25 ], [ %.034, %.lr.ph38 ]
-  %.0.in36.us = phi i32 [ %.037.us, %25 ], [ %2, %.lr.ph38 ]
+.lr.ph36.split.us:                                ; preds = %.lr.ph36, %26
+  %.035.us = phi i32 [ %.0.us, %26 ], [ %.033, %.lr.ph36 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11) #3
-  %23 = and i32 %.0.in36.us, 1
-  %.not30.us = icmp eq i32 %23, 0
-  br i1 %.not30.us, label %25, label %24
+  %23 = and i32 %.035.us, 1
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %26
 
-24:                                               ; preds = %.lr.ph38.split.us
+25:                                               ; preds = %.lr.ph36.split.us
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str) #3
-  br label %25
+  br label %26
 
-25:                                               ; preds = %24, %.lr.ph38.split.us
-  %.0.us = add i32 %.037.us, 1
-  %exitcond44.not = icmp eq i32 %.037.us, %12
-  br i1 %exitcond44.not, label %._crit_edge, label %.lr.ph38.split.us, !llvm.loop !11
+26:                                               ; preds = %25, %.lr.ph36.split.us
+  %.0.us = add i32 %.035.us, 1
+  %exitcond42.not = icmp eq i32 %.035.us, %12
+  br i1 %exitcond42.not, label %._crit_edge, label %.lr.ph36.split.us, !llvm.loop !11
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %31
-  %.02633 = phi i32 [ %32, %31 ], [ 1, %.lr.ph ]
-  %.02732 = phi ptr [ %28, %31 ], [ %0, %.lr.ph ]
-  %26 = load i8, ptr %.02732, align 1
-  %27 = zext i8 %26 to i32
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.29, i32 noundef %27) #3
-  %28 = getelementptr inbounds i8, ptr %.02732, i64 1
-  %29 = icmp eq i32 %.02633, %2
-  br i1 %29, label %30, label %31
+.lr.ph.split:                                     ; preds = %.lr.ph, %32
+  %.02632 = phi i32 [ %33, %32 ], [ 1, %.lr.ph ]
+  %.02731 = phi ptr [ %29, %32 ], [ %0, %.lr.ph ]
+  %27 = load i8, ptr %.02731, align 1
+  %28 = zext i8 %27 to i32
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.29, i32 noundef %28) #3
+  %29 = getelementptr inbounds i8, ptr %.02731, i64 1
+  %30 = icmp eq i32 %.02632, %2
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %.lr.ph.split
+31:                                               ; preds = %.lr.ph.split
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str) #3
-  br label %31
+  br label %32
 
-31:                                               ; preds = %30, %.lr.ph.split
-  %32 = add nuw i32 %.02633, 1
-  %exitcond.not = icmp eq i32 %.02633, %2
+32:                                               ; preds = %31, %.lr.ph.split
+  %33 = add nuw i32 %.02632, 1
+  %exitcond.not = icmp eq i32 %.02632, %2
   br i1 %exitcond.not, label %.preheader, label %.lr.ph.split, !llvm.loop !10
 
-.lr.ph38.split:                                   ; preds = %.lr.ph38, %35
-  %.037 = phi i32 [ %.0, %35 ], [ %.034, %.lr.ph38 ]
+.lr.ph36.split:                                   ; preds = %.lr.ph36, %36
+  %.035 = phi i32 [ %.0, %36 ], [ %.033, %.lr.ph36 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11) #3
-  %33 = icmp eq i32 %.037, %2
-  br i1 %33, label %34, label %35
+  %34 = icmp eq i32 %.035, %2
+  br i1 %34, label %35, label %36
 
-34:                                               ; preds = %.lr.ph38.split
+35:                                               ; preds = %.lr.ph36.split
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str) #3
-  br label %35
+  br label %36
 
-35:                                               ; preds = %34, %.lr.ph38.split
-  %.0 = add i32 %.037, 1
-  %exitcond43.not = icmp eq i32 %.037, %12
-  br i1 %exitcond43.not, label %._crit_edge, label %.lr.ph38.split, !llvm.loop !11
+36:                                               ; preds = %35, %.lr.ph36.split
+  %.0 = add i32 %.035, 1
+  %exitcond41.not = icmp eq i32 %.035, %12
+  br i1 %exitcond41.not, label %._crit_edge, label %.lr.ph36.split, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %35, %25, %.preheader
+._crit_edge:                                      ; preds = %36, %26, %.preheader
   ret ptr %.027.lcssa
 }
 

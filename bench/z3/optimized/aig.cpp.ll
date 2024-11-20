@@ -12957,21 +12957,19 @@ _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit: ; preds = %if.end13
   br i1 %cmp6.i, label %if.then23, label %if.else33
 
 if.then23:                                        ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit
+  %xor.i = xor i64 %7, 1
   %10 = ptrtoint ptr %retval.sroa.0.0.copyload.i41 to i64
   %xor.i48 = xor i64 %10, 1
   %11 = inttoptr i64 %xor.i48 to ptr
   %12 = ptrtoint ptr %retval.sroa.0.0.copyload.i45 to i64
   %xor.i50 = xor i64 %12, 1
   %13 = inttoptr i64 %xor.i50 to ptr
-  %cmp.i52.not.not = icmp eq i64 %and.i4.i, 0
-  br i1 %cmp.i52.not.not, label %if.then25, label %if.else
+  %and.i51 = and i64 %xor.i, 1
+  %cmp.i52.not = icmp eq i64 %and.i51, 0
+  br i1 %cmp.i52.not, label %return.sink.split, label %if.then25
 
 if.then25:                                        ; preds = %if.then23
   %xor.i49 = xor i64 %8, 1
-  br label %return.sink.split
-
-if.else:                                          ; preds = %if.then23
-  %xor.i = and i64 %7, -2
   br label %return.sink.split
 
 if.else33:                                        ; preds = %if.end13, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit
@@ -12989,20 +12987,18 @@ _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit60: ; preds = %if.else33
   br i1 %cmp6.i59, label %if.then35, label %if.else46
 
 if.then35:                                        ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit60
+  %xor.i61 = xor i64 %7, 1
   %16 = ptrtoint ptr %retval.sroa.0.0.copyload.i41 to i64
   %xor.i62 = xor i64 %16, 1
   %17 = inttoptr i64 %xor.i62 to ptr
   %xor.i63 = xor i64 %8, 1
   %18 = inttoptr i64 %xor.i63 to ptr
-  %cmp.i66.not.not = icmp eq i64 %and.i4.i55, 0
-  br i1 %cmp.i66.not.not, label %if.then37, label %if.else41
+  %and.i65 = and i64 %xor.i61, 1
+  %cmp.i66.not = icmp eq i64 %and.i65, 0
+  br i1 %cmp.i66.not, label %return.sink.split, label %if.then37
 
 if.then37:                                        ; preds = %if.then35
   %xor.i64 = xor i64 %14, 1
-  br label %return.sink.split
-
-if.else41:                                        ; preds = %if.then35
-  %xor.i61 = and i64 %7, -2
   br label %return.sink.split
 
 if.else46:                                        ; preds = %if.else33, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit60
@@ -13022,17 +13018,15 @@ _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit74: ; preds = %if.else46
 if.then48:                                        ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit74
   %xor.i75 = xor i64 %7, 1
   %21 = inttoptr i64 %xor.i75 to ptr
+  %xor.i76 = xor i64 %19, 1
   %xor.i78 = xor i64 %14, 1
   %22 = inttoptr i64 %xor.i78 to ptr
-  %cmp.i80.not.not = icmp eq i64 %and.i4.i69, 0
-  br i1 %cmp.i80.not.not, label %if.then50, label %if.else54
+  %and.i79 = and i64 %xor.i76, 1
+  %cmp.i80.not = icmp eq i64 %and.i79, 0
+  br i1 %cmp.i80.not, label %return.sink.split, label %if.then50
 
 if.then50:                                        ; preds = %if.then48
   %xor.i77 = xor i64 %8, 1
-  br label %return.sink.split
-
-if.else54:                                        ; preds = %if.then48
-  %xor.i76 = and i64 %19, -2
   br label %return.sink.split
 
 if.else59:                                        ; preds = %if.else46, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit74
@@ -13051,23 +13045,21 @@ _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit88: ; preds = %if.else59
 if.then61:                                        ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit88
   %xor.i89 = xor i64 %7, 1
   %24 = inttoptr i64 %xor.i89 to ptr
+  %xor.i90 = xor i64 %19, 1
   %xor.i91 = xor i64 %8, 1
   %25 = inttoptr i64 %xor.i91 to ptr
-  %cmp.i94.not.not = icmp eq i64 %and.i4.i83, 0
-  br i1 %cmp.i94.not.not, label %if.then63, label %if.else67
+  %and.i93 = and i64 %xor.i90, 1
+  %cmp.i94.not = icmp eq i64 %and.i93, 0
+  br i1 %cmp.i94.not, label %return.sink.split, label %if.then63
 
 if.then63:                                        ; preds = %if.then61
   %xor.i92 = xor i64 %14, 1
   br label %return.sink.split
 
-if.else67:                                        ; preds = %if.then61
-  %xor.i90 = and i64 %19, -2
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.else, %if.then25, %if.else41, %if.then37, %if.else54, %if.then50, %if.else67, %if.then63
-  %xor.i92.sink = phi i64 [ %xor.i92, %if.then63 ], [ %xor.i90, %if.else67 ], [ %xor.i77, %if.then50 ], [ %xor.i76, %if.else54 ], [ %xor.i64, %if.then37 ], [ %xor.i61, %if.else41 ], [ %xor.i49, %if.then25 ], [ %xor.i, %if.else ]
-  %.sink145 = phi ptr [ %24, %if.then63 ], [ %25, %if.else67 ], [ %21, %if.then50 ], [ %22, %if.else54 ], [ %17, %if.then37 ], [ %18, %if.else41 ], [ %11, %if.then25 ], [ %13, %if.else ]
-  %.sink = phi ptr [ %25, %if.then63 ], [ %24, %if.else67 ], [ %22, %if.then50 ], [ %21, %if.else54 ], [ %18, %if.then37 ], [ %17, %if.else41 ], [ %13, %if.then25 ], [ %11, %if.else ]
+return.sink.split:                                ; preds = %if.then61, %if.then48, %if.then35, %if.then23, %if.then25, %if.then37, %if.then50, %if.then63
+  %xor.i92.sink = phi i64 [ %xor.i92, %if.then63 ], [ %xor.i77, %if.then50 ], [ %xor.i64, %if.then37 ], [ %xor.i49, %if.then25 ], [ %xor.i, %if.then23 ], [ %xor.i61, %if.then35 ], [ %xor.i76, %if.then48 ], [ %xor.i90, %if.then61 ]
+  %.sink145 = phi ptr [ %24, %if.then63 ], [ %21, %if.then50 ], [ %17, %if.then37 ], [ %11, %if.then25 ], [ %13, %if.then23 ], [ %18, %if.then35 ], [ %22, %if.then48 ], [ %25, %if.then61 ]
+  %.sink = phi ptr [ %25, %if.then63 ], [ %22, %if.then50 ], [ %18, %if.then37 ], [ %13, %if.then25 ], [ %11, %if.then23 ], [ %17, %if.then35 ], [ %21, %if.then48 ], [ %24, %if.then61 ]
   %26 = inttoptr i64 %xor.i92.sink to ptr
   store ptr %26, ptr %c, align 8
   store ptr %.sink145, ptr %t, align 8

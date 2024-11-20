@@ -3721,7 +3721,7 @@ define internal fastcc void @dissect_iuup_init(ptr noundef %0, ptr nocapture nou
   br i1 %exitcond.not, label %57, label %50, !llvm.loop !11
 
 57:                                               ; preds = %50
-  %58 = xor i32 %56, 1
+  %58 = and i32 %49, 1
   %spec.select77 = add i32 %spec.select, %58
   br label %59
 

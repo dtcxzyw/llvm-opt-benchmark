@@ -625,9 +625,9 @@ _Z7inRangePKfS0_ff.exit83:                        ; preds = %226
   %267 = load i32, ptr %101, align 4
   %268 = add nsw i32 %267, 1
   store i32 %268, ptr %101, align 4
-  %269 = and i32 %267, 1
-  %.not80.not = icmp eq i32 %269, 0
-  br i1 %.not80.not, label %270, label %278
+  %269 = and i32 %268, 1
+  %.not80 = icmp eq i32 %269, 0
+  br i1 %.not80, label %278, label %270
 
 270:                                              ; preds = %258
   %271 = mul nsw i32 %268, 3
@@ -2104,9 +2104,9 @@ _Z7inRangePKfS0_ff.exit42:                        ; preds = %168
   %218 = load i32, ptr %84, align 4
   %219 = add nsw i32 %218, 1
   store i32 %219, ptr %84, align 4
-  %220 = and i32 %218, 1
-  %.not41.not = icmp eq i32 %220, 0
-  br i1 %.not41.not, label %221, label %229
+  %220 = and i32 %219, 1
+  %.not41 = icmp eq i32 %220, 0
+  br i1 %.not41, label %229, label %221
 
 221:                                              ; preds = %206
   %222 = mul nsw i32 %219, 3

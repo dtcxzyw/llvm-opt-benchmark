@@ -20,26 +20,26 @@ define noalias noundef ptr @Fraig_HashTableCreate(i32 noundef %0) local_unnamed_
 .loopexit.i:                                      ; preds = %.loopexit.i.backedge, %1
   %.012.i = phi i32 [ %2, %1 ], [ %3, %.loopexit.i.backedge ]
   %3 = add i32 %.012.i, 1
-  %4 = and i32 %.012.i, 1
-  %.not.not.i = icmp eq i32 %4, 0
-  br i1 %.not.not.i, label %.preheader.i, label %.loopexit.i.backedge
+  %4 = and i32 %3, 1
+  %.not.i = icmp eq i32 %4, 0
+  br i1 %.not.i, label %.loopexit.i.backedge, label %.preheader.i
 
 .loopexit.i.backedge:                             ; preds = %.lr.ph.i, %.loopexit.i
   br label %.loopexit.i, !llvm.loop !4
 
 .preheader.i:                                     ; preds = %.loopexit.i
-  %.not15.i = icmp ult i32 %3, 9
-  br i1 %.not15.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i
+  %.not1416.i = icmp ult i32 %3, 9
+  br i1 %.not1416.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i
 
 5:                                                ; preds = %.lr.ph.i
-  %6 = add nuw nsw i32 %.01116.i, 2
+  %6 = add nuw nsw i32 %.01117.i, 2
   %7 = mul nuw nsw i32 %6, %6
-  %.not.i = icmp ugt i32 %7, %3
-  br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !6
+  %.not14.i = icmp ugt i32 %7, %3
+  br i1 %.not14.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !6
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %5
-  %.01116.i = phi i32 [ %6, %5 ], [ 3, %.preheader.i ]
-  %8 = urem i32 %3, %.01116.i
+  %.01117.i = phi i32 [ %6, %5 ], [ 3, %.preheader.i ]
+  %8 = urem i32 %3, %.01117.i
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.loopexit.i.backedge, label %5, !llvm.loop !4
 
@@ -144,26 +144,26 @@ define range(i32 0, 2) i32 @Fraig_HashTableLookupS(ptr noundef %0, ptr noundef %
 .loopexit.i.i:                                    ; preds = %.loopexit.i.i.backedge, %41
   %.012.i.i = phi i32 [ %45, %41 ], [ %46, %.loopexit.i.i.backedge ]
   %46 = add i32 %.012.i.i, 1
-  %47 = and i32 %.012.i.i, 1
-  %.not.not.i.i = icmp eq i32 %47, 0
-  br i1 %.not.not.i.i, label %.preheader.i.i, label %.loopexit.i.i.backedge
+  %47 = and i32 %46, 1
+  %.not.i.i = icmp eq i32 %47, 0
+  br i1 %.not.i.i, label %.loopexit.i.i.backedge, label %.preheader.i.i
 
 .loopexit.i.i.backedge:                           ; preds = %.lr.ph.i.i, %.loopexit.i.i
   br label %.loopexit.i.i, !llvm.loop !4
 
 .preheader.i.i:                                   ; preds = %.loopexit.i.i
-  %.not15.i.i = icmp ult i32 %46, 9
-  br i1 %.not15.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i
+  %.not1416.i.i = icmp ult i32 %46, 9
+  br i1 %.not1416.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i
 
 48:                                               ; preds = %.lr.ph.i.i
-  %49 = add nuw nsw i32 %.01116.i.i, 2
+  %49 = add nuw nsw i32 %.01117.i.i, 2
   %50 = mul nuw nsw i32 %49, %49
-  %.not.i.i = icmp ugt i32 %50, %46
-  br i1 %.not.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i, !llvm.loop !6
+  %.not14.i.i = icmp ugt i32 %50, %46
+  br i1 %.not14.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %48
-  %.01116.i.i = phi i32 [ %49, %48 ], [ 3, %.preheader.i.i ]
-  %51 = urem i32 %46, %.01116.i.i
+  %.01117.i.i = phi i32 [ %49, %48 ], [ 3, %.preheader.i.i ]
+  %51 = urem i32 %46, %.01117.i.i
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %.loopexit.i.i.backedge, label %48, !llvm.loop !4
 
@@ -522,26 +522,26 @@ Abc_Clock.exit:
 .loopexit.i:                                      ; preds = %.loopexit.i.backedge, %Abc_Clock.exit
   %.012.i = phi i32 [ %7, %Abc_Clock.exit ], [ %8, %.loopexit.i.backedge ]
   %8 = add i32 %.012.i, 1
-  %9 = and i32 %.012.i, 1
-  %.not.not.i = icmp eq i32 %9, 0
-  br i1 %.not.not.i, label %.preheader.i, label %.loopexit.i.backedge
+  %9 = and i32 %8, 1
+  %.not.i = icmp eq i32 %9, 0
+  br i1 %.not.i, label %.loopexit.i.backedge, label %.preheader.i
 
 .loopexit.i.backedge:                             ; preds = %.lr.ph.i, %.loopexit.i
   br label %.loopexit.i, !llvm.loop !4
 
 .preheader.i:                                     ; preds = %.loopexit.i
-  %.not15.i = icmp ult i32 %8, 9
-  br i1 %.not15.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i
+  %.not1416.i = icmp ult i32 %8, 9
+  br i1 %.not1416.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = add nuw nsw i32 %.01116.i, 2
+  %11 = add nuw nsw i32 %.01117.i, 2
   %12 = mul nuw nsw i32 %11, %11
-  %.not.i = icmp ugt i32 %12, %8
-  br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !6
+  %.not14.i = icmp ugt i32 %12, %8
+  br i1 %.not14.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !6
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %10
-  %.01116.i = phi i32 [ %11, %10 ], [ 3, %.preheader.i ]
-  %13 = urem i32 %8, %.01116.i
+  %.01117.i = phi i32 [ %11, %10 ], [ 3, %.preheader.i ]
+  %13 = urem i32 %8, %.01117.i
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.loopexit.i.backedge, label %10, !llvm.loop !4
 

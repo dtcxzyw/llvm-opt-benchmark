@@ -2195,29 +2195,28 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %idxprom.i = zext nneg i32 %shr.i to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %idxprom.i
   %5 = load ptr, ptr %arrayidx.i, align 8
+  %xor.i = xor i32 %3, 1
   %.b40 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %6 = select i1 %.b40, i32 -2, i32 0
-  %7 = xor i32 %6, %3
-  %cmp.i.i9 = icmp eq i32 %7, 1
+  %cmp.i.i9 = icmp eq i32 %xor.i, %6
   br i1 %cmp.i.i9, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
   %call1.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.24)
-  %.pre = and i32 %3, 1
   br label %_ZN3satlsERSoNS_7literalE.exit
 
 if.else.i:                                        ; preds = %for.body
-  %8 = and i32 %3, 1
-  %tobool.i.not.i.not = icmp eq i32 %8, 0
-  %cond.i = select i1 %tobool.i.not.i.not, ptr @.str.25, ptr @.str.26
+  %7 = and i32 %xor.i, 1
+  %tobool.i.not.i = icmp eq i32 %7, 0
+  %cond.i = select i1 %tobool.i.not.i, ptr @.str.26, ptr @.str.25
   %call3.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %cond.i)
   %call5.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call3.i, i32 noundef %shr.i)
   br label %_ZN3satlsERSoNS_7literalE.exit
 
 _ZN3satlsERSoNS_7literalE.exit:                   ; preds = %if.then.i, %if.else.i
-  %.pre-phi = phi i32 [ %.pre, %if.then.i ], [ %8, %if.else.i ]
   %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str)
-  %tobool.i.not = icmp eq i32 %.pre-phi, 0
+  %8 = and i32 %3, 1
+  %tobool.i.not = icmp eq i32 %8, 0
   br i1 %tobool.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN3satlsERSoNS_7literalE.exit

@@ -132,7 +132,7 @@ define dso_local noundef zeroext i1 @xlate_batch_script(ptr noundef %0, ptr noun
   store ptr @.str.3, ptr %13, align 8
   %sext = shl i64 %12, 32
   %14 = ashr exact i64 %sext, 32
-  %15 = icmp ne i32 %3, 1
+  %15 = icmp eq i32 %3, 1
   br label %.outer
 
 .outer:                                           ; preds = %._crit_edge, %11
@@ -177,9 +177,9 @@ define dso_local noundef zeroext i1 @xlate_batch_script(ptr noundef %0, ptr noun
   %29 = sext i32 %.033.ph to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %42
-  %indvars.iv = phi i64 [ %29, %.lr.ph.preheader ], [ %indvars.iv.next, %42 ]
-  %.03248 = phi ptr [ %27, %.lr.ph.preheader ], [ %48, %42 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %43
+  %indvars.iv = phi i64 [ %29, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
+  %.03248 = phi ptr [ %27, %.lr.ph.preheader ], [ %49, %43 ]
   %30 = call i32 @get_log_level() #12
   %31 = icmp sgt i32 %30, 5
   br i1 %31, label %32, label %34
@@ -193,46 +193,43 @@ define dso_local noundef zeroext i1 @xlate_batch_script(ptr noundef %0, ptr noun
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %35 = shl nsw i64 %indvars.iv.next, 3
   %36 = call ptr @slurm_xrecalloc(ptr noundef nonnull %5, i64 noundef 1, i64 noundef %35, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 134, ptr noundef nonnull @__func__.xlate_batch_script) #12
-  %37 = and i64 %indvars.iv, 1
-  %.not41.not = icmp eq i64 %37, 0
-  %or.cond = select i1 %15, i1 true, i1 %.not41.not
+  %37 = trunc nsw i64 %indvars.iv.next to i32
+  %38 = and i32 %37, 1
+  %.not41 = icmp eq i32 %38, 0
+  %or.cond = and i1 %15, %.not41
   %.pre61 = load ptr, ptr %8, align 8
-  br i1 %or.cond, label %42, label %38
+  br i1 %or.cond, label %39, label %43
 
-38:                                               ; preds = %34
-  %39 = call i32 @xstrcmp(ptr noundef nonnull @.str.5, ptr noundef %.pre61) #12
-  %.not42 = icmp eq i32 %39, 0
-  br i1 %.not42, label %40, label %._crit_edge60
+39:                                               ; preds = %34
+  %40 = call i32 @xstrcmp(ptr noundef nonnull @.str.5, ptr noundef %.pre61) #12
+  %.not42 = icmp eq i32 %40, 0
+  br i1 %.not42, label %41, label %._crit_edge60
 
-._crit_edge60:                                    ; preds = %38
+._crit_edge60:                                    ; preds = %39
   %.pre = load ptr, ptr %8, align 8
-  br label %42
+  br label %43
 
-40:                                               ; preds = %38
+41:                                               ; preds = %39
   call void @slurm_xfree(ptr noundef nonnull %8) #12
-  %41 = call ptr @xstrdup(ptr noundef nonnull @.str.6) #12
-  store ptr %41, ptr %8, align 8
-  br label %42
+  %42 = call ptr @xstrdup(ptr noundef nonnull @.str.6) #12
+  store ptr %42, ptr %8, align 8
+  br label %43
 
-42:                                               ; preds = %._crit_edge60, %40, %34
-  %43 = phi ptr [ %.pre, %._crit_edge60 ], [ %41, %40 ], [ %.pre61, %34 ]
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv
-  store ptr %43, ptr %45, align 8
-  %46 = load i32, ptr %9, align 4
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i8, ptr %.03248, i64 %47
-  %49 = call ptr @get_argument(ptr noundef %0, i32 noundef %19, ptr noundef %48, ptr noundef nonnull %9) #12
-  store ptr %49, ptr %8, align 8
-  %.not40 = icmp eq ptr %49, null
-  br i1 %.not40, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
+43:                                               ; preds = %._crit_edge60, %41, %34
+  %44 = phi ptr [ %.pre, %._crit_edge60 ], [ %42, %41 ], [ %.pre61, %34 ]
+  %45 = load ptr, ptr %5, align 8
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv
+  store ptr %44, ptr %46, align 8
+  %47 = load i32, ptr %9, align 4
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds i8, ptr %.03248, i64 %48
+  %50 = call ptr @get_argument(ptr noundef %0, i32 noundef %19, ptr noundef %49, ptr noundef nonnull %9) #12
+  store ptr %50, ptr %8, align 8
+  %.not40 = icmp eq ptr %50, null
+  br i1 %.not40, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-._crit_edge.loopexit:                             ; preds = %42
-  %50 = trunc nsw i64 %indvars.iv.next to i32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %26
-  %.134.lcssa = phi i32 [ %.033.ph, %26 ], [ %50, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %43, %26
+  %.134.lcssa = phi i32 [ %.033.ph, %26 ], [ %37, %43 ]
   call void @slurm_xfree(ptr noundef nonnull %7) #12
   br label %.outer, !llvm.loop !7
 
@@ -243,8 +240,8 @@ define dso_local noundef zeroext i1 @xlate_batch_script(ptr noundef %0, ptr noun
 53:                                               ; preds = %51
   %54 = load ptr, ptr %5, align 8
   call void %.036(i32 noundef %.033.ph, ptr noundef %54) #12, !callees !10
-  %.not63 = icmp eq i32 %.033.ph, 1
-  br i1 %.not63, label %._crit_edge52, label %.lr.ph51.preheader
+  %.not64 = icmp eq i32 %.033.ph, 1
+  br i1 %.not64, label %._crit_edge52, label %.lr.ph51.preheader
 
 .lr.ph51.preheader:                               ; preds = %53
   %wide.trip.count = zext nneg i32 %.033.ph to i64

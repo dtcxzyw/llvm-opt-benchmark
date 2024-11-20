@@ -2565,17 +2565,17 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco23PredictionSchemeDecoderIiNS_3
   %29 = sub nsw i32 0, %27
   %30 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %29, ptr %30, align 4
-  %31 = and i32 %24, 1
-  %.not.i.i = icmp eq i32 %31, 0
-  br i1 %.not.i.i, label %_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit, label %32
+  %31 = and i32 %25, 1
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit
 
-32:                                               ; preds = %23
-  %33 = add nsw i32 %27, -1
-  store i32 %33, ptr %28, align 8
+33:                                               ; preds = %23
+  %34 = add nsw i32 %27, -1
+  store i32 %34, ptr %28, align 8
   br label %_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit
 
-_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit: ; preds = %2, %8, %13, %17, %23, %32
-  %.0.i = phi i1 [ false, %13 ], [ false, %2 ], [ false, %8 ], [ false, %17 ], [ true, %23 ], [ true, %32 ]
+_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit: ; preds = %2, %8, %13, %17, %23, %33
+  %.0.i = phi i1 [ false, %13 ], [ false, %2 ], [ false, %8 ], [ false, %17 ], [ true, %23 ], [ true, %33 ]
   ret i1 %.0.i
 }
 
@@ -4235,17 +4235,17 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %69, %72
   %106 = sub nsw i32 0, %104
   %107 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %106, ptr %107, align 4
-  %108 = and i32 %101, 1
-  %.not.i.i.i = icmp eq i32 %108, 0
-  br i1 %.not.i.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %109
+  %108 = and i32 %102, 1
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
-109:                                              ; preds = %100
-  %110 = add nsw i32 %104, -1
-  store i32 %110, ptr %105, align 8
+110:                                              ; preds = %100
+  %111 = add nsw i32 %104, -1
+  store i32 %111, ptr %105, align 8
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
-_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %22, %20, %8, %109, %100, %94, %90, %85, %79, %.thread, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
-  %.017 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ], [ false, %.thread ], [ false, %90 ], [ false, %79 ], [ false, %85 ], [ false, %94 ], [ true, %100 ], [ true, %109 ], [ false, %8 ], [ false, %20 ], [ false, %22 ]
+_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %22, %20, %8, %110, %100, %94, %90, %85, %79, %.thread, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
+  %.017 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ], [ false, %.thread ], [ false, %90 ], [ false, %79 ], [ false, %85 ], [ false, %94 ], [ true, %100 ], [ true, %110 ], [ false, %8 ], [ false, %20 ], [ false, %22 ]
   ret i1 %.017
 }
 
@@ -6248,17 +6248,17 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %70, %73
   %105 = sub nsw i32 0, %103
   %106 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %105, ptr %106, align 4
-  %107 = and i32 %100, 1
-  %.not.i.i.i = icmp eq i32 %107, 0
-  br i1 %.not.i.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %108
+  %107 = and i32 %101, 1
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %109, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
-108:                                              ; preds = %99
-  %109 = add nsw i32 %103, -1
-  store i32 %109, ptr %104, align 8
+109:                                              ; preds = %99
+  %110 = add nsw i32 %103, -1
+  store i32 %110, ptr %104, align 8
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
-_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %108, %99, %93, %89, %84, %78, %58
-  %.1 = phi i1 [ false, %58 ], [ false, %89 ], [ false, %78 ], [ false, %84 ], [ false, %93 ], [ true, %99 ], [ true, %108 ]
+_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %109, %99, %93, %89, %84, %78, %58
+  %.1 = phi i1 [ false, %58 ], [ false, %89 ], [ false, %78 ], [ false, %84 ], [ false, %93 ], [ true, %99 ], [ true, %109 ]
   call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #19
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -7878,17 +7878,17 @@ _ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSc
   %80 = sub nsw i32 0, %78
   %81 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %80, ptr %81, align 4
-  %82 = and i32 %75, 1
-  %.not.i.i.i = icmp eq i32 %82, 0
-  br i1 %.not.i.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %83
+  %82 = and i32 %76, 1
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
-83:                                               ; preds = %74
-  %84 = add nsw i32 %78, -1
-  store i32 %84, ptr %79, align 8
+84:                                               ; preds = %74
+  %85 = add nsw i32 %78, -1
+  store i32 %85, ptr %79, align 8
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
-_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %83, %74, %68, %64, %59, %._crit_edge, %35
-  %.1 = phi i1 [ false, %35 ], [ false, %64 ], [ false, %._crit_edge ], [ false, %59 ], [ false, %68 ], [ true, %74 ], [ true, %83 ]
+_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %84, %74, %68, %64, %59, %._crit_edge, %35
+  %.1 = phi i1 [ false, %35 ], [ false, %64 ], [ false, %._crit_edge ], [ false, %59 ], [ false, %68 ], [ true, %74 ], [ true, %84 ]
   call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #19
   br label %_ZN5draco13DecoderBuffer6DecodeIiEEbPT_.exit.thread
 
@@ -9347,49 +9347,49 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometric
   %29 = sub nsw i32 0, %27
   %30 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %29, ptr %30, align 4
-  %31 = and i32 %24, 1
-  %.not.i.i = icmp eq i32 %31, 0
-  br i1 %.not.i.i, label %_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit, label %32
+  %31 = and i32 %25, 1
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit
 
-32:                                               ; preds = %23
-  %33 = add nsw i32 %27, -1
-  store i32 %33, ptr %28, align 8
+33:                                               ; preds = %23
+  %34 = add nsw i32 %27, -1
+  store i32 %34, ptr %28, align 8
   br label %_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit
 
-_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit: ; preds = %32, %23
-  %34 = getelementptr inbounds i8, ptr %1, i64 50
-  %35 = load i16, ptr %34, align 2
-  %36 = icmp ult i16 %35, 514
-  br i1 %36, label %37, label %48
+_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit: ; preds = %33, %23
+  %35 = getelementptr inbounds i8, ptr %1, i64 50
+  %36 = load i16, ptr %35, align 2
+  %37 = icmp ult i16 %36, 514
+  br i1 %37, label %38, label %49
 
-37:                                               ; preds = %_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit
-  %38 = load i64, ptr %3, align 8
-  %39 = load i64, ptr %5, align 8
-  %40 = add i64 %39, 1
-  %.not = icmp slt i64 %38, %40
-  br i1 %.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %41
+38:                                               ; preds = %_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit
+  %39 = load i64, ptr %3, align 8
+  %40 = load i64, ptr %5, align 8
+  %41 = add i64 %40, 1
+  %.not = icmp slt i64 %39, %41
+  br i1 %.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %42
 
-41:                                               ; preds = %37
-  %42 = load ptr, ptr %1, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 %39
-  %44 = load i8, ptr %43, align 1
-  store i64 %40, ptr %5, align 8
-  %45 = icmp ugt i8 %44, 1
-  br i1 %45, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE23SetNormalPredictionModeENS_20NormalPredictionModeE.exit.thread
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %1, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 %40
+  %45 = load i8, ptr %44, align 1
+  store i64 %41, ptr %5, align 8
+  %46 = icmp ugt i8 %45, 1
+  br i1 %46, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE23SetNormalPredictionModeENS_20NormalPredictionModeE.exit.thread
 
-_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE23SetNormalPredictionModeENS_20NormalPredictionModeE.exit.thread: ; preds = %41
-  %46 = zext nneg i8 %44 to i32
-  %47 = getelementptr inbounds i8, ptr %0, i64 152
-  store i32 %46, ptr %47, align 8
-  br label %48
+_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE23SetNormalPredictionModeENS_20NormalPredictionModeE.exit.thread: ; preds = %42
+  %47 = zext nneg i8 %45 to i32
+  %48 = getelementptr inbounds i8, ptr %0, i64 152
+  store i32 %47, ptr %48, align 8
+  br label %49
 
-48:                                               ; preds = %_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE23SetNormalPredictionModeENS_20NormalPredictionModeE.exit.thread, %_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit
-  %49 = getelementptr inbounds i8, ptr %0, i64 184
-  %50 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(17) %49, ptr noundef nonnull %1)
+49:                                               ; preds = %_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEE23SetNormalPredictionModeENS_20NormalPredictionModeE.exit.thread, %_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit
+  %50 = getelementptr inbounds i8, ptr %0, i64 184
+  %51 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(17) %50, ptr noundef nonnull %1)
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %17, %8, %2, %13, %37, %48, %41
-  %.0 = phi i1 [ false, %41 ], [ %50, %48 ], [ false, %37 ], [ false, %13 ], [ false, %2 ], [ false, %8 ], [ false, %17 ]
+_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %17, %8, %2, %13, %38, %49, %42
+  %.0 = phi i1 [ false, %42 ], [ %51, %49 ], [ false, %38 ], [ false, %13 ], [ false, %2 ], [ false, %8 ], [ false, %17 ]
   ret i1 %.0
 }
 
@@ -12478,17 +12478,17 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %67, %70
   %104 = sub nsw i32 0, %102
   %105 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %104, ptr %105, align 4
-  %106 = and i32 %99, 1
-  %.not.i.i.i = icmp eq i32 %106, 0
-  br i1 %.not.i.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %107
+  %106 = and i32 %100, 1
+  %107 = icmp eq i32 %106, 0
+  br i1 %107, label %108, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
-107:                                              ; preds = %98
-  %108 = add nsw i32 %102, -1
-  store i32 %108, ptr %103, align 8
+108:                                              ; preds = %98
+  %109 = add nsw i32 %102, -1
+  store i32 %109, ptr %103, align 8
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
-_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %22, %20, %8, %107, %98, %92, %88, %83, %77, %.thread, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
-  %.017 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ], [ false, %.thread ], [ false, %88 ], [ false, %77 ], [ false, %83 ], [ false, %92 ], [ true, %98 ], [ true, %107 ], [ false, %8 ], [ false, %20 ], [ false, %22 ]
+_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %22, %20, %8, %108, %98, %92, %88, %83, %77, %.thread, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
+  %.017 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ], [ false, %.thread ], [ false, %88 ], [ false, %77 ], [ false, %83 ], [ false, %92 ], [ true, %98 ], [ true, %108 ], [ false, %8 ], [ false, %20 ], [ false, %22 ]
   ret i1 %.017
 }
 
@@ -13737,17 +13737,17 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %68, %71
   %103 = sub nsw i32 0, %101
   %104 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %103, ptr %104, align 4
-  %105 = and i32 %98, 1
-  %.not.i.i.i = icmp eq i32 %105, 0
-  br i1 %.not.i.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %106
+  %105 = and i32 %99, 1
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %107, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
-106:                                              ; preds = %97
-  %107 = add nsw i32 %101, -1
-  store i32 %107, ptr %102, align 8
+107:                                              ; preds = %97
+  %108 = add nsw i32 %101, -1
+  store i32 %108, ptr %102, align 8
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
-_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %106, %97, %91, %87, %82, %76, %56
-  %.1 = phi i1 [ false, %56 ], [ false, %87 ], [ false, %76 ], [ false, %82 ], [ false, %91 ], [ true, %97 ], [ true, %106 ]
+_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %107, %97, %91, %87, %82, %76, %56
+  %.1 = phi i1 [ false, %56 ], [ false, %87 ], [ false, %76 ], [ false, %82 ], [ false, %91 ], [ true, %97 ], [ true, %107 ]
   call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #19
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -14766,17 +14766,17 @@ _ZN5draco46MeshPredictionSchemeTexCoordsPortablePredictorIiNS_24MeshPredictionSc
   %80 = sub nsw i32 0, %78
   %81 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %80, ptr %81, align 4
-  %82 = and i32 %75, 1
-  %.not.i.i.i = icmp eq i32 %82, 0
-  br i1 %.not.i.i.i, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %83
+  %82 = and i32 %76, 1
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
-83:                                               ; preds = %74
-  %84 = add nsw i32 %78, -1
-  store i32 %84, ptr %79, align 8
+84:                                               ; preds = %74
+  %85 = add nsw i32 %78, -1
+  store i32 %85, ptr %79, align 8
   br label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit
 
-_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %83, %74, %68, %64, %59, %._crit_edge, %35
-  %.1 = phi i1 [ false, %35 ], [ false, %64 ], [ false, %._crit_edge ], [ false, %59 ], [ false, %68 ], [ true, %74 ], [ true, %83 ]
+_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit: ; preds = %84, %74, %68, %64, %59, %._crit_edge, %35
+  %.1 = phi i1 [ false, %35 ], [ false, %64 ], [ false, %._crit_edge ], [ false, %59 ], [ false, %68 ], [ true, %74 ], [ true, %84 ]
   call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #19
   br label %_ZN5draco13DecoderBuffer6DecodeIiEEbPT_.exit.thread
 
@@ -15651,49 +15651,49 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometric
   %29 = sub nsw i32 0, %27
   %30 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %29, ptr %30, align 4
-  %31 = and i32 %24, 1
-  %.not.i.i = icmp eq i32 %31, 0
-  br i1 %.not.i.i, label %_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit, label %32
+  %31 = and i32 %25, 1
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit
 
-32:                                               ; preds = %23
-  %33 = add nsw i32 %27, -1
-  store i32 %33, ptr %28, align 8
+33:                                               ; preds = %23
+  %34 = add nsw i32 %27, -1
+  store i32 %34, ptr %28, align 8
   br label %_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit
 
-_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit: ; preds = %32, %23
-  %34 = getelementptr inbounds i8, ptr %1, i64 50
-  %35 = load i16, ptr %34, align 2
-  %36 = icmp ult i16 %35, 514
-  br i1 %36, label %37, label %48
+_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit: ; preds = %33, %23
+  %35 = getelementptr inbounds i8, ptr %1, i64 50
+  %36 = load i16, ptr %35, align 2
+  %37 = icmp ult i16 %36, 514
+  br i1 %37, label %38, label %49
 
-37:                                               ; preds = %_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit
-  %38 = load i64, ptr %3, align 8
-  %39 = load i64, ptr %5, align 8
-  %40 = add i64 %39, 1
-  %.not = icmp slt i64 %38, %40
-  br i1 %.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %41
+38:                                               ; preds = %_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit
+  %39 = load i64, ptr %3, align 8
+  %40 = load i64, ptr %5, align 8
+  %41 = add i64 %40, 1
+  %.not = icmp slt i64 %39, %41
+  br i1 %.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %42
 
-41:                                               ; preds = %37
-  %42 = load ptr, ptr %1, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 %39
-  %44 = load i8, ptr %43, align 1
-  store i64 %40, ptr %5, align 8
-  %45 = icmp ugt i8 %44, 1
-  br i1 %45, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE23SetNormalPredictionModeENS_20NormalPredictionModeE.exit.thread
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %1, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 %40
+  %45 = load i8, ptr %44, align 1
+  store i64 %41, ptr %5, align 8
+  %46 = icmp ugt i8 %45, 1
+  br i1 %46, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE23SetNormalPredictionModeENS_20NormalPredictionModeE.exit.thread
 
-_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE23SetNormalPredictionModeENS_20NormalPredictionModeE.exit.thread: ; preds = %41
-  %46 = zext nneg i8 %44 to i32
-  %47 = getelementptr inbounds i8, ptr %0, i64 152
-  store i32 %46, ptr %47, align 8
-  br label %48
+_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE23SetNormalPredictionModeENS_20NormalPredictionModeE.exit.thread: ; preds = %42
+  %47 = zext nneg i8 %45 to i32
+  %48 = getelementptr inbounds i8, ptr %0, i64 152
+  store i32 %47, ptr %48, align 8
+  br label %49
 
-48:                                               ; preds = %_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE23SetNormalPredictionModeENS_20NormalPredictionModeE.exit.thread, %_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit
-  %49 = getelementptr inbounds i8, ptr %0, i64 184
-  %50 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(17) %49, ptr noundef nonnull %1)
+49:                                               ; preds = %_ZN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEE23SetNormalPredictionModeENS_20NormalPredictionModeE.exit.thread, %_ZN5draco37PredictionSchemeWrapDecodingTransformIiiE19DecodeTransformDataEPNS_13DecoderBufferE.exit
+  %50 = getelementptr inbounds i8, ptr %0, i64 184
+  %51 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(17) %50, ptr noundef nonnull %1)
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %17, %8, %2, %13, %37, %48, %41
-  %.0 = phi i1 [ false, %41 ], [ %50, %48 ], [ false, %37 ], [ false, %13 ], [ false, %2 ], [ false, %8 ], [ false, %17 ]
+_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %17, %8, %2, %13, %38, %49, %42
+  %.0 = phi i1 [ false, %42 ], [ %51, %49 ], [ false, %38 ], [ false, %13 ], [ false, %2 ], [ false, %8 ], [ false, %17 ]
   ret i1 %.0
 }
 

@@ -223,9 +223,9 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_19FaceIndex_tag_type_EEESaIS3_EE9push_backER
   br i1 %.not, label %_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit46, label %86
 
 86:                                               ; preds = %_ZNSt6vectorIN5draco9IndexTypeIjNS0_19FaceIndex_tag_type_EEESaIS3_EE9push_backERKS3_.exit
-  %87 = and i32 %.029132, 1
-  %.not32.not = icmp eq i32 %87, 0
-  br i1 %.not32.not, label %88, label %94
+  %87 = and i32 %85, 1
+  %.not32 = icmp eq i32 %87, 0
+  br i1 %.not32, label %94, label %88
 
 88:                                               ; preds = %86
   %89 = icmp eq i32 %.sroa.084.2131, -1
@@ -394,8 +394,8 @@ _ZNK5draco14MeshStripifier17GetOppositeCornerENS_9IndexTypeIjNS_21CornerIndex_ta
   %.sroa.077.2.lcssa.ph = phi i32 [ %161, %160 ], [ %.sroa.077.2129, %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit20.i ], [ %.sroa.077.2129, %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit33.i ], [ %.sroa.077.2129, %94 ], [ %.sroa.077.2129, %88 ], [ %.sroa.077.2129, %_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit46 ], [ %.sroa.077.2129, %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit26.i ], [ %.sroa.077.2129, %136 ]
   %.sroa.081.2.ph = phi i32 [ %.sroa.081.3105, %160 ], [ %.sroa.081.3105, %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit20.i ], [ %.sroa.081.3105, %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit33.i ], [ %spec.select, %94 ], [ %.sroa.081.1130, %88 ], [ %.sroa.081.3, %_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit46 ], [ %.sroa.081.3105, %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit26.i ], [ %.sroa.081.3105, %136 ]
   %.sroa.084.3.ph = phi i32 [ %.sroa.0.0.in.sroa.speculate.load..i.i51, %160 ], [ -1, %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit20.i ], [ -1, %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit33.i ], [ -1, %94 ], [ -1, %88 ], [ -1, %_ZNK5draco11CornerTable4NextENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit46 ], [ -1, %_ZNK5draco14MeshStripifier18CornerToPointIndexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit26.i ], [ -1, %136 ]
-  %170 = and i32 %.029132, 1
-  %171 = icmp ne i32 %170, 0
+  %170 = and i32 %85, 1
+  %171 = icmp eq i32 %170, 0
   %or.cond = select i1 %17, i1 true, i1 %171
   br i1 %or.cond, label %_ZNK5draco14MeshStripifier17GetOppositeCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread.thread, label %.thread
 

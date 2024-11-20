@@ -393,7 +393,8 @@ for.end42.i:                                      ; preds = %for.cond7.loopexit.
   br i1 %cmp.i, label %for.body.i, label %for.end46.i, !llvm.loop !11
 
 for.end46.i:                                      ; preds = %for.end42.i
-  %tobool48.not.i = icmp ne i64 %and.i, 0
+  %and47.i = and i64 %inc43.i, 1
+  %tobool48.not.i = icmp eq i64 %and47.i, 0
   %cmp4.not.i.i = icmp eq i64 %mul.i, 0
   %or.cond.i = or i1 %cmp4.not.i.i, %tobool48.not.i
   br i1 %or.cond.i, label %_ZL12bpmnode_sortP7BPMNodem.exit, label %for.body.preheader.i.i

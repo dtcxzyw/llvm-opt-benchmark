@@ -23421,14 +23421,14 @@ define hidden void @_ZN11flatbuffers8verifier19verify_vector_range17h30c4b489fb9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4731)
   %4 = and i64 %2, 3
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %42
+  br i1 %5, label %6, label %43
 
 6:                                                ; preds = %3
   %7 = tail call i64 @llvm.uadd.sat.i64(i64 %2, i64 4)
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !noalias !24, !noundef !24
   %10 = icmp ugt i64 %7, %9
-  br i1 %10, label %42, label %11
+  br i1 %10, label %43, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %1, i64 40
@@ -23440,7 +23440,7 @@ define hidden void @_ZN11flatbuffers8verifier19verify_vector_range17h30c4b489fb9
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8, !noalias !24, !noundef !24
   %19 = icmp ugt i64 %14, %18
-  br i1 %19, label %42, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i
+  br i1 %19, label %43, label %_ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i
 
 _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i: ; preds = %11
   %20 = icmp ult i64 %2, %9
@@ -23484,11 +23484,11 @@ _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i: ; preds
 
 39:                                               ; preds = %34
   %40 = add nuw i64 %2, 4
-  %41 = and i64 %2, 4
-  %.not = icmp eq i64 %41, 0
-  br i1 %.not, label %60, label %43
+  %41 = and i64 %40, 4
+  %42 = icmp eq i64 %41, 0
+  br i1 %42, label %44, label %61
 
-42:                                               ; preds = %11, %3, %6
+43:                                               ; preds = %11, %3, %6
   %.sroa.10.094.ph = phi i64 [ %7, %6 ], [ ptrtoint (ptr @anon.78e2cf43c31d963ada85e9db6aba8ffd.85 to i64), %3 ], [ undef, %11 ]
   %.sroa.11.092.ph = phi i64 [ 0, %6 ], [ 3, %3 ], [ undef, %11 ]
   %.sroa.12.090.ph = phi i64 [ 8, %6 ], [ 0, %3 ], [ undef, %11 ]
@@ -23507,35 +23507,35 @@ _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i: ; preds
   store i64 %.sroa.13.088.ph, ptr %.sroa.329.sroa.5.0..sroa.329.0..sroa_idx.sroa_idx, align 8
   %.sroa.329.sroa.6.0..sroa.329.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   store i64 0, ptr %.sroa.329.sroa.6.0..sroa.329.0..sroa_idx.sroa_idx, align 8
-  br label %65
+  br label %66
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds [0 x i8], ptr %22, i64 0, i64 %35
-  %45 = load i8, ptr %44, align 1, !noalias !4744, !noundef !24
-  %46 = getelementptr inbounds [0 x i8], ptr %22, i64 0, i64 %31
-  %47 = load i8, ptr %46, align 1, !noalias !4744, !noundef !24
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds [0 x i8], ptr %22, i64 0, i64 %35
+  %46 = load i8, ptr %45, align 1, !noalias !4744, !noundef !24
+  %47 = getelementptr inbounds [0 x i8], ptr %22, i64 0, i64 %31
+  %48 = load i8, ptr %47, align 1, !noalias !4744, !noundef !24
   %.sroa.4.0.insert.ext.i = zext i8 %30 to i64
   %.sroa.04.0.insert.ext.i = zext i8 %24 to i64
-  %.sroa.5.0.insert.ext.i = zext i8 %47 to i64
-  %.sroa.6.0.insert.ext.i = zext i8 %45 to i64
-  %48 = shl nuw nsw i64 %.sroa.6.0.insert.ext.i, 27
-  %49 = shl nuw nsw i64 %.sroa.5.0.insert.ext.i, 19
-  %50 = shl nuw nsw i64 %.sroa.4.0.insert.ext.i, 11
-  %51 = shl nuw nsw i64 %.sroa.04.0.insert.ext.i, 3
-  %52 = or disjoint i64 %50, %51
-  %53 = or disjoint i64 %52, %48
+  %.sroa.5.0.insert.ext.i = zext i8 %48 to i64
+  %.sroa.6.0.insert.ext.i = zext i8 %46 to i64
+  %49 = shl nuw nsw i64 %.sroa.6.0.insert.ext.i, 27
+  %50 = shl nuw nsw i64 %.sroa.5.0.insert.ext.i, 19
+  %51 = shl nuw nsw i64 %.sroa.4.0.insert.ext.i, 11
+  %52 = shl nuw nsw i64 %.sroa.04.0.insert.ext.i, 3
+  %53 = or disjoint i64 %51, %52
   %54 = or disjoint i64 %53, %49
-  %55 = tail call i64 @llvm.uadd.sat.i64(i64 %40, i64 %54)
-  %56 = icmp ugt i64 %55, %9
-  br i1 %56, label %64, label %57
+  %55 = or disjoint i64 %54, %50
+  %56 = tail call i64 @llvm.uadd.sat.i64(i64 %40, i64 %55)
+  %57 = icmp ugt i64 %56, %9
+  br i1 %57, label %65, label %58
 
-57:                                               ; preds = %43
-  %58 = add i64 %14, %54
-  store i64 %58, ptr %12, align 8, !alias.scope !4745, !noalias !4748
-  %59 = icmp ugt i64 %58, %18
-  br i1 %59, label %64, label %61
+58:                                               ; preds = %44
+  %59 = add i64 %14, %55
+  store i64 %59, ptr %12, align 8, !alias.scope !4745, !noalias !4748
+  %60 = icmp ugt i64 %59, %18
+  br i1 %60, label %65, label %62
 
-60:                                               ; preds = %39
+61:                                               ; preds = %39
   store i32 4, ptr %0, align 8
   %.sroa.355.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %40, ptr %.sroa.355.0..sroa_idx, align 8
@@ -23549,32 +23549,32 @@ _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i: ; preds
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.759.0..sroa_idx, align 8
   %.sroa.860.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   store i64 0, ptr %.sroa.860.0..sroa_idx, align 8
-  br label %65
+  br label %66
 
-61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %40, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %55, ptr %63, align 8
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %40, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %56, ptr %64, align 8
   store i32 10, ptr %0, align 8
-  br label %65
+  br label %66
 
-64:                                               ; preds = %57, %43
-  %.sroa.074.0.ph = phi i32 [ 5, %43 ], [ 8, %57 ]
+65:                                               ; preds = %58, %44
+  %.sroa.074.0.ph = phi i32 [ 5, %44 ], [ 8, %58 ]
   store i32 %.sroa.074.0.ph, ptr %0, align 8
   %.sroa.267.sroa.2.0..sroa.267.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %40, ptr %.sroa.267.sroa.2.0..sroa.267.0..sroa_idx.sroa_idx, align 8
   %.sroa.267.sroa.3.0..sroa.267.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %55, ptr %.sroa.267.sroa.3.0..sroa.267.0..sroa_idx.sroa_idx, align 8
+  store i64 %56, ptr %.sroa.267.sroa.3.0..sroa.267.0..sroa_idx.sroa_idx, align 8
   %.sroa.267.sroa.4.0..sroa.267.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.267.sroa.4.0..sroa.267.0..sroa_idx.sroa_idx, align 8
   %.sroa.267.sroa.5.0..sroa.267.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.267.sroa.5.0..sroa.267.0..sroa_idx.sroa_idx, align 8
   %.sroa.267.sroa.6.0..sroa.267.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store i64 0, ptr %.sroa.267.sroa.6.0..sroa.267.0..sroa_idx.sroa_idx, align 8
-  br label %65
+  br label %66
 
-65:                                               ; preds = %64, %61, %60, %42
+66:                                               ; preds = %65, %62, %61, %43
   ret void
 }
 

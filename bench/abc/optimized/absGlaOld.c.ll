@@ -8979,12 +8979,12 @@ Vec_IntReverseOrder.exit:                         ; preds = %.lr.ph.i40, %1, %.c
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define void @Gla_ManExplorePPis(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #9 {
   %3 = load i32, ptr @Gla_ManExplorePPis.Round, align 4
-  %.fr = freeze i32 %3
-  %4 = add nsw i32 %.fr, 1
+  %.fr39 = freeze i32 %3
+  %4 = add i32 %.fr39, 1
   store i32 %4, ptr @Gla_ManExplorePPis.Round, align 4
-  %5 = srem i32 %.fr, 5
+  %5 = srem i32 %.fr39, 5
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %67, label %.preheader
+  br i1 %6, label %66, label %.preheader
 
 .preheader:                                       ; preds = %2
   %7 = getelementptr i8, ptr %1, i64 4
@@ -8995,147 +8995,147 @@ define void @Gla_ManExplorePPis(ptr nocapture noundef readonly %0, ptr nocapture
 .lr.ph:                                           ; preds = %.preheader
   %9 = getelementptr i8, ptr %1, i64 8
   %10 = getelementptr i8, ptr %0, i64 40
-  %11 = and i32 %.fr, 1
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.lr.ph.split, label %.lr.ph.split.us
+  %11 = and i32 %4, 1
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge2.us.thread
-  %.val.us54 = phi i32 [ %.val.us, %.critedge2.us.thread ], [ %.val34, %.lr.ph ]
-  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %.critedge2.us.thread ], [ 0, %.lr.ph ]
+  %.val.us58 = phi i32 [ %.val.us, %.critedge2.us.thread ], [ %.val34, %.lr.ph ]
+  %indvars.iv53 = phi i64 [ %indvars.iv.next54, %.critedge2.us.thread ], [ 0, %.lr.ph ]
   %.02536.us = phi i32 [ %.1.us, %.critedge2.us.thread ], [ 0, %.lr.ph ]
   %.val27.us = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds i32, ptr %.val27.us, i64 %indvars.iv43
-  %14 = load i32, ptr %13, align 4
-  %.not.i.us = icmp eq i32 %14, 0
-  br i1 %.not.i.us, label %Gla_ManObj.exit.us, label %15
+  %12 = getelementptr inbounds i32, ptr %.val27.us, i64 %indvars.iv53
+  %13 = load i32, ptr %12, align 4
+  %.not.i.us = icmp eq i32 %13, 0
+  br i1 %.not.i.us, label %Gla_ManObj.exit.us, label %14
 
-15:                                               ; preds = %.lr.ph.split.us
-  %16 = load ptr, ptr %10, align 8
-  %17 = sext i32 %14 to i64
-  %18 = getelementptr inbounds %struct.Gla_Obj_t_, ptr %16, i64 %17
+14:                                               ; preds = %.lr.ph.split.us
+  %15 = load ptr, ptr %10, align 8
+  %16 = sext i32 %13 to i64
+  %17 = getelementptr inbounds %struct.Gla_Obj_t_, ptr %15, i64 %16
   br label %Gla_ManObj.exit.us
 
-Gla_ManObj.exit.us:                               ; preds = %15, %.lr.ph.split.us
-  %19 = phi ptr [ %18, %15 ], [ null, %.lr.ph.split.us ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
-  %21 = load i32, ptr %20, align 4
-  %.not = icmp ult i32 %21, 512
-  br i1 %.not, label %.critedge2.us.thread, label %Gla_ManObj.exit31.lr.ph.us
+Gla_ManObj.exit.us:                               ; preds = %14, %.lr.ph.split.us
+  %18 = phi ptr [ %17, %14 ], [ null, %.lr.ph.split.us ]
+  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %20 = load i32, ptr %19, align 4
+  %.not40 = icmp ult i32 %20, 512
+  br i1 %.not40, label %.critedge2.us.thread, label %Gla_ManObj.exit31.lr.ph.us
 
 .critedge2.us:                                    ; preds = %Gla_ManObj.exit31.us
-  %22 = icmp eq i32 %40, 0
-  br i1 %22, label %.critedge2.us.thread, label %23
+  %21 = icmp eq i32 %39, 0
+  br i1 %21, label %.critedge2.us.thread, label %22
 
-23:                                               ; preds = %.critedge2.us
-  %24 = add nsw i32 %.02536.us, 1
+22:                                               ; preds = %.critedge2.us
+  %23 = add nsw i32 %.02536.us, 1
   %.val29.us = load ptr, ptr %10, align 8
-  %25 = ptrtoint ptr %19 to i64
-  %26 = ptrtoint ptr %.val29.us to i64
-  %27 = sub i64 %25, %26
-  %28 = sdiv exact i64 %27, 40
-  %29 = trunc i64 %28 to i32
-  %30 = sext i32 %.02536.us to i64
-  %31 = getelementptr inbounds i32, ptr %.val27.us, i64 %30
-  store i32 %29, ptr %31, align 4
+  %24 = ptrtoint ptr %18 to i64
+  %25 = ptrtoint ptr %.val29.us to i64
+  %26 = sub i64 %24, %25
+  %27 = sdiv exact i64 %26, 40
+  %28 = trunc i64 %27 to i32
+  %29 = sext i32 %.02536.us to i64
+  %30 = getelementptr inbounds i32, ptr %.val27.us, i64 %29
+  store i32 %28, ptr %30, align 4
   %.val.us.pre = load i32, ptr %7, align 4
   br label %.critedge2.us.thread
 
-.critedge2.us.thread:                             ; preds = %Gla_ManObj.exit.us, %23, %.critedge2.us
-  %.val.us = phi i32 [ %.val.us54, %.critedge2.us ], [ %.val.us.pre, %23 ], [ %.val.us54, %Gla_ManObj.exit.us ]
-  %.1.us = phi i32 [ %.02536.us, %.critedge2.us ], [ %24, %23 ], [ %.02536.us, %Gla_ManObj.exit.us ]
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %32 = sext i32 %.val.us to i64
-  %33 = icmp slt i64 %indvars.iv.next44, %32
-  br i1 %33, label %.lr.ph.split.us, label %.critedge, !llvm.loop !69
+.critedge2.us.thread:                             ; preds = %Gla_ManObj.exit.us, %22, %.critedge2.us
+  %.val.us = phi i32 [ %.val.us58, %.critedge2.us ], [ %.val.us.pre, %22 ], [ %.val.us58, %Gla_ManObj.exit.us ]
+  %.1.us = phi i32 [ %.02536.us, %.critedge2.us ], [ %23, %22 ], [ %.02536.us, %Gla_ManObj.exit.us ]
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %31 = sext i32 %.val.us to i64
+  %32 = icmp slt i64 %indvars.iv.next54, %31
+  br i1 %32, label %.lr.ph.split.us, label %.critedge, !llvm.loop !69
 
 Gla_ManObj.exit31.us:                             ; preds = %Gla_ManObj.exit31.lr.ph.us, %Gla_ManObj.exit31.us
-  %indvars.iv = phi i64 [ 0, %Gla_ManObj.exit31.lr.ph.us ], [ %indvars.iv.next, %Gla_ManObj.exit31.us ]
-  %.033.us = phi i32 [ 0, %Gla_ManObj.exit31.lr.ph.us ], [ %40, %Gla_ManObj.exit31.us ]
-  %34 = getelementptr inbounds [4 x i32], ptr %42, i64 0, i64 %indvars.iv
-  %35 = load i32, ptr %34, align 4
-  %.not.i30.us = icmp ne i32 %35, 0
+  %indvars.iv48 = phi i64 [ 0, %Gla_ManObj.exit31.lr.ph.us ], [ %indvars.iv.next49, %Gla_ManObj.exit31.us ]
+  %.033.us = phi i32 [ 0, %Gla_ManObj.exit31.lr.ph.us ], [ %39, %Gla_ManObj.exit31.us ]
+  %33 = getelementptr inbounds [4 x i32], ptr %41, i64 0, i64 %indvars.iv48
+  %34 = load i32, ptr %33, align 4
+  %.not.i30.us = icmp ne i32 %34, 0
   tail call void @llvm.assume(i1 %.not.i30.us)
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds %struct.Gla_Obj_t_, ptr %43, i64 %36, i32 1
-  %38 = load i32, ptr %37, align 4
-  %39 = and i32 %38, 1
-  %40 = add nuw nsw i32 %39, %.033.us
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2.us, label %Gla_ManObj.exit31.us, !llvm.loop !70
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds %struct.Gla_Obj_t_, ptr %42, i64 %35, i32 1
+  %37 = load i32, ptr %36, align 4
+  %38 = and i32 %37, 1
+  %39 = add nuw nsw i32 %38, %.033.us
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
+  br i1 %exitcond52.not, label %.critedge2.us, label %Gla_ManObj.exit31.us, !llvm.loop !70
 
 Gla_ManObj.exit31.lr.ph.us:                       ; preds = %Gla_ManObj.exit.us
-  %41 = lshr i32 %21, 9
-  %42 = getelementptr inbounds i8, ptr %19, i64 8
-  %43 = load ptr, ptr %10, align 8
-  %wide.trip.count = zext nneg i32 %41 to i64
+  %40 = lshr i32 %20, 9
+  %41 = getelementptr inbounds i8, ptr %18, i64 8
+  %42 = load ptr, ptr %10, align 8
+  %wide.trip.count51 = zext nneg i32 %40 to i64
   br label %Gla_ManObj.exit31.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge2.thread
   %.val56 = phi i32 [ %.val, %.critedge2.thread ], [ %.val34, %.lr.ph ]
-  %indvars.iv51 = phi i64 [ %indvars.iv.next52, %.critedge2.thread ], [ 0, %.lr.ph ]
+  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %.critedge2.thread ], [ 0, %.lr.ph ]
   %.02536 = phi i32 [ %.1, %.critedge2.thread ], [ 0, %.lr.ph ]
   %.val27 = load ptr, ptr %9, align 8
-  %44 = getelementptr inbounds i32, ptr %.val27, i64 %indvars.iv51
-  %45 = load i32, ptr %44, align 4
-  %.not.i = icmp ne i32 %45, 0
+  %43 = getelementptr inbounds i32, ptr %.val27, i64 %indvars.iv45
+  %44 = load i32, ptr %43, align 4
+  %.not.i = icmp ne i32 %44, 0
   tail call void @llvm.assume(i1 %.not.i)
-  %46 = load ptr, ptr %10, align 8
-  %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds %struct.Gla_Obj_t_, ptr %46, i64 %47
-  %49 = getelementptr inbounds i8, ptr %48, i64 4
-  %50 = load i32, ptr %49, align 4
-  %.not39 = icmp ult i32 %50, 512
-  br i1 %.not39, label %.critedge2.thread, label %Gla_ManObj.exit31.lr.ph
+  %45 = load ptr, ptr %10, align 8
+  %46 = sext i32 %44 to i64
+  %47 = getelementptr inbounds %struct.Gla_Obj_t_, ptr %45, i64 %46
+  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %49 = load i32, ptr %48, align 4
+  %.not41 = icmp ult i32 %49, 512
+  br i1 %.not41, label %.critedge2.thread, label %Gla_ManObj.exit31.lr.ph
 
 Gla_ManObj.exit31.lr.ph:                          ; preds = %.lr.ph.split
-  %51 = lshr i32 %50, 9
-  %52 = getelementptr inbounds i8, ptr %48, i64 8
-  %wide.trip.count49 = zext nneg i32 %51 to i64
+  %50 = lshr i32 %49, 9
+  %51 = getelementptr inbounds i8, ptr %47, i64 8
+  %wide.trip.count = zext nneg i32 %50 to i64
   br label %Gla_ManObj.exit31
 
 Gla_ManObj.exit31:                                ; preds = %Gla_ManObj.exit31.lr.ph, %Gla_ManObj.exit31
-  %indvars.iv46 = phi i64 [ 0, %Gla_ManObj.exit31.lr.ph ], [ %indvars.iv.next47, %Gla_ManObj.exit31 ]
-  %.033 = phi i32 [ 0, %Gla_ManObj.exit31.lr.ph ], [ %59, %Gla_ManObj.exit31 ]
-  %53 = getelementptr inbounds [4 x i32], ptr %52, i64 0, i64 %indvars.iv46
-  %54 = load i32, ptr %53, align 4
-  %.not.i30 = icmp ne i32 %54, 0
+  %indvars.iv = phi i64 [ 0, %Gla_ManObj.exit31.lr.ph ], [ %indvars.iv.next, %Gla_ManObj.exit31 ]
+  %.033 = phi i32 [ 0, %Gla_ManObj.exit31.lr.ph ], [ %58, %Gla_ManObj.exit31 ]
+  %52 = getelementptr inbounds [4 x i32], ptr %51, i64 0, i64 %indvars.iv
+  %53 = load i32, ptr %52, align 4
+  %.not.i30 = icmp ne i32 %53, 0
   tail call void @llvm.assume(i1 %.not.i30)
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds %struct.Gla_Obj_t_, ptr %46, i64 %55, i32 1
-  %57 = load i32, ptr %56, align 4
-  %58 = and i32 %57, 1
-  %59 = add nuw nsw i32 %58, %.033
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
-  br i1 %exitcond50.not, label %.critedge2, label %Gla_ManObj.exit31, !llvm.loop !70
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds %struct.Gla_Obj_t_, ptr %45, i64 %54, i32 1
+  %56 = load i32, ptr %55, align 4
+  %57 = and i32 %56, 1
+  %58 = add nuw nsw i32 %57, %.033
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.critedge2, label %Gla_ManObj.exit31, !llvm.loop !70
 
 .critedge2:                                       ; preds = %Gla_ManObj.exit31
-  %60 = icmp samesign ult i32 %59, 2
-  br i1 %60, label %.critedge2.thread, label %61
+  %59 = icmp samesign ult i32 %58, 2
+  br i1 %59, label %.critedge2.thread, label %60
 
-61:                                               ; preds = %.critedge2
-  %62 = add nsw i32 %.02536, 1
-  %63 = sext i32 %.02536 to i64
-  %64 = getelementptr inbounds i32, ptr %.val27, i64 %63
-  store i32 %45, ptr %64, align 4
+60:                                               ; preds = %.critedge2
+  %61 = add nsw i32 %.02536, 1
+  %62 = sext i32 %.02536 to i64
+  %63 = getelementptr inbounds i32, ptr %.val27, i64 %62
+  store i32 %44, ptr %63, align 4
   %.val.pre = load i32, ptr %7, align 4
   br label %.critedge2.thread
 
-.critedge2.thread:                                ; preds = %.lr.ph.split, %.critedge2, %61
-  %.val = phi i32 [ %.val.pre, %61 ], [ %.val56, %.critedge2 ], [ %.val56, %.lr.ph.split ]
-  %.1 = phi i32 [ %62, %61 ], [ %.02536, %.critedge2 ], [ %.02536, %.lr.ph.split ]
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %65 = sext i32 %.val to i64
-  %66 = icmp slt i64 %indvars.iv.next52, %65
-  br i1 %66, label %.lr.ph.split, label %.critedge, !llvm.loop !69
+.critedge2.thread:                                ; preds = %.lr.ph.split, %.critedge2, %60
+  %.val = phi i32 [ %.val.pre, %60 ], [ %.val56, %.critedge2 ], [ %.val56, %.lr.ph.split ]
+  %.1 = phi i32 [ %61, %60 ], [ %.02536, %.critedge2 ], [ %.02536, %.lr.ph.split ]
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %64 = sext i32 %.val to i64
+  %65 = icmp slt i64 %indvars.iv.next46, %64
+  br i1 %65, label %.lr.ph.split, label %.critedge, !llvm.loop !69
 
-.critedge:                                        ; preds = %.critedge2.us.thread, %.critedge2.thread, %.preheader
-  %.025.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %.critedge2.thread ], [ %.1.us, %.critedge2.us.thread ]
+.critedge:                                        ; preds = %.critedge2.thread, %.critedge2.us.thread, %.preheader
+  %.025.lcssa = phi i32 [ 0, %.preheader ], [ %.1.us, %.critedge2.us.thread ], [ %.1, %.critedge2.thread ]
   store i32 %.025.lcssa, ptr %7, align 4
-  br label %67
+  br label %66
 
-67:                                               ; preds = %2, %.critedge
+66:                                               ; preds = %2, %.critedge
   ret void
 }
 

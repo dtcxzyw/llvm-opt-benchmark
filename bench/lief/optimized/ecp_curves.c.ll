@@ -1825,14 +1825,13 @@ define internal i32 @ecp_mod_p224(ptr noundef %0) #0 {
 
 .lr.ph:                                           ; preds = %235, %.lr.ph
   %271 = phi i64 [ %278, %.lr.ph ], [ 8, %235 ]
-  %.0289 = phi i64 [ %271, %.lr.ph ], [ 7, %235 ]
-  %272 = and i64 %.0289, 1
-  %.not175.not = icmp eq i64 %272, 0
+  %272 = and i64 %271, 1
+  %.not175 = icmp eq i64 %272, 0
   %273 = load ptr, ptr %4, align 8
   %274 = lshr i64 %271, 1
   %275 = getelementptr inbounds i64, ptr %273, i64 %274
   %276 = load i64, ptr %275, align 8
-  %. = select i1 %.not175.not, i64 4294967295, i64 -4294967296
+  %. = select i1 %.not175, i64 -4294967296, i64 4294967295
   %277 = and i64 %276, %.
   store i64 %277, ptr %275, align 8
   %278 = add nuw i64 %271, 1
@@ -2504,14 +2503,13 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
 
 .lr.ph:                                           ; preds = %434, %.lr.ph
   %501 = phi i64 [ %508, %.lr.ph ], [ 9, %434 ]
-  %.0460 = phi i64 [ %501, %.lr.ph ], [ 8, %434 ]
-  %502 = and i64 %.0460, 1
-  %.not233.not = icmp eq i64 %502, 0
+  %502 = and i64 %501, 1
+  %.not233 = icmp eq i64 %502, 0
   %503 = load ptr, ptr %4, align 8
   %504 = lshr i64 %501, 1
   %505 = getelementptr inbounds i64, ptr %503, i64 %504
   %506 = load i64, ptr %505, align 8
-  %. = select i1 %.not233.not, i64 4294967295, i64 -4294967296
+  %. = select i1 %.not233, i64 -4294967296, i64 4294967295
   %507 = and i64 %506, %.
   store i64 %507, ptr %505, align 8
   %508 = add nuw i64 %501, 1
@@ -3413,14 +3411,13 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
 
 .lr.ph:                                           ; preds = %646, %.lr.ph
   %695 = phi i64 [ %702, %.lr.ph ], [ 13, %646 ]
-  %.0597 = phi i64 [ %695, %.lr.ph ], [ 12, %646 ]
-  %696 = and i64 %.0597, 1
-  %.not324.not = icmp eq i64 %696, 0
+  %696 = and i64 %695, 1
+  %.not324 = icmp eq i64 %696, 0
   %697 = load ptr, ptr %4, align 8
   %698 = lshr i64 %695, 1
   %699 = getelementptr inbounds i64, ptr %697, i64 %698
   %700 = load i64, ptr %699, align 8
-  %. = select i1 %.not324.not, i64 4294967295, i64 -4294967296
+  %. = select i1 %.not324, i64 -4294967296, i64 4294967295
   %701 = and i64 %700, %.
   store i64 %701, ptr %699, align 8
   %702 = add nuw i64 %695, 1

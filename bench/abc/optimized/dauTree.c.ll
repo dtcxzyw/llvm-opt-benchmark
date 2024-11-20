@@ -2176,26 +2176,26 @@ define void @Dss_ManCacheAlloc(ptr nocapture noundef writeonly %0) local_unnamed
 .loopexit.i:                                      ; preds = %.loopexit.i.backedge, %1
   %.012.i = phi i32 [ 99999, %1 ], [ %2, %.loopexit.i.backedge ]
   %2 = add i32 %.012.i, 1
-  %3 = and i32 %.012.i, 1
-  %.not.not.i = icmp eq i32 %3, 0
-  br i1 %.not.not.i, label %.preheader.i, label %.loopexit.i.backedge
+  %3 = and i32 %2, 1
+  %.not.i = icmp eq i32 %3, 0
+  br i1 %.not.i, label %.loopexit.i.backedge, label %.preheader.i
 
 .loopexit.i.backedge:                             ; preds = %.lr.ph.i, %.loopexit.i
   br label %.loopexit.i, !llvm.loop !28
 
 .preheader.i:                                     ; preds = %.loopexit.i
-  %.not15.i = icmp ult i32 %2, 9
-  br i1 %.not15.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i
+  %.not1416.i = icmp ult i32 %2, 9
+  br i1 %.not1416.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i
 
 4:                                                ; preds = %.lr.ph.i
-  %5 = add nuw nsw i32 %.01116.i, 2
+  %5 = add nuw nsw i32 %.01117.i, 2
   %6 = mul nuw nsw i32 %5, %5
-  %.not.i = icmp ugt i32 %6, %2
-  br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !29
+  %.not14.i = icmp ugt i32 %6, %2
+  br i1 %.not14.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !29
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %4
-  %.01116.i = phi i32 [ %5, %4 ], [ 3, %.preheader.i ]
-  %7 = urem i32 %2, %.01116.i
+  %.01117.i = phi i32 [ %5, %4 ], [ 3, %.preheader.i ]
+  %7 = urem i32 %2, %.01117.i
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit.i.backedge, label %4, !llvm.loop !28
 
@@ -2429,26 +2429,26 @@ define noalias noundef ptr @Dss_ManAlloc(i32 noundef %0, i32 noundef %1) local_u
 .loopexit.i:                                      ; preds = %.loopexit.i.backedge, %2
   %.012.i = phi i32 [ 999999, %2 ], [ %5, %.loopexit.i.backedge ]
   %5 = add i32 %.012.i, 1
-  %6 = and i32 %.012.i, 1
-  %.not.not.i = icmp eq i32 %6, 0
-  br i1 %.not.not.i, label %.preheader.i, label %.loopexit.i.backedge
+  %6 = and i32 %5, 1
+  %.not.i = icmp eq i32 %6, 0
+  br i1 %.not.i, label %.loopexit.i.backedge, label %.preheader.i
 
 .loopexit.i.backedge:                             ; preds = %.lr.ph.i, %.loopexit.i
   br label %.loopexit.i, !llvm.loop !28
 
 .preheader.i:                                     ; preds = %.loopexit.i
-  %.not15.i = icmp ult i32 %5, 9
-  br i1 %.not15.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i
+  %.not1416.i = icmp ult i32 %5, 9
+  br i1 %.not1416.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = add nuw nsw i32 %.01116.i, 2
+  %8 = add nuw nsw i32 %.01117.i, 2
   %9 = mul nuw nsw i32 %8, %8
-  %.not.i = icmp ugt i32 %9, %5
-  br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !29
+  %.not14.i = icmp ugt i32 %9, %5
+  br i1 %.not14.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !29
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %7
-  %.01116.i = phi i32 [ %8, %7 ], [ 3, %.preheader.i ]
-  %10 = urem i32 %5, %.01116.i
+  %.01117.i = phi i32 [ %8, %7 ], [ 3, %.preheader.i ]
+  %10 = urem i32 %5, %.01117.i
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %.loopexit.i.backedge, label %7, !llvm.loop !28
 
@@ -6731,9 +6731,9 @@ define void @Dau_DsdTest444() local_unnamed_addr #1 {
   %54 = lshr i32 %53, 3
   %55 = and i32 %54, 255
   %56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.14, i32 noundef %55) #29
-  %57 = and i32 %22, 1
-  %.not.i17.not = icmp eq i32 %57, 0
-  %58 = select i1 %.not.i17.not, ptr @.str.2, ptr @.str.3
+  %57 = and i32 %23, 1
+  %.not.i17 = icmp eq i32 %57, 0
+  %58 = select i1 %.not.i17, ptr @.str.3, ptr @.str.2
   %fputs.i18 = call i32 @fputs(ptr nonnull %58, ptr %46)
   %.val.i19 = load ptr, ptr %33, align 8
   %59 = getelementptr inbounds ptr, ptr %.val.i19, i64 %49

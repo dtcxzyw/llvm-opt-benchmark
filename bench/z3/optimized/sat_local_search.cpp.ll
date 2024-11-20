@@ -3567,19 +3567,20 @@ _ZN6vectorIN3sat12local_search8var_infoELb1EjE7reserveEj.exit75: ; preds = %_ZN6
   %xor.i = xor i32 %agg.tmp36.sroa.0.0.copyload, 1
   %shr.i76 = lshr i32 %agg.tmp36.sroa.0.0.copyload, 1
   %idxprom.i77 = zext nneg i32 %shr.i76 to i64
-  %36 = and i32 %agg.tmp36.sroa.0.0.copyload, 1
-  %idxprom48 = zext nneg i32 %36 to i64
+  %36 = and i32 %xor.i, 1
+  %37 = xor i32 %36, 1
+  %idxprom48 = zext nneg i32 %37 to i64
   %arrayidx49 = getelementptr inbounds %"struct.sat::local_search::var_info", ptr %35, i64 %idxprom.i77, i32 10, i64 %idxprom48
-  %37 = load ptr, ptr %arrayidx49, align 8
-  %cmp.i80 = icmp eq ptr %37, null
+  %38 = load ptr, ptr %arrayidx49, align 8
+  %cmp.i80 = icmp eq ptr %38, null
   br i1 %cmp.i80, label %if.then.i90, label %lor.lhs.false.i81
 
 lor.lhs.false.i81:                                ; preds = %_ZN6vectorIN3sat12local_search8var_infoELb1EjE7reserveEj.exit75
-  %arrayidx.i82 = getelementptr inbounds i8, ptr %37, i64 -4
-  %38 = load i32, ptr %arrayidx.i82, align 4
-  %arrayidx4.i83 = getelementptr inbounds i8, ptr %37, i64 -8
-  %39 = load i32, ptr %arrayidx4.i83, align 4
-  %cmp5.i84 = icmp eq i32 %38, %39
+  %arrayidx.i82 = getelementptr inbounds i8, ptr %38, i64 -4
+  %39 = load i32, ptr %arrayidx.i82, align 4
+  %arrayidx4.i83 = getelementptr inbounds i8, ptr %38, i64 -8
+  %40 = load i32, ptr %arrayidx4.i83, align 4
+  %cmp5.i84 = icmp eq i32 %39, %40
   br i1 %cmp5.i84, label %if.then.i90, label %_ZN6vectorIN3sat12local_search7pbcoeffELb0EjE9push_backEOS2_.exit
 
 if.then.i90:                                      ; preds = %lor.lhs.false.i81, %_ZN6vectorIN3sat12local_search8var_infoELb1EjE7reserveEj.exit75
@@ -3590,41 +3591,41 @@ if.then.i90:                                      ; preds = %lor.lhs.false.i81, 
   br label %_ZN6vectorIN3sat12local_search7pbcoeffELb0EjE9push_backEOS2_.exit
 
 _ZN6vectorIN3sat12local_search7pbcoeffELb0EjE9push_backEOS2_.exit: ; preds = %lor.lhs.false.i81, %if.then.i90
-  %40 = phi i32 [ %.pre1.i93, %if.then.i90 ], [ %38, %lor.lhs.false.i81 ]
-  %41 = phi ptr [ %.pre.i91, %if.then.i90 ], [ %37, %lor.lhs.false.i81 ]
-  %idx.ext.i86 = zext i32 %40 to i64
-  %add.ptr.i87 = getelementptr inbounds %"struct.sat::local_search::pbcoeff", ptr %41, i64 %idx.ext.i86
+  %41 = phi i32 [ %.pre1.i93, %if.then.i90 ], [ %39, %lor.lhs.false.i81 ]
+  %42 = phi ptr [ %.pre.i91, %if.then.i90 ], [ %38, %lor.lhs.false.i81 ]
+  %idx.ext.i86 = zext i32 %41 to i64
+  %add.ptr.i87 = getelementptr inbounds %"struct.sat::local_search::pbcoeff", ptr %42, i64 %idx.ext.i86
   store i64 %ref.tmp50.sroa.0.0.insert.insert, ptr %add.ptr.i87, align 4
-  %42 = load ptr, ptr %arrayidx49, align 8
-  %arrayidx10.i88 = getelementptr inbounds i8, ptr %42, i64 -4
-  %43 = load i32, ptr %arrayidx10.i88, align 4
-  %inc.i89 = add i32 %43, 1
+  %43 = load ptr, ptr %arrayidx49, align 8
+  %arrayidx10.i88 = getelementptr inbounds i8, ptr %43, i64 -4
+  %44 = load i32, ptr %arrayidx10.i88, align 4
+  %inc.i89 = add i32 %44, 1
   store i32 %inc.i89, ptr %arrayidx10.i88, align 4
-  %44 = load ptr, ptr %m_constraints, align 8
-  %cmp.i.i94 = icmp eq ptr %44, null
+  %45 = load ptr, ptr %m_constraints, align 8
+  %cmp.i.i94 = icmp eq ptr %45, null
   br i1 %cmp.i.i94, label %_ZN6vectorIN3sat12local_search10constraintELb1EjE4backEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN6vectorIN3sat12local_search7pbcoeffELb0EjE9push_backEOS2_.exit
-  %arrayidx.i.i95 = getelementptr inbounds i8, ptr %44, i64 -4
-  %45 = load i32, ptr %arrayidx.i.i95, align 4
-  %46 = add i32 %45, -1
-  %47 = zext i32 %46 to i64
+  %arrayidx.i.i95 = getelementptr inbounds i8, ptr %45, i64 -4
+  %46 = load i32, ptr %arrayidx.i.i95, align 4
+  %47 = add i32 %46, -1
+  %48 = zext i32 %47 to i64
   br label %_ZN6vectorIN3sat12local_search10constraintELb1EjE4backEv.exit
 
 _ZN6vectorIN3sat12local_search10constraintELb1EjE4backEv.exit: ; preds = %_ZN6vectorIN3sat12local_search7pbcoeffELb0EjE9push_backEOS2_.exit, %if.end.i.i
-  %retval.0.i.i = phi i64 [ %47, %if.end.i.i ], [ 4294967295, %_ZN6vectorIN3sat12local_search7pbcoeffELb0EjE9push_backEOS2_.exit ]
-  %arrayidx.i1.i = getelementptr inbounds %"struct.sat::local_search::constraint", ptr %44, i64 %retval.0.i.i
+  %retval.0.i.i = phi i64 [ %48, %if.end.i.i ], [ 4294967295, %_ZN6vectorIN3sat12local_search7pbcoeffELb0EjE9push_backEOS2_.exit ]
+  %arrayidx.i1.i = getelementptr inbounds %"struct.sat::local_search::constraint", ptr %45, i64 %retval.0.i.i
   %m_literals.i96 = getelementptr inbounds i8, ptr %arrayidx.i1.i, i64 24
-  %48 = load ptr, ptr %m_literals.i96, align 8
-  %cmp.i.i97 = icmp eq ptr %48, null
+  %49 = load ptr, ptr %m_literals.i96, align 8
+  %cmp.i.i97 = icmp eq ptr %49, null
   br i1 %cmp.i.i97, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %_ZN6vectorIN3sat12local_search10constraintELb1EjE4backEv.exit
-  %arrayidx.i.i98 = getelementptr inbounds i8, ptr %48, i64 -4
-  %49 = load i32, ptr %arrayidx.i.i98, align 4
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr %48, i64 -8
-  %50 = load i32, ptr %arrayidx4.i.i, align 4
-  %cmp5.i.i = icmp eq i32 %49, %50
+  %arrayidx.i.i98 = getelementptr inbounds i8, ptr %49, i64 -4
+  %50 = load i32, ptr %arrayidx.i.i98, align 4
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %49, i64 -8
+  %51 = load i32, ptr %arrayidx4.i.i, align 4
+  %cmp5.i.i = icmp eq i32 %50, %51
   br i1 %cmp5.i.i, label %if.then.i.i, label %_ZN3sat12local_search10constraint4pushENS_7literalE.exit
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %_ZN6vectorIN3sat12local_search10constraintELb1EjE4backEv.exit
@@ -3635,29 +3636,29 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   br label %_ZN3sat12local_search10constraint4pushENS_7literalE.exit
 
 _ZN3sat12local_search10constraint4pushENS_7literalE.exit: ; preds = %lor.lhs.false.i.i, %if.then.i.i
-  %51 = phi i32 [ %.pre1.i.i, %if.then.i.i ], [ %49, %lor.lhs.false.i.i ]
-  %52 = phi ptr [ %.pre.i.i, %if.then.i.i ], [ %48, %lor.lhs.false.i.i ]
-  %idx.ext.i.i99 = zext i32 %51 to i64
-  %add.ptr.i.i100 = getelementptr inbounds %"class.sat::literal", ptr %52, i64 %idx.ext.i.i99
+  %52 = phi i32 [ %.pre1.i.i, %if.then.i.i ], [ %50, %lor.lhs.false.i.i ]
+  %53 = phi ptr [ %.pre.i.i, %if.then.i.i ], [ %49, %lor.lhs.false.i.i ]
+  %idx.ext.i.i99 = zext i32 %52 to i64
+  %add.ptr.i.i100 = getelementptr inbounds %"class.sat::literal", ptr %53, i64 %idx.ext.i.i99
   store i32 %xor.i, ptr %add.ptr.i.i100, align 4
-  %53 = load ptr, ptr %m_literals.i96, align 8
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %53, i64 -4
-  %54 = load i32, ptr %arrayidx10.i.i, align 4
-  %inc.i.i = add i32 %54, 1
+  %54 = load ptr, ptr %m_literals.i96, align 8
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %54, i64 -4
+  %55 = load i32, ptr %arrayidx10.i.i, align 4
+  %inc.i.i = add i32 %55, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   %m_size.i101 = getelementptr inbounds i8, ptr %arrayidx.i1.i, i64 16
-  %55 = load i32, ptr %m_size.i101, align 8
-  %inc.i102 = add i32 %55, 1
+  %56 = load i32, ptr %m_size.i101, align 8
+  %inc.i102 = add i32 %56, 1
   store i32 %inc.i102, ptr %m_size.i101, align 8
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count
   br i1 %exitcond.not, label %for.end58, label %for.body29, !llvm.loop !21
 
 lpad:                                             ; preds = %if.then.i31
-  %56 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3sat12local_search10constraintD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #25
-  resume { ptr, i32 } %56
+  resume { ptr, i32 } %57
 
 for.end58:                                        ; preds = %_ZN3sat12local_search10constraint4pushENS_7literalE.exit, %_ZN3sat12local_search10constraintD2Ev.exit, %if.then
   ret void

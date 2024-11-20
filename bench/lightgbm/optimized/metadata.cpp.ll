@@ -17494,7 +17494,7 @@ define noundef range(i64 -25769803748, 25769803813) i64 @_ZNK8LightGBM8Metadata1
   %29 = getelementptr inbounds i8, ptr %0, i64 152
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %28, %30
-  br i1 %31, label %42, label %32
+  br i1 %31, label %43, label %32
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds i8, ptr %0, i64 192
@@ -17502,16 +17502,16 @@ define noundef range(i64 -25769803748, 25769803813) i64 @_ZNK8LightGBM8Metadata1
   %35 = add nsw i32 %34, 1
   %36 = sext i32 %35 to i64
   %37 = shl nsw i64 %36, 2
-  %38 = and i32 %34, 1
-  %.not = icmp eq i32 %38, 0
-  %39 = and i64 %37, -8
-  %40 = add nsw i64 %39, 8
-  %.0.i5 = select i1 %.not, i64 %40, i64 %37
-  %41 = add nsw i64 %.0.i5, %.0
-  br label %42
+  %38 = and i32 %35, 1
+  %39 = icmp eq i32 %38, 0
+  %40 = and i64 %37, -8
+  %41 = add nsw i64 %40, 8
+  %.0.i5 = select i1 %39, i64 %37, i64 %41
+  %42 = add nsw i64 %.0.i5, %.0
+  br label %43
 
-42:                                               ; preds = %32, %26
-  %.1 = phi i64 [ %.0, %26 ], [ %41, %32 ]
+43:                                               ; preds = %32, %26
+  %.1 = phi i64 [ %.0, %26 ], [ %42, %32 ]
   ret i64 %.1
 }
 

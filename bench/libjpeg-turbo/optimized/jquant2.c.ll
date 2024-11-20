@@ -183,7 +183,7 @@ define void @jinit_2pass_quantizer(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %93, %.lr.ph.i
   %indvars.iv48.i = phi i64 [ %indvars.iv.next49.i, %.lr.ph.i ], [ 16, %93 ]
-  %.138.i = phi i32 [ %104, %.lr.ph.i ], [ 16, %93 ]
+  %.138.i = phi i32 [ %105, %.lr.ph.i ], [ 16, %93 ]
   %98 = getelementptr inbounds i32, ptr %91, i64 %indvars.iv48.i
   store i32 %.138.i, ptr %98, align 4
   %99 = sub nsw i32 0, %.138.i
@@ -191,19 +191,20 @@ define void @jinit_2pass_quantizer(ptr noundef %0) local_unnamed_addr #0 {
   %101 = getelementptr inbounds i32, ptr %91, i64 %100
   store i32 %99, ptr %101, align 4
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
-  %102 = trunc nuw nsw i64 %indvars.iv48.i to i32
+  %102 = trunc nuw nsw i64 %indvars.iv.next49.i to i32
   %103 = and i32 %102, 1
-  %104 = add nuw nsw i32 %103, %.138.i
+  %104 = xor i32 %103, 1
+  %105 = add nuw nsw i32 %104, %.138.i
   %exitcond51.not.i = icmp eq i64 %indvars.iv.next49.i, 48
   br i1 %exitcond51.not.i, label %.lr.ph41.i, label %.lr.ph.i, !llvm.loop !7
 
 .lr.ph41.i:                                       ; preds = %.lr.ph.i, %.lr.ph41.i
   %indvars.iv52.i = phi i64 [ %indvars.iv.next53.i, %.lr.ph41.i ], [ 48, %.lr.ph.i ]
-  %105 = getelementptr inbounds i32, ptr %91, i64 %indvars.iv52.i
-  store i32 32, ptr %105, align 4
-  %106 = sub nsw i64 0, %indvars.iv52.i
-  %107 = getelementptr inbounds i32, ptr %91, i64 %106
-  store i32 -32, ptr %107, align 4
+  %106 = getelementptr inbounds i32, ptr %91, i64 %indvars.iv52.i
+  store i32 32, ptr %106, align 4
+  %107 = sub nsw i64 0, %indvars.iv52.i
+  %108 = getelementptr inbounds i32, ptr %91, i64 %107
+  store i32 -32, ptr %108, align 4
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next53.i, 256
   br i1 %exitcond55.not.i, label %init_error_limit.exit, label %.lr.ph41.i, !llvm.loop !8
@@ -271,7 +272,7 @@ define internal void @start_pass_2_quant(ptr noundef %0, i32 noundef %1) #0 {
 27:                                               ; preds = %.sink.split, %19
   %28 = load i32, ptr %7, align 8
   %29 = icmp eq i32 %28, 2
-  br i1 %29, label %30, label %74
+  br i1 %29, label %30, label %75
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %0, i64 136
@@ -327,7 +328,7 @@ define internal void @start_pass_2_quant(ptr noundef %0, i32 noundef %1) #0 {
 
 .lr.ph.i:                                         ; preds = %58, %.lr.ph.i
   %indvars.iv48.i = phi i64 [ %indvars.iv.next49.i, %.lr.ph.i ], [ 16, %58 ]
-  %.138.i = phi i32 [ %69, %.lr.ph.i ], [ 16, %58 ]
+  %.138.i = phi i32 [ %70, %.lr.ph.i ], [ 16, %58 ]
   %63 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv48.i
   store i32 %.138.i, ptr %63, align 4
   %64 = sub nsw i32 0, %.138.i
@@ -335,19 +336,20 @@ define internal void @start_pass_2_quant(ptr noundef %0, i32 noundef %1) #0 {
   %66 = getelementptr inbounds i32, ptr %56, i64 %65
   store i32 %64, ptr %66, align 4
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
-  %67 = trunc nuw nsw i64 %indvars.iv48.i to i32
+  %67 = trunc nuw nsw i64 %indvars.iv.next49.i to i32
   %68 = and i32 %67, 1
-  %69 = add nuw nsw i32 %68, %.138.i
+  %69 = xor i32 %68, 1
+  %70 = add nuw nsw i32 %69, %.138.i
   %exitcond51.not.i = icmp eq i64 %indvars.iv.next49.i, 48
   br i1 %exitcond51.not.i, label %.lr.ph41.i, label %.lr.ph.i, !llvm.loop !7
 
 .lr.ph41.i:                                       ; preds = %.lr.ph.i, %.lr.ph41.i
   %indvars.iv52.i = phi i64 [ %indvars.iv.next53.i, %.lr.ph41.i ], [ 48, %.lr.ph.i ]
-  %70 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv52.i
-  store i32 32, ptr %70, align 4
-  %71 = sub nsw i64 0, %indvars.iv52.i
-  %72 = getelementptr inbounds i32, ptr %56, i64 %71
-  store i32 -32, ptr %72, align 4
+  %71 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv52.i
+  store i32 32, ptr %71, align 4
+  %72 = sub nsw i64 0, %indvars.iv52.i
+  %73 = getelementptr inbounds i32, ptr %56, i64 %72
+  store i32 -32, ptr %73, align 4
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next53.i, 256
   br i1 %exitcond55.not.i, label %.sink.split53, label %.lr.ph41.i, !llvm.loop !8
@@ -355,30 +357,30 @@ define internal void @start_pass_2_quant(ptr noundef %0, i32 noundef %1) #0 {
 .sink.split53:                                    ; preds = %.lr.ph41.i, %45, %10
   %.sink56 = phi i64 [ 64, %10 ], [ 80, %45 ], [ 80, %.lr.ph41.i ]
   %.sink54 = phi i32 [ 1, %10 ], [ 0, %45 ], [ 0, %.lr.ph41.i ]
-  %73 = getelementptr inbounds i8, ptr %4, i64 %.sink56
-  store i32 %.sink54, ptr %73, align 8
-  br label %74
+  %74 = getelementptr inbounds i8, ptr %4, i64 %.sink56
+  store i32 %.sink54, ptr %74, align 8
+  br label %75
 
-74:                                               ; preds = %.sink.split53, %27
-  %75 = getelementptr inbounds i8, ptr %4, i64 64
-  %76 = load i32, ptr %75, align 8
-  %.not41 = icmp eq i32 %76, 0
-  br i1 %.not41, label %80, label %.preheader
+75:                                               ; preds = %.sink.split53, %27
+  %76 = getelementptr inbounds i8, ptr %4, i64 64
+  %77 = load i32, ptr %76, align 8
+  %.not41 = icmp eq i32 %77, 0
+  br i1 %.not41, label %81, label %.preheader
 
-.preheader:                                       ; preds = %74, %.preheader
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %74 ]
-  %77 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
-  %78 = load ptr, ptr %77, align 8
-  tail call void @jzero_far(ptr noundef %78, i64 noundef 4096) #9
+.preheader:                                       ; preds = %75, %.preheader
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %75 ]
+  %78 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %79 = load ptr, ptr %78, align 8
+  tail call void @jzero_far(ptr noundef %79, i64 noundef 4096) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %79, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not, label %80, label %.preheader, !llvm.loop !9
 
-79:                                               ; preds = %.preheader
-  store i32 0, ptr %75, align 8
-  br label %80
+80:                                               ; preds = %.preheader
+  store i32 0, ptr %76, align 8
+  br label %81
 
-80:                                               ; preds = %79, %74
+81:                                               ; preds = %80, %75
   ret void
 }
 

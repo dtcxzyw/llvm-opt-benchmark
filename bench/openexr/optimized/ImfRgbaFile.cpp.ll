@@ -797,196 +797,196 @@ if.end89:                                         ; preds = %if.end89thread-pre-
   br i1 %cmp93, label %if.then94, label %if.end95
 
 if.then94:                                        ; preds = %if.end89
-  %57 = and i32 %56, 1
-  %tobool.not.i.not = icmp eq i32 %57, 0
-  br i1 %tobool.not.i.not, label %if.then.i, label %if.else.i
+  %and.i = and i32 %inc91, 1
+  %tobool.not.i = icmp eq i32 %and.i, 0
+  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then94
-  %58 = load ptr, ptr %_tmpBuf61, align 8
-  %59 = load ptr, ptr %arrayidx.i19, align 8
-  %60 = load i32, ptr %_width46, align 8
-  %conv.i21 = sext i32 %60 to i64
+  %57 = load ptr, ptr %_tmpBuf61, align 8
+  %58 = load ptr, ptr %arrayidx.i19, align 8
+  %59 = load i32, ptr %_width46, align 8
+  %conv.i21 = sext i32 %59 to i64
   %mul.i22 = shl nsw i64 %conv.i21, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %58, ptr align 2 %59, i64 %mul.i22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %57, ptr align 2 %58, i64 %mul.i22, i1 false)
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.then94
-  %61 = load i32, ptr %_width46, align 8
-  %62 = load ptr, ptr %_tmpBuf61, align 8
-  tail call void @_ZN7Imf_3_27RgbaYca18decimateChromaVertEiPKPKNS_4RgbaEPS1_(i32 noundef %61, ptr noundef nonnull %_buf.i, ptr noundef %62)
+  %60 = load i32, ptr %_width46, align 8
+  %61 = load ptr, ptr %_tmpBuf61, align 8
+  tail call void @_ZN7Imf_3_27RgbaYca18decimateChromaVertEiPKPKNS_4RgbaEPS1_(i32 noundef %60, ptr noundef nonnull %_buf.i, ptr noundef %61)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
-  %63 = load i8, ptr %_writeY, align 8
-  %tobool5.i = trunc i8 %63 to i1
+  %62 = load i8, ptr %_writeY, align 8
+  %tobool5.i = trunc i8 %62 to i1
   br i1 %tobool5.i, label %land.lhs.true.i, label %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %64 = load i8, ptr %_writeC.i, align 1
-  %tobool6.i = trunc i8 %64 to i1
+  %63 = load i8, ptr %_writeC.i, align 1
+  %tobool6.i = trunc i8 %63 to i1
   br i1 %tobool6.i, label %if.then7.i, label %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit
 
 if.then7.i:                                       ; preds = %land.lhs.true.i
-  %65 = load i32, ptr %_width46, align 8
-  %66 = load i32, ptr %_roundY.i, align 8
-  %67 = load i32, ptr %_roundC.i, align 4
-  %68 = load ptr, ptr %_tmpBuf61, align 8
-  tail call void @_ZN7Imf_3_27RgbaYca8roundYCAEijjPKNS_4RgbaEPS1_(i32 noundef %65, i32 noundef %66, i32 noundef %67, ptr noundef %68, ptr noundef %68)
+  %64 = load i32, ptr %_width46, align 8
+  %65 = load i32, ptr %_roundY.i, align 8
+  %66 = load i32, ptr %_roundC.i, align 4
+  %67 = load ptr, ptr %_tmpBuf61, align 8
+  tail call void @_ZN7Imf_3_27RgbaYca8roundYCAEijjPKNS_4RgbaEPS1_(i32 noundef %64, i32 noundef %65, i32 noundef %66, ptr noundef %67, ptr noundef %67)
   br label %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit
 
 _ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit: ; preds = %if.end.i, %land.lhs.true.i, %if.then7.i
-  %69 = load ptr, ptr %_outputFile.i, align 8
-  tail call void @_ZN7Imf_3_210OutputFile11writePixelsEi(ptr noundef nonnull align 8 dereferenceable(16) %69, i32 noundef 1)
+  %68 = load ptr, ptr %_outputFile.i, align 8
+  tail call void @_ZN7Imf_3_210OutputFile11writePixelsEi(ptr noundef nonnull align 8 dereferenceable(16) %68, i32 noundef 1)
   %.pre = load i32, ptr %_linesConverted79, align 8
   br label %if.end95
 
 if.end95:                                         ; preds = %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit, %if.end89
-  %70 = phi i32 [ %.pre, %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit ], [ %inc91, %if.end89 ]
-  %71 = load i32, ptr %_height, align 4
-  %cmp97.not = icmp slt i32 %70, %71
+  %69 = phi i32 [ %.pre, %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit ], [ %inc91, %if.end89 ]
+  %70 = load i32, ptr %_height, align 4
+  %cmp97.not = icmp slt i32 %69, %70
   br i1 %cmp97.not, label %if.end120, label %for.cond100.preheader
 
 for.cond100.preheader:                            ; preds = %if.end95
-  %cmp102107 = icmp slt i32 %71, 13
+  %cmp102107 = icmp slt i32 %70, 13
   br i1 %cmp102107, label %for.body103, label %for.end106
 
 for.body103:                                      ; preds = %for.cond100.preheader, %for.body103
   %j99.0108 = phi i32 [ %inc105, %for.body103 ], [ 0, %for.cond100.preheader ]
-  %72 = load ptr, ptr %_buf.i, align 8
+  %71 = load ptr, ptr %_buf.i, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %_buf.i, ptr noundef nonnull align 8 dereferenceable(208) %scevgep.i, i64 208, i1 false)
-  store ptr %72, ptr %arrayidx8.i, align 8
-  %73 = load ptr, ptr %arrayidx3.i16, align 8
-  %74 = load i32, ptr %_width46, align 8
-  %conv.i28 = sext i32 %74 to i64
+  store ptr %71, ptr %arrayidx8.i, align 8
+  %72 = load ptr, ptr %arrayidx3.i16, align 8
+  %73 = load i32, ptr %_width46, align 8
+  %conv.i28 = sext i32 %73 to i64
   %mul.i29 = shl nsw i64 %conv.i28, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %72, ptr align 2 %73, i64 %mul.i29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %71, ptr align 2 %72, i64 %mul.i29, i1 false)
   %inc105 = add nuw nsw i32 %j99.0108, 1
-  %75 = load i32, ptr %_height, align 4
-  %sub = sub nsw i32 13, %75
+  %74 = load i32, ptr %_height, align 4
+  %sub = sub nsw i32 13, %74
   %cmp102 = icmp slt i32 %inc105, %sub
   br i1 %cmp102, label %for.body103, label %for.end106, !llvm.loop !12
 
 for.end106:                                       ; preds = %for.body103, %for.cond100.preheader
-  %76 = load ptr, ptr %_buf.i, align 8
+  %75 = load ptr, ptr %_buf.i, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %_buf.i, ptr noundef nonnull align 8 dereferenceable(208) %scevgep.i, i64 208, i1 false)
-  store ptr %76, ptr %arrayidx8.i, align 8
-  %77 = load ptr, ptr %arrayidx3.i33, align 8
-  %78 = load i32, ptr %_width46, align 8
-  %conv.i35 = sext i32 %78 to i64
+  store ptr %75, ptr %arrayidx8.i, align 8
+  %76 = load ptr, ptr %arrayidx3.i33, align 8
+  %77 = load i32, ptr %_width46, align 8
+  %conv.i35 = sext i32 %77 to i64
   %mul.i36 = shl nsw i64 %conv.i35, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %76, ptr align 2 %77, i64 %mul.i36, i1 false)
-  %79 = load i32, ptr %_linesConverted79, align 8
-  %inc108 = add nsw i32 %79, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %75, ptr align 2 %76, i64 %mul.i36, i1 false)
+  %78 = load i32, ptr %_linesConverted79, align 8
+  %inc108 = add nsw i32 %78, 1
   store i32 %inc108, ptr %_linesConverted79, align 8
-  %80 = and i32 %79, 1
-  %tobool.not.i39.not = icmp eq i32 %80, 0
-  br i1 %tobool.not.i39.not, label %if.then.i40, label %if.else.i58
+  %and.i38 = and i32 %inc108, 1
+  %tobool.not.i39 = icmp eq i32 %and.i38, 0
+  br i1 %tobool.not.i39, label %if.else.i58, label %if.then.i40
 
 if.then.i40:                                      ; preds = %for.end106
-  %81 = load ptr, ptr %_tmpBuf61, align 8
-  %82 = load ptr, ptr %arrayidx.i19, align 8
-  %83 = load i32, ptr %_width46, align 8
-  %conv.i44 = sext i32 %83 to i64
+  %79 = load ptr, ptr %_tmpBuf61, align 8
+  %80 = load ptr, ptr %arrayidx.i19, align 8
+  %81 = load i32, ptr %_width46, align 8
+  %conv.i44 = sext i32 %81 to i64
   %mul.i45 = shl nsw i64 %conv.i44, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %81, ptr align 2 %82, i64 %mul.i45, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %79, ptr align 2 %80, i64 %mul.i45, i1 false)
   br label %if.end.i46
 
 if.else.i58:                                      ; preds = %for.end106
-  %84 = load i32, ptr %_width46, align 8
-  %85 = load ptr, ptr %_tmpBuf61, align 8
-  tail call void @_ZN7Imf_3_27RgbaYca18decimateChromaVertEiPKPKNS_4RgbaEPS1_(i32 noundef %84, ptr noundef nonnull %_buf.i, ptr noundef %85)
+  %82 = load i32, ptr %_width46, align 8
+  %83 = load ptr, ptr %_tmpBuf61, align 8
+  tail call void @_ZN7Imf_3_27RgbaYca18decimateChromaVertEiPKPKNS_4RgbaEPS1_(i32 noundef %82, ptr noundef nonnull %_buf.i, ptr noundef %83)
   br label %if.end.i46
 
 if.end.i46:                                       ; preds = %if.else.i58, %if.then.i40
-  %86 = load i8, ptr %_writeY, align 8
-  %tobool5.i48 = trunc i8 %86 to i1
+  %84 = load i8, ptr %_writeY, align 8
+  %tobool5.i48 = trunc i8 %84 to i1
   br i1 %tobool5.i48, label %land.lhs.true.i50, label %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit62
 
 land.lhs.true.i50:                                ; preds = %if.end.i46
-  %87 = load i8, ptr %_writeC.i, align 1
-  %tobool6.i52 = trunc i8 %87 to i1
+  %85 = load i8, ptr %_writeC.i, align 1
+  %tobool6.i52 = trunc i8 %85 to i1
   br i1 %tobool6.i52, label %if.then7.i53, label %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit62
 
 if.then7.i53:                                     ; preds = %land.lhs.true.i50
-  %88 = load i32, ptr %_width46, align 8
-  %89 = load i32, ptr %_roundY.i, align 8
-  %90 = load i32, ptr %_roundC.i, align 4
-  %91 = load ptr, ptr %_tmpBuf61, align 8
-  tail call void @_ZN7Imf_3_27RgbaYca8roundYCAEijjPKNS_4RgbaEPS1_(i32 noundef %88, i32 noundef %89, i32 noundef %90, ptr noundef %91, ptr noundef %91)
+  %86 = load i32, ptr %_width46, align 8
+  %87 = load i32, ptr %_roundY.i, align 8
+  %88 = load i32, ptr %_roundC.i, align 4
+  %89 = load ptr, ptr %_tmpBuf61, align 8
+  tail call void @_ZN7Imf_3_27RgbaYca8roundYCAEijjPKNS_4RgbaEPS1_(i32 noundef %86, i32 noundef %87, i32 noundef %88, ptr noundef %89, ptr noundef %89)
   br label %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit62
 
 _ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit62: ; preds = %if.end.i46, %land.lhs.true.i50, %if.then7.i53
-  %92 = load ptr, ptr %_outputFile.i, align 8
-  tail call void @_ZN7Imf_3_210OutputFile11writePixelsEi(ptr noundef nonnull align 8 dereferenceable(16) %92, i32 noundef 1)
-  %93 = load i32, ptr %_height, align 4
-  %cmp113109 = icmp sgt i32 %93, 1
+  %90 = load ptr, ptr %_outputFile.i, align 8
+  tail call void @_ZN7Imf_3_210OutputFile11writePixelsEi(ptr noundef nonnull align 8 dereferenceable(16) %90, i32 noundef 1)
+  %91 = load i32, ptr %_height, align 4
+  %cmp113109 = icmp sgt i32 %91, 1
   br i1 %cmp113109, label %for.body114, label %if.end120
 
 for.body114:                                      ; preds = %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit62, %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit95
   %j109.0110 = phi i32 [ %inc118, %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit95 ], [ 1, %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit62 ]
-  %94 = load ptr, ptr %_buf.i, align 8
+  %92 = load ptr, ptr %_buf.i, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %_buf.i, ptr noundef nonnull align 8 dereferenceable(208) %scevgep.i, i64 208, i1 false)
-  store ptr %94, ptr %arrayidx8.i, align 8
-  %95 = load ptr, ptr %arrayidx3.i16, align 8
-  %96 = load i32, ptr %_width46, align 8
-  %conv.i68 = sext i32 %96 to i64
+  store ptr %92, ptr %arrayidx8.i, align 8
+  %93 = load ptr, ptr %arrayidx3.i16, align 8
+  %94 = load i32, ptr %_width46, align 8
+  %conv.i68 = sext i32 %94 to i64
   %mul.i69 = shl nsw i64 %conv.i68, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %94, ptr align 2 %95, i64 %mul.i69, i1 false)
-  %97 = load i32, ptr %_linesConverted79, align 8
-  %inc116 = add nsw i32 %97, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %92, ptr align 2 %93, i64 %mul.i69, i1 false)
+  %95 = load i32, ptr %_linesConverted79, align 8
+  %inc116 = add nsw i32 %95, 1
   store i32 %inc116, ptr %_linesConverted79, align 8
-  %98 = and i32 %97, 1
-  %tobool.not.i72.not = icmp eq i32 %98, 0
-  br i1 %tobool.not.i72.not, label %if.then.i73, label %if.else.i91
+  %and.i71 = and i32 %inc116, 1
+  %tobool.not.i72 = icmp eq i32 %and.i71, 0
+  br i1 %tobool.not.i72, label %if.else.i91, label %if.then.i73
 
 if.then.i73:                                      ; preds = %for.body114
-  %99 = load ptr, ptr %_tmpBuf61, align 8
-  %100 = load ptr, ptr %arrayidx.i19, align 8
-  %101 = load i32, ptr %_width46, align 8
-  %conv.i77 = sext i32 %101 to i64
+  %96 = load ptr, ptr %_tmpBuf61, align 8
+  %97 = load ptr, ptr %arrayidx.i19, align 8
+  %98 = load i32, ptr %_width46, align 8
+  %conv.i77 = sext i32 %98 to i64
   %mul.i78 = shl nsw i64 %conv.i77, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %99, ptr align 2 %100, i64 %mul.i78, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %96, ptr align 2 %97, i64 %mul.i78, i1 false)
   br label %if.end.i79
 
 if.else.i91:                                      ; preds = %for.body114
-  %102 = load i32, ptr %_width46, align 8
-  %103 = load ptr, ptr %_tmpBuf61, align 8
-  tail call void @_ZN7Imf_3_27RgbaYca18decimateChromaVertEiPKPKNS_4RgbaEPS1_(i32 noundef %102, ptr noundef nonnull %_buf.i, ptr noundef %103)
+  %99 = load i32, ptr %_width46, align 8
+  %100 = load ptr, ptr %_tmpBuf61, align 8
+  tail call void @_ZN7Imf_3_27RgbaYca18decimateChromaVertEiPKPKNS_4RgbaEPS1_(i32 noundef %99, ptr noundef nonnull %_buf.i, ptr noundef %100)
   br label %if.end.i79
 
 if.end.i79:                                       ; preds = %if.else.i91, %if.then.i73
-  %104 = load i8, ptr %_writeY, align 8
-  %tobool5.i81 = trunc i8 %104 to i1
+  %101 = load i8, ptr %_writeY, align 8
+  %tobool5.i81 = trunc i8 %101 to i1
   br i1 %tobool5.i81, label %land.lhs.true.i83, label %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit95
 
 land.lhs.true.i83:                                ; preds = %if.end.i79
-  %105 = load i8, ptr %_writeC.i, align 1
-  %tobool6.i85 = trunc i8 %105 to i1
+  %102 = load i8, ptr %_writeC.i, align 1
+  %tobool6.i85 = trunc i8 %102 to i1
   br i1 %tobool6.i85, label %if.then7.i86, label %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit95
 
 if.then7.i86:                                     ; preds = %land.lhs.true.i83
-  %106 = load i32, ptr %_width46, align 8
-  %107 = load i32, ptr %_roundY.i, align 8
-  %108 = load i32, ptr %_roundC.i, align 4
-  %109 = load ptr, ptr %_tmpBuf61, align 8
-  tail call void @_ZN7Imf_3_27RgbaYca8roundYCAEijjPKNS_4RgbaEPS1_(i32 noundef %106, i32 noundef %107, i32 noundef %108, ptr noundef %109, ptr noundef %109)
+  %103 = load i32, ptr %_width46, align 8
+  %104 = load i32, ptr %_roundY.i, align 8
+  %105 = load i32, ptr %_roundC.i, align 4
+  %106 = load ptr, ptr %_tmpBuf61, align 8
+  tail call void @_ZN7Imf_3_27RgbaYca8roundYCAEijjPKNS_4RgbaEPS1_(i32 noundef %103, i32 noundef %104, i32 noundef %105, ptr noundef %106, ptr noundef %106)
   br label %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit95
 
 _ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit95: ; preds = %if.end.i79, %land.lhs.true.i83, %if.then7.i86
-  %110 = load ptr, ptr %_outputFile.i, align 8
-  tail call void @_ZN7Imf_3_210OutputFile11writePixelsEi(ptr noundef nonnull align 8 dereferenceable(16) %110, i32 noundef 1)
+  %107 = load ptr, ptr %_outputFile.i, align 8
+  tail call void @_ZN7Imf_3_210OutputFile11writePixelsEi(ptr noundef nonnull align 8 dereferenceable(16) %107, i32 noundef 1)
   %inc118 = add nuw nsw i32 %j109.0110, 1
-  %111 = load i32, ptr %_height, align 4
-  %112 = tail call i32 @llvm.smin.i32(i32 %111, i32 13)
-  %cmp113 = icmp slt i32 %inc118, %112
+  %108 = load i32, ptr %_height, align 4
+  %109 = tail call i32 @llvm.smin.i32(i32 %108, i32 13)
+  %cmp113 = icmp slt i32 %inc118, %109
   br i1 %cmp113, label %for.body114, label %if.end120, !llvm.loop !13
 
 if.end120:                                        ; preds = %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit95, %_ZN7Imf_3_214RgbaOutputFile5ToYca34decimateChromaVertAndWriteScanLineEv.exit62, %if.end95
-  %113 = load i32, ptr %_lineOrder121, align 4
-  %cmp122 = icmp eq i32 %113, 0
-  %114 = load i32, ptr %_currentScanLine50, align 8
+  %110 = load i32, ptr %_lineOrder121, align 4
+  %cmp122 = icmp eq i32 %110, 0
+  %111 = load i32, ptr %_currentScanLine50, align 8
   %.127 = select i1 %cmp122, i32 1, i32 -1
-  %inc125 = add nsw i32 %114, %.127
+  %inc125 = add nsw i32 %111, %.127
   store i32 %inc125, ptr %_currentScanLine50, align 8
   %inc131 = add nuw nsw i32 %i38.0112, 1
   %exitcond121.not = icmp eq i32 %inc131, %numScanLines

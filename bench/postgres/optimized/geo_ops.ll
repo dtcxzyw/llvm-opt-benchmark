@@ -3676,11 +3676,11 @@ define dso_local noundef i64 @path_in(ptr nocapture noundef %0) local_unnamed_ad
   br i1 %.not.i, label %pair_count.exit, label %.lr.ph.i, !llvm.loop !14
 
 pair_count.exit:                                  ; preds = %.lr.ph.i
-  %14 = and i32 %.09.i, 1
-  %.not7.i.not = icmp eq i32 %14, 0
+  %14 = and i32 %11, 1
+  %.not7.i = icmp eq i32 %14, 0
   %15 = add i32 %.09.i, 2
   %16 = ashr exact i32 %15, 1
-  %17 = select i1 %.not7.i.not, i32 %16, i32 -1
+  %17 = select i1 %.not7.i, i32 -1, i32 %16
   %18 = icmp slt i32 %17, 1
   br i1 %18, label %pair_count.exit.thread, label %.preheader51
 
@@ -3762,17 +3762,17 @@ pair_count.exit.thread:                           ; preds = %1, %pair_count.exit
   br label %93
 
 57:                                               ; preds = %47
-  %.pre54 = load ptr, ptr %3, align 8
+  %.pre56 = load ptr, ptr %3, align 8
   br i1 %39, label %58, label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %57
-  %.pre55 = load i8, ptr %.pre54, align 1
+  %.pre57 = load i8, ptr %.pre56, align 1
   br label %.loopexit
 
 58:                                               ; preds = %57
-  %59 = getelementptr i8, ptr %.pre54, i64 1
+  %59 = getelementptr i8, ptr %.pre56, i64 1
   store ptr %59, ptr %3, align 8
-  %60 = load i8, ptr %.pre54, align 1
+  %60 = load i8, ptr %.pre56, align 1
   %.not46 = icmp eq i8 %60, 41
   br i1 %.not46, label %.preheader, label %67
 
@@ -3783,8 +3783,8 @@ pair_count.exit.thread:                           ; preds = %1, %pair_count.exit
   %64 = getelementptr i16, ptr %61, i64 %63
   %65 = load i16, ptr %64, align 2
   %66 = and i16 %65, 8192
-  %.not4753 = icmp eq i16 %66, 0
-  br i1 %.not4753, label %.loopexit, label %.lr.ph
+  %.not4754 = icmp eq i16 %66, 0
+  br i1 %.not4754, label %.loopexit, label %.lr.ph
 
 67:                                               ; preds = %58
   %68 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #15
@@ -3809,7 +3809,7 @@ pair_count.exit.thread:                           ; preds = %1, %pair_count.exit
   br i1 %.not47, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %..loopexit_crit_edge, %.preheader
-  %79 = phi i8 [ %62, %.preheader ], [ %.pre55, %..loopexit_crit_edge ], [ %74, %.lr.ph ]
+  %79 = phi i8 [ %62, %.preheader ], [ %.pre57, %..loopexit_crit_edge ], [ %74, %.lr.ph ]
   %.not48 = icmp eq i8 %79, 0
   br i1 %.not48, label %85, label %80
 
@@ -11025,11 +11025,11 @@ define dso_local noundef i64 @poly_in(ptr nocapture noundef %0) local_unnamed_ad
   br i1 %.not.i, label %pair_count.exit, label %.lr.ph.i, !llvm.loop !14
 
 pair_count.exit:                                  ; preds = %.lr.ph.i
-  %13 = and i32 %.09.i, 1
-  %.not7.i.not = icmp eq i32 %13, 0
+  %13 = and i32 %10, 1
+  %.not7.i = icmp eq i32 %13, 0
   %14 = add i32 %.09.i, 2
   %15 = ashr exact i32 %14, 1
-  %16 = select i1 %.not7.i.not, i32 %15, i32 -1
+  %16 = select i1 %.not7.i, i32 -1, i32 %15
   %17 = icmp slt i32 %16, 1
   br i1 %17, label %pair_count.exit.thread, label %22
 

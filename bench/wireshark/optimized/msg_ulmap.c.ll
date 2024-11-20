@@ -3771,77 +3771,79 @@ define internal fastcc noundef i32 @Power_Control_IE(ptr noundef %0, i32 noundef
   %16 = load i32, ptr @hf_ulmap_ie_diuc_ext, align 4
   %17 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %16, ptr noundef %3, i32 noundef %5, i32 noundef 1, i32 noundef %15) #4
   %18 = add i32 %1, 1
-  br i1 %.not, label %19, label %23
+  %19 = and i32 %18, 1
+  %.not50 = icmp eq i32 %19, 0
+  br i1 %.not50, label %24, label %20
 
-19:                                               ; preds = %4
-  %20 = sdiv i32 %18, 2
-  %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %20) #4
-  %22 = and i8 %21, 15
-  br label %27
+20:                                               ; preds = %4
+  %21 = sdiv i32 %18, 2
+  %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %21) #4
+  %23 = and i8 %22, 15
+  br label %28
 
-23:                                               ; preds = %4
-  %24 = ashr exact i32 %18, 1
-  %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %24) #4
-  %26 = lshr i8 %25, 4
+24:                                               ; preds = %4
+  %25 = ashr exact i32 %18, 1
+  %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %25) #4
+  %27 = lshr i8 %26, 4
   %.pre = ashr exact i32 %18, 1
-  br label %27
+  br label %28
 
-27:                                               ; preds = %23, %19
-  %.pre-phi = phi i32 [ %.pre, %23 ], [ %20, %19 ]
-  %.in51 = phi i8 [ %26, %23 ], [ %22, %19 ]
-  %28 = zext nneg i8 %.in51 to i32
-  %29 = load i32, ptr @hf_ulmap_ie_length, align 4
-  %30 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %29, ptr noundef %3, i32 noundef %.pre-phi, i32 noundef 1, i32 noundef %28) #4
-  %31 = add i32 %1, 2
-  br i1 %.not, label %38, label %32
+28:                                               ; preds = %24, %20
+  %.pre-phi = phi i32 [ %.pre, %24 ], [ %21, %20 ]
+  %.in51 = phi i8 [ %27, %24 ], [ %23, %20 ]
+  %29 = zext nneg i8 %.in51 to i32
+  %30 = load i32, ptr @hf_ulmap_ie_length, align 4
+  %31 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %30, ptr noundef %3, i32 noundef %.pre-phi, i32 noundef 1, i32 noundef %29) #4
+  %32 = add i32 %1, 2
+  br i1 %.not, label %39, label %33
 
-32:                                               ; preds = %27
-  %33 = sdiv i32 %31, 2
-  %34 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %33) #4
-  %35 = lshr i16 %34, 4
-  %36 = and i16 %35, 255
-  %37 = zext nneg i16 %36 to i32
-  br label %42
+33:                                               ; preds = %28
+  %34 = sdiv i32 %32, 2
+  %35 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %34) #4
+  %36 = lshr i16 %35, 4
+  %37 = and i16 %36, 255
+  %38 = zext nneg i16 %37 to i32
+  br label %43
 
-38:                                               ; preds = %27
-  %39 = ashr exact i32 %31, 1
-  %40 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %39) #4
-  %41 = zext i8 %40 to i32
-  %.pre54 = ashr exact i32 %31, 1
-  br label %42
+39:                                               ; preds = %28
+  %40 = ashr exact i32 %32, 1
+  %41 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %40) #4
+  %42 = zext i8 %41 to i32
+  %.pre54 = ashr exact i32 %32, 1
+  br label %43
 
-42:                                               ; preds = %38, %32
-  %.pre-phi55 = phi i32 [ %.pre54, %38 ], [ %33, %32 ]
-  %43 = phi i32 [ %41, %38 ], [ %37, %32 ]
-  %44 = load i32, ptr @hf_ulmap_power_control, align 4
-  %45 = add nuw nsw i32 %6, 3
-  %46 = lshr i32 %45, 1
-  %47 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %44, ptr noundef %3, i32 noundef %.pre-phi55, i32 noundef %46, i32 noundef %43) #4
-  %48 = add i32 %1, 4
-  br i1 %.not, label %55, label %49
+43:                                               ; preds = %39, %33
+  %.pre-phi55 = phi i32 [ %.pre54, %39 ], [ %34, %33 ]
+  %44 = phi i32 [ %42, %39 ], [ %38, %33 ]
+  %45 = load i32, ptr @hf_ulmap_power_control, align 4
+  %46 = add nuw nsw i32 %6, 3
+  %47 = lshr i32 %46, 1
+  %48 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %45, ptr noundef %3, i32 noundef %.pre-phi55, i32 noundef %47, i32 noundef %44) #4
+  %49 = add i32 %1, 4
+  br i1 %.not, label %56, label %50
 
-49:                                               ; preds = %42
-  %50 = sdiv i32 %48, 2
-  %51 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %50) #4
-  %52 = lshr i16 %51, 4
-  %53 = and i16 %52, 255
-  %54 = zext nneg i16 %53 to i32
-  br label %59
+50:                                               ; preds = %43
+  %51 = sdiv i32 %49, 2
+  %52 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %51) #4
+  %53 = lshr i16 %52, 4
+  %54 = and i16 %53, 255
+  %55 = zext nneg i16 %54 to i32
+  br label %60
 
-55:                                               ; preds = %42
-  %56 = ashr exact i32 %48, 1
-  %57 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %56) #4
-  %58 = zext i8 %57 to i32
-  %.pre56 = ashr exact i32 %48, 1
-  br label %59
+56:                                               ; preds = %43
+  %57 = ashr exact i32 %49, 1
+  %58 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %57) #4
+  %59 = zext i8 %58 to i32
+  %.pre56 = ashr exact i32 %49, 1
+  br label %60
 
-59:                                               ; preds = %55, %49
-  %.pre-phi57 = phi i32 [ %.pre56, %55 ], [ %50, %49 ]
-  %60 = phi i32 [ %58, %55 ], [ %54, %49 ]
-  %61 = load i32, ptr @hf_ulmap_power_measurement_frame, align 4
-  %62 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %61, ptr noundef %3, i32 noundef %.pre-phi57, i32 noundef %46, i32 noundef %60) #4
-  %63 = add i32 %1, 6
-  ret i32 %63
+60:                                               ; preds = %56, %50
+  %.pre-phi57 = phi i32 [ %.pre56, %56 ], [ %51, %50 ]
+  %61 = phi i32 [ %59, %56 ], [ %55, %50 ]
+  %62 = load i32, ptr @hf_ulmap_power_measurement_frame, align 4
+  %63 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %62, ptr noundef %3, i32 noundef %.pre-phi57, i32 noundef %47, i32 noundef %61) #4
+  %64 = add i32 %1, 6
+  ret i32 %64
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4297,33 +4299,35 @@ define internal fastcc noundef i32 @MIMO_UL_IE(ptr noundef %0, ptr noundef %1, i
   %17 = load i32, ptr @hf_ulmap_ie_diuc_ext, align 4
   %18 = tail call ptr @proto_tree_add_uint(ptr noundef %12, i32 noundef %17, ptr noundef %4, i32 noundef %6, i32 noundef 1, i32 noundef %16) #4
   %19 = add i32 %2, 1
-  br i1 %.not, label %20, label %24
+  %20 = and i32 %19, 1
+  %.not34 = icmp eq i32 %20, 0
+  br i1 %.not34, label %25, label %21
 
-20:                                               ; preds = %5
-  %21 = sdiv i32 %19, 2
-  %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %21) #4
-  %23 = and i8 %22, 15
-  br label %28
+21:                                               ; preds = %5
+  %22 = sdiv i32 %19, 2
+  %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %22) #4
+  %24 = and i8 %23, 15
+  br label %29
 
-24:                                               ; preds = %5
-  %25 = ashr exact i32 %19, 1
-  %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %25) #4
-  %27 = lshr i8 %26, 4
+25:                                               ; preds = %5
+  %26 = ashr exact i32 %19, 1
+  %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %4, i32 noundef %26) #4
+  %28 = lshr i8 %27, 4
   %.pre = ashr exact i32 %19, 1
-  br label %28
+  br label %29
 
-28:                                               ; preds = %24, %20
-  %.pre-phi = phi i32 [ %.pre, %24 ], [ %21, %20 ]
-  %.in35 = phi i8 [ %27, %24 ], [ %23, %20 ]
-  %29 = zext nneg i8 %.in35 to i32
-  %30 = load i32, ptr @hf_ulmap_ie_length, align 4
-  %31 = tail call ptr @proto_tree_add_uint(ptr noundef %12, i32 noundef %30, ptr noundef %4, i32 noundef %.pre-phi, i32 noundef 1, i32 noundef %29) #4
-  %32 = add i32 %2, 2
-  %33 = sdiv i32 %32, 2
-  %34 = add nsw i32 %8, -1
-  %35 = lshr i32 %34, 1
-  %36 = tail call ptr @proto_tree_add_expert(ptr noundef %12, ptr noundef %1, ptr noundef nonnull @ei_ulmap_not_implemented, ptr noundef %4, i32 noundef %33, i32 noundef %35) #4
-  ret i32 %32
+29:                                               ; preds = %25, %21
+  %.pre-phi = phi i32 [ %.pre, %25 ], [ %22, %21 ]
+  %.in35 = phi i8 [ %28, %25 ], [ %24, %21 ]
+  %30 = zext nneg i8 %.in35 to i32
+  %31 = load i32, ptr @hf_ulmap_ie_length, align 4
+  %32 = tail call ptr @proto_tree_add_uint(ptr noundef %12, i32 noundef %31, ptr noundef %4, i32 noundef %.pre-phi, i32 noundef 1, i32 noundef %30) #4
+  %33 = add i32 %2, 2
+  %34 = sdiv i32 %33, 2
+  %35 = add nsw i32 %8, -1
+  %36 = lshr i32 %35, 1
+  %37 = tail call ptr @proto_tree_add_expert(ptr noundef %12, ptr noundef %1, ptr noundef nonnull @ei_ulmap_not_implemented, ptr noundef %4, i32 noundef %34, i32 noundef %36) #4
+  ret i32 %33
 }
 
 ; Function Attrs: nounwind uwtable

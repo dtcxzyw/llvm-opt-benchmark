@@ -393,16 +393,16 @@ entry:
   %data_.i = getelementptr inbounds i8, ptr %buf, i64 8
   %0 = load ptr, ptr %data_.i, align 8
   %1 = load i64, ptr %buf, align 8
-  %cmp8.not10 = icmp eq i64 %1, 0
-  br i1 %cmp8.not10, label %for.end, label %for.body.lr.ph
+  %cmp9.not = icmp eq i64 %1, 0
+  br i1 %cmp9.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.09 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.inc ]
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 %i.09
+  %i.010 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.inc ]
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 %i.010
   %2 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %2 to i32
   %call4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp, i64 noundef 3, ptr noundef nonnull @.str.5, i32 noundef %conv) #22
@@ -410,10 +410,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
           to label %invoke.cont6 unwind label %lpad.loopexit
 
 invoke.cont6:                                     ; preds = %for.body
-  %add = add nuw i64 %i.09, 1
-  %3 = and i64 %i.09, 1
-  %cmp8.not = icmp eq i64 %3, 0
-  br i1 %cmp8.not, label %if.end, label %if.then
+  %add = add nuw i64 %i.010, 1
+  %rem = and i64 %add, 1
+  %cmp8 = icmp eq i64 %rem, 0
+  br i1 %cmp8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont6
   %call11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i8 noundef signext 32)
@@ -444,8 +444,8 @@ if.then15:                                        ; preds = %if.end
           to label %for.inc unwind label %lpad.loopexit
 
 for.inc:                                          ; preds = %if.end, %if.then15
-  %4 = load i64, ptr %buf, align 8
-  %cmp = icmp ult i64 %add, %4
+  %3 = load i64, ptr %buf, align 8
+  %cmp = icmp ult i64 %add, %3
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %entry

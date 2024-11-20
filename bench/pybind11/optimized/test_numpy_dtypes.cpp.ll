@@ -69743,7 +69743,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJmEE4callINS
   call void @_Z18mkarray_via_bufferI12NestedStructEN8pybind115arrayEm(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::array") align 8 %2, i64 noundef %.0.val), !noalias !1722
   %4 = load ptr, ptr %2, align 8, !noalias !1722
   %5 = invoke noundef ptr @_ZN8pybind117array_tI12NestedStructLi0EE11raw_array_tEP7_object(ptr noundef %4)
-          to label %.noexc.i.i unwind label %47, !noalias !1722
+          to label %.noexc.i.i unwind label %48, !noalias !1722
 
 .noexc.i.i:                                       ; preds = %1
   store ptr %5, ptr %0, align 8, !alias.scope !1722
@@ -69803,7 +69803,7 @@ _ZN8pybind117array_tI12NestedStructLi0EEC2ERKNS_6objectE.exit.i.i: ; preds = %.n
 
 _ZN8pybind115arrayD2Ev.exit.i.i:                  ; preds = %19, %16, %_ZN8pybind117array_tI12NestedStructLi0EEC2ERKNS_6objectE.exit.i.i
   invoke void @_ZNK8pybind116buffer7requestEb(ptr dead_on_unwind nonnull writable sret(%"struct.pybind11::buffer_info") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext false)
-          to label %23 unwind label %49
+          to label %23 unwind label %50
 
 23:                                               ; preds = %_ZN8pybind115arrayD2Ev.exit.i.i
   %24 = load ptr, ptr %3, align 8, !noalias !1722
@@ -69829,40 +69829,41 @@ _ZN8pybind115arrayD2Ev.exit.i.i:                  ; preds = %19, %16, %_ZN8pybin
   store x86_fp80 %34, ptr %35, align 1
   %36 = add nuw i64 %.01.i.i, 1
   %37 = getelementptr inbounds i8, ptr %25, i64 32
-  %38 = xor i8 %27, 1
-  store i8 %38, ptr %37, align 1
-  %39 = trunc i64 %36 to i32
-  %40 = getelementptr inbounds i8, ptr %25, i64 33
-  store i32 %39, ptr %40, align 1
-  %41 = uitofp i64 %36 to float
-  %42 = fmul float %41, 1.500000e+00
-  %43 = getelementptr inbounds i8, ptr %25, i64 37
-  store float %42, ptr %43, align 1
-  %44 = uitofp i64 %36 to x86_fp80
-  %45 = fmul x86_fp80 %44, 0xKC000A000000000000000
-  %46 = getelementptr inbounds i8, ptr %25, i64 41
-  store x86_fp80 %45, ptr %46, align 1
+  %38 = trunc i64 %36 to i8
+  %39 = and i8 %38, 1
+  store i8 %39, ptr %37, align 1
+  %40 = trunc i64 %36 to i32
+  %41 = getelementptr inbounds i8, ptr %25, i64 33
+  store i32 %40, ptr %41, align 1
+  %42 = uitofp i64 %36 to float
+  %43 = fmul float %42, 1.500000e+00
+  %44 = getelementptr inbounds i8, ptr %25, i64 37
+  store float %43, ptr %44, align 1
+  %45 = uitofp i64 %36 to x86_fp80
+  %46 = fmul x86_fp80 %45, 0xKC000A000000000000000
+  %47 = getelementptr inbounds i8, ptr %25, i64 41
+  store x86_fp80 %46, ptr %47, align 1
   %exitcond.not.i.i = icmp eq i64 %36, %.0.val
   br i1 %exitcond.not.i.i, label %"_ZNO8pybind116detail15argument_loaderIJmEE9call_implINS_7array_tI12NestedStructLi0EEERZ27test_submodule_numpy_dtypesRNS_7module_EE3$_5JLm0EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit", label %.lr.ph.i.i, !llvm.loop !1723
 
-47:                                               ; preds = %1
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %1
+  %49 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
 
-.body.i.i:                                        ; preds = %47, %13
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %48, %47 ], [ %.pn.i.i.i, %13 ]
+.body.i.i:                                        ; preds = %48, %13
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %49, %48 ], [ %.pn.i.i.i, %13 ]
   call void @_ZN8pybind115arrayD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #26
-  br label %51
+  br label %52
 
-49:                                               ; preds = %_ZN8pybind115arrayD2Ev.exit.i.i
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %_ZN8pybind115arrayD2Ev.exit.i.i
+  %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8pybind117array_tI12NestedStructLi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
-  br label %51
+  br label %52
 
-51:                                               ; preds = %49, %.body.i.i
-  %.pn.i.i = phi { ptr, i32 } [ %50, %49 ], [ %eh.lpad-body.i.i, %.body.i.i ]
+52:                                               ; preds = %50, %.body.i.i
+  %.pn.i.i = phi { ptr, i32 } [ %51, %50 ], [ %eh.lpad-body.i.i, %.body.i.i ]
   resume { ptr, i32 } %.pn.i.i
 
 "_ZNO8pybind116detail15argument_loaderIJmEE9call_implINS_7array_tI12NestedStructLi0EEERZ27test_submodule_numpy_dtypesRNS_7module_EE3$_5JLm0EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit": ; preds = %.lr.ph.i.i, %23

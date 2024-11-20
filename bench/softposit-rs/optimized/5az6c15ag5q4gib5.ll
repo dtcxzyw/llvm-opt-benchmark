@@ -1126,8 +1126,8 @@ define noundef i16 @"_ZN9softposit5p16e14math6cos_pi41_$LT$impl$u20$softposit..p
   %7 = icmp eq i64 %spec.select, 0
   br i1 %7, label %.thread92, label %8
 
-.thread92:                                        ; preds = %3, %49, %1, %93
-  %.0 = phi i16 [ %97, %93 ], [ -32768, %1 ], [ 16384, %3 ], [ %52, %49 ]
+.thread92:                                        ; preds = %3, %49, %1, %94
+  %.0 = phi i16 [ %98, %94 ], [ -32768, %1 ], [ 16384, %3 ], [ %52, %49 ]
   ret i16 %.0
 
 8:                                                ; preds = %3
@@ -1254,51 +1254,51 @@ _ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit: ; preds = %53
   br i1 %78, label %.lr.ph77, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph77
-  %79 = and i64 %.05376, 1
-  %.not = icmp eq i64 %79, 0
-  %80 = and i64 %75, 16777214
-  %spec.select110 = sub nuw nsw i64 12, %79
-  %spec.select111 = select i1 %.not, i64 %75, i64 %80
-  %81 = lshr i64 %76, 1
+  %79 = and i64 %76, 1
+  %80 = icmp eq i64 %79, 0
+  %81 = and i64 %75, 16777214
+  %spec.select110 = add nuw nsw i64 %79, 11
+  %spec.select111 = select i1 %80, i64 %81, i64 %75
+  %82 = lshr i64 %76, 1
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %_ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit, %53
-  %.053.lcssa101.sink = phi i64 [ 0, %_ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit ], [ 0, %53 ], [ %81, %._crit_edge ]
+  %.053.lcssa101.sink = phi i64 [ 0, %_ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit ], [ 0, %53 ], [ %82, %._crit_edge ]
   %.sink109 = phi i64 [ 12, %_ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit ], [ 12, %53 ], [ %spec.select110, %._crit_edge ]
   %.7 = phi i64 [ %72, %_ZN9softposit5p16e14math6cos_pi4poly17hb67badd2ed40ea54E.exit ], [ 33554431, %53 ], [ %spec.select111, %._crit_edge ]
-  %82 = add nuw i64 %.053.lcssa101.sink, %.sink109
-  %83 = or i64 %.7, 33554432
-  %84 = add nuw i64 %82, 63
-  %85 = and i64 %84, 63
-  %86 = shl nuw i64 1, %85
-  %87 = and i64 %86, %83
-  %88 = icmp eq i64 %87, 0
-  br i1 %88, label %93, label %89
+  %83 = add nuw i64 %.053.lcssa101.sink, %.sink109
+  %84 = or i64 %.7, 33554432
+  %85 = add nuw i64 %83, 63
+  %86 = and i64 %85, 63
+  %87 = shl nuw i64 1, %86
+  %88 = and i64 %87, %84
+  %89 = icmp eq i64 %88, 0
+  br i1 %89, label %94, label %90
 
-89:                                               ; preds = %._crit_edge.thread
-  %90 = add i64 %86, -1
-  %91 = and i64 %90, %83
-  %92 = icmp eq i64 %91, 0
-  br i1 %92, label %98, label %102
+90:                                               ; preds = %._crit_edge.thread
+  %91 = add i64 %87, -1
+  %92 = and i64 %91, %84
+  %93 = icmp eq i64 %92, 0
+  br i1 %93, label %99, label %103
 
-93:                                               ; preds = %102, %98, %._crit_edge.thread
-  %.8 = phi i64 [ %83, %._crit_edge.thread ], [ %83, %98 ], [ %103, %102 ]
-  %94 = and i64 %82, 63
-  %95 = lshr i64 %.8, %94
-  %96 = sub i64 0, %95
-  %spec.select64 = select i1 %18, i64 %95, i64 %96
-  %97 = trunc i64 %spec.select64 to i16
+94:                                               ; preds = %103, %99, %._crit_edge.thread
+  %.8 = phi i64 [ %84, %._crit_edge.thread ], [ %84, %99 ], [ %104, %103 ]
+  %95 = and i64 %83, 63
+  %96 = lshr i64 %.8, %95
+  %97 = sub i64 0, %96
+  %spec.select64 = select i1 %18, i64 %96, i64 %97
+  %98 = trunc i64 %spec.select64 to i16
   br label %.thread92
 
-98:                                               ; preds = %89
-  %99 = shl i64 2, %85
-  %100 = and i64 %99, %83
-  %101 = icmp eq i64 %100, 0
-  br i1 %101, label %93, label %102
+99:                                               ; preds = %90
+  %100 = shl i64 2, %86
+  %101 = and i64 %100, %84
+  %102 = icmp eq i64 %101, 0
+  br i1 %102, label %94, label %103
 
-102:                                              ; preds = %98, %89
-  %103 = add i64 %86, %83
-  br label %93
+103:                                              ; preds = %99, %90
+  %104 = add i64 %87, %84
+  br label %94
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(none) uwtable

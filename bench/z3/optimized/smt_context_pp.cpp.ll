@@ -1628,6 +1628,7 @@ for.body:                                         ; preds = %_ZNK6vectorIN3smt10
   %l_idx.033 = phi i32 [ %inc, %for.inc24 ], [ 0, %_ZNK6vectorIN3smt10watch_listELb1EjE3endEv.exit ]
   %__begin1.032 = phi ptr [ %incdec.ptr25, %for.inc24 ], [ %0, %_ZNK6vectorIN3smt10watch_listELb1EjE3endEv.exit ]
   %inc = add nuw i32 %l_idx.033, 1
+  %xor.i = xor i32 %l_idx.033, 1
   %3 = load ptr, ptr %__begin1.032, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %_ZNK3smt10watch_list12end_literalsEv.exit, label %cond.true.i.i10
@@ -1650,9 +1651,9 @@ _ZNK3smt10watch_list12end_literalsEv.exit:        ; preds = %for.body, %cond.tru
   br i1 %cmp10.not29, label %for.inc24, label %for.body11.lr.ph
 
 for.body11.lr.ph:                                 ; preds = %_ZNK3smt10watch_list12end_literalsEv.exit
-  %8 = and i32 %l_idx.033, 1
-  %tobool.i.not.i.not = icmp eq i32 %8, 0
-  %cond.i = select i1 %tobool.i.not.i.not, ptr @.str.121, ptr @.str.122
+  %8 = and i32 %xor.i, 1
+  %tobool.i.not.i = icmp eq i32 %8, 0
+  %cond.i = select i1 %tobool.i.not.i, ptr @.str.122, ptr @.str.121
   %shr.i.i = lshr i32 %l_idx.033, 1
   br label %for.body11
 
@@ -1666,8 +1667,7 @@ if.then:                                          ; preds = %for.body11
   %call15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.38)
   %.b37 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
   %10 = select i1 %.b37, i32 -2, i32 0
-  %11 = xor i32 %10, %l_idx.033
-  %cmp.i.i14 = icmp eq i32 %11, 1
+  %cmp.i.i14 = icmp eq i32 %xor.i, %10
   br i1 %cmp.i.i14, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -1682,8 +1682,8 @@ if.else.i:                                        ; preds = %if.then
 _ZN3satlsERSoNS_7literalE.exit:                   ; preds = %if.then.i, %if.else.i
   %call19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call15, ptr noundef nonnull @.str.12)
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
-  %12 = select i1 %.b, i32 -2, i32 0
-  %cmp.i.i15 = icmp eq i32 %9, %12
+  %11 = select i1 %.b, i32 -2, i32 0
+  %cmp.i.i15 = icmp eq i32 %9, %11
   br i1 %cmp.i.i15, label %if.then.i22, label %if.else.i16
 
 if.then.i22:                                      ; preds = %_ZN3satlsERSoNS_7literalE.exit
@@ -1691,8 +1691,8 @@ if.then.i22:                                      ; preds = %_ZN3satlsERSoNS_7li
   br label %_ZN3satlsERSoNS_7literalE.exit24
 
 if.else.i16:                                      ; preds = %_ZN3satlsERSoNS_7literalE.exit
-  %13 = and i32 %9, 1
-  %tobool.i.not.i17 = icmp eq i32 %13, 0
+  %12 = and i32 %9, 1
+  %tobool.i.not.i17 = icmp eq i32 %12, 0
   %cond.i18 = select i1 %tobool.i.not.i17, ptr @.str.122, ptr @.str.121
   %call3.i19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call19, ptr noundef nonnull %cond.i18)
   %shr.i.i20 = lshr i32 %9, 1
