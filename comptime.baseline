@@ -34229,7 +34229,7 @@ spike/f64_roundToInt.ll 50111824
 spike/f64_sqrt.ll 54589262
 spike/f64_to_i32.ll 43309734
 spike/f64_to_i32_r_minMag.ll 44837765
-spike/f64_to_i64_r_minMag.ll 43913727
+spike/f64_to_i64_r_minMag.ll 43957828
 spike/f64_to_ui32.ll 43310752
 spike/f64_to_ui32_r_minMag.ll 42146323
 spike/f64_to_ui64_r_minMag.ll 42754733
