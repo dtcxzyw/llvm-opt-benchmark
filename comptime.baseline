@@ -16667,7 +16667,7 @@ luajit/lj_api_dyn.ll 756270623
 luajit/lj_asm.ll 6742593305
 luajit/lj_asm_dyn.ll 6742910357
 luajit/lj_bcread.ll 288469317
-luajit/lj_bcread_dyn.ll 288063043
+luajit/lj_bcread_dyn.ll 288351674
 luajit/lj_bcwrite.ll 259240323
 luajit/lj_bcwrite_dyn.ll 259218011
 luajit/lj_buf.ll 161023506
