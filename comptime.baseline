@@ -3125,7 +3125,7 @@ clamav/misc.c.ll 132022949
 clamav/mpool.c.ll 173161697
 clamav/msdoc.c.ll 319628660
 clamav/msexpand.c.ll 102809517
-clamav/msxml.c.ll 95331368
+clamav/msxml.c.ll 95430709
 clamav/msxml_parser.c.ll 179195849
 clamav/mszipd.c.ll 847559449
 clamav/netcode.c.ll 228768444
@@ -3177,7 +3177,7 @@ clamav/scanners.c.ll 1578452299
 clamav/scantree.cpp.ll 201068676
 clamav/secpassword.cpp.ll 161640694
 clamav/server-th.c.ll 583590721
-clamav/session.c.ll 161920154
+clamav/session.c.ll 162088972
 clamav/sf_base64decode.c.ll 57389372
 clamav/sha1.cpp.ll 570884700
 clamav/sha256.cpp.ll 99958038
@@ -3954,7 +3954,7 @@ cmake/testEncoding.cxx.ll 370556530
 cmake/testFStream.cxx.ll 93478340
 cmake/testProcess.c.ll 180672539
 cmake/testSystemTools.cxx.ll 1747975758
-cmake/test_int_C.c.ll 306890544
+cmake/test_int_C.c.ll 307213391
 cmake/test_int_CXX.cxx.ll 306784801
 cmake/thread.c.ll 151845647
 cmake/threadpool.c.ll 126753168
@@ -8740,7 +8740,7 @@ gromacs/neldermead.cpp.ll 799575785
 gromacs/nm2type.cpp.ll 367568598
 gromacs/nonbonded_bench.cpp.ll 796779840
 gromacs/nosehooverchains.cpp.ll 2889416469
-gromacs/nr_jacobi.cpp.ll 168240458
+gromacs/nr_jacobi.cpp.ll 168416259
 gromacs/nrama.cpp.ll 262919060
 gromacs/nrjac.cpp.ll 433826322
 gromacs/nrnb.cpp.ll 141335859
@@ -17505,7 +17505,7 @@ meshlab/xmldocumentmanaging.cpp.ll 119031015
 meshoptimizer/clusterizer.cpp.ll 476660247
 meshoptimizer/indexcodec.cpp.ll 367838251
 meshoptimizer/indexgenerator.cpp.ll 511522664
-meshoptimizer/overdrawanalyzer.cpp.ll 208605868
+meshoptimizer/overdrawanalyzer.cpp.ll 208817214
 meshoptimizer/overdrawoptimizer.cpp.ll 258032571
 meshoptimizer/quantization.cpp.ll 42276338
 meshoptimizer/simplifier.cpp.ll 1433720106
@@ -18442,7 +18442,7 @@ msdfgen/equation-solver.cpp.ll 56623536
 msdfgen/import-font.cpp.ll 336702744
 msdfgen/import-svg.cpp.ll 752348462
 msdfgen/main.cpp.ll 1735206891
-msdfgen/msdf-error-correction.cpp.ll 902778108
+msdfgen/msdf-error-correction.cpp.ll 903730610
 msdfgen/msdfgen.cpp.ll 868492486
 msdfgen/rasterization.cpp.ll 386428961
 msdfgen/render-sdf.cpp.ll 341085611
@@ -18492,7 +18492,7 @@ ncnn/bias_x86_fma.cpp.ll 104068374
 ncnn/binaryop.cpp.ll 2146107728
 ncnn/binaryop_x86.cpp.ll 3034544488
 ncnn/binaryop_x86_avx.cpp.ll 5980195303
-ncnn/binaryop_x86_avx512.cpp.ll 8991607508
+ncnn/binaryop_x86_avx512.cpp.ll 9001365486
 ncnn/binaryop_x86_fma.cpp.ll 5789160203
 ncnn/blob.cpp.ll 35214130
 ncnn/bnll.cpp.ll 61650034
@@ -20383,7 +20383,7 @@ openblas/dlasdq.c.ll 111039485
 openblas/dlasq1.c.ll 67429983
 openblas/dlasq2.c.ll 238328384
 openblas/dlasq5.c.ll 127722328
-openblas/dlasr.c.ll 214832484
+openblas/dlasr.c.ll 215101396
 openblas/dlasrt.c.ll 99856986
 openblas/dlasv2.c.ll 56018266
 openblas/dlaswlq.c.ll 63062469
@@ -31566,7 +31566,7 @@ quantlib/greeks.ll 239481871
 quantlib/gridmodellocalvolsurface.ll 1237936985
 quantlib/gsr.ll 2673523925
 quantlib/gsrprocess.ll 613018172
-quantlib/gsrprocesscore.ll 1815892814
+quantlib/gsrprocesscore.ll 1817880094
 quantlib/gumbelcopula.ll 193960509
 quantlib/haganirregularswaptionengine.ll 2882714329
 quantlib/haltonrsg.ll 512651646
@@ -31693,7 +31693,7 @@ quantlib/makecapfloor.ll 1225672759
 quantlib/makecds.ll 875012848
 quantlib/makecms.ll 1810347490
 quantlib/makeois.ll 1506772737
-quantlib/makeswaption.ll 1073405359
+quantlib/makeswaption.ll 1074487095
 quantlib/makevanillaswap.ll 1906662939
 quantlib/makeyoyinflationcapfloor.ll 1613752023
 quantlib/margrabeoption.ll 838565944
@@ -35416,7 +35416,7 @@ sundials/cvodes_nls_stg1.c.ll 81885267
 sundials/cvodes_proj.c.ll 89878127
 sundials/ida.c.ll 1064410116
 sundials/ida_bbdpre.c.ll 184694035
-sundials/ida_ic.c.ll 352572522
+sundials/ida_ic.c.ll 352927061
 sundials/ida_io.c.ll 223766934
 sundials/ida_ls.c.ll 336833481
 sundials/ida_nls.c.ll 74449137
