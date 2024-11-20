@@ -164,9 +164,9 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE11_M_allocateEm.exit.i: ; preds = %24
   %74 = fsub float %71, %73
   %75 = call noundef float @llvm.fabs.f32(float %74)
   %76 = fcmp ogt float %75, %67
-  br i1 %76, label %.preheader191, label %77
+  br i1 %76, label %.preheader190, label %77
 
-.preheader191:                                    ; preds = %77, %69
+.preheader190:                                    ; preds = %77, %69
   br label %85
 
 77:                                               ; preds = %69
@@ -177,7 +177,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE11_M_allocateEm.exit.i: ; preds = %24
   %82 = fsub float %79, %81
   %83 = call noundef float @llvm.fabs.f32(float %82)
   %84 = fcmp ogt float %83, %67
-  br i1 %84, label %.preheader191, label %68
+  br i1 %84, label %.preheader190, label %68
 
 .loopexit402.i:                                   ; preds = %280
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -205,8 +205,8 @@ _ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i
   %scevgep.i.i.i.i.i42 = getelementptr inbounds i8, ptr %51, i64 32
   br label %_ZN2cv10AutoBufferIfLm100EED2Ev.exit.i
 
-85:                                               ; preds = %.preheader191, %85
-  %indvars.iv487.i = phi i64 [ %indvars.iv.next488.i, %85 ], [ 0, %.preheader191 ]
+85:                                               ; preds = %.preheader190, %85
+  %indvars.iv487.i = phi i64 [ %indvars.iv.next488.i, %85 ], [ 0, %.preheader190 ]
   %indvars.iv.next488.i = add nuw nsw i64 %indvars.iv487.i, 1
   %86 = and i64 %indvars.iv.next488.i, 3
   %87 = getelementptr inbounds [4 x %"class.cv::Point_"], ptr %7, i64 0, i64 %86
@@ -835,9 +835,9 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit.i:           ; preds = %.noexc340.i, %_ZN2c
   br label %._crit_edge469.i
 
 .lr.ph468.preheader.i:                            ; preds = %410, %.preheader397.i
-  %.2235.lcssa.i142 = phi i32 [ %.1234.ph.lcssa.i, %.preheader397.i ], [ 8, %410 ]
-  %360 = add nsw i32 %.2235.lcssa.i142, -1
-  %361 = zext nneg i32 %.2235.lcssa.i142 to i64
+  %.2235.lcssa.i141 = phi i32 [ %.1234.ph.lcssa.i, %.preheader397.i ], [ 8, %410 ]
+  %360 = add nsw i32 %.2235.lcssa.i141, -1
+  %361 = zext nneg i32 %.2235.lcssa.i141 to i64
   %wide.trip.count557.i = zext nneg i32 %360 to i64
   br label %.lr.ph468.i
 
@@ -1227,8 +1227,8 @@ _ZN2cv10AutoBufferIfLm100EED2Ev.exit352.i:        ; preds = %486, %_ZN2cv10AutoB
   %494 = ptrtoint ptr %.sroa.28.1 to i64
   %495 = ptrtoint ptr %.sroa.0.5 to i64
   %496 = sub i64 %494, %495
-  %.not122 = icmp eq ptr %.sroa.28.1, %.sroa.0.5
-  br i1 %.not122, label %._crit_edge, label %.lr.ph.preheader
+  %.not121 = icmp eq ptr %.sroa.28.1, %.sroa.0.5
+  br i1 %.not121, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %497 = ashr exact i64 %496, 3
@@ -1236,8 +1236,8 @@ _ZN2cv10AutoBufferIfLm100EED2Ev.exit352.i:        ; preds = %486, %_ZN2cv10AutoB
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0121 = phi i64 [ %504, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %498 = getelementptr inbounds %"class.cv::Point_", ptr %.sroa.0.5, i64 %.0121
+  %.0120 = phi i64 [ %504, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %498 = getelementptr inbounds %"class.cv::Point_", ptr %.sroa.0.5, i64 %.0120
   %499 = load float, ptr %498, align 4
   %500 = fadd float %39, %499
   store float %500, ptr %498, align 4
@@ -1245,7 +1245,7 @@ _ZN2cv10AutoBufferIfLm100EED2Ev.exit352.i:        ; preds = %486, %_ZN2cv10AutoB
   %502 = load float, ptr %501, align 4
   %503 = fadd float %40, %502
   store float %503, ptr %501, align 4
-  %504 = add nuw i64 %.0121, 1
+  %504 = add nuw i64 %.0120, 1
   %exitcond.not = icmp eq i64 %504, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 

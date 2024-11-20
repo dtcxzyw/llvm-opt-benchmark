@@ -1584,7 +1584,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   br label %._crit_edge.i.i.i
 
 378:                                              ; preds = %374
-  %379 = and i32 %370, 255
+  %.sroa.05.0.vec.extract7.i.i = extractelement <4 x i8> %376, i64 0
+  %379 = zext i8 %.sroa.05.0.vec.extract7.i.i to i32
   %380 = zext i8 %.sroa.05.3.vec.extract.i.i to i32
   %381 = mul nuw nsw i32 %379, %380
   %382 = add nuw nsw i32 %381, 128

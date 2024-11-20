@@ -15048,6 +15048,7 @@ define void @"_ZN13wasmtime_wasi4host3udp113_$LT$impl$u20$wasmtime_wasi..binding
   %.sroa.02.0.extract.trunc.i.i = trunc i48 %.sroa.6.0..sroa.6.0..sroa.6.0..sroa.6.0..sroa.439.2.copyload to i32
   %.sroa.4.0.extract.shift.i.i = and i48 %.sroa.6.0..sroa.6.0..sroa.6.0..sroa.6.0..sroa.439.2.copyload, -4294967296
   %54 = bitcast i32 %.sroa.02.0.extract.trunc.i.i to <4 x i8>
+  %.sroa.02.0.vec.extract.i.i.i = extractelement <4 x i8> %54, i64 0
   %.sroa.02.1.vec.extract.i.i.i = extractelement <4 x i8> %54, i64 1
   %.sroa.02.2.vec.extract.i.i.i = extractelement <4 x i8> %54, i64 2
   %.sroa.02.3.vec.extract.i.i.i = extractelement <4 x i8> %54, i64 3
@@ -15059,7 +15060,7 @@ define void @"_ZN13wasmtime_wasi4host3udp113_$LT$impl$u20$wasmtime_wasi..binding
   %.sroa.2.0.insert.ext.i.i.i = zext i8 %.sroa.02.1.vec.extract.i.i.i to i32
   %.sroa.2.0.insert.shift.i.i.i = shl nuw nsw i32 %.sroa.2.0.insert.ext.i.i.i, 8
   %.sroa.2.0.insert.insert.i.i.i = or disjoint i32 %.sroa.3.0.insert.insert.i.i.i, %.sroa.2.0.insert.shift.i.i.i
-  %.sroa.01.0.insert.ext.i.i.i = and i32 %.sroa.02.0.extract.trunc.i.i, 255
+  %.sroa.01.0.insert.ext.i.i.i = zext i8 %.sroa.02.0.vec.extract.i.i.i to i32
   %.sroa.01.0.insert.insert.i.i.i = or disjoint i32 %.sroa.2.0.insert.insert.i.i.i, %.sroa.01.0.insert.ext.i.i.i
   %.sroa.03.0.insert.ext.i.i = zext i32 %.sroa.01.0.insert.insert.i.i.i to i48
   %.sroa.03.0.insert.insert.i.i = or disjoint i48 %.sroa.4.0.extract.shift.i.i, %.sroa.03.0.insert.ext.i.i

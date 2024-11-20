@@ -20855,7 +20855,7 @@ opencv/check_cycles.cpp.ll 484553510
 opencv/checkchessboard.cpp.ll 675928140
 opencv/checker_detector.cpp.ll 5324095531
 opencv/checker_model.cpp.ll 5345920523
-opencv/chessboard.cpp.ll 8710472240
+opencv/chessboard.cpp.ll 8699858675
 opencv/circlesgrid.cpp.ll 4910335232
 opencv/clahe.cpp.ll 200857193
 opencv/classification.cpp.ll 556561552
@@ -22174,7 +22174,7 @@ opencv/vk_functions.cpp.ll 33859622
 opencv/vk_loader.cpp.ll 33857397
 opencv/volume.cpp.ll 261214251
 opencv/waldboost.cpp.ll 1480127151
-opencv/warpPerspective_demo.cpp.ll 461591204
+opencv/warpPerspective_demo.cpp.ll 460845338
 opencv/warpers.cpp.ll 3784498091
 opencv/warpers_cuda.cpp.ll 52454514
 opencv/warpfield.cpp.ll 8843332078
@@ -35872,7 +35872,7 @@ typst-rs/avdrw26ojy6f9qt.ll 1047140114
 typst-rs/d6l9ieo9tcw33dn.ll 61027162029
 typst-rs/ef603zin5qw49hb.ll 1553812004
 typst-rs/m09o5qr68f5khss.ll 37266445057
-typst-rs/p1dgiootfedk7bo.ll 476112506
+typst-rs/p1dgiootfedk7bo.ll 474662720
 typst-rs/s98trl5i4o78jww.ll 1142777838
 typst-rs/w6iknwszr5npyaz.ll 395887708
 typst-rs/x7jq6ogp3t9ef5k.ll 413413456
@@ -36720,7 +36720,7 @@ wasmtime-rs/4xi420g2tcwi30s2.ll 2748962502
 wasmtime-rs/4xu6ecb82tc69emg.ll 825078820
 wasmtime-rs/4xvy1v5r955ui0c8.ll 171532240
 wasmtime-rs/4y19gy3l28n56lab.ll 2487854468
-wasmtime-rs/4z02b278nscq7j1a.ll 2840121994
+wasmtime-rs/4z02b278nscq7j1a.ll 2856224983
 wasmtime-rs/4zfyij6ubn2ogcve.ll 160266850
 wasmtime-rs/4zgi7yxvi0e8lh1l.ll 94145665
 wasmtime-rs/4zpfk2x34146qelg.ll 266769403

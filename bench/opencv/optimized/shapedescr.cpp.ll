@@ -4864,8 +4864,8 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IfEEEEvPKT_iR
   %64 = fsub float %51, %38
   %65 = fmul float %64, %64
   %66 = tail call float @llvm.fmuladd.f32(float %63, float %63, float %65)
-  %.sroa.0.0.vec.insert.i145.i = insertelement <2 x float> poison, float %50, i64 0
-  %.sroa.0.4.vec.insert.i146.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i145.i, float %53, i64 1
+  %.sroa.0.0.vec.insert.i144.i = insertelement <2 x float> poison, float %50, i64 0
+  %.sroa.0.4.vec.insert.i145.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i144.i, float %53, i64 1
   %67 = fmul float %55, %53
   %68 = tail call float @llvm.fmuladd.f32(float %50, float %54, float %67)
   %69 = fneg float %55
@@ -4935,8 +4935,8 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IfEEEEvPKT_iR
   %113 = fadd float %51, %78
   %114 = fmul float %112, 5.000000e-01
   %115 = fmul float %113, 5.000000e-01
-  %.sroa.0.0.vec.insert.i149.i = insertelement <2 x float> poison, float %114, i64 0
-  %.sroa.0.4.vec.insert.i150.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i149.i, float %115, i64 1
+  %.sroa.0.0.vec.insert.i148.i = insertelement <2 x float> poison, float %114, i64 0
+  %.sroa.0.4.vec.insert.i149.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i148.i, float %115, i64 1
   br label %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit
 
 116:                                              ; preds = %108
@@ -4944,8 +4944,8 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IfEEEEvPKT_iR
   %118 = fadd float %38, %78
   %119 = fmul float %117, 5.000000e-01
   %120 = fmul float %118, 5.000000e-01
-  %.sroa.0.0.vec.insert.i153.i = insertelement <2 x float> poison, float %119, i64 0
-  %.sroa.0.4.vec.insert.i154.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i153.i, float %120, i64 1
+  %.sroa.0.0.vec.insert.i152.i = insertelement <2 x float> poison, float %119, i64 0
+  %.sroa.0.4.vec.insert.i153.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i152.i, float %120, i64 1
   br label %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit
 
 121:                                              ; preds = %.preheader.preheader.i
@@ -4967,13 +4967,13 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IfEEEEvPKT_iR
   %135 = fsub float %133, %51
   %136 = fmul float %135, %135
   %137 = tail call float @llvm.fmuladd.f32(float %134, float %134, float %136)
-  %sqrt173.i = tail call float @llvm.sqrt.f32(float %137)
-  %138 = fadd float %sqrt173.i, 0x3F1A36E2E0000000
+  %sqrt170.i = tail call float @llvm.sqrt.f32(float %137)
+  %138 = fadd float %sqrt170.i, 0x3F1A36E2E0000000
   br label %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit
 
 _ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit: ; preds = %93, %111, %116, %121
   %.063 = phi float [ %138, %121 ], [ %105, %116 ], [ %105, %111 ], [ %105, %93 ]
-  %.sroa.048.4 = phi <2 x float> [ %.sroa.048.4.vec.insert54, %121 ], [ %.sroa.0.4.vec.insert.i154.i, %116 ], [ %.sroa.0.4.vec.insert.i150.i, %111 ], [ %.sroa.0.4.vec.insert.i146.i, %93 ]
+  %.sroa.048.4 = phi <2 x float> [ %.sroa.048.4.vec.insert54, %121 ], [ %.sroa.0.4.vec.insert.i153.i, %116 ], [ %.sroa.0.4.vec.insert.i149.i, %111 ], [ %.sroa.0.4.vec.insert.i145.i, %93 ]
   %139 = fcmp ogt float %.063, 0.000000e+00
   br i1 %139, label %140, label %141
 
@@ -5115,8 +5115,8 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IiEEEEvPKT_iR
   %82 = fadd float %44, %74
   %83 = fmul float %81, 5.000000e-01
   %84 = fmul float %82, 5.000000e-01
-  %.sroa.0.0.vec.insert.i145.i.i = insertelement <2 x float> poison, float %83, i64 0
-  %.sroa.0.4.vec.insert.i146.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i145.i.i, float %84, i64 1
+  %.sroa.0.0.vec.insert.i144.i.i = insertelement <2 x float> poison, float %83, i64 0
+  %.sroa.0.4.vec.insert.i145.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i144.i.i, float %84, i64 1
   %85 = fmul float %76, %84
   %86 = tail call float @llvm.fmuladd.f32(float %83, float %75, float %85)
   %87 = fneg float %76
@@ -5187,8 +5187,8 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IiEEEEvPKT_iR
   %133 = fadd float %74, %98
   %134 = fmul float %132, 5.000000e-01
   %135 = fmul float %133, 5.000000e-01
-  %.sroa.0.0.vec.insert.i149.i.i = insertelement <2 x float> poison, float %134, i64 0
-  %.sroa.0.4.vec.insert.i150.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i149.i.i, float %135, i64 1
+  %.sroa.0.0.vec.insert.i148.i.i = insertelement <2 x float> poison, float %134, i64 0
+  %.sroa.0.4.vec.insert.i149.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i148.i.i, float %135, i64 1
   br label %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit.i
 
 136:                                              ; preds = %128
@@ -5196,8 +5196,8 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IiEEEEvPKT_iR
   %138 = fadd float %44, %98
   %139 = fmul float %137, 5.000000e-01
   %140 = fmul float %138, 5.000000e-01
-  %.sroa.0.0.vec.insert.i153.i.i = insertelement <2 x float> poison, float %139, i64 0
-  %.sroa.0.4.vec.insert.i154.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i153.i.i, float %140, i64 1
+  %.sroa.0.0.vec.insert.i152.i.i = insertelement <2 x float> poison, float %139, i64 0
+  %.sroa.0.4.vec.insert.i153.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i152.i.i, float %140, i64 1
   br label %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit.i
 
 141:                                              ; preds = %.preheader.preheader.i
@@ -5219,12 +5219,12 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IiEEEEvPKT_iR
   %155 = fsub float %153, %74
   %156 = fmul float %155, %155
   %157 = tail call float @llvm.fmuladd.f32(float %154, float %154, float %156)
-  %sqrt173.i.i = tail call float @llvm.sqrt.f32(float %157)
-  %158 = fadd float %sqrt173.i.i, 0x3F1A36E2E0000000
+  %sqrt170.i.i = tail call float @llvm.sqrt.f32(float %157)
+  %158 = fadd float %sqrt170.i.i, 0x3F1A36E2E0000000
   br label %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit.i
 
 _ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit.i: ; preds = %113, %141, %136, %131
-  %.sroa.0.2.i = phi <2 x float> [ %.sroa.0.4.vec.insert57.i, %141 ], [ %.sroa.0.4.vec.insert.i154.i.i, %136 ], [ %.sroa.0.4.vec.insert.i150.i.i, %131 ], [ %.sroa.0.4.vec.insert.i146.i.i, %113 ]
+  %.sroa.0.2.i = phi <2 x float> [ %.sroa.0.4.vec.insert57.i, %141 ], [ %.sroa.0.4.vec.insert.i153.i.i, %136 ], [ %.sroa.0.4.vec.insert.i149.i.i, %131 ], [ %.sroa.0.4.vec.insert.i145.i.i, %113 ]
   %.061.i = phi float [ %158, %141 ], [ %125, %136 ], [ %125, %131 ], [ %125, %113 ]
   %159 = fcmp ogt float %.061.i, 0.000000e+00
   br i1 %159, label %160, label %163

@@ -28101,7 +28101,7 @@ define hidden void @_ZN4exif7isobmff13get_exif_attr17heb04c9cbdb70aefcE(ptr noal
   %.ph.i.i = phi i64 [ -1, %.noexc ], [ %104, %102 ], [ %100, %95 ]
   %106 = bitcast i32 %86 to <4 x i8>
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50), !noalias !5852
-  %.sroa.025.0.vec.extract.i = trunc i64 %85 to i8
+  %.sroa.025.0.vec.extract.i = extractelement <4 x i8> %106, i64 0
   switch i8 %.sroa.025.0.vec.extract.i, label %107 [
     i8 102, label %121
     i8 109, label %125

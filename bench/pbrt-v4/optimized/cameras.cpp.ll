@@ -5235,9 +5235,12 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %t.sroa.0.0.vec.extract.i.i = extractelement <4 x float> %0, i64 2
+  %bc = bitcast <4 x float> %0 to <2 x i64>
+  %8 = extractelement <2 x i64> %bc, i64 1
+  %9 = bitcast i64 %8 to <2 x float>
+  %t.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %9, i64 0
   %mul.i.i.i = fmul float %t.sroa.0.0.vec.extract.i.i, 2.000000e+00
-  %t.sroa.0.4.vec.extract.i.i = extractelement <4 x float> %0, i64 3
+  %t.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %9, i64 1
   %mul3.i.i.i = fmul float %t.sroa.0.4.vec.extract.i.i, 2.000000e+00
   %sub.i.i3 = fadd float %mul.i.i.i, -1.000000e+00
   %sub4.i.i = fadd float %mul3.i.i.i, -1.000000e+00
@@ -5247,9 +5250,9 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond.i, label %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %8 = tail call noundef float @llvm.fabs.f32(float %sub.i.i3)
-  %9 = tail call noundef float @llvm.fabs.f32(float %sub4.i.i)
-  %cmp11.i = fcmp ogt float %8, %9
+  %10 = tail call noundef float @llvm.fabs.f32(float %sub.i.i3)
+  %11 = tail call noundef float @llvm.fabs.f32(float %sub4.i.i)
+  %cmp11.i = fcmp ogt float %10, %11
   br i1 %cmp11.i, label %if.then12.i, label %if.else.i
 
 if.then12.i:                                      ; preds = %if.end.i
@@ -5281,12 +5284,12 @@ _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit: ; preds = %if.then, %
   %t.sroa.0.4.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.i, i64 1
   %mul2.i.i = fmul float %5, %t.sroa.0.4.vec.extract.i
   %focalDistance = getelementptr inbounds i8, ptr %this, i64 1412
-  %10 = load float, ptr %focalDistance, align 4
-  %mul.i.i5 = fmul float %10, 0.000000e+00
+  %12 = load float, ptr %focalDistance, align 4
+  %mul.i.i5 = fmul float %12, 0.000000e+00
   %add.i.i7 = fadd float %mul.i.i5, %6
   %y.i1.i = getelementptr inbounds i8, ptr %ray, i64 4
   %add4.i.i = fadd float %mul.i.i5, %7
-  %add6.i.i = fadd float %10, %call.fca.1.extract
+  %add6.i.i = fadd float %12, %call.fca.1.extract
   store float %mul.i.i4, ptr %ray, align 8
   store float %mul2.i.i, ptr %y.i1.i, align 4
   store float 0.000000e+00, ptr %o.sroa.2.0.o3.sroa_idx.i, align 8
@@ -5330,8 +5333,8 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit:               ; preds = %for.body.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp34, i64 28, i1 false)
   %medium.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %medium3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp34, i64 32
-  %11 = load i64, ptr %medium3.i.i.i, align 8
-  store i64 %11, ptr %medium.i.i.i, align 8
+  %13 = load i64, ptr %medium3.i.i.i, align 8
+  store i64 %13, ptr %medium.i.i.i, align 8
   %weight.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %weight.i.i, ptr noundef nonnull align 8 dereferenceable(16) %weight, i64 16, i1 false)
   ret void
@@ -5386,8 +5389,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %10 = trunc i64 %6 to i32
-  %t.sroa.0.0.vec.extract.i.i = bitcast i32 %10 to float
+  %t.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %7, i64 0
   %mul.i.i.i = fmul float %t.sroa.0.0.vec.extract.i.i, 2.000000e+00
   %t.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %7, i64 1
   %mul3.i.i.i = fmul float %t.sroa.0.4.vec.extract.i.i, 2.000000e+00
@@ -5399,9 +5401,9 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond.i, label %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %11 = tail call noundef float @llvm.fabs.f32(float %sub.i.i9)
-  %12 = tail call noundef float @llvm.fabs.f32(float %sub4.i.i)
-  %cmp11.i = fcmp ogt float %11, %12
+  %10 = tail call noundef float @llvm.fabs.f32(float %sub.i.i9)
+  %11 = tail call noundef float @llvm.fabs.f32(float %sub4.i.i)
+  %cmp11.i = fcmp ogt float %10, %11
   br i1 %cmp11.i, label %if.then12.i, label %if.else.i
 
 if.then12.i:                                      ; preds = %if.end.i
@@ -5435,12 +5437,12 @@ _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit: ; preds = %if.then, %
   %t.sroa.0.4.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.i, i64 1
   %mul2.i.i = fmul float %5, %t.sroa.0.4.vec.extract.i
   %focalDistance = getelementptr inbounds i8, ptr %this, i64 1412
-  %13 = load float, ptr %focalDistance, align 4
-  %mul.i.i11 = fmul float %13, 0.000000e+00
+  %12 = load float, ptr %focalDistance, align 4
+  %mul.i.i11 = fmul float %12, 0.000000e+00
   %add.i.i13 = fadd float %mul.i.i11, %8
   %y.i1.i = getelementptr inbounds i8, ptr %ray, i64 4
   %add4.i.i = fadd float %mul.i.i11, %9
-  %add6.i.i = fadd float %13, %call.fca.1.extract
+  %add6.i.i = fadd float %12, %call.fca.1.extract
   store float %mul.i.i10, ptr %ray, align 8
   store float %mul2.i.i, ptr %y.i1.i, align 4
   store float 0.000000e+00, ptr %o.sroa.2.0.o3.sroa_idx.i.i, align 8
@@ -5462,22 +5464,21 @@ _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit: ; preds = %if.then, %
   %retval.sroa.0.4.vec.insert.i.i18 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i17, float %div2.i.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i18, ptr %d4.i.i, align 4
   store float %div3.i.i, ptr %d.sroa.2.0.d4.sroa_idx.i.i, align 4
-  %14 = extractelement <2 x float> %agg.tmp25.sroa.0.0.copyload, i64 0
-  %15 = extractelement <2 x float> %agg.tmp25.sroa.0.0.copyload, i64 1
+  %13 = extractelement <2 x float> %agg.tmp25.sroa.0.0.copyload, i64 0
+  %14 = extractelement <2 x float> %agg.tmp25.sroa.0.0.copyload, i64 1
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit, %entry
-  %16 = phi float [ %div3.i.i, %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit ], [ 1.000000e+00, %entry ]
-  %17 = phi float [ 0.000000e+00, %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit ], [ %call.fca.1.extract, %entry ]
-  %18 = phi float [ %15, %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit ], [ %9, %entry ]
-  %19 = phi float [ %14, %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit ], [ %8, %entry ]
-  %20 = phi float [ %.pr, %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit ], [ %5, %entry ]
-  %cmp35 = fcmp ogt float %20, 0.000000e+00
+  %15 = phi float [ %div3.i.i, %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit ], [ 1.000000e+00, %entry ]
+  %16 = phi float [ 0.000000e+00, %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit ], [ %call.fca.1.extract, %entry ]
+  %17 = phi float [ %14, %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit ], [ %9, %entry ]
+  %18 = phi float [ %13, %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit ], [ %8, %entry ]
+  %19 = phi float [ %.pr, %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit ], [ %5, %entry ]
+  %cmp35 = fcmp ogt float %19, 0.000000e+00
   br i1 %cmp35, label %if.then36, label %if.else
 
 if.then36:                                        ; preds = %if.end
-  %21 = trunc i64 %6 to i32
-  %t.sroa.0.0.vec.extract.i.i19 = bitcast i32 %21 to float
+  %t.sroa.0.0.vec.extract.i.i19 = extractelement <2 x float> %7, i64 0
   %mul.i.i.i20 = fmul float %t.sroa.0.0.vec.extract.i.i19, 2.000000e+00
   %t.sroa.0.4.vec.extract.i.i21 = extractelement <2 x float> %7, i64 1
   %mul3.i.i.i22 = fmul float %t.sroa.0.4.vec.extract.i.i21, 2.000000e+00
@@ -5489,9 +5490,9 @@ if.then36:                                        ; preds = %if.end
   br i1 %or.cond.i27, label %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit47, label %if.end.i28
 
 if.end.i28:                                       ; preds = %if.then36
-  %22 = tail call noundef float @llvm.fabs.f32(float %sub.i.i23)
-  %23 = tail call noundef float @llvm.fabs.f32(float %sub4.i.i24)
-  %cmp11.i29 = fcmp ogt float %22, %23
+  %20 = tail call noundef float @llvm.fabs.f32(float %sub.i.i23)
+  %21 = tail call noundef float @llvm.fabs.f32(float %sub4.i.i24)
+  %cmp11.i29 = fcmp ogt float %20, %21
   br i1 %cmp11.i29, label %if.then12.i44, label %if.else.i30
 
 if.then12.i44:                                    ; preds = %if.end.i28
@@ -5519,20 +5520,20 @@ if.end21.i34:                                     ; preds = %if.else.i30, %if.th
 _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit47: ; preds = %if.then36, %if.end21.i34
   %retval.sroa.0.0.i43 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i25.i42, %if.end21.i34 ], [ zeroinitializer, %if.then36 ]
   %t.sroa.0.0.vec.extract.i48 = extractelement <2 x float> %retval.sroa.0.0.i43, i64 0
-  %mul.i.i49 = fmul float %20, %t.sroa.0.0.vec.extract.i48
+  %mul.i.i49 = fmul float %19, %t.sroa.0.0.vec.extract.i48
   %t.sroa.0.4.vec.extract.i50 = extractelement <2 x float> %retval.sroa.0.0.i43, i64 1
-  %mul2.i.i51 = fmul float %20, %t.sroa.0.4.vec.extract.i50
+  %mul2.i.i51 = fmul float %19, %t.sroa.0.4.vec.extract.i50
   %focalDistance49 = getelementptr inbounds i8, ptr %this, i64 1412
-  %24 = load float, ptr %focalDistance49, align 4
-  %div52 = fdiv float %24, %16
+  %22 = load float, ptr %focalDistance49, align 4
+  %div52 = fdiv float %22, %15
   %dxCamera = getelementptr inbounds i8, ptr %this, i64 1416
   %agg.tmp55.sroa.0.0.copyload = load <2 x float>, ptr %dxCamera, align 8
   %agg.tmp55.sroa.2.0.dxCamera.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1424
   %agg.tmp55.sroa.2.0.copyload = load float, ptr %agg.tmp55.sroa.2.0.dxCamera.sroa_idx, align 8
-  %25 = fadd <2 x float> %call.fca.0.extract, %agg.tmp55.sroa.0.0.copyload
-  %add.i = extractelement <2 x float> %25, i64 0
-  %26 = fadd <2 x float> %call.fca.0.extract, %agg.tmp55.sroa.0.0.copyload
-  %add4.i = extractelement <2 x float> %26, i64 1
+  %23 = fadd <2 x float> %call.fca.0.extract, %agg.tmp55.sroa.0.0.copyload
+  %add.i = extractelement <2 x float> %23, i64 0
+  %24 = fadd <2 x float> %call.fca.0.extract, %agg.tmp55.sroa.0.0.copyload
+  %add4.i = extractelement <2 x float> %24, i64 1
   %add6.i = fadd float %call.fca.1.extract, %agg.tmp55.sroa.2.0.copyload
   %mul.i.i63 = fmul float %div52, 0.000000e+00
   %add.i72 = fadd float %mul.i.i63, %add.i
@@ -5567,10 +5568,10 @@ _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit47: ; preds = %if.then3
   %agg.tmp83.sroa.0.0.copyload = load <2 x float>, ptr %dyCamera, align 4
   %agg.tmp83.sroa.2.0.dyCamera.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1436
   %agg.tmp83.sroa.2.0.copyload = load float, ptr %agg.tmp83.sroa.2.0.dyCamera.sroa_idx, align 4
-  %27 = fadd <2 x float> %call.fca.0.extract, %agg.tmp83.sroa.0.0.copyload
-  %add.i111 = extractelement <2 x float> %27, i64 0
-  %28 = fadd <2 x float> %call.fca.0.extract, %agg.tmp83.sroa.0.0.copyload
-  %add4.i114 = extractelement <2 x float> %28, i64 1
+  %25 = fadd <2 x float> %call.fca.0.extract, %agg.tmp83.sroa.0.0.copyload
+  %add.i111 = extractelement <2 x float> %25, i64 0
+  %26 = fadd <2 x float> %call.fca.0.extract, %agg.tmp83.sroa.0.0.copyload
+  %add4.i114 = extractelement <2 x float> %26, i64 1
   %add6.i116 = fadd float %call.fca.1.extract, %agg.tmp83.sroa.2.0.copyload
   %add.i133 = fadd float %mul.i.i63, %add.i111
   %add4.i136 = fadd float %mul.i.i63, %add4.i114
@@ -5609,10 +5610,10 @@ if.else:                                          ; preds = %if.end
   %agg.tmp111.sroa.2.0.dxCamera112.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1424
   %agg.tmp111.sroa.2.0.copyload = load float, ptr %agg.tmp111.sroa.2.0.dxCamera112.sroa_idx, align 8
   %v.sroa.0.0.vec.extract.i171 = extractelement <2 x float> %agg.tmp111.sroa.0.0.copyload, i64 0
-  %add.i172 = fadd float %v.sroa.0.0.vec.extract.i171, %19
+  %add.i172 = fadd float %v.sroa.0.0.vec.extract.i171, %18
   %v.sroa.0.4.vec.extract.i174 = extractelement <2 x float> %agg.tmp111.sroa.0.0.copyload, i64 1
-  %add4.i175 = fadd float %v.sroa.0.4.vec.extract.i174, %18
-  %add6.i177 = fadd float %agg.tmp111.sroa.2.0.copyload, %17
+  %add4.i175 = fadd float %v.sroa.0.4.vec.extract.i174, %17
+  %add6.i177 = fadd float %agg.tmp111.sroa.2.0.copyload, %16
   %retval.sroa.0.0.vec.insert.i178 = insertelement <2 x float> poison, float %add.i172, i64 0
   %retval.sroa.0.4.vec.insert.i179 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i178, float %add4.i175, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i179, ptr %rxOrigin.i, align 4
@@ -5623,10 +5624,10 @@ if.else:                                          ; preds = %if.end
   %agg.tmp119.sroa.2.0.dyCamera120.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1436
   %agg.tmp119.sroa.2.0.copyload = load float, ptr %agg.tmp119.sroa.2.0.dyCamera120.sroa_idx, align 4
   %v.sroa.0.0.vec.extract.i182 = extractelement <2 x float> %agg.tmp119.sroa.0.0.copyload, i64 0
-  %add.i183 = fadd float %19, %v.sroa.0.0.vec.extract.i182
+  %add.i183 = fadd float %18, %v.sroa.0.0.vec.extract.i182
   %v.sroa.0.4.vec.extract.i185 = extractelement <2 x float> %agg.tmp119.sroa.0.0.copyload, i64 1
-  %add4.i186 = fadd float %18, %v.sroa.0.4.vec.extract.i185
-  %add6.i188 = fadd float %17, %agg.tmp119.sroa.2.0.copyload
+  %add4.i186 = fadd float %17, %v.sroa.0.4.vec.extract.i185
+  %add6.i188 = fadd float %16, %agg.tmp119.sroa.2.0.copyload
   %retval.sroa.0.0.vec.insert.i189 = insertelement <2 x float> poison, float %add.i183, i64 0
   %retval.sroa.0.4.vec.insert.i190 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i189, float %add4.i186, i64 1
   %ryOrigin124 = getelementptr inbounds i8, ptr %ray, i64 56
@@ -5660,8 +5661,8 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit:               ; preds = %for.body.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(113) %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp129, i64 28, i1 false)
   %medium.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %medium3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp129, i64 32
-  %29 = load i64, ptr %medium3.i.i.i.i, align 8
-  store i64 %29, ptr %medium.i.i.i.i, align 8
+  %27 = load i64, ptr %medium3.i.i.i.i, align 8
+  store i64 %27, ptr %medium.i.i.i.i, align 8
   %hasDifferentials.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %hasDifferentials2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp129, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %hasDifferentials.i.i.i, ptr noundef nonnull align 8 dereferenceable(52) %hasDifferentials2.i.i.i, i64 52, i1 false)
@@ -5749,9 +5750,12 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %t.sroa.0.0.vec.extract.i.i = extractelement <4 x float> %0, i64 2
+  %bc = bitcast <4 x float> %0 to <2 x i64>
+  %7 = extractelement <2 x i64> %bc, i64 1
+  %8 = bitcast i64 %7 to <2 x float>
+  %t.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %8, i64 0
   %mul.i.i.i = fmul float %t.sroa.0.0.vec.extract.i.i, 2.000000e+00
-  %t.sroa.0.4.vec.extract.i.i = extractelement <4 x float> %0, i64 3
+  %t.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %8, i64 1
   %mul3.i.i.i = fmul float %t.sroa.0.4.vec.extract.i.i, 2.000000e+00
   %sub.i.i5 = fadd float %mul.i.i.i, -1.000000e+00
   %sub4.i.i = fadd float %mul3.i.i.i, -1.000000e+00
@@ -5761,9 +5765,9 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond.i, label %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %7 = tail call noundef float @llvm.fabs.f32(float %sub.i.i5)
-  %8 = tail call noundef float @llvm.fabs.f32(float %sub4.i.i)
-  %cmp11.i = fcmp ogt float %7, %8
+  %9 = tail call noundef float @llvm.fabs.f32(float %sub.i.i5)
+  %10 = tail call noundef float @llvm.fabs.f32(float %sub4.i.i)
+  %cmp11.i = fcmp ogt float %9, %10
   br i1 %cmp11.i, label %if.then12.i, label %if.else.i
 
 if.then12.i:                                      ; preds = %if.end.i
@@ -5795,8 +5799,8 @@ _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit: ; preds = %if.then, %
   %t.sroa.0.4.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.i, i64 1
   %mul2.i.i = fmul float %6, %t.sroa.0.4.vec.extract.i
   %focalDistance = getelementptr inbounds i8, ptr %this, i64 1412
-  %9 = load float, ptr %focalDistance, align 4
-  %div = fdiv float %9, %div3.i.i
+  %11 = load float, ptr %focalDistance, align 4
+  %div = fdiv float %11, %div3.i.i
   %mul.i.i9 = fmul float %div, %div.i.i
   %mul2.i.i10 = fmul float %div, %div2.i.i
   %mul3.i.i = fmul float %div3.i.i, %div
@@ -5847,8 +5851,8 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit:               ; preds = %for.body.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp39, i64 28, i1 false)
   %medium.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %medium3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp39, i64 32
-  %10 = load i64, ptr %medium3.i.i.i, align 8
-  store i64 %10, ptr %medium.i.i.i, align 8
+  %12 = load i64, ptr %medium3.i.i.i, align 8
+  store i64 %12, ptr %medium.i.i.i, align 8
   %weight.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %weight.i.i, ptr noundef nonnull align 8 dereferenceable(16) %weight, i64 16, i1 false)
   ret void
@@ -5915,8 +5919,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %9 = trunc i64 %7 to i32
-  %t.sroa.0.0.vec.extract.i.i = bitcast i32 %9 to float
+  %t.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %8, i64 0
   %mul.i.i.i = fmul float %t.sroa.0.0.vec.extract.i.i, 2.000000e+00
   %t.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %8, i64 1
   %mul3.i.i.i = fmul float %t.sroa.0.4.vec.extract.i.i, 2.000000e+00
@@ -5928,9 +5931,9 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond.i, label %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %10 = tail call noundef float @llvm.fabs.f32(float %sub.i.i11)
-  %11 = tail call noundef float @llvm.fabs.f32(float %sub4.i.i)
-  %cmp11.i = fcmp ogt float %10, %11
+  %9 = tail call noundef float @llvm.fabs.f32(float %sub.i.i11)
+  %10 = tail call noundef float @llvm.fabs.f32(float %sub4.i.i)
+  %cmp11.i = fcmp ogt float %9, %10
   br i1 %cmp11.i, label %if.then12.i, label %if.else.i
 
 if.then12.i:                                      ; preds = %if.end.i
@@ -5964,8 +5967,8 @@ _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit: ; preds = %if.then, %
   %t.sroa.0.4.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.i, i64 1
   %mul2.i.i = fmul float %6, %t.sroa.0.4.vec.extract.i
   %focalDistance = getelementptr inbounds i8, ptr %this, i64 1412
-  %12 = load float, ptr %focalDistance, align 4
-  %div = fdiv float %12, %div3.i.i
+  %11 = load float, ptr %focalDistance, align 4
+  %div = fdiv float %11, %div3.i.i
   %mul.i.i15 = fmul float %div, %div.i.i
   %mul2.i.i16 = fmul float %div, %div2.i.i
   %mul3.i.i = fmul float %div3.i.i, %div
@@ -5997,13 +6000,12 @@ _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit: ; preds = %if.then, %
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit, %entry
-  %13 = phi float [ %.pr, %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit ], [ %6, %entry ]
-  %cmp42 = fcmp ogt float %13, 0.000000e+00
+  %12 = phi float [ %.pr, %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit ], [ %6, %entry ]
+  %cmp42 = fcmp ogt float %12, 0.000000e+00
   br i1 %cmp42, label %if.then43, label %if.else
 
 if.then43:                                        ; preds = %if.end
-  %14 = trunc i64 %7 to i32
-  %t.sroa.0.0.vec.extract.i.i36 = bitcast i32 %14 to float
+  %t.sroa.0.0.vec.extract.i.i36 = extractelement <2 x float> %8, i64 0
   %mul.i.i.i37 = fmul float %t.sroa.0.0.vec.extract.i.i36, 2.000000e+00
   %t.sroa.0.4.vec.extract.i.i38 = extractelement <2 x float> %8, i64 1
   %mul3.i.i.i39 = fmul float %t.sroa.0.4.vec.extract.i.i38, 2.000000e+00
@@ -6015,9 +6017,9 @@ if.then43:                                        ; preds = %if.end
   br i1 %or.cond.i44, label %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit64, label %if.end.i45
 
 if.end.i45:                                       ; preds = %if.then43
-  %15 = tail call noundef float @llvm.fabs.f32(float %sub.i.i40)
-  %16 = tail call noundef float @llvm.fabs.f32(float %sub4.i.i41)
-  %cmp11.i46 = fcmp ogt float %15, %16
+  %13 = tail call noundef float @llvm.fabs.f32(float %sub.i.i40)
+  %14 = tail call noundef float @llvm.fabs.f32(float %sub4.i.i41)
+  %cmp11.i46 = fcmp ogt float %13, %14
   br i1 %cmp11.i46, label %if.then12.i61, label %if.else.i47
 
 if.then12.i61:                                    ; preds = %if.end.i45
@@ -6045,20 +6047,20 @@ if.end21.i51:                                     ; preds = %if.else.i47, %if.th
 _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit64: ; preds = %if.then43, %if.end21.i51
   %retval.sroa.0.0.i60 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i25.i59, %if.end21.i51 ], [ zeroinitializer, %if.then43 ]
   %t.sroa.0.0.vec.extract.i65 = extractelement <2 x float> %retval.sroa.0.0.i60, i64 0
-  %mul.i.i66 = fmul float %13, %t.sroa.0.0.vec.extract.i65
+  %mul.i.i66 = fmul float %12, %t.sroa.0.0.vec.extract.i65
   %t.sroa.0.4.vec.extract.i67 = extractelement <2 x float> %retval.sroa.0.0.i60, i64 1
-  %mul2.i.i68 = fmul float %13, %t.sroa.0.4.vec.extract.i67
+  %mul2.i.i68 = fmul float %12, %t.sroa.0.4.vec.extract.i67
   %dxCamera = getelementptr inbounds i8, ptr %this, i64 1416
   %agg.tmp57.sroa.0.0.copyload = load <2 x float>, ptr %dxCamera, align 8
   %agg.tmp57.sroa.2.0.dxCamera.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1424
   %agg.tmp57.sroa.2.0.copyload = load float, ptr %agg.tmp57.sroa.2.0.dxCamera.sroa_idx, align 8
-  %17 = fadd <2 x float> %call.fca.0.extract, %agg.tmp57.sroa.0.0.copyload
-  %add.i = extractelement <2 x float> %17, i64 0
-  %18 = fadd <2 x float> %call.fca.0.extract, %agg.tmp57.sroa.0.0.copyload
-  %add4.i = extractelement <2 x float> %18, i64 1
+  %15 = fadd <2 x float> %call.fca.0.extract, %agg.tmp57.sroa.0.0.copyload
+  %add.i = extractelement <2 x float> %15, i64 0
+  %16 = fadd <2 x float> %call.fca.0.extract, %agg.tmp57.sroa.0.0.copyload
+  %add4.i = extractelement <2 x float> %16, i64 1
   %add6.i = fadd float %call.fca.1.extract, %agg.tmp57.sroa.2.0.copyload
-  %19 = fmul <2 x float> %17, %17
-  %mul.i.i.i.i82 = extractelement <2 x float> %19, i64 0
+  %17 = fmul <2 x float> %15, %15
+  %mul.i.i.i.i82 = extractelement <2 x float> %17, i64 0
   %mul.i1.i.i.i84 = fmul float %add4.i, %add4.i
   %add.i.i.i85 = fadd float %mul.i.i.i.i82, %mul.i1.i.i.i84
   %mul.i2.i.i.i86 = fmul float %add6.i, %add6.i
@@ -6068,8 +6070,8 @@ _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit64: ; preds = %if.then4
   %div2.i.i90 = fdiv float %add4.i, %sqrt.i.i88
   %div3.i.i91 = fdiv float %add6.i, %sqrt.i.i88
   %focalDistance65 = getelementptr inbounds i8, ptr %this, i64 1412
-  %20 = load float, ptr %focalDistance65, align 4
-  %div67 = fdiv float %20, %div3.i.i91
+  %18 = load float, ptr %focalDistance65, align 4
+  %div67 = fdiv float %18, %div3.i.i91
   %mul.i.i99 = fmul float %div.i.i89, %div67
   %mul2.i.i101 = fmul float %div2.i.i90, %div67
   %mul3.i.i102 = fmul float %div3.i.i91, %div67
@@ -6105,13 +6107,13 @@ _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit64: ; preds = %if.then4
   %agg.tmp93.sroa.0.0.copyload = load <2 x float>, ptr %dyCamera, align 4
   %agg.tmp93.sroa.2.0.dyCamera.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1436
   %agg.tmp93.sroa.2.0.copyload = load float, ptr %agg.tmp93.sroa.2.0.dyCamera.sroa_idx, align 4
-  %21 = fadd <2 x float> %call.fca.0.extract, %agg.tmp93.sroa.0.0.copyload
-  %add.i147 = extractelement <2 x float> %21, i64 0
-  %22 = fadd <2 x float> %call.fca.0.extract, %agg.tmp93.sroa.0.0.copyload
-  %add4.i150 = extractelement <2 x float> %22, i64 1
+  %19 = fadd <2 x float> %call.fca.0.extract, %agg.tmp93.sroa.0.0.copyload
+  %add.i147 = extractelement <2 x float> %19, i64 0
+  %20 = fadd <2 x float> %call.fca.0.extract, %agg.tmp93.sroa.0.0.copyload
+  %add4.i150 = extractelement <2 x float> %20, i64 1
   %add6.i152 = fadd float %call.fca.1.extract, %agg.tmp93.sroa.2.0.copyload
-  %23 = fmul <2 x float> %21, %21
-  %mul.i.i.i.i162 = extractelement <2 x float> %23, i64 0
+  %21 = fmul <2 x float> %19, %19
+  %mul.i.i.i.i162 = extractelement <2 x float> %21, i64 0
   %mul.i1.i.i.i164 = fmul float %add4.i150, %add4.i150
   %add.i.i.i165 = fadd float %mul.i.i.i.i162, %mul.i1.i.i.i164
   %mul.i2.i.i.i166 = fmul float %add6.i152, %add6.i152
@@ -6120,7 +6122,7 @@ _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit64: ; preds = %if.then4
   %div.i.i169 = fdiv float %add.i147, %sqrt.i.i168
   %div2.i.i170 = fdiv float %add4.i150, %sqrt.i.i168
   %div3.i.i171 = fdiv float %add6.i152, %sqrt.i.i168
-  %div102 = fdiv float %20, %div3.i.i171
+  %div102 = fdiv float %18, %div3.i.i171
   %mul.i.i179 = fmul float %div.i.i169, %div102
   %mul2.i.i181 = fmul float %div2.i.i170, %div102
   %mul3.i.i182 = fmul float %div3.i.i171, %div102
@@ -6153,13 +6155,13 @@ if.else:                                          ; preds = %if.end
   %agg.tmp133.sroa.0.0.copyload = load <2 x float>, ptr %dxCamera134, align 8
   %agg.tmp133.sroa.2.0.dxCamera134.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1424
   %agg.tmp133.sroa.2.0.copyload = load float, ptr %agg.tmp133.sroa.2.0.dxCamera134.sroa_idx, align 8
-  %24 = fadd <2 x float> %call.fca.0.extract, %agg.tmp133.sroa.0.0.copyload
-  %add.i230 = extractelement <2 x float> %24, i64 0
-  %25 = fadd <2 x float> %call.fca.0.extract, %agg.tmp133.sroa.0.0.copyload
-  %add4.i232 = extractelement <2 x float> %25, i64 1
+  %22 = fadd <2 x float> %call.fca.0.extract, %agg.tmp133.sroa.0.0.copyload
+  %add.i230 = extractelement <2 x float> %22, i64 0
+  %23 = fadd <2 x float> %call.fca.0.extract, %agg.tmp133.sroa.0.0.copyload
+  %add4.i232 = extractelement <2 x float> %23, i64 1
   %add6.i234 = fadd float %call.fca.1.extract, %agg.tmp133.sroa.2.0.copyload
-  %26 = fmul <2 x float> %24, %24
-  %mul.i.i.i.i240 = extractelement <2 x float> %26, i64 0
+  %24 = fmul <2 x float> %22, %22
+  %mul.i.i.i.i240 = extractelement <2 x float> %24, i64 0
   %mul.i1.i.i.i242 = fmul float %add4.i232, %add4.i232
   %add.i.i.i243 = fadd float %mul.i.i.i.i240, %mul.i1.i.i.i242
   %mul.i2.i.i.i244 = fmul float %add6.i234, %add6.i234
@@ -6178,13 +6180,13 @@ if.else:                                          ; preds = %if.end
   %agg.tmp146.sroa.0.0.copyload = load <2 x float>, ptr %dyCamera147, align 4
   %agg.tmp146.sroa.2.0.dyCamera147.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1436
   %agg.tmp146.sroa.2.0.copyload = load float, ptr %agg.tmp146.sroa.2.0.dyCamera147.sroa_idx, align 4
-  %27 = fadd <2 x float> %call.fca.0.extract, %agg.tmp146.sroa.0.0.copyload
-  %add.i259 = extractelement <2 x float> %27, i64 0
-  %28 = fadd <2 x float> %call.fca.0.extract, %agg.tmp146.sroa.0.0.copyload
-  %add4.i262 = extractelement <2 x float> %28, i64 1
+  %25 = fadd <2 x float> %call.fca.0.extract, %agg.tmp146.sroa.0.0.copyload
+  %add.i259 = extractelement <2 x float> %25, i64 0
+  %26 = fadd <2 x float> %call.fca.0.extract, %agg.tmp146.sroa.0.0.copyload
+  %add4.i262 = extractelement <2 x float> %26, i64 1
   %add6.i264 = fadd float %call.fca.1.extract, %agg.tmp146.sroa.2.0.copyload
-  %29 = fmul <2 x float> %27, %27
-  %mul.i.i.i.i270 = extractelement <2 x float> %29, i64 0
+  %27 = fmul <2 x float> %25, %25
+  %mul.i.i.i.i270 = extractelement <2 x float> %27, i64 0
   %mul.i1.i.i.i272 = fmul float %add4.i262, %add4.i262
   %add.i.i.i273 = fadd float %mul.i.i.i.i270, %mul.i1.i.i.i272
   %mul.i2.i.i.i274 = fmul float %add6.i264, %add6.i264
@@ -6226,8 +6228,8 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit:               ; preds = %for.body.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(113) %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp156, i64 28, i1 false)
   %medium.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %medium3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp156, i64 32
-  %30 = load i64, ptr %medium3.i.i.i.i, align 8
-  store i64 %30, ptr %medium.i.i.i.i, align 8
+  %28 = load i64, ptr %medium3.i.i.i.i, align 8
+  store i64 %28, ptr %medium.i.i.i.i, align 8
   %hasDifferentials.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %hasDifferentials2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp156, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %hasDifferentials.i.i.i, ptr noundef nonnull align 8 dereferenceable(52) %hasDifferentials2.i.i.i, i64 52, i1 false)
@@ -12477,9 +12479,12 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %t.sroa.0.0.vec.extract.i.i.i = extractelement <4 x float> %agg.tmp.sroa.0.0.copyload, i64 2
+  %bc.i = bitcast <4 x float> %agg.tmp.sroa.0.0.copyload to <2 x i64>
+  %7 = extractelement <2 x i64> %bc.i, i64 1
+  %8 = bitcast i64 %7 to <2 x float>
+  %t.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %8, i64 0
   %mul.i.i.i.i = fmul float %t.sroa.0.0.vec.extract.i.i.i, 2.000000e+00
-  %t.sroa.0.4.vec.extract.i.i.i = extractelement <4 x float> %agg.tmp.sroa.0.0.copyload, i64 3
+  %t.sroa.0.4.vec.extract.i.i.i = extractelement <2 x float> %8, i64 1
   %mul3.i.i.i.i = fmul float %t.sroa.0.4.vec.extract.i.i.i, 2.000000e+00
   %sub.i.i3.i = fadd float %mul.i.i.i.i, -1.000000e+00
   %sub4.i.i.i = fadd float %mul3.i.i.i.i, -1.000000e+00
@@ -12489,9 +12494,9 @@ if.then.i:                                        ; preds = %entry
   br i1 %or.cond.i.i, label %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %7 = tail call noundef float @llvm.fabs.f32(float %sub.i.i3.i)
-  %8 = tail call noundef float @llvm.fabs.f32(float %sub4.i.i.i)
-  %cmp11.i.i = fcmp ogt float %7, %8
+  %9 = tail call noundef float @llvm.fabs.f32(float %sub.i.i3.i)
+  %10 = tail call noundef float @llvm.fabs.f32(float %sub4.i.i.i)
+  %cmp11.i.i = fcmp ogt float %9, %10
   br i1 %cmp11.i.i, label %if.then12.i.i, label %if.else.i.i
 
 if.then12.i.i:                                    ; preds = %if.end.i.i
@@ -12523,12 +12528,12 @@ _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit.i: ; preds = %if.end21
   %t.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %retval.sroa.0.0.i.i, i64 1
   %mul2.i.i.i = fmul float %4, %t.sroa.0.4.vec.extract.i.i
   %focalDistance.i = getelementptr inbounds i8, ptr %ptr, i64 1412
-  %9 = load float, ptr %focalDistance.i, align 4, !noalias !173
-  %mul.i.i5.i = fmul float %9, 0.000000e+00
+  %11 = load float, ptr %focalDistance.i, align 4, !noalias !173
+  %mul.i.i5.i = fmul float %11, 0.000000e+00
   %add.i.i7.i = fadd float %5, %mul.i.i5.i
   %y.i1.i.i = getelementptr inbounds i8, ptr %ray.i, i64 4
   %add4.i.i.i = fadd float %6, %mul.i.i5.i
-  %add6.i.i.i = fadd float %call.fca.1.extract.i, %9
+  %add6.i.i.i = fadd float %call.fca.1.extract.i, %11
   store float %mul.i.i4.i, ptr %ray.i, align 8, !noalias !173
   store float %mul2.i.i.i, ptr %y.i1.i.i, align 4, !noalias !173
   store float 0.000000e+00, ptr %o.sroa.2.0.o3.sroa_idx.i.i, align 8, !noalias !173
@@ -12572,8 +12577,8 @@ _ZNK4pbrt18OrthographicCamera11GenerateRayENS_12CameraSampleERNS_18SampledWavele
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp34.i, i64 28, i1 false)
   %medium.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %medium3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp34.i, i64 32
-  %10 = load i64, ptr %medium3.i.i.i.i, align 8, !noalias !173
-  store i64 %10, ptr %medium.i.i.i.i, align 8, !alias.scope !173
+  %12 = load i64, ptr %medium3.i.i.i.i, align 8, !noalias !173
+  store i64 %12, ptr %medium.i.i.i.i, align 8, !alias.scope !173
   %weight.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %weight.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %weight.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ray.i)
