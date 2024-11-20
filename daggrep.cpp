@@ -280,6 +280,16 @@ static bool matchInst(Instruction &I1, Instruction &I2,
       return false;
     // if (GEP1->getSourceElementType() != GEP2->getSourceElementType())
     //   return false;
+  } else if (auto *Trunc1 = dyn_cast<TruncInst>(&I1)) {
+    auto *Trunc2 = cast<TruncInst>(&I2);
+    if (Trunc2->hasNoSignedWrap() && !Trunc1->hasNoSignedWrap())
+      return false;
+    if (Trunc2->hasNoUnsignedWrap() && !Trunc1->hasNoUnsignedWrap())
+      return false;
+  } else if (auto *ICmp1 = dyn_cast<ICmpInst>(&I1)) {
+    auto *ICmp2 = cast<ICmpInst>(&I2);
+    if (ICmp2->hasSameSign() && !ICmp1->hasSameSign())
+      return false;
   }
 
   if (I1.isCommutative()) {
